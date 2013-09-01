@@ -908,6 +908,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
     private final PackageProperty mPackageProperty = new PackageProperty();
 
+    ArrayList<ComponentName> mDisabledComponentsList;
+
     final PendingPackageBroadcasts mPendingBroadcasts;
 
     static final int SEND_PENDING_BROADCAST = 1;
@@ -1673,6 +1675,29 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         }
     }
 
+    private void enableComponents(String[] components, boolean enable) {
+        // Disable or enable components marked at build-time
+        for (String name : components) {
+            ComponentName cn = ComponentName.unflattenFromString(name);
+            if (!enable) {
+                mDisabledComponentsList.add(cn);
+            }
+            Slog.v(TAG, "Changing enabled state of " + name + " to " + enable);
+            String className = cn.getClassName();
+            PackageSetting pkgSetting = mSettings.mPackages.get(cn.getPackageName());
+            if (pkgSetting == null || pkgSetting.getPkg() == null
+                    || !AndroidPackageUtils.hasComponentClassName(pkgSetting.getPkg(), className)) {
+                Slog.w(TAG, "Unable to change enabled state of " + name + " to " + enable);
+                continue;
+            }
+            if (enable) {
+                pkgSetting.enableComponentLPw(className, UserHandle.USER_OWNER);
+            } else {
+                pkgSetting.disableComponentLPw(className, UserHandle.USER_OWNER);
+            }
+        }
+    }
+
     // Link watchables to the class
     @SuppressWarnings("GuardedBy")
     private void registerObservers(boolean verify) {
@@ -2237,6 +2262,17 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                     mSettings.applyDefaultPreferredAppsLPw(user.id);
                 }
             }
+
+            // Disable components marked for disabling at build-time
+            mDisabledComponentsList = new ArrayList<ComponentName>();
+            enableComponents(mContext.getResources().getStringArray(
+                    com.android.internal.R.array.config_deviceDisabledComponents), false);
+            enableComponents(mContext.getResources().getStringArray(
+                    com.android.internal.R.array.config_globallyDisabledComponents), false);
+
+            // Enable components marked for forced-enable at build-time
+            enableComponents(mContext.getResources().getStringArray(
+                    com.android.internal.R.array.config_forceEnabledComponents), true);
 
             // If this is first boot after an OTA, then we need to clear code cache directories.
             // Note that we do *not* clear the application profiles. These remain valid
@@ -5883,6 +5919,13 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             if (!mUserManager.exists(userId)) return;
             if (callingPackage == null) {
                 callingPackage = Integer.toString(Binder.getCallingUid());
+            }
+
+            // Don't allow to enable components marked for disabling at build-time
+            if (mDisabledComponentsList.contains(componentName)) {
+                Slog.d(TAG, "Ignoring attempt to set enabled state of disabled component "
+                        + componentName.flattenToString());
+                return;
             }
 
             setEnabledSettings(List.of(new PackageManager.ComponentEnabledSetting(componentName, newState, flags)),
