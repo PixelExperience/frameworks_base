@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">ᱞᱮᱸᱜᱟ ᱠᱚᱨᱥᱚᱨ</string>
+    <string name="accessibility_dpad_right">ᱡᱚᱡᱚᱢ ᱠᱚᱨᱥᱚᱨ</string>
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ᱵᱚᱸᱫᱽ\nᱵᱮᱴᱨᱭ ᱥᱺᱪᱟᱣ</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">ᱠᱟᱹᱯᱷᱮᱭᱱ</string>
+    <string name="accessibility_quick_settings_caffeine_off">ᱠᱟᱹᱯᱷᱮᱭᱱ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_caffeine_on">ᱠᱟᱹᱯᱷᱮᱭᱱ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ</string>
+    <string name="accessibility_quick_settings_heads_up_off">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_heads_up_on">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ ᱪᱟᱹᱞᱩ ᱾</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">ᱥᱭᱸᱠ</string>
+    <string name="accessibility_quick_settings_sync_off">ᱥᱭᱸᱠ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_sync_on">ᱥᱭᱸᱠ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB ᱴᱤᱛᱷᱟᱹᱨᱤᱝ</string>
+    <!-- VPN QS tile -->
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">ᱥᱭᱥᱴᱟᱹᱢ</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">ᱨᱤᱠᱟᱹᱣᱨᱤ</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">ᱜᱷᱚᱲᱤ</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">ᱯᱟᱲᱦᱟᱣ ᱢᱳᱰ</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ᱯᱟᱲᱦᱟᱣ ᱢᱳᱰ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ᱯᱟᱲᱦᱟᱣ ᱢᱳᱰ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">ᱯᱟᱲᱦᱟᱣ ᱢᱳᱰ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">ᱯᱟᱲᱦᱟᱣ ᱢᱳᱰ ᱵᱚᱸᱫᱽ ᱪᱷᱚ ᱾</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">ᱮᱱᱴᱤ ᱯᱷᱞᱤᱠᱟᱹᱨ</string>
+    <!-- Status bar network traffic monitor strings -->
+</resources>

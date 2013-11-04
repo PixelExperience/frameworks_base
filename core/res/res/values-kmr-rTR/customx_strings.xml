@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Bixweber</string>
+    <string name="live_display_auto_summary">Bixweber germahiya rengîn a ekranê piştî rojbûn û tîrêjê bixweber rast bikin</string>
+    <string name="live_display_off">Girtî</string>
+    <string name="live_display_off_summary">Hemû sererastkirinan neçalak bike</string>
+    <string name="live_display_day">Roj</string>
+    <string name="live_display_day_summary">Tenê mîhengên rojê bi kar bîne</string>
+    <string name="live_display_night">Şev</string>
+    <string name="live_display_night_summary">Tenê mîhengên şevê bi kar bîne</string>
+    <string name="live_display_outdoor">Derveyî (tava geş)</string>
+    <string name="live_display_outdoor_summary">Tenê mîhengên derve bi kar bîne</string>
+    <string name="live_display_hint">LiveDisplay dikare alî kêmkirina trêna çavan bike û alî te bike ku tu bi şev razê. Ji bo ceribandinê li vir bitikin!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay girtîye.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: moda oto.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: moda rojê.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: moda şevê.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: moda derveyî.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay zivirî girtîye.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay guherî moda otomatîkê.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay guherî moda rojê.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay guherî moda şevê.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay guherî moda derve.</string>
+</resources>

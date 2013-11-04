@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_off">Сүн</string>
+    <string name="live_display_day">Көн</string>
+    <string name="live_display_night">Төн</string>
+</resources>

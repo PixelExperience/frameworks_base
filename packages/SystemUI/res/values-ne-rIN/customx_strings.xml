@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Navigation bar dpad -->
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
+    <!-- Heads up QS tile -->
+    <!-- Sync QS tile -->
+    <!-- USB tethering QS tile -->
+    <!-- VPN QS tile -->
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <!-- Reader mode QS tile -->
+    <!-- Anti flicker QS tile -->
+    <!-- Status bar network traffic monitor strings -->
+</resources>

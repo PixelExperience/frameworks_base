@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Navigation bar dpad -->
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">བརྙན་ཤེལ་ཟྭ་མི་རྒྱག་པ་སྟངས་འཛིན།</string>
+    <string name="accessibility_quick_settings_caffeine_off">བརྙན་ཤེལ་ཟྭ་རྒྱག་པ་སྟངས་འཛིན།</string>
+    <string name="accessibility_quick_settings_caffeine_on">བརྙན་ཤེལ་ཟྭ་མི་རྒྱག་པ་སྟངས་འཛིན་བྱེད།</string>
+    <!-- Heads up QS tile -->
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">མཉམ་བགྲོད། </string>
+    <string name="accessibility_quick_settings_sync_off">མཉམ་བགྲོད་ཀྱི་ཁ་རྒྱག</string>
+    <string name="accessibility_quick_settings_sync_on">མཉམ་བགྲོད་ཀྱི་ཁ་ཕྱེ།</string>
+    <!-- USB tethering QS tile -->
+    <!-- VPN QS tile -->
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">བསྐྱར་གསོའི་དཔར་ཚུལ།</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">དཔེ་ཀློག་རྣམ་པ།</string>
+    <string name="accessibility_quick_settings_reading_mode_on">དཔེ་ཀློག་རྣམ་པའི་ཁ་ཕྱེ།</string>
+    <string name="accessibility_quick_settings_reading_mode_off">དཔེ་ཀློག་རྣམ་པའི་ཁ་རྒྱག</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">དཔེ་ཀློག་རྣམ་པའི་ཁ་ཕྱེ་ཟིན།</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">དཔེ་ཀློག་རྣམ་པའི་ཁ་བརྒྱབ་ཟིན།</string>
+    <!-- Anti flicker QS tile -->
+    <!-- Status bar network traffic monitor strings -->
+</resources>

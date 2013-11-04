@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Toos ah</string>
+    <string name="live_display_auto_summary">Si toos ah u hagaaji heerkulka midabka shaashadda ka dib qorrax dhaca iyo qorrax soo baxa</string>
+    <string name="live_display_off">Demin</string>
+    <string name="live_display_off_summary">Dami dhammaan hagaajinta</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">ᱟᱡᱽᱛᱮ</string>
+    <string name="live_display_auto_summary">ᱵᱮᱲᱟ ᱦᱟᱹᱥᱩᱨ ᱟᱨ ᱩᱫᱟᱹᱭ ᱡᱷᱚᱜᱽ ᱥᱠᱨᱤᱻᱱ ᱛᱟᱯ ᱠᱚ ᱟᱡᱽ ᱛᱮ ᱴᱷᱤᱠ ᱟᱭ </string>
+    <string name="live_display_off">ᱵᱚᱸᱫᱽ</string>
+    <string name="live_display_off_summary">ᱡᱷᱚᱛᱚ ᱮᱰᱡᱟᱹᱥᱴᱢᱮᱴ ᱠᱚ ᱵᱚᱸᱫᱚᱭ ᱢᱮ</string>
+    <string name="live_display_day">ᱫᱤᱱ</string>
+    <string name="live_display_day_summary">ᱫᱤᱱ ᱥᱟᱡᱟᱣ ᱠᱚ ᱠᱷᱟᱹᱞᱤ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
+    <string name="live_display_night">ᱟᱹᱭᱩᱵᱽ</string>
+    <string name="live_display_night_summary">ᱧᱩᱛ ᱥᱟᱡᱟᱣ ᱠᱚ ᱠᱷᱟᱹᱞᱤ ᱵᱷᱮᱡᱟᱭ ᱢᱮ</string>
+    <string name="live_display_outdoor">ᱵᱟᱦᱨᱮ (ᱪᱚᱠᱢᱚᱠ ᱥᱤᱧ ᱪᱟᱸᱫᱚ)</string>
+    <string name="live_display_outdoor_summary">ᱵᱟᱦᱨᱮ ᱥᱟᱡᱟᱣ ᱠᱚ ᱠᱷᱟᱹᱞᱤ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
+    <string name="live_display_hint">ᱞᱟᱭᱤᱵᱷ ᱰᱤᱥᱯᱞᱮ ᱫᱚ ᱢᱮᱫᱽ ᱦᱟᱨᱠᱮᱛ ᱠᱚ ᱴᱷᱤᱠ ᱞᱟᱹᱜᱤᱫᱽ ᱜᱚᱲᱚ ᱮᱢᱟᱭ ᱟᱨ ᱟᱭᱩᱵᱽ ᱨᱮ ᱜᱤᱛᱤᱡᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱜᱚᱲᱚ ᱮᱢᱟᱭ ᱾ ᱪᱮᱥᱴᱟ ᱞᱟᱹᱜᱤᱫᱽ ᱱᱮᱰᱮ ᱚᱛᱟᱭ ᱢᱮ!</string>
+    <string name="accessibility_quick_settings_live_display_off">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_auto">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱚᱴᱚ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_day">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱫᱤᱱ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_night">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱧᱩᱛ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱵᱟᱦᱨᱮ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱚᱭ ᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto"> ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱚᱴᱚ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱫᱤᱱ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱧᱩᱛ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱵᱟᱦᱨᱮ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+</resources>

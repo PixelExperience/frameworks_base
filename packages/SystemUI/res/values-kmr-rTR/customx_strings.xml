@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Nîşanek li çepê</string>
+    <string name="accessibility_dpad_right">Nîşanek rastê</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_users">بەکارهێنەران</string>
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Nîşandana hawîrdanê</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Nîşandana hawîrdanê girtîye.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Nîşana hawîrdanê li ser.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD girtîye\nParastina pîlê</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kafeîn</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeîn girtîye.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeîn li ser.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Serî hilde</string>
+    <string name="accessibility_quick_settings_heads_up_off">Serî hildan girtîye.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Serî hildan vekiriye.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Senkronîzekiri</string>
+    <string name="accessibility_quick_settings_sync_off">Senkronîzekirin girtîye.</string>
+    <string name="accessibility_quick_settings_sync_on">Senkronîzekirin li ser.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Pêveka USB</string>
+    <!-- VPN QS tile -->
+    <string name="vpn_credentials_username">ناوی بەکارھێنەر</string>
+    <string name="vpn_credentials_password">وشەی نهێنی</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Pergal</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Başbûn</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Saet</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Moda xwendinê</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Moda xwendinê li ser e.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Moda xwendinê qut e.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Moda xwendinê hate zivirandin.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Moda xwendinê hate girtin.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Antî hejandin</string>
+    <!-- Status bar network traffic monitor strings -->
+</resources>
