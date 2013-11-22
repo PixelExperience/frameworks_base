@@ -321,4 +321,7 @@
 
     <!-- Whether vibrate icon is shown in the status bar by default. -->
     <integer name="def_statusBarVibrateIconEnabled">0</integer>
+
+    <!-- Default for Settings.Global.TETHER_DUN_REQUIRED -->
+    <integer name="def_tether_dun_required">0</integer>
 </resources>
