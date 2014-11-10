@@ -36,6 +36,7 @@ import android.app.Fragment;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.MathUtils;
 import android.view.MotionEvent;
@@ -84,6 +85,7 @@ import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.phone.StatusBarTouchableRegionManager;
 import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.LargeScreenUtils;
 
 import javax.inject.Inject;
@@ -96,6 +98,9 @@ import dagger.Lazy;
 @CentralSurfacesComponent.CentralSurfacesScope
 public class QuickSettingsController {
     public static final String TAG = "QuickSettingsController";
+
+    private static final String STATUS_BAR_QUICK_QS_PULLDOWN =
+            "customsystem:" + Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN;
 
     private QS mQs;
     private final Lazy<NotificationPanelViewController> mPanelViewControllerLazy;
@@ -133,6 +138,7 @@ public class QuickSettingsController {
     private final AccessibilityManager mAccessibilityManager;
     private final MetricsLogger mMetricsLogger;
     private final Resources mResources;
+    private final TunerService mTunerService;
 
     /** Whether the notifications are displayed full width (no margins on the side). */
     private boolean mIsFullWidth;
@@ -255,6 +261,8 @@ public class QuickSettingsController {
     private int mLastNotificationsClippingTopBound;
     private int mLastNotificationsClippingTopBoundNssl;
 
+    private int mOneFingerQuickSettingsIntercept;
+
     private final Region mInterceptRegion = new Region();
     /** The end bounds of a clipping animation. */
     private final Rect mClippingAnimationEndBounds = new Rect();
@@ -306,7 +314,8 @@ public class QuickSettingsController {
             MetricsLogger metricsLogger,
             FeatureFlags featureFlags,
             InteractionJankMonitor interactionJankMonitor,
-            ShadeLogger shadeLog
+            ShadeLogger shadeLog,
+            TunerService tunerService
     ) {
         mPanelViewControllerLazy = panelViewControllerLazy;
         mPanelView = panelView;
@@ -349,6 +358,7 @@ public class QuickSettingsController {
         mInteractionJankMonitor = interactionJankMonitor;
 
         mLockscreenShadeTransitionController.addCallback(new LockscreenShadeTransitionCallback());
+        mTunerService = tunerService;
     }
 
     @VisibleForTesting
@@ -521,7 +531,22 @@ public class QuickSettingsController {
                         MotionEvent.BUTTON_SECONDARY) || event.isButtonPressed(
                         MotionEvent.BUTTON_TERTIARY));
 
-        return twoFingerDrag || stylusButtonClickDrag || mouseButtonClickDrag;
+        final float w = mQs.getView().getMeasuredWidth();
+        final float x = event.getX();
+        float region = w * 1.f / 4.f; // TODO overlay region fraction?
+        boolean showQsOverride = false;
+
+        switch (mOneFingerQuickSettingsIntercept) {
+            case 1: // Right side pulldown
+                showQsOverride = mQs.getView().isLayoutRtl() ? x < region : w - region < x;
+                break;
+            case 2: // Left side pulldown
+                showQsOverride = mQs.getView().isLayoutRtl() ? w - region < x : x < region;
+                break;
+        }
+        showQsOverride &= mBarState == StatusBarState.SHADE;
+
+        return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
     }
 
 
@@ -1932,7 +1957,8 @@ public class QuickSettingsController {
     }
 
     /** */
-    public final class QsFragmentListener implements FragmentHostManager.FragmentListener {
+    public final class QsFragmentListener implements FragmentHostManager.FragmentListener,
+            TunerService.Tunable {
         /** */
         @Override
         public void onFragmentViewCreated(String tag, Fragment fragment) {
@@ -1964,17 +1990,26 @@ public class QuickSettingsController {
             mShadeTransitionController.setQs(mQs);
             mNotificationStackScrollLayoutController.setQsHeader((ViewGroup) mQs.getHeader());
             mQs.setScrollListener(mQsScrollListener);
+            mTunerService.addTunable(this, STATUS_BAR_QUICK_QS_PULLDOWN);
             updateExpansion();
         }
 
         /** */
         @Override
         public void onFragmentViewDestroyed(String tag, Fragment fragment) {
+            mTunerService.removeTunable(this);
             // Manual handling of fragment lifecycle is only required because this bridges
             // non-fragment and fragment code. Once we are using a fragment for the notification
             // panel, mQs will not need to be null cause it will be tied to the same lifecycle.
             if (fragment == mQs) {
                 mQs = null;
+            }
+        }
+
+        @Override
+        public void onTuningChanged(String key, String newValue) {
+            if (STATUS_BAR_QUICK_QS_PULLDOWN.equals(key)) {
+                mOneFingerQuickSettingsIntercept = TunerService.parseInteger(newValue, 1);
             }
         }
     }
