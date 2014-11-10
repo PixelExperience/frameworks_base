@@ -5011,6 +5011,12 @@ public final class Settings {
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
 
         /**
+         * Whether to allow one finger quick settings expansion on the side of the statusbar.
+         * 0 = 0ff, 1 = right, 2 = left
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5167,6 +5173,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_ANSWER_CALL);
             PRIVATE_SETTINGS.add(SWAP_VOLUME_KEYS_ON_ROTATION);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MENU_ARROW_KEYS);
+            PRIVATE_SETTINGS.add(STATUS_BAR_QUICK_QS_PULLDOWN);
         }
 
         /**

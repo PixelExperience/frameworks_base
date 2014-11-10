@@ -239,5 +239,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.VOLUME_ANSWER_CALL, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.SWAP_VOLUME_KEYS_ON_ROTATION, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NAVIGATION_BAR_MENU_ARROW_KEYS, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_QUICK_QS_PULLDOWN, new InclusiveIntegerRangeValidator(0, 2));
     }
 }
