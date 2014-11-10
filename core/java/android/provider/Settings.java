@@ -4498,6 +4498,16 @@ public final class Settings {
         public static final Validator FP_SUCCESS_AUTH_VIB_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /** Whether to allow one finger quick settings expansion on the right side of the statusbar.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+
+        /** @hide */
+        public static final Validator STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -4711,6 +4721,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
             PRIVATE_SETTINGS.add(FP_SUCCESS_AUTH_VIB);
+            PRIVATE_SETTINGS.add(STATUS_BAR_QUICK_QS_PULLDOWN);
         }
 
         /**
@@ -4836,6 +4847,7 @@ public final class Settings {
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
             VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
             VALIDATORS.put(FP_SUCCESS_AUTH_VIB, FP_SUCCESS_AUTH_VIB_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
         }
 
         /**
