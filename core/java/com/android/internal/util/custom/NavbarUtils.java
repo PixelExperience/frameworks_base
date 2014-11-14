@@ -23,7 +23,7 @@ import android.provider.Settings;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 
-//import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
+import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
 
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
@@ -86,7 +86,7 @@ public class NavbarUtils {
     }
 
     public static boolean canDisable(Context context) {
-        /*boolean canForceDisable = context.getResources().getBoolean(com.android.internal.R.bool.config_canForceDisableNavigationBar);
+        boolean canForceDisable = context.getResources().getBoolean(com.android.internal.R.bool.config_canForceDisableNavigationBar);
         if (canForceDisable){
             return true;
         }
@@ -94,7 +94,6 @@ public class NavbarUtils {
                 com.android.internal.R.integer.config_deviceHardwareKeys);
         final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
         final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
-        return hasHomeKey && hasBackKey;*/
-        return true;
+        return hasHomeKey && hasBackKey;
     }
 }
