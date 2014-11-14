@@ -32,4 +32,13 @@
     <!-- Whether device supports gestures on fingerprint sensor -->
     <java-symbol type="bool" name="config_supportsGesturesOnFingerprintSensor" />
 
+    <!-- Device hardware keys -->
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
+    <!-- Device keys user-customisable behavior -->
+    <java-symbol type="integer" name="config_longPressOnHomeBehavior" />
+    <java-symbol type="integer" name="config_doubleTapOnHomeBehavior" />
+    <java-symbol type="integer" name="config_longPressOnMenuBehavior" />
+    <java-symbol type="integer" name="config_longPressOnAppSwitchBehavior" />
+
 </resources>
