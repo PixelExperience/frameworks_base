@@ -48,4 +48,17 @@
     <!-- Proximity check on screen on default -->
     <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
 
+    <!-- Device hardware keys -->
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
+    <!-- Device keys user-customisable behavior -->
+    <java-symbol type="integer" name="config_longPressOnHomeBehaviorHwkeys" />
+    <java-symbol type="integer" name="config_doubleTapOnHomeBehaviorHwkeys" />
+    <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwkeys" />
+    <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwkeys" />
+
+    <!-- Last app switch animations -->
+    <java-symbol type="anim" name="last_app_in" />
+    <java-symbol type="anim" name="last_app_out" />
+
 </resources>
