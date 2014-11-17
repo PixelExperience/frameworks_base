@@ -154,4 +154,18 @@
     <!-- Flashlight on power button -->
     <integer name="config_flashlightProximityTimeout">300</integer>
 
+    <!-- Does the notification LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorNotificationLed">false</bool>
+
+    <!-- Is the battery LED intrusive? -->
+    <bool name="config_intrusiveBatteryLed">false</bool>
+
+    <!-- Does the battery LED support multiple colors? -->
+    <bool name="config_multiColorBatteryLed">false</bool>
+
+    <!-- Do the battery/notification LEDs support pulsing?
+         Used to decide if we show pulse settings -->
+    <bool name="config_ledCanPulse">false</bool>
+
 </resources>
