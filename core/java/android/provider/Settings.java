@@ -16389,6 +16389,14 @@ public final class Settings {
         public static final String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
 
         /**
+         * Whether to wake the display when plugging or unplugging the charger
+         *
+         * @hide
+         */
+        public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED =
+                "wake_when_plugged_or_unplugged";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide

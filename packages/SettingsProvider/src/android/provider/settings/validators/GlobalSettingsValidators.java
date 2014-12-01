@@ -350,5 +350,6 @@ public class GlobalSettingsValidators {
         VALIDATORS.put(Global.Wearable.WET_MODE_ON, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.Wearable.COOLDOWN_MODE_ON, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.BATTERY_LIGHT_ENABLED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, BOOLEAN_VALIDATOR);
     }
 }
