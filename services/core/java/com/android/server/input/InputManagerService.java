@@ -492,6 +492,7 @@ public class InputManagerService extends IInputManager.Stub
         registerLongPressTimeoutObserver();
         registerMaximumObscuringOpacityForTouchSettingObserver();
         registerBlockUntrustedTouchesModeSettingObserver();
+        registerVolumeKeysRotationSettingObserver();
 
         mContext.registerReceiver(new BroadcastReceiver() {
             @Override
@@ -500,6 +501,7 @@ public class InputManagerService extends IInputManager.Stub
                 updateShowTouchesFromSettings();
                 updateAccessibilityLargePointerFromSettings();
                 updateDeepPressStatusFromSettings("user switched");
+                updateVolumeKeysRotationFromSettings();
             }
         }, new IntentFilter(Intent.ACTION_USER_SWITCHED), null, mHandler);
 
@@ -509,6 +511,7 @@ public class InputManagerService extends IInputManager.Stub
         updateDeepPressStatusFromSettings("just booted");
         updateMaximumObscuringOpacityForTouchFromSettings();
         updateBlockUntrustedTouchesModeFromSettings();
+        updateVolumeKeysRotationFromSettings();
     }
 
     // TODO(BT) Pass in parameter for bluetooth system
@@ -2141,6 +2144,33 @@ public class InputManagerService extends IInputManager.Stub
             }
         }
         return v;
+    }
+
+    public void updateVolumeKeysRotationFromSettings() {
+        int mode = getVolumeKeysRotationSetting(0);
+        mNative.setVolumeKeysRotation(mode);
+    }
+
+    public void registerVolumeKeysRotationSettingObserver() {
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(
+                        Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION), false,
+                new ContentObserver(mHandler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        updateVolumeKeysRotationFromSettings();
+                    }
+                });
+    }
+
+    private int getVolumeKeysRotationSetting(int defaultValue) {
+        int result = defaultValue;
+        try {
+            result = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, UserHandle.USER_CURRENT);
+        } catch (Settings.SettingNotFoundException snfe) {
+        }
+        return result;
     }
 
     // Binder call
