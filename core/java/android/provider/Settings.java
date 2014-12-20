@@ -5839,6 +5839,15 @@ public final class Settings {
                 "status_bar_show_battery_percent";
 
         /**
+         * Swap volume buttons when the screen is rotated
+         * 0 - Disabled
+         * 1 - Enabled (screen is rotated by 90 or 180 degrees: phone, hybrid)
+         * 2 - Enabled (screen is rotated by 180 or 270 degrees: tablet)
+         * @hide
+         */
+        public static final String SWAP_VOLUME_KEYS_ON_ROTATION = "swap_volume_keys_on_rotation";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6004,6 +6013,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_AM_PM);
             PRIVATE_SETTINGS.add(STATUS_BAR_BATTERY_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_BATTERY_PERCENT);
+            PRIVATE_SETTINGS.add(SWAP_VOLUME_KEYS_ON_ROTATION);
         }
         /**
          * These entries are considered common between the personal and the managed profile,
