@@ -67,6 +67,7 @@ import android.service.power.SuspendBlockerProto;
 import android.service.power.WakeLockProto;
 import android.service.vr.IVrManager;
 import android.service.vr.IVrStateCallbacks;
+import android.telephony.TelephonyManager;
 import android.util.EventLog;
 import android.util.KeyValueListParser;
 import android.util.Log;
@@ -4835,7 +4836,13 @@ public final class PowerManagerService extends SystemService
             // There is already a message queued;
             return;
         }
-        if (mProximityWakeSupported && mProximityWakeEnabled && mProximitySensor != null) {
+
+        final TelephonyManager tm =
+                (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        final boolean hasIncomingCall = tm.getCallState() == TelephonyManager.CALL_STATE_RINGING;
+
+        if (mProximityWakeSupported && mProximityWakeEnabled
+                && mProximitySensor != null && !hasIncomingCall) {
             final Message msg = mHandler.obtainMessage(MSG_WAKE_UP);
             msg.obj = r;
             mHandler.sendMessageDelayed(msg, mProximityTimeOut);
