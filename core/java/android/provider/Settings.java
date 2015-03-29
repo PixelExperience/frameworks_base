@@ -4538,7 +4538,6 @@ public final class Settings {
         /** @hide */
         public static final Validator NAV_BAR_INVERSE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
-
         /**
          * Whether to invert navigation bar buttons
          * @hide
@@ -4656,6 +4655,17 @@ public final class Settings {
 
         /** @hide */
         public static final Validator SHOW_VOLTE_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Screenshod sound enable, This is the noise made when taking a screesnhot
+         * Defaults to 1 - sounds enabled
+         * @hide
+         */
+        public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /** @hide */
+        public static final Validator SCREENSHOT_SOUND_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4886,6 +4896,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_SHOW_UNITS);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD);
             PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
+            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
         }
 
         /**
@@ -5027,6 +5038,7 @@ public final class Settings {
             VALIDATORS.put(NETWORK_TRAFFIC_SHOW_UNITS, NETWORK_TRAFFIC_SHOW_UNITS_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD_VALIDATOR);
             VALIDATORS.put(SHOW_VOLTE_ICON, SHOW_VOLTE_ICON_VALIDATOR);
+            VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
         }
 
         /**
@@ -5037,7 +5049,6 @@ public final class Settings {
         static {
             CLONE_TO_MANAGED_PROFILE.add(DATE_FORMAT);
             CLONE_TO_MANAGED_PROFILE.add(HAPTIC_FEEDBACK_ENABLED);
-            CLONE_TO_MANAGED_PROFILE.add(SOUND_EFFECTS_ENABLED);
             CLONE_TO_MANAGED_PROFILE.add(TEXT_SHOW_PASSWORD);
             CLONE_TO_MANAGED_PROFILE.add(TIME_12_24);
         }
