@@ -33,4 +33,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine mode disabled.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine mode enabled.</string>
 
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Pop-up notifications</string>
+    <string name="accessibility_quick_settings_heads_up_off">Pop-up notifications disabled.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Pop-up notifications enabled.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Pop-up notifications turned off.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Pop-up notifications turned on.</string>
+
 </resources>
