@@ -5304,6 +5304,27 @@ public final class Settings {
         public static final String APP_SWITCH_WAKE_SCREEN = "app_switch_wake_screen";
 
         /**
+         * Whether to wake the screen with the camera key half-press.
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String CAMERA_WAKE_SCREEN = "camera_wake_screen";
+
+        /**
+         * Whether or not to send device back to sleep if Camera button is released ("Peek")
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String CAMERA_SLEEP_ON_RELEASE = "camera_sleep_on_release";
+
+        /**
+         * Whether to launch secure camera app when key is longpressed
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String CAMERA_LAUNCH = "camera_launch";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5447,6 +5468,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(MENU_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(ASSIST_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(APP_SWITCH_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
+            PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
         }
 
         /**
