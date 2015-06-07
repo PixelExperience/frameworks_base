@@ -42,4 +42,7 @@
     <java-symbol type="integer" name="config_longPressOnMenuBehavior" />
     <java-symbol type="integer" name="config_longPressOnAppSwitchBehavior" />
 
+    <!-- Camera key type -->
+    <java-symbol type="bool" name="config_singleStageCameraKey" />
+
 </resources>
