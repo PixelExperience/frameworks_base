@@ -643,6 +643,9 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSendPowerHint(int hintId, int data);
     private static native void nativeSetFeature(int featureId, int data);
 
+    // Whether proximity check on wake is enabled by default
+    private boolean mProximityWakeEnabledByDefaultConfig;
+
     private SensorManager mSensorManager;
     private Sensor mProximitySensor;
     private boolean mProximityWakeEnabled;
@@ -904,6 +907,8 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.integer.config_proximityCheckTimeout);
         mProximityWakeSupported = resources.getBoolean(
                 com.android.internal.R.bool.config_proximityCheckOnWake);
+        mProximityWakeEnabledByDefaultConfig = resources.getBoolean(
+                com.android.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
         if (mProximityWakeSupported) {
             mProximityWakeLock = ((PowerManager) mContext.getSystemService(Context.POWER_SERVICE))
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
@@ -991,7 +996,8 @@ public final class PowerManagerService extends SystemService
         }
 
         mProximityWakeEnabled = Settings.System.getInt(resolver,
-                Settings.System.PROXIMITY_ON_WAKE, 0) == 1;
+                Settings.System.PROXIMITY_ON_WAKE,
+                mProximityWakeEnabledByDefaultConfig ? 1 : 0) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
