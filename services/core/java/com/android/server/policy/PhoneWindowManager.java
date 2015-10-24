@@ -163,6 +163,7 @@ import android.app.ActivityThread;
 import android.app.AlarmManager;
 import android.app.AppOpsManager;
 import android.app.IUiModeManager;
+import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
@@ -300,6 +301,7 @@ import com.android.server.wm.AppTransition;
 import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
+import com.android.internal.widget.LockPatternUtils;
 
 import com.android.internal.util.custom.hwkeys.ActionUtils;
 import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
@@ -954,6 +956,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private int mTorchTimeout;
     private PendingIntent mTorchOffPendingIntent;
 
+    private LockPatternUtils mLockPatternUtils;
+    private KeyguardManager mKeyguardManager;
+    private boolean mGlobalActionsOnLockScreen;
+
     private class PolicyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -1196,6 +1202,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_DISABLE_POWER_MENU), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
         }
@@ -1795,15 +1804,28 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return 1;
     }
 
+    private void ensureKeyguardManager(){
+        if (mKeyguardManager == null){
+            mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+        }
+    }
+
     private void powerLongPress() {
-        final int behavior = mResolvedLongPressOnPowerBehavior;
+        int behavior = mResolvedLongPressOnPowerBehavior;
         switch (behavior) {
         case LONG_PRESS_POWER_NOTHING:
             break;
         case LONG_PRESS_POWER_GLOBAL_ACTIONS:
             mPowerKeyHandled = true;
-            performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
-            showGlobalActionsInternal();
+            ensureKeyguardManager();
+            if (mKeyguardManager.inKeyguardRestrictedInputMode() &&
+                mLockPatternUtils.isSecure(UserHandle.myUserId()) &&
+                !mGlobalActionsOnLockScreen) {
+                behavior = LONG_PRESS_POWER_NOTHING;
+            } else {
+                performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
+                showGlobalActionsInternal();
+            }
             break;
         case LONG_PRESS_POWER_SHUT_OFF:
         case LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM:
@@ -2724,6 +2746,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         filter = new IntentFilter();
         filter.addAction(ACTION_TORCH_OFF);
         context.registerReceiver(torchReceiver, filter);
+        mLockPatternUtils = new LockPatternUtils(context);
     }
 
     /**
@@ -3062,6 +3085,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
 
             mHasNavigationBar = NavbarUtils.isEnabled(mContext);
+            mGlobalActionsOnLockScreen = Settings.System.getIntForUser(resolver,
+                    Settings.System.LOCKSCREEN_DISABLE_POWER_MENU, 0,
+                    UserHandle.USER_CURRENT) == 0;
         }
         synchronized (mWindowManagerFuncs.getWindowManagerLock()) {
             PolicyControl.reloadFromSetting(mContext);
