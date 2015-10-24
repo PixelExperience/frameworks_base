@@ -249,6 +249,7 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.statusbar.stack.NotificationStackScrollLayout;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
 import java.io.FileDescriptor;
@@ -260,7 +261,7 @@ import java.util.Map;
 
 import com.android.internal.util.custom.NavbarUtils;
 
-public class StatusBar extends SystemUI implements DemoMode,
+public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunable,
         DragDownHelper.DragDownCallback, ActivityStarter, OnUnlockMethodChangedListener,
         OnHeadsUpChangedListener, CommandQueue.Callbacks, ZenModeController.Callback,
         ColorExtractor.OnColorsChangedListener, ConfigurationListener, NotificationPresenter {
@@ -279,6 +280,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     public static final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
     static public final String SYSTEM_DIALOG_REASON_SCREENSHOT = "screenshot";
+
+    private static final String LOCKSCREEN_MEDIA_METADATA =
+            "system:" + Settings.System.LOCKSCREEN_MEDIA_METADATA;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -528,6 +532,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected NotificationRemoteInputManager mRemoteInputManager;
 
     private boolean mWallpaperSupportsAmbientMode;
+
+    private boolean mShowMediaMetadata;
+
     private BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -695,6 +702,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
+
+        final TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(this, LOCKSCREEN_MEDIA_METADATA);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
@@ -1808,7 +1818,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         Drawable artworkDrawable = null;
-        if (mediaMetadata != null) {
+        if (mediaMetadata != null && mShowMediaMetadata) {
             Bitmap artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ART);
             if (artworkBitmap == null) {
                 artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART);
@@ -5986,6 +5996,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             mAssistManager.startAssist(args);
         }
     }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+       if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
+            mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) != 0;
+        }
+    }
+
     // End Extra BaseStatusBarMethods.
 
     private final Runnable mAutoDim = () -> {
