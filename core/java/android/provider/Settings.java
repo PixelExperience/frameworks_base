@@ -4584,6 +4584,15 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 3600);
 
         /**
+         * This preference enables showing the power menu on LockScreen.
+         * @hide
+         */
+        public static final String LOCKSCREEN_DISABLE_POWER_MENU = "lockscreen_disable_power_menu";
+
+        /** @hide */
+        public static final Validator LOCKSCREEN_DISABLE_POWER_MENU_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4804,6 +4813,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLBTN_MUSIC_CONTROLS);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_DISABLE_POWER_MENU);
         }
 
         /**
@@ -4937,6 +4947,7 @@ public final class Settings {
             VALIDATORS.put(VOLBTN_MUSIC_CONTROLS, VOLBTN_MUSIC_CONTROLS_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_DISABLE_POWER_MENU, LOCKSCREEN_DISABLE_POWER_MENU_VALIDATOR);
         }
 
         /**
@@ -12647,6 +12658,12 @@ public final class Settings {
          */
         public static final String MAX_SOUND_TRIGGER_DETECTION_SERVICE_OPS_PER_DAY =
                 "max_sound_trigger_detection_service_ops_per_day";
+
+        /**
+         * This preference enables showing the power menu on LockScreen.
+         * @hide
+         */
+        public static final String LOCKSCREEN_DISABLE_POWER_MENU = "LOCKSCREEN_DISABLE_POWER_MENU";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
