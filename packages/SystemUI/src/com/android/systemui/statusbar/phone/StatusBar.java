@@ -5486,7 +5486,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (!mNotificationPanel.isFullyCollapsed()) {
             // close the shade if it was open
             animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_RECENTS_PANEL, true /* force */,
-                    true /* delayed */);
+                    true /* delayed */, NotificationPanelView.SPEED_UP_FACTOR_CLICKED);
             visibilityChanged(false);
 
             return true;
