@@ -850,8 +850,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
 
         setStackFromBottom(a.getBoolean(
                 R.styleable.AbsListView_stackFromBottom, false));
-        setScrollingCacheEnabled(a.getBoolean(
-                R.styleable.AbsListView_scrollingCache, true));
+        setScrollingCacheEnabled(false);
         setTextFilterEnabled(a.getBoolean(
                 R.styleable.AbsListView_textFilterEnabled, false));
         setTranscriptMode(a.getInt(
@@ -883,7 +882,7 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
         setFocusableInTouchMode(true);
         setWillNotDraw(false);
         setAlwaysDrawnWithCacheEnabled(false);
-        setScrollingCacheEnabled(true);
+        setScrollingCacheEnabled(false);
 
         final ViewConfiguration configuration = ViewConfiguration.get(mContext);
         mTouchSlop = configuration.getScaledTouchSlop();
