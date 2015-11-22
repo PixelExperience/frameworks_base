@@ -1,0 +1,4 @@
+<resources>
+    <!-- Rotation sensor -->
+    <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+</resources>
