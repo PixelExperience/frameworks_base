@@ -69,4 +69,8 @@
     <color name="notification_gear_color">#ff757575</color>
     <color name="notification_guts_bg_color">#f8f9fa</color>
     <color name="notification_snooze_text">#dd000000</color>
+
+    <!-- App permission tint -->
+    <color name="app_permission_icon_tint">@android:color/black</color>
+
 </resources>
