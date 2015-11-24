@@ -1494,7 +1494,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         }
 
         PackageManagerService m = new PackageManagerService(injector, onlyCore, factoryTest,
-                PackagePartitions.FINGERPRINT, Build.IS_ENG, Build.IS_USERDEBUG,
+                Build.VERSION.INCREMENTAL, Build.IS_ENG, Build.IS_USERDEBUG,
                 Build.VERSION.SDK_INT, Build.VERSION.INCREMENTAL);
         t.traceEnd(); // "create package manager"
 
@@ -1988,7 +1988,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                     !buildFingerprint.equals(ver.fingerprint);
             if (mIsUpgrade) {
                 PackageManagerServiceUtils.logCriticalInfo(Log.INFO, "Upgrading from "
-                        + ver.fingerprint + " to " + PackagePartitions.FINGERPRINT);
+                        + ver.fingerprint + " to " + Build.VERSION.INCREMENTAL);
             }
 
             mInitAppsHelper = new InitAppsHelper(this, mApexManager, mInstallPackageHelper,
@@ -2103,7 +2103,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             // this situation.
             if (mIsUpgrade) {
                 Slog.i(TAG, "Build fingerprint changed from " + ver.fingerprint + " to "
-                        + PackagePartitions.FINGERPRINT
+                        + Build.VERSION.INCREMENTAL
                         + "; regranting permissions for internal storage");
             }
             mPermissionManager.onStorageVolumeMounted(
@@ -2149,7 +2149,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                                         | Installer.FLAG_CLEAR_APP_DATA_KEEP_ART_PROFILES);
                     }
                 }
-                ver.fingerprint = PackagePartitions.FINGERPRINT;
+                ver.fingerprint = Build.VERSION.INCREMENTAL;
             }
 
             // Defer the app data fixup until we are done with app data clearing above.
