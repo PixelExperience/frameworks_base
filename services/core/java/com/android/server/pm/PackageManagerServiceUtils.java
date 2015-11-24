@@ -1445,7 +1445,7 @@ public class PackageManagerServiceUtils {
         // identify cached items. In particular, changing the value of certain
         // feature flags should cause us to invalidate any caches.
         final String cacheName = FORCE_PACKAGE_PARSED_CACHE_ENABLED ? "debug"
-                : PackagePartitions.FINGERPRINT;
+                : Build.VERSION.INCREMENTAL;
 
         // Reconcile cache directories, keeping only what we'd actually use.
         for (File cacheDir : FileUtils.listFilesOrEmpty(cacheBaseDir)) {
