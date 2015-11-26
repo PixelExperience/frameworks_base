@@ -28,6 +28,7 @@ import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.telephony.ServiceState;
 import android.telephony.SubscriptionInfo;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.method.SingleLineTransformationMethod;
 import android.util.AttributeSet;
@@ -105,14 +106,51 @@ public class CarrierText extends TextView {
         boolean allSimsMissing = true;
         boolean anySimReadyAndInService = false;
         CharSequence displayText = null;
+        boolean showRat = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_display_rat);
 
         List<SubscriptionInfo> subs = mKeyguardUpdateMonitor.getSubscriptionInfo(false);
         final int N = subs.size();
         if (DEBUG) Log.d(TAG, "updateCarrierText(): " + N);
         for (int i = 0; i < N; i++) {
+            CharSequence networkClass = "";
             int subId = subs.get(i).getSubscriptionId();
             State simState = mKeyguardUpdateMonitor.getSimState(subId);
+            if (showRat) {
+                ServiceState ss = mKeyguardUpdateMonitor.mServiceStates.get(subId);
+                if (ss != null && (ss.getDataRegState() == ServiceState.STATE_IN_SERVICE
+                        || ss.getVoiceRegState() == ServiceState.STATE_IN_SERVICE)) {
+                    int networkType = TelephonyManager.NETWORK_TYPE_UNKNOWN;
+                    if (ss.getRilDataRadioTechnology() !=
+                            ServiceState.RIL_RADIO_TECHNOLOGY_UNKNOWN) {
+                        networkType = ss.getDataNetworkType();
+                    } else if (ss.getRilVoiceRadioTechnology() !=
+                                ServiceState.RIL_RADIO_TECHNOLOGY_UNKNOWN) {
+                        networkType = ss.getVoiceNetworkType();
+                    }
+                    networkClass = networkClassToString(TelephonyManager
+                            .getNetworkClass(networkType));
+                }
+            }
             CharSequence carrierName = subs.get(i).getCarrierName();
+            if (showRat && !TextUtils.isEmpty(carrierName)) {
+                String[] names = carrierName.toString().split(mSeparator.toString(), 2);
+                StringBuilder newCarrierName = new StringBuilder();
+                for (int j = 0; j < names.length; j++) {
+                    if (!TextUtils.isEmpty(names[j])) {
+                        if (!TextUtils.isEmpty(networkClass) && showRat) {
+                            names[j] = new StringBuilder().append(names[j]).append(" ")
+                                    .append(networkClass).toString();
+                        }
+                        if (j > 0 && names[j].equals(names[j-1])) {
+                            continue;
+                        }
+                        if (j > 0) newCarrierName.append(mSeparator);
+                        newCarrierName.append(names[j]);
+                    }
+                }
+                carrierName = newCarrierName.toString();
+            }
             CharSequence carrierTextForSimState = getCarrierTextForSimState(simState, carrierName);
             if (DEBUG) {
                 Log.d(TAG, "Handling (subId=" + subId + "): " + simState + " " + carrierName);
@@ -386,5 +424,18 @@ public class CarrierText extends TextView {
 
             return source;
         }
+    }
+
+    private String networkClassToString (int networkClass) {
+        final int[] classIds =
+            {com.android.internal.R.string.config_rat_unknown, // TelephonyManager.NETWORK_CLASS_UNKNOWN
+            com.android.internal.R.string.config_rat_2g,
+            com.android.internal.R.string.config_rat_3g,
+            com.android.internal.R.string.config_rat_4g };
+        String classString = null;
+        if (networkClass < classIds.length) {
+            classString = getContext().getResources().getString(classIds[networkClass]);
+        }
+        return (classString == null) ? "" : classString;
     }
 }
