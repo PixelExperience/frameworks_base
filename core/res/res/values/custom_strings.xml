@@ -2,4 +2,8 @@
     <!-- Strings for Bluetooth service -->
     <!-- toast message informing user that Bluetooth stays on after airplane mode is turned on. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_airplane_mode_toast">Bluetooth will stay on during airplane mode</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
 </resources>
