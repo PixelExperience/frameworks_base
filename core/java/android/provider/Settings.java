@@ -4593,6 +4593,15 @@ public final class Settings {
         public static final Validator LOCKSCREEN_DISABLE_POWER_MENU_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Show 4G instead of LTE
+         * @hide
+         */
+        public static final String SHOW_FOURG = "show_fourg";
+
+        /** @hide */
+        public static final Validator SHOW_FOURG_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4814,6 +4823,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
             PRIVATE_SETTINGS.add(LOCKSCREEN_DISABLE_POWER_MENU);
+            PRIVATE_SETTINGS.add(SHOW_FOURG);
         }
 
         /**
@@ -4948,6 +4958,7 @@ public final class Settings {
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_DISABLE_POWER_MENU, LOCKSCREEN_DISABLE_POWER_MENU_VALIDATOR);
+            VALIDATORS.put(SHOW_FOURG, SHOW_FOURG_VALIDATOR);
         }
 
         /**
