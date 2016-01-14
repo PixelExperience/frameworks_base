@@ -4563,6 +4563,17 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * whether to enable or disable vibration on succesful fingerprint auth
+         *
+         * @hide
+         */
+        public static final String FP_SUCCESS_AUTH_VIB = "fp_success_auth_vib";
+
+        /** @hide */
+        public static final Validator FP_SUCCESS_AUTH_VIB_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4779,6 +4790,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
+            PRIVATE_SETTINGS.add(FP_SUCCESS_AUTH_VIB);
         }
 
         /**
@@ -4907,6 +4919,7 @@ public final class Settings {
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_LOW_BLINKING, BATTERY_LIGHT_LOW_BLINKING_VALIDATOR);
             VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
+            VALIDATORS.put(FP_SUCCESS_AUTH_VIB, FP_SUCCESS_AUTH_VIB_VALIDATOR);
         }
 
         /**
