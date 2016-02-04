@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use mHost file
  * except in compliance with the License. You may obtain a copy of the License at
@@ -29,6 +30,7 @@ import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
@@ -80,6 +82,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
     private final Provider<PowerShareTile> mPowerShareTileProvider;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -105,7 +108,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<GarbageMonitor.MemoryTile> memoryTileProvider,
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<ScreenRecordTile> screenRecordTileProvider,
-            Provider<PowerShareTile> powerShareTileProvider) {
+            Provider<PowerShareTile> powerShareTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -128,6 +132,7 @@ public class QSFactoryImpl implements QSFactory {
         mUiModeNightTileProvider = uiModeNightTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
         mPowerShareTileProvider = powerShareTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -139,8 +144,8 @@ public class QSFactoryImpl implements QSFactory {
     }
 
     private QSTileImpl createTileInternal(String tileSpec) {
-        // Stock tiles.
         switch (tileSpec) {
+            // Stock tiles.
             case "wifi":
                 return mWifiTileProvider.get();
             case "bt":
@@ -182,6 +187,8 @@ public class QSFactoryImpl implements QSFactory {
             // Custom tiles.
             case "powershare":
                 return mPowerShareTileProvider.get();
+            case "caffeine":
+                return mCaffeineTileProvider.get();
         }
 
         // Custom tiles
