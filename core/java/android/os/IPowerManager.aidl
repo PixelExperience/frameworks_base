@@ -73,4 +73,7 @@ interface IPowerManager
 
     // Proximity check
     void wakeUpWithProximityCheck(long time, String reason, String opPackageName);
+
+    // update the uids being synchronized by network socket request manager
+    void updateBlockedUids(int uid, boolean isBlocked);
 }
