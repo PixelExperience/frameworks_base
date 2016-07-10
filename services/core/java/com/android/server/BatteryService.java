@@ -72,6 +72,7 @@ import com.android.server.lights.LogicalLight;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -172,6 +173,10 @@ public final class BatteryService extends SystemService {
 
     private boolean mBatteryLevelLow;
 
+    private boolean mDashCharger;
+    private boolean mHasDashCharger;
+    private boolean mLastDashCharger;
+
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
 
@@ -215,6 +220,9 @@ public final class BatteryService extends SystemService {
         mLed = new Led(context, getLocalService(LightsManager.class));
         mBatteryStats = BatteryStatsService.getService();
         mActivityManagerInternal = LocalServices.getService(ActivityManagerInternal.class);
+
+        mHasDashCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasDashCharger);
 
         mCriticalBatteryLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -575,6 +583,8 @@ public final class BatteryService extends SystemService {
         shutdownIfNoPowerLocked();
         shutdownIfOverTempLocked();
 
+        mDashCharger = mHasDashCharger && isDashCharger();
+
         if (force
                 || (mHealthInfo.batteryStatus != mLastBatteryStatus
                         || mHealthInfo.batteryHealth != mLastBatteryHealth
@@ -592,7 +602,9 @@ public final class BatteryService extends SystemService {
                         || mBatteryModProps.modFlag != mLastModFlag
                         || mBatteryModProps.modType != mLastModType
                         || mBatteryModProps.modPowerSource != mLastModPowerSource
-                        || mInvalidCharger != mLastInvalidCharger)) {
+                        || mInvalidCharger != mLastInvalidCharger
+                        || mDashCharger != mLastDashCharger)) {
+
 
             if (mPlugType != mLastPlugType) {
                 if (mLastPlugType == BATTERY_PLUGGED_NONE) {
@@ -771,6 +783,7 @@ public final class BatteryService extends SystemService {
             mLastModFlag = mBatteryModProps.modFlag;
             mLastModType = mBatteryModProps.modType;
             mLastModPowerSource = mBatteryModProps.modPowerSource;
+            mLastDashCharger = mDashCharger;
         }
     }
 
@@ -808,6 +821,7 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_PLUGGED_RAW, mPlugType);
         intent.putExtra(BatteryManager.EXTRA_MOD_TYPE, mBatteryModProps.modType);
         intent.putExtra(BatteryManager.EXTRA_MOD_POWER_SOURCE, mBatteryModProps.modPowerSource);
+        intent.putExtra(BatteryManager.EXTRA_DASH_CHARGER, mDashCharger);
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED. scale:" + BATTERY_SCALE
                     + ", info:" + mHealthInfo.toString());
@@ -860,6 +874,20 @@ public final class BatteryService extends SystemService {
         mContext.sendBroadcastAsUser(intent, UserHandle.ALL,
                 android.Manifest.permission.BATTERY_STATS);
         mLastBatteryLevelChangedSentMs = SystemClock.elapsedRealtime();
+    }
+
+    private boolean isDashCharger() {
+        try {
+            FileReader file = new FileReader("/sys/class/power_supply/battery/fastchg_status");
+            BufferedReader br = new BufferedReader(file);
+            String state = br.readLine();
+            br.close();
+            file.close();
+            return "1".equals(state);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return false;
     }
 
     // TODO: Current code doesn't work since "--unplugged" flag in BSS was purposefully removed.

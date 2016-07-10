@@ -63,4 +63,7 @@
     <!-- Ignore post running notifications for selected apps -->
     <java-symbol type="array" name="config_postNotificationIgnoredApps" />
 
+    <!-- Whether device has dash charging support -->
+    <java-symbol type="bool" name="config_hasDashCharger" />
+
 </resources>
