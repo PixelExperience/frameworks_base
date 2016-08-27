@@ -61,4 +61,11 @@
     <color name="notification_guts_bg_color">#f8f9fa</color>
     <color name="notification_snooze_text">#dd000000</color>
 
+    <!-- Notification icon/text dynamic tint -->
+    <color name="notification_text_default_color">@android:color/notification_default_color</color>
+    <color name="notification_icon_default_color">@color/notification_default_color</color>
+
+    <!-- Notification sender text color -->
+    <color name="sender_text_color">@android:color/black</color>
+
 </resources>
