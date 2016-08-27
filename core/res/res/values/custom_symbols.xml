@@ -132,4 +132,13 @@
     <!-- Defines the actions shown in advanced reboot submenu -->
     <java-symbol type="array" name="config_restartActionsList" />
 
+    <!-- True if the notifications should dynamically tint the app icon -->
+    <java-symbol type="bool" name="config_allowNotificationIconTinting" />
+
+    <!-- Notification icon tint -->
+    <java-symbol type="color" name="notification_icon_default_color" />
+
+    <!-- Ambient notification icon tint -->
+    <java-symbol type="color" name="notification_ambient_icon_default_color" />
+
 </resources>

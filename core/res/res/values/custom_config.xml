@@ -188,4 +188,7 @@
         <item>restart_bootloader</item>
      </string-array>
 
+    <!-- True if the notifications should dynamically tint the app icon -->
+    <bool name="config_allowNotificationIconTinting">true</bool>
+
 </resources>
