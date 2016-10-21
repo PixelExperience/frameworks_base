@@ -20,4 +20,11 @@
 
     <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
     <string name="custom_system_error_manufacturer">A vendor image mismatch has been detected. Typically this means your vendor image is out of date. Please ensure your vendor image matches <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+
+    <!-- Screen pinning exit mode -->
+    <string name="lock_to_app_toast_back">To unpin this screen, touch and hold Back button</string>
+    <string name="lock_to_app_toast_power">To unpin this screen, touch and hold Power button</string>
+    <string name="lock_to_app_toast_back_nav_visible">To unpin this screen, touch and hold Back button or touch and hold Back and Overview on the navigation bar</string>
+    <string name="lock_to_app_toast_power_nav_visible">To unpin this screen, touch and hold Power button or touch and hold Back and Overview on the navigation bar</string>
+
 </resources>

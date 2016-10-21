@@ -36,4 +36,10 @@
     <!-- volte icon switch -->
     <string name="status_bar_volte">VoLTE</string>
 
+    <!-- Screen pinning exit mode -->
+    <string name="screen_pinning_description_back">This keeps it in view until you unpin. Touch and hold Back button to unpin.</string>
+    <string name="screen_pinning_description_power">This keeps it in view until you unpin. Touch and hold Power button to unpin.</string>
+    <string name="screen_pinning_description_back_nav_visible">This keeps it in view until you unpin. Touch and hold Back button or tap the highlighted buttons on the navigation bar to unpin.</string>
+    <string name="screen_pinning_description_power_nav_visible">This keeps it in view until you unpin. Touch and hold Power button or tap the highlighted buttons on the navigation bar to unpin.</string>
+
 </resources>

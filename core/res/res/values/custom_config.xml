@@ -84,4 +84,11 @@
     <!-- Adjust grip mode for input enable/disable -->    
     <bool name="config_needsIMEGripAdjust">false</bool>
 
+    <!-- Screen pinning exit mode
+        0 - Navigation bar (default behavior)
+        1 - Long press back button
+        2 - Long press power button
+    -->
+    <integer name="config_screenPinningExitMode">0</integer>
+
 </resources>

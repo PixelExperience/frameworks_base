@@ -50,6 +50,8 @@ import java.util.ArrayList;
 import static com.android.systemui.util.leak.RotationUtils.ROTATION_LANDSCAPE;
 import static com.android.systemui.util.leak.RotationUtils.ROTATION_SEASCAPE;
 
+import com.android.internal.util.custom.NavbarUtils;
+
 public class ScreenPinningRequest implements View.OnClickListener {
 
     private final Context mContext;
@@ -241,6 +243,21 @@ public class ScreenPinningRequest implements View.OnClickListener {
             final int backBgVisibility = touchExplorationEnabled ? View.INVISIBLE : View.VISIBLE;
             mLayout.findViewById(R.id.screen_pinning_back_bg).setVisibility(backBgVisibility);
             mLayout.findViewById(R.id.screen_pinning_back_bg_light).setVisibility(backBgVisibility);
+
+            int description =  R.string.screen_pinning_description;
+
+            int screenPinningExitMode = mContext.getResources().getInteger(com.android.internal.R.integer.config_screenPinningExitMode);
+            if (screenPinningExitMode == 1) {
+                description = NavbarUtils.isNavigationBarEnabled(mContext) ? 
+                                R.string.screen_pinning_description_back_nav_visible :
+                                R.string.screen_pinning_description_back;
+            }else if (screenPinningExitMode == 2) {
+                description = NavbarUtils.isNavigationBarEnabled(mContext) ? 
+                                R.string.screen_pinning_description_power_nav_visible :
+                                R.string.screen_pinning_description_power;
+            }
+            ((TextView) mLayout.findViewById(R.id.screen_pinning_description))
+                    .setText(description);
 
             addView(mLayout, getRequestLayoutParams(rotation));
         }

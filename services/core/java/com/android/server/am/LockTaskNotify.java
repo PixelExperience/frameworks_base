@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 import com.android.internal.R;
 
+import com.android.internal.util.custom.NavbarUtils;
+
 /**
  *  Helper to manage showing/hiding a image to notify them that they are entering
  *  or exiting lock-to-app mode.
@@ -54,7 +56,18 @@ public class LockTaskNotify {
         if (lockTaskModeState == ActivityManager.LOCK_TASK_MODE_LOCKED) {
             text = mContext.getString(R.string.lock_to_app_toast_locked);
         } else if (lockTaskModeState == ActivityManager.LOCK_TASK_MODE_PINNED) {
-            text = mContext.getString(R.string.lock_to_app_toast);
+            int msgId =  R.string.lock_to_app_toast;
+            int screenPinningExitMode = mContext.getResources().getInteger(com.android.internal.R.integer.config_screenPinningExitMode);
+            if (screenPinningExitMode == 1) {
+                msgId = NavbarUtils.isNavigationBarEnabled(mContext) ? 
+                                R.string.lock_to_app_toast_back_nav_visible :
+                                R.string.lock_to_app_toast_back;
+            }else if (screenPinningExitMode == 2) {
+                msgId = NavbarUtils.isNavigationBarEnabled(mContext) ? 
+                                R.string.lock_to_app_toast_power_nav_visible :
+                                R.string.lock_to_app_toast_power;
+            }
+            text = mContext.getString(msgId);
         }
         if (text == null) {
             return;
