@@ -303,5 +303,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.QS_ROWS_LANDSCAPE, new InclusiveIntegerRangeValidator(1, 2));
         VALIDATORS.put(System.QS_COLUMNS_PORTRAIT, new InclusiveIntegerRangeValidator(1, 5));
         VALIDATORS.put(System.QS_COLUMNS_LANDSCAPE, new InclusiveIntegerRangeValidator(1, 7));
+        VALIDATORS.put(System.POCKET_JUDGE, BOOLEAN_VALIDATOR);
     }
 }
