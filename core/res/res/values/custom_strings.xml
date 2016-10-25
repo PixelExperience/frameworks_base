@@ -6,4 +6,8 @@
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">Now Playing</string>
     <string name="ambient_recognition_information">%1$s by %2$s</string>
+
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+
 </resources>
