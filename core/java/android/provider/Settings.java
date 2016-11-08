@@ -4317,6 +4317,50 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * some devices have a extra hw button e.g. n3 on the back on the
+         * fingerprint sensor. allow mapping button to key
+         *
+         * @hide
+         */
+        public static final String CUSTOM_BUTTON_EXTRA_KEY_MAPPING = "button_extra_mapping";
+
+        /** @hide */
+        private static final Validator CUSTOM_BUTTON_EXTRA_KEY_MAPPING_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+         * Enable proxi check for wake keys - must be implemented in a device
+         * KeyHandler
+         * @hide
+         */
+        public static final String CUSTOM_DEVICE_PROXI_CHECK_ENABLED = "device_proxi_check_enabled";
+
+        /** @hide */
+        private static final Validator CUSTOM_DEVICE_PROXI_CHECK_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Enable Gesture Haptic feedback
+         * KeyHandler
+         * @hide
+         */
+        public static final String CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED =
+                "device_gesture_feedback_enabled";
+
+        /** @hide */
+        private static final Validator CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String CUSTOM_DEVICE_FEATURE_SETTINGS = "device_feature_settings";
+
+        /** @hide */
+        private static final Validator CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4626,6 +4670,10 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(CUSTOM_BUTTON_EXTRA_KEY_MAPPING, CUSTOM_BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
+            VALIDATORS.put(CUSTOM_DEVICE_PROXI_CHECK_ENABLED, CUSTOM_DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);
+            VALIDATORS.put(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED, CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);
+            VALIDATORS.put(CUSTOM_DEVICE_FEATURE_SETTINGS, CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR);
         }
 
         /**
