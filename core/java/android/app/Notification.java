@@ -5396,11 +5396,11 @@ public class Notification implements Parcelable
             boolean colorable = !isLegacy() || getColorUtil().isGrayscaleIcon(mContext, smallIcon);
             int color;
             if (ambient) {
-                color = Resources.getSystem().getBoolean(R.bool.config_allowNotificationIconTextTinting) ? resolveAmbientColor() : mContext.getColor(R.color.system_notification_accent_color);
+                color = mContext.getResources().getBoolean(R.bool.config_allowNotificationIconTextTinting) ? resolveAmbientColor() : mContext.getColor(R.color.system_notification_accent_color);
             } else if (isColorized()) {
                 color = getPrimaryTextColor();
             } else {
-                color = Resources.getSystem().getBoolean(R.bool.config_allowNotificationIconTextTinting) ? resolveContrastColor() : mContext.getColor(R.color.system_notification_accent_color);
+                color = mContext.getResources().getBoolean(R.bool.config_allowNotificationIconTextTinting) ? resolveContrastColor() : mContext.getColor(R.color.system_notification_accent_color);
             }
             if (colorable) {
                 contentView.setDrawableTint(R.id.icon, false, color,
@@ -5444,7 +5444,7 @@ public class Notification implements Parcelable
         }
 
         int resolveContrastColor() {
-            if (!Resources.getSystem().getBoolean(R.bool.config_allowNotificationIconTextTinting)) {
+            if (!mContext.getResources().getBoolean(R.bool.config_allowNotificationIconTextTinting)) {
                 return mContext.getColor(R.color.notification_text_default_color);
             }
 
