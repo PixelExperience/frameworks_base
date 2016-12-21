@@ -579,8 +579,9 @@ public class OpaLayout extends FrameLayout implements ButtonDispatcher.ButtonInt
     }
 
     public void setOpaEnabled(boolean enabled) {
-        final boolean b2 = enabled || UserManager.isDeviceInDemoMode(getContext());
-        mOpaEnabled = true;
+        final boolean b1 = this.getContext().getResources().getBoolean(R.bool.config_allowOpaLayout);
+        final boolean b2 = (enabled || UserManager.isDeviceInDemoMode(this.getContext())) && b1;
+        this.mOpaEnabled = b2;
         int visibility;
         if (b2) {
 //            visibility = View.VISIBLE;

@@ -14,4 +14,7 @@
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
+    <!-- Allow Opa (Pixel navbar) layout -->
+    <bool name="config_allowOpaLayout">true</bool>
+
 </resources>
