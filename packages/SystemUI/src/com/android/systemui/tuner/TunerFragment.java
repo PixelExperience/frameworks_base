@@ -55,7 +55,10 @@ public class TunerFragment extends PreferenceFragment implements
 
     private static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
 
+    private static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+
     private SwitchPreference mShowLteFourGee;
+    private SwitchPreference mShowNetworkTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +71,9 @@ public class TunerFragment extends PreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
 
         mShowLteFourGee = (SwitchPreference) findPreference(SHOW_LTE_FOURGEE);
+
+        mShowNetworkTraffic = (SwitchPreference) findPreference(NETWORK_TRAFFIC_STATE);
+
         if (Utils.isWifiOnly(getActivity())) {
             prefSet.removePreference(mShowLteFourGee);
         } else {
@@ -75,6 +81,10 @@ public class TunerFragment extends PreferenceFragment implements
                     Settings.System.SHOW_LTE_FOURGEE, 0) == 1));
             mShowLteFourGee.setOnPreferenceChangeListener(this);
         }
+
+        mShowNetworkTraffic.setChecked((Settings.System.getInt(resolver,
+                    Settings.System.NETWORK_TRAFFIC_STATE, 0) == 1));
+        mShowNetworkTraffic.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -151,6 +161,11 @@ public class TunerFragment extends PreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_LTE_FOURGEE, value ? 1:0);
+            return true;
+        }else if  (preference == mShowNetworkTraffic) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1:0);
             return true;
         }
         return false;

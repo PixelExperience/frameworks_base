@@ -23,10 +23,15 @@
         android:title="@string/status_bar" >
 
         <SwitchPreference
+            android:key="network_traffic_state"
+            android:title="@string/network_traffic_state_title"
+            android:defaultValue="false" />
+
+        <SwitchPreference
             android:key="show_lte_fourgee"
             android:title="@string/show_lte_fourgee_title"
             android:defaultValue="false" />
-        
+
         <com.android.systemui.tuner.StatusBarSwitch
             android:key="volte"
             android:title="@string/status_bar_volte" />
@@ -126,7 +131,7 @@
         android:title="@string/volume_and_do_not_disturb">
 
         <!-- Action for this is
-             MetricsConstants.ACTION_TUNER_DO_NOT_DISTURB_VOLUME_PANEL 
+             MetricsConstants.ACTION_TUNER_DO_NOT_DISTURB_VOLUME_PANEL
         <com.android.systemui.tuner.TunerSwitch
             android:key="sysui_show_full_zen"
             android:title="@string/tuner_full_zen_title"

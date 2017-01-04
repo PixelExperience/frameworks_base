@@ -48,4 +48,7 @@
 
     <!-- Show lte/4g switch -->
     <string name="show_lte_fourgee_title">4G instead of LTE</string>
+
+    <!-- Network Traffic -->
+    <string name="network_traffic_state_title">Network activity indicator</string>
 </resources>
