@@ -103,6 +103,7 @@ import com.android.systemui.statusbar.policy.ExtensionController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
+import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.volume.VolumeComponent;
@@ -237,7 +238,8 @@ public class StatusBarGoogle extends StatusBar {
                            WallpaperNotifier wallpaperNotifier,
                            Optional<ReverseChargingViewController> reverseChargingViewController,
                            Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
-                           TunerService tunerService) {
+                           TunerService tunerService,
+                           BurnInProtectionController burnInProtectionController) {
         super(context, notificationsController, lightBarController, autoHideController, keyguardUpdateMonitor,
                 signalPolicy, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController,
                 keyguardStateController, headsUpManagerPhone, dynamicPrivacyController, bypassHeadsUpNotifier,
@@ -260,7 +262,7 @@ public class StatusBarGoogle extends StatusBar {
                 brightnessSliderFactory, chargingRippleAnimationController, ongoingCallController, animationScheduler,
                 locationPublisher, statusBarIconController, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, unlockedScreenOffAnimationController, startingSurfaceOptional,
-                tunerService);
+                tunerService, burnInProtectionController);
         mSmartSpaceController = smartSpaceController;
         mWallpaperNotifier = wallpaperNotifier;
         mReverseChargingViewController = reverseChargingViewController;
