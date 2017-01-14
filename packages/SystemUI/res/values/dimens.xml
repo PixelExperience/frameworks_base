@@ -1074,6 +1074,14 @@
     <!-- The maximum offset in either direction that icons move to prevent burn-in on AOD. -->
     <dimen name="default_burn_in_prevention_offset">15dp</dimen>
 
+    <!-- The maximum offset in either direction that elements are moved vertically to prevent
+         burn-in on status bar and navigation bar. -->
+    <dimen name="vertical_max_shift">1.0dp</dimen>
+
+    <!-- The maximum offset in either direction that elements are moved horizontally to prevent
+         burn-in on status bar and navigation bar. -->
+    <dimen name="horizontal_max_shift">3.0dp</dimen>
+
     <dimen name="corner_size">8dp</dimen>
     <dimen name="top_padding">0dp</dimen>
     <dimen name="bottom_padding">48dp</dimen>

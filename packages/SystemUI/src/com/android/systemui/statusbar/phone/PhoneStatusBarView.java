@@ -23,6 +23,7 @@ import static java.lang.Float.isNaN;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.EventLog;
@@ -51,6 +52,13 @@ public class PhoneStatusBarView extends PanelBar {
     private static final boolean DEBUG = StatusBar.DEBUG;
     private static final boolean DEBUG_GESTURES = false;
     private final CommandQueue mCommandQueue;
+
+    private int mBasePaddingBottom;
+    private int mBasePaddingLeft;
+    private int mBasePaddingRight;
+    private int mBasePaddingTop;
+
+    private ViewGroup mStatusBarContents;
 
     StatusBar mBar;
 
@@ -96,6 +104,18 @@ public class PhoneStatusBarView extends PanelBar {
         mScrimController = scrimController;
     }
 
+    public void shiftStatusBarItems(int horizontalShift, int verticalShift) {
+        if (mStatusBarContents == null) {
+            return;
+        }
+
+        mStatusBarContents.setPaddingRelative(mBasePaddingLeft + horizontalShift,
+                                              mBasePaddingTop + verticalShift,
+                                              mBasePaddingRight + horizontalShift,
+                                              mBasePaddingBottom - verticalShift);
+        invalidate();
+    }
+
     @Override
     public void onFinishInflate() {
         mBattery = findViewById(R.id.battery);
@@ -103,6 +123,13 @@ public class PhoneStatusBarView extends PanelBar {
         mCenterIconSpace = findViewById(R.id.centered_icon_area);
 
         updateResources();
+
+        mStatusBarContents = (ViewGroup) findViewById(R.id.status_bar_contents);
+
+        mBasePaddingLeft = mStatusBarContents.getPaddingStart();
+        mBasePaddingTop = mStatusBarContents.getPaddingTop();
+        mBasePaddingRight = mStatusBarContents.getPaddingEnd();
+        mBasePaddingBottom = mStatusBarContents.getPaddingBottom();
     }
 
     @Override
