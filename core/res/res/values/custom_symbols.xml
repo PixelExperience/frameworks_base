@@ -41,4 +41,7 @@
   <!-- Gesture Sensor -->
   <java-symbol type="bool" name="config_enableGestureService" />
 
+  <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <java-symbol type="string" name="custom_system_error_manufacturer" />
+
 </resources>
