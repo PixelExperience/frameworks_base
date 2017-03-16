@@ -77,6 +77,9 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
     private RemoteInputQuickSettingsDisabler mRemoteInputQuickSettingsDisabler =
             Dependency.get(RemoteInputQuickSettingsDisabler.class);
 
+    // omni additions
+    private boolean mSecureExpandDisabled;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
             Bundle savedInstanceState) {
@@ -300,7 +303,7 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         final float translationScaleY = expansion - 1;
         if (!mHeaderAnimating) {
             getView().setTranslationY(
-                    mKeyguardShowing
+                    (mKeyguardShowing || mSecureExpandDisabled)
                             ? translationScaleY * mHeader.getHeight()
                             : headerTranslation);
         }
@@ -340,6 +343,9 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
 
     @Override
     public void animateHeaderSlidingIn(long delay) {
+        if (mSecureExpandDisabled) {
+            return;
+        }
         if (DEBUG) Log.d(TAG, "animateHeaderSlidingIn");
         // If the QS is already expanded we don't need to slide in the header as it's already
         // visible.
@@ -415,7 +421,12 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
 
     @Override
     public int getQsMinExpansionHeight() {
-        return mHeader.getHeight();
+        return mSecureExpandDisabled ? 0 : mHeader.getHeight();
+    }
+
+    @Override
+    public void setSecureExpandDisabled(boolean value) {
+        mSecureExpandDisabled = value;
     }
 
     @Override
