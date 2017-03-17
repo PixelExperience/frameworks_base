@@ -2828,8 +2828,10 @@ ResourceTable::validateLocalizations(void)
 
         // Look for strings with no default localization
         if (configSrcMap.count(defaultLocale) == 0) {
+            #ifdef SHOW_LOCALIZATION_WARNING
             SourcePos().warning("string '%s' has no default translation.",
                     String8(nameIter.first).string());
+            #endif
             if (mBundle->getVerbose()) {
                 for (const auto& locale : configSrcMap) {
                     locale.second.printf("locale %s found", locale.first.string());
@@ -2881,10 +2883,12 @@ ResourceTable::validateLocalizations(void)
                 for (const auto& iter : missingConfigs) {
                     configStr.appendFormat(" %s", iter.string());
                 }
+                #ifdef SHOW_LOCALIZATION_WARNING
                 SourcePos().warning("string '%s' is missing %u required localizations:%s",
                         String8(nameIter.first).string(),
                         (unsigned int)missingConfigs.size(),
                         configStr.string());
+                #endif
             }
         }
     }
