@@ -98,6 +98,7 @@ import com.android.server.os.RegionalizationService;
 import com.android.server.os.DeviceIdentifiersPolicyService;
 import com.android.server.os.SchedulingPolicyService;
 import com.android.server.pocket.PocketService;
+import com.android.server.pocket.PocketBridgeService;
 import com.android.server.pm.BackgroundDexOptService;
 import com.android.server.pm.CrossProfileAppsService;
 import com.android.server.pm.Installer;
@@ -1606,6 +1607,12 @@ public final class SystemServer {
             traceBeginAndSlog("StartPocketService");
             mSystemServiceManager.startService(PocketService.class);
             traceEnd();
+            if (!context.getResources().getString(
+                    com.android.internal.R.string.config_pocketBridgeSysfsInpocket).isEmpty()) {
+                traceBeginAndSlog("StartPocketBridgeService");
+                mSystemServiceManager.startService(PocketBridgeService.class);
+                traceEnd();
+            }
         }
 
         if (!isWatch) {
