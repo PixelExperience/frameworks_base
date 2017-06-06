@@ -25,6 +25,7 @@ import android.content.Context;
 import android.app.ActivityThread;
 import android.graphics.ImageFormat;
 import android.hardware.ICameraService;
+import android.app.ActivityThread;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
