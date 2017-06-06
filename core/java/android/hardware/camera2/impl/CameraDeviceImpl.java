@@ -20,6 +20,7 @@ import static android.hardware.camera2.CameraAccessException.CAMERA_IN_USE;
 
 import static com.android.internal.util.function.pooled.PooledLambda.obtainRunnable;
 
+import android.app.ActivityThread;
 import android.annotation.NonNull;
 import android.content.Context;
 import android.app.ActivityThread;
