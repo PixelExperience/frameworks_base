@@ -77,4 +77,8 @@
     -->
     <integer name="config_LTE_RSRP_threshold_type">0</integer>
 
+    <!-- Stop listening to the fingerprint reader when NON-WAKEUP proximity sensor is covered & screen is off.
+         config_proximityCheckOnWake must be true. -->
+    <bool name="config_proximityCheckOnFingerprintWake">false</bool>
+
 </resources>
