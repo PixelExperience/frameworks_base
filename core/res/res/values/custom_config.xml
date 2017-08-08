@@ -17,4 +17,8 @@
     </string-array>
     <string-array name="device_configs_override" translatable="false">
     </string-array>
+
+    <!-- The list of package IDs that are allowed to skip camera high frame rate checks. -->
+    <string-array name="config_cameraHFRPrivAppList" translatable="false" />
+
 </resources>
