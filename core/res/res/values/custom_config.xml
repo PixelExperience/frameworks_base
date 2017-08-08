@@ -143,6 +143,9 @@
     <!-- The list of package IDs that are not allowed to use aux cameras. -->
     <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
 
+    <!-- The list of package IDs that are allowed to skip camera high frame rate checks. -->
+    <string-array name="config_cameraHFRPrivAppList" translatable="false" />
+
     <!-- Array containing custom error messages from vendor. -->
     <string-array name="face_error_vendor" translatable="false">
         <item>@string/face_unlock_disabled_idle</item>
