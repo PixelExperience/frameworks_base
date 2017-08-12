@@ -1832,8 +1832,10 @@ public final class PowerManagerService extends SystemService
                 if (eventTime > mDisplayGroupPowerStateMapper.getLastUserActivityTimeLocked(
                         groupId)) {
                     mButtonPressed = event == PowerManager.USER_ACTIVITY_EVENT_BUTTON;
-                    if ((mButtonLightOnKeypressOnly && mButtonPressed)
-                            || eventTime == mLastWakeTime) {
+                    if (eventTime == mLastWakeTime ||
+                            (mButtonLightOnKeypressOnly && mButtonPressed &&
+                                    (flags & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS)
+                                            == 0)) {
                         mButtonPressed = true;
                         mLastButtonActivityTime = eventTime;
                     }
