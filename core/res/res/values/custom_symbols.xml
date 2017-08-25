@@ -57,6 +57,7 @@
     <!-- Enable face auth only when swiping security view -->
     <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
+<<<<<<< HEAD   (f30ec0 OverScroller: Import BoostFramework.ScrollOptimizer)
     <!-- Power menu -->
     <java-symbol type="array" name="config_restartActionsList" />
 
@@ -102,5 +103,12 @@
 
     <!-- Whether to allow network traffic on statusbar -->
     <java-symbol type="bool" name="config_supportsNetworkTrafficOnStatusBar" />
+=======
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <java-symbol type="string" name="config_oemFastChargerStatusPath" />
+
+    <!-- Expected value from fast charging status file -->
+    <java-symbol type="string" name="config_oemFastChargerStatusValue" />
+>>>>>>> CHANGE (d29450 BatteryService: Add support for OEM fast charger detection)
 
 </resources>
