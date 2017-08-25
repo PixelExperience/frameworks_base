@@ -97,4 +97,9 @@
     <!-- Whether to turn on the notification light when the state of the front camera changes -->
     <java-symbol type="bool" name="config_popUpNotificationLight" />
 
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <java-symbol type="string" name="config_oemFastChargerStatusPath" />
+    <!-- Expected value from fast charging status file -->
+    <java-symbol type="string" name="config_oemFastChargerStatusValue" />
+
 </resources>
