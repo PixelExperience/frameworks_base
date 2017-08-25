@@ -199,5 +199,10 @@
 
     <!-- Whether to allow network traffic on statusbar -->
     <bool name="config_supportsNetworkTrafficOnStatusBar">true</bool>
+  
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusPath" translatable="false"></string>
 
+    <!-- Expected value from fast charging status file  -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
 </resources>
