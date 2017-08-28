@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2018 The Android Open Source Project
+<!--  Copyright (C) 2017 The Dirty Unicorns Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,13 +13,17 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval"
-    android:useLevel="false">
-
-    <solid android:color="?attr/singleToneColor" />
-
-    <size
-        android:height="14dp"
-        android:width="14dp" />
-</shape>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24.0dp"
+        android:height="24.0dp"
+        android:viewportWidth="96.0"
+        android:viewportHeight="96.0">
+    <path
+        android:fillColor="?attr/singleToneColor"
+        android:pathData="M 48 20 C 63.4639729953 20 76 32.5360270047 76 48 C 76 63.4639729953 63.4639729953 76 48 76 C 32.5360270047 76 20 63.4639729953 20 48 C 20 32.5360270047 32.5360270047 20 48 20 Z" />
+    <path
+        android:fillColor="?attr/singleToneColor"
+        android:pathData="M48,10c-21,0-38,17-38,38s17,38,38,38s38-17,38-38S69,10,48,10z
+M48,82c-18.8,0-34-15.2-34-34
+c0-18.8,15.2-34,34-34s34,15.2,34,34C82,66.8,66.8,82,48,82z" />
+</vector>
