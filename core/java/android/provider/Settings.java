@@ -4188,6 +4188,12 @@ public final class Settings {
         public static final String APP_SWITCH_WAKE_SCREEN = "app_switch_wake_screen";
 
         /**
+         * Change volume up and down handlign based on rotation
+         * @hide
+         */
+        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
