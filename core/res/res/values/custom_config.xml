@@ -151,4 +151,7 @@
     <bool name="config_button_brightness_support">false</bool>
     <integer name="config_button_brightness_default">128</integer>
 
+    <!-- Flashlight on power button -->
+    <integer name="config_flashlightProximityTimeout">300</integer>
+
 </resources>

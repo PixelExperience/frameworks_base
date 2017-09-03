@@ -6971,6 +6971,18 @@ public final class Settings {
                 "camera_double_tap_power_gesture_disabled";
 
         /**
+         * Whether the torch launch gesture to double tap or long press the power button when the
+         * screen is off should be enabled.
+         *
+         * 0: disabled
+         * 1: double tap power for torch
+         * 2: long tap power for torch
+         * @hide
+         */
+        public static final String TORCH_POWER_BUTTON_GESTURE =
+                "torch_power_button_gesture";
+
+        /**
          * Whether the camera double twist gesture to flip between front and back mode should be
          * enabled.
          *
@@ -7331,6 +7343,7 @@ public final class Settings {
             SYNC_PARENT_SOUNDS,
             CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED,
             CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
+            TORCH_POWER_BUTTON_GESTURE,
             SYSTEM_NAVIGATION_KEYS_ENABLED,
             QS_TILES,
             DOZE_ENABLED,
