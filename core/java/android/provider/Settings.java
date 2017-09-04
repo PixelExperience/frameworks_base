@@ -4759,6 +4759,7 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
+<<<<<<< HEAD   (f48b52 FODCircleView: Fix build after 1dbb3fca77587bc8c85b779f0fafe)
          * Whether to allow killing of the foreground app by long-pressing the Back button
          * @hide
          */
@@ -5361,6 +5362,15 @@ public final class Settings {
 
         /** @hide */
         private static final Validator QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR =
+=======
+        * Whether to allow battery light
+        * @hide
+        */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /** @hide */
+        public static final Validator BATTERY_LIGHT_ENABLED_VALIDATOR =
+>>>>>>> CHANGE (96ae10 Add back battery light switch [1/2])
                 BOOLEAN_VALIDATOR;
 
         /**
@@ -5715,6 +5725,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(REFRESH_RATE_SETTING);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
+<<<<<<< HEAD   (f48b52 FODCircleView: Fix build after 1dbb3fca77587bc8c85b779f0fafe)
             PRIVATE_SETTINGS.add(KILL_APP_LONGPRESS_BACK);
             PRIVATE_SETTINGS.add(POWER_MENU_ACTIONS);
             PRIVATE_SETTINGS.add(ADVANCED_REBOOT);
@@ -5782,6 +5793,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
+=======
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
+>>>>>>> CHANGE (96ae10 Add back battery light switch [1/2])
         }
 
         /**
@@ -5901,6 +5915,7 @@ public final class Settings {
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_MODE_OVERLAY, NAVIGATION_BAR_MODE_OVERLAY_VALIDATOR);
+<<<<<<< HEAD   (f48b52 FODCircleView: Fix build after 1dbb3fca77587bc8c85b779f0fafe)
             VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
             VALIDATORS.put(POWER_MENU_ACTIONS, POWER_MENU_ACTIONS_VALIDATOR);
             VALIDATORS.put(ADVANCED_REBOOT, ADVANCED_REBOOT_VALIDATOR);
@@ -5968,6 +5983,9 @@ public final class Settings {
             VALIDATORS.put(DISPLAY_COLOR_ADJUSTMENT, DISPLAY_COLOR_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
+=======
+            VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
+>>>>>>> CHANGE (96ae10 Add back battery light switch [1/2])
         }
 
         /**
