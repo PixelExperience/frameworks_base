@@ -13342,6 +13342,12 @@ public final class Settings {
                 "power_button_very_long_press";
 
         /**
+        * Whether to allow battery light
+        * @hide
+        */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
