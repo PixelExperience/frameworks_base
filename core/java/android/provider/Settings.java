@@ -14949,6 +14949,12 @@ public final class Settings {
                 "power_button_very_long_press";
 
         /**
+        * Whether to allow battery light
+        * @hide
+        */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /**
          * Overrides internal R.integer.config_keyChordPowerVolumeUp.
          * Allowable values detailed in frameworks/base/core/res/res/values/config.xml.
          * Used by PhoneWindowManager.
