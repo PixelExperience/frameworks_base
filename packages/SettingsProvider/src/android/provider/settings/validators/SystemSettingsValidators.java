@@ -299,5 +299,9 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NETWORK_TRAFFIC_LOCATION, new InclusiveIntegerRangeValidator(0, 2));
         VALIDATORS.put(System.NETWORK_TRAFFIC_AUTOHIDE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NETWORK_TRAFFIC_UNIT_TYPE, new InclusiveIntegerRangeValidator(0, 1));
+        VALIDATORS.put(System.QS_ROWS_PORTRAIT, new InclusiveIntegerRangeValidator(1, 5));
+        VALIDATORS.put(System.QS_ROWS_LANDSCAPE, new InclusiveIntegerRangeValidator(1, 2));
+        VALIDATORS.put(System.QS_COLUMNS_PORTRAIT, new InclusiveIntegerRangeValidator(1, 5));
+        VALIDATORS.put(System.QS_COLUMNS_LANDSCAPE, new InclusiveIntegerRangeValidator(1, 7));
     }
 }
