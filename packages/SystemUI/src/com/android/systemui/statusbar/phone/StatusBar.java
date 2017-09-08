@@ -285,6 +285,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             "customsystem:" + Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
     private static final String DISPLAY_CUTOUT_HIDDEN =
             "customsystem:" + Settings.System.DISPLAY_CUTOUT_HIDDEN;
+    private static final String QS_ROWS_PORTRAIT =
+            "customsystem:" + Settings.System.QS_ROWS_PORTRAIT;
+    private static final String QS_ROWS_LANDSCAPE =
+            "customsystem:" + Settings.System.QS_ROWS_LANDSCAPE;
+    private static final String QS_COLUMNS_PORTRAIT =
+            "customsystem:" + Settings.System.QS_COLUMNS_PORTRAIT;
+    private static final String QS_COLUMNS_LANDSCAPE =
+            "customsystem:" + Settings.System.QS_COLUMNS_LANDSCAPE;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -935,6 +943,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         mTunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
         mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
         mTunerService.addTunable(this, DISPLAY_CUTOUT_HIDDEN);
+        mTunerService.addTunable(this, QS_ROWS_PORTRAIT);
+        mTunerService.addTunable(this, QS_ROWS_LANDSCAPE);
+        mTunerService.addTunable(this, QS_COLUMNS_PORTRAIT);
+        mTunerService.addTunable(this, QS_COLUMNS_LANDSCAPE);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
@@ -2132,6 +2144,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void setBlockedGesturalNavigation(boolean blocked) {
         if (getNavigationBarView() != null) {
             getNavigationBarView().setBlockedGesturalNavigation(blocked);
+        }
+    }
+
+    private void setQsRowsColumns() {
+        if (mQSPanel != null) {
+            mQSPanel.updateResources();
         }
     }
 
@@ -4788,6 +4806,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (!mCutoutChanged){
                 mCutoutChanged = true;
             }
+        } else if (QS_ROWS_PORTRAIT.equals(key) || QS_ROWS_LANDSCAPE.equals(key) || 
+                QS_COLUMNS_PORTRAIT.equals(key) || QS_COLUMNS_LANDSCAPE.equals(key)) {
+            setQsRowsColumns();
         }
     }
     // End Extra BaseStatusBarMethods.
