@@ -22,6 +22,8 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -80,6 +82,8 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private int mY;
     private boolean mOpening;
     private boolean mIsShowingNavBackdrop;
+    private GridLayoutManager mGlm;
+    private int mDefaultColumns;
 
     public QSCustomizer(Context context, AttributeSet attrs) {
         super(new ContextThemeWrapper(context, R.style.edit_theme), attrs);
@@ -102,6 +106,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                 mContext.getString(com.android.internal.R.string.reset));
         mToolbar.setTitle(R.string.qs_edit);
         int accentColor = Utils.getColorAttr(context, android.R.attr.colorAccent);
+        mDefaultColumns = Math.max(1, mContext.getResources().getInteger(R.integer.quick_settings_num_columns));
         mToolbar.setTitleTextColor(accentColor);
         mToolbar.getNavigationIcon().setTint(accentColor);
         mToolbar.getOverflowIcon().setTint(accentColor);
@@ -110,15 +115,17 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mTileQueryHelper = new TileQueryHelper(context, mTileAdapter);
         mRecyclerView.setAdapter(mTileAdapter);
         mTileAdapter.getItemTouchHelper().attachToRecyclerView(mRecyclerView);
-        GridLayoutManager layout = new GridLayoutManager(getContext(), 3);
-        layout.setSpanSizeLookup(mTileAdapter.getSizeLookup());
-        mRecyclerView.setLayoutManager(layout);
+        mGlm = new GridLayoutManager(getContext(), mDefaultColumns);
+        mGlm.setSpanSizeLookup(mTileAdapter.getSizeLookup());
+        mRecyclerView.setLayoutManager(mGlm);
         mRecyclerView.addItemDecoration(mTileAdapter.getItemDecoration());
         DefaultItemAnimator animator = new DefaultItemAnimator();
         animator.setMoveDuration(TileAdapter.MOVE_DURATION);
         mRecyclerView.setItemAnimator(animator);
         mLightBarController = Dependency.get(LightBarController.class);
         updateNavBackDrop(getResources().getConfiguration());
+
+        updateResources();
     }
 
     @Override
@@ -135,6 +142,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             navBackdrop.setVisibility(mIsShowingNavBackdrop ? View.VISIBLE : View.GONE);
         }
         updateNavColors();
+        updateResources();
     }
 
     private void updateNavColors() {
@@ -228,6 +236,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                 reset();
                 break;
         }
+        updateResources();
         return false;
     }
 
@@ -296,6 +305,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         public void onAnimationEnd(Animator animation) {
             if (isShown) {
                 setCustomizing(true);
+                updateResources();
             }
             mOpening = false;
             mNotifQsContainer.setCustomizerAnimating(false);
@@ -326,4 +336,19 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             mNotifQsContainer.setCustomizerAnimating(false);
         }
     };
+
+    public void updateResources() {
+        final int columns;
+        if (mContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            columns = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.QS_COLUMNS_PORTRAIT, mDefaultColumns,
+                    UserHandle.USER_CURRENT);
+        } else {
+            columns = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.QS_COLUMNS_LANDSCAPE, mDefaultColumns,
+                    UserHandle.USER_CURRENT);
+        }
+        mTileAdapter.setColumns(columns);
+        mGlm.setSpanCount(columns);
+    }
 }
