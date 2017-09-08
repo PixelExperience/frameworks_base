@@ -8,4 +8,16 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
 
+    <!-- Tuner Theme-->
+    <style name="ExTunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="dropdownPreferenceStyle">@style/TunerSettings.DropdownPreferenceStyle</item>
+        <item name="dialogPreferenceStyle">@style/TunerSettings.DialogPreferenceStyle</item>
+        <item name="preferenceCategoryStyle">@style/TunerSettings.PreferenceCategoryStyle</item>
+        <item name="preferenceFragmentStyle">@style/TunerSettings.PreferenceFragmentStyle</item>
+        <item name="preferenceScreenStyle">@style/TunerSettings.PreferenceStyle</item>
+        <item name="preferenceStyle">@style/TunerSettings.PreferenceStyle</item>
+        <item name="preferenceTheme">@style/TunerSettings.PreferenceTheme</item>
+        <item name="switchPreferenceStyle">@style/TunerSettings.SwitchPreferenceStyle</item>
+    </style>
+
 </resources>
