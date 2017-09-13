@@ -35,6 +35,7 @@ import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.qs.GlobalSetting;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
@@ -47,15 +48,17 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
     private final GlobalSetting mSetting;
     private final ActivityStarter mActivityStarter;
     private final BroadcastDispatcher mBroadcastDispatcher;
+    private final KeyguardStateController mKeyguard;
 
     private boolean mListening;
 
     @Inject
     public AirplaneModeTile(QSHost host, ActivityStarter activityStarter,
-            BroadcastDispatcher broadcastDispatcher) {
+            BroadcastDispatcher broadcastDispatcher, KeyguardStateController keyguardStateController) {
         super(host);
         mActivityStarter = activityStarter;
         mBroadcastDispatcher = broadcastDispatcher;
+        mKeyguard = keyguardStateController;
 
         mSetting = new GlobalSetting(mContext, mHandler, Global.AIRPLANE_MODE_ON) {
             @Override
@@ -77,6 +80,13 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
         if (!airplaneModeEnabled && TelephonyProperties.in_ecm_mode().orElse(false)) {
             mActivityStarter.postStartActivityDismissingKeyguard(
                     new Intent(TelephonyManager.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS), 0);
+            return;
+        }
+
+        if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                setEnabled(!airplaneModeEnabled);
+            });
             return;
         }
         setEnabled(!airplaneModeEnabled);
