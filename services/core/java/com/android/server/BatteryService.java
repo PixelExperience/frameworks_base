@@ -194,6 +194,7 @@ public final class BatteryService extends SystemService {
 
     // Battery light customization
     private boolean mBatteryLightEnabled;
+    private boolean mLowBatteryBlinking;
 
     private boolean mSentLowBatteryBroadcast = false;
 
@@ -300,6 +301,9 @@ public final class BatteryService extends SystemService {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BATTERY_LIGHT_ENABLED),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.BATTERY_LIGHT_LOW_BLINKING),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -314,6 +318,8 @@ public final class BatteryService extends SystemService {
             mBatteryLightEnabled = Settings.System.getInt(resolver,
                     Settings.System.BATTERY_LIGHT_ENABLED, mContext.getResources().getBoolean(
                         com.android.internal.R.bool.config_intrusiveBatteryLed) ? 1 : 0) == 1;
+            mLowBatteryBlinking = Settings.System.getInt(resolver,
+                    Settings.System.BATTERY_LIGHT_LOW_BLINKING, 1) == 1;
             updateLed();
         }
     }
@@ -1165,10 +1171,13 @@ public final class BatteryService extends SystemService {
                 if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
                     // Solid red when battery is charging
                     mBatteryLight.setColor(mBatteryLowARGB);
-                } else {
+                } else if(mLowBatteryBlinking) {
                     // Flash red when battery is low and not charging
                     mBatteryLight.setFlashing(mBatteryLowARGB, Light.LIGHT_FLASH_TIMED,
                             mBatteryLedOn, mBatteryLedOff);
+                }else{
+                    // "Pulse low battery light" is disabled, no lights.
+                    mBatteryLight.turnOff();
                 }
             } else if (status == BatteryManager.BATTERY_STATUS_CHARGING
                     || status == BatteryManager.BATTERY_STATUS_FULL) {
