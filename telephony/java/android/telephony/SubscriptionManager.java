@@ -1018,6 +1018,11 @@ public class SubscriptionManager {
     }
 
     /** @hide */
+    public static int getSlotId(int subId) {
+       return getSlotIndex(subId);
+    }
+
+    /** @hide */
     public static int[] getSubId(int slotIndex) {
         if (!isValidSlotIndex(slotIndex)) {
             logd("[getSubId]- fail");
@@ -1417,6 +1422,11 @@ public class SubscriptionManager {
         }
 
         return simState;
+    }
+
+    /** @hide */
+    public static int getSimStateForSlotIdx(int slotIdx) {
+        return getSimStateForSlotIndex(slotIdx);
     }
 
     /**
