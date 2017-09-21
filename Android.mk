@@ -43,6 +43,7 @@ include $(LOCAL_PATH)/pathmap.mk
 # FRAMEWORKS_BASE_SUBDIRS comes from build/core/pathmap.mk
 LOCAL_SRC_FILES := \
         $(call find-other-java-files,$(FRAMEWORKS_BASE_SUBDIRS)) \
+        $(call all-java-files-under, ../hwkeys-support/java) \
         $(call all-proto-files-under, core/proto)
 
 # EventLogTags files.

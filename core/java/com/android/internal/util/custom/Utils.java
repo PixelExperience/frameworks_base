@@ -18,16 +18,22 @@ package com.android.internal.util.custom;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.IWindowManager;
+import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
 
 public class Utils {
+
+    public static final String INTENT_SCREENSHOT = "action_take_screenshot";
+    public static final String INTENT_REGION_SCREENSHOT = "action_take_region_screenshot";
 
     // Check to see if device is WiFi only
     public static boolean isWifiOnly(Context context) {
@@ -56,7 +62,15 @@ public class Utils {
         return isPackageInstalled(context, pkg, true);
     }
 
-    // Check to see if device supports the Fingerprint scanner
+    public static void takeScreenshot(boolean full) {
+        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+        try {
+            wm.sendCustomAction(new Intent(full? INTENT_SCREENSHOT : INTENT_REGION_SCREENSHOT));
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean hasFingerprintSupport(Context context) {
         FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
         return context.getApplicationContext().checkSelfPermission(Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&

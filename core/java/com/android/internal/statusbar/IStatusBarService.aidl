@@ -79,4 +79,11 @@ interface IStatusBarService
     void clickTile(in ComponentName tile);
     void handleSystemKey(in int key);
     void toggleNavigationBar(boolean enable);
+    void toggleRecentApps();
+    void toggleSplitScreen();
+    void preloadRecentApps();
+    void cancelPreloadRecentApps();
+    void startAssist(in Bundle args);
+    void screenPinningStateChanged(boolean enabled);
+    void toggleFlashlight();
 }

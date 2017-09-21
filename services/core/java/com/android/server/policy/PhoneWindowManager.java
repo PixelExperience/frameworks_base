@@ -118,6 +118,7 @@ import static android.view.WindowManagerPolicy.WindowManagerFuncs.LID_ABSENT;
 import static android.view.WindowManagerPolicy.WindowManagerFuncs.LID_CLOSED;
 import static android.view.WindowManagerPolicy.WindowManagerFuncs.LID_OPEN;
 
+import android.Manifest;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
@@ -233,12 +234,16 @@ import android.view.inputmethod.InputMethodManagerInternal;
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.logging.MetricsLogger;
+import com.android.internal.policy.IKeyguardDismissCallback;
+import com.android.internal.util.custom.Utils;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.policy.IKeyguardDismissCallback;
 import com.android.internal.policy.IShortcutService;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ScreenShapeHelper;
+import com.android.internal.util.hwkeys.ActionHandler;
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.widget.PointerLocationView;
 import com.android.server.GestureLauncherService;
 import com.android.server.LocalServices;
@@ -814,6 +819,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private final MutableBoolean mTmpBoolean = new MutableBoolean(false);
 
     private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
+    private HardkeyActionHandler mKeyHandler;
 
     private static final int MSG_ENABLE_POINTER_LOCATION = 1;
     private static final int MSG_DISABLE_POINTER_LOCATION = 2;
@@ -934,6 +940,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 case MSG_HANDLE_ALL_APPS:
                     launchAllAppsAction();
+                    break;
+                case HardkeyActionHandler.MSG_FIRE_HOME:
+                    launchHomeFromHotKey();
+                    break;
+//                case HardkeyActionHandler.MSG_UPDATE_MENU_KEY:
+//                    synchronized (mLock) {
+//                        mHasPermanentMenuKey = msg.arg1 == 1;
+//                    }
+//                    break;
+                case HardkeyActionHandler.MSG_DO_HAPTIC_FB:
+                    performHapticFeedbackLw(null,
+                            HapticFeedbackConstants.LONG_PRESS, false);
                     break;
             }
         }
@@ -1954,6 +1972,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         try {
             mOrientationListener.setCurrentRotation(windowManager.getDefaultDisplayRotation());
         } catch (RemoteException ex) { }
+
+        // only for hwkey devices
+        if (!mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar)) {
+            mKeyHandler = new HardkeyActionHandler(mContext, mHandler);
+        }
+
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
         mShortcutManager = new ShortcutManager(context);
@@ -3415,11 +3440,28 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final int flags = event.getFlags();
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
+        final boolean longPress = (flags & KeyEvent.FLAG_LONG_PRESS) != 0;
+        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
                     + repeatCount + " keyguardOn=" + keyguardOn + " mHomePressed=" + mHomePressed
                     + " canceled=" + canceled);
+        }
+
+        // we only handle events from hardware key devices that originate from
+        // real button
+        // pushes. We ignore virtual key events as well since it didn't come
+        // from a hard key or
+        // it's the key handler synthesizing a back or menu key event for
+        // dispatch
+        // if keyguard is showing and secure, don't intercept and let aosp keycode
+        // implementation handle event
+        if (mKeyHandler != null && !keyguardOn && !virtualKey) {
+            boolean handled = mKeyHandler.handleKeyEvent(win, keyCode, repeatCount, down, canceled,
+                    longPress, keyguardOn);
+            if (handled)
+                return -1;
         }
 
         // If we think we might have a volume down & power key chord on the way
@@ -8331,6 +8373,26 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     @Override
     public boolean hasNavigationBar() {
         return mHasNavigationBar;
+    }
+
+    @Override
+    public void sendCustomAction(Intent intent) {
+        String action = intent.getAction();
+        if (action != null) {
+            if (ActionHandler.INTENT_SHOW_POWER_MENU.equals(action)) {
+                showGlobalActions();
+            } else if (Utils.INTENT_SCREENSHOT.equals(action) || ActionHandler.INTENT_SCREENSHOT.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER, TAG + "sendCustomAction permission denied");
+                mHandler.removeCallbacks(mScreenshotRunnable);
+                mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+                mHandler.post(mScreenshotRunnable);
+            } else if (Utils.INTENT_REGION_SCREENSHOT.equals(action) || ActionHandler.INTENT_REGION_SCREENSHOT.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER, TAG + "sendCustomAction permission denied");
+                mHandler.removeCallbacks(mScreenshotRunnable);
+                mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
+                mHandler.post(mScreenshotRunnable);
+            }
+        }
     }
 
     @Override

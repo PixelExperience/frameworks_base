@@ -112,4 +112,9 @@
   <!-- Fastscroller text color (Launcher3) -->
   <java-symbol type="color" name="fastscroller_thumb_text_color" />
 
+  <!-- HW keys binding -->  
+  <java-symbol type="anim" name="custom_app_in" />
+  <java-symbol type="anim" name="custom_app_out" />
+  <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
 </resources>
