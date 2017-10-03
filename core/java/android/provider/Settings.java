@@ -4509,6 +4509,16 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
+         *  Enable statusbar double tap gesture on to put device to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
+
+        /** @hide */
+        public static final Validator DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4722,6 +4732,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
             PRIVATE_SETTINGS.add(FP_SUCCESS_AUTH_VIB);
             PRIVATE_SETTINGS.add(STATUS_BAR_QUICK_QS_PULLDOWN);
+            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
         }
 
         /**
@@ -4848,6 +4859,7 @@ public final class Settings {
             VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
             VALIDATORS.put(FP_SUCCESS_AUTH_VIB, FP_SUCCESS_AUTH_VIB_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
+            VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
         }
 
         /**
