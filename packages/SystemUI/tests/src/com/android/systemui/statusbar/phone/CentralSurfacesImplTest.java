@@ -161,6 +161,7 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.WallpaperController;
 import com.android.systemui.util.concurrency.FakeExecutor;
 import com.android.systemui.util.concurrency.MessageRouterImpl;
@@ -284,6 +285,7 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
     @Mock private NotifLiveDataStore mNotifLiveDataStore;
     @Mock private InteractionJankMonitor mJankMonitor;
     @Mock private DeviceStateManager mDeviceStateManager;
+    @Mock private TunerService mTunerService;
     @Mock private WiredChargingRippleController mWiredChargingRippleController;
     /**
      * The process of registering/unregistering a predictive back callback requires a
@@ -475,6 +477,7 @@ public class CentralSurfacesImplTest extends SysuiTestCase {
                 mActivityLaunchAnimator,
                 mJankMonitor,
                 mDeviceStateManager,
+                mTunerService,
                 mWiredChargingRippleController, mDreamManager) {
             @Override
             protected ViewRootImpl getViewRootImpl() {
