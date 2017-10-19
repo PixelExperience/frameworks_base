@@ -123,6 +123,7 @@ android_library {
         "faceunlock_framework",
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["CustomManifest.xml"],
 
     kotlincflags: ["-Xjvm-default=enable"],
 
