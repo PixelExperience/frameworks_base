@@ -126,6 +126,7 @@ android_library {
         "vendor.lineage.powershare-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["CustomManifest.xml"],
 
     kotlincflags: ["-Xjvm-default=enable"],
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.android.systemui">
+
+    <!-- SystemUI Tuner -->
+    <application>
+        <activity-alias
+            android:name=".tuner.StatusBarTuner"
+            android:targetActivity=".tuner.TunerActivity"
+            android:icon="@drawable/tuner"
+            android:theme="@style/TunerSettings"
+            android:label="@string/status_bar"
+            android:process=":tuner"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.STATUS_BAR_TUNER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+    </application>
+
+</manifest>
