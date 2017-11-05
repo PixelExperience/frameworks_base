@@ -14,9 +14,11 @@
 
 package com.android.systemui.qs;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.UserHandle;
@@ -177,7 +179,19 @@ public class QSTileHost implements QSHost, Tunable, PluginListener<QSFactory>, D
             mAutoTiles = autoTiles.get();
             mTileServiceRequestController.init();
         });
+        mContext.registerReceiver(mLiveDisplayReceiver, new IntentFilter(
+                "lineageos.intent.action.INITIALIZE_LIVEDISPLAY"));
     }
+
+    private final BroadcastReceiver mLiveDisplayReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String value = mTunerService.getValue(TILES_SETTING);
+            // Force remove and recreate of all tiles.
+            onTuningChanged(TILES_SETTING, "");
+            onTuningChanged(TILES_SETTING, value);
+        }
+    };
 
     public StatusBarIconController getIconController() {
         return mIconController;
@@ -195,6 +209,7 @@ public class QSTileHost implements QSHost, Tunable, PluginListener<QSFactory>, D
         mPluginManager.removePluginListener(this);
         mDumpManager.unregisterDumpable(TAG);
         mTileServiceRequestController.destroy();
+        mContext.unregisterReceiver(mLiveDisplayReceiver);
     }
 
     @Override
