@@ -10,6 +10,7 @@ import com.android.systemui.qs.tiles.SyncTile
 import com.android.systemui.qs.tiles.AmbientDisplayTile
 import com.android.systemui.qs.tiles.UsbTetherTile
 import com.android.systemui.qs.tiles.VpnTile
+import com.android.systemui.qs.tiles.LiveDisplayTile
 
 import dagger.Binds
 import dagger.Module
@@ -71,4 +72,10 @@ interface CustomQSModule {
     @IntoMap
     @StringKey(VpnTile.TILE_SPEC)
     fun bindVpnTile(vpnTile: VpnTile): QSTileImpl<*>
+
+    /** Inject LiveDisplayTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(LiveDisplayTile.TILE_SPEC)
+    fun bindLiveDisplayTile(liveDisplayTile: LiveDisplayTile): QSTileImpl<*>
 }
