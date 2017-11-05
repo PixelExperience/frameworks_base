@@ -57,6 +57,7 @@ import org.pixelexperience.systemui.qs.tiles.ReverseChargingTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
+import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
@@ -109,7 +110,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<SyncTile> syncTileProvider,
-            Provider<UsbTetherTile> usbTetherTileProvider) {
+            Provider<UsbTetherTile> usbTetherTileProvider,
+            Provider<LiveDisplayTile> liveDisplayTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -145,7 +147,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 caffeineTileProvider,
                 headsUpTileProvider,
                 syncTileProvider,
-                usbTetherTileProvider);
+                usbTetherTileProvider,
+                liveDisplayTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }
