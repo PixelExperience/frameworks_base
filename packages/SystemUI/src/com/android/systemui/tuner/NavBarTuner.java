@@ -59,7 +59,12 @@ import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.NavigationBarInflaterView;
 import com.android.systemui.tuner.TunerService.Tunable;
 
+import android.support.v7.preference.Preference;
+import android.support.v14.preference.SwitchPreference;
+
 import java.util.ArrayList;
+
+import com.android.internal.util.custom.NavbarUtils;
 
 public class NavBarTuner extends TunerPreferenceFragment {
 
@@ -70,6 +75,15 @@ public class NavBarTuner extends TunerPreferenceFragment {
     private static final String TYPE = "type";
     private static final String KEYCODE = "keycode";
     private static final String ICON = "icon";
+
+    private static final String SHOW_NAVBAR = "show_nav_bar";
+    private SwitchPreference mShowNavbar;
+
+    private static final List<String> allPrefKeys = Arrays.asList(SHOW_NAVBAR,
+                                                           LAYOUT,
+                                                           TYPE + "_" + LEFT, TYPE + "_" + RIGHT,
+                                                           ICON + "_" + LEFT, ICON + "_" + RIGHT,
+                                                           KEYCODE + "_" + LEFT, KEYCODE + "_" + RIGHT);
 
     private static final int[][] ICONS = new int[][]{
             {R.drawable.ic_qs_circle, R.string.tuner_circle},
@@ -98,9 +112,41 @@ public class NavBarTuner extends TunerPreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.nav_bar_tuner);
+        boolean isNavbarEnabled = NavbarUtils.isNavigationBarEnabled(getContext());
+        mShowNavbar = (SwitchPreference) findPreference(SHOW_NAVBAR);
+        mShowNavbar.setChecked(isNavbarEnabled);
         bindLayout((ListPreference) findPreference(LAYOUT));
         bindButton(NAV_BAR_LEFT, NAVSPACE, LEFT);
         bindButton(NAV_BAR_RIGHT, MENU_IME, RIGHT);
+        updatePrefs(isNavbarEnabled);
+        mShowNavbar.setEnabled(true);
+    }
+
+    private void updatePrefs(Boolean enabled){
+        for (String key : allPrefKeys) {
+            Preference preference = findPreference(key);
+            if (preference != null){
+                preference.setEnabled(enabled);
+            }
+        }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if  (preference == mShowNavbar && mShowNavbar.isEnabled()) {
+            updatePrefs(false);
+            final boolean checked = ((SwitchPreference)preference).isChecked();
+            NavbarUtils.setNavigationBarEnabled(getContext(), checked);
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    updatePrefs(checked);
+                    mShowNavbar.setEnabled(true);
+                }
+            }, 1000);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override

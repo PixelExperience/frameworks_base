@@ -18,6 +18,11 @@
     xmlns:sysui="http://schemas.android.com/apk/res-auto"
     android:title="@string/nav_bar">
 
+    <SwitchPreference
+        android:key="show_nav_bar"
+        android:title="@string/nav_bar"
+        android:defaultValue="true" />
+
     <com.android.systemui.tuner.RadioListPreference
         android:key="layout"
         android:title="@string/nav_bar_layout"
