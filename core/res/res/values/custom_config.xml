@@ -81,4 +81,7 @@
          config_proximityCheckOnWake must be true. -->
     <bool name="config_proximityCheckOnFingerprintWake">false</bool>
 
+    <!-- Adjust grip mode for input enable/disable -->    
+    <bool name="config_needsIMEGripAdjust">false</bool>
+
 </resources>

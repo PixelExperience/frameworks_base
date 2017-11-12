@@ -104,6 +104,7 @@ import android.os.RemoteException;
 import android.os.ResultReceiver;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -248,7 +249,9 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     final WindowManagerInternal mWindowManagerInternal;
     final HandlerCaller mCaller;
     final boolean mHasFeature;
+    final boolean mNeedsGripAdjust;
     private InputMethodFileManager mFileManager;
+    private boolean mGripStatus;
     private final HardKeyboardListener mHardKeyboardListener;
     private final AppOpsManager mAppOpsManager;
     private final UserManager mUserManager;
@@ -1280,6 +1283,7 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
         mIPackageManager = AppGlobals.getPackageManager();
         mContext = context;
         mRes = context.getResources();
+        mNeedsGripAdjust = mRes.getBoolean(com.android.internal.R.bool.config_needsIMEGripAdjust);
         mHandler = new Handler(this);
         // Note: SettingsObserver doesn't register observers in its constructor.
         mSettingsObserver = new SettingsObserver(mHandler);
@@ -2550,6 +2554,10 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
             }
         }
 
+        if (mInputShown && mGripStatus && mNeedsGripAdjust) {
+            SystemProperties.set("sys.grip.status", "off");
+            mGripStatus = false;
+        }
         return res;
     }
 
@@ -2628,6 +2636,10 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
         mShowRequested = false;
         mShowExplicitlyRequested = false;
         mShowForced = false;
+        if (res && !mGripStatus && mNeedsGripAdjust) {
+            SystemProperties.set("sys.grip.status", "on");
+            mGripStatus = true;
+        }
         return res;
     }
 
