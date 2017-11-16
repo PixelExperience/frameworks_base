@@ -60,4 +60,9 @@
     <string name="global_action_restart_hot">Quick reboot</string>
     <string name="global_action_screenshot">Screenshot</string>
 
+    <!-- QS Tiles -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+
 </resources>
