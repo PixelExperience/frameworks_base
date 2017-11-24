@@ -270,6 +270,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.os.DeviceKeyHandler;
+import com.android.internal.os.VolumeKeyHandler;
 import com.android.internal.policy.IKeyguardDismissCallback;
 import com.android.internal.policy.IShortcutService;
 import com.android.internal.policy.KeyguardDismissCallback;
@@ -866,6 +867,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private boolean mAodShowing;
     private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
+    private VolumeKeyHandler mVolumeKeyHandler;
 
     private static final int MSG_ENABLE_POINTER_LOCATION = 1;
     private static final int MSG_DISABLE_POINTER_LOCATION = 2;
@@ -6717,6 +6719,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // {@link interceptKeyBeforeDispatching()}.
                     result |= ACTION_PASS_TO_USER;
                 } else if ((result & ACTION_PASS_TO_USER) == 0 && !mVolumeWakeScreen) {
+                    if (mVolumeKeyHandler.handleVolumeKey(event, interactive))
+                        break;
+
                     // If we aren't passing to the user and no one else
                     // handled it send it to the session manager to
                     // figure out.
@@ -8251,6 +8256,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
 
+        mVolumeKeyHandler = new VolumeKeyHandler(mContext);
         mSystemGestures.systemReady();
         mImmersiveModeConfirmation.systemReady();
 
