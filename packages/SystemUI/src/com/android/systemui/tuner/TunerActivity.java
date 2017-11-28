@@ -53,8 +53,11 @@ public class TunerActivity extends SettingsDrawerActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Dependency.destroy(FragmentService.class, s -> s.destroyAll());
-        Dependency.clearDependencies();
+        try {
+            Dependency.destroy(FragmentService.class, s -> s.destroyAll());
+            Dependency.clearDependencies();
+        }catch(Exception ex){
+        }
     }
 
     @Override

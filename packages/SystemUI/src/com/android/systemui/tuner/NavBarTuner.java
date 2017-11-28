@@ -106,12 +106,18 @@ public class NavBarTuner extends TunerPreferenceFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mTunables.forEach(t -> Dependency.get(TunerService.class).removeTunable(t));
+        try {
+            mTunables.forEach(t -> Dependency.get(TunerService.class).removeTunable(t));
+        }catch (Exception e){
+        }
     }
 
     private void addTunable(Tunable tunable, String... keys) {
-        mTunables.add(tunable);
-        Dependency.get(TunerService.class).addTunable(tunable, keys);
+        try {
+            mTunables.add(tunable);
+            Dependency.get(TunerService.class).addTunable(tunable, keys);
+        }catch (Exception e){
+        }
     }
 
     private void bindLayout(ListPreference preference) {
