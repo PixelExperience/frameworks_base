@@ -102,4 +102,9 @@ interface IPowerManager
 
     // Custom API
     void setKeyboardVisibility(boolean visible);
+<<<<<<< HEAD   (d43eda Automatic translation import)
+=======
+    void rebootCustom(boolean confirm, String reason, boolean wait);
+    void wakeUpWithProximityCheck(long time, int reason, String details, String opPackageName);
+>>>>>>> CHANGE (11aabe PowerManager: Add proximity check on wake)
 }
