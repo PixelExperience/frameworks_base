@@ -5094,6 +5094,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(FOD_GESTURE);
+            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
         }
 
         /**
@@ -9232,6 +9233,12 @@ public final class Settings {
          * @hide
          */
         public static final String FACE_UNLOCK_METHOD = "face_unlock_method";
+
+        /**
+         * Check the proximity sensor during wakeup
+         * @hide
+         */
+        public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
 
         /**
          * These entries are considered common between the personal and the managed profile,
