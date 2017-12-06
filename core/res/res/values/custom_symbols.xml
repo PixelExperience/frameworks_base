@@ -37,6 +37,9 @@
     <!-- Leds -->
     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
 
+    <!-- Vendor signatures -->
+    <java-symbol type="array" name="config_vendorPlatformSignatures" />
+
     <!-- Package Manager -->
     <java-symbol type="array" name="config_deviceDisabledComponents" />
     <java-symbol type="array" name="config_globallyDisabledComponents" />
