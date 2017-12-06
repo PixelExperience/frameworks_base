@@ -44,4 +44,7 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <java-symbol type="string" name="custom_system_error_manufacturer" />
 
+  <!-- Vendor signatures -->
+  <java-symbol type="array" name="config_vendorPlatformSignatures" />
+
 </resources>

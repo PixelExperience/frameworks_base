@@ -52,4 +52,9 @@
     <!-- True if the gesture service should be started at system start -->
     <bool name="config_enableGestureService">false</bool>
 
+    <!-- The list of vendor package signatures that should also be considered
+         platform signatures, specifically for use on devices with a vendor partition. -->
+    <string-array name="config_vendorPlatformSignatures">
+    </string-array>
+
 </resources>
