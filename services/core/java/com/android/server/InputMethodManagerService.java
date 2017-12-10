@@ -1316,6 +1316,7 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
 
         Intent intent = new Intent(ACTION_SHOW_INPUT_METHOD_PICKER)
                 .setPackage(mContext.getPackageName());
+		intent.addFlags(Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND);
         mImeSwitchPendingIntent = PendingIntent.getBroadcast(mContext, 0, intent, 0);
 
         mShowOngoingImeSwitcherForPhones = false;
