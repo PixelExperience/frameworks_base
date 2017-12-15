@@ -54,6 +54,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks2;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -889,6 +890,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         createAndAddWindows();
 
         mSettingsObserver.onChange(false); // set up
+
+        mCustomSettingsObserver.observe();
+        mCustomSettingsObserver.update();
+
         mCommandQueue.disable(switches[0], switches[6], false /* animate */);
         setSystemUiVisibility(switches[1], switches[7], switches[8], 0xffffffff,
                 fullscreenStackBounds, dockedStackBounds);
@@ -4748,11 +4753,18 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null;
 
-        // The system wallpaper defines if QS should be light or dark.
-        WallpaperColors systemColors = mColorExtractor
-                .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        final boolean useDarkTheme = systemColors != null
-                && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        int userThemeSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SYSTEM_UI_THEME, 0, mCurrentUserId);
+        boolean useDarkTheme = false;
+        if (userThemeSetting == 0) {
+            // The system wallpaper defines if QS should be light or dark.
+            WallpaperColors systemColors = mColorExtractor
+                    .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
+            useDarkTheme = systemColors != null
+                    && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        } else {
+            useDarkTheme = userThemeSetting == 2;
+        }
         if (isUsingDarkTheme() != useDarkTheme) {
             try {
                 mOverlayManager.setEnabled("com.android.system.theme.dark",
@@ -5931,6 +5943,32 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateNotifications();
         }
     };
+
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_UI_THEME),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_UI_THEME))) {
+                updateTheme();
+            }
+        }
+
+        public void update() {
+        }
+
+    }
 
     private RemoteViews.OnClickHandler mOnClickHandler = new RemoteViews.OnClickHandler() {
 
