@@ -110,4 +110,11 @@
     <bool name="config_useDarkBgNotificationTinting_override">false</bool>
     <bool name="config_notificationTinting_override">false</bool>
 
+    <!-- Power menu -->
+    <string-array translatable="false" name="config_custom_globalActionsList">
+        <item>power</item>
+        <item>restart</item>
+        <item>advanced</item>
+    </string-array>
+
 </resources>
