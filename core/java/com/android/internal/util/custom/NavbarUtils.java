@@ -21,6 +21,7 @@ import android.os.SystemProperties;
 import android.content.ContentResolver;
 import android.provider.Settings;
 import android.os.UserHandle;
+import android.os.Handler;
 
 public class NavbarUtils {
 
@@ -63,4 +64,13 @@ public class NavbarUtils {
         return context.getResources().getBoolean(com.android.internal.R.bool.config_canDisableNavigationBar);
     }
 
+    public static void reloadNavigationBar(Context context){
+        setNavigationBarEnabled(context, false);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setNavigationBarEnabled(context, true);
+            }
+        }, 1000);
+    }
 }
