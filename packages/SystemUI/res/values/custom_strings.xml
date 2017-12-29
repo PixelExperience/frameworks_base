@@ -59,5 +59,6 @@
     <string name="global_action_restart_bootloader">Bootloader</string>    
     <string name="global_action_restart_ui">SystemUI</string>
     <string name="global_action_restart_hot">Quick reboot</string>
+    <string name="global_action_screenshot">Screenshot</string>
 
 </resources>
