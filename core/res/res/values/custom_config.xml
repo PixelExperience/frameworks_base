@@ -116,6 +116,7 @@
         <item>restart</item>
         <item>advanced</item>
         <item>screenshot</item>
+        <item>airplane</item>
     </string-array>
 
 </resources>
