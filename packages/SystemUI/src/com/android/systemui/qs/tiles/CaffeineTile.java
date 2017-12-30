@@ -33,18 +33,23 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.Dependency;
+import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 /** Quick settings tile: Caffeine **/
 public class CaffeineTile extends QSTileImpl<BooleanState> {
 
     private final PowerManager.WakeLock mWakeLock;
     private final Receiver mReceiver = new Receiver();
+    private final KeyguardMonitor mKeyguard;
 
     public CaffeineTile(QSHost host) {
         super(host);
         mWakeLock = ((PowerManager) mContext.getSystemService(Context.POWER_SERVICE)).newWakeLock(
                 PowerManager.FULL_WAKE_LOCK, "CaffeineTile");
         mReceiver.init();
+        mKeyguard = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
@@ -67,6 +72,17 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick() {
+        if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
+            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                onClick();
+            });
+            return;
+        }
+        onClick();
+    }
+
+    private void onClick(){
         // toggle
         if (mWakeLock.isHeld()) {
             mWakeLock.release();

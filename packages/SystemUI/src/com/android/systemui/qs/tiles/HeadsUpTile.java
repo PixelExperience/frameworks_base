@@ -29,11 +29,15 @@ import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.R;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.systemui.Dependency;
+import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 /** Quick settings tile: Heads up **/
 public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
     private final GlobalSetting mSetting;
+    private final KeyguardMonitor mKeyguard;
 
     public HeadsUpTile(QSHost host) {
         super(host);
@@ -44,6 +48,7 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
                 handleRefreshState(value);
             }
         };
+        mKeyguard = Dependency.get(KeyguardMonitor.class);
     }
 
     @Override
@@ -53,6 +58,17 @@ public class HeadsUpTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick() {
+        if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
+            Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                onClick();
+            });
+            return;
+        }
+        onClick();
+    }
+
+    private void onClick(){
         setEnabled(!mState.value);
         refreshState();
     }
