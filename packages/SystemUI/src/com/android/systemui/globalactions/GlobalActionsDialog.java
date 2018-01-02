@@ -40,6 +40,7 @@ import android.app.ActivityManagerNative;
 import android.app.Dialog;
 import android.app.IActivityManager;
 import android.app.WallpaperManager;
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -436,6 +437,9 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             }
         };
 
+        KeyguardManager km = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+        boolean keyguardLocked = km.inKeyguardRestrictedInputMode() && km.isKeyguardSecure();
+
         mItems = new ArrayList<Action>();
         String[] defaultActions = mContext.getResources().getStringArray(
                 R.array.config_custom_globalActionsList);
@@ -451,7 +455,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                 mItems.add(new PowerAction());
             } else if (GLOBAL_ACTION_KEY_AIRPLANE.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_AIRPLANE, 0) != 0) {
+                        Settings.System.POWERMENU_AIRPLANE, 0) != 0 && !keyguardLocked) {
                     mItems.add(mAirplaneModeOn);
                 }
             } else if (GLOBAL_ACTION_KEY_BUGREPORT.equals(actionKey)) {
@@ -483,12 +487,12 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             } else if (GLOBAL_ACTION_KEY_ADVANCED.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
                         Settings.System.POWERMENU_REBOOT, 1) == 1 && Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_ADVANCED_REBOOT, 0) != 0) {
+                        Settings.System.POWERMENU_ADVANCED_REBOOT, 0) != 0 && !keyguardLocked) {
                     mItems.add(mShowAdvancedToggles);
                 }
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_SCREENSHOT, 0) != 0) {
+                        Settings.System.POWERMENU_SCREENSHOT, 0) != 0 && !keyguardLocked) {
                     mItems.add(getScreenshotAction());
                 }
             } else {
