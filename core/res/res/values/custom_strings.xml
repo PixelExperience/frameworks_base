@@ -27,12 +27,4 @@
     <string name="lock_to_app_toast_back_nav_visible">To unpin this screen, touch and hold Back button or touch and hold Back and Overview on the navigation bar</string>
     <string name="lock_to_app_toast_power_nav_visible">To unpin this screen, touch and hold Power button or touch and hold Back and Overview on the navigation bar</string>
 
-    <!-- Global actions -->
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting system</string>
-
 </resources>
