@@ -26,7 +26,7 @@
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
 
-    <!-- Lockscreen tuner -->    
+    <!-- Lockscreen tuner -->
     <string name="lockscreen_default">Default</string>
     <string name="lockscreen_hidden">None</string>
 
@@ -46,4 +46,6 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
 
+    <!-- Show lte/4g switch -->
+    <string name="show_lte_fourgee_title">4G instead of LTE</string>
 </resources>

@@ -21,6 +21,10 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.content.ContentResolver;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.PreferenceFragment;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,7 +36,10 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.R;
 import com.android.systemui.plugins.PluginPrefs;
 
-public class TunerFragment extends PreferenceFragment {
+import com.android.internal.util.custom.Utils;
+
+public class TunerFragment extends PreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "TunerFragment";
 
@@ -46,11 +53,28 @@ public class TunerFragment extends PreferenceFragment {
 
     private static final int MENU_REMOVE = Menu.FIRST + 1;
 
+    private static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
+
+    private SwitchPreference mShowLteFourGee;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setHasOptionsMenu(true);
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        final ContentResolver resolver = getActivity().getContentResolver();
+
+        mShowLteFourGee = (SwitchPreference) findPreference(SHOW_LTE_FOURGEE);
+        if (Utils.isWifiOnly(getActivity())) {
+            prefSet.removePreference(mShowLteFourGee);
+        } else {
+            mShowLteFourGee.setChecked((Settings.System.getInt(resolver,
+                    Settings.System.SHOW_LTE_FOURGEE, 0) == 1));
+            mShowLteFourGee.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -119,6 +143,17 @@ public class TunerFragment extends PreferenceFragment {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if  (preference == mShowLteFourGee) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_LTE_FOURGEE, value ? 1:0);
+            return true;
+        }
+        return false;
     }
 
     public static class TunerWarningFragment extends DialogFragment {

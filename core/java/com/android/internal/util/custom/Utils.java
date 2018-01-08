@@ -29,32 +29,11 @@ import com.android.internal.R;
 
 public class Utils {
 
-    // Check to see if Wifi is connected
-    public static boolean isWifiConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = null;
-        if (cm != null) {
-            activeNetwork = cm.getActiveNetworkInfo();
-        }
-        NetworkInfo wifi = null;
-        if (cm != null) {
-            wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        }
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting() && wifi.isConnected();
-    }
-
-    // Check to see if Mobile data is connected
-    public static boolean isMobileConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = null;
-        if (cm != null) {
-            activeNetwork = cm.getActiveNetworkInfo();
-        }
-        NetworkInfo mobile = null;
-        if (cm != null) {
-            mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-        }
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting() && mobile.isConnected();
+    // Check to see if device is WiFi only
+    public static boolean isWifiOnly(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
     }
 
     // Check to see if a package is installed
