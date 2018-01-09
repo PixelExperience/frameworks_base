@@ -17,7 +17,9 @@ package com.android.systemui.qs.tiles;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
+import android.os.BatteryManager;
 import android.service.quicksettings.Tile;
 import android.widget.Switch;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -29,6 +31,11 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.policy.BatteryController;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class BatterySaverTile extends QSTileImpl<BooleanState> implements
         BatteryController.BatteryStateChangeCallback {
 
@@ -36,8 +43,11 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
 
     private int mLevel;
     private boolean mPowerSave;
-    private boolean mCharging;
+    private static boolean mCharging;
     private boolean mPluggedIn;
+
+    private boolean mDashCharger;
+    private boolean mHasDashCharger;
 
     public BatterySaverTile(QSHost host) {
         super(host);
@@ -80,12 +90,30 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
+        mHasDashCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasDashCharger);
+        mDashCharger = mHasDashCharger && isDashCharger();
+
         state.state = mPluggedIn ? Tile.STATE_UNAVAILABLE
                 : mPowerSave ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+
         BatterySaverIcon bsi = new BatterySaverIcon();
         bsi.mState = state.state;
         state.icon = bsi;
-        state.label = mContext.getString(R.string.battery_detail_switch_title);
+
+        if (mCharging) {
+            state.label = mContext.getString(R.string.keyguard_plugged_in);
+        }
+        if (mDashCharger) {
+            state.label = mContext.getString(R.string.keyguard_plugged_in_dash_charging);
+        }
+        if (!mDashCharger && !mCharging) {
+            if (getBatteryLevel(mContext) == 100) {
+                state.label = mContext.getString(R.string.battery_saver_qs_tile_fully_charged);
+            } else {
+                state.label = mLevel + "%";
+            }
+        }
         state.contentDescription = state.label;
         state.value = mPowerSave;
         state.expandedAccessibilityClassName = Switch.class.getName();
@@ -128,7 +156,12 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
             // Show as full so it's always uniform color
             super.setBatteryLevel(MAX_BATTERY);
             setPowerSave(true);
-            setCharging(false);
+
+            if (mCharging) {
+                setCharging(true);
+            } else {
+                setCharging(false);
+            }
         }
 
         @Override
@@ -140,5 +173,32 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
         public void setBatteryLevel(int val) {
             // Don't change the actual level, otherwise this won't draw correctly
         }
+    }
+
+    private boolean isDashCharger() {
+        try {
+            FileReader file = new FileReader("/sys/class/power_supply/battery/fastchg_status");
+            BufferedReader br = new BufferedReader(file);
+            String state = br.readLine();
+            br.close();
+            file.close();
+            return "1".equals(state);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return false;
+    }
+
+    private int getBatteryLevel(Context context) {
+        IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        Intent intent = context.registerReceiver(null, filter);
+        int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+
+        if (level < 0 || scale <= 0) {
+            return 0;
+        }
+
+        return (100 * level / scale);
     }
 }
