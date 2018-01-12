@@ -68,4 +68,7 @@
     <java-symbol type="integer" name="config_pressOnAssistBehaviorHwkeys" />
     <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwkeys" />
 
+    <!-- Camera key type -->
+    <java-symbol type="bool" name="config_singleStageCameraKey" />
+
 </resources>
