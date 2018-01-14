@@ -37,4 +37,9 @@
     <!-- Ambient indication -->
     <dimen name="ambient_indication_icon_size">20.0dip</dimen>
     <dimen name="ambient_indication_margin_bottom">12.0dip</dimen>
+
+    <!-- Network traffic -->
+    <dimen name="net_traffic_single_text_size">14sp</dimen>
+    <dimen name="net_traffic_multi_text_size">8sp</dimen>
+
 </resources>
