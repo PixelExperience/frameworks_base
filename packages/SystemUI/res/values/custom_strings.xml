@@ -23,4 +23,7 @@
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
 
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+
 </resources>
