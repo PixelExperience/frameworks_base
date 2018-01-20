@@ -132,4 +132,7 @@
     <!-- Whether device has oled display -->
     <java-symbol type="bool" name="config_hasOledDisplay" />
 
+    <!-- Defines the actions shown in advanced reboot submenu -->
+    <java-symbol type="array" name="config_restartActionsList" />
+
 </resources>

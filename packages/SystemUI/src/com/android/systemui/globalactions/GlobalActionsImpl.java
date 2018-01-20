@@ -74,7 +74,7 @@ public class GlobalActionsImpl implements GlobalActions, CommandQueue.Callbacks 
     }
 
     @Override
-    public void showShutdownUi(boolean isReboot, String reason) {
+    public void showShutdownUi(boolean isReboot, String reason, boolean rebootCustom) {
         GradientDrawable background = new GradientDrawable(mContext);
         background.setAlpha((int) (SHUTDOWN_SCRIM_ALPHA * 255));
 
@@ -114,7 +114,7 @@ public class GlobalActionsImpl implements GlobalActions, CommandQueue.Callbacks 
         bar.getIndeterminateDrawable().setTint(color);
         TextView message = d.findViewById(R.id.text1);
         message.setTextColor(color);
-        if (isReboot) message.setText(R.string.reboot_to_reset_message);
+        if (isReboot || rebootCustom) message.setText(R.string.reboot_to_reset_message);
 
         Point displaySize = new Point();
         mContext.getDisplay().getRealSize(displaySize);
