@@ -136,5 +136,6 @@ interface IPowerManager
 
     // Custom API
     void setKeyboardVisibility(boolean visible);
+    void rebootCustom(boolean confirm, String reason, boolean wait);
 
 }
