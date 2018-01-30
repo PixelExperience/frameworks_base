@@ -106,4 +106,7 @@
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
+    <!-- Whether auto face unlock is enabled by default -->
+    <java-symbol type="bool" name="config_autoFaceUnlockEnabledByDefault" />
+
 </resources>
