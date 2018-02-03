@@ -55,7 +55,10 @@ public class BatteryPreference extends DropDownPreference implements TunerServic
 
     @Override
     public void onDetached() {
-        Dependency.get(TunerService.class).removeTunable(this);
+        try {
+            Dependency.get(TunerService.class).removeTunable(this);
+        } catch (Exception ignored){
+        }
         super.onDetached();
     }
 

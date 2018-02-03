@@ -47,7 +47,10 @@ public class StatusBarSwitch extends SwitchPreference implements Tunable {
 
     @Override
     public void onDetached() {
-        Dependency.get(TunerService.class).removeTunable(this);
+        try {
+            Dependency.get(TunerService.class).removeTunable(this);
+        } catch (Exception ignored){
+        }
         super.onDetached();
     }
 
