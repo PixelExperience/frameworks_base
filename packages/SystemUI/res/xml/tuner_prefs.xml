@@ -85,6 +85,10 @@
             android:title="@string/status_bar_roaming" />
 
         <com.android.systemui.tuner.StatusBarSwitch
+            android:key="data_saver"
+            android:title="@string/data_saver" />
+
+        <com.android.systemui.tuner.StatusBarSwitch
             android:key="airplane"
             android:title="@string/status_bar_airplane" />
 
