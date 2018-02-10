@@ -141,4 +141,8 @@
     <!-- Ambient notification icon tint -->
     <java-symbol type="color" name="notification_ambient_icon_default_color" />
 
+    <!-- True if the notification's dynamic app icon tint should be optimised for dark
+         backgrounds (requires config_allowNotificationIconTinting to be true)-->
+    <java-symbol type="bool" name="config_useDarkBgNotificationIconTinting" />
+
 </resources>
