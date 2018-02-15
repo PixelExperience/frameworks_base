@@ -3950,6 +3950,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 com.android.internal.R.dimen.status_bar_height);
         if (mStatusBarWindowManager != null && mNaturalBarHeight != oldBarHeight) {
             mStatusBarWindowManager.setBarHeight(mNaturalBarHeight);
+            mStatusBarView.onDensityOrFontScaleChanged();
         }
         mMaxAllowedKeyguardNotifications = res.getInteger(
                 R.integer.keyguard_max_notification_count);
