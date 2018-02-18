@@ -22,4 +22,7 @@
     <!-- Ambient Notification icon/text dynamic tint -->
     <color name="notification_text_default_color">@android:color/notification_text_default_color</color>
 
+    <!-- Resolver -->
+    <color name="resolver_list_bg">@android:color/white</color>
+
 </resources>
