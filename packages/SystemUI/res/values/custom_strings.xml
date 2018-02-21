@@ -42,4 +42,8 @@
     <string name="screen_pinning_description_back_nav_visible">This keeps it in view until you unpin. Touch and hold Back button or tap the highlighted buttons on the navigation bar to unpin.</string>
     <string name="screen_pinning_description_power_nav_visible">This keeps it in view until you unpin. Touch and hold Power button or tap the highlighted buttons on the navigation bar to unpin.</string>
 
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
+
 </resources>

@@ -73,4 +73,7 @@
   <!-- Whether navigation bar can be disabled (for devices with hardware keys) -->
   <java-symbol type="bool" name="config_canDisableNavigationBar" />
 
+  <!-- Whether device has turbo power charging support -->
+  <java-symbol type="bool" name="config_hasTurboPowerCharger" />
+
 </resources>
