@@ -45,6 +45,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
+    <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
 
     <!-- Show lte/4g switch -->
     <string name="show_lte_fourgee_title">4G instead of LTE</string>
