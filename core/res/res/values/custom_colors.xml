@@ -41,4 +41,6 @@
     <!-- Ambient notification icon tint -->
     <color name="notification_ambient_icon_default_color">@color/notification_icon_default_color</color>
 
+    <!-- Notification info -->
+    <color name="notification_info_button_text">@color/accent_device_default_light</color>
 </resources>
