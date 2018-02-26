@@ -29,6 +29,8 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src) $(call all-Iaidl-files-under, src)
 
+LOCAL_SRC_FILES += $(call all-java-files-under, ../../../../vendor/themes/common/src)
+
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     SystemUIPluginLib \
     android-support-v4 \
