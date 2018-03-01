@@ -75,4 +75,7 @@
     <!-- App permission tint -->
     <color name="app_permission_icon_tint">@android:color/black</color>
 
+    <!-- Fastscroller text color (Launcher3) -->
+    <color name="fastscroller_thumb_text_color">@android:color/white</color>
+
 </resources>
