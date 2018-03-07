@@ -147,5 +147,6 @@
 
     <!-- Notification info -->
     <java-symbol type="color" name="notification_info_button_text" />
+    <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
 
 </resources>
