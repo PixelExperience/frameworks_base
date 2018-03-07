@@ -98,4 +98,7 @@
   <java-symbol type="color" name="autofill_save_title_color" />
   <java-symbol type="color" name="autofill_autofill_save_custom_subtitle_color" />
 
+  <!-- Forcefully tint notification icon text -->
+  <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+
 </resources>

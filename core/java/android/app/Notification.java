@@ -4808,7 +4808,8 @@ public class Notification implements Parcelable
 
         private CharSequence processLegacyText(CharSequence charSequence, boolean ambient) {
             boolean isAlreadyLightText = isLegacy() || textColorsNeedInversion();
-            boolean wantLightText = ambient;
+            boolean wantLightText = ambient || mContext.getResources().getBoolean(
+                    R.bool.config_useDarkBgNotificationIconTextTinting);
             if (isAlreadyLightText != wantLightText) {
                 return getColorUtil().invertCharSequenceColors(charSequence);
             } else {
@@ -6251,7 +6252,7 @@ public class Notification implements Parcelable
                 sb.append(bidi.unicodeWrap(m.mSender),
                         makeFontColorSpan(colorize
                                 ? builder.getPrimaryTextColor()
-                                : builder.getSenderTextColor()),
+                                : mBuilder.resolveContrastColor()),
                         0 /* flags */);
             }
             CharSequence text = m.mText == null ? "" : m.mText;
