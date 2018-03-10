@@ -132,4 +132,9 @@
     <!-- Defines the actions shown in advanced reboot submenu -->
     <java-symbol type="array" name="config_restartActionsList" />
 
+    <!-- Forcefully tint notification icon text -->
+    <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+    <java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
+    <java-symbol type="bool" name="config_notificationTinting_override" />
+
 </resources>
