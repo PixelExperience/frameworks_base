@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Navbar icon Colors -->
-    <color name="icon_color_back">@android:color/white</color>
-    <color name="icon_color_ime_switcher">@android:color/white</color>
-    <color name="icon_color_split_screen">@android:color/white</color>
-    <color name="icon_color_home">@android:color/white</color>
-    <color name="icon_color_overview">@android:color/white</color>
-    <color name="icon_color_back_dark">@android:color/black</color>
-    <color name="icon_color_ime_switcher_dark">@android:color/black</color>
-    <color name="icon_color_split_screen_dark">@android:color/black</color>
-    <color name="icon_color_home_dark">@android:color/black</color>
-    <color name="icon_color_overview_dark">@android:color/black</color>
+    <color name="icon_color_back">@color/light_mode_icon_color_single_tone</color>
+    <color name="icon_color_ime_switcher">@color/light_mode_icon_color_single_tone</color>
+    <color name="icon_color_split_screen">@color/light_mode_icon_color_single_tone</color>
+    <color name="icon_color_home">@color/light_mode_icon_color_single_tone</color>
+    <color name="icon_color_overview">@color/light_mode_icon_color_single_tone</color>
+    <color name="icon_color_back_dark">@color/dark_mode_icon_color_single_tone</color>
+    <color name="icon_color_ime_switcher_dark">@color/dark_mode_icon_color_single_tone</color>
+    <color name="icon_color_split_screen_dark">@color/dark_mode_icon_color_single_tone</color>
+    <color name="icon_color_home_dark">@color/dark_mode_icon_color_single_tone</color>
+    <color name="icon_color_overview_dark">@color/dark_mode_icon_color_single_tone</color>
 
 </resources>
