@@ -389,6 +389,8 @@ public class NotificationPanelView extends PanelView implements
     }
 
     public void onThemeChanged() {
+        mQsNavbarScrim.setBackground(getResources().getDrawable(R.drawable.qs_navbar_scrim));
+
         // Re-inflate the status view group.
         int index = indexOfChild(mKeyguardStatusView);
         removeView(mKeyguardStatusView);
