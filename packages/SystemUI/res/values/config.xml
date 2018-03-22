@@ -137,29 +137,29 @@
     <bool name="config_hideLtePlus">false</bool>
 
     <!-- milliseconds before the heads up notification auto-dismisses. -->
-    <integer name="heads_up_notification_decay">5000</integer>
+    <integer name="heads_up_notification_decay">4000</integer>
 
     <!-- milliseconds after a heads up notification is pushed back
      before the app can interrupt again. -->
-    <integer name="heads_up_default_snooze_length_ms">60000</integer>
+    <integer name="heads_up_default_snooze_length_ms">30000</integer>
 
     <!-- Minimum display time for a heads up notification, in milliseconds. -->
-    <integer name="heads_up_notification_minimum_time">2000</integer>
+    <integer name="heads_up_notification_minimum_time">750</integer>
 
     <!-- milliseconds before the heads up notification accepts touches. -->
-    <integer name="touch_acceptance_delay">700</integer>
+    <integer name="touch_acceptance_delay">100</integer>
 
     <!-- The duration in seconds to wait before the dismiss buttons are shown. -->
     <integer name="recents_task_bar_dismiss_delay_seconds">1</integer>
 
     <!-- The duration for animating the task decorations in after transitioning from an app. -->
-    <integer name="recents_task_enter_from_app_duration">75</integer>
+    <integer name="recents_task_enter_from_app_duration">50</integer>
 
     <!-- The duration for animating the task decorations in after transitioning from an app. -->
-    <integer name="recents_task_enter_from_affiliated_app_duration">75</integer>
+    <integer name="recents_task_enter_from_affiliated_app_duration">50</integer>
 
     <!-- The duration for animating the task decorations out before transitioning to an app. -->
-    <integer name="recents_task_exit_to_app_duration">75</integer>
+    <integer name="recents_task_exit_to_app_duration">50</integer>
 
     <!-- The min animation duration for animating the nav bar scrim in. -->
     <integer name="recents_nav_bar_scrim_enter_duration">150</integer>
@@ -168,7 +168,7 @@
     <integer name="recents_animate_task_stack_scroll_duration">100</integer>
 
     <!-- The animation duration for scrolling the stack to a particular item. -->
-    <integer name="recents_auto_advance_duration">300</integer>
+    <integer name="recents_auto_advance_duration">200</integer>
 
     <!-- The animation duration for subsequent scrolling the stack to a particular item. -->
     <integer name="recents_subsequent_auto_advance_duration">1000</integer>
