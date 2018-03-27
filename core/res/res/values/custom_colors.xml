@@ -69,4 +69,7 @@
     <color name="notification_guts_bg_color">#eeeeee</color>
     <color name="notification_snooze_text">#dd000000</color>
 
+    <!-- Settings icon tint color -->
+    <color name="settings_icon_tint_color">#737373</color>
+
 </resources>
