@@ -141,4 +141,8 @@
   <!-- Fastscroller -->
   <java-symbol type="color" name="fastscroller_text_color" />
 
+  <!-- Tooltip text colors -->
+  <java-symbol type="color" name="tooltip_text_light" />
+  <java-symbol type="color" name="tooltip_text_dark" />
+
 </resources>
