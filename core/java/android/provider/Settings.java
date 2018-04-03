@@ -4594,6 +4594,12 @@ public final class Settings {
          */
         public static final String KEY_ASSIST_ACTION = "key_assist_action";
 
+        /**
+         * Bottom brightness slider
+         * @hide
+         */
+        public static final String QS_BOTTOM_BRIGHTNESS = "qs_bottom_brightness";
+
         /** @hide */
         public static final Validator KEY_ASSIST_ACTION_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
