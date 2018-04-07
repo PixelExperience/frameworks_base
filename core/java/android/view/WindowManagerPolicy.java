@@ -1592,6 +1592,11 @@ public interface WindowManagerPolicy {
     public void sendCustomAction(Intent intent);
 
     /**
+     * Specifies whether the device needs a navigation bar (no hardware navigation keys).
+     */
+    public boolean needsNavigationBar();
+
+    /**
      * Lock the device now.
      */
     public void lockNow(Bundle options);

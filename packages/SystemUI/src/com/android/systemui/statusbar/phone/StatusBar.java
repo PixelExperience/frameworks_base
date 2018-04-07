@@ -157,6 +157,7 @@ import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageChangedListener;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageState;
+import com.android.internal.util.custom.NavbarUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardHostView.OnDismissAction;
 import com.android.keyguard.KeyguardUpdateMonitor;
@@ -519,6 +520,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private UiModeManager mUiModeManager;
 
     private final MetricsLogger mMetricsLogger = Dependency.get(MetricsLogger.class);
+
+    private boolean mNavigationBarViewAttached;
 
     // ensure quick settings is disabled until the current user makes it through the setup wizard
     private boolean mUserSetup = false;
@@ -1094,8 +1097,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         try {
-            boolean showNav = mWindowManagerService.hasNavigationBar();
-            if (DEBUG) Log.v(TAG, "hasNavigationBar=" + showNav);
+            boolean showNav = mWindowManagerService.needsNavigationBar();
+            if (DEBUG) Log.v(TAG, "needsNavigationBar=" + showNav);
             if (showNav) {
                 createNavigationBar();
             }
@@ -1287,9 +1290,13 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         // Private API call to make the shadows look better for Recents
         ThreadedRenderer.overrideProperty("ambientRatio", String.valueOf(1.5f));
+
+        // listen for NAVIGATION_BAR_ENABLED setting (per-user)
+        resetNavBarObserver();
     }
 
     protected void createNavigationBar() {
+        if (mNavigationBarViewAttached) return;
         mNavigationBarView = NavigationBarFragment.create(mContext, (tag, fragment) -> {
             mNavigationBar = (NavigationBarFragment) fragment;
             if (mLightBarController != null) {
@@ -1297,6 +1304,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
             mNavigationBar.setCurrentSysuiVisibility(mSystemUiVisibility);
         });
+        mNavigationBarViewAttached = true;
     }
 
     /**
@@ -3973,6 +3981,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         setHeadsUpUser(newUserId);
         // End old BaseStatusBar.userSwitched
         if (MULTIUSER_DEBUG) mNotificationPanelDebugText.setText("USER " + newUserId);
+        resetNavBarObserver();
         animateCollapsePanels();
         updatePublicMode();
         mNotificationData.filterAndSort();
@@ -4285,6 +4294,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mNavigationBarView != null) {
             mWindowManager.removeViewImmediate(mNavigationBarView);
             mNavigationBarView = null;
+            mNavigationBarViewAttached = false;
         }
         mContext.unregisterReceiver(mBroadcastReceiver);
         mContext.unregisterReceiver(mDemoReceiver);
@@ -7787,4 +7797,61 @@ public class StatusBar extends SystemUI implements DemoMode,
             mNavigationBar.getBarTransitions().setAutoDim(true);
         }
     };
+
+    /*
+     * AOSPA Navigation Bar
+     */
+
+    // Reset navigation bar visibility after adding its view to window manager.
+    public static final boolean RESET_SYSTEMUI_VISIBILITY_FOR_NAVBAR = true;
+    protected boolean mUseNavBar = false;
+
+    final private ContentObserver mNavBarObserver = new ContentObserver(mHandler) {
+        @Override
+        public void onChange(boolean selfChange) {
+            boolean wasUsing = mUseNavBar;
+            mUseNavBar = Settings.Secure.getIntForUser(
+                    mContext.getContentResolver(), Settings.Secure.NAVIGATION_BAR_ENABLED, NavbarUtils.hasNavbarByDefault(mContext) ? 1 : 0,
+                    UserHandle.USER_CURRENT) != 0;
+            Log.d(TAG, "navbar is " + (mUseNavBar ? "enabled" : "disabled"));
+            if (wasUsing != mUseNavBar) {
+                setNavBarEnabled(mUseNavBar);
+                if (mAssistManager != null) {
+                    mAssistManager.onConfigurationChanged(mContext.getResources().getConfiguration());
+                }
+            }
+        }
+    };
+
+    private void resetNavBarObserver() {
+        mContext.getContentResolver().unregisterContentObserver(mNavBarObserver);
+        mNavBarObserver.onChange(false);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.NAVIGATION_BAR_ENABLED), true,
+                mNavBarObserver, mCurrentUserId);
+    }
+
+    private void setNavBarEnabled(boolean enabled) {
+        if (enabled) {
+            createNavigationBar();
+            if (RESET_SYSTEMUI_VISIBILITY_FOR_NAVBAR) {
+                resetSystemUIVisibility();
+            }
+        } else {
+            removeNavigationBar();
+        }
+    }
+
+    private void removeNavigationBar() {
+        if (DEBUG) Log.v(TAG, "removeNavigationBar: about to remove " + mNavigationBarView);
+        if (!mNavigationBarViewAttached || mNavigationBarView == null) return;
+        mWindowManager.removeViewImmediate(mNavigationBarView);
+        mNavigationBarView = null;
+        mNavigationBarViewAttached = false;
+    }
+
+    private void resetSystemUIVisibility() {
+        checkBarModes();
+        notifyUiVisibilityChanged(mSystemUiVisibility);
+    }
 }

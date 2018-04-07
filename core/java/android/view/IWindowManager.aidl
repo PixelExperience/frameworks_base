@@ -306,6 +306,11 @@ interface IWindowManager
     boolean hasPermanentMenuKey();
 
     /**
+     * Device needs a software navigation bar (separate from the status bar).
+     */
+    boolean needsNavigationBar();
+
+    /**
      * Lock the device immediately with the specified options (can be null).
      */
     void lockNow(in Bundle options);
