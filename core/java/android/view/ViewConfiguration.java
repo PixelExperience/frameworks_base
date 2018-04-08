@@ -461,6 +461,9 @@ public class ViewConfiguration {
                 com.android.internal.R.dimen.config_verticalScrollFactor);
     }
 
+    /**
+     * @hide
+     */
     public static boolean isNumeric(String string) {
         try {
             Integer.parseInt(string);
