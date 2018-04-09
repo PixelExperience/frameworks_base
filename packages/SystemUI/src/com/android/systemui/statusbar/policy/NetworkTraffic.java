@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
@@ -29,6 +28,7 @@ import android.widget.TextView;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
+
 /*
 *
 * Seeing how an Integer object in java requires at least 16 Bytes, it seemed awfully wasteful
@@ -136,28 +136,6 @@ public class NetworkTraffic extends TextView implements DarkReceiver {
         }
     };
 
-    class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.NETWORK_TRAFFIC_STATE), false,
-                    this, UserHandle.USER_ALL);
-        }
-
-        /*
-         *  @hide
-         */
-        @Override
-        public void onChange(boolean selfChange) {
-            setMode();
-            updateSettings();
-        }
-    }
-
     /*
      *  @hide
      */
@@ -182,8 +160,6 @@ public class NetworkTraffic extends TextView implements DarkReceiver {
         txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         mTintColor = resources.getColor(android.R.color.white);
         Handler mHandler = new Handler();
-        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
-        settingsObserver.observe();
         setMode();
         updateSettings();
     }
@@ -195,6 +171,8 @@ public class NetworkTraffic extends TextView implements DarkReceiver {
             mAttached = true;
             IntentFilter filter = new IntentFilter();
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            filter.addAction(Intent.ACTION_SCREEN_ON);
             mContext.registerReceiver(mIntentReceiver, filter, null, getHandler());
         }
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
@@ -215,8 +193,11 @@ public class NetworkTraffic extends TextView implements DarkReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action != null && action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+            if (action != null && action.equals(ConnectivityManager.CONNECTIVITY_ACTION)
+                    || action.equals(Intent.ACTION_SCREEN_ON)) {
                 updateSettings();
+            } else if (action != null && action.equals(Intent.ACTION_SCREEN_OFF)) {
+                clearHandlerCallbacks();
             }
         }
     };
@@ -228,7 +209,7 @@ public class NetworkTraffic extends TextView implements DarkReceiver {
         return network != null;
     }
 
-    private void updateSettings() {
+    public void updateSettings() {
         if (mIsEnabled) {
             if (getConnectAvailable()) {
                 if (mAttached) {
@@ -245,7 +226,7 @@ public class NetworkTraffic extends TextView implements DarkReceiver {
         setVisibility(View.GONE);
     }
 
-    private void setMode() {
+    public void setMode() {
         ContentResolver resolver = mContext.getContentResolver();
         mIsEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_STATE, 0,

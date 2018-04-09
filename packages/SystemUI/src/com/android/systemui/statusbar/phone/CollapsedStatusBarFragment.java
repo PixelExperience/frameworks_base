@@ -22,12 +22,18 @@ import static com.android.systemui.statusbar.phone.StatusBar.reinflateSignalClus
 import android.annotation.Nullable;
 import android.app.Fragment;
 import android.app.StatusBarManager;
+import android.content.ContentResolver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.LinearLayout;
+
+import com.android.internal.util.custom.UserContentObserver;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
@@ -41,6 +47,7 @@ import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
+import com.android.systemui.statusbar.policy.NetworkTraffic;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -61,6 +68,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private DarkIconManager mDarkIconManager;
     private SignalClusterView mSignalClusterView;
 
+    private SettingsObserver mSettingsObserver;
+    private ContentResolver mContentResolver;
+    private NetworkTraffic mNetworkTraffic;
+
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
         public void setIsAirplaneMode(NetworkController.IconState icon) {
@@ -74,6 +85,33 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mNetworkController = Dependency.get(NetworkController.class);
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
+        mContentResolver = getContext().getContentResolver();
+        mSettingsObserver = new SettingsObserver(new Handler());
+    }
+
+    class SettingsObserver extends UserContentObserver {
+
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        protected void unobserve() {
+            super.unobserve();
+            getContext().getContentResolver().unregisterContentObserver(this);
+        }
+
+        protected void observe() {
+            super.observe();
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NETWORK_TRAFFIC_STATE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        protected void update() {
+            mNetworkTraffic.setMode();
+            mNetworkTraffic.updateSettings();
+        }
     }
 
     @Override
@@ -97,6 +135,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         // Default to showing until we know otherwise.
         showSystemIconArea(false);
         initEmergencyCryptkeeperText();
+        mNetworkTraffic = mStatusBar.findViewById(R.id.networkTraffic);
+        mSettingsObserver.observe();
+        mSettingsObserver.update();
     }
 
     @Override
