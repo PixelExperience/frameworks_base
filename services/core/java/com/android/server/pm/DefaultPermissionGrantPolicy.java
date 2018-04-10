@@ -366,6 +366,13 @@ final class DefaultPermissionGrantPolicy {
                 grantRuntimePermissionsLPw(storagePackage, STORAGE_PERMISSIONS, true, userId);
             }
 
+            // Pixel Wallpaper
+            PackageParser.Package pixelwallsPackage = getDefaultProviderAuthorityPackageLPr(
+                    "com.google.android.apps.wallpaper", userId);
+            if (pixelwallsPackage != null) {
+                grantRuntimePermissionsLPw(pixelwallsPackage, STORAGE_PERMISSIONS, true, userId);
+            }
+
             // CertInstaller
             Intent certInstallerIntent = new Intent(Credentials.INSTALL_ACTION);
             PackageParser.Package certInstallerPackage = getDefaultSystemHandlerActivityPackageLPr(
