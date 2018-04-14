@@ -4600,8 +4600,14 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_MEDIA_METADATA = "lockscreen_media_metadata";
 
+        /**
+         * Whether to invert navigation bar buttons
+         * @hide
+         */
+        public static final String NAV_BAR_INVERSE = "navbar_inverse";
+
         /** @hide */
-        public static final Validator LOCKSCREEN_MEDIA_METADATA_VALIDATOR =
+        public static final Validator NAV_BAR_INVERSE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
         /**
@@ -4825,6 +4831,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_QUICK_QS_PULLDOWN);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
+            PRIVATE_SETTINGS.add(NAV_BAR_INVERSE);
         }
 
         /**
@@ -4957,6 +4964,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
+            VALIDATORS.put(NAV_BAR_INVERSE, NAV_BAR_INVERSE_VALIDATOR);
         }
 
         /**
