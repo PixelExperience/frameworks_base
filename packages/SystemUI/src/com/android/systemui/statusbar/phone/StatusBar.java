@@ -285,6 +285,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private static final String LOCKSCREEN_MEDIA_METADATA =
             "system:" + Settings.System.LOCKSCREEN_MEDIA_METADATA;
 
+    private static final String NAV_BAR_INVERSE =
+            "system:" + Settings.System.NAV_BAR_INVERSE;
+
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
@@ -705,6 +708,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, LOCKSCREEN_MEDIA_METADATA);
+        tunerService.addTunable(this, NAV_BAR_INVERSE);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
@@ -5347,26 +5351,39 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             super.onChange(selfChange, uri);
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.NAVIGATION_BAR_SHOW))) {
-                updateNavigationBar();
+                updateNavigationBar(false, false);
             }else if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_HIDDEN))) {
                 updateCutoutOverlay();
             }
         }
 
         public void update() {
-            updateNavigationBar();
+            updateNavigationBar(false, false);
             updateCutoutOverlay();
         }
     }
+    
+    private boolean isNavbarReloading = false;
+    private void reloadNavigationBar(){
+        if (!NavbarUtils.isEnabled(mContext) || isNavbarReloading){
+            return;
+        }
+        isNavbarReloading = true;
+        updateNavigationBar(true, false);
+        mHandler.postDelayed(() -> {
+            updateNavigationBar(true, true);
+            isNavbarReloading = false;
+        }, 1000);
+    }
 
-    private void updateNavigationBar() {
+    private void updateNavigationBar(boolean force, boolean newValue) {
         int showNavBar = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.NAVIGATION_BAR_SHOW,
                  -1, UserHandle.USER_CURRENT);
-        if (showNavBar != -1){
+        if (showNavBar != -1 || force){
             boolean showNavBarBool = showNavBar == 1;
-            if (showNavBarBool !=  mShowNavBar){
-                  mShowNavBar = NavbarUtils.isEnabled(mContext);
+            if (showNavBarBool !=  mShowNavBar || force){
+                  mShowNavBar = force ? newValue : NavbarUtils.isEnabled(mContext);
                   if (DEBUG) Log.v(TAG, "updateNavigationBar=" + mShowNavBar);
                   if (mShowNavBar) {
                     if (mNavigationBarView == null) {
@@ -5930,6 +5947,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     public void onTuningChanged(String key, String newValue) {
        if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
             mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) != 0;
+        }else if (NAV_BAR_INVERSE.equals(key)) {
+            reloadNavigationBar();
         }
     }
 
