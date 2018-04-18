@@ -132,7 +132,7 @@ public class SystemNotificationChannels {
                 context.getString(R.string.notification_channel_usb),
                 NotificationManager.IMPORTANCE_MIN));
 
-        NotificationChannel foregroundChannel = new NotificationChannel(
+        final NotificationChannel foregroundChannel = new NotificationChannel(
                 FOREGROUND_SERVICE,
                 context.getString(R.string.notification_channel_foreground_service),
                 NotificationManager.IMPORTANCE_LOW);
