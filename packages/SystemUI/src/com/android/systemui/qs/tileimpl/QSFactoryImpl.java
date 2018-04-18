@@ -27,6 +27,11 @@ import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
+<<<<<<< HEAD
+=======
+import com.android.systemui.qs.tiles.AODTile;
+import com.android.systemui.qs.tiles.AdbOverNetworkTile;
+>>>>>>> 4b04f74e5dff... base: SystemUI: add qs AOD tile
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
@@ -88,6 +93,13 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+<<<<<<< HEAD
+=======
+    private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<AODTile> mAODTileProvider;
+    private final Provider<ProfilesTile> mProfilesTileProvider;
+    private final Provider<ReadingModeTile> mReadingModeTileProvider;
+>>>>>>> 4b04f74e5dff... base: SystemUI: add qs AOD tile
     private final Provider<SyncTile> mSyncTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<VolumeTile> mVolumeTileProvider;
@@ -126,8 +138,12 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<VolumeTile> volumeTileProvider,
             Provider<VpnTile> vpnTileProvider,
+<<<<<<< HEAD
             Provider<LiveDisplayTile> liveDisplayTileProvider,
             Provider<PowerShareTile> powerShareTileProvider) {
+=======
+            Provider<AODTile> aodTileProvider) {
+>>>>>>> 4b04f74e5dff... base: SystemUI: add qs AOD tile
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -150,6 +166,13 @@ public class QSFactoryImpl implements QSFactory {
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
+<<<<<<< HEAD
+=======
+        mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mAODTileProvider = aodTileProvider;
+        mProfilesTileProvider = profilesTileProvider;
+        mReadingModeTileProvider = readingModeTileProvider;
+>>>>>>> 4b04f74e5dff... base: SystemUI: add qs AOD tile
         mSyncTileProvider = syncTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
         mVolumeTileProvider = volumeTileProvider;
@@ -217,6 +240,17 @@ public class QSFactoryImpl implements QSFactory {
                 return mCaffeineTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
+<<<<<<< HEAD
+=======
+            case "livedisplay":
+                return mLiveDisplayTileProvider.get();
+            case "aod":
+                return mAODTileProvider.get();
+            case "profiles":
+                return mProfilesTileProvider.get();
+            case "reading_mode":
+                return mReadingModeTileProvider.get();
+>>>>>>> 4b04f74e5dff... base: SystemUI: add qs AOD tile
             case "sync":
                 return mSyncTileProvider.get();
             case "usb_tether":
