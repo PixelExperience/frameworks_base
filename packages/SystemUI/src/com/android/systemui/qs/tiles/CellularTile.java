@@ -93,6 +93,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     public void handleSetListening(boolean listening) {
+        if (mController == null) return;
         if (listening) {
             mController.addCallback(mSignalCallback);
         } else {
@@ -157,6 +158,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     protected void handleUpdateState(SignalState state, Object arg) {
+        if (mSignalCallback == null) return;
         CallbackInfo cb = (CallbackInfo) arg;
         if (cb == null) {
             cb = mSignalCallback.mInfo;
