@@ -59,4 +59,8 @@ public class NavbarUtils {
                 Settings.Secure.NAVIGATION_BAR_ENABLED, enabled ? 1 : 0, UserHandle.USER_CURRENT);
     }
 
+    public static boolean canDisableNavigationBar(Context context){
+        return context.getResources().getBoolean(com.android.internal.R.bool.config_canDisableNavigationBar);
+    }
+
 }

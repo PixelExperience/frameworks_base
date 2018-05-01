@@ -118,8 +118,13 @@ public class NavBarTuner extends TunerPreferenceFragment {
         bindLayout((ListPreference) findPreference(LAYOUT));
         bindButton(NAV_BAR_LEFT, NAVSPACE, LEFT);
         bindButton(NAV_BAR_RIGHT, MENU_IME, RIGHT);
-        updatePrefs(isNavbarEnabled);
-        mShowNavbar.setEnabled(true);
+        if (!NavbarUtils.canDisableNavigationBar(getContext())){
+            updatePrefs(true);
+            getPreferenceScreen().removePreference(mShowNavbar);
+        }else{
+            updatePrefs(isNavbarEnabled);
+            mShowNavbar.setEnabled(true);
+        }
     }
 
     private void updatePrefs(Boolean enabled){

@@ -70,4 +70,7 @@
   <java-symbol type="string" name="lock_to_app_toast_back_nav_visible" />
   <java-symbol type="string" name="lock_to_app_toast_power_nav_visible" />
 
+  <!-- Whether navigation bar can be disabled (for devices with hardware keys) -->
+  <java-symbol type="bool" name="config_canDisableNavigationBar" />
+
 </resources>
