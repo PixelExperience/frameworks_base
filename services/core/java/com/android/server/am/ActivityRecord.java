@@ -159,6 +159,7 @@ import android.os.Bundle;
 import android.os.Debug;
 import android.os.IBinder;
 import android.os.Message;
+import android.content.res.Resources;
 import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.RemoteException;
@@ -374,6 +375,10 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
     private boolean mShowWhenLocked;
     private boolean mTurnScreenOn;
     public static BoostFramework mPerfFirstDraw = null;
+
+    // Full screen aspect ratio
+    private final float mFullScreenAspectRatio = Resources.getSystem().getFloat(
+                    com.android.internal.R.dimen.config_screenAspectRatio);
 
     /**
      * Temp configs used in {@link #ensureActivityConfiguration(int, boolean)}
@@ -2473,7 +2478,9 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
     // TODO(b/36505427): Consider moving this method and similar ones to ConfigurationContainer.
     private void computeBounds(Rect outBounds) {
         outBounds.setEmpty();
-        final float maxAspectRatio = info.maxAspectRatio;
+        final boolean higherAspectRatio = Resources.getSystem().getBoolean(
+                com.android.internal.R.bool.config_haveHigherAspectRatioScreen);
+        final float maxAspectRatio = higherAspectRatio ? mFullScreenAspectRatio : info.maxAspectRatio;
         final ActivityStack stack = getStack();
         if (task == null || stack == null || task.inMultiWindowMode() || maxAspectRatio == 0
                 || isInVrUiMode(getConfiguration())) {
