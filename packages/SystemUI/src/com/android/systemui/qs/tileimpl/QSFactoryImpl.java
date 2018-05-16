@@ -46,6 +46,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.PowerShareTile;
+import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -99,6 +100,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<VpnTile> mVpnTileProvider;
     private final Provider<AODTile> mAODTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<ReadingModeTile> mReadingModeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -133,7 +135,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<VpnTile> vpnTileProvider,
             Provider<AODTile> aodTileProvider,
-            Provider<LiveDisplayTile> liveDisplayTileProvider) {
+            Provider<LiveDisplayTile> liveDisplayTileProvider,
+            Provider<ReadingModeTile> readingModeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -165,6 +168,7 @@ public class QSFactoryImpl implements QSFactory {
         mVpnTileProvider = vpnTileProvider;
         mAODTileProvider = aodTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mReadingModeTileProvider = readingModeTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -237,6 +241,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mAODTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
+            case "reading_mode":
+                return mReadingModeTileProvider.get();
         }
 
         // Custom tiles
