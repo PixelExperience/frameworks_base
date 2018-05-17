@@ -450,8 +450,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             if (GLOBAL_ACTION_KEY_POWER.equals(actionKey)) {
                 mItems.add(new PowerAction());
             } else if (GLOBAL_ACTION_KEY_AIRPLANE.equals(actionKey)) {
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_AIRPLANE, 0) != 0 && !isInLockTaskMode()) {
+                if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_AIRPLANE, 0, UserHandle.USER_CURRENT) != 0 && !isInLockTaskMode()) {
                     mItems.add(mAirplaneModeOn);
                 }
             } else if (GLOBAL_ACTION_KEY_BUGREPORT.equals(actionKey)) {
@@ -476,19 +476,19 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             } else if (GLOBAL_ACTION_KEY_ASSIST.equals(actionKey)) {
                 //mItems.add(getAssistAction());
             } else if (GLOBAL_ACTION_KEY_RESTART.equals(actionKey)) {
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_REBOOT, 1) == 1) {
+                if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_REBOOT, 1, UserHandle.USER_CURRENT) == 1) {
                     mItems.add(new RestartAction());
                 }
             } else if (GLOBAL_ACTION_KEY_ADVANCED.equals(actionKey)) {
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_REBOOT, 1) == 1 && Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_ADVANCED_REBOOT, 0) != 0 && !isInLockTaskMode()) {
+                if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_REBOOT, 1, UserHandle.USER_CURRENT) == 1 && Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_ADVANCED_REBOOT, 0, UserHandle.USER_CURRENT) != 0 && !isInLockTaskMode()) {
                     mItems.add(mShowAdvancedToggles);
                 }
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_SCREENSHOT, 0) != 0 && !isInLockTaskMode()) {
+                if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_SCREENSHOT, 0, UserHandle.USER_CURRENT) != 0 && !isInLockTaskMode()) {
                     mItems.add(getScreenshotAction());
                 }
             } else {

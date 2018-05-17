@@ -263,8 +263,8 @@ public class MobileSignalController extends SignalController<
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPAP, hGroup);
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_DC_HSPAP, hGroup);
 
-        if (Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.SHOW_LTE_FOURGEE, 0) == 1) {
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SHOW_LTE_FOURGEE, 0, UserHandle.USER_CURRENT) == 1) {
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE, TelephonyIcons.FOUR_G);
             if (mConfig.hideLtePlus) {
                 mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE_CA,
