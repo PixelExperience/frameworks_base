@@ -219,6 +219,10 @@
     <!-- Weather on lockscreen -->
     <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
 
+    <!-- Ambient Indication -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
