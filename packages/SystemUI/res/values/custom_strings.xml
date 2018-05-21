@@ -51,4 +51,11 @@
 
     <!-- Network Traffic -->
     <string name="network_traffic_state_title">Network activity indicator</string>
+
+    <!-- Global actions -->
+    <string name="global_action_restart_system">Reboot</string>
+    <string name="global_action_restart_advanced">Advanced reboot</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+
 </resources>
