@@ -14,20 +14,20 @@
      limitations under the License.
 -->
 <resources>
-    <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+  <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_disabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
+  <java-symbol type="array" name="config_forceEnabledComponents" />
 
-    <!-- Usb drive persistent notification -->
-    <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+  <!-- Usb drive persistent notification -->
+  <java-symbol type="bool" name="config_persistUsbDriveNotification" />
 
-    <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
+  <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
 
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+  <!-- Device keyhandlers -->
+  <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+  <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
   <!-- Proximity check on screen on -->
   <java-symbol type="bool" name="config_proximityCheckOnWake" />
