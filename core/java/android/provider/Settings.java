@@ -3934,6 +3934,34 @@ public final class Settings {
         /** @hide */
         private static final Validator SHOW_BATTERY_PERCENT_VALIDATOR = sBooleanValidator;
 
+       /**
+         * Whether to display the reboot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_REBOOT = "powermenu_reboot";
+
+        /**
+         * Whether to display the advanced reboot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_ADVANCED_REBOOT = "powermenu_advanced_reboot";
+
+        /**
+         * Whether to display the screenshot option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
+
+        /**
+         * Whether to display the airplane option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
+
         /**
          * Whether to display the 4g or lte network icon in the statusbar
          * @hide
