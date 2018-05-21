@@ -3963,6 +3963,12 @@ public final class Settings {
         public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
 
         /**
+         * Whether to display the power menu dialog while on the lockscreen
+         * @hide
+         */
+        public static final String POWERMENU_LOCKSCREEN = "powermenu_lockscreen";
+
+        /**
          * Whether to display the 4g or lte network icon in the statusbar
          * @hide
          */
