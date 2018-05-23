@@ -1670,7 +1670,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void powerMultiPressAction(long eventTime, boolean interactive, int behavior) {
         switch (behavior) {
             case MULTI_PRESS_POWER_NOTHING:
-                if ((mTorchActionMode == 1) && (!isScreenOn() || isDozeMode())) {
+                if ((mTorchActionMode == 1) && (!isInLockTaskMode() && (!isScreenOn() || isDozeMode()))) {
                     toggleFlashLightProximityCheck();
                 }
                 break;
@@ -1823,10 +1823,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (FactoryTest.isLongPressOnPowerOffEnabled()) {
             return LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM;
         }
-        if ((mTorchActionMode == 2) && (!isScreenOn() || isDozeMode())) {
+        if ((mTorchActionMode == 2) && (!isInLockTaskMode() && (!isScreenOn() || isDozeMode()))) {
             return LONG_PRESS_POWER_TORCH;
         }
         return mLongPressOnPowerBehavior;
+    }
+
+    private boolean isInLockTaskMode() {
+        try {
+            return ActivityManagerNative.getDefault().isInLockTaskMode();
+        } catch (RemoteException e) {
+            return false;
+        }
     }
 
     private boolean hasLongPressOnPowerBehavior() {
