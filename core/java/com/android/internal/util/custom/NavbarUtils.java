@@ -22,6 +22,7 @@ import android.content.ContentResolver;
 import android.provider.Settings;
 import android.os.UserHandle;
 import android.os.Handler;
+import com.android.internal.util.hwkeys.ActionUtils;
 
 public class NavbarUtils {
 
@@ -61,7 +62,7 @@ public class NavbarUtils {
     }
 
     public static boolean canDisableNavigationBar(Context context){
-        return context.getResources().getBoolean(com.android.internal.R.bool.config_canDisableNavigationBar);
+        return context.getResources().getBoolean(com.android.internal.R.bool.config_canDisableNavigationBar) || ActionUtils.isHWKeysSupported(context);
     }
 
     public static void reloadNavigationBar(Context context){

@@ -2008,8 +2008,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         } catch (RemoteException ex) { }
 
         // only for hwkey devices
-        if (!mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar)) {
+        if (ActionUtils.isHWKeysSupported(mContext)) {
             mKeyHandler = new HardkeyActionHandler(mContext, mHandler);
         }
 

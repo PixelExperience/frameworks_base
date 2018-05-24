@@ -4330,7 +4330,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             final Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    if (!ActionUtils.hasNavbarByDefault(ctx)) {
+                    if (ActionUtils.isHWKeysSupported(ctx)) {
                         ActionUtils.resolveAndUpdateButtonActions(ctx,
                                 ActionConstants
                                         .getDefaults(ActionConstants.HWKEYS));
