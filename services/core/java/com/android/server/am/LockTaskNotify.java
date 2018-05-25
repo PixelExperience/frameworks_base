@@ -85,6 +85,9 @@ public class LockTaskNotify {
     }
 
     public void show(boolean starting) {
+        if (starting && NavbarUtils.isNavigationBarEnabled(mContext)){
+            NavbarUtils.reloadNavigationBar(mContext);
+        }
         int showString = R.string.lock_to_app_exit;
         if (starting) {
             showString = R.string.lock_to_app_start;
