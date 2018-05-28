@@ -46,7 +46,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     SystemUI-tags \
     SystemUI-proto
 
-LOCAL_JAVA_LIBRARIES := telephony-common
+LOCAL_JAVA_LIBRARIES := telephony-common telephony-ext
 LOCAL_JAVA_LIBRARIES += android.car
 
 LOCAL_PACKAGE_NAME := SystemUI
