@@ -1065,7 +1065,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void toggleFlashLightProximityCheck() {
-        if (mProximitySensor != null) {
+        if (mProximitySensor != null && mProximityTimeOut != -1) {
             if (mHandler.hasMessages(MSG_CLEAR_PROXIMITY)) {
                 // A message is already queued
                 return;
