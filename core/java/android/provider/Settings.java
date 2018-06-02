@@ -7417,12 +7417,6 @@ public final class Settings {
         public static final String NOTIFICATION_BADGING = "notification_badging";
 
         /**
-         * Whether to enable navigation bar
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_ENABLED = "navigation_bar_enabled";
-
-        /**
          * Comma separated list of QS tiles that have been auto-added already.
          * @hide
          */

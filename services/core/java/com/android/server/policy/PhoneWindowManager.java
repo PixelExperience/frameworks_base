@@ -483,7 +483,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     int[] mNavigationBarWidthForRotationDefault = new int[4];
     int[] mNavigationBarHeightForRotationInCarMode = new int[4];
     int[] mNavigationBarWidthForRotationInCarMode = new int[4];
-    private boolean mNavBarOverride;
 
     private LongSparseArray<IShortcutService> mShortcutKeyServices = new LongSparseArray<>();
 
@@ -1129,9 +1128,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Global.getUriFor(
                     Settings.Global.POLICY_CONTROL), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.NAVIGATION_BAR_ENABLED), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BACK_WAKE_SCREEN), false, this,
@@ -2536,18 +2532,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Allow the navigation bar to move on non-square small devices (phones).
         mNavigationBarCanMove = width != height && shortSizeDp < 600;
 
+        mHasNavigationBar = res.getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+
         // Allow a system property to override this. Used by the emulator.
         // See also hasNavigationBar().
         String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
         if ("1".equals(navBarOverride)) {
-            mNavBarOverride = true;
+            mHasNavigationBar = false;
         } else if ("0".equals(navBarOverride)) {
-            mNavBarOverride = false;
+            mHasNavigationBar = true;
         }
-        mHasNavigationBar = !mNavBarOverride && Settings.Secure.getIntForUser(
-                mContext.getContentResolver(), Settings.Secure.NAVIGATION_BAR_ENABLED,
-                res.getBoolean(com.android.internal.R.bool.config_showNavigationBar) ? 1 : 0,
-                UserHandle.USER_CURRENT) == 1;
 
         // For demo purposes, allow the rotation of the HDMI display to be controlled.
         // By default, HDMI locks rotation to landscape.
@@ -2695,17 +2689,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
             if (mImmersiveModeConfirmation != null) {
                 mImmersiveModeConfirmation.loadSetting(mCurrentUserId);
-            }
-            mHasNavigationBar = !mNavBarOverride && Settings.Secure.getIntForUser(
-                    resolver, Settings.Secure.NAVIGATION_BAR_ENABLED,
-                    mContext.getResources().getBoolean(
-                    com.android.internal.R.bool.config_showNavigationBar) ? 1 : 0,
-                    UserHandle.USER_CURRENT) == 1;
-            IStatusBarService sbar = getStatusBarService();
-            if (sbar != null) {
-                try {
-                    sbar.toggleNavigationBar(mHasNavigationBar);
-                } catch (RemoteException e1) {}
             }
 
             mTorchActionMode = Settings.Secure.getIntForUser(resolver,
