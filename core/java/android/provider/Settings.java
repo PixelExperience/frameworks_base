@@ -4119,6 +4119,13 @@ public final class Settings {
         public static final String SYSTEM_UI_THEME = "system_ui_theme";
 
         /**
+         * 0 - Default (white)
+         * 1 - Dark
+         * @hide
+         */
+        public static final String NOTIFICATION_THEME = "notification_theme";
+
+        /**
          * Select various accents to go along with system themes
          *
          * @hide

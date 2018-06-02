@@ -4801,9 +4801,16 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     /**
-     * Switches theme from light to dark and vice-versa.
+     * Switches theme from light to dark and vice-versa, don't force update
      */
     protected void updateTheme() {
+        updateTheme(false);
+    }
+
+    /**
+     * Switches theme from light to dark and vice-versa.
+     */
+    protected void updateTheme(boolean force) {
         final boolean inflated = mStackScroller != null;
 
         boolean useDarkTheme = false;
@@ -4816,11 +4823,13 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else {
             useDarkTheme = mCurrentTheme == 2;
         }
-        if (isUsingDarkTheme() != useDarkTheme) {
+        boolean useDarkThemeOnNotifications = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.NOTIFICATION_THEME, 0, mCurrentUserId) == 1;
+        if (isUsingDarkTheme() != useDarkTheme || force) {
             // Check for black and white accent so we don't end up
             // with white on white or black on black
             unfuckBlackWhiteAccent();
-            ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mCurrentUserId, useDarkTheme);
+            ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mCurrentUserId, useDarkTheme, useDarkThemeOnNotifications);
 
             if (mUiModeManager != null) {
                 mUiModeManager.setNightMode(useDarkTheme ?
@@ -6020,6 +6029,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.SYSTEM_UI_THEME),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_THEME),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCENT_PICKER),
                     false, this, UserHandle.USER_ALL);
         }
@@ -6027,9 +6039,11 @@ public class StatusBar extends SystemUI implements DemoMode,
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SYSTEM_UI_THEME))) {
+                    Settings.System.SYSTEM_UI_THEME)) || uri.equals(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_THEME))) {
                 getCurrentThemeSetting();
-                updateTheme();
+                updateTheme(uri.equals(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_THEME)));
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.ACCENT_PICKER))) {
                 // Unload the accents and update the accent only when the user asks.
