@@ -127,10 +127,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
     private static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
 
     private static final int SHOW_TOGGLES_BUTTON = 1;
-    private static final int RESTART_HOT_BUTTON = 2;
-    private static final int RESTART_RECOVERY_BUTTON = 3;
-    private static final int RESTART_BOOTLOADER_BUTTON = 4;
-    private static final int RESTART_UI_BUTTON = 5;
+    private static final int RESTART_RECOVERY_BUTTON = 2;
+    private static final int RESTART_BOOTLOADER_BUTTON = 3;
 
     private final Context mContext;
     private final GlobalActionsManager mWindowManagerFuncs;
@@ -145,10 +143,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
     private ToggleAction.State mAirplaneState = ToggleAction.State.Off;
 
     private AdvancedAction mShowAdvancedToggles;
-    private AdvancedAction mRestartHot;
     private AdvancedAction mRestartRecovery;
     private AdvancedAction mRestartBootloader;
-    private AdvancedAction mRestartSystemUI;
 
     private MyAdapter mAdapter;
 
@@ -376,21 +372,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             }
         };
 
-        mRestartHot = new AdvancedAction(
-                RESTART_HOT_BUTTON,
-                com.android.systemui.R.drawable.ic_restart_hot,
-                com.android.systemui.R.string.global_action_restart_hot,
-                mWindowManagerFuncs, mHandler) {
-
-            public boolean showDuringKeyguard() {
-                return true;
-            }
-
-            public boolean showBeforeProvisioning() {
-                return true;
-            }
-        };
-
         mRestartRecovery = new AdvancedAction(
                 RESTART_RECOVERY_BUTTON,
                 com.android.systemui.R.drawable.ic_restart_recovery,
@@ -410,21 +391,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                 RESTART_BOOTLOADER_BUTTON,
                 com.android.systemui.R.drawable.ic_restart_bootloader,
                 com.android.systemui.R.string.global_action_restart_bootloader,
-                mWindowManagerFuncs, mHandler) {
-
-            public boolean showDuringKeyguard() {
-                return true;
-            }
-
-            public boolean showBeforeProvisioning() {
-                return true;
-            }
-        };
-
-        mRestartSystemUI = new AdvancedAction(
-                RESTART_UI_BUTTON,
-                com.android.systemui.R.drawable.ic_restart_ui,
-                com.android.systemui.R.string.global_action_restart_ui,
                 mWindowManagerFuncs, mHandler) {
 
             public boolean showDuringKeyguard() {
@@ -1288,10 +1254,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
     private static void triggerAction(int type, Handler h, GlobalActionsManager funcs, Context ctx) {
         switch (type) {
-            case RESTART_HOT_BUTTON:
-                h.sendEmptyMessage(MESSAGE_DISMISS);
-                doHotReboot();
-                break;
             case RESTART_RECOVERY_BUTTON:
                 h.sendEmptyMessage(MESSAGE_DISMISS);
                 funcs.advancedReboot(PowerManager.REBOOT_RECOVERY);
@@ -1299,14 +1261,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             case RESTART_BOOTLOADER_BUTTON:
                 h.sendEmptyMessage(MESSAGE_DISMISS);
                 funcs.advancedReboot(PowerManager.REBOOT_BOOTLOADER);
-                break;
-            case RESTART_UI_BUTTON:
-                /* no time and need to dismiss the dialog here, just kill systemui straight after telling to
-                policy/GlobalActions that we hid the dialog within the kill action itself so its onStatusBarConnectedChanged
-                won't show the LegacyGlobalActions after systemui restart
-                */
-                funcs.onGlobalActionsHidden();
-                restartSystemUI(ctx);
                 break;
             default:
                 break;
@@ -1484,10 +1438,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
     private void addNewItems() {
         mItems.clear();
-        mItems.add(mRestartHot);
         mItems.add(mRestartRecovery);
         mItems.add(mRestartBootloader);
-        mItems.add(mRestartSystemUI);
     }
 
     private void onAirplaneModeChanged() {
@@ -1669,22 +1621,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         public void setKeyguardShowing(boolean keyguardShowing) {
             mKeyguardShowing = keyguardShowing;
-        }
-    }
-
-    public static void restartSystemUI(Context ctx) {
-        Process.killProcess(Process.myPid());
-    }
-
-    private static void doHotReboot() {
-        try {
-            final IActivityManager am =
-                  ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
-            if (am != null) {
-                am.restart();
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "failure trying to perform hot reboot", e);
         }
     }
 
