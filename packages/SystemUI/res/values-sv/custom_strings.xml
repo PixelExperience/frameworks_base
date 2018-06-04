@@ -32,11 +32,10 @@
   <string name="global_action_restart_advanced">Avancerad</string>
   <string name="global_action_restart_recovery">Återställning</string>
   <string name="global_action_restart_bootloader">Starthanterare</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Snabb omstart</string>
   <string name="global_action_screenshot">Skärmdump</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Koffein</string>
   <string name="accessibility_quick_settings_caffeine_off">Koffein av</string>
   <string name="accessibility_quick_settings_caffeine_on">Koffein på</string>
+  <!-- Battery saver tile -->
 </resources>

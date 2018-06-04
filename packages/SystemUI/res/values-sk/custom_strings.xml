@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Dash nabíjanie (úplne nabité za <xliff:g id="4 hours and 2 minutes">%s</xliff:g>)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash nabíjanie</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Ťahaním alebo kliknutím pridať dlaždice</string>
@@ -30,14 +31,17 @@
   <string name="screen_pinning_description_back_nav_visible">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním tlačidla Späť alebo kliknite na zvýraznené tlačidlá na navigačnom paneli.</string>
   <string name="screen_pinning_description_power_nav_visible">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním tlačidla Napájanie alebo kliknite na zvýraznené tlačidlá na navigačnom paneli.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower je pripojený (<xliff:g id="charging_time_left">%s</xliff:g> až do plna)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je pripojený</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Nabíjanie</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Zobraziť 4G namiesto LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Indikátor sieťovej aktivity</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Rozšírené</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Rýchly reštart</string>
   <string name="global_action_screenshot">Snímka obrazovky</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Kofeín</string>
@@ -48,4 +52,6 @@
   <string name="accessibility_quick_settings_heads_up_on">Plávajúce upozornenia zapnuté.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Plávajúce oznámenia boli vypnuté.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Plávajúce oznámenia boli zapnuté.</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Úplne Nabité</string>
 </resources>

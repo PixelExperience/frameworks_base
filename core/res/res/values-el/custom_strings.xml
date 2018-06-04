@@ -19,8 +19,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Εντοπίστηκε μια ασυμφωνία ειδώλου vendor. Συνήθως αυτό σημαίνει ότι το είδωλο vendor της συσκευής σας είναι παρωχημένο. Παρακαλούμε βεβαιωθείτε ότι το είδωλο vendor της συσκευής σας είναι ίδιο με το <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε και κρατήστε πατημένο το πλήκτρο Πίσω.</string>
+  <string name="lock_to_app_toast_back">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε και κρατήστε πατημένο το πλήκτρο Πίσω</string>
   <string name="lock_to_app_toast_power">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε και κρατήστε πατημένο το κουμπί τροφοδοσίας</string>
   <string name="lock_to_app_toast_back_nav_visible">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε και κρατήστε πατημένο το πίσω κουμπί ή αγγίξτε και κρατήστε πίσω και επισκόπηση στη γραμμή πλοήγησης</string>
   <string name="lock_to_app_toast_power_nav_visible">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε και κρατήστε πατημένο το πίσω κουμπί ή αγγίξτε και κρατήστε πίσω και επισκόπηση στη γραμμή πλοήγησης</string>

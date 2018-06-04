@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">공급 업체 이미지가 일치하지 않습니다. 이는 일반적으로 사용자의 공급 업체 이미지가 오래되었음을 의미합니다. 공급 업체 이미지가 <xliff:g id="fingerprint">%1$s</xliff:g>과 일치하는지 확인하십시오.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">화면 고정을 해제하려면 뒤로가기 버튼을 길게 누르세요</string>
   <string name="lock_to_app_toast_power">화면 고정을 해제하려면 전원 버튼을 길게 누르세요</string>

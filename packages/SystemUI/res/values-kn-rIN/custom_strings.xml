@@ -29,8 +29,7 @@
   <string name="global_action_restart_advanced">ಮುಂದುವರಿದ</string>
   <string name="global_action_restart_recovery">ರಿಕವರಿ</string>
   <string name="global_action_restart_bootloader">ಬೂಟ ಲೋಡರ್</string>
-  <string name="global_action_restart_ui">ಸಿಸ್ಟಮ್ UI</string>
-  <string name="global_action_restart_hot">ತ್ವರಿತವಾದ ರೀಬೂಟ್</string>
   <string name="global_action_screenshot">ಸ್ಕ್ರೀನ್‍ಶಾಟ್</string>
   <!-- QS Tiles -->
+  <!-- Battery saver tile -->
 </resources>

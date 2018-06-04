@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">대시 충전 중 (<xliff:g id="charging_time_left" example="4시간 2분">%s</xliff:g> 후 충전 완료)</string>
   <string name="keyguard_plugged_in_dash_charging">대시 충전 중</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">로밍</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">드래그 또는 탭하여 타일 추가</string>
@@ -30,14 +31,16 @@
   <string name="screen_pinning_description_back_nav_visible">이 화면은 화면 고정을 해제하기 전까지 유지됩니다. 해제하려면 뒤로가기 버튼을 길게 누르거나 내비게이션 바에 하이라이트된 버튼을 누르세요.</string>
   <string name="screen_pinning_description_power_nav_visible">이 화면은 화면 고정을 해제하기 전까지 유지됩니다. 해제하려면 전원 버튼을 길게 누르거나 내비게이션 바에 하이라이트된 버튼을 누르세요.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower 연결됨 (풀 충전까지 <xliff:g id="charging_time_left">%s</xliff:g> 남음)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 연결됨</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">LTE 대신 4G</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">네트워크 동작 표시기</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">고급</string>
   <string name="global_action_restart_recovery">복구 모드</string>
   <string name="global_action_restart_bootloader">부트로더</string>
-  <string name="global_action_restart_ui">시스템UI</string>
-  <string name="global_action_restart_hot">빠른 다시 시작</string>
   <string name="global_action_screenshot">스크린샷</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">카페인</string>
@@ -48,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">헤드업 알림 켜짐.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">헤드업 알림이 꺼졌습니다.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">헤드업 알림이 켜졌습니다.</string>
+  <!-- Battery saver tile -->
 </resources>

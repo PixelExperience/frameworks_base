@@ -19,5 +19,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Është vënë re një mospërputhje imazhi të furnizuesit. Zakonisht kjo nënkupton që imazhi juaj i furnizuesit është i vjetër. Ju lutem verifikoni që imazhi juaj i furnizuesit të përputhet me <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
 </resources>

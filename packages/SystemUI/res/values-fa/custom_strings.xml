@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">در حال دش شارژ (<xliff:g id="charging_time_left" example="4 ساعت و 2 دقیقه">%s</xliff:g> تا پر‌شدن کامل)</string>
   <string name="keyguard_plugged_in_dash_charging">در حال دش شارژ</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">رومینگ</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">برای افزودن، کاشی‌ها را بکشید یا روی آن‌ها ضربه بزنید</string>
@@ -21,15 +22,17 @@
   <string name="lockscreen_default">پیش‌فرض</string>
   <string name="lockscreen_hidden">هیچ‌کدام</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-  <string name="custom_hint">برای راه‌اندازی، از روی آیکون به سمت دیگری بکشید</string>
+  <string name="custom_hint">برای اجرا، آیکون را به سمت دیگر بکشید</string>
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
-  <string name="screen_pinning_description_back">این صفحه تا زمانی که آن را از حالت سنجاق دربیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه ی بازگشت را نگه دارید.</string>
-  <string name="screen_pinning_description_power">این صفحه تا زمانی که آن را از حالت سنجاق دربیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه ی پاور را نگه دارید.</string>
-  <string name="screen_pinning_description_back_nav_visible">این صفحه تا زمانی که آن را از حالت سنجاق دربیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه ی بازگشت را نگه دارید یا دکمه های برجسته شده ی نوار پیمایش را فشار دهید.</string>
-  <string name="screen_pinning_description_power_nav_visible">این صفحه تا زمانی که آن را از حالت سنجاق دربیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه ی پاور را نگه دارید یا دکمه های برجسته شده ی نوار پیمایش را فشار دهید.</string>
+  <string name="screen_pinning_description_back">این صفحه تا زمانی که آن را از حالت سنجاق در بیاورید نمایش داده می‌شود. برای خروج از این حالت، دکمه ی بازگشت را نگه دارید.</string>
+  <string name="screen_pinning_description_power">این صفحه تا زمانی که آن را از حالت سنجاق در بیاورید نمایش داده می‌شود. برای خروج از این حالت، دکمه ی پاور را نگه دارید.</string>
+  <string name="screen_pinning_description_back_nav_visible">این صفحه تا زمانی که آن را از حالت سنجاق در بیاورید نمایش داده می‌شود. برای خروج از این حالت، دکمه ی بازگشت را نگه دارید یا دکمه‌های مشخص شده‌ی نوار پیمایش را فشار دهید.</string>
+  <string name="screen_pinning_description_power_nav_visible">این صفحه تا زمانی که آن را از حالت سنجاق در بیاورید نمایش داده می‌شود. برای خروج از این حالت، دکمه ی پاور را نگه دارید یا دکمه‌های مشخص شده‌ی نوار پیمایش را فشار دهید.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">شارژ توربو متصل شد (<xliff:g id="charging_time_left">%s</xliff:g> تا پر شدن کامل)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">شارژ توربو متصل شد</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G به جای LTE</string>
   <!-- Network Traffic -->
@@ -38,8 +41,6 @@
   <string name="global_action_restart_advanced">پیشرفته</string>
   <string name="global_action_restart_recovery">به ریکاوری</string>
   <string name="global_action_restart_bootloader">به بوت‌لودر</string>
-  <string name="global_action_restart_ui">راه‌اندازی مجدد رابط کاربری</string>
-  <string name="global_action_restart_hot">راه‌اندازی مجدد سریع</string>
   <string name="global_action_screenshot">عکس گرفتن از صفحه</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">حالت کافئین</string>
@@ -50,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">اعلان فوری روشن.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">اعلان فوری خاموش شد.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">اعلان فوری روشن شد.</string>
+  <!-- Battery saver tile -->
 </resources>

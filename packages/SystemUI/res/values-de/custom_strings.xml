@@ -31,6 +31,7 @@
   <string name="screen_pinning_description_back_nav_visible">Dies fixiert die aktuelle Ansicht. Zum Lösen der Ansicht die Zurück-Taste gedrückt halten oder die hervorgehobenen Tasten in der Navigationsleiste benutzen.</string>
   <string name="screen_pinning_description_power_nav_visible">Dies fixiert die aktuelle Ansicht. Zum Lösen der Ansicht die Power-Taste gedrückt halten oder die hervorgehobenen Tasten in der Navigationsleiste benutzen.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower verbunden (<xliff:g id="charging_time_left">%s</xliff:g> bis zur vollständigen Aufladung)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower verbunden</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G anstatt LTE nutzen</string>
@@ -40,8 +41,6 @@
   <string name="global_action_restart_advanced">Erweitert</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Schneller Neustart</string>
   <string name="global_action_screenshot">Bildschirmfoto</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Koffein</string>
@@ -52,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Pop-Up Benachrichtigungen an.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Pop-Up Benachrichtigungen ausgeschaltet.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Pop-Up Benachrichtigungen eingeschaltet.</string>
+  <!-- Battery saver tile -->
 </resources>

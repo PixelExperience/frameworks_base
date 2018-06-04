@@ -19,10 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="custom_system_error_manufacturer">Se ha detectado una falta de coincidencia de imagen de proveedor. Por lo general esto significa que su imagen de proveedor está desactualizado. Asegúrese de que su imagen de proveedor coincide con <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <string name="custom_system_error_manufacturer">Se detecto una incongruencia con la imágen de vendedor. Normalmente es debido a que la imágen no está actualizada. Por favor asegurate que la imágen coincide <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Para dejar de fijar ésta pantalla mantenga presionado el botón Atrás</string>
+  <string name="lock_to_app_toast_back">Para dejar de fijar esta pantalla, mantenga presionado el botón Atrás</string>
   <string name="lock_to_app_toast_power">Mantén pulsado el botón de Encendido para dejar de fijar esta pantalla</string>
-  <string name="lock_to_app_toast_back_nav_visible">Para dejar de fijar esta pantalla, mantenga presionado el botón Atrás o también mantenga presionada la tecla Atrás en la barra de navegación</string>
-  <string name="lock_to_app_toast_power_nav_visible">Para dejar de fijar esta pantalla, mantenga presionado el botón de Encendido o también mantenga presionada la tecla Atrás en la barra de navegación</string>
+  <string name="lock_to_app_toast_back_nav_visible">Para dejar de fijar esta pantalla, mantenga presionado el botón Atrás o la tecla Atrás de la barra de navegación</string>
+  <string name="lock_to_app_toast_power_nav_visible">Para dejar de fijar esta pantalla, mantenga presionado el botón de Encendido o la tecla Atrás en la barra de navegación</string>
 </resources>

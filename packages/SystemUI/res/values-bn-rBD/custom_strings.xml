@@ -41,9 +41,7 @@
   <string name="global_action_restart_advanced">উন্নত</string>
   <string name="global_action_restart_recovery">রিকভারি</string>
   <string name="global_action_restart_bootloader">বুটলোডার</string>
-  <string name="global_action_restart_ui">সিস্টেমইউআই</string>
-  <string name="global_action_restart_hot">কুইক রিবুট</string>
-  <string name="global_action_screenshot">স্ক্রিনশট</string>
+  <string name="global_action_screenshot">পর্দার ছবি</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">ক্যাফেইন</string>
   <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ</string>
@@ -53,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">হেডস আপ চালু</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">হেডস আপ বন্ধ করা হয়েছে</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">হেডস আপ চালু করা হয়েছে</string>
+  <!-- Battery saver tile -->
 </resources>

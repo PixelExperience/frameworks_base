@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Wykryto niezgodność obrazu dostawcy. Zazwyczaj oznacza to, że obraz twojego dostawcy nie jest aktualny. Upewnij się, że obraz odpowiada <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Aby odpiąć ten ekran, naciśnij i przytrzymaj przycisk wstecz</string>
   <string name="lock_to_app_toast_power">Aby odpiąć ten ekran, naciśnij i przytrzymaj przycisk zasilania</string>

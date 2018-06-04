@@ -16,6 +16,7 @@
   <!--Statusbar icon blacklist -->
   <string name="status_bar_vpn">વિપીએન</string>
   <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Tiles add કરવા Drag અથવા ટેપ કરો</string>
   <!-- Lockscreen tuner -->
   <string name="lockscreen_default">ડિફૉલ્ટ</string>
   <string name="lockscreen_hidden">કંઈ નહીં</string>
@@ -25,17 +26,20 @@
   <string name="status_bar_volte">વોલ્ટી</string>
   <!-- Screen pinning exit mode -->
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower જોડાયેલ છે (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">ટર્બોપાવર જોડાયેલ છે</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">LTE ની જગ્યાએ 4G</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">નેટવર્ક પ્રવૃત્તિ સૂચક</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">અદ્યતન</string>
   <string name="global_action_restart_recovery">રિકવરી</string>
   <string name="global_action_restart_bootloader">બુટલોડર</string>
-  <string name="global_action_restart_ui">સિસ્ટમUI</string>
-  <string name="global_action_restart_hot">ઝડપી રીબુટ</string>
   <string name="global_action_screenshot">સ્ક્રીનશોટ</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">કેફીન</string>
   <string name="accessibility_quick_settings_caffeine_off">કેફીન બંધ</string>
   <string name="accessibility_quick_settings_caffeine_on">કેફીન ચાલુ</string>
+  <!-- Battery saver tile -->
 </resources>

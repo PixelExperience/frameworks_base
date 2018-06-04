@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">ഡാഷ് ചാര്‍ജിങ്ങ് (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
   <string name="keyguard_plugged_in_dash_charging">ഡാഷ് ചാർജിങ്</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">റോമിംഗ്</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">ടൈൽ ചേർക്കാൻ വലിക്കുകയോ തൊടുകയോ ചെയ്യുക</string>
@@ -25,18 +26,25 @@
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
+  <string name="screen_pinning_description_back">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് ബാക്ക് ബട്ടൺ
+അമര്‍ത്തിപ്പിടിക്കുക.</string>
+  <string name="screen_pinning_description_power">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് ബാക്ക് ബട്ടൺ
+അമര്‍ത്തിപ്പിടിക്കുക.</string>
+  <string name="screen_pinning_description_back_nav_visible">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് ഹൈലൈറ്റ് ചെയ്തിട്ടുള്ള ബട്ടണുകളിൽ ടാപ് ചെയ്യുകയോ അല്ലെങ്കിൽ ബാക്ക് ബട്ടൺ അമർത്തി പിടിക്കുകയോ ചെയ്യുക.</string>
+  <string name="screen_pinning_description_power_nav_visible">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് ഹൈലൈറ്റ് ചെയ്തിട്ടുള്ള ബട്ടണുകളിൽ ടാപ് ചെയ്യുകയോ അല്ലെങ്കിൽ പവർ ബട്ടൺ അമർത്തി പിടിക്കുകയോ ചെയ്യുക.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_plugged_in_turbo_power_charging">ടർബോ ചാർജർ കണക്ട് ചെയ്തിരിക്കുന്നു</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G എന്നതിന് പകരം LTE എന്ന് കാണിക്കുക</string>
   <!-- Network Traffic -->
   <!-- Global actions -->
   <string name="global_action_restart_advanced">കൂടുതൽ ഓപ്ഷൻസ്</string>
   <string name="global_action_restart_recovery">റിക്കവറി</string>
   <string name="global_action_restart_bootloader">ബൂട്ട്ലോഡര്‍</string>
-  <string name="global_action_restart_ui">സിസ്റ്റം യൂസർ ഇന്റർഫേസ്</string>
-  <string name="global_action_restart_hot">വേഗത്തിലുള്ള റീബൂട്ട്</string>
   <string name="global_action_screenshot">സ്ക്രീൻഷോട്ട്</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">കഫീൻ</string>
   <string name="accessibility_quick_settings_caffeine_off">കഫീൻ ഓഫ്</string>
   <string name="accessibility_quick_settings_caffeine_on">കഫീൻ ഓൺ</string>
+  <!-- Battery saver tile -->
 </resources>

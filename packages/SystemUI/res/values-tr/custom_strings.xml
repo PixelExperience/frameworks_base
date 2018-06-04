@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">TurboPower bağlandı (tam dolmasına <xliff:g id="charging_time_left">%s</xliff:g> kaldı)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower bağlandı</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Şarj Oluyor</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">LTE yerine 4G göster</string>
   <!-- Network Traffic -->
@@ -41,8 +42,6 @@
   <string name="global_action_restart_advanced">Gelişmiş</string>
   <string name="global_action_restart_recovery">Kurtarma modu</string>
   <string name="global_action_restart_bootloader">Önyükleyici</string>
-  <string name="global_action_restart_ui">Kullanıcı arayüzü</string>
-  <string name="global_action_restart_hot">Hızlı yeniden başlat</string>
   <string name="global_action_screenshot">Ekran görüntüsü</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Kafein</string>
@@ -53,4 +52,6 @@
   <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Şarj Oldu</string>
 </resources>

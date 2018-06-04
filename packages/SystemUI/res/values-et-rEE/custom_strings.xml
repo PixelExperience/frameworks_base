@@ -11,41 +11,45 @@
          [CHAR LIMIT=4] -->
   <!-- Empty summary -->
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Kriips laadimine (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kuni täis)</string>
-  <string name="keyguard_plugged_in_dash_charging">Kriips laadimine</string>
+  <string name="keyguard_indication_dash_charging_time">Kiire laadimine (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> jäänud)</string>
+  <string name="keyguard_plugged_in_dash_charging">Kiire laadimine</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Rändlus</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Lohistage või koputage lisada plaadid</string>
+  <string name="drag_or_tap_to_add_tiles">Ikooni lisamiseks lohistage või puudutage</string>
   <!-- Lockscreen tuner -->
   <string name="lockscreen_default">Vaikimisi</string>
-  <string name="lockscreen_hidden">Ükski</string>
+  <string name="lockscreen_hidden">Puudub</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-  <string name="custom_hint">Nipsake kuva ikoon käivitada</string>
+  <string name="custom_hint">Viibake alates ikoonist, et käivitada</string>
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
-  <string name="screen_pinning_description_back">See hoiab ta silmas enne, kui eemaldate. Puudutage ja hoidke tagasi nuppu Eemalda.</string>
-  <string name="screen_pinning_description_power">See hoiab ta silmas enne, kui eemaldate. Puudutage ja hoidke all toitenuppu eemaldamine.</string>
-  <string name="screen_pinning_description_back_nav_visible">See hoiab ta silmas enne, kui eemaldate. Puudutage nuppu tagasi hoida ja puudutage esile nuppe navigeerimisriba eemaldamine.</string>
-  <string name="screen_pinning_description_power_nav_visible">See hoiab ta silmas enne, kui eemaldate. Puudutage nuppu tagasi hoida ja puudutage esile nuppe navigeerimisriba eemaldamine.</string>
+  <string name="screen_pinning_description_back">See hoiab seda nähtavuses, kuni Te vabastate. Vabastamiseks puudutage ja hoidke all Tagasi nuppu.</string>
+  <string name="screen_pinning_description_power">See hoiab seda nähtavuses, kuni Te vabastate. Vabastamiseks puudutage ja hoidke all Toite nuppu.</string>
+  <string name="screen_pinning_description_back_nav_visible">See hoiab seda nähtavuses, kuni Te vabastate. Vabastamiseks puudutage ja hoidke all Tagasi nuppu või puudutage navigeerimisribal esiletõstetud nuppe.</string>
+  <string name="screen_pinning_description_power_nav_visible">See hoiab seda nähtavuses, kuni Te vabastate. Vabastamiseks puudutage ja hoidke all Toite nuppu või puudutage navigeerimisribal esiletõstetud nuppe.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower on ühendatud (<xliff:g id="charging_time_left">%s</xliff:g> jäänud)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower on ühendatud</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">LTE asemel 4G</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Võrgu aktiivsuse näitaja</string>
   <!-- Global actions -->
-  <string name="global_action_restart_advanced">Täpsem</string>
-  <string name="global_action_restart_recovery">Taastamine</string>
+  <string name="global_action_restart_advanced">Täpsemalt</string>
+  <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Kiire taaskäivitus</string>
   <string name="global_action_screenshot">Kuvatõmmis</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_caffeine_label">Kofeiin</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofeiini välja</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofeiini kohta</string>
-  <string name="quick_settings_heads_up_label">Pead üles</string>
-  <string name="accessibility_quick_settings_heads_up_off">Pead üles välja.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Juhtidele üles.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Pead sisse lülitatud.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Pead sisse lülitatud.</string>
+  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeine väljas</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine sees</string>
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up väljas.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up sees.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads up on välja lülitatud.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads up on sisse lülitatud.</string>
+  <!-- Battery saver tile -->
 </resources>

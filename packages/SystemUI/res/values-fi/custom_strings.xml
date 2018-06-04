@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Lisäasetukset</string>
   <string name="global_action_restart_recovery">Recovery-tila</string>
   <string name="global_action_restart_bootloader">Bootloader-tila</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Nopea uudelleenkäynnistys</string>
   <string name="global_action_screenshot">Ruudunkaappaus</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Heads up päällä.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads up laitettu päälle.</string>
+  <!-- Battery saver tile -->
 </resources>

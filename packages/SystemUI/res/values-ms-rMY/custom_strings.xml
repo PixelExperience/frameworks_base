@@ -32,11 +32,10 @@
   <string name="global_action_restart_advanced">Selanjutnya</string>
   <string name="global_action_restart_recovery">Mod Pemulihan</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Boot semula pantas</string>
   <string name="global_action_screenshot">Tangkapan skrin</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Kafein</string>
   <string name="accessibility_quick_settings_caffeine_off">Kafein Ditutup</string>
   <string name="accessibility_quick_settings_caffeine_on">Kafein Dibuka</string>
+  <!-- Battery saver tile -->
 </resources>

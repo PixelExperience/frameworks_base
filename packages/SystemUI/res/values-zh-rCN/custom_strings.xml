@@ -33,16 +33,15 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">TurboPower 已连接 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已连接</string>
+  <string name="keyguard_plugged_in_turbo_charging">快速充电中</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">显示 4G 图标而非 LTE 图标</string>
   <!-- Network Traffic -->
-  <string name="network_traffic_state_title">网络活动指示</string>
+  <string name="network_traffic_state_title">网络活动指示器</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">高级重启</string>
   <string name="global_action_restart_recovery">恢复模式</string>
   <string name="global_action_restart_bootloader">引导模式</string>
-  <string name="global_action_restart_ui">系统界面</string>
-  <string name="global_action_restart_hot">快速重启</string>
   <string name="global_action_screenshot">屏幕截图</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">保持亮屏</string>
@@ -53,4 +52,6 @@
   <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已打开</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">充电完成</string>
 </resources>

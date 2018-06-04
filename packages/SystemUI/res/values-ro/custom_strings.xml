@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Încărcare Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> la încărcare completă)</string>
   <string name="keyguard_plugged_in_dash_charging">Încărcare Dash</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Trageţi sau atingeți pentru a adăuga dale</string>
@@ -30,17 +31,19 @@
   <string name="screen_pinning_description_back_nav_visible">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Înapoi sau apăsați butoanele îngroșate de pe bara de navigare pentru a debloca.</string>
   <string name="screen_pinning_description_power_nav_visible">Aceasta ține în vizualizare ecranul până îl deblocați. Apăsați și țineți apăsat butonul Oprire sau apăsați butoanele îngroșate de pe bara de navigare pentru a debloca.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">Conectat TurboPower (<xliff:g id="charging_time_left">%s</xliff:g> pana la maxim)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Conectat TurboPower</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Arată 4G în loc de LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Indicator activitate reţea</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Avansat</string>
   <string name="global_action_restart_recovery">Recuperare</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Restart rapid</string>
   <string name="global_action_screenshot">Captură ecran</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_caffeine_label">Cofeina este pornită</string>
+  <string name="quick_settings_caffeine_label">Cofeină</string>
   <string name="accessibility_quick_settings_caffeine_off">Cofeina este oprită</string>
   <string name="accessibility_quick_settings_caffeine_on">Cofeină pornită</string>
   <string name="quick_settings_heads_up_label">Atenționări</string>
@@ -48,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Atenționări activate.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Atenționările au fost oprite.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Atenționările au fost activate.</string>
+  <!-- Battery saver tile -->
 </resources>

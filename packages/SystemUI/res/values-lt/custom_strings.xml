@@ -27,4 +27,5 @@
   <string name="quick_settings_caffeine_label">Kofeinas</string>
   <string name="accessibility_quick_settings_caffeine_off">Kofeinas išjungtas</string>
   <string name="accessibility_quick_settings_caffeine_on">Kofeinas įjungtas</string>
+  <!-- Battery saver tile -->
 </resources>

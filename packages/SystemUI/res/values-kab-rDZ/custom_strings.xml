@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Talqayt</string>
   <string name="global_action_restart_recovery">Tiririt</string>
   <string name="global_action_restart_bootloader">Afecku useqdec n unagraw</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Tulsa n useker arurad</string>
   <string name="global_action_screenshot">Tuṭṭfa n ugdil</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Kafiyin</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Ilɣa yettafgen remden.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Ilɣa yettafgen nsan.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Ilɣa yettafgen remden.</string>
+  <!-- Battery saver tile -->
 </resources>

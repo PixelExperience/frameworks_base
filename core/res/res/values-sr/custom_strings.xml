@@ -19,5 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Откривена је неусклађеност слике добављача. Ово обично значи да је слика вашег добављача застарела. Проверите да ли се слика добављача подудара са <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
+  <string name="lock_to_app_toast_back">Да бисте откључали овај екран, додирните и задржите дугме за повратак</string>
+  <string name="lock_to_app_toast_power">Да бисте откључали овај екран, додирните и задржите дугме за паљење телефона</string>
+  <string name="lock_to_app_toast_back_nav_visible">Да бисте откључали овај екран, додирните и задржите дугме за повратак или додирните и задржите дугмад за повратак и преглед на навигационој траци</string>
+  <string name="lock_to_app_toast_power_nav_visible">Да бисте откључали овај екран, додирните и задржите дугме за паљење телефона или додирните и задржите дугмад за повратак и преглед на навигационој траци</string>
 </resources>

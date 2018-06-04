@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">متصل بالشحن السريع (<xliff:g id="charging_time_left">%s</xliff:g> حتى يكتمل)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">متصل بالشحن السريع</string>
+  <string name="keyguard_plugged_in_turbo_charging">الشحن السريع</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">اظهار 4g بدلا من LTE</string>
   <!-- Network Traffic -->
@@ -41,8 +42,6 @@
   <string name="global_action_restart_advanced">إعدادات متقدمة</string>
   <string name="global_action_restart_recovery">قائمة الاسترداد</string>
   <string name="global_action_restart_bootloader">أداة تشغيل النظام</string>
-  <string name="global_action_restart_ui">تصميم النظام</string>
-  <string name="global_action_restart_hot">إعادة تشغيل سريع</string>
   <string name="global_action_screenshot">تصوير الشاشة</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">الإستراحة</string>
@@ -53,4 +52,6 @@
   <string name="accessibility_quick_settings_heads_up_on">تشغيل الإشعارات المنبثقة.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف الإشعارات المنبثقة.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإشعارات المنبثقة.</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">مشحون بالكامل</string>
 </resources>

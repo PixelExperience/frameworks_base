@@ -20,7 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">To unpin this screen, touch and hold Back button</string>
+  <string name="lock_to_app_toast_back">ही स्क्रीन अनपिन करण्यासाठी, बॅक बटण स्पर्श करा आणि धरून ठेवा</string>
   <string name="lock_to_app_toast_power">ही स्क्रीन अनपिन करण्यासाठी, पॉवर बटण स्पर्श करा आणि धरून ठेवा</string>
   <string name="lock_to_app_toast_back_nav_visible">ही स्क्रीन अनपिन करण्यासाठी, नॅव्हिगेशन बारवरील परत बटण दाबा आणि धरून ठेवा किंवा परत बटण व आढावा बटण दाबा आणि धरून ठेवा आणि विहंगावलोकन करा</string>
   <string name="lock_to_app_toast_power_nav_visible">ही स्क्रीन अनपिन करण्यासाठी, पॉवर बटण दाबा आणि धरून ठेवा किंवा परत बटण व आढावा बटण दाबा आणि धरून ठेवा आणि विहंगावलोकन करा</string>

@@ -19,10 +19,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="custom_system_error_manufacturer">Es wurde ein unpassendes Vendor-Image erkannt. Dies bedeutet in der Regel, dass es veraltet ist. Stellen Sie sicher, dass ihr Vendor-Image <xliff:g id="fingerprint">%1$s</xliff:g> entspricht.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten</string>
-  <string name="lock_to_app_toast_power">Zum Lösen dieser Ansicht drücken und halten Sie die Power-Taste</string>
-  <string name="lock_to_app_toast_back_nav_visible">Zum Lösen dieser Ansicht, halten Sie die Zurück-Taste gedrückt oder halten sie die Zurück und Übersicht Schaltfläche der Navigationsleiste</string>
-  <string name="lock_to_app_toast_power_nav_visible">Zum Lösen dieser Ansicht, halten Sie die Power-Taste gedrückt oder halten sie die Zurück und Übersicht Schaltfläche der Navigationsleiste</string>
 </resources>
