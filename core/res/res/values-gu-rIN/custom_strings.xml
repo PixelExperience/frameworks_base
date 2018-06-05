@@ -19,5 +19,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Vendor image વિક્રેતા શોધવામાં આવેલી છે.
+મતલબ કે તમારો vendor સમયગાળા ની બહાર છે. કૃપયા ખાતરી કરો કે vendor image <xliff:g id="fingerprint">%1$s</xliff:g> સાથે મેચ કરે છે.</string>
   <!-- Screen pinning exit mode -->
+  <string name="lock_to_app_toast_back_nav_visible">આ સ્ક્રીનને અનપિન કરવા માટે, નેવિગેશન પટ્ટી પર બેક બટન ટચ કરો અને પકડી રાખો અથવા બેક અને overview બટન ટચ કરો અને પકડી રાખો</string>
 </resources>

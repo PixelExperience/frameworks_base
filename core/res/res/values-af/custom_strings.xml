@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">\'N Verskaffer se wanvertoning is bespeur. Dit beteken gewoonlik dat jou verkoper se beeld verouderd is. Maak asseblief seker dat u verkoper se beeld ooreenstem <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Om hierdie skerm uit te skakel, raak en hou Terug knoppie</string>
   <string name="lock_to_app_toast_power">Om hierdie skerm uit te skakel, raak en hou Power knoppie</string>

@@ -21,8 +21,8 @@
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
   <string name="custom_system_error_manufacturer">Виявлено несумісний образ виробника пристрою. Як правило, це означає, що необхідно встановити оновлене програмне забезпечення від виробника. Переконайтеся, що його версія буде відповідати <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Щоб відкріпити цей екран, натисніть і утримуйте кнопку \"Назад\"</string>
-  <string name="lock_to_app_toast_power">Щоб відкріпити цей екран, натисніть і утримуйте кнопку живлення</string>
-  <string name="lock_to_app_toast_back_nav_visible">Щоб відкріпити цей екран, натисніть та утримуйте кнопку \"Назад\" або утримуйте \"Назад\" та \"Огляд\" на панелі навігації</string>
-  <string name="lock_to_app_toast_power_nav_visible">Щоб відкріпити цей екран, натисніть та утримуйте кнопку \"Живлення\" або утримуйте \"Назад\" та \"Огляд\" на панелі навігації</string>
+  <string name="lock_to_app_toast_back">Щоб відключити екран, натисніть і утримуйте кнопку \"Назад\"</string>
+  <string name="lock_to_app_toast_power">Щоб відключити екран, натисніть і утримуйте кнопку живлення</string>
+  <string name="lock_to_app_toast_back_nav_visible">Щоб відключити екран, натисніть та утримуйте кнопку \"Назад\" або утримуйте \"Назад\" та \"Огляд\" на панелі навігації</string>
+  <string name="lock_to_app_toast_power_nav_visible">Щоб відключити екран, натисніть та утримуйте кнопку \"Живлення\" або утримуйте \"Назад\" та \"Огляд\" на панелі навігації</string>
 </resources>

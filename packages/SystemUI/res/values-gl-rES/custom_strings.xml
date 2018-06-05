@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Avanzado</string>
   <string name="global_action_restart_recovery">Recuperación</string>
   <string name="global_action_restart_bootloader">Xestor de arranque</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Reinicio rápido</string>
   <string name="global_action_screenshot">Captura de pantalla</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Cafeína</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Notificacións emerxentes activadas.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">As notificacións emerxentes foron desactivadas.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">As notificacións emerxentes foron activadas.</string>
+  <!-- Battery saver tile -->
 </resources>

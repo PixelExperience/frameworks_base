@@ -19,9 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">ایمیج سازنده دستگاه با سیستم مطابقت ندارد یعنی ایمیج سازنده دستگاه قدیمی است. لطفاً مطمئن شوید ایمیج سازنده دستگاه شما با <xliff:g id="fingerprint">%1$s</xliff:g> سازگار باشد.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را زده و نگه دارید</string>
-  <string name="lock_to_app_toast_power">برای از حالت سنجاق درآوردن این صفحه، دکمه ی پاور را زده و نگه دارید</string>
-  <string name="lock_to_app_toast_back_nav_visible">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را زده و نگه دارید یا دکمه ی بازگشت و برنامه های اخیر روی نوار پیمایش را با هم نگه دارید</string>
-  <string name="lock_to_app_toast_power_nav_visible">برای از حالت سنجاق درآوردن این صفحه، دکمه ی پاور را زده و نگه دارید یا دکمه ی بازگشت و برنامه های اخیر روی نوار پیمایش را با هم نگه دارید</string>
+  <string name="lock_to_app_toast_back">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را لمس کرده و نگه دارید</string>
+  <string name="lock_to_app_toast_power">برای از حالت سنجاق درآوردن این صفحه، دکمه ی پاور را لمس کرده و نگه دارید</string>
+  <string name="lock_to_app_toast_back_nav_visible">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را لمس کرده و نگه دارید یا دکمه ی بازگشت و برنامه های اخیر روی نوار پیمایش را با هم نگه دارید</string>
+  <string name="lock_to_app_toast_power_nav_visible">برای از حالت سنجاق درآوردن این صفحه، دکمه ی پاور را لمس کرده و نگه دارید یا دکمه ی بازگشت و برنامه های اخیر روی نوار پیمایش را با هم نگه دارید</string>
 </resources>

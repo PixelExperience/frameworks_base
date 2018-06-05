@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Ταχεία φόρτιση (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> για πλήρη φόρτιση)</string>
   <string name="keyguard_plugged_in_dash_charging">Ταχεία Φόρτιση</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Περιαγωγή</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Σύρετε ή πατήστε για να προσθέσετε τίτλους</string>
@@ -30,14 +31,17 @@
   <string name="screen_pinning_description_back_nav_visible">Αυτό είναι σε προβολή μέχρι να την ξεκαρφιτσώσετε. Αγγίξτε και κρατήστε πατημένο το πίσω κουμπί ή το επισημασμένο κουμπιά στη γραμμή πλοήγησης για να ξεκαρφιτσώσετε.</string>
   <string name="screen_pinning_description_power_nav_visible">Αυτό είναι σε προβολή μέχρι να την ξεκαρφιτσώσετε. Αγγίξτε και κρατήστε πατημένο το πίσω κουμπί ή το επισημασμένο κουμπιά στη γραμμή πλοήγησης για να ξεκαρφιτσώσετε.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> μέχρι να φορτίσει πλήρως)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Συνδέθηκε η γρήγορη φόρτιση</string>
+  <string name="keyguard_plugged_in_turbo_charging">Ταχεία Φόρτιση</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Εμφάνιση 4G αντί για LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Ένδειξη δραστηριότητας δικτύου</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Για προχωρημένους</string>
   <string name="global_action_restart_recovery">Ανάκτηση/Recovery</string>
   <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Γρήγορη επανεκκίνηση</string>
   <string name="global_action_screenshot">Στιγμιότυπο οθόνης</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Καφεΐνη</string>
@@ -48,4 +52,6 @@
   <string name="accessibility_quick_settings_heads_up_on">Αναδυόμενες ειδοποιήσεις ενεργές.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Οι αναδυόμενες ειδοποιήσεις απενεργοποιήθηκαν.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Οι Αναδυόμενες ειδοποιήσεις ενεργοποιήθηκαν.</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Πλήρης φόρτιση</string>
 </resources>

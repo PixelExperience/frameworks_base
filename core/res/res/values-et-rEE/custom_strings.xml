@@ -19,9 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Tuvastati tarnija piltide mittevastavus. Tavaliselt tähendab see seda, et Teie tarnija pilt on aegunud. Veenduge, et Teie tarnija pilt vastab <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Selle ekraani vabastamiseks puudutage ja hoidke all Tagasi nuppu</string>
   <string name="lock_to_app_toast_power">Selle ekraani vabastamiseks puudutage ja hoidke all Toite nuppu</string>
-  <string name="lock_to_app_toast_back_nav_visible">Seda ekraani vabastamiseks puudutage ja hoidke tagasi navigeerimisribal nuppu või puudutage ja hoidke all tagasi ja ülevaade</string>
-  <string name="lock_to_app_toast_power_nav_visible">Seda ekraani vabastamiseks puudutage ja hoidke all toitenuppu või puudutage ja hoidke all tagasi ja ülevaade navigeerimisriba</string>
+  <string name="lock_to_app_toast_back_nav_visible">Selle ekraani vabastamiseks puudutage ja hoidke all Tagasi nuppu või puudutage ja hoidke all navigeerimisriba nuppe Tagasi ja Ülevaade</string>
+  <string name="lock_to_app_toast_power_nav_visible">Selle ekraani vabastamiseks puudutage ja hoidke all Toite nuppu või puudutage ja hoidke all navigeerimisriba nuppe Tagasi ja Ülevaade</string>
 </resources>

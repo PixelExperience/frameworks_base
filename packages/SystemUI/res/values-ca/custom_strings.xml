@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Avançat</string>
   <string name="global_action_restart_recovery">Mode Recuperació</string>
   <string name="global_action_restart_bootloader">Mode Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Reinici ràpid</string>
   <string name="global_action_screenshot">Captura de pantalla</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Mode Caffeine</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Notificacions flotants activades.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Les notificacions flotants han estat desactivades.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Les notificacions flotants han estat activades.</string>
+  <!-- Battery saver tile -->
 </resources>

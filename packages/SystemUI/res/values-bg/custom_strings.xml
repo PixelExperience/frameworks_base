@@ -32,8 +32,6 @@
   <string name="global_action_restart_advanced">Разширени</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">Системен Ui</string>
-  <string name="global_action_restart_hot">Бързо рестартиране</string>
   <string name="global_action_screenshot">Екранна снимка</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
@@ -44,4 +42,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Включи изскачащи известия.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Изскачащите известия са изключени.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Изскачащите известия са включени.</string>
+  <!-- Battery saver tile -->
 </resources>

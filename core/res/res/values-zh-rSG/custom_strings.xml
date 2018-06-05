@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">已檢測到供應者的映像檔案不符合。 通常這表示您的供應者的映像檔案已過期。 請確保您的供應者的映像檔案與 <xliff:g id="fingerprint">%1$s</xliff:g> 相符合。</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">如要取消固定這個畫面，請按住「返回」按鈕。</string>
   <string name="lock_to_app_toast_power">要脫離此螢幕, 請觸摸並按住電源按鈕</string>

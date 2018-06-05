@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 uur en 2 minuten">%s</xliff:g> tot vol)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Sleep of tik om tegels toe te voegen</string>
@@ -25,18 +26,30 @@
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
+  <string name="screen_pinning_description_back">Het scherm blijft zichtbaar totdat u het u losmaakt. Blijf de Terug-knop aanraken om het scherm los te maken.</string>
+  <string name="screen_pinning_description_power">Het scherm blijft zichtbaar totdat u het u losmaakt. Blijf de aan/uit knop aanraken om het scherm los te maken.</string>
+  <string name="screen_pinning_description_back_nav_visible">Het scherm blijft zichtbaar totdat u het u losmaakt. Blijf de aan/uit knop of de gemarkeerde knoppen op de navigatieblak aanraken om het scherm los te maken.</string>
+  <string name="screen_pinning_description_power_nav_visible">Het scherm blijft zichtbaar totdat u het u losmaakt. Blijf de aan/uit knop of de gemarkeerde knoppen op de navigatiebar aanraken om het scherm los te maken.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower aangesloten (<xliff:g id="charging_time_left">%s</xliff:g> tot volledig opgeladen)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower verbonden</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Toon 4G in plaats van LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Netwerk activiteitsindicator</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Geavanceerd</string>
   <string name="global_action_restart_recovery">Herstel</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SysteemUI</string>
-  <string name="global_action_restart_hot">Snelle herstart</string>
   <string name="global_action_screenshot">Schermafdruk</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Cafeïne</string>
   <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit</string>
   <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan</string>
+  <string name="quick_settings_heads_up_label">Heads up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads up uit.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads up aan.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up uitgeschakeld.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ingeschakeld.</string>
+  <!-- Battery saver tile -->
 </resources>

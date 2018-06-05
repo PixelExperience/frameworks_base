@@ -19,7 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="custom_system_error_manufacturer">Обнаружено несоответствие образа поставщика. Обычно это означает, что изображение вашего поставщика устарело. Пожалуйста, убедитесь, что изображение вашего поставщика совпадает <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <string name="custom_system_error_manufacturer">Обнаружено несоответствие образа поставщика. Обычно это означает, что образ вашего поставщика устарел. Пожалуйста, убедитесь, что образ вашего поставщика совпадает с нынешней версией<xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад»</string>
   <string name="lock_to_app_toast_power">Чтобы открепить экран, нажмите и удерживайте кнопку питания</string>

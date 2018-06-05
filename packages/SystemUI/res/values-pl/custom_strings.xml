@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Szybkie ładowanie (<xliff:g id="charging_time_left" example="4 godziny and 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
   <string name="keyguard_plugged_in_dash_charging">Szybkie ładowanie</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Przeciągnij, lub dotknij żeby dodać kafelki</string>
@@ -30,14 +31,16 @@
   <string name="screen_pinning_description_back_nav_visible">Ekran będzie widoczny, dopóki go nie odepniesz. Dotknij i przytrzymaj przycisk Wstecz lub dotknij podświetlone przyciski na pasku nawigacyjnym, aby odpiąć.</string>
   <string name="screen_pinning_description_power_nav_visible">Ekran będzie widoczny, dopóki go nie odepniesz. Dotknij i przytrzymaj przycisk zasilania lub dotknij podświetlone przyciski na pasku nawigacyjnym, aby odpiąć.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower podłączone (<xliff:g id="charging_time_left">%s</xliff:g> do końca)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower podłączone</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Pokaż 4G zamiast LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Wskaźnik aktywności sieci</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Zaawansowane</string>
   <string name="global_action_restart_recovery">Tryb recovery</string>
   <string name="global_action_restart_bootloader">Tryb Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Szybki restart</string>
   <string name="global_action_screenshot">Zrzut ekranu</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Kofeina</string>
@@ -48,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia włączone.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia wyłączone.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia włączone.</string>
+  <!-- Battery saver tile -->
 </resources>

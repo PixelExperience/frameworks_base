@@ -22,7 +22,7 @@
   <string name="custom_system_error_manufacturer">সত্বাধিকারীর ইমেজ মেলেনি। সাধারণত এর মানে হল আপনার সত্বাধিকারী ইমেজ মেয়াদোত্তীর্ণ হয়ে গেছে। অনুগ্রহ করে সুনিশ্চিত করুন আপনার সত্বাধিকারী ইমেজ যা <xliff:g id="fingerprint">%1$s </xliff:g> সাথে মিলে যায়।.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">এই স্ক্রীন আনপিন করতে, ব্যাক বাটনটি স্পর্শ করুণ এবং ধরে রাখুন|</string>
-  <string name="lock_to_app_toast_power">এই স্ক্রীন আনপিন করতে, পিছনের বাটনটি স্পর্শ করুণ এবং ধরে রাখুন|</string>
+  <string name="lock_to_app_toast_power">এই স্ক্রীন আনপিন করতে, পাওয়ার বাটনটি স্পর্শ করুণ এবং ধরে রাখুন|</string>
   <string name="lock_to_app_toast_back_nav_visible">স্ক্রীনটি আনপিন করতে ব্যাকবাটনটি চাপ দিয়ে ধরে থাকুন। অথবা ন্যাভেগেশন বারের অভারভিউ অ ব্যাক বাটুন চাপুন।</string>
-  <string name="lock_to_app_toast_power_nav_visible">স্ক্রীনটি আনপিন করতে ব্যাকবাটনটি চাপ দিয়ে ধরে থাকুন। অথবা ন্যাভেগেশন বারের অভারভিউ অ ব্যাক বাটুন চাপুন।</string>
+  <string name="lock_to_app_toast_power_nav_visible">স্ক্রীনটি আনপিন করতে পাওয়ার বাটনটি চাপ দিয়ে ধরে থাকুন। অথবা ন্যাভেগেশন বারের অভারভিউ অ ব্যাক বাটুন চাপুন।</string>
 </resources>

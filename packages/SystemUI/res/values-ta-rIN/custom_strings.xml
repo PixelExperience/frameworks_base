@@ -32,11 +32,10 @@
   <string name="global_action_restart_advanced">மேம்பட்ட</string>
   <string name="global_action_restart_recovery">மீட்பு (ரெகவரி)</string>
   <string name="global_action_restart_bootloader">பூட் லோடர்</string>
-  <string name="global_action_restart_ui">சிஸ்டம்Ui</string>
-  <string name="global_action_restart_hot">விரைவு மறுதொடக்கம்</string>
   <string name="global_action_screenshot">ஸ்கிரீன்ஷாட்</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">காஃபின்</string>
   <string name="accessibility_quick_settings_caffeine_off">காஃபின் ஆஃப்</string>
   <string name="accessibility_quick_settings_caffeine_on">கேஃபைன் ஆன்</string>
+  <!-- Battery saver tile -->
 </resources>

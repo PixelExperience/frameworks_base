@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Dash 閃充 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 後充滿)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash 閃充</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">漫遊</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">拖曳或輕觸以新增圖塊</string>
@@ -30,14 +31,16 @@
   <string name="screen_pinning_description_back_nav_visible">這將維持顯示螢幕內容直到你取消。輕觸並按住「返回」鍵或輕觸導航列上突出顯示的按鈕以取消固定。</string>
   <string name="screen_pinning_description_power_nav_visible">這將維持顯示螢幕內容直到你取消。輕觸並按住「電源」鍵或輕觸導航列上突出顯示的按鈕以取消固定。</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower 已連接 (還剩 <xliff:g id="charging_time_left">%s</xliff:g> 充滿)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已連接</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">顯示 4G 而非 LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">網路活動指示器</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">進階</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">系統使用者介面</string>
-  <string name="global_action_restart_hot">快速重新開機</string>
   <string name="global_action_screenshot">截圖</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">暫停休眠</string>
@@ -48,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">浮動通知開啟。</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉。</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟。</string>
+  <!-- Battery saver tile -->
 </resources>

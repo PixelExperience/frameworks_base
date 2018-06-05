@@ -11,8 +11,8 @@
          [CHAR LIMIT=4] -->
   <!-- Empty summary -->
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Швидке заряджання (<xliff:g id="charging_time_left" example="4 год. 2 хв.">%s</xliff:g> до повної зарядки)</string>
-  <string name="keyguard_plugged_in_dash_charging">Швидке заряджання</string>
+  <string name="keyguard_indication_dash_charging_time">Швидке живлення (<xliff:g id="charging_time_left" example="4 год. 2 хв.">%s</xliff:g> до повної зарядки)</string>
+  <string name="keyguard_plugged_in_dash_charging">Швидке живлення</string>
   <!--Statusbar icon blacklist -->
   <string name="status_bar_roaming">Роумінг</string>
   <string name="status_bar_vpn">VPN</string>
@@ -41,8 +41,6 @@
   <string name="global_action_restart_advanced">Додатково</string>
   <string name="global_action_restart_recovery">Відновлення</string>
   <string name="global_action_restart_bootloader">Завантажувач</string>
-  <string name="global_action_restart_ui">Перезапустити SystemUI</string>
-  <string name="global_action_restart_hot">Швидке перезавантаження</string>
   <string name="global_action_screenshot">Скріншот</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Заборона сну</string>
@@ -53,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнено.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
+  <!-- Battery saver tile -->
 </resources>

@@ -19,9 +19,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">S-a detectat o nepotrivire a partitiei Vendor. In mod obisnuit, inseamna ca partitia Vendor este expirata.
+Va rugam sa va asigurati ca partitia Vendor corespunde cu: <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi</string>
-  <string name="lock_to_app_toast_power">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat butonul Înapoi</string>
+  <string name="lock_to_app_toast_power">Pentru a anula fixarea acestui ecran, atingeți și mențineți apăsat butonul Pornire</string>
   <string name="lock_to_app_toast_back_nav_visible">Pentru a anula fixarea acestui ecran, atingeți și mențineți apăsat butonul Înapoi sau atingeti si mentineti apăsat Înapoi și Recente din bara de navigare</string>
   <string name="lock_to_app_toast_power_nav_visible">Pentru a anula fixarea acestui ecran, atingeți și mențineți apăsat butonul de pornire sau atingeți și mențineți apăsat Înapoi și Recente din bara de navigare</string>
 </resources>

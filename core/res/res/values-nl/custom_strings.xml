@@ -19,5 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Er is een discrepantie geconstateerd in de vendor-image. Over het algemeen betekent dit dat de vendor-image verouderd is. Zorg ervoor dat de vendor-image overeenkomt met <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
+  <string name="lock_to_app_toast_back">Blijf de Terug-knop aanraken om dit scherm los te maken</string>
+  <string name="lock_to_app_toast_power">Blijf de aan/uit knop aanraken om dit scherm los te maken</string>
+  <string name="lock_to_app_toast_back_nav_visible">Blijf de Terug-knop aanraken of blijf de Terug-knop en de Overzicht-knop aanraken om dit scherm los te maken</string>
+  <string name="lock_to_app_toast_power_nav_visible">Blijf de aan/uit knop aanraken of blijf de Terug-knop en de Overzicht-knop aanraken om dit scherm los te maken</string>
 </resources>

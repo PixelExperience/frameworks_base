@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Napredno</string>
   <string name="global_action_restart_recovery">Oporavak</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Brzo ponovno pokretanje</string>
   <string name="global_action_screenshot">Snimka zaslona</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Kofein</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
+  <!-- Battery saver tile -->
 </resources>

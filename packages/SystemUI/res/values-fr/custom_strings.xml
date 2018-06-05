@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Chargement rapide (complet dans <xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
   <string name="keyguard_plugged_in_dash_charging">Charge rapide</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Itinérance</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Faites glisser ou appuyez pour ajouter des tuiles</string>
@@ -25,19 +26,21 @@
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
-  <string name="screen_pinning_description_back">Cela le laisse en vue jusqu\'à ce que vous le détachiez. Appuyez et maintenez le bouton retour pour détacher.</string>
+  <string name="screen_pinning_description_back">Celà le laisse en vue jusqu\'à ce que vous le détachiez. Appuyez et maintenez le bouton retour pour annuler l\'épinglage.</string>
   <string name="screen_pinning_description_power">Cela le laisse en vue jusqu\'à ce que vous le détachiez. Appuyez et maintenez le bouton Power pour détacher.</string>
   <string name="screen_pinning_description_back_nav_visible">Cela garde en vue jusqu\'à ce que vous détacher. Touchez et maintenez le bouton marche / arrêt ou appuyez sur les touches en surbrillance dans la barre de navigation à détacher.</string>
   <string name="screen_pinning_description_power_nav_visible">Cela garde en vue jusqu\'à ce que vous détacher. Touchez et maintenez le bouton marche / arrêt ou appuyez sur les touches en surbrillance dans la barre de navigation à détacher.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower connecté (<xliff:g id="temps_restant">%s</xliff:g> avant charge complète)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G au lieu de LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Indicateur d\'activité réseau</string>
   <!-- Global actions -->
-  <string name="global_action_restart_advanced">Paramètres avancés</string>
+  <string name="global_action_restart_advanced">Avancé</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Redémarrage rapide</string>
   <string name="global_action_screenshot">Capture d\'écran</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Caféine</string>
@@ -45,7 +48,8 @@
   <string name="accessibility_quick_settings_caffeine_on">Mode caféine activé</string>
   <string name="quick_settings_heads_up_label">Notifications flottantes</string>
   <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes désactivées.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes ont été désactivées.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes a été activées.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes a était désactivé.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes a était activé.</string>
+  <!-- Battery saver tile -->
 </resources>

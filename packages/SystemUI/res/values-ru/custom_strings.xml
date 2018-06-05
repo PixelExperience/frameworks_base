@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">Быстрая зарядка активна (<xliff:g id="charging_time_left">%s</xliff:g> до полной зарядки)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Быстрая зарядка активна</string>
+  <string name="keyguard_plugged_in_turbo_charging">Быстрая зарядка</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Значок 4G вместо LTE</string>
   <!-- Network Traffic -->
@@ -41,8 +42,6 @@
   <string name="global_action_restart_advanced">Расширенный</string>
   <string name="global_action_restart_recovery">Режим восстановления</string>
   <string name="global_action_restart_bootloader">Загрузчик</string>
-  <string name="global_action_restart_ui">Системный интерфейс</string>
-  <string name="global_action_restart_hot">Быстрая перезагрузка</string>
   <string name="global_action_screenshot">Скриншот</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Запрет сна</string>
@@ -53,4 +52,6 @@
   <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления вкл.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
+  <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Полностью заряжено</string>
 </resources>

@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Дадаткова</string>
   <string name="global_action_restart_recovery">Recovery</string>
   <string name="global_action_restart_bootloader">Загрузчык</string>
-  <string name="global_action_restart_ui">Сістэмны інтэрфейс</string>
-  <string name="global_action_restart_hot">Хуткі перазапуск</string>
   <string name="global_action_screenshot">Здымак экрана</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Забарона сну</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Усплываючыя апавяшчэнні ўкл.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Усплываючыя апавяшчэнні адкл.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Усплываючыя апавяшчэнні ўкл.</string>
+  <!-- Battery saver tile -->
 </resources>

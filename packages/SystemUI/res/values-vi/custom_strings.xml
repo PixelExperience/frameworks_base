@@ -36,8 +36,6 @@
   <string name="global_action_restart_advanced">Nâng cao</string>
   <string name="global_action_restart_recovery">Chế độ phục hồi</string>
   <string name="global_action_restart_bootloader">Chế độ bootloader</string>
-  <string name="global_action_restart_ui">Giao diện người dùng</string>
-  <string name="global_action_restart_hot">Khởi động lại nhanh</string>
   <string name="global_action_screenshot">Chụp ảnh màn hình</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
@@ -48,4 +46,5 @@
   <string name="accessibility_quick_settings_heads_up_on">Bật thông báo nhanh.</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Đã tắt thông báo nhanh.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Đã bật thông báo nhanh.</string>
+  <!-- Battery saver tile -->
 </resources>

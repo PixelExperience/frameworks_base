@@ -19,10 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="custom_system_error_manufacturer">Une incompatibilité de l\'image vendeur a été détectée. Généralement, celà signifie que votre image vendeur n\'est pas à jour. S\'il vous plait, assurez vous que votre image vendeur soit compatible.<xliff:g id="fingerprint">%1$s</xliff:g>.</string>
+  <string name="custom_system_error_manufacturer">Une incompatibilité du fichier vendor.img a été détectée. En règle générale, cela signifie que celui-ci n\'est pas à jour. Assurez-vous que le fichier vendor.img correspond à <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Pour déverrouiller l’écran, appuyez et maintenez le bouton retour</string>
-  <string name="lock_to_app_toast_power">Pour déverrouiller l’écran, appuyez et maintenez le bouton d\'alimentation</string>
-  <string name="lock_to_app_toast_back_nav_visible">Pour déverrouiller l’écran, touchez et maintenez arrière touche ou touche et retenir et aperçu dans la barre de navigation</string>
-  <string name="lock_to_app_toast_power_nav_visible">%suiller l’écran, touchez et maintenez le bouton marche / arrêt ou touch et retenir et aperçu dans la barre de navigation</string>
+  <string name="lock_to_app_toast_back">Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Retour\"</string>
+  <string name="lock_to_app_toast_power">Pour annuler l\'épinglage, appuyez de manière prolongée le bouton d\'alimentation</string>
+  <string name="lock_to_app_toast_back_nav_visible">Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Retour\" ou maintenez le bouton \"Retour\" et \"Applications Récentes\" dans la barre de navigation</string>
+  <string name="lock_to_app_toast_power_nav_visible">Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Power\" ou maintenez le bouton \"Retour\" et \"Application Récente\" dans la barre de navigation</string>
 </resources>

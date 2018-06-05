@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">एक बेमेल विक्रेता छवि का पता लगा है। आम तौर पर इसका मतलब है की आपकी विक्रेता छवि तारीख से बाहर है। कृपया सुनिश्चित करें कि <xliff:g id="fingerprint">%1$s</xliff:g> अपने विक्रेता छवि से मेल खाता हो।</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">इस स्क्रीन को अनपिन करने क़े लिए पीछे जानें वाले बटन को दबाए रखे</string>
   <string name="lock_to_app_toast_power">इस स्क्रीन को अनपिन करने क़े लिए पावर बटन को दबाए रखे</string>

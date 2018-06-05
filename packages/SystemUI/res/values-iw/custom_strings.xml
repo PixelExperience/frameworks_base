@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">טעינה מהירה (<xliff:g id="Charging_TIME_LEFT">%s</xliff:g> עד לסיום)</string>
   <string name="keyguard_plugged_in_dash_charging">טעינה מהירה</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">נדידה</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">גרור כדי להוסיף משבצות</string>
@@ -30,14 +31,16 @@
   <string name="screen_pinning_description_back_nav_visible">שומר בתצוגה עד לביטול ההצמדה. גע והחזק את לחצן \"חזור\" או גע בלחצנים המוארים שבסרגל הניווט כדי לבטל הצמדה.</string>
   <string name="screen_pinning_description_power_nav_visible">שומר בתצוגה עד לביטול ההצמדה. גע והחזק את לחצן \"הפעל\" או גע בלחצנים המוארים שבסרגל הניווט כדי לבטל הצמדה.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">כוח טורבו מחובר (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">טעינה מהירה מופעלת</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">הצג 4G במקום LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">מזהה פעילות רשת</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">מתקדם</string>
   <string name="global_action_restart_recovery">התאוששות</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">ממשק מערכת</string>
-  <string name="global_action_restart_hot">אתחול מהיר</string>
   <string name="global_action_screenshot">צילום מסך</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">קפאין</string>
@@ -48,4 +51,5 @@
   <string name="accessibility_quick_settings_heads_up_on">התראות קופצות פעילות</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">התראות קופצות כובו</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">התראות קופצות הודלקו</string>
+  <!-- Battery saver tile -->
 </resources>
