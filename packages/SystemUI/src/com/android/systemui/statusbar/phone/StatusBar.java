@@ -7845,9 +7845,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void removeNavigationBar() {
         if (DEBUG) Log.v(TAG, "removeNavigationBar: about to remove " + mNavigationBarView);
         if (!mNavigationBarViewAttached || mNavigationBarView == null) return;
+        FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
         mWindowManager.removeViewImmediate(mNavigationBarView);
         mNavigationBarView = null;
         mNavigationBarViewAttached = false;
+        fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
+        mNavigationBar = null;
     }
 
     private void resetSystemUIVisibility() {
