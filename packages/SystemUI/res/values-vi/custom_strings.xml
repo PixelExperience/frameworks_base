@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Đang sạc nhanh (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> cho đến khi đầy)</string>
   <string name="keyguard_plugged_in_dash_charging">Sạc nhanh</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Kéo hoặc chạm để thêm ô</string>
@@ -30,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">Điều này giữ nó trong tầm nhìn cho đến khi bạn bỏ ghim. Chạm và giữ nút Quay lại hoặc chạm vào các nút được đánh dấu trên thanh điều hướng để bỏ ghim.</string>
   <string name="screen_pinning_description_power_nav_visible">Điều này giữ nó trong tầm nhìn cho đến khi bạn bỏ ghim. Chạm và giữ nút nguồn điện hoặc bấm vào nút được đánh dấu trên thanh điều hướng để bỏ ghim.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G instead of LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Network activity indicator</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Nâng cao</string>
   <string name="global_action_restart_recovery">Chế độ phục hồi</string>
@@ -47,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Đã tắt thông báo nhanh.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Đã bật thông báo nhanh.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
 </resources>

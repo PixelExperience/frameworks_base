@@ -19,7 +19,7 @@
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Tarik atau ketuk untuk menambahkan ubin</string>
   <!-- Lockscreen tuner -->
-  <string name="lockscreen_default">Bawaan</string>
+  <string name="lockscreen_default">Standar</string>
   <string name="lockscreen_hidden">Kosong</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
   <string name="custom_hint">Usap dari ikon untuk meluncurkan</string>

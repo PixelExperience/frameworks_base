@@ -14,7 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Carga rápida (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> hasta completar)</string>
   <string name="keyguard_plugged_in_dash_charging">Carga Rápida</string>
   <!--Statusbar icon blacklist -->
-  <string name="status_bar_roaming">Itinerancia (roaming)</string>
+  <string name="status_bar_roaming">Itinerancia de datos</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Arrastre o pulse para añadir funciones</string>
@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">TurboPower conectado (<xliff:g id="charging_time_left">%s</xliff:g> hasta completar)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Carga rápida activada</string>
+  <string name="keyguard_plugged_in_turbo_charging">Carga Rápida</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Mostrar 4G en lugar de LTE</string>
   <!-- Network Traffic -->
@@ -52,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes desactivadas.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes activadas.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Carga completa</string>
 </resources>

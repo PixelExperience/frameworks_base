@@ -45,13 +45,13 @@
   <string name="global_action_screenshot">スクリーンショット</string>
   <!-- QS Tiles -->
   <string name="quick_settings_caffeine_label">カフェイン</string>
-  <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです</string>
-  <string name="accessibility_quick_settings_caffeine_on">カフェインはONです</string>
+  <string name="accessibility_quick_settings_caffeine_off">カフェイン OFF</string>
+  <string name="accessibility_quick_settings_caffeine_on">カフェイン ON</string>
   <string name="quick_settings_heads_up_label">ヘッドアップ通知</string>
-  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップ通知を無効</string>
-  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップ通知を有効</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップ通知を無効化しました。</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップ通知を有効化しました。</string>
+  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップ通知 OFF</string>
+  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップ通知 ON</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップ通知を無効化しました</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップ通知を有効化しました</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">充電完了</string>
 </resources>

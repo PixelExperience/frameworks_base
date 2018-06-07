@@ -33,7 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">TurboPower je pripojený (<xliff:g id="charging_time_left">%s</xliff:g> až do plna)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je pripojený</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Nabíjanie</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo nabíjanie</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Zobraziť 4G namiesto LTE</string>
   <!-- Network Traffic -->
@@ -53,5 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Plávajúce oznámenia boli vypnuté.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Plávajúce oznámenia boli zapnuté.</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Úplne Nabité</string>
+  <string name="battery_saver_qs_tile_fully_charged">Úplne nabité</string>
 </resources>
