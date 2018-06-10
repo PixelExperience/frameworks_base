@@ -81,4 +81,7 @@
     <!-- Two target preference vertical divider color -->
     <color name="list_divider_dark">#64000000</color>
 
+    <!-- Fastscroller -->
+    <color name="fastscroller_text_color">#FFFFFFFF</color>
+
 </resources>
