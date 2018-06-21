@@ -22,5 +22,7 @@
   <string name="custom_system_error_manufacturer">Vendor image વિક્રેતા શોધવામાં આવેલી છે.
 મતલબ કે તમારો vendor સમયગાળા ની બહાર છે. કૃપયા ખાતરી કરો કે vendor image <xliff:g id="fingerprint">%1$s</xliff:g> સાથે મેચ કરે છે.</string>
   <!-- Screen pinning exit mode -->
+  <string name="lock_to_app_toast_back">इस स्क्रीन को अनपिन करने के लिए, बैक बटन को स्पर्श करके रखें</string>
+  <string name="lock_to_app_toast_power">इस स्क्रीन को अनपिन करने के लिए, बैक बटन को स्पर्श करके रखें</string>
   <string name="lock_to_app_toast_back_nav_visible">આ સ્ક્રીનને અનપિન કરવા માટે, નેવિગેશન પટ્ટી પર બેક બટન ટચ કરો અને પકડી રાખો અથવા બેક અને overview બટન ટચ કરો અને પકડી રાખો</string>
 </resources>

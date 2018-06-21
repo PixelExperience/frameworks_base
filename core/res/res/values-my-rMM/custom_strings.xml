@@ -19,10 +19,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
-  <string name="custom_system_error_manufacturer">S\'ha detectat una falta de coincidència amb la imatge del proveïdor. Normalment, això significa que la imatge del proveïdor està desactualitzada. Si us plau, assegura\'t que la imatge del proveïdor coincideix amb <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Per desancorar aquesta pantalla, manteniu pres el botó Enrere</string>
-  <string name="lock_to_app_toast_power">Per desancorar aquesta pantalla, manteniu pres el botó d\'Engegada</string>
-  <string name="lock_to_app_toast_back_nav_visible">Per desancorar aquesta pantalla, manteniu pres el botó Enrrere a la barra de navegació</string>
-  <string name="lock_to_app_toast_power_nav_visible">Per desancorar aquesta pantalla, manteniu pres el botó d\'Engegada a la barra de navegació</string>
 </resources>

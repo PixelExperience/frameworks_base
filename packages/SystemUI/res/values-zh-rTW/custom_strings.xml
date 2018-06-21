@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">TurboPower 已連接 (還剩 <xliff:g id="charging_time_left">%s</xliff:g> 充滿)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已連接</string>
+  <string name="keyguard_plugged_in_turbo_charging">快速充電</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">顯示 4G 而非 LTE</string>
   <!-- Network Traffic -->
@@ -52,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉。</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟。</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">充電完成</string>
 </resources>

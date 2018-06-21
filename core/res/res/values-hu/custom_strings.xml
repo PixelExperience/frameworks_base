@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Gyártói kép eltérés észlelve. Ez jellemzően azt jelenti, hogy a gyártói kép elavult. Ellenőrizze, hogy a gyártói képe megfelel ennek: <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Képernyő rögzítésének feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
   <string name="lock_to_app_toast_power">Képernyő rögzítésének feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>

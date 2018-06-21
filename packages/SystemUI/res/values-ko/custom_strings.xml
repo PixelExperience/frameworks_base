@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">TurboPower 연결됨 (풀 충전까지 <xliff:g id="charging_time_left">%s</xliff:g> 남음)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 연결됨</string>
+  <string name="keyguard_plugged_in_turbo_charging">터보 충전</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">LTE 대신 4G</string>
   <!-- Network Traffic -->
@@ -52,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">헤드업 알림이 꺼졌습니다.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">헤드업 알림이 켜졌습니다.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">충전 완료</string>
 </resources>

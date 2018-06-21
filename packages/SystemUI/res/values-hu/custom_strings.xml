@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Gyorstöltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> teljes töltöttségig)</string>
   <string name="keyguard_plugged_in_dash_charging">Gyorstöltés</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempe hozzáadáshoz</string>
@@ -47,4 +48,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítések kikapcsolva.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítések bekapcsolva.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Feltöltve</string>
 </resources>

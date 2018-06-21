@@ -53,5 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Полностью заряжено</string>
+  <string name="battery_saver_qs_tile_fully_charged">Полностью заряжен</string>
 </resources>
