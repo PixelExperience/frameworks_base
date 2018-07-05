@@ -15,7 +15,7 @@
   <string name="keyguard_plugged_in_dash_charging">ഡാഷ് ചാർജിങ്</string>
   <!--Statusbar icon blacklist -->
   <string name="status_bar_roaming">റോമിംഗ്</string>
-  <string name="status_bar_vpn">VPN</string>
+  <string name="status_bar_vpn">വി പി എൻ</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">ടൈൽ ചേർക്കാൻ വലിക്കുകയോ തൊടുകയോ ചെയ്യുക</string>
   <!-- Lockscreen tuner -->
@@ -33,10 +33,13 @@
   <string name="screen_pinning_description_back_nav_visible">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് ഹൈലൈറ്റ് ചെയ്തിട്ടുള്ള ബട്ടണുകളിൽ ടാപ് ചെയ്യുകയോ അല്ലെങ്കിൽ ബാക്ക് ബട്ടൺ അമർത്തി പിടിക്കുകയോ ചെയ്യുക.</string>
   <string name="screen_pinning_description_power_nav_visible">നിങ്ങൾ അൺപിന്‍ ചെയ്യുന്നതുവരെ ഇത് ഇതിനെ കാഴ്ചയില്‍ നിലനിർത്തുന്നു. അൺപിന്‍ ചെയ്യുന്നതിന് ഹൈലൈറ്റ് ചെയ്തിട്ടുള്ള ബട്ടണുകളിൽ ടാപ് ചെയ്യുകയോ അല്ലെങ്കിൽ പവർ ബട്ടൺ അമർത്തി പിടിക്കുകയോ ചെയ്യുക.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">ടർബോ പവർ ഘടിപ്പിച്ചിരിക്കുന്നു (ചാർജിങ് പൂർത്തിയാവാൻ <xliff:g id="charging_time_left">%s</xliff:g> കൂടി.)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">ടർബോ ചാർജർ കണക്ട് ചെയ്തിരിക്കുന്നു</string>
+  <string name="keyguard_plugged_in_turbo_charging">അതിവേഗത്തിൽ ചാർജ് ചെയുന്നു</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G എന്നതിന് പകരം LTE എന്ന് കാണിക്കുക</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">നെറ്റ്‌വർക്ക് ഉപയോഗം പ്രദർശിപ്പിക്കുക</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">കൂടുതൽ ഓപ്ഷൻസ്</string>
   <string name="global_action_restart_recovery">റിക്കവറി</string>
@@ -46,5 +49,11 @@
   <string name="quick_settings_caffeine_label">കഫീൻ</string>
   <string name="accessibility_quick_settings_caffeine_off">കഫീൻ ഓഫ്</string>
   <string name="accessibility_quick_settings_caffeine_on">കഫീൻ ഓൺ</string>
+  <string name="quick_settings_heads_up_label">ഹെഡ്സ് അപ്പ്</string>
+  <string name="accessibility_quick_settings_heads_up_off">ഹെഡ്സ് അപ്പ് ഓഫ് ആണ്.</string>
+  <string name="accessibility_quick_settings_heads_up_on">ഹെഡ്സ് അപ്പ് ഓൺ ആണ്.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">ഹെഡ്സ് അപ്പ് ഓഫ് ചെയ്യപ്പെട്ടിരിക്കുന്നു.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">ഹെഡ്സ് അപ്പ് ഓൺ ചെയ്യപ്പെട്ടിരിക്കുന്നു.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">പൂർണമായി ചാർജ് ചെയ്തിരിക്കുന്നു</string>
 </resources>

@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Dash-ladataan (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kunnes täynnä)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash-lataus</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Ulkomaan operaattori</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Lisää osioita vetämällä</string>
@@ -30,8 +31,12 @@
   <string name="screen_pinning_description_back_nav_visible">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Paina ja pidä Takaisin-näppäintä pohjassa tai paina korostettuja painikkeita Navigointi-palkissa irrottaaksesi.</string>
   <string name="screen_pinning_description_power_nav_visible">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Paina ja pidä Virta-nappulaa pohjassa tai paina korostettuja painikkeita Navigointi-palkissa irrottaaksesi.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower kytketty</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Lataus</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G ennen LTE: tä</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Tiedonsiirto aktiivisuus indikaattori</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Lisäasetukset</string>
   <string name="global_action_restart_recovery">Recovery-tila</string>
@@ -47,4 +52,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads up laitettu päälle.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Täyteen Ladattu</string>
 </resources>

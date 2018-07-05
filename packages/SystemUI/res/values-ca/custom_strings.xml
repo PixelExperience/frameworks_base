@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Càrrega ràpida (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> fins completar-la)</string>
   <string name="keyguard_plugged_in_dash_charging">Càrrega ràpida</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Itinerància</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Arrossegueu o toqueu per afegir funcions</string>
@@ -30,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">Açò fixa la pantalla en aquesta vista fins que és alliberada. Mantingueu pres el botó Enrrere o premeu les tecles ressaltades a la barra de navegació per a alliberar-la.</string>
   <string name="screen_pinning_description_power_nav_visible">Açò fixa la pantalla en aquesta vista fins que és alliberada. Mantingueu pres el botó d\'Engegada o premeu les tecles ressaltades a la barra de navegació per a alliberar-la.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">Càrrega ràpida connectada (<xliff:g id="charging_time_left">%s</xliff:g> fins a acabar)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Càrrega ràpida connectada</string>
+  <string name="keyguard_plugged_in_turbo_charging">Càrrega ràpida</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Mostra 4G en lloc d\'LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Indicador d\'activitat de xarxa</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Avançat</string>
   <string name="global_action_restart_recovery">Mode Recuperació</string>
@@ -47,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Les notificacions flotants han estat desactivades.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Les notificacions flotants han estat activades.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Carregat</string>
 </resources>

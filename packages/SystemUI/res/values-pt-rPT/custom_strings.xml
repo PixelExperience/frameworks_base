@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">Carregamento rápido (<xliff:g id="charging_time_left">%s</xliff:g> até às carga completa)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower conectado</string>
+  <string name="keyguard_plugged_in_turbo_charging">Carregamento Rápido</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G em vez de LTE</string>
   <!-- Network Traffic -->
@@ -52,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desligadas.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ligadas.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Totalmente Carregada</string>
 </resources>

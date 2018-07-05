@@ -11,8 +11,8 @@
          [CHAR LIMIT=4] -->
   <!-- Empty summary -->
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">急速充電（充電完了まで<xliff:g id="charging_time_left" 例="4時間2分かかります">%s</xliff:g>）</string>
-  <string name="keyguard_plugged_in_dash_charging">急速充電</string>
+  <string name="keyguard_indication_dash_charging_time">急速充電中（充電完了まで<xliff:g id="charging_time_left" 例="4時間2分かかります">%s</xliff:g>）</string>
+  <string name="keyguard_plugged_in_dash_charging">急速充電中</string>
   <!--Statusbar icon blacklist -->
   <string name="status_bar_roaming">ローミング</string>
   <string name="status_bar_vpn">VPN</string>
@@ -31,9 +31,9 @@
   <string name="screen_pinning_description_back_nav_visible">解除するまで画面を固定します。解除するには戻るボタンか現在ハイライトされているボタンを長押して下さい。</string>
   <string name="screen_pinning_description_power_nav_visible">解除するまで画面を固定します。解除するには電源ボタンか現在ハイライトされているボタンを長押して下さい。</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">急速充電中（残り<xliff:g id="charging_time_left">%s</xliff:g>）</string>
+  <string name="keyguard_indication_turbo_power_time">急速充電中（充電完了まで<xliff:g id="charging_time_left">%s</xliff:g>）</string>
   <string name="keyguard_plugged_in_turbo_power_charging">急速充電中</string>
-  <string name="keyguard_plugged_in_turbo_charging">急速充電</string>
+  <string name="keyguard_plugged_in_turbo_charging">急速充電中</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">LTE表示の代わりに4G表示を使用</string>
   <!-- Network Traffic -->
@@ -47,9 +47,9 @@
   <string name="quick_settings_caffeine_label">カフェイン</string>
   <string name="accessibility_quick_settings_caffeine_off">カフェイン オフ</string>
   <string name="accessibility_quick_settings_caffeine_on">カフェイン オン</string>
-  <string name="quick_settings_heads_up_label">Heads Up通知</string>
-  <string name="accessibility_quick_settings_heads_up_off">Head up オフ</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up オン</string>
+  <string name="quick_settings_heads_up_label">Heads Up</string>
+  <string name="accessibility_quick_settings_heads_up_off">Heads Up オフ</string>
+  <string name="accessibility_quick_settings_heads_up_on">Heads Up オン</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads Upをオフにしました</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads Upをオンにしました</string>
   <!-- Battery saver tile -->

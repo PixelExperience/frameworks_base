@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Открито е несъответствие. Обикновено това означава, че изображението е остаряло. Проверете дали вашето изображение съвпада с <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">За да откачите този екран, докоснете и задръжте бутона \"Назад\"</string>
   <string name="lock_to_app_toast_power">За да откачите този екран, докоснете и задръжте бутона \"Изключване\"</string>

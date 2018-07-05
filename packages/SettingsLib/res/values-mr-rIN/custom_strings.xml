@@ -22,5 +22,5 @@
   <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
   <string name="screen_zoom_summary_smaller">लहान</string>
   <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-  <string name="screen_zoom_summary_smallest">लहानतम</string>
+  <string name="screen_zoom_summary_smallest">सर्वात लहान</string>
 </resources>

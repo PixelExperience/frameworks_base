@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">Швидка зарядка під\'єднана (<xliff:g id="charging_time_left">%s</xliff:g> до повного)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Швидка зарядка під\'єднана</string>
+  <string name="keyguard_plugged_in_turbo_charging">Швидка зарядка</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Відображати 4G замість LTE</string>
   <!-- Network Traffic -->
