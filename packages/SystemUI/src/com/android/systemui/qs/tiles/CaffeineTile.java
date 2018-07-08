@@ -94,10 +94,13 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent().setComponent(new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$DisplaySettingsActivity"));
+        return null;
     }
 
+    @Override
+    public void handleLongClick() {
+        handleClick();
+    }
 
     @Override
     public CharSequence getTileLabel() {
