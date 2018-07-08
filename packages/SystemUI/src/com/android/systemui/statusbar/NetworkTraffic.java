@@ -29,6 +29,9 @@ import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.net.TrafficStats;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -44,6 +47,8 @@ import android.provider.Settings;
 
 import com.android.internal.util.custom.cutout.CutoutUtils;
 import com.android.systemui.R;
+
+import java.util.HashMap;
 
 public class NetworkTraffic extends TextView {
     private static final String TAG = "NetworkTraffic";
@@ -73,8 +78,6 @@ public class NetworkTraffic extends TextView {
     private boolean mNetworkTrafficIsVisible;
     private long mTxKbps;
     private long mRxKbps;
-    private long mLastTxBytesTotal;
-    private long mLastRxBytesTotal;
     private long mLastUpdateTime;
     private int mTextSizeSingle;
     private int mTextSizeMulti;
@@ -87,6 +90,8 @@ public class NetworkTraffic extends TextView {
     private int mIconTint = Color.WHITE;
     private SettingsObserver mObserver;
     private Drawable mDrawable;
+    private HashMap<String, IfaceTrafficStats> mActiveIfaceStats;
+    private boolean mIsStatsDirty;
 
     public NetworkTraffic(Context context) {
         this(context, null);
@@ -106,6 +111,9 @@ public class NetworkTraffic extends TextView {
         mNetworkTrafficIsVisible = false;
 
         mObserver = new SettingsObserver(mTrafficHandler);
+
+        /* Prepare for extreme case: WiFi + Mobile + Bluetooth + Ethernet */
+        mActiveIfaceStats = new HashMap<>(4);
     }
 
     private CustomStatusBarItem.DarkReceiver mDarkReceiver =
@@ -143,6 +151,7 @@ public class NetworkTraffic extends TextView {
         mContext.registerReceiver(mIntentReceiver,
                 new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         mObserver.observe();
+        mIsStatsDirty = true;
         updateSettings();
     }
 
@@ -158,19 +167,26 @@ public class NetworkTraffic extends TextView {
         public void handleMessage(Message msg) {
             long now = SystemClock.elapsedRealtime();
             long timeDelta = now - mLastUpdateTime;
+
+            if (mIsStatsDirty) {
+                if (refreshActiveIfaces()) {
+                    mIsStatsDirty = false;
+                } else {
+                    return;
+                }
+            }
+
             if (msg.what == MESSAGE_TYPE_PERIODIC_REFRESH
                     && timeDelta >= REFRESH_INTERVAL * 0.95f) {
                 // Update counters
                 mLastUpdateTime = now;
-                long txBytes = TrafficStats.getTotalTxBytes() - mLastTxBytesTotal;
-                long rxBytes = TrafficStats.getTotalRxBytes() - mLastRxBytesTotal;
+                long txBytes = diffAndUpdateTxBytes();
+                long rxBytes = diffAndUpdateRxBytes();
                 mTxKbps = (long) (txBytes * 8f / (timeDelta / 1000f) / 1000f);
                 mRxKbps = (long) (rxBytes * 8f / (timeDelta / 1000f) / 1000f);
-                mLastTxBytesTotal += txBytes;
-                mLastRxBytesTotal += rxBytes;
             }
 
-            final boolean enabled = mMode != MODE_DISABLED && isConnectionAvailable();
+            final boolean enabled = mMode != MODE_DISABLED && mActiveIfaceStats.size() != 0;
             final boolean showUpstream =
                     mMode == MODE_UPSTREAM_ONLY || mMode == MODE_UPSTREAM_AND_DOWNSTREAM;
             final boolean showDownstream =
@@ -257,6 +273,7 @@ public class NetworkTraffic extends TextView {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (ConnectivityManager.CONNECTIVITY_ACTION.equals(action)) {
+                mIsStatsDirty = true;
                 updateViewState();
             }
         }
@@ -296,10 +313,62 @@ public class NetworkTraffic extends TextView {
         }
     }
 
-    private boolean isConnectionAvailable() {
+    private long diffAndUpdateTxBytes() {
+        long txBytesDelta = 0;
+        for (String iface : mActiveIfaceStats.keySet()) {
+            IfaceTrafficStats stats = mActiveIfaceStats.get(iface);
+            long txBytes = TrafficStats.getTxBytes(iface);
+
+            txBytesDelta += txBytes - stats.mTxBytes;
+            stats.mTxBytes = txBytes;
+        }
+        return txBytesDelta;
+    }
+
+    private long diffAndUpdateRxBytes() {
+        long rxBytesDelta = 0;
+        for (String iface : mActiveIfaceStats.keySet()) {
+            IfaceTrafficStats stats = mActiveIfaceStats.get(iface);
+            long rxBytes = TrafficStats.getRxBytes(iface);
+
+            rxBytesDelta += rxBytes - stats.mRxBytes;
+            stats.mRxBytes = rxBytes;
+        }
+        return rxBytesDelta;
+    }
+
+    private boolean refreshActiveIfaces() {
         ConnectivityManager cm =
                 (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return cm.getActiveNetworkInfo() != null;
+
+        mActiveIfaceStats.clear();
+
+        Network[] networks = cm.getAllNetworks();
+        for (Network network : networks) {
+            NetworkInfo networkInfo = cm.getNetworkInfo(network);
+            if (networkInfo == null) {
+                return false;
+            }
+
+            if (networkInfo.getType() != ConnectivityManager.TYPE_VPN) {
+                LinkProperties properties = cm.getLinkProperties(network);
+                IfaceTrafficStats stats;
+                String iface;
+
+                /* This is likely to be null when switching data SIM */
+                if (properties == null) {
+                    return false;
+                }
+
+                iface = properties.getInterfaceName();
+                if (iface == null) return false;
+                stats = new IfaceTrafficStats();
+                stats.mRxBytes = TrafficStats.getRxBytes(iface);
+                stats.mTxBytes = TrafficStats.getTxBytes(iface);
+                mActiveIfaceStats.put(iface, stats);
+            }
+        }
+        return true;
     }
 
     private boolean isNotchHidden(){
@@ -374,5 +443,10 @@ public class NetworkTraffic extends TextView {
         if (mDrawable != null) {
             mDrawable.setColorFilter(mIconTint, PorterDuff.Mode.MULTIPLY);
         }
+    }
+
+    private static class IfaceTrafficStats {
+        public long mTxBytes;
+        public long mRxBytes;
     }
 }
