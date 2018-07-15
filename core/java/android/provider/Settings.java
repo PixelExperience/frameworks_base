@@ -5799,6 +5799,16 @@ public final class Settings {
         public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
 
         /**
+         * Whether to show the clock in the right or left position or show it in the center
+         * 0: show the clock in the right position (LTR)
+         * 1: show the clock in the center
+         * 2: show the clock in the left position (LTR)
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK = "status_bar_clock";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5960,6 +5970,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_ANSWER_CALL);
             PRIVATE_SETTINGS.add(LOCKSCREEN_PIN_SCRAMBLE_LAYOUT);
             PRIVATE_SETTINGS.add(CLICK_PARTIAL_SCREENSHOT);
+            PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
         }
         /**
          * These entries are considered common between the personal and the managed profile,
