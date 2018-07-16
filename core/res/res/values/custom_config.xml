@@ -30,4 +30,7 @@
     <!-- True if the gesture service should be started at system start -->
     <bool name="config_enableGestureService">false</bool>
 
+    <!-- Whether device ignores the RSSNR signal implementation -->
+    <bool name="config_ignoreRssnrSignalLevel">false</bool>
+
 </resources>
