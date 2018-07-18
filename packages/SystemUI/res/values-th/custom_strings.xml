@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">ชาร์จเร็ว (<xliff:g id="เหลือเวลาชาร์จ" ตัวอย่าง="4 ชั่วโมง 2 นาที">%s</xliff:g> ถึงเต็ม)</string>
   <string name="keyguard_plugged_in_dash_charging">ชาร์จเร็ว</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">โรมมิ่ง</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">ลาก หรือแตะเพื่อเพิ่ม Tile</string>
@@ -30,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">จะแสดงหน้านี้จนกว่าคุณจะเลิกปักหมุด กดปุ่มกลับ หรือ ปุ่มไฮไลท์บน nav bar เพื่อเลิกปักหมุด</string>
   <string name="screen_pinning_description_power_nav_visible">จะแสดงหน้านี้จนกว่าคุณจะเลิกปักหมุด กดปุ่ม power หรือ ปุ่มไฮไลท์บน nav bar เพื่อเลิกปักหมุด</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">เชื่อมต่อพลังเทอร์โบชาร์จแล้ว (<xliff:g id="charging_time_left">%s</xliff:g> จะเต็ม)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">เชื่อมต่อพลังเทอร์โบชาร์จแล้ว</string>
+  <string name="keyguard_plugged_in_turbo_charging">เทอร์โบชาร์จ</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">แสดงสัญลักษณ์ 4G แทน LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">เครื่องหมายแสดงการใช้ข้อมูลเน็ตเวิร์ก</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">ขั้นสูง</string>
   <string name="global_action_restart_recovery">Recovery</string>
@@ -47,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads up ปิดอยู่</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads up เปิดอยู่</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">ชาร์จเต็มแล้ว</string>
 </resources>

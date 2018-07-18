@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">जल्द चार्ज हो रहा है(<xliff:g id="पूरा चार्ज होने में">%s</xliff:g>बाकी है)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">टर्बोपावर जुड़ा हुआ है</string>
+  <string name="keyguard_plugged_in_turbo_charging">टर्बो चार्जिंग</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">LTE के बजाय 4G</string>
   <!-- Network Traffic -->
@@ -52,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">संकेत बंद कर दिया है।</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">संकेत चालु कर दिया गया है।</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">पूरी तरह से चार्ज</string>
 </resources>
