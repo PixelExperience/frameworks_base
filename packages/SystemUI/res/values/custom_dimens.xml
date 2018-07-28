@@ -20,4 +20,8 @@
     <dimen name="net_traffic_multi_text_size">8dp</dimen>
     <dimen name="net_traffic_txt_img_padding">2dp</dimen>
 
+    <!-- Power menu padding -->
+    <dimen name="custom_global_actions_bottom_padding">90dp</dimen>
+    <dimen name="custom_global_actions_top_padding">100dp</dimen>
+
 </resources>
