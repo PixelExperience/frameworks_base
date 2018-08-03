@@ -856,6 +856,6 @@
     <dimen name="stat_sys_mobile_signal_circle_inset">0.9dp</dimen>
 
     <!-- Home button padding for sizing -->
-    <dimen name="home_padding">15dp</dimen>
+    <dimen name="home_padding">11dp</dimen>
 
 </resources>
