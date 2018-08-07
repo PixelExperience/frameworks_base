@@ -185,7 +185,6 @@ public class MiniThumbFile {
         return mMiniThumbFile;
     }
 
-
     private MiniThumbFile(Uri uri) {
         mUri = uri;
         mBuffer = ByteBuffer.allocateDirect(BYTES_PER_MINTHUMB);
