@@ -31,8 +31,11 @@
   <string name="screen_pinning_description_back_nav_visible">Mindaddig látható marad a kijelzőn, amíg el nem távolítja. Tartsa lenyomva a Vissza gombot, vagy érintse meg a kiemelt gombokat a navigációs sávon, hogy eltűnjön az alkalmazás.</string>
   <string name="screen_pinning_description_power_nav_visible">Mindaddig látható marad a kijelzőn, amíg el nem távolítja. Tartsa lenyomva a Vissza gombot, vagy érintse meg a kiemelt gombokat a navigációs sávon, hogy eltűnjön az alkalmazás.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_plugged_in_turbo_charging">Turbo töltés</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G megjelenítése LTE helyett</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Hálózati tevékenység jelzése</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Haladó</string>
   <string name="global_action_restart_recovery">Recovery</string>

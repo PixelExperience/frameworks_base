@@ -22,7 +22,7 @@
   <string name="lockscreen_default">既定</string>
   <string name="lockscreen_hidden">無効</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-  <string name="custom_hint">アイコンをスワイプして起動します</string>
+  <string name="custom_hint">アイコンをスワイプして起動</string>
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
@@ -39,8 +39,8 @@
   <!-- Network Traffic -->
   <string name="network_traffic_state_title">ネットワークアクティビティの表示</string>
   <!-- Global actions -->
-  <string name="global_action_restart_advanced">詳細設定</string>
-  <string name="global_action_restart_recovery">リカバリーモード</string>
+  <string name="global_action_restart_advanced">高度な再起動</string>
+  <string name="global_action_restart_recovery">リカバリー</string>
   <string name="global_action_restart_bootloader">ブートローダー</string>
   <string name="global_action_screenshot">スクリーンショット</string>
   <!-- QS Tiles -->
