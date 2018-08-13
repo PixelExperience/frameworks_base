@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
@@ -26,6 +27,11 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.statusbar.phone.NavBarButtonProvider.ButtonInterface;
 import com.android.systemui.statusbar.policy.KeyButtonView;
 import com.android.settingslib.Utils;
+
+import com.android.systemui.Dependency;
+import com.android.systemui.OverviewProxyService;
+
+import com.android.systemui.statusbar.phone.ShadowKeyDrawable;
 
 public class OpaLayout extends FrameLayout implements ButtonInterface{
 
@@ -71,7 +77,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
     private View mGreen;
     private View mYellow;
     private ImageView mWhite;
-//    private View mHalo;
 
     private int mDarkModeFillColor;
     private int mLightModeFillColor;
@@ -91,6 +96,8 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
     private final Interpolator mDotsFullSizeInterpolator;
     private final Interpolator mFastOutSlowInInterpolator;
     private final Interpolator mHomeDisappearInterpolator;
+
+    private OverviewProxyService mOverviewProxyService;
 
     public OpaLayout(Context context) {
         super(context);
@@ -120,6 +127,7 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         };
         mAnimationState = OpaLayout.ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
+        mOverviewProxyService = Dependency.get(OverviewProxyService.class);
     }
 
     public OpaLayout(Context context, AttributeSet attrs) {
@@ -150,6 +158,7 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         };
         mAnimationState = OpaLayout.ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
+        mOverviewProxyService = Dependency.get(OverviewProxyService.class);
     }
 
     public OpaLayout(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -180,6 +189,7 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         };
         mAnimationState = OpaLayout.ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
+        mOverviewProxyService = Dependency.get(OverviewProxyService.class);
     }
 
     public OpaLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -312,16 +322,10 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         set.add(getScaleAnimatorY(mGreen, 1.0f, OpaLayout.DOTS_RESIZE_DURATION, mDotsFullSizeInterpolator));
         final Animator scaleAnimatorX = getScaleAnimatorX(mWhite, 1.0f, OpaLayout.HOME_REAPPEAR_DURATION, mFastOutSlowInInterpolator);
         final Animator scaleAnimatorY = getScaleAnimatorY(mWhite, 1.0f, OpaLayout.HOME_REAPPEAR_DURATION, mFastOutSlowInInterpolator);
-//        final Animator scaleAnimatorX2 = getScaleAnimatorX(mHalo, 1.0f, OpaLayout.HOME_REAPPEAR_DURATION, mFastOutSlowInInterpolator);
-//        final Animator scaleAnimatorY2 = getScaleAnimatorY(mHalo, 1.0f, OpaLayout.HOME_REAPPEAR_DURATION, mFastOutSlowInInterpolator);
         scaleAnimatorX.setStartDelay(OpaLayout.HOME_REAPPEAR_ANIMATION_OFFSET);
         scaleAnimatorY.setStartDelay(OpaLayout.HOME_REAPPEAR_ANIMATION_OFFSET);
-//        scaleAnimatorX2.setStartDelay(OpaLayout.HOME_REAPPEAR_ANIMATION_OFFSET);
-//        scaleAnimatorY2.setStartDelay(OpaLayout.HOME_REAPPEAR_ANIMATION_OFFSET);
         set.add(scaleAnimatorX);
         set.add(scaleAnimatorY);
-//        set.add(scaleAnimatorX2);
-//        set.add(scaleAnimatorY2);
         getLongestAnim((set)).addListener((Animator.AnimatorListener)new AnimatorListenerAdapter() {
             public void onAnimationEnd(final Animator animator) {
                 OpaLayout.this.mCurrentAnimators.clear();
@@ -348,8 +352,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         set.add(getScaleAnimatorY(mRight, OpaLayout.DIAMOND_DOTS_SCALE_FACTOR, OpaLayout.DIAMOND_ANIMATION_DURATION, mFastOutSlowInInterpolator));
         set.add(getScaleAnimatorX(mWhite, OpaLayout.DIAMOND_HOME_SCALE_FACTOR, OpaLayout.DIAMOND_ANIMATION_DURATION, mFastOutSlowInInterpolator));
         set.add(getScaleAnimatorY(mWhite, OpaLayout.DIAMOND_HOME_SCALE_FACTOR, OpaLayout.DIAMOND_ANIMATION_DURATION, mFastOutSlowInInterpolator));
-//        set.add(getScaleAnimatorX(mHalo, OpaLayout.HALO_SCALE_FACTOR, OpaLayout.MIN_DIAMOND_DURATION, mFastOutSlowInInterpolator));
-//        set.add(getScaleAnimatorY(mHalo, OpaLayout.HALO_SCALE_FACTOR, OpaLayout.MIN_DIAMOND_DURATION, mFastOutSlowInInterpolator));
         getLongestAnim(set).addListener((Animator.AnimatorListener)new AnimatorListenerAdapter() {
             public void onAnimationCancel(final Animator animator) {
                 OpaLayout.this.mCurrentAnimators.clear();
@@ -381,8 +383,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         }
         set.add(getScaleAnimatorX(mWhite, 0.0f, OpaLayout.HOME_RESIZE_DURATION, mHomeDisappearInterpolator));
         set.add(getScaleAnimatorY(mWhite, 0.0f, OpaLayout.HOME_RESIZE_DURATION, mHomeDisappearInterpolator));
-//        set.add(getScaleAnimatorX(mHalo, 0.0f, OpaLayout.HOME_RESIZE_DURATION, mHomeDisappearInterpolator));
-//        set.add(getScaleAnimatorY(mHalo, 0.0f, OpaLayout.HOME_RESIZE_DURATION, mHomeDisappearInterpolator));
         getLongestAnim(set).addListener((Animator.AnimatorListener)new AnimatorListenerAdapter() {
             public void onAnimationCancel(final Animator animator) {
                 OpaLayout.this.mCurrentAnimators.clear();
@@ -415,8 +415,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         set.add(getScaleAnimatorY(mYellow, 1.0f, OpaLayout.RETRACT_ANIMATION_DURATION, mRetractInterpolator));
         set.add(getScaleAnimatorX(mWhite, 1.0f, OpaLayout.RETRACT_ANIMATION_DURATION, mRetractInterpolator));
         set.add(getScaleAnimatorY(mWhite, 1.0f, OpaLayout.RETRACT_ANIMATION_DURATION, mRetractInterpolator));
-//        set.add(getScaleAnimatorX(mHalo, 1.0f, OpaLayout.RETRACT_ANIMATION_DURATION, mFastOutSlowInInterpolator));
-//        set.add(getScaleAnimatorY(mHalo, 1.0f, OpaLayout.RETRACT_ANIMATION_DURATION, mFastOutSlowInInterpolator));
         getLongestAnim(set).addListener((Animator.AnimatorListener)new AnimatorListenerAdapter() {
             public void onAnimationEnd(final Animator animator) {
                 OpaLayout.this.mCurrentAnimators.clear();
@@ -504,7 +502,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         mYellow = findViewById(R.id.yellow);
         mGreen = findViewById(R.id.green);
         mWhite = (ImageView) findViewById(R.id.white);
-//        mHalo = findViewById(R.id.halo);
         mHome = (KeyButtonView) findViewById(R.id.home_button);
 
         setOpaEnabled(true);
@@ -573,6 +570,10 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
 
     public void setVertical(boolean vertical) {
         mVertical = vertical;
+
+        boolean quickStepEnabled = shouldShowSwipeUpUI();
+        mWhite.setRotation(quickStepEnabled && vertical ? 270 : 0);
+
         if (mVertical) {
             mTop = mGreen;
             mBottom = mBlue;
@@ -594,23 +595,21 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         mHome.setOnTouchListener(l);
     }
 
+    private boolean shouldShowSwipeUpUI(){
+        if (mOverviewProxyService == null){
+            mOverviewProxyService = Dependency.get(OverviewProxyService.class);
+        }
+        return mOverviewProxyService.shouldShowSwipeUpUI();
+    }
+
     public void setOpaEnabled(boolean enabled) {
         final boolean b2 = enabled || UserManager.isDeviceInDemoMode(getContext());
-        mOpaEnabled = true;
-        int visibility;
-        if (b2) {
-            // Don't show the OPAs right away, they'll be faded in during first animation
-//            visibility = View.VISIBLE;
-        } else {
-//            visibility = View.INVISIBLE;
-            // hide the OPAs
+        if (!b2) {
             hideAllOpa();
+            mOpaEnabled = false;
+        }else{
+            mOpaEnabled = true;
         }
-//        mBlue.setVisibility(visibility);
-//        mRed.setVisibility(visibility);
-//        mYellow.setVisibility(visibility);
-//        mGreen.setVisibility(visibility);
-//        mHalo.setVisibility(visibility);
     }
 
     private void hideAllOpa(){
@@ -669,11 +668,46 @@ public class OpaLayout extends FrameLayout implements ButtonInterface{
         return (int) ArgbEvaluator.getInstance().evaluate(intensity, lightColor, darkColor);
     }
 
+    private boolean isLightColor(int color) {
+        if (color == -3) {
+            return false;
+        } else if (color == Color.TRANSPARENT) {
+            return false;
+        } else if (color == Color.WHITE) {
+            return true;
+        }
+        int[] rgb = { Color.red(color), Color.green(color), Color.blue(color) };
+        int brightness = (int) Math.sqrt(rgb[0] * rgb[0] * .241 + rgb[1]
+            * rgb[1] * .691 + rgb[2] * rgb[2] * .068);
+        if (brightness >= 170) {
+            return true;
+        }
+        return false;
+    }
+
     private void updateHomeDrawable(int homeColor) {
-        int intHomeDrawable = R.drawable.ic_sysbar_home;
-        Drawable drawHomeIcon = getResources().getDrawable(intHomeDrawable);
+        Resources res = getContext().getResources();
+        boolean quickStepEnabled = shouldShowSwipeUpUI();
+        int intHomeDrawable = quickStepEnabled ? R.drawable.ic_sysbar_home_quick_step : R.drawable.ic_sysbar_home;
+
+        Drawable drawHomeIcon = res.getDrawable(intHomeDrawable);
         drawHomeIcon.setColorFilter(null);
         drawHomeIcon.setColorFilter(homeColor, PorterDuff.Mode.SRC_IN);
+
+        if (isLightColor(homeColor)) {
+            ShadowKeyDrawable withShadow = new ShadowKeyDrawable(drawHomeIcon.mutate());
+            int offsetX = res.getDimensionPixelSize(R.dimen.nav_key_button_shadow_offset_x);
+            int offsetY = res.getDimensionPixelSize(R.dimen.nav_key_button_shadow_offset_y);
+            int radius = res.getDimensionPixelSize(R.dimen.nav_key_button_shadow_radius);
+            int color = res.getColor(R.color.nav_key_button_shadow_color);
+            withShadow.setShadowProperties(offsetX, offsetY, radius, color);
+            drawHomeIcon = withShadow;
+        }
+
         setImageDrawable(drawHomeIcon);
+    }
+
+    public void setDelayTouchFeedback(boolean delay) {
+        mHome.setDelayTouchFeedback(delay);
     }
 }
