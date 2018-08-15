@@ -149,4 +149,10 @@
          (without "Focus" state) instead of Dual-stage. -->
     <bool name="config_singleStageCameraKey">false</bool>
 
+    <!-- Path to the library that contains a alternative device specific key handler -->
+    <string name="config_alternativeDeviceKeyHandlerLib" translatable="false"></string>
+
+    <!-- Name of that alternative key handler class -->
+    <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
+
 </resources>

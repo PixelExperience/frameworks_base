@@ -69,4 +69,8 @@
     <java-symbol type="string" name="disable_navkeys_title" />
     <java-symbol type="string" name="disable_navkeys_summary" />
 
+    <!-- Alternative keyhandler -->
+    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
+
 </resources>
