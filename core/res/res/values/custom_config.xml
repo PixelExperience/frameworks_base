@@ -58,4 +58,7 @@
          before setting power profiles on boot. -->
     <bool name="config_waitForMpctlOnBoot">false</bool>
 
+    <!-- Whether device can force navbar disabling -->
+    <bool name="config_canForceDisableNavigationBar">false</bool>
+
 </resources>

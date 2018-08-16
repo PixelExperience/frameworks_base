@@ -72,6 +72,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.ContentResolver;
+import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.PointF;
@@ -250,6 +252,8 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import com.android.internal.util.custom.NavbarUtils;
 
 public class StatusBar extends SystemUI implements DemoMode,
         DragDownHelper.DragDownCallback, ActivityStarter, OnUnlockMethodChangedListener,
@@ -722,6 +726,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         initCoreOverlays();
 
         createAndAddWindows();
+
+        mSbSettingsObserver.observe();
+        mSbSettingsObserver.update();
 
         // Make sure we always have the most current wallpaper info.
         IntentFilter wallpaperChangedFilter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
@@ -3219,6 +3226,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         updateNotificationViews();
         mMediaManager.clearCurrentMediaNotification();
         setLockscreenUser(newUserId);
+        mSbSettingsObserver.update();
     }
 
     @Override
@@ -5141,6 +5149,61 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public boolean isDeviceInVrMode() {
         return mVrMode;
+    }
+
+    private boolean mShowNavBar;
+
+    private SbSettingsObserver mSbSettingsObserver = new SbSettingsObserver(mHandler);
+    private class SbSettingsObserver extends ContentObserver {
+        SbSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NAVIGATION_BAR_SHOW),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            super.onChange(selfChange, uri);
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.NAVIGATION_BAR_SHOW))) {
+                updateNavigationBar();
+            }
+        }
+
+        public void update() {
+            updateNavigationBar();
+        }
+    }
+
+    private void updateNavigationBar() {
+        int showNavBar = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.NAVIGATION_BAR_SHOW,
+                 -1, UserHandle.USER_CURRENT);
+        if (showNavBar != -1){
+            boolean showNavBarBool = showNavBar == 1;
+            if (showNavBarBool !=  mShowNavBar){
+                  mShowNavBar = NavbarUtils.isEnabled(mContext);
+                  if (DEBUG) Log.v(TAG, "updateNavigationBar=" + mShowNavBar);
+                  if (mShowNavBar) {
+                    if (mNavigationBarView == null) {
+                        createNavigationBar();
+                    }
+                  }else{
+                      if (mNavigationBarView != null){
+                          FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
+                          mWindowManager.removeViewImmediate(mNavigationBarView);
+                          mNavigationBarView = null;
+                          fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
+                          mNavigationBar = null;
+                      }
+                  }
+           }
+        }
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {

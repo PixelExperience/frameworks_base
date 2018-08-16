@@ -49,4 +49,7 @@
          before setting power profiles on boot. -->
     <java-symbol type="bool" name="config_waitForMpctlOnBoot" />
 
+    <!-- Whether device can force navbar disabling -->
+    <java-symbol type="bool" name="config_canForceDisableNavigationBar" />
+
 </resources>
