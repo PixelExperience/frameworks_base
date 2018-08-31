@@ -175,4 +175,7 @@
          Represented as milliseconds from midnight (e.g. 21600000 == 6am). -->
     <integer name="config_defaultAmbientPlayQuitPeriodEndTime">21600000</integer>
 
+    <!-- Whether to allow process with media UID to access CameraServiceProxy -->
+    <bool name="config_allowMediaUidForCameraServiceProxy">false</bool>
+
 </resources>
