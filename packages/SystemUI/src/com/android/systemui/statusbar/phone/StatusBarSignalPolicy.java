@@ -39,6 +39,7 @@ import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl;
 import com.android.systemui.statusbar.policy.SecurityController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
 import com.android.internal.telephony.util.TelephonyExtUtils;
@@ -94,6 +95,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         mNetworkController = Dependency.get(NetworkController.class);
         mSecurityController = Dependency.get(SecurityController.class);
 
+        Dependency.get(TunerService.class).addTunable(this, StatusBarIconController.ICON_BLACKLIST);
         mNetworkController.addCallback(this);
         mSecurityController.addCallback(this);
 
@@ -118,6 +120,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
     }
 
     public void destroy() {
+        Dependency.get(TunerService.class).removeTunable(this);
         mNetworkController.removeCallback(this);
         mSecurityController.removeCallback(this);
     }
@@ -161,6 +164,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
             mBlockWifi = blockWifi || mForceBlockWifi;
             // Re-register to get new callbacks.
             mNetworkController.removeCallback(this);
+            mNetworkController.addCallback(this);
         }
     }
 
