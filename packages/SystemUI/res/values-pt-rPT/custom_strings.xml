@@ -32,7 +32,7 @@
   <string name="screen_pinning_description_power_nav_visible">Vai ser mantido no ecrã até soltar. Prima e segure o botão Ligar/Desligar ou toque nos botões realçados na barra de navegação para soltar.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">Carregamento rápido (<xliff:g id="charging_time_left">%s</xliff:g> até às carga completa)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower conectado</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Carregamento rápido ligado</string>
   <string name="keyguard_plugged_in_turbo_charging">Carregamento Rápido</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G em vez de LTE</string>

@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Хуткая зарадка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> да поўнага зараду батарэі)</string>
   <string name="keyguard_plugged_in_dash_charging">Хуткая зарадка</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Роўмінг</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Перацягніце патрэбныя элементы</string>
@@ -30,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">Гэта трымае яго ў поле зроку, пакуль вы не адменіце. Націсніце і ўтрымлівайце кнопку «Назад» або дакраніцеся да вылучаных кнопак на панэлі навігацыі, каб адмяніць.</string>
   <string name="screen_pinning_description_power_nav_visible">Гэта трымае яго ў поле зроку, пакуль вы не адменіце. Націсніце і ўтрымлівайце кнопку \"блакіроўкі\" або дакраніцеся да вылучаных кнопак на панэлі навігацыі, каб адмяніць.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">Хуткая зарадка падлучана (<xliff:g id="charging_time_left">%s</xliff:g> да поўнай зарадкі)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Падлучэнне хуткай зарадкі</string>
+  <string name="keyguard_plugged_in_turbo_charging">Хуткая зарадка</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Паказваць 4G замест LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Індыкатар актыўнасці сеткі</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Дадаткова</string>
   <string name="global_action_restart_recovery">Recovery</string>
@@ -47,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Усплываючыя апавяшчэнні адкл.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Усплываючыя апавяшчэнні ўкл.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Цалкам зараджана</string>
 </resources>

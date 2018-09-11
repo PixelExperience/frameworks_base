@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Carga rápida (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até encher)</string>
   <string name="keyguard_plugged_in_dash_charging">Carga Rápida</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Itinerancia</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Arrastre ou toque para engadir funcións</string>

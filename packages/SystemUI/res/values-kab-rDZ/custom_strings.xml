@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Azdam arurad (Ummid deg <xliff:g id="charging_time_left" example="4 Asrag d 2 tisdatin">%s</xliff:g>)</string>
   <string name="keyguard_plugged_in_dash_charging">Azdam arurad</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Ambiwel</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Zuɣeṛ neɣ senned i tmerniwt n tiḥjuṛin</string>
@@ -30,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">Ay agi a t yeǧǧ alarma trefdeḍ.Senned ɣef tqeffalt Tuɣalin u sit fell-as neɣ senned ɣef tqeffalin yettwajerden n tfeggagt n tunigin i werfad.</string>
   <string name="screen_pinning_description_power_nav_visible">Ay agi a t yeǧǧ alamma trefdeḍ.Nnel u senned ɣef tqeffalt Rmed/Ssens neɣ tiqeffalin yettwajerden n tfeggagt n tunigin i werfad.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower yeqqen (<xliff:g id="charging_time_left">%s</xliff:g>send taccarin)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower yeqqen</string>
+  <string name="keyguard_plugged_in_turbo_charging">Accaṛ Turbo</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G wala LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Anamal n warmud n uzeṭṭa </string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Talqayt</string>
   <string name="global_action_restart_recovery">Tiririt</string>
@@ -47,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Ilɣa yettafgen nsan.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Ilɣa yettafgen remden.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Taccaṛt s usmad</string>
 </resources>

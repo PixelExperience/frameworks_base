@@ -19,5 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Zaznano je bilo neujemanje odtisa dobavitelja. Običajno to pomeni, da je odtis dobavitelja zastarel. Prepričajte se, da se odtis dobavitelja ujema s/z <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
+  <string name="lock_to_app_toast_back">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj</string>
+  <string name="lock_to_app_toast_power">Da odpnete ta zaslon, se dotaknite in pridržite gumb za vklop</string>
+  <string name="lock_to_app_toast_back_nav_visible">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj ali se dotaknite in pridržite Nazaj in Pregled na vrstici na krmarjenje</string>
+  <string name="lock_to_app_toast_power_nav_visible">Da odpnete ta zaslon, se dotaknite in pridržite gumb za vklop ali se dotaknite in pridržite Nazaj in Pregled na vrstici na krmarjenje</string>
 </resources>

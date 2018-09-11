@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">Dash Punjenje (još <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash Punjenje</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Roaming</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Povucite ili dodirnite za dodavanje pločica</string>
@@ -30,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite i držite gumb za povratak natrag ili dodirnite označene gumbe na navigacijskoj traci da biste ga otkvačili.</string>
   <string name="screen_pinning_description_power_nav_visible">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite i držite gumb za napajanje natrag ili dodirnite označene gumbe na navigacijskoj traci da biste ga otkvačili.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower spojen (<xliff:g id="charging_time_left">%s</xliff:g> do pune baterije)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower spojen</string>
+  <string name="keyguard_plugged_in_turbo_charging">Brzo punjenje</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Prikaži simbol \'4G\' umjesto \'LTE\'</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Indikator mrežne aktivnosti</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Napredno</string>
   <string name="global_action_restart_recovery">Oporavak</string>
@@ -47,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Napunjeno</string>
 </resources>

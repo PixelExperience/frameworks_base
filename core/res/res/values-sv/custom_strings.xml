@@ -19,5 +19,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">En felaktig vendor image har upptäckts. Vanligtvis betyder detta att den är utdaterad. Vänligen säkerställ att din vendor image motsvarar <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
+  <string name="lock_to_app_toast_back">För att frigöra denna skärm, tryck och håll nere Bakåt-knappen</string>
+  <string name="lock_to_app_toast_power">För att frigöra denna skärm, tryck och håll nere Ström-knappen</string>
 </resources>

@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Несумяшчальны вобраз Пз вытворцы прылады. Як правіла, гэта азначае, што неабходна ўсталяваць абноўленую прашыўку раздзела vendor. Пераканайцеся, што яе версія будзе адпавядаць <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопку \"Назад\"</string>
   <string name="lock_to_app_toast_power">Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопку \"Сілкаванне\"</string>

@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Afaylu vendor.img ur imṣada ara. S umata, ayagi yemmal-d ad akken ur yettwalqem ara.Ttxil-k senked ad akken afaylu inek vendor.img yemezg ad <xliff:g id="fingerprint">%1$s</xliff:g>.</string>
   <!-- Screen pinning exit mode -->
   <string name="lock_to_app_toast_back">Akken ad tserrḥeḍ agdil, sit u ṭṭef taqeffalt Uɣal.</string>
   <string name="lock_to_app_toast_power">Akken ad tserrḥeḍ agdil, sit u ṭṭef taqeffalt n tezmert.</string>

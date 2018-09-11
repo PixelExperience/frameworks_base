@@ -33,6 +33,7 @@
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_turbo_power_time">כוח טורבו מחובר (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">טעינה מהירה מופעלת</string>
+  <string name="keyguard_plugged_in_turbo_charging">טעינה מהירה</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">הצג 4G במקום LTE</string>
   <!-- Network Traffic -->
@@ -52,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">התראות קופצות כובו</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">התראות קופצות הודלקו</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">הסוללה טעונה במלואה</string>
 </resources>
