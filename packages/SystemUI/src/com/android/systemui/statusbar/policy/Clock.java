@@ -328,8 +328,10 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     }
 
     public void setClockVisibleByUser(boolean visible) {
-        mClockVisibleByUser = visible;
-        updateClockVisibility();
+        if (mClockHideableByUser) {
+            mClockVisibleByUser = visible;
+            updateClockVisibility();
+        }
     }
 
     public void setClockVisibilityByPolicy(boolean visible) {
@@ -346,6 +348,14 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 && mShowClock && mClockVisibleByPolicy && mClockVisibleByUser;
         int visibility = visible ? View.VISIBLE : View.GONE;
         super.setVisibility(visibility);
+    }
+
+    public boolean isClockVisible() {
+        return mClockVisibleByPolicy && mClockVisibleByUser;
+    }
+
+    public void setClockHideableByUser(boolean value) {
+        mClockHideableByUser = value;
     }
 
     final void updateClock() {
