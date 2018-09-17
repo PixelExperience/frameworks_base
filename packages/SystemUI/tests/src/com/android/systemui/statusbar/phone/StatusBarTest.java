@@ -251,6 +251,7 @@ public class StatusBarTest extends SysuiTestCase {
     @Mock private LightsOutNotifController mLightsOutNotifController;
     @Mock private ViewMediatorCallback mViewMediatorCallback;
     @Mock private StatusBarTouchableRegionManager mStatusBarTouchableRegionManager;
+    @Mock private TunerService mTunerService;
     @Mock private ScreenPinningRequest mScreenPinningRequest;
     @Mock private StatusBarNotificationActivityStarter.Builder
             mStatusBarNotificationActivityStarterBuilder;
