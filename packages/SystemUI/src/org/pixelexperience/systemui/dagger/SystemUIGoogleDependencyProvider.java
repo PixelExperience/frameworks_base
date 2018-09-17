@@ -178,6 +178,7 @@ import com.android.systemui.util.settings.SecureSettings;
 import com.android.systemui.util.wakelock.DelayedWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
 import com.android.systemui.volume.VolumeComponent;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
 import com.android.wm.shell.legacysplitscreen.LegacySplitScreen;
@@ -1246,7 +1247,8 @@ public class SystemUIGoogleDependencyProvider {
             SmartSpaceController smartSpaceController,
             WallpaperNotifier wallpaperNotifier,
             Optional<ReverseChargingViewController> reverseChargingController,
-            Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient) {
+            Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
+            TunerService tunerService) {
         return new StatusBarGoogle(
                 context, notificationsController, lightBarController, autoHideController, keyguardUpdateMonitor,
                 signalPolicy, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController,
@@ -1270,7 +1272,8 @@ public class SystemUIGoogleDependencyProvider {
                 brightnessSliderFactory, chargingRippleAnimationController, ongoingCallController, animationScheduler,
                 locationPublisher, statusBarIconController, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, unlockedScreenOffAnimationController, startingSurfaceOptional,
-                smartSpaceController, wallpaperNotifier, reverseChargingController, notificationVoiceReplyClient);
+                smartSpaceController, wallpaperNotifier, reverseChargingController, notificationVoiceReplyClient,
+                tunerService);
     }
 
     @SysUISingleton
