@@ -865,4 +865,9 @@ interface IWindowManager
     void unregisterCrossWindowBlurEnabledListener(ICrossWindowBlurEnabledListener listener);
 
     boolean isTaskSnapshotSupported();
+
+    /**
+     * Notifies DisplayPolicy that overlays changed.
+     */
+    void onOverlayChanged();
 }
