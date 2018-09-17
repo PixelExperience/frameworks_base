@@ -68,4 +68,7 @@
     <integer name="config_deviceSupportsButtonBrightnessControl">0</integer>
     <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
 
+    <!-- Whether device can force navbar disabling -->
+    <bool name="config_canForceDisableNavigationBar">false</bool>
+
 </resources>
