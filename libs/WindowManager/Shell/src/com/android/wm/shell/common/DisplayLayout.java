@@ -36,6 +36,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Insets;
 import android.graphics.Rect;
+import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
@@ -45,12 +46,15 @@ import android.view.DisplayCutout;
 import android.view.DisplayInfo;
 import android.view.Gravity;
 import android.view.Surface;
+import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Objects;
+
+import com.android.internal.util.custom.NavbarUtils;
 
 /**
  * Contains information about the layout-properties of a display. This refers to internal layout
@@ -435,16 +439,20 @@ public class DisplayLayout {
         }
     }
 
+    static boolean hasSoftNavigationBar(Context context, int displayId) {
+        if (displayId == Display.DEFAULT_DISPLAY && NavbarUtils.isEnabled(context)) {
+            return true;
+        }
+        try {
+            return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
     static boolean hasNavigationBar(DisplayInfo info, Context context, int displayId) {
         if (displayId == Display.DEFAULT_DISPLAY) {
-            // Allow a system property to override this. Used by the emulator.
-            final String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
-            if ("1".equals(navBarOverride)) {
-                return false;
-            } else if ("0".equals(navBarOverride)) {
-                return true;
-            }
-            return context.getResources().getBoolean(R.bool.config_showNavigationBar);
+            return hasSoftNavigationBar(context, displayId);
         } else {
             boolean isUntrustedVirtualDisplay = info.type == Display.TYPE_VIRTUAL
                     && info.ownerUid != SYSTEM_UID;
