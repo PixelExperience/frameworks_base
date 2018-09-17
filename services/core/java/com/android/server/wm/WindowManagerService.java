@@ -6989,6 +6989,7 @@ public class WindowManagerService extends IWindowManager.Stub
         return mRoot.getDisplayContent(DEFAULT_DISPLAY);
     }
 
+    @Override
     public void onOverlayChanged() {
         synchronized (mGlobalLock) {
             mRoot.forAllDisplays(displayContent -> {
