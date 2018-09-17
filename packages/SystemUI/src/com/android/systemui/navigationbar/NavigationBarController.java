@@ -377,6 +377,12 @@ public class NavigationBarController implements
                 v.removeOnAttachStateChangeListener(this);
             }
         });
+
+        try {
+            WindowManagerGlobal.getWindowManagerService().onOverlayChanged();
+        } catch (RemoteException e) {
+            // Do nothing.
+        }
     }
 
     void removeNavigationBar(int displayId) {
