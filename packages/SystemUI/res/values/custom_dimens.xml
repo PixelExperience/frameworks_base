@@ -46,6 +46,7 @@
     <dimen name="opa_line_y_translation">16dp</dimen>
 
     <!-- Network traffic monitor -->
+    <dimen name="net_traffic_single_text_size">12dp</dimen>
     <dimen name="net_traffic_multi_text_size">8dp</dimen>
     <dimen name="net_traffic_txt_img_padding">2dp</dimen>
 
