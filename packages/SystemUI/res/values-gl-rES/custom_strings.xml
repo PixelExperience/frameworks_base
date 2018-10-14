@@ -31,8 +31,13 @@
   <string name="screen_pinning_description_back_nav_visible">Isto fixa a pantalla nesta vista ata que é liberada. Pulsa e mantén presionado o botón Atrás ou pulsa os botóns resaltados para liberala.</string>
   <string name="screen_pinning_description_power_nav_visible">Isto fixa a pantalla nesta vista ata que é liberada. Pulsa e mantén presionado o botón Power ou pulsa os botóns resaltados para liberala.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">Carga rápida conectada (<xliff:g id="charging_time_left">%s</xliff:g> ata completar)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Carga rápida conectada</string>
+  <string name="keyguard_plugged_in_turbo_charging">Carga Rápida</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">Amosar 4G en lugar de LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Indicador da actividade da rede</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">Avanzado</string>
   <string name="global_action_restart_recovery">Recuperación</string>
@@ -48,4 +53,5 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">As notificacións emerxentes foron desactivadas.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">As notificacións emerxentes foron activadas.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Carga completa</string>
 </resources>

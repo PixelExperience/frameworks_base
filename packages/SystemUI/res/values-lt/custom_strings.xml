@@ -4,28 +4,54 @@
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- Screenshot Delete Toast -->
+  <string name="delete_screenshot_toast">Ekrano kopija ištrinta</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Empty summary -->
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">„Dash” įkrovimas (<xliff:g id="liko" example="4 val. ir 2 min.">%s</xliff:g> iki pilnos baterijos)</string>
-  <string name="keyguard_plugged_in_dash_charging">„Dash“ Įkrovimas</string>
+  <string name="keyguard_indication_dash_charging_time">Greitas įkrovimas (<xliff:g id="liko" example="4 val. ir 2 min.">%s</xliff:g> iki pilnos baterijos)</string>
+  <string name="keyguard_plugged_in_dash_charging">Greitas įkrovimas</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">Tarptinklinis ryšys</string>
+  <string name="status_bar_vpn">VPN</string>
   <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">Vilkite arba palieskite, jei norite pridėti plyteles</string>
   <!-- Lockscreen tuner -->
+  <string name="lockscreen_default">Numatytas</string>
+  <string name="lockscreen_hidden">Nieko</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+  <string name="custom_hint">Perbraukite per piktogramą, kad paleisti</string>
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
+  <string name="screen_pinning_description_back">Tai laikys jį matomą iki kol išpakuosite. Palieskite ir laikykite mygtuką \"Atgal\", kad išpakuotumėte.</string>
+  <string name="screen_pinning_description_power">Tai laikys jį matomą iki kol išpakuosite. Palieskite ir palaikykite maitinimo mygtuką, kad išpakuotumėte.</string>
+  <string name="screen_pinning_description_back_nav_visible">Tai laikys jį matomą iki kol išpakuosite. Palieskite ir laikykite nuspaudę mygtuką \"Atgal\" arba bakstelėkite paryškintus mygtukus naršymo juostoje.</string>
+  <string name="screen_pinning_description_power_nav_visible">Tai laikys jį matomą iki kol išpakuosite. Palieskite ir palaikykite maitinimo mygtuką arba bakstelėkite paryškintus mygtukus naršymo juostoje.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">Greitas įkrovimas yra aktyvus (<xliff:g id="charging_time_left">%s</xliff:g> kol visiškai įkrauta)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Greitas įkrovimas pajungtas</string>
+  <string name="keyguard_plugged_in_turbo_charging">Greitas įkrovimas</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">4G vietoj LTE</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">Tinklo aktyvumo rodiklis</string>
   <!-- Global actions -->
+  <string name="global_action_restart_advanced">Išplėstinės nuostatos</string>
+  <string name="global_action_restart_recovery">Atkūrimo režimas</string>
+  <string name="global_action_restart_bootloader">Perkrovos režimas</string>
+  <string name="global_action_screenshot">Ekrano kopija</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_caffeine_label">Kofeinas</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofeinas išjungtas</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofeinas įjungtas</string>
+  <string name="quick_settings_caffeine_label">Draudimas miegoti</string>
+  <string name="accessibility_quick_settings_caffeine_off">Draudimas miegoti išjungta</string>
+  <string name="accessibility_quick_settings_caffeine_on">Draudimas miegoti įjungta</string>
+  <string name="quick_settings_heads_up_label">Iššokantys pranešimai</string>
+  <string name="accessibility_quick_settings_heads_up_off">Iššokantys pranešimai išjungti.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Iššokantys pranešimai įjungti.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">Iššokantys pranešimai išjungti.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">Iššokantys pranešimai įjungti.</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">Pilnai įkrauta</string>
 </resources>

@@ -14,6 +14,7 @@
   <string name="keyguard_indication_dash_charging_time">மின்னேற்றப்படுகிறது (நிறைவடைய <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> உள்ளன)</string>
   <string name="keyguard_plugged_in_dash_charging">டாஷ் சார்ஜிங்</string>
   <!--Statusbar icon blacklist -->
+  <string name="status_bar_roaming">ரோமிங்</string>
   <string name="status_bar_vpn">விபிஎன்</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">ஓடுகளை சேர்க்க தட்டவும் அல்லது தொட்டு இழுக்கவும்</string>
@@ -26,8 +27,11 @@
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_plugged_in_turbo_power_charging">டர்போ பவர் இணைக்கப்பட்டது</string>
   <!-- Show lte/4g switch -->
+  <string name="show_lte_fourgee_title">LTE பதிலாக 4G</string>
   <!-- Network Traffic -->
+  <string name="network_traffic_state_title">பிணைய செயல்பாட்டு காட்டி</string>
   <!-- Global actions -->
   <string name="global_action_restart_advanced">மேம்பட்ட</string>
   <string name="global_action_restart_recovery">மீட்பு (ரெகவரி)</string>
@@ -38,4 +42,5 @@
   <string name="accessibility_quick_settings_caffeine_off">காஃபின் ஆஃப்</string>
   <string name="accessibility_quick_settings_caffeine_on">கேஃபைன் ஆன்</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">முழுமையாக சார்ஜ் செய்யப்பட்டது</string>
 </resources>

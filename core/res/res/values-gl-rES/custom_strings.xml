@@ -19,9 +19,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Message to show the user when their vendor image doesn't match the build's fingerprint. -->
+  <string name="custom_system_error_manufacturer">Detectouse unha falta de coincidencia coa imaxe do proveedor. Polo xeral isto significa que dita imaxe está desactualizada. Asegúrese de que coincida con <xliff:g id="fingerprint">%1$s </xliff:g>.</string>
   <!-- Screen pinning exit mode -->
-  <string name="lock_to_app_toast_back">Para deixar de fixar esta pantalla, mantén tocado o botón Atrás</string>
-  <string name="lock_to_app_toast_power">Para deixar de fixar esta pantalla, mantén tocado o botón de Encendido</string>
-  <string name="lock_to_app_toast_back_nav_visible">Para deixar de fixar esta pantalla, mantén tocado o botón Atrás ou Atrás e Visión de conxunto na barra de navegación</string>
-  <string name="lock_to_app_toast_power_nav_visible">Para deixar de fixar esta pantalla, mantén tocado o botón de Encendido ou Atrás e Visión de conxunto na barra de navegación</string>
+  <string name="lock_to_app_toast_back">Para deixar de fixar esta pantalla, mantén apertado o botón Atrás</string>
+  <string name="lock_to_app_toast_power">Para deixar de fixar esta xanela, manteña apertado o botón de Encendido</string>
+  <string name="lock_to_app_toast_back_nav_visible">Para deixar de fixar esta pantalla, mantén apertado o botón Atrás ou Atrás e Visión de conxunto na barra de navegación</string>
+  <string name="lock_to_app_toast_power_nav_visible">Para deixar de fixar esta pantalla, mantén apertado o botón de Encendido ou Atrás e Visión de conxunto na barra de navegación</string>
 </resources>

@@ -11,6 +11,7 @@
          [CHAR LIMIT=4] -->
   <!-- Empty summary -->
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_plugged_in_dash_charging">جلدی چارج ہو رہا ہے</string>
   <!--Statusbar icon blacklist -->
   <string name="status_bar_roaming">رومنگ</string>
   <string name="status_bar_vpn">VPN</string>
@@ -19,6 +20,7 @@
   <string name="lockscreen_default">ڈیفالٹ</string>
   <string name="lockscreen_hidden">کوئی نہیں</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+  <string name="custom_hint">کیمرا کے لیے آئیکن کو گھمائیں</string>
   <!-- volte icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Screen pinning exit mode -->
