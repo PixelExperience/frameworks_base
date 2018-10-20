@@ -3867,7 +3867,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
         final boolean longPress = (flags & KeyEvent.FLAG_LONG_PRESS) != 0;
-        final boolean virtualKey = event.getSource() == InputDevice.SOURCE_NAVIGATION_BAR;
+        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
+        final boolean fromNavbar = event.getSource() == InputDevice.SOURCE_NAVIGATION_BAR;
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
@@ -3961,7 +3962,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // If we have released the home key, and didn't do anything else
             // while it was pressed, then it is time to go home!
             if (!down) {
-                if (virtualKey || mHomeDoubleTapActionHwKeys != Action.APP_SWITCH) {
+                if (fromNavbar || mHomeDoubleTapActionHwKeys != Action.APP_SWITCH) {
                     cancelPreloadRecentApps();
                 }
 
@@ -3977,7 +3978,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
 
                 // Delay handling home if a double-tap is possible.
-                if ((virtualKey && mDoubleTapOnHomeBehavior != DOUBLE_TAP_HOME_NOTHING) || mHomeDoubleTapActionHwKeys != Action.NOTHING) {
+                if ((fromNavbar && mDoubleTapOnHomeBehavior != DOUBLE_TAP_HOME_NOTHING) || mHomeDoubleTapActionHwKeys != Action.NOTHING) {
                     mHandler.removeCallbacks(mHomeDoubleTapTimeoutRunnable); // just in case
                     mHomeDoubleTapPending = true;
                     mHandler.postDelayed(mHomeDoubleTapTimeoutRunnable,
@@ -4014,7 +4015,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 if (mHomeDoubleTapPending) {
                     mHomeDoubleTapPending = false;
                     mHandler.removeCallbacks(mHomeDoubleTapTimeoutRunnable);
-                    if (virtualKey){
+                    if (fromNavbar){
                         handleDoubleTapOnHome();
                     }else{
                         performKeyAction(mHomeDoubleTapActionHwKeys, event);
@@ -4022,17 +4023,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             mHomeConsumed = true;
                         }
                     }
-                } else if (virtualKey && mDoubleTapOnHomeBehavior == DOUBLE_TAP_HOME_RECENT_SYSTEM_UI) {
+                } else if (fromNavbar && mDoubleTapOnHomeBehavior == DOUBLE_TAP_HOME_RECENT_SYSTEM_UI) {
                     preloadRecentApps();
-                } else if (virtualKey && (event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
+                } else if (fromNavbar && (event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
                     if (!keyguardOn) {
                         handleLongPressOnHome(event.getDeviceId());
                     }
-                } else if (!virtualKey && (mHomeLongPressActionHwKeys == Action.APP_SWITCH
+                } else if (!fromNavbar && (mHomeLongPressActionHwKeys == Action.APP_SWITCH
                         || mHomeDoubleTapActionHwKeys == Action.APP_SWITCH)) {
                     preloadRecentApps();
                 }
-            } else if (!virtualKey && longPress) {
+            } else if (!fromNavbar && longPress) {
                 if (!keyguardOn && !mHomeConsumed &&
                         mHomeLongPressActionHwKeys != Action.NOTHING) {
                     if (mHomeLongPressActionHwKeys != Action.APP_SWITCH) {
@@ -4106,7 +4107,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
             return 0;
         } else if (keyCode == KeyEvent.KEYCODE_APP_SWITCH) {
-            if (!keyguardOn && virtualKey) {
+            if (!keyguardOn && fromNavbar) {
                 if (down && repeatCount == 0) {
                     preloadRecentApps();
                 } else if (!down) {
@@ -6437,7 +6438,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
         final int keyCode = event.getKeyCode();
-        final boolean virtualKey = event.getSource() == InputDevice.SOURCE_NAVIGATION_BAR;
+        final boolean fromNavbar = event.getSource() == InputDevice.SOURCE_NAVIGATION_BAR;
 
         final boolean isInjected = (policyFlags & WindowManagerPolicy.FLAG_INJECTED) != 0;
 
@@ -6839,12 +6840,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
             case KeyEvent.KEYCODE_ASSIST: {
                 final boolean longPressed = event.getRepeatCount() > 0;
-                if (!virtualKey && down && (mAssistPressActionHwKeys == Action.APP_SWITCH
+                if (!fromNavbar && down && (mAssistPressActionHwKeys == Action.APP_SWITCH
                         || mAssistLongPressActionHwKeys == Action.APP_SWITCH)) {
                     preloadRecentApps();
                 }
                 if (down && longPressed) {
-                    if (virtualKey){
+                    if (fromNavbar){
                         Message msg = mHandler.obtainMessage(MSG_LAUNCH_ASSIST_LONG_PRESS);
                         msg.setAsynchronous(true);
                         msg.sendToTarget();
@@ -6857,16 +6858,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 }
                 if (!down && !longPressed) {
-                    if (virtualKey){
+                    if (fromNavbar){
                         Message msg = mHandler.obtainMessage(MSG_LAUNCH_ASSIST, event.getDeviceId(),
                                 0 /* unused */, null /* hint */);
                         msg.setAsynchronous(true);
                         msg.sendToTarget();
                     }
-                    if (!virtualKey && mAssistPressActionHwKeys != Action.APP_SWITCH) {
+                    if (!fromNavbar && mAssistPressActionHwKeys != Action.APP_SWITCH) {
                         cancelPreloadRecentApps();
                     }
-                    if (!virtualKey && !canceled) {
+                    if (!fromNavbar && !canceled) {
                         performKeyAction(mAssistPressActionHwKeys, event);
                     }
                 }
