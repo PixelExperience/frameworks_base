@@ -1116,7 +1116,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     ((AmbientIndicationContainer) mAmbientIndicationContainer)
                                 .setIndication(observed.Song, observed.Artist);
                     mAmbientNotification.show(observed.Song, observed.Artist);
-                    doStopAmbientRecognition();
+                    // If the song matches then wait for 2 minutes at least before you start again.
+                    // We don't have to give results right away, as this is an Ambient feature.
+                    doStopAmbientRecognition(true);
                 }
             });
         }
@@ -1127,7 +1129,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 @Override
                 public void run() {
                     ((AmbientIndicationContainer) mAmbientIndicationContainer).hideIndication();
-                    doStopAmbientRecognition();
+                    doStopAmbientRecognition(false);
                 }
             });
         }
@@ -1138,7 +1140,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 @Override
                 public void run() {
                     ((AmbientIndicationContainer) mAmbientIndicationContainer).hideIndication();
-                    doStopAmbientRecognition();
+                    doStopAmbientRecognition(false);
                 }
             });
         }
@@ -3965,30 +3967,44 @@ public class StatusBar extends SystemUI implements DemoMode,
         Trace.endSection();
     }
 
+    // Observer will trigger this function, no need to call it manually.
     private void initAmbientRecognition() {
         mRecognitionEnabled = Settings.Secure.getInt(mContext.getContentResolver(),
                 AMBIENT_RECOGNITION, 0) != 0;
         if (!mRecognitionEnabled) return;
         mAmbientRecognitionInterval = Settings.Secure.getInt(mContext.getContentResolver(),
                 AMBIENT_RECOGNITION_INTERVAL, 120000);
-        mRecognition = new RecoginitionObserverFactory(mContext);
-        doAmbientRecognition();
+        doStopAmbientRecognition(false);
     }
 
     private void doAmbientRecognition() {
-        if (!mRecognitionEnabled) return;
+        mRecognition = new RecoginitionObserverFactory(mContext);
         mRecognition.startRecording();
         mHandler.postDelayed(() -> {
-                 doStopAmbientRecognition();
+                 doStopAmbientRecognition(false);
         }, AMBIENT_RECOGNITION_INTERVAL_MAX);
     }
 
-    private void doStopAmbientRecognition() {
-        mRecognition.stopRecording();
-        Log.d(TAG, "Will start listening again in 2 minutes");
-        mHandler.postDelayed(() -> {
-                 initAmbientRecognition();
-        }, mAmbientRecognitionInterval);
+    private void doStopAmbientRecognition(boolean isSongMatched) {
+        // If mRecognition is not initialized this means we have not started the recording, thus using stopRecording() will give NPE.
+        // So, just let's go directly in handler, doAmbientRecognition() will do the work for us.
+        if (mRecognition != null)
+            mRecognition.stopRecording();
+
+        // Check if user has disabled "Now Playing" feature
+        if (!mRecognitionEnabled) return;
+
+        if (isSongMatched) {
+            Log.d(TAG, "Will start listening again in 2 mins.");
+            mHandler.postDelayed(() -> {
+                    doAmbientRecognition();
+            }, 120000);
+        } else {
+            Log.d(TAG, "Will start listening again in " + mAmbientRecognitionInterval + " seconds.");
+            mHandler.postDelayed(() -> {
+                    doAmbientRecognition();
+            }, mAmbientRecognitionInterval);
+        }
     }
 
     /**
