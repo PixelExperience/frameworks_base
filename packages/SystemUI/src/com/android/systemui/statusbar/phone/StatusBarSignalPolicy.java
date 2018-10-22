@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.phone;
 
+import android.app.ActivityThread;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Rect;
@@ -77,8 +78,6 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
     private ArrayList<MobileIconState> mMobileStates = new ArrayList<MobileIconState>();
     private WifiIconState mWifiIconState = new WifiIconState();
 
-    private static TelephonyExtUtils extTelephony;
-
     public StatusBarSignalPolicy(Context context, StatusBarIconController iconController) {
         mContext = context;
 
@@ -97,7 +96,6 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         mSecurityController.addCallback(this);
 
         TelephonyExtUtils.getInstance(context).addListener(this);
-        extTelephony = TelephonyExtUtils.getInstance(context);
     }
 
     @Override
@@ -272,7 +270,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         mMobileStates.clear();
         final int n = subs.size();
         for (int i = 0; i < n; i++) {
-            mMobileStates.add(new MobileIconState(subs.get(i).getSubscriptionId()));
+            mMobileStates.add(new MobileIconState(subs.get(i).getSubscriptionId(), mContext));
         }
     }
 
@@ -418,10 +416,13 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         public boolean needsLeadingPadding;
         public String typeContentDescription;
         private boolean mProvisioned = true;
+        public Context mContext;
 
-        private MobileIconState(int subId) {
+        private MobileIconState(int subId, Context context) {
             super();
             this.subId = subId;
+            this.mContext = context;
+            TelephonyExtUtils extTelephony = TelephonyExtUtils.getInstance(context);
             if (extTelephony.hasService()) {
                 mProvisioned = extTelephony.isSubProvisioned(subId);
             }
@@ -449,11 +450,11 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
 
             return Objects
                     .hash(super.hashCode(), subId, strengthId, typeId, roaming, needsLeadingPadding,
-                            typeContentDescription);
+                            typeContentDescription, mContext);
         }
 
         public MobileIconState copy() {
-            MobileIconState copy = new MobileIconState(this.subId);
+            MobileIconState copy = new MobileIconState(this.subId, this.mContext);
             copyTo(copy);
             return copy;
         }
@@ -466,12 +467,13 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
             other.roaming = roaming;
             other.needsLeadingPadding = needsLeadingPadding;
             other.typeContentDescription = typeContentDescription;
+            other.mContext = mContext;
         }
 
         private static List<MobileIconState> copyStates(List<MobileIconState> inStates) {
             ArrayList<MobileIconState> outStates = new ArrayList<>();
             for (MobileIconState state : inStates) {
-                MobileIconState copy = new MobileIconState(state.subId);
+                MobileIconState copy = new MobileIconState(state.subId, state.mContext);
                 state.copyTo(copy);
                 outStates.add(copy);
             }
