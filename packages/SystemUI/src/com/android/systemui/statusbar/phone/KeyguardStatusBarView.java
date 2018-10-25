@@ -358,6 +358,12 @@ public class KeyguardStatusBarView extends RelativeLayout
         // could not care less
     }
 
+    @Override
+    public void onOverlayChanged() {
+        mShowPercentAvailable = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_battery_percentage_setting_available);
+    }
+
     public void setKeyguardUserSwitcher(KeyguardUserSwitcher keyguardUserSwitcher) {
         mKeyguardUserSwitcher = keyguardUserSwitcher;
         mMultiUserSwitch.setKeyguardUserSwitcher(keyguardUserSwitcher);
