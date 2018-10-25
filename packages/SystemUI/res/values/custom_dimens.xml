@@ -26,4 +26,7 @@
     <!-- Ambient indication -->
     <dimen name="ambient_indication_icon_size">20.0dip</dimen>
     <dimen name="ambient_indication_margin_bottom">12.0dip</dimen>
+
+    <!-- Width of the battery icon (with percentage inside) in the status bar. -->
+    <dimen name="status_bar_battery_icon_width_percentage_inside">10.5dp</dimen>
 </resources>
