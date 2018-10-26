@@ -289,6 +289,7 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.internal.util.IndentingPrintWriter;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.XmlUtils;
+import com.android.internal.util.custom.OverlayUtils;
 import com.android.server.AttributeCache;
 import com.android.server.DeviceIdleController;
 import com.android.server.EventLogTags;
@@ -368,6 +369,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
+
+import com.android.internal.util.custom.OverlayUtils;
 
 /**
  * Keep track of all those APKs everywhere.
@@ -8475,6 +8478,12 @@ public class PackageManagerService extends IPackageManager.Stub
                         && !PackageInstallerService.isStageName(file.getName());
                 if (!isPackage) {
                     // Ignore entries which are not packages
+                    continue;
+                }
+                // Ignore vendor overlays that should live on system/app
+                if ((scanDir.getPath() == VENDOR_OVERLAY_DIR || scanDir.getPath() == PRODUCT_OVERLAY_DIR)
+                        && Arrays.asList(OverlayUtils.systemOverlayPackages).contains(file.getName())){
+                    Slog.w(TAG, "Ignoring " + file.getAbsolutePath() + " because is already installed on /system/app/");
                     continue;
                 }
                 parallelPackageParser.submit(file, parseFlags);

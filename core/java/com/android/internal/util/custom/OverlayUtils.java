@@ -17,4 +17,10 @@ package com.android.internal.util.custom;
 
 public class OverlayUtils {
     public static String[] AllPackages = {"com.google.android.setupwizard.overlay"};
+    public static String[] systemOverlayPackages = {"SysuiDarkTheme",
+                                                    "DisplayCutoutEmulationCorner",
+                                                    "DisplayCutoutEmulationDouble",
+                                                    "DisplayCutoutEmulationNarrow",
+                                                    "DisplayCutoutEmulationTall",
+                                                    "DisplayCutoutEmulationWide"};
 }
