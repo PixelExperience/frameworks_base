@@ -10,4 +10,5 @@
   <!-- Screen pinning dialog description. (for devices without navbar) -->
   <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку. Нажмите &amp;, для открепления.</string>
   <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+  <string name="screen_pinning_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад»</string>
 </resources>

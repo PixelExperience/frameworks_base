@@ -8,5 +8,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower connecté (<xliff:g id="temps_restant">%s</xliff:g> avant charge complète)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
   <!-- Screen pinning dialog description. (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Cet écran est épinglé et visible jusqu\'à annulation de l\'opération. Pour annuler l\'épinglage de l\'écran, appuyez et maintenez le bouton Retour.</string>
   <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+  <string name="screen_pinning_toast_no_navbar">Pour annuler l\'épinglage de l\'écran, appuyez et maintenez le bouton Retour</string>
 </resources>

@@ -8,5 +8,7 @@
   <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> μέχρι να φορτίσει πλήρως)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Συνδέθηκε η γρήγορη φόρτιση</string>
   <!-- Screen pinning dialog description. (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
   <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+  <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Πίσω\"</string>
 </resources>

@@ -8,5 +8,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower જોડાયેલ છે (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">ટર્બોપાવર જોડાયેલ છે</string>
   <!-- Screen pinning dialog description. (for devices without navbar) -->
+  <string name="screen_pinning_description_no_navbar">તમે અનપીન કરો નહી ત્યાં સુધી આ બાબત તેને નજર સામે રાખે છે. અનપિન કરવા માટે બૅક બટન ટચ કરીને પકડી રાખો.</string>
   <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+  <string name="screen_pinning_toast_no_navbar">આ સ્ક્રીન અનપિન કરવા માટે બૅક બટન પર ટચ કરી પકડી રાખો</string>
 </resources>
