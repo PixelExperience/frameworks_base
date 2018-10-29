@@ -283,7 +283,7 @@ public class ScreenPinningRequest implements View.OnClickListener,
                 mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(INVISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(INVISIBLE);
                 descriptionStringResId = !hasNavigationBar()
-                        ? R.string.screen_pinning_description_no_navbar
+                        ? (supportsGesturesOnFP() ? R.string.screen_pinning_description_no_navbar_fpsensor : R.string.screen_pinning_description_no_navbar)
                         : touchExplorationEnabled
                         ? R.string.screen_pinning_description_accessible
                         : R.string.screen_pinning_description;
@@ -292,7 +292,7 @@ public class ScreenPinningRequest implements View.OnClickListener,
                 mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(VISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(VISIBLE);
                 descriptionStringResId = !hasNavigationBar()
-                        ? R.string.screen_pinning_description_no_navbar
+                        ? (supportsGesturesOnFP() ? R.string.screen_pinning_description_no_navbar_fpsensor : R.string.screen_pinning_description_no_navbar)
                         : touchExplorationEnabled
                         ? R.string.screen_pinning_description_recents_invisible_accessible
                         : R.string.screen_pinning_description_recents_invisible;
@@ -352,6 +352,10 @@ public class ScreenPinningRequest implements View.OnClickListener,
                 // ignore
             }
             return false;
+        }
+
+        private boolean supportsGesturesOnFP() {
+            return mContext.getResources().getBoolean(com.android.internal.R.bool.config_supportsGesturesOnFingerprintSensor);
         }
 
         @Override
