@@ -76,4 +76,20 @@
     <!-- Whether device supports gestures on fingerprint sensor -->
     <java-symbol type="bool" name="config_supportsGesturesOnFingerprintSensor" />
 
+    <!-- Weather icons -->
+    <java-symbol type="drawable" name="weather_01" />
+    <java-symbol type="drawable" name="weather_01n" />
+    <java-symbol type="drawable" name="weather_02" />
+    <java-symbol type="drawable" name="weather_02n" />
+    <java-symbol type="drawable" name="weather_03" />
+    <java-symbol type="drawable" name="weather_03n" />
+    <java-symbol type="drawable" name="weather_04" />
+    <java-symbol type="drawable" name="weather_04n" />
+    <java-symbol type="drawable" name="weather_09" />
+    <java-symbol type="drawable" name="weather_10" />
+    <java-symbol type="drawable" name="weather_10n" />
+    <java-symbol type="drawable" name="weather_11" />
+    <java-symbol type="drawable" name="weather_13" />
+    <java-symbol type="drawable" name="weather_50" />
+
 </resources>
