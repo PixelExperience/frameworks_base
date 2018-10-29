@@ -201,4 +201,9 @@
          (without "Focus" state) instead of Dual-stage. -->
     <bool name="config_singleStageCameraKey">false</bool>
 
+    <!-- Weather default unit
+         0 - Celsius
+         1 - Fahrenheit -->
+    <integer name="weather_lockscreen_default_unit">0</integer>
+
 </resources>

@@ -3997,6 +3997,9 @@
     <permission android:name="android.permission.PREVENT_POWER_KEY"
                 android:protectionLevel="signature|privileged" />
 
+    <!-- Weather on lockscreen -->
+    <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
+
     <application android:process="system"
                  android:persistent="true"
                  android:hasCode="false"
