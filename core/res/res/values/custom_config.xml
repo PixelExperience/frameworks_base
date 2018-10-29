@@ -155,4 +155,7 @@
     <!-- Name of that alternative key handler class -->
     <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
 
+    <!-- Whether device supports gestures on fingerprint sensor -->
+    <bool name="config_supportsGesturesOnFingerprintSensor">false</bool>
+
 </resources>
