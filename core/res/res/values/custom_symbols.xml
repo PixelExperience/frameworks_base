@@ -52,4 +52,7 @@
     <!-- Whether device can force navbar disabling -->
     <java-symbol type="bool" name="config_canForceDisableNavigationBar" />
 
+    <!-- Whether device supports gestures on fingerprint sensor -->
+    <java-symbol type="bool" name="config_supportsGesturesOnFingerprintSensor" />
+
 </resources>
