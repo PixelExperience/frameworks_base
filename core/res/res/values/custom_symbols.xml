@@ -92,4 +92,8 @@
     <java-symbol type="drawable" name="weather_13" />
     <java-symbol type="drawable" name="weather_50" />
 
+    <!-- Ambient play -->
+    <java-symbol type="string" name="ambient_recognition_notification" />
+    <java-symbol type="string" name="ambient_recognition_information" />
+
 </resources>
