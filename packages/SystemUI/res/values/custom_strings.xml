@@ -18,8 +18,4 @@
      <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">To unpin this screen, touch &amp; hold fingerprint sensor</string>
 
-    <!-- AmbientPlay: The contents of the displayed recognition. -->
-    <string name="ambient_recognition_notification">Now Playing</string>
-    <string name="ambient_recognition_information">%1$s by %2$s</string>
-
 </resources>
