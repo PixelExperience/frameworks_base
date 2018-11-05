@@ -194,4 +194,7 @@
     <!-- Whether to show battery percentage inside icon -->
     <bool name="config_battery_percentage_show_inside_icon">false</bool>
 
+    <!-- Whether to enable smart clock feature -->
+    <bool name="config_enableSmartClock">false</bool>
+
 </resources>

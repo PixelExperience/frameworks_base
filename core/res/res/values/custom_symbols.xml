@@ -148,4 +148,7 @@
     <!-- Whether to show battery percentage inside icon -->
     <java-symbol type="bool" name="config_battery_percentage_show_inside_icon" />
 
+    <!-- Whether to enable smart clock feature -->
+    <java-symbol type="bool" name="config_enableSmartClock" />
+
 </resources>
