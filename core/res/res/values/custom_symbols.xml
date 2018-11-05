@@ -157,4 +157,7 @@
     <!-- Whether to allow sending active app broadcast -->
     <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 
+    <!-- Whether to enable smart clock feature -->
+    <java-symbol type="bool" name="config_enableSmartClock" />
+
 </resources>

@@ -204,4 +204,7 @@
     <!-- Whether to allow sending active app broadcast -->
     <bool name="config_allowActivePackageBroadcast">false</bool>
 
+    <!-- Whether to enable smart clock feature -->
+    <bool name="config_enableSmartClock">false</bool>
+
 </resources>
