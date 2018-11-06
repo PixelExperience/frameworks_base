@@ -6435,7 +6435,7 @@ message MetricsEvent {
     // END OF AOSP CONSTANTS
 
     // CustomSettings constant
-    CUSTOM_SETTINGS = 1500;
+    CUSTOM_SETTINGS = 1554;
 
   }
 }
