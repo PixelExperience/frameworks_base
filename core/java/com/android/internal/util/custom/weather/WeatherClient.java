@@ -32,7 +32,9 @@ import android.os.Process;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.android.internal.R;
@@ -286,24 +288,33 @@ public class WeatherClient {
         }
 
         public int getWeatherConditionImage() {
-            boolean isDay = getConditions().contains("d");
-            if (getConditions().contains(WeatherClient.Conditions.CONDITION_STORMY)){
-                return R.drawable.weather_11;
-            }else if (getConditions().contains(WeatherClient.Conditions.CONDITION_SNOWY) && conditions.contains(WeatherClient.Conditions.CONDITION_ICY)){
-                return R.drawable.weather_13;
-            }else if (getConditions().contains(WeatherClient.Conditions.CONDITION_RAINY)){
-                return R.drawable.weather_09;
-            }else if (getConditions().contains(WeatherClient.Conditions.CONDITION_FOGGY) && conditions.contains(WeatherClient.Conditions.CONDITION_HAZY)){
-                return R.drawable.weather_50;
-            }else if (getConditions().contains(WeatherClient.Conditions.CONDITION_CLOUDY) && conditions.contains(WeatherClient.Conditions.CONDITION_CLEAR)){
-                return isDay ? R.drawable.weather_02 : R.drawable.weather_02n;
-            }else if (getConditions().contains(WeatherClient.Conditions.CONDITION_CLOUDY)){
-                return isDay ? R.drawable.weather_03 : R.drawable.weather_03n;
-            }else if (getConditions().contains(WeatherClient.Conditions.CONDITION_CLEAR)){
-                return isDay ? R.drawable.weather_01 : R.drawable.weather_01n;
-            }else{
-                return isDay ? R.drawable.weather_04 : R.drawable.weather_04n; // Default
+            Map<String, Integer> conditions = new HashMap<>();
+            conditions.put("partly-cloudy", R.drawable.weather_partly_cloudy);
+            conditions.put("partly-cloudy-night", R.drawable.weather_partly_cloudy_night);
+            conditions.put("mostly-cloudy", R.drawable.weather_mostly_cloudy);
+            conditions.put("mostly-cloudy-night", R.drawable.weather_mostly_cloudy_night);
+            conditions.put("cloudy", R.drawable.weather_cloudy);
+            conditions.put("clear-night", R.drawable.weather_clear_night);
+            conditions.put("mostly-clear-night", R.drawable.weather_mostly_clear_night);
+            conditions.put("sunny", R.drawable.weather_sunny);
+            conditions.put("mostly-sunny", R.drawable.weather_mostly_sunny);
+            conditions.put("scattered-showers", R.drawable.weather_scattered_showers);
+            conditions.put("scattered-showers-night", R.drawable.weather_scattered_showers_night);
+            conditions.put("rain", R.drawable.weather_rain);
+            conditions.put("windy", R.drawable.weather_windy);
+            conditions.put("snow", R.drawable.weather_snow);
+            conditions.put("scattered-thunderstorms", R.drawable.weather_isolated_scattered_thunderstorms);
+            conditions.put("scattered-thunderstorms-night", R.drawable.weather_isolated_scattered_thunderstorms_night);
+            conditions.put("isolated-thunderstorms", R.drawable.weather_isolated_scattered_thunderstorms);
+            conditions.put("isolated-thunderstorms-night", R.drawable.weather_isolated_scattered_thunderstorms_night);
+            conditions.put("thunderstorms", R.drawable.weather_thunderstorms);
+            conditions.put("foggy", R.drawable.weather_foggy);
+            for (String condition : conditions.keySet()) {
+                if (getConditions().equals(condition)) {
+                    return conditions.get(condition);
+                }
             }
+            return 0;
         }
 
         @Override
@@ -314,18 +325,5 @@ public class WeatherClient {
                     "temperatureMetric=" + getTemperature(true) + "," +
                     "temperatureImperial=" + getTemperature(false);
         }
-    }
-
-    public class Conditions {
-        public static final String CONDITION_UNKNOWN = "0";
-        public static final String CONDITION_CLEAR = "1";
-        public static final String CONDITION_CLOUDY = "2";
-        public static final String CONDITION_FOGGY = "3";
-        public static final String CONDITION_HAZY = "4";
-        public static final String CONDITION_ICY = "5";
-        public static final String CONDITION_RAINY = "6";
-        public static final String CONDITION_SNOWY = "7";
-        public static final String CONDITION_STORMY = "8";
-        public static final String CONDITION_WINDY = "9";
     }
 }
