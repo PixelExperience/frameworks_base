@@ -77,20 +77,24 @@
     <java-symbol type="bool" name="config_supportsGesturesOnFingerprintSensor" />
 
     <!-- Weather icons -->
-    <java-symbol type="drawable" name="weather_01" />
-    <java-symbol type="drawable" name="weather_01n" />
-    <java-symbol type="drawable" name="weather_02" />
-    <java-symbol type="drawable" name="weather_02n" />
-    <java-symbol type="drawable" name="weather_03" />
-    <java-symbol type="drawable" name="weather_03n" />
-    <java-symbol type="drawable" name="weather_04" />
-    <java-symbol type="drawable" name="weather_04n" />
-    <java-symbol type="drawable" name="weather_09" />
-    <java-symbol type="drawable" name="weather_10" />
-    <java-symbol type="drawable" name="weather_10n" />
-    <java-symbol type="drawable" name="weather_11" />
-    <java-symbol type="drawable" name="weather_13" />
-    <java-symbol type="drawable" name="weather_50" />
+    <java-symbol type="drawable" name="weather_clear_night" />
+    <java-symbol type="drawable" name="weather_cloudy" />
+    <java-symbol type="drawable" name="weather_foggy" />
+    <java-symbol type="drawable" name="weather_isolated_scattered_thunderstorms_night" />
+    <java-symbol type="drawable" name="weather_isolated_scattered_thunderstorms" />
+    <java-symbol type="drawable" name="weather_mostly_clear_night" />
+    <java-symbol type="drawable" name="weather_mostly_cloudy_night" />
+    <java-symbol type="drawable" name="weather_mostly_cloudy" />
+    <java-symbol type="drawable" name="weather_mostly_sunny" />
+    <java-symbol type="drawable" name="weather_partly_cloudy_night" />
+    <java-symbol type="drawable" name="weather_partly_cloudy" />
+    <java-symbol type="drawable" name="weather_rain" />
+    <java-symbol type="drawable" name="weather_scattered_showers_night" />
+    <java-symbol type="drawable" name="weather_scattered_showers" />
+    <java-symbol type="drawable" name="weather_snow" />
+    <java-symbol type="drawable" name="weather_sunny" />
+    <java-symbol type="drawable" name="weather_thunderstorms" />
+    <java-symbol type="drawable" name="weather_windy" />
 
     <!-- Ambient play -->
     <java-symbol type="string" name="ambient_recognition_notification" />
