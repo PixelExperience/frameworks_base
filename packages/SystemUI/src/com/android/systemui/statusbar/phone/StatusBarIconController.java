@@ -17,6 +17,7 @@ package com.android.systemui.statusbar.phone;
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_BLUETOOTH;
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_ICON;
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_MOBILE;
+import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_NETWORK_TRAFFIC;
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_WIFI;
 
 import android.annotation.Nullable;
@@ -52,6 +53,7 @@ import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.CallIndicatorI
 import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.MobileIconState;
 import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.WifiIconState;
 import com.android.systemui.util.Assert;
+import com.android.systemui.statusbar.policy.StatusBarNetworkTraffic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -321,6 +323,9 @@ public interface StatusBarIconController {
 
                 case TYPE_BLUETOOTH:
                     return addBluetoothIcon(index, slot, holder.getBluetoothState());
+
+                case TYPE_NETWORK_TRAFFIC:
+                    return addNetworkTraffic(index, slot);
             }
 
             return null;
@@ -344,6 +349,12 @@ public interface StatusBarIconController {
             if (mIsInDemoMode) {
                 mDemoStatusIcons.addDemoWifiView(state);
             }
+            return view;
+        }
+
+        protected StatusBarNetworkTraffic addNetworkTraffic(int index, String slot) {
+            StatusBarNetworkTraffic view = onCreateNetworkTraffic(slot);
+            mGroup.addView(view, index, onCreateLayoutParams());
             return view;
         }
 
@@ -388,6 +399,11 @@ public interface StatusBarIconController {
             return view;
         }
 
+        private StatusBarNetworkTraffic onCreateNetworkTraffic(String slot) {
+            StatusBarNetworkTraffic view = new StatusBarNetworkTraffic(mContext);
+            return view;
+        }
+
         protected LinearLayout.LayoutParams onCreateLayoutParams() {
             return new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, mIconSize);
         }
@@ -429,8 +445,11 @@ public interface StatusBarIconController {
         }
 
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
-            view.set(icon);
+            View view = mGroup.getChildAt(viewIndex);
+            if (view instanceof StatusBarIconView) {
+                ((StatusBarIconView) view).set(icon);
+            }
+
         }
 
         public void onSetIconHolder(int viewIndex, StatusBarIconHolder holder) {

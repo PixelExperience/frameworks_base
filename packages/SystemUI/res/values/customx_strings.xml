@@ -70,4 +70,12 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti flicker</string>
 
+    <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short" translatable="false">kb/s</string>
+    <string name="megabitspersecond_short" translatable="false">Mb/s</string>
+    <string name="gigabitspersecond_short" translatable="false">Gb/s</string>
+    <string name="kilobytespersecond_short" translatable="false">kB/s</string>
+    <string name="megabytespersecond_short" translatable="false">MB/s</string>
+    <string name="gigabytespersecond_short" translatable="false">GB/s</string>
+
 </resources>
