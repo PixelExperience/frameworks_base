@@ -47,9 +47,23 @@ import android.provider.Settings;
 
 import java.util.HashMap;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.statusbar.StatusIconDisplayable;
+import com.android.systemui.statusbar.policy.DarkIconDispatcher;
+import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
 
-public class NetworkTraffic extends TextView {
+import static com.android.systemui.statusbar.StatusBarIconView.STATE_DOT;
+import static com.android.systemui.statusbar.StatusBarIconView.STATE_HIDDEN;
+import static com.android.systemui.statusbar.StatusBarIconView.STATE_ICON;
+
+import com.android.keyguard.KeyguardUpdateMonitor;
+import com.android.keyguard.KeyguardUpdateMonitorCallback;
+
+public class NetworkTraffic extends TextView implements StatusIconDisplayable {
+
+    public static final String SLOT = "networktraffic";
+
     private static final String TAG = "NetworkTraffic";
 
     private static final int MODE_DISABLED = 0;
@@ -74,7 +88,6 @@ public class NetworkTraffic extends TextView {
     private static final long AUTOHIDE_THRESHOLD_MEGABYTES = 80;
 
     private int mMode = MODE_DISABLED;
-    private boolean mNetworkTrafficIsVisible;
     private long mTxKbps;
     private long mRxKbps;
     private long mLastUpdateTime;
@@ -84,14 +97,17 @@ public class NetworkTraffic extends TextView {
     private long mAutoHideThreshold;
     private int mUnits;
     private boolean mShowUnits;
-    private int mDarkModeFillColor;
-    private int mLightModeFillColor;
     private int mIconTint = Color.WHITE;
+    private int mVisibleState = -1;
+    private boolean mTrafficVisible = false;
+    private boolean mSystemIconVisible = true;
+    private boolean mShouldShow = false;
     private SettingsObserver mObserver;
     private Drawable mDrawable;
     private HashMap<String, IfaceTrafficStats> mActiveIfaceStats;
     private boolean mIsStatsDirty;
     private boolean mHasNotch;
+    private KeyguardUpdateMonitor mKeyguardUpdateMonitor;
 
     public NetworkTraffic(Context context) {
         this(context, null);
@@ -110,51 +126,37 @@ public class NetworkTraffic extends TextView {
         mHasNotch = resources.getBoolean(
                 com.android.internal.R.bool.config_physicalDisplayCutout);
 
-        mNetworkTrafficIsVisible = false;
-
         mObserver = new SettingsObserver(mTrafficHandler);
 
         /* Prepare for extreme case: WiFi + Mobile + Bluetooth + Ethernet */
         mActiveIfaceStats = new HashMap<>(4);
     }
 
-    private CustomStatusBarItem.DarkReceiver mDarkReceiver =
-            new CustomStatusBarItem.DarkReceiver() {
-        public void onDarkChanged(Rect area, float darkIntensity, int tint) {
-            mIconTint = tint;
-            setTextColor(mIconTint);
-            updateTrafficDrawableColor();
-        }
-        public void setFillColors(int darkColor, int lightColor) {
-            mDarkModeFillColor = darkColor;
-            mLightModeFillColor = lightColor;
-        }
-    };
-
-    private CustomStatusBarItem.VisibilityReceiver mVisibilityReceiver =
-            new CustomStatusBarItem.VisibilityReceiver() {
-        public void onVisibilityChanged(boolean isVisible) {
-            if (mNetworkTrafficIsVisible != isVisible) {
-                mNetworkTrafficIsVisible = isVisible;
-                updateViewState();
-            }
-        }
-    };
-
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-
-        CustomStatusBarItem.Manager manager =
-                CustomStatusBarItem.findManager((View) this);
-        manager.addDarkReceiver(mDarkReceiver);
-        manager.addVisibilityReceiver(mVisibilityReceiver);
 
         mContext.registerReceiver(mIntentReceiver,
                 new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         mObserver.observe();
         mIsStatsDirty = true;
+        mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
+        mKeyguardUpdateMonitor.registerCallback(mKeyguardMonitorCallback);
+        updateKeyguardVisibility(mKeyguardUpdateMonitor.isKeyguardVisible());
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
         updateSettings();
+    }
+
+    private final KeyguardUpdateMonitorCallback mKeyguardMonitorCallback = new KeyguardUpdateMonitorCallback() {
+        @Override
+        public void onKeyguardVisibilityChanged(boolean showing) {
+            updateKeyguardVisibility(showing);
+        }
+    };
+
+    private void updateKeyguardVisibility(boolean showing) {
+        mShouldShow = !showing;
+        updateVisibility();
     }
 
     @Override
@@ -162,6 +164,8 @@ public class NetworkTraffic extends TextView {
         super.onDetachedFromWindow();
         mContext.unregisterReceiver(mIntentReceiver);
         mObserver.unobserve();
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(this);
+        mKeyguardUpdateMonitor.removeCallback(mKeyguardMonitorCallback);
     }
 
     private Handler mTrafficHandler = new Handler() {
@@ -198,7 +202,7 @@ public class NetworkTraffic extends TextView {
 
             if (!enabled || shouldHide) {
                 setText("");
-                setVisibility(GONE);
+                mTrafficVisible = false;
             } else {
                 // Get information for uplink ready so the line return can be added
                 StringBuilder output = new StringBuilder();
@@ -225,12 +229,13 @@ public class NetworkTraffic extends TextView {
                     setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) textSize);
                     setText(output.toString());
                 }
-                setVisibility(VISIBLE);
+                mTrafficVisible = true;
             }
+            updateVisibility();
 
             // Schedule periodic refresh
             mTrafficHandler.removeMessages(MESSAGE_TYPE_PERIODIC_REFRESH);
-            if (enabled && mNetworkTrafficIsVisible) {
+            if (enabled) {
                 mTrafficHandler.sendEmptyMessageDelayed(MESSAGE_TYPE_PERIODIC_REFRESH,
                         REFRESH_INTERVAL);
             }
@@ -383,6 +388,7 @@ public class NetworkTraffic extends TextView {
     }
 
     private void updateSettings() {
+        updateVisibility();
         ContentResolver resolver = mContext.getContentResolver();
 
         mMode = isNotchHidden() ? Settings.System.getIntForUser(resolver,
@@ -455,5 +461,66 @@ public class NetworkTraffic extends TextView {
     private static class IfaceTrafficStats {
         public long mTxBytes;
         public long mRxBytes;
+    }
+
+    @Override
+    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+        mIconTint = DarkIconDispatcher.getTint(area, this, tint);
+        setTextColor(mIconTint);
+        updateTrafficDrawableColor();
+    }
+
+    @Override
+    public String getSlot() {
+        return SLOT;
+    }
+
+    @Override
+    public boolean isIconVisible() {
+        return mMode != MODE_DISABLED && mActiveIfaceStats.size() != 0;
+    }
+
+    @Override
+    public int getVisibleState() {
+        return mVisibleState;
+    }
+
+    @Override
+    public void setVisibleState(int state) {
+        if (state == mVisibleState) {
+            return;
+        }
+        mVisibleState = state;
+
+        switch (state) {
+            case STATE_ICON:
+                mSystemIconVisible = true;
+                break;
+            case STATE_DOT:
+            case STATE_HIDDEN:
+            default:
+                mSystemIconVisible = false;
+                break;
+        }
+        updateVisibility();
+    }
+
+    private void updateVisibility() {
+        if (isIconVisible() && mTrafficVisible && mSystemIconVisible && mShouldShow) {
+            setVisibility(View.VISIBLE);
+        } else {
+            setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void setStaticDrawableColor(int color) {
+        mIconTint = color;
+        setTextColor(mIconTint);
+        updateTrafficDrawableColor();
+    }
+
+    @Override
+    public void setDecorColor(int color) {
     }
 }
