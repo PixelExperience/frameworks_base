@@ -26,14 +26,13 @@ import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.plugins.statusbar.phone.NavBarButtonProvider.ButtonInterface;
 import com.android.systemui.statusbar.policy.KeyButtonView;
-import com.android.systemui.tuner.TunerService.Tunable;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.OverviewProxyService;
 
 import com.android.systemui.statusbar.phone.ShadowKeyDrawable;
 
-public class OpaLayout extends FrameLayout implements ButtonInterface, Tunable {
+public class OpaLayout extends FrameLayout implements ButtonInterface{
 
     private static final int ANIMATION_STATE_NONE = 0;
     private static final int ANIMATION_STATE_DIAMOND = 1;
@@ -60,8 +59,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface, Tunable {
     private static final float DIAMOND_DOTS_SCALE_FACTOR = 0.8f;
     private static final float DIAMOND_HOME_SCALE_FACTOR = 0.625f;
     private static final float HALO_SCALE_FACTOR = 0.47619048f;
-
-    private static final String NAV_BAR_VIEWS = "sysui_nav_bar";
 
     private KeyButtonView mHome;
 
@@ -192,14 +189,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface, Tunable {
         mAnimationState = OpaLayout.ANIMATION_STATE_NONE;
         mCurrentAnimators = new ArraySet<Animator>();
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
-    }
-
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        if (NAV_BAR_VIEWS.equals(key)) {
-            updateHomeDrawable(mIconTint);
-        }
     }
 
     public OpaLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
