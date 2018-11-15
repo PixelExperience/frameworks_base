@@ -437,6 +437,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected KeyguardViewMediator mKeyguardViewMediator;
     private ZenModeController mZenController;
 
+    private int mPreviousDarkMode;
+
     /**
      * Helper that is responsible for showing the right toast when a disallowed activity operation
      * occurred. In pinned mode, we show instructions on how to break out of this mode, whilst in
@@ -985,9 +987,23 @@ public class StatusBar extends SystemUI implements DemoMode,
                 if (mDozeServiceHost != null) {
                     mDozeServiceHost.firePowerSaveChanged(isPowerSave);
                 }
+
                 if (NIGHT_MODE_IN_BATTERY_SAVER) {
-                    mContext.getSystemService(UiModeManager.class).setNightMode(
-                        isPowerSave ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                    final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
+                    if (isPowerSave) {
+                        mPreviousDarkMode = umm.getNightMode();
+                    }
+                    switch (mPreviousDarkMode) {
+                        case UiModeManager.MODE_NIGHT_AUTO:
+                        case UiModeManager.MODE_NIGHT_NO:
+                           umm.setNightMode(
+                                    isPowerSave ? UiModeManager.MODE_NIGHT_YES :
+                                            mPreviousDarkMode);
+                            break;
+                        case UiModeManager.MODE_NIGHT_YES:
+                            // do nothing, the user forced dark mode
+                            break;
+                    }
                 }
             }
 
