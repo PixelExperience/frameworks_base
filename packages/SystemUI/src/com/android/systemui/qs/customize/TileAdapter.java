@@ -225,7 +225,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         if (holder.getItemViewType() == TYPE_EDIT) {
             final int titleResId;
             if (mCurrentDrag == null) {
-                titleResId = R.string.drag_to_add_tiles;
+                titleResId = R.string.drag_or_tap_to_add_tiles;
             } else if (!canRemoveTiles() && mCurrentDrag.getAdapterPosition() < mEditIndex) {
                 titleResId = R.string.drag_to_remove_disabled;
             } else {
