@@ -4054,7 +4054,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         final boolean nightModeWantsDarkTheme = DARK_THEME_IN_NIGHT_MODE
                 && (config.uiMode & Configuration.UI_MODE_NIGHT_MASK)
                     == Configuration.UI_MODE_NIGHT_YES;
-        final boolean useDarkTheme = nightModeWantsDarkTheme;
+        final boolean useDarkTheme = wallpaperWantsDarkTheme || nightModeWantsDarkTheme;
         if (isUsingDarkTheme() != useDarkTheme) {
             mUiOffloadThread.submit(() -> {
                 try {
