@@ -30,6 +30,7 @@ import static android.os.BatteryManager.EXTRA_PLUGGED;
 import static android.os.BatteryManager.EXTRA_STATUS;
 import static android.os.BatteryManager.EXTRA_DASH_CHARGER;
 import static android.os.BatteryManager.EXTRA_TURBO_POWER;
+import static android.os.BatteryManager.EXTRA_SUPER_CHARGER;
 
 import android.annotation.AnyThread;
 import android.annotation.MainThread;
@@ -789,9 +790,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 }
                 final boolean dashChargeStatus = intent.getBooleanExtra(EXTRA_DASH_CHARGER, false);
                 final boolean turboPowerStatus = intent.getBooleanExtra(EXTRA_TURBO_POWER, false);
+                final boolean superChargeStatus = intent.getBooleanExtra(EXTRA_SUPER_CHARGER, false);
                 final Message msg = mHandler.obtainMessage(
                         MSG_BATTERY_UPDATE, new BatteryStatus(status, level, plugged, health,
-                                maxChargingMicroWatt, dashChargeStatus, turboPowerStatus));
+                                maxChargingMicroWatt, dashChargeStatus, turboPowerStatus, superChargeStatus));
                 mHandler.sendMessage(msg);
             } else if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
                 // ACTION_SIM_STATE_CHANGED is rebroadcast after unlocking the device to
@@ -981,6 +983,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public static final int CHARGING_FAST = 2;
         public static final int CHARGING_DASH = 3;
         public static final int CHARGING_TURBO_POWER = 4;
+        public static final int CHARGING_SUPER = 5;
 
         public final int status;
         public final int level;
@@ -989,8 +992,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public final int maxChargingWattage;
         public final boolean dashChargeStatus;
         public final boolean turboPowerStatus;
+        public final boolean superChargeStatus;
         public BatteryStatus(int status, int level, int plugged, int health,
-                int maxChargingWattage, boolean dashChargeStatus, boolean turboPowerStatus) {
+                int maxChargingWattage, boolean dashChargeStatus, boolean turboPowerStatus, boolean superChargeStatus) {
             this.status = status;
             this.level = level;
             this.plugged = plugged;
@@ -998,6 +1002,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             this.maxChargingWattage = maxChargingWattage;
             this.dashChargeStatus = dashChargeStatus;
             this.turboPowerStatus = turboPowerStatus;
+            this.superChargeStatus = superChargeStatus;
         }
 
         /**
@@ -1040,6 +1045,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public final int getChargingSpeed(int slowThreshold, int fastThreshold) {
             return dashChargeStatus ? CHARGING_DASH :
                     turboPowerStatus ? CHARGING_TURBO_POWER :
+                    superChargeStatus ? CHARGING_SUPER :
                     maxChargingWattage <= 0 ? CHARGING_UNKNOWN :
                     maxChargingWattage < slowThreshold ? CHARGING_SLOWLY :
                     maxChargingWattage > fastThreshold ? CHARGING_FAST :
@@ -1188,7 +1194,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
 
         // Take a guess at initial SIM state, battery status and PLMN until we get an update
-        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false, false);
+        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false, false, false);
 
         // Watch for interesting updates
         final IntentFilter filter = new IntentFilter();
@@ -1707,6 +1713,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         // change in turbo power charging while plugged in
         if (nowPluggedIn && current.turboPowerStatus != old.turboPowerStatus) {
+            return true;
+        }
+
+        // change in super charging while plugged in
+        if (nowPluggedIn && current.superChargeStatus != old.superChargeStatus) {
             return true;
         }
 

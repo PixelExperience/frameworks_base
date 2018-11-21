@@ -32,6 +32,9 @@
     <!-- Whether device has turbo power charging support -->
     <java-symbol type="bool" name="config_hasTurboPowerCharger" />
 
+    <!-- Whether device has super charging support -->
+    <java-symbol type="bool" name="config_hasSuperCharger" />
+
     <!-- Leds -->
     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
 
