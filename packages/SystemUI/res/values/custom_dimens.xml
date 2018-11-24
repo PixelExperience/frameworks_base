@@ -16,6 +16,12 @@
 */
 -->
 <resources>
+    <!-- OPA -->
+    <dimen name="opa_diamond_translation">16.0dip</dimen>
+    <dimen name="opa_dot_diam">10.0dip</dimen>
+    <dimen name="opa_line_x_trans_bg">30.0dip</dimen>
+    <dimen name="opa_line_x_trans_ry">15.0dip</dimen>
+    <dimen name="opa_line_y_translation">16.0dip</dimen>
 
     <!-- Width of the battery icon (with percentage inside) in the status bar. -->
     <dimen name="status_bar_battery_icon_width_percentage_inside">10.5dp</dimen>
