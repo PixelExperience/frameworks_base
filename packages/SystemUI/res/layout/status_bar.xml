@@ -78,6 +78,7 @@
                     android:layout_height="match_parent"
                     android:textAppearance="@style/TextAppearance.StatusBar.Clock"
                     android:singleLine="true"
+                    android:visibility="gone"
                     android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
                     android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
                     android:gravity="center_vertical|start"
@@ -120,7 +121,38 @@
 
             <include layout="@layout/system_icons" />
         </com.android.keyguard.AlphaOptimizedLinearLayout>
+
+        <com.android.systemui.statusbar.policy.ClockRight
+            android:id="@+id/right_clock"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:visibility="gone"
+            android:paddingStart="@dimen/status_bar_clock_starting_padding"
+            android:paddingEnd="@dimen/status_bar_clock_end_padding"
+            android:gravity="center_vertical|start"
+            />
     </LinearLayout>
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
+        android:id="@+id/center_clock_layout"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.android.systemui.statusbar.policy.ClockCenter
+            android:id="@+id/center_clock"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:singleLine="true"
+            />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
 
     <ViewStub
         android:id="@+id/emergency_cryptkeeper_text"
