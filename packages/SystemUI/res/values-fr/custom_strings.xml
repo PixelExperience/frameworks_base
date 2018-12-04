@@ -12,5 +12,7 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Pour annuler l\'épinglage de l\'écran, appuyez et maintenez le bouton Retour</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Cela le laisse visible jusqu\'à ce que vous le détachez. Appuyez sur &amp; maintenez le lecteur d\'empreintes pour détacher.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Pour détacher cet écran, appuyez sur &amp; maintenez le lecteur d\'empreintes</string>
 </resources>

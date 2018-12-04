@@ -6,5 +6,5 @@
     <string name="disable_navkeys_summary">Attiva la barra di navigazione su schermo e disattiva i pulsanti fisici</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">In riproduzione</string>
-    <string name="ambient_recognition_information">%1$s — %2$s</string>
+    <string name="ambient_recognition_information">%1$s da %2$s</string>
 </resources>

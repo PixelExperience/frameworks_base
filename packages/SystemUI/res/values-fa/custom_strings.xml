@@ -3,12 +3,15 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time">در حال دش شارژ (<xliff:g id="charging_time_left" example="4 ساعت و 2 دقیقه">%s</xliff:g> تا پر‌شدن کامل)</string>
-    <string name="keyguard_plugged_in_dash_charging">در حال دش شارژ</string>
+    <string name="keyguard_plugged_in_dash_charging">در حال دی شارژ</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">شارژ توربو متصل شد (<xliff:g id="charging_time_left">%s</xliff:g> تا پر شدن کامل)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">شارژ توربو متصل شد</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه بازگشت را نگه دارید.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را لمس کرده و نگه دارید</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">برای از حالت سنجاق درآوردن این صفحه، سنسور اثر انگشت را لمس کرده و نگه دارید</string>
 </resources>

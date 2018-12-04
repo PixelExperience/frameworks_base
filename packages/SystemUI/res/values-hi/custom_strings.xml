@@ -12,5 +12,6 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">इस स्क्रीन को अनपिन करने के लिए पीछे जाने के बटन को कुछ देर तक छुएँ।</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">यह इसे तब तक दृश्य में रखता है जब तक आप अनपिन नहीं करते। अनपिन करने के लिए पावर बटन को कुछ देर दबाएँ I</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
 </resources>

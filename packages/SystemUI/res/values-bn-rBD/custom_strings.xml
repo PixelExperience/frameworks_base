@@ -8,7 +8,11 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower (<xliff:g id="charging_time_left">%s</xliff:g> পর্যন্ত পূর্ণ) সাথে যুক্ত।</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower সংযুক্ত হয়েছে</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">এটা ততক্ষণ পর্যন্ত প্রদর্শনে রাখে যতক্ষণ না পর্যন্ত আপনি আনপিন করছেন। ব্যাক বাটন টাচ করুন এবং ধরে রাখুন আনপিন করার জন্য.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">এই স্ক্রীন আনপিন করতে, ব্যাক বাটনটি স্পর্শ করুণ এবং ধরে রাখুন|</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">এটা ততক্ষণ পর্যন্ত প্রদর্শনে রাখে যতক্ষণ না পর্যন্ত আপনি আনপিন করছেন। ব্যাক বাটন টাচ করুন এবং ধরে রাখুন আনপিন করার জন্য.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">এই স্ক্রীন আনপিন করতে, ব্যাক বাটনটি স্পর্শ করুণ এবং ধরে রাখুন|</string>
 </resources>

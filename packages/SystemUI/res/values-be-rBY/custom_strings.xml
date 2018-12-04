@@ -12,5 +12,6 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопку \"Назад\"</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Праграма застаецца актыўна, да таго часу, пакуль вы не скасуеце блакаванне. Націсніце і ўтрымлівайце палец на сканары адбіткаў, каб скасаваць блакіроўку.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
 </resources>

@@ -5,4 +5,6 @@
     <string name="disable_navkeys_title">Navigatiebalk inschakelen</string>
     <string name="disable_navkeys_summary">Navigatiebalk inschakelen en hardware-knoppen uitschakelen</string>
     <!-- Ambient play -->
+    <string name="ambient_recognition_notification">Nu afgespeeld</string>
+    <string name="ambient_recognition_information">%1$s door %2$s</string>
 </resources>

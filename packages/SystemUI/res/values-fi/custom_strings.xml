@@ -6,11 +6,13 @@
     <string name="keyguard_plugged_in_dash_charging">Dash-lataus</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower yhdistetty (<xliff:g id="charging_time_left">%s</xliff:g> kunnes täynnä)</string>
-    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower kytketty</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower yhdistetty</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Ruutu pyörii, ei navigointia</string>
+    <string name="screen_pinning_description_no_navbar">Tämä pitää näytön kiinnitettynä, kunnes poistat sen. Paina Takaisin-näppäintä pitkään poistaaksesi kiinnityksen.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Lukitse ohjelma, ei navigointia</string>
+    <string name="screen_pinning_toast_no_navbar">Poistaaksesi tämän näytön kiinnityksen, paina Takasin-näppäintä pitkään</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Kosketa sormenjälkitunnistinta pitkään poistaaksesi kiinnityksen.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Poistaaksesi tämän näytön kiinnityksen, kosketa sormenjälkitunnistinta pitkään</string>
 </resources>
