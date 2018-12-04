@@ -161,9 +161,4 @@
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">true</bool>
 
-    <!-- Minimum time in milliseconds between power button presses so it will be considered
-         as a camera launch. To avoid false triggers.
-    -->
-    <integer name="config_cameraPowerDoubleTapMinTime">0</integer>
-
 </resources>

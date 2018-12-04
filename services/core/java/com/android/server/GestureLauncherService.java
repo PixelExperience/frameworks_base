@@ -359,11 +359,10 @@ public class GestureLauncherService extends SystemService {
         boolean launched = false;
         boolean intercept = false;
         long powerTapInterval;
-        int powerDoubleTapMinTime = mContext.getResources().getInteger(com.android.internal.R.integer.config_cameraPowerDoubleTapMinTime);
         synchronized (this) {
             powerTapInterval = event.getEventTime() - mLastPowerDown;
             if (mCameraDoubleTapPowerEnabled
-                    && powerTapInterval < CAMERA_POWER_DOUBLE_TAP_MAX_TIME_MS && (powerDoubleTapMinTime == 0 ? true : powerTapInterval > powerDoubleTapMinTime)) {
+                    && powerTapInterval < CAMERA_POWER_DOUBLE_TAP_MAX_TIME_MS) {
                 launched = true;
                 intercept = interactive;
                 mPowerButtonConsecutiveTaps++;
