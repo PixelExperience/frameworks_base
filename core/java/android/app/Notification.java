@@ -4417,7 +4417,7 @@ public class Notification implements Parcelable
 
         private RemoteViews applyStandardTemplate(int resId, StandardTemplateParams p,
                 TemplateBindResult result) {
-            RemoteViews contentView = new BuilderRemoteViews(mThemeContext.getApplicationInfo(), resId);
+            RemoteViews contentView = new BuilderRemoteViews(mContext.getApplicationInfo(), resId);
 
             resetStandardTemplate(contentView);
 
@@ -5062,7 +5062,7 @@ public class Notification implements Parcelable
         public RemoteViews makeNotificationHeader(boolean ambient) {
             Boolean colorized = (Boolean) mN.extras.get(EXTRA_COLORIZED);
             mN.extras.putBoolean(EXTRA_COLORIZED, false);
-            RemoteViews header = new BuilderRemoteViews(mThemeContext.getApplicationInfo(),
+            RemoteViews header = new BuilderRemoteViews(mContext.getApplicationInfo(),
                     ambient ? R.layout.notification_template_ambient_header
                             : R.layout.notification_template_header);
             resetNotificationHeader(header);
@@ -5261,7 +5261,7 @@ public class Notification implements Parcelable
         private RemoteViews generateActionButton(Action action, boolean emphazisedMode,
                 boolean ambient) {
             final boolean tombstone = (action.actionIntent == null);
-            RemoteViews button = new BuilderRemoteViews(mThemeContext.getApplicationInfo(),
+            RemoteViews button = new BuilderRemoteViews(mContext.getApplicationInfo(),
                     emphazisedMode ? getEmphasizedActionLayoutResource()
                             : tombstone ? getActionTombstoneLayoutResource()
                                     : getActionLayoutResource());
@@ -7863,7 +7863,7 @@ public class Notification implements Parcelable
 
         private RemoteViews generateMediaActionButton(Action action, int color) {
             final boolean tombstone = (action.actionIntent == null);
-            RemoteViews button = new BuilderRemoteViews(mBuilder.mThemeContext.getApplicationInfo(),
+            RemoteViews button = new BuilderRemoteViews(mBuilder.mContext.getApplicationInfo(),
                     R.layout.notification_material_media_action);
             button.setImageViewIcon(R.id.action0, action.getIcon());
 
