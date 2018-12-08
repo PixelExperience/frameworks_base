@@ -411,6 +411,11 @@ public class KeyguardIndicationController {
                         ? R.string.keyguard_indication_turbo_power_time
                         : R.string.keyguard_plugged_in_turbo_power_charging;
                 break;
+            case KeyguardUpdateMonitor.BatteryStatus.CHARGING_SUPER:
+                chargingId = hasChargingTime
+                        ? R.string.keyguard_indication_super_charging_time
+                        : R.string.keyguard_plugged_in_super_charging;
+                break;
             case KeyguardUpdateMonitor.BatteryStatus.CHARGING_SLOWLY:
                 chargingId = hasChargingTime
                         ? R.string.keyguard_indication_charging_time_slowly

@@ -43,6 +43,9 @@
     <!-- Whether device has turbo power charging support -->
     <bool name="config_hasTurboPowerCharger">false</bool>
 
+    <!-- Whether device has super charging support -->
+    <bool name="config_hasSuperCharger">false</bool>
+
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">false</bool>
 
