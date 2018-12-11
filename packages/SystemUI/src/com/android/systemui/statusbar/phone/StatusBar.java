@@ -1316,12 +1316,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mBrightnessMirrorController != null) {
             mBrightnessMirrorController.onOverlayChanged();
         }
-        mGutsManager.onOverlayChanged();
+        updateNotificationViews();
         mStackScroller.onOverlayChanged();
         mNotificationShelf.onOverlayChanged();
         mNotificationPanel.onOverlayChanged();
         Dependency.get(DarkIconDispatcher.class).onOverlayChanged(mContext);
-        reevaluateStyles();
+        mEntryManager.onOverlayChanged();
     }
 
     private void inflateEmptyShadeView() {
