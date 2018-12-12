@@ -103,6 +103,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private HashMap<String, IfaceTrafficStats> mActiveIfaceStats;
     private boolean mIsStatsDirty;
     private KeyguardUpdateMonitor mKeyguardUpdateMonitor;
+    private boolean mColorIsStatic = false;
 
     public NetworkTraffic(Context context) {
         this(context, null);
@@ -423,6 +424,9 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
 
     @Override
     public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+        if (mColorIsStatic) {
+            return;
+        }
         mIconTint = DarkIconDispatcher.getTint(area, this, tint);
         setTextColor(mIconTint);
         updateTrafficDrawableColor();
@@ -473,6 +477,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
 
     @Override
     public void setStaticDrawableColor(int color) {
+        mColorIsStatic = true;
         mIconTint = color;
         setTextColor(mIconTint);
         updateTrafficDrawableColor();
