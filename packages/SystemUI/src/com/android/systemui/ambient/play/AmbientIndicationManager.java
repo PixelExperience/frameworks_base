@@ -44,6 +44,7 @@ import java.util.List;
 import com.android.systemui.R;
 
 import com.android.internal.util.custom.ambient.play.AmbientPlayHistoryManager;
+import com.android.internal.util.custom.ambient.play.AmbientPlayProvider.Observable;
 
 public class AmbientIndicationManager {
 
@@ -252,7 +253,7 @@ public class AmbientIndicationManager {
         callback.onSettingsChanged(Settings.System.AMBIENT_RECOGNITION_NOTIFICATION, isRecognitionNotificationEnabled);
     }
 
-    public void dispatchRecognitionResult(RecognitionObserver.Observable observed) {
+    public void dispatchRecognitionResult(Observable observed) {
         isRecognitionObserverBusy = false;
         lastUpdated = System.currentTimeMillis();
         NO_MATCH_COUNT = 0;
