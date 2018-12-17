@@ -40,8 +40,8 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_WARNING;
 
 import com.android.systemui.ambient.play.AmbientIndicationManager;
 import com.android.systemui.ambient.play.AmbientIndicationManagerCallback;
-import com.android.systemui.ambient.play.RecognitionObserver.Observable;
 import com.android.systemui.ambient.play.AmbientIndicationContainer;
+import com.android.internal.util.custom.ambient.play.AmbientPlayProvider.Observable;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
