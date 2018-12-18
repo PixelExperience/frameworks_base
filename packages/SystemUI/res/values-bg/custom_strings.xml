@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower е свързан (<xliff:g id="charging_time_left">%s</xliff:g> до пълен заряд)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower е свързан</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Това допълнение ще остане активно. Натиснете&amp; задръжте бутона Назад за освобождаване.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->

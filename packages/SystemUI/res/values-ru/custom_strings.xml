@@ -7,6 +7,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Быстрая зарядка подключена (<xliff:g id="charging_time_left">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Быстрая зарядка подключена</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_plugged_in_super_charging">Быстрая зарядка</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку. Нажмите и удерживайте Назад для отмены блокировки.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->

@@ -6,5 +6,5 @@
     <string name="disable_navkeys_summary">온스크린 내비게이션 바를 활성화하고 하드웨어 버튼을 비활성화</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">지금 재생 중</string>
-    <string name="ambient_recognition_information">%2$s님의 %1$s</string>
+    <string name="ambient_recognition_information">%2$s의 %1$s</string>
 </resources>

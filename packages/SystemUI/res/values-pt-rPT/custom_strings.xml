@@ -7,10 +7,13 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Carregamento rápido (<xliff:g id="charging_time_left">%s</xliff:g> até às carga completa)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Carregamento rápido ligado</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Isto mantém a aplicação fixa no ecrã. Pressiona &amp; e mantém o botão retroceder para voltar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Para soltar este ecrã, toque e segure o botão Anterior</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Isto mantém a aplicação no ecrã até soltar, toque e mantenha premido&amp; no sensor de impressão digital para soltar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, toque e mantenha premido no&amp; sensor de impressão digital</string>
 </resources>

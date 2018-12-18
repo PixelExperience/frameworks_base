@@ -6,4 +6,5 @@
     <string name="disable_navkeys_summary">অন-স্ক্রীন নেভিগেশন বার সক্রিয় করুন এবং হার্ডওয়্যার বাটন নিষ্ক্রিয় করুন</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">এখন শুনছেন</string>
+    <string name="ambient_recognition_information">%1$s প্রণেতা %2$s</string>
 </resources>

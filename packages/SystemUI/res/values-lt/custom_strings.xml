@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Greitasis įkrovimas yra aktyvus (<xliff:g id="charging_time_left">%s</xliff:g> kol visiškai įkrauta)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Greitasis įkrovimas prijungtas</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Tai laikys jį matomą iki kol išpakuosite. Palieskite ir laikykite mygtuką &amp; kad išpakuotumėte.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->

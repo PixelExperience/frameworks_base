@@ -5,12 +5,15 @@
     <string name="keyguard_indication_dash_charging_time">Ταχεία φόρτιση (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> για πλήρη φόρτιση)</string>
     <string name="keyguard_plugged_in_dash_charging">Ταχεία Φόρτιση</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> μέχρι να φορτίσει πλήρως)</string>
+    <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> για πλήρη φόρτιση)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Συνδέθηκε η γρήγορη φόρτιση</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Πίσω\"</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτή την οθόνη, αγγίξτε παρατεταμένα τον αισθητήρα δακτυλικού αποτυπώματος</string>
 </resources>
