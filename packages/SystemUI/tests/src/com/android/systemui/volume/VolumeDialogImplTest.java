@@ -49,6 +49,7 @@ import com.android.systemui.plugins.VolumeDialogController.State;
 import com.android.systemui.statusbar.policy.AccessibilityManagerWrapper;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.tuner.TunerService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -89,6 +90,7 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     @Mock
     ActivityStarter mActivityStarter;
     @Mock
+    TunerService mTunerService;
     InteractionJankMonitor mInteractionJankMonitor;
 
     @Before
@@ -106,6 +108,7 @@ public class VolumeDialogImplTest extends SysuiTestCase {
                 mMediaOutputDialogFactory,
                 mVolumePanelFactory,
                 mActivityStarter,
+                mTunerService,
                 mInteractionJankMonitor);
         mDialog.init(0, null);
         State state = createShellState();
