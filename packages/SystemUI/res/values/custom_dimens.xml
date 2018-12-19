@@ -34,4 +34,7 @@
     <color name="edge_light_red">#ea4234</color>
     <color name="edge_light_yellow">#fbbc06</color>
 
+    <!-- Volume panel -->
+    <dimen name="volume_dialog_panel_transparent_padding_left">20dp</dimen>
+
 </resources>
