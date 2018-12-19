@@ -20,8 +20,6 @@
     android:id="@+id/volume_dialog_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="right"
-    android:layout_gravity="right"
     android:clipToPadding="false"
     android:theme="@style/volume_dialog_theme">
 
@@ -30,9 +28,8 @@
         android:id="@+id/volume_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:layout_gravity="right"
-        android:layout_marginRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_right"
         android:orientation="vertical"
         android:clipToPadding="false"
         android:clipChildren="false">
@@ -73,7 +70,6 @@
                 <include layout="@layout/volume_dnd_icon"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
-                         android:layout_marginRight="@dimen/volume_dialog_stream_padding"
                          android:layout_marginTop="6dp"/>
             </FrameLayout>
 
@@ -146,7 +142,6 @@
         android:layout="@layout/volume_tool_tip_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom | right"
         android:layout_marginRight="@dimen/volume_tool_tip_right_margin"/>
 
 </FrameLayout>
