@@ -225,14 +225,13 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.windowAnimations = -1;
         if(!isAudioPanelOnLeftSide()){
             lp.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
-            mDialog.setContentView(R.layout.volume_dialog);
         } else {
             lp.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
-            mDialog.setContentView(R.layout.volume_dialog_left);
         }
         mWindow.setAttributes(lp);
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
+        mDialog.setContentView(R.layout.volume_dialog);
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
@@ -268,6 +267,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
             mZenIcon = mRinger.findViewById(R.id.dnd_icon);
+            if(!isAudioPanelOnLeftSide()) {
+                mRinger.setForegroundGravity(Gravity.RIGHT);
+            } else {
+                mRinger.setForegroundGravity(Gravity.LEFT);
+            }
         }
 
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
