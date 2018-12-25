@@ -201,10 +201,6 @@ public class WeatherClient {
     }
 
     private void updateWeatherData() {
-        if (!isAvailable(mContext)) {
-            isRunning = false;
-            return;
-        }
         isRunning = true;
         Cursor c = mContext.getContentResolver().query(WEATHER_URI, PROJECTION_DEFAULT_WEATHER,
                 null, null, null);
