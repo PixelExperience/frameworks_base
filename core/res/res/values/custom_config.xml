@@ -167,4 +167,12 @@
     <!-- Whether auto face unlock is enabled by default -->
     <bool name="config_autoFaceUnlockEnabledByDefault">false</bool>
 
+    <!-- Default start time for Ambient Play quiet period
+         Represented as milliseconds from midnight (e.g. 79200000 == 10pm). -->
+    <integer name="config_defaultAmbientPlayQuitPeriodStartTime">79200000</integer>
+
+    <!-- Default end time for Ambient Play quiet period
+         Represented as milliseconds from midnight (e.g. 21600000 == 6am). -->
+    <integer name="config_defaultAmbientPlayQuitPeriodEndTime">21600000</integer>
+
 </resources>
