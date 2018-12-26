@@ -278,7 +278,6 @@ public class FingerprintUnlockController extends KeyguardUpdateMonitorCallback {
             case MODE_NONE:
                 break;
         }
-
         mStatusBar.notifyFpAuthModeChanged();
         Trace.endSection();
     }
