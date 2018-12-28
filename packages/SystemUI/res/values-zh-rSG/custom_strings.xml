@@ -8,6 +8,7 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower 已連接 (還剩 <xliff:g id="charging_time_left">%s</xliff:g> 充滿)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已連接</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">快速充電中 (還需<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充滿電)</string>
     <string name="keyguard_plugged_in_super_charging">超級充電</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>

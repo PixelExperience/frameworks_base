@@ -5,4 +5,6 @@
     <string name="disable_navkeys_title">Навигациона трака на екрану</string>
     <string name="disable_navkeys_summary">Омогућите навигациону траку на екрану и онемогућите хардверску дугмад.</string>
     <!-- Ambient play -->
+    <string name="ambient_recognition_notification">Тренутно слушано</string>
+    <string name="ambient_recognition_information">%1$s од %2$s</string>
 </resources>

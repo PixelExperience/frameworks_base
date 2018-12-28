@@ -5,6 +5,6 @@
     <string name="disable_navkeys_title">Navigációs sáv engedélyezése</string>
     <string name="disable_navkeys_summary">Navigációs sáv engedélyezése és a hardveres gombok letiltása</string>
     <!-- Ambient play -->
-    <string name="ambient_recognition_notification">Most játszott</string>
+    <string name="ambient_recognition_notification">\'Now Playing\'</string>
     <string name="ambient_recognition_information">%1$s, %2$s szerzeménye</string>
 </resources>

@@ -11,11 +11,11 @@
     <string name="keyguard_indication_super_charging_time">Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> Sampai Penuh)</string>
     <string name="keyguard_plugged_in_super_charging">Pengisian cepat</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam tampilan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
+    <string name="screen_pinning_description_no_navbar">Mode ini akan membuat tampilan pada layar tidak bisa diganti sampai anda melepas pin. Tekan &amp; tahan tombol kembali untuk melepas pin.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol kembali</string>
+    <string name="screen_pinning_toast_no_navbar">Untuk melepaskan pin pada layar ini, sentuh &amp; tahan tombol kembali</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">Hal ini membuatnya tetap dalam tampilan sampai Anda melepas sematan. Sentuh &amp; tahan pemindai sidik jari untuk melepas sematan.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Mode ini akan membuat tampilan pada layar tidak bisa diganti sampai anda melepas pin. Sentuh &amp; tahan pemindai sidik jari untuk melepas pin.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk melepaskan sematan layar ini, sentuh &amp; tahan pemindai sidik jari</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk melepaskan pin pada layar ini, sentuh &amp; tahan pemindai sidik jari</string>
 </resources>
