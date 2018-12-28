@@ -268,7 +268,7 @@ public class AmbientIndicationManager {
             if (uri.equals(Settings.System.getUriFor(Settings.System.AMBIENT_RECOGNITION))) {
                 lastUpdated = 0;
                 lastAlarmInterval = 0;
-                dispatchSettingsChanged(Settings.System.AMBIENT_RECOGNITION, isRecognitionEnabled());
+                dispatchSettingsChanged(Settings.System.AMBIENT_RECOGNITION, mIsRecognitionEnabled);
                 updateAmbientPlayAlarm(false);
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.AMBIENT_RECOGNITION_KEYGUARD))) {
                 dispatchSettingsChanged(Settings.System.AMBIENT_RECOGNITION_KEYGUARD, mIsRecognitionEnabledOnKeyguard);
@@ -297,7 +297,7 @@ public class AmbientIndicationManager {
 
     public void registerCallback(AmbientIndicationManagerCallback callback) {
         mCallbacks.add(callback);
-        callback.onSettingsChanged(Settings.System.AMBIENT_RECOGNITION, isRecognitionEnabled());
+        callback.onSettingsChanged(Settings.System.AMBIENT_RECOGNITION, mIsRecognitionEnabled);
         callback.onSettingsChanged(Settings.System.AMBIENT_RECOGNITION_KEYGUARD, mIsRecognitionEnabledOnKeyguard);
         callback.onSettingsChanged(Settings.System.AMBIENT_RECOGNITION_NOTIFICATION, mIsRecognitionNotificationEnabled);
     }
