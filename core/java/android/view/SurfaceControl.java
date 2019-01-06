@@ -270,6 +270,7 @@ public class SurfaceControl implements Parcelable {
      * Surface creation flag: Creates a container surface.
      * This surface will have no buffers and will only be used
      * as a container for other surfaces, or for its InputInfo.
+     * @hide
      */
     public static final int FX_SURFACE_CONTAINER = 0x00080000;
 
@@ -543,6 +544,7 @@ public class SurfaceControl implements Parcelable {
          * as a parent of renderable layers.
          *
          * @param isContainerLayer Whether to create a container layer.
+         * @hide
          */
         public Builder setContainerLayer(boolean isContainerLayer) {
             if (isContainerLayer) {
@@ -555,7 +557,7 @@ public class SurfaceControl implements Parcelable {
 
         /**
          * Indicates whether a buffer layer is to be constructed.
-         *
+         * @hide
          */
         public Builder setBufferLayer() {
             return setFlags(FX_SURFACE_NORMAL, FX_SURFACE_MASK);
