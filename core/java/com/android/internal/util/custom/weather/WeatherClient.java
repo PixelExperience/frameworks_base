@@ -113,6 +113,18 @@ public class WeatherClient {
         mContext.registerReceiver(weatherReceiver, filter);
     }
 
+    public static boolean isAvailable(Context context) {
+        final PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(SERVICE_PACKAGE, PackageManager.GET_ACTIVITIES);
+            int enabled = pm.getApplicationEnabledSetting(SERVICE_PACKAGE);
+            return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
+                    enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
     private int getRandomInt() {
         Random r = new Random();
         return r.nextInt((20000000 - 10000000) + 1) + 10000000;
