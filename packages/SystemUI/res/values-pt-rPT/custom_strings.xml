@@ -8,6 +8,8 @@
     <string name="keyguard_indication_turbo_power_time">Carregamento rápido (<xliff:g id="charging_time_left">%s</xliff:g> até às carga completa)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Carregamento rápido ligado</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Carregamento rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até estar cheia)</string>
+    <string name="keyguard_plugged_in_super_charging">Carregamento Rápido</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Isto mantém a aplicação fixa no ecrã. Pressiona &amp; e mantém o botão retroceder para voltar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
