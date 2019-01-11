@@ -68,6 +68,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.IRemoteCallback;
 import android.os.ParcelFileDescriptor;
+import android.os.PowerManager;
 import android.os.Process;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
@@ -416,9 +417,8 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         WallpaperData wallpaper;
         synchronized (mLock) {
             wallpaper = mWallpaperMap.get(mCurrentUserId);
-            int updatedThemeMode = Settings.Secure.getInt(
-                    mContext.getContentResolver(), Settings.Secure.THEME_MODE,
-                    Settings.Secure.THEME_MODE_WALLPAPER);
+            int updatedThemeMode = mPowerManager.isPowerSaveMode() ? Settings.Secure.THEME_MODE_DARK :
+                    Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER);
 
             if (DEBUG) {
                 Slog.v(TAG, "onThemeSettingsChanged, mode = " + updatedThemeMode);
@@ -776,6 +776,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     final IPackageManager mIPackageManager;
     final MyPackageMonitor mMonitor;
     final AppOpsManager mAppOpsManager;
+    final PowerManager mPowerManager;
     /**
      * Map of color listeners per user id.
      * The key will be the id of a user or UserHandle.USER_ALL - for wildcard listeners.
@@ -1302,6 +1303,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         mAppOpsManager = (AppOpsManager) mContext.getSystemService(Context.APP_OPS_SERVICE);
         mMonitor = new MyPackageMonitor();
         mColorsChangedListeners = new SparseArray<>();
+        mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
     }
 
     void initialize() {
@@ -1383,6 +1385,18 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                 }
             }
         }, shutdownFilter);
+
+        IntentFilter powerSaverFilter = new IntentFilter();
+        powerSaverFilter.addAction(PowerManager.ACTION_POWER_SAVE_MODE_CHANGING);
+        mContext.registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                final String action = intent.getAction();
+                if (PowerManager.ACTION_POWER_SAVE_MODE_CHANGING.equals(action)) {
+                    onThemeSettingsChanged();
+                }
+            }
+        }, powerSaverFilter);
 
         try {
             ActivityManager.getService().registerUserSwitchObserver(
