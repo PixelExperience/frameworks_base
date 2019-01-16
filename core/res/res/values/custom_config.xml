@@ -200,4 +200,8 @@
     <!-- Whether to show multiuser icon on keyguard -->
     <bool name="config_showMultiuserIconKeyguard">true</bool>
 
+    <!-- Whether device needs to wait for Qualcomm MPCTL service to start
+         before setting power profiles on boot. -->
+    <bool name="config_waitForMpctlOnBoot">false</bool>
+
 </resources>

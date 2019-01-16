@@ -109,6 +109,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -235,6 +236,7 @@ public final class PowerManagerService extends SystemService
 
     private final Context mContext;
     private final ServiceThread mHandlerThread;
+    private final Thread mWaitMpctlThread;
     private final PowerManagerHandler mHandler;
     private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
     private final BatterySaverPolicy mBatterySaverPolicy;
@@ -351,6 +353,8 @@ public final class PowerManagerService extends SystemService
 
     // True if boot completed occurred.  We keep the screen on until this happens.
     private boolean mBootCompleted;
+
+    private boolean mMpctlReady = true;
 
     // Runnables that should be triggered on boot completed
     private Runnable[] mBootCompletedRunnables;
@@ -695,6 +699,46 @@ public final class PowerManagerService extends SystemService
                 Process.THREAD_PRIORITY_DISPLAY, false /*allowIo*/);
         mHandlerThread.start();
         mHandler = new PowerManagerHandler(mHandlerThread.getLooper());
+        if (mContext.getResources().getBoolean(com.android.internal.R.bool.config_waitForMpctlOnBoot)) {
+            mMpctlReady = false;
+            mWaitMpctlThread = new Thread(() -> {
+                int retries = 20;
+                while (retries-- > 0) {
+                    if (!SystemProperties.getBoolean("sys.post_boot.parsed", false) &&
+                            !SystemProperties.getBoolean("vendor.post_boot.parsed", false)) {
+                        continue;
+                    }
+
+                    if (SystemProperties.get("init.svc.perfd").equals("running") ||
+                            SystemProperties.get("init.svc.vendor.perfd").equals("running") ||
+                            SystemProperties.get("init.svc.perf-hal-1-0").equals("running") ||
+                            SystemProperties.get("init.svc.mpdecision").equals("running")) {
+                        break;
+                    }
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        Slog.w(TAG, "Interrupted:", e);
+                    }
+                }
+
+                // Give mp-ctl enough time to initialize
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Slog.w(TAG, "Interrupted:", e);
+                }
+
+                synchronized (mLock) {
+                    mMpctlReady = true;
+                }
+            });
+            mWaitMpctlThread.setDaemon(true);
+        } else {
+            mWaitMpctlThread = null;
+        }
+
         mConstants = new Constants(mHandler);
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
 
@@ -734,6 +778,46 @@ public final class PowerManagerService extends SystemService
                 Process.THREAD_PRIORITY_DISPLAY, false /*allowIo*/);
         mHandlerThread.start();
         mHandler = new PowerManagerHandler(mHandlerThread.getLooper());
+        if (mContext.getResources().getBoolean(com.android.internal.R.bool.config_waitForMpctlOnBoot)) {
+            mMpctlReady = false;
+            mWaitMpctlThread = new Thread(() -> {
+                int retries = 20;
+                while (retries-- > 0) {
+                    if (!SystemProperties.getBoolean("sys.post_boot.parsed", false) &&
+                            !SystemProperties.getBoolean("vendor.post_boot.parsed", false)) {
+                        continue;
+                    }
+
+                    if (SystemProperties.get("init.svc.perfd").equals("running") ||
+                            SystemProperties.get("init.svc.vendor.perfd").equals("running") ||
+                            SystemProperties.get("init.svc.perf-hal-1-0").equals("running") ||
+                            SystemProperties.get("init.svc.mpdecision").equals("running")) {
+                        break;
+                    }
+
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        Slog.w(TAG, "Interrupted:", e);
+                    }
+                }
+
+                // Give mp-ctl enough time to initialize
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Slog.w(TAG, "Interrupted:", e);
+                }
+
+                synchronized (mLock) {
+                    mMpctlReady = true;
+                }
+            });
+            mWaitMpctlThread.setDaemon(true);
+        } else {
+            mWaitMpctlThread = null;
+        }
+
         mConstants = new Constants(mHandler);
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
         mDisplaySuspendBlocker = null;
@@ -762,7 +846,8 @@ public final class PowerManagerService extends SystemService
             if (phase == PHASE_THIRD_PARTY_APPS_CAN_START) {
                 incrementBootCount();
 
-            } else if (phase == PHASE_BOOT_COMPLETED) {
+            } else if (phase == PHASE_BOOT_COMPLETED && !mMpctlReady) {
+                mWaitMpctlThread.start();
                 final long now = SystemClock.uptimeMillis();
                 mBootCompleted = true;
                 mDirty |= DIRTY_BOOT_COMPLETED;
@@ -4268,7 +4353,7 @@ public final class PowerManagerService extends SystemService
 
         @Override // Binder call
         public void powerHint(int hintId, int data) {
-            if (!mSystemReady) {
+            if (!mSystemReady || !mMpctlReady) {
                 // Service not ready yet, so who the heck cares about power hints, bah.
                 return;
             }
