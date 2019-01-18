@@ -145,4 +145,7 @@
     <!-- Whether to allow sending active app broadcast -->
     <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 
+    <!-- Whether to show battery percentage inside icon -->
+    <java-symbol type="bool" name="config_battery_percentage_show_inside_icon" />
+
 </resources>
