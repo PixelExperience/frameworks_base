@@ -18,4 +18,8 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Isto mantém a aplicação no ecrã até soltar, toque e mantenha premido&amp; no sensor de impressão digital para soltar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, toque e mantenha premido no&amp; sensor de impressão digital</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
 </resources>

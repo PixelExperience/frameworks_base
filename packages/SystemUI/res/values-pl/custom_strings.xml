@@ -18,4 +18,8 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Dzięki temu będzie on widoczny aż do odpięcia. Dotknij &amp; przytrzymaj czujnik odcisków palców, aby odpiąć.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Aby odpiąć ten ekran, naciśnij &amp; przytrzymaj czujnik odcisków palców</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
 </resources>

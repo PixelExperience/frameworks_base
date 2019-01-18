@@ -8,6 +8,8 @@
     <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> για πλήρη φόρτιση)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Συνδέθηκε η γρήγορη φόρτιση</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Ταχεία φόρτιση Dash(<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%s</xliff:g> για πλήρη φόρτιση)</string>
+    <string name="keyguard_plugged_in_super_charging">Ταχεία Φόρτιση</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -16,4 +18,8 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτή την οθόνη, αγγίξτε παρατεταμένα τον αισθητήρα δακτυλικού αποτυπώματος</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
 </resources>

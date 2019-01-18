@@ -5,6 +5,6 @@
     <string name="disable_navkeys_title">آن سکرین نیویگیشن بار کو فعال کریں</string>
     <string name="disable_navkeys_summary">آن اسکرین نیویگیشن بار کو فعال کریں اور ہارڈویئر بٹن کو غیر فعال کریں</string>
     <!-- Ambient play -->
-    <string name="ambient_recognition_notification">اب چلا رہا ہے</string>
+    <string name="ambient_recognition_notification">اب چل رہا ہے</string>
     <string name="ambient_recognition_information">%1$s سے %2$s</string>
 </resources>
