@@ -225,6 +225,9 @@
     <uses-permission android:name="org.pixelexperience.ambient.play.history.MANAGE_HISTORY" />
     <uses-permission android:name="org.pixelexperience.ambient.play.provider.MANAGE_DATA" />
 
+    <!-- DayNight mode -->
+    <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
