@@ -138,7 +138,7 @@ public class NotificationStackScrollLayout extends ViewGroup
     private boolean mSwipingInProgress;
     private int mCurrentStackHeight = Integer.MAX_VALUE;
     private final Paint mBackgroundPaint = new Paint();
-    private boolean mShouldDrawNotificationBackground;
+    private final boolean mShouldDrawNotificationBackground;
 
     private float mExpandedHeight;
     private int mOwnScrollY;
@@ -1480,17 +1480,6 @@ public class NotificationStackScrollLayout extends ViewGroup
         if(isSwiped) {
             requestDisallowInterceptTouchEvent(true);
         }
-    }
-
-    public void onOverlayChanged() {
-        mBgColor = getContext().getColor(R.color.notification_shade_background_color);
-        mShouldDrawNotificationBackground =
-                getContext().getResources().getBoolean(R.bool.config_drawNotificationBackground);
-        mFadeNotificationsOnDismiss =
-                getContext().getResources().getBoolean(R.bool.config_fadeNotificationsOnDismiss);
-        initView(getContext());
-        updateWillNotDraw();
-        updateBackgroundDimming();
     }
 
     @Override

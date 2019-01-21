@@ -84,12 +84,8 @@ public class HybridGroupManager {
     }
 
     private void updateOverFlowNumberColor(TextView numberView) {
-        if (!mContext.getResources().getBoolean(com.android.internal.R.bool.config_allowNotificationIconTextTinting)) {
-            numberView.setTextColor(mContext.getColor(com.android.internal.R.color.notification_text_default_color));
-        } else {
-            numberView.setTextColor(NotificationUtils.interpolateColors(
-                    mOverflowNumberColor, mOverflowNumberColorDark, mDarkAmount));
-        }
+        numberView.setTextColor(NotificationUtils.interpolateColors(
+                mOverflowNumberColor, mOverflowNumberColorDark, mDarkAmount));
     }
 
     public void setOverflowNumberColor(TextView numberView, int colorRegular, int colorDark) {

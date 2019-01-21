@@ -81,9 +81,7 @@ public class SlashDrawable extends Drawable {
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
-        if (mDrawable != null){
-            mDrawable.setBounds(bounds);
-        }
+        mDrawable.setBounds(bounds);
     }
 
     public void setDrawable(Drawable d) {
