@@ -107,6 +107,7 @@ public class AmbientIndicationManager {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(mContext, UPDATE_AMBIENT_INDICATION_PENDING_INTENT_CODE, new Intent(ACTION_UPDATE_AMBIENT_INDICATION), 0);
         mAlarmManager.cancel(pendingIntent);
         if (cancelOnly) {
+            if (DEBUG) Log.d(TAG, "updateAmbientPlayAlarm: Cancelling alarm");
             return;
         }
         lastAlarmInterval = 0;
@@ -114,6 +115,7 @@ public class AmbientIndicationManager {
         int duration = 120000; // 2 minutes by default
         lastAlarmInterval = duration;
         mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + duration, pendingIntent);
+        if (DEBUG) Log.d(TAG, "updateAmbientPlayAlarm: Alarm scheduled");
     }
 
     public int getRecordingMaxTime() {
@@ -156,6 +158,7 @@ public class AmbientIndicationManager {
             if (intent == null) {
                 return;
             }
+            if (DEBUG) Log.d(TAG, "Received intent: " + intent.getAction());
             if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction()) || Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
                 startRecordingIfNecessary(true);
             } else if (ACTION_UPDATE_AMBIENT_INDICATION.equals(intent.getAction())) {
@@ -177,6 +180,9 @@ public class AmbientIndicationManager {
                 updateNetworkStatus();
                 if (mCurrentNetworkStatus_ != mCurrentNetworkStatus) {
                     startRecordingIfNecessary(true);
+                    if (mCurrentNetworkStatus_ == -1){
+                        updateAmbientPlayAlarm(false);
+                    }
                 }
             }
         }
@@ -214,12 +220,15 @@ public class AmbientIndicationManager {
 
     private void startRecordingIfNecessary(boolean check) {
         if (!isRecognitionEnabled()) {
+            if (DEBUG) Log.d(TAG, "startRecordingIfNecessary: Recognition disabled");
             return;
         }
         if (check && !needsUpdate()){
+            if (DEBUG) Log.d(TAG, "startRecordingIfNecessary: needsUpdate false");
             return;
         }
         if (!isRecognitionObserverBusy) {
+            if (DEBUG) Log.d(TAG, "startRecordingIfNecessary: Recording");
             isRecognitionObserverBusy = true;
             updateAmbientPlayAlarm(true);
             mRecognitionObserver.startRecording();
