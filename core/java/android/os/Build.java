@@ -236,7 +236,7 @@ public class Build {
          * @hide
          */
         public static final String SECURITY_PATCH_REAL = SystemProperties.get(
-                "ro.build.version.real_security_patch", "");
+                "ro.build.version.real_sec_patch", "");
 
         /**
          * The user-visible SDK version of the framework in its raw String
