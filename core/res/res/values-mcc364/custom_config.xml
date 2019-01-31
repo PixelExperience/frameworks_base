@@ -1,0 +1,6 @@
+<resources>
+    <!-- Weather default unit
+         0 - Celsius
+         1 - Fahrenheit -->
+    <integer name="weather_lockscreen_default_unit">1</integer>
+</resources>

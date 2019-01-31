@@ -246,7 +246,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
         }
 
         public void updateLockscreenUnit() {
-            useMetricUnit = Settings.System.getIntForUser(mContentResolver, Settings.System.WEATHER_LOCKSCREEN_UNIT, 0, UserHandle.USER_CURRENT) == 0;
+            useMetricUnit = Settings.System.getIntForUser(mContentResolver, Settings.System.WEATHER_LOCKSCREEN_UNIT, getContext().getResources().getInteger(com.android.internal.R.integer.weather_lockscreen_default_unit), UserHandle.USER_CURRENT) == 0;
         }
     }
 
