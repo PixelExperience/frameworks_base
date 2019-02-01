@@ -293,27 +293,26 @@ final class UiModeManagerService extends SystemService {
             }
         }
 
-        private int messagingAppNightModeState = -1;
         @Override
         public void setNightMode(int mode) {
+            long ident = Binder.clearCallingIdentity();
             try{
                 ActivityManager manager = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
                 List<ActivityManager.RunningTaskInfo> runningTasks = manager.getRunningTasks(1);
                 if (runningTasks != null && runningTasks.size() > 0){
                     String packageName = runningTasks.get(0).topActivity.getPackageName();
-                    if (packageName.equals("com.google.android.apps.messaging") && messagingAppNightModeState != mode) {
-                        if (messagingAppNightModeState == -1){ // System booted, store the desired value and don't restart app to prevent flickering
-                            messagingAppNightModeState = mode;
-                            return;
-                        }
-                        messagingAppNightModeState = mode;
+                    if (packageName.equals("com.google.android.apps.messaging") && 
+                            Settings.Secure.getInt(getContext().getContentResolver(), "messaging_app_night_mode_state", 1) != mode) {
+                        Settings.Secure.putInt(getContext().getContentResolver(), "messaging_app_night_mode_state", mode);
                         Intent launchIntent = getContext().getPackageManager().getLaunchIntentForPackage(packageName);
                         launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         getContext().startActivity(launchIntent);
                         return;
                    }
                }
-            }catch(Exception e){
+            }catch(Exception ignored){
+            } finally {
+                Binder.restoreCallingIdentity(ident);
             }
             if (isNightModeLocked() &&  (getContext().checkCallingOrSelfPermission(
                     android.Manifest.permission.MODIFY_DAY_NIGHT_MODE)
@@ -331,7 +330,7 @@ final class UiModeManagerService extends SystemService {
                     throw new IllegalArgumentException("Unknown mode: " + mode);
             }
 
-            final long ident = Binder.clearCallingIdentity();
+            ident = Binder.clearCallingIdentity();
             try {
                 synchronized (mLock) {
                     if (mNightMode != mode) {
