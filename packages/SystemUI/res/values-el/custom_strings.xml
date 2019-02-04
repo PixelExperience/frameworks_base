@@ -20,6 +20,9 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτή την οθόνη, αγγίξτε παρατεταμένα τον αισθητήρα δακτυλικού αποτυπώματος</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Ανάκτηση/Recovery</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Λειτουργία λήψης</string>
 </resources>

@@ -6,5 +6,5 @@
     <string name="disable_navkeys_summary">启用屏幕上的导航栏并禁用硬件按钮</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">正在播放</string>
-    <string name="ambient_recognition_information">%1$s 的 %2$s</string>
+    <string name="ambient_recognition_information">%2$s 的 %1$s</string>
 </resources>

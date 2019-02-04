@@ -20,6 +20,9 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Каб разблакаваць экран, націсніце і ўтрымлівайце палец на сканары адбіткаў пальцаў</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Рэжым аднаўлення</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Загрузчык</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Рэжым спампоўкі</string>
 </resources>

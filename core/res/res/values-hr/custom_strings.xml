@@ -3,7 +3,7 @@
 <resources>
     <!-- Buttons - Enable navbar (used by Settings and device parts app) -->
     <string name="disable_navkeys_title">Omogući zaslonsku navigacijsku traku</string>
-    <string name="disable_navkeys_summary">Omogućite zaslonsku navigacijsku traku i onemogućite hardverske tipke</string>
+    <string name="disable_navkeys_summary">Omogući zaslonsku navigacijsku traku i onemogući hardverske tipke</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">Sada sviram</string>
     <string name="ambient_recognition_information">%1$s od %2$s</string>
