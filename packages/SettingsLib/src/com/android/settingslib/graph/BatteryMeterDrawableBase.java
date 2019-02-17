@@ -41,6 +41,7 @@ import com.android.settingslib.Utils;
 public class BatteryMeterDrawableBase extends Drawable {
 
     private static final float ASPECT_RATIO = .58f;
+    private static final float ASPECT_RATIO_PERCENTAGE_INSIDE = .75f;
     public static final String TAG = BatteryMeterDrawableBase.class.getSimpleName();
     private static final float RADIUS_RATIO = 1.0f / 17f;
 
@@ -425,7 +426,7 @@ public class BatteryMeterDrawableBase extends Drawable {
             mTextPaint.setColor(getColorForLevel(level));
             mTextPaint.setTextSize(height *
                     (SINGLE_DIGIT_PERCENT ? 0.75f
-                            : (mLevel == 100 ? 0.38f : 0.5f)));
+                            : (mLevel == 100 ? 0.38f : 0.6f)));
             mTextHeight = -mTextPaint.getFontMetrics().ascent;
             pctText = String.valueOf(SINGLE_DIGIT_PERCENT ? (level / 10) : level);
             pctX = mWidth * 0.5f + left;
@@ -491,7 +492,7 @@ public class BatteryMeterDrawableBase extends Drawable {
     }
 
     protected float getAspectRatio() {
-        return ASPECT_RATIO;
+        return mShowPercent && !mCharging ? ASPECT_RATIO_PERCENTAGE_INSIDE : ASPECT_RATIO;
     }
 
     protected float getRadiusRatio() {

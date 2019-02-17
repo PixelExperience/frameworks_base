@@ -30,4 +30,7 @@
     <dimen name="opa_overshoot_translation">8.0dip</dimen>
     <dimen name="opa_return_translation">-1.0dip</dimen>
     <dimen name="opa_rest_to_collapse">7.0dip</dimen>
+
+    <!-- Width of the battery icon (with percentage inside) in the status bar. -->
+    <dimen name="status_bar_battery_icon_width_percentage_inside">10.5dp</dimen>
 </resources>
