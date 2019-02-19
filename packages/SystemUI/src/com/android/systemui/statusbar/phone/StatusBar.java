@@ -93,6 +93,7 @@ import android.media.MediaMetadata;
 import android.metrics.LogMaker;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -4077,6 +4078,14 @@ public class StatusBar extends SystemUI implements DemoMode,
         updateTheme(false);
     }
 
+    private boolean themeNeedsRefresh(){
+        if (mContext.getSharedPreferences("systemui_theming", 0).getString("build_fingerprint", "").equals(Build.CUSTOM_FINGERPRINT)){
+            return false;
+        }
+        mContext.getSharedPreferences("systemui_theming", 0).edit().putString("build_fingerprint", Build.CUSTOM_FINGERPRINT).commit();
+        return true;
+    }
+
     protected void updateTheme(boolean fromPowerSaveCallback) {
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
         final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
@@ -4087,7 +4096,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             darkThemeNeeded = true;
         }
         final boolean useDarkTheme = darkThemeNeeded;
-        if (isUsingDarkTheme() != useDarkTheme) {
+        if (themeNeedsRefresh() || isUsingDarkTheme() != useDarkTheme) {
             mUiOffloadThread.submit(() -> {
                 umm.setNightMode(useDarkTheme ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 try {
