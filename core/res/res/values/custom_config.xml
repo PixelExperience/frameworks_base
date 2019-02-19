@@ -233,4 +233,7 @@
         <item>restart_bootloader</item>
      </string-array>
 
+    <!-- Whether to allow sending active app broadcast -->
+    <bool name="config_allowActivePackageBroadcast">false</bool>
+
 </resources>

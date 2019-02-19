@@ -135,4 +135,7 @@
     <!-- Defines the actions shown in advanced reboot submenu -->
     <java-symbol type="array" name="config_restartActionsList" />
 
+    <!-- Whether to allow sending active app broadcast -->
+    <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
+
 </resources>
