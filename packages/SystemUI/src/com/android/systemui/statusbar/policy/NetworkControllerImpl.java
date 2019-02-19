@@ -1063,7 +1063,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
             config.readIconsFromXml = res.getBoolean(R.bool.config_read_icons_from_xml);
             config.showRsrpSignalLevelforLTE =
                     res.getBoolean(R.bool.config_showRsrpSignalLevelforLTE);
-            config.showVolteIcon = res.getBoolean(R.bool.config_display_volte);
+            config.showVolteIcon = false;
             return config;
         }
     }
