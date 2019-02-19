@@ -201,4 +201,7 @@
          1 - Fahrenheit -->
     <integer name="weather_lockscreen_default_unit">0</integer>
 
+    <!-- Whether to allow sending active app broadcast -->
+    <bool name="config_allowActivePackageBroadcast">false</bool>
+
 </resources>

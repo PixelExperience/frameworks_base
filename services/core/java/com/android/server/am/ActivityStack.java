@@ -2416,8 +2416,8 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
 
         if (DEBUG_SWITCH) Slog.v(TAG_SWITCH, "Resuming " + next);
 
-        String nextActivePackageName = next.intent.getComponent().getPackageName();
-        if (prev != next) {
+        if (mService.isAppBroadcastAllowed() && prev != next) {
+            String nextActivePackageName = next.intent.getComponent().getPackageName();
             ThermalController.sendActivePackageChangedBroadcast(nextActivePackageName, mService.getContext());
         }
 
