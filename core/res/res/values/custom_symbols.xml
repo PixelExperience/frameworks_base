@@ -142,4 +142,7 @@
          1 - Fahrenheit -->
     <java-symbol type="integer" name="weather_lockscreen_default_unit" />
 
+    <!-- Whether to allow sending active app broadcast -->
+    <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
+
 </resources>

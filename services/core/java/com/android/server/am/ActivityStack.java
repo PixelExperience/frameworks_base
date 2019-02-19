@@ -2440,8 +2440,8 @@ class ActivityStack<T extends StackWindowController> extends ConfigurationContai
         // If we are currently pausing an activity, then don't do anything
         // until that is done.
 
-        String nextActivePackageName = next.intent.getComponent().getPackageName();
-        if (prev != next) {
+        if (mService.isAppBroadcastAllowed() && prev != next) {
+            String nextActivePackageName = next.intent.getComponent().getPackageName();
             ThermalController.sendActivePackageChangedBroadcast(nextActivePackageName, mService.getContext());
         }
 
