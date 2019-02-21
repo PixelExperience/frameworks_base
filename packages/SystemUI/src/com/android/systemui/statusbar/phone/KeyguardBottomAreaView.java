@@ -63,7 +63,6 @@ import android.widget.TextView;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.widget.LockPatternUtils;
-import com.android.keyguard.EmergencyCarrierArea;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.EventLogTags;
@@ -119,7 +118,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     private static final int DOZE_ANIMATION_STAGGER_DELAY = 48;
     private static final int DOZE_ANIMATION_ELEMENT_DURATION = 250;
 
-    private EmergencyCarrierArea mEmergencyCarrierArea;
     private KeyguardAffordanceView mRightAffordanceView;
     private KeyguardAffordanceView mLeftAffordanceView;
     private LockIcon mLockIcon;
@@ -235,7 +233,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         super.onFinishInflate();
         mLockPatternUtils = new LockPatternUtils(mContext);
         mPreviewContainer = findViewById(R.id.preview_container);
-        mEmergencyCarrierArea = (EmergencyCarrierArea) findViewById(R.id.keyguard_selector_fade_container);
         mOverlayContainer = findViewById(R.id.overlay_container);
         mRightAffordanceView = findViewById(R.id.camera_button);
         mLeftAffordanceView = findViewById(R.id.left_button);
@@ -832,11 +829,9 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         if (dozing) {
             mLockIcon.setVisibility(INVISIBLE);
             mOverlayContainer.setVisibility(INVISIBLE);
-            mEmergencyCarrierArea.setVisibility(INVISIBLE);
         } else {
             mLockIcon.setVisibility(VISIBLE);
             mOverlayContainer.setVisibility(VISIBLE);
-            mEmergencyCarrierArea.setVisibility(VISIBLE);
             if (animate) {
                 startFinishDozeAnimation();
             }

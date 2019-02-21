@@ -641,7 +641,7 @@
     <dimen name="keyguard_affordance_icon_height">24dp</dimen>
     <dimen name="keyguard_affordance_icon_width">24dp</dimen>
 
-    <dimen name="keyguard_indication_margin_bottom">125dp</dimen>
+    <dimen name="keyguard_indication_margin_bottom">65dp</dimen>
     <dimen name="keyguard_indication_margin_bottom_ambient">16dp</dimen>
 
     <!-- The text size for battery level -->
