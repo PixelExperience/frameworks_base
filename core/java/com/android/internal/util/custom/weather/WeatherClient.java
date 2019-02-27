@@ -61,7 +61,7 @@ public class WeatherClient {
 
     private boolean mBootAndUnlockDone;
 
-    private static final int WEATHER_UPDATE_INTERVAL = 60 * 20 * 1000; // 20 minutes
+    private static final int WEATHER_UPDATE_INTERVAL = 60 * 10 * 1000; // 10 minutes
     private String updateIntentAction;
     private PendingIntent pendingWeatherUpdate;
     private WeatherInfo mWeatherInfo = new WeatherInfo();
