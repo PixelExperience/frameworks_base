@@ -139,7 +139,7 @@ public class AmbientIndicationManager {
          * Return 2 if not sure which connection is user on but has network connectivity
          */
         // NetworkInfo object will return null in case device is in flight mode.
-        if (activeNetworkInfo == null) {
+        if (activeNetworkInfo == null || capabilities == null) {
             mCurrentNetworkStatus = -1;
         } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
             mCurrentNetworkStatus = 0;
