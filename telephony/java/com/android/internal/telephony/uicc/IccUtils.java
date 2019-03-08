@@ -107,7 +107,7 @@ public class IccUtils {
     /**
      * PLMN (MCC/MNC) is encoded as per 24.008 10.5.1.3
      * Returns a concatenated string of MCC+MNC, stripping
-     * all invalid character 'f'
+     * all invalid character 'F'
      */
     public static String bcdPlmnToString(byte[] data, int offset) {
         if (offset + 3 > data.length) {

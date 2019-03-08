@@ -4010,6 +4010,10 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
                         stops = new ArrayList<>();
                     }
                     stops.add(s);
+
+                    // Make sure to remove it in all cases in case we entered this block with
+                    // shouldSleepOrShutDown
+                    mActivitiesWaitingForVisibleActivity.remove(s);
                     mStoppingActivities.remove(activityNdx);
                 }
             }
@@ -4922,7 +4926,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
             return mService.getActivityStartController().startActivityInPackage(
                     task.mCallingUid, callingPid, callingUid, callingPackage, intent, null, null,
                     null, 0, 0, options, userId, task, "startActivityFromRecents",
-                    false /* validateIncomingUser */);
+                    false /* validateIncomingUser */, null /* originatingPendingIntent */);
         } finally {
             if (windowingMode == WINDOWING_MODE_SPLIT_SCREEN_PRIMARY && task != null) {
                 // If we are launching the task in the docked stack, put it into resizing mode so

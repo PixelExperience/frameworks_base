@@ -1645,6 +1645,22 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                     mHandler.removeMessages(MESSAGE_RESTART_BLUETOOTH_SERVICE);
                     if (mEnable && mBluetooth != null) {
                         waitForMonitoredOnOff(true, false);
+
+                        try {
+                            mBluetoothLock.readLock().lock();
+                            if((mBluetooth.getState() == BluetoothAdapter.STATE_BLE_ON) &&
+                                    ((isBluetoothPersistedStateOnBluetooth() ||
+                                    !isBleAppPresent()))) {
+                                Message disableMsg =
+                                        mHandler.obtainMessage(MESSAGE_DISABLE);
+                                mHandler.sendMessageDelayed(disableMsg, 100);
+                                break;
+                            }
+                        } catch (RemoteException e) {
+                            Slog.e(TAG, "Unable to initiate disable", e);
+                        } finally {
+                            mBluetoothLock.readLock().unlock();
+                        }
                         mEnable = false;
                         handleDisable();
                         waitForMonitoredOnOff(false, false);
@@ -2273,8 +2289,15 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                         if (mBluetooth.getState() == BluetoothAdapter.STATE_BLE_ON) {
                             bluetoothStateChangeHandler(BluetoothAdapter.STATE_BLE_TURNING_ON,
                                                         BluetoothAdapter.STATE_BLE_ON);
-                            boolean ret = waitForOnOff(on, off);
-                            return ret;
+                            if (mBluetoothGatt != null) {
+                                Slog.d(TAG,"GattService is connected, execute waitForOnOff");
+                                boolean ret = waitForOnOff(on, off);
+                                return ret;
+                            } else {
+                                Slog.d(TAG,
+                                    "GattService connect in progress, return to avoid timeout");
+                                return true;
+                            }
                         }
                     } else if (off) {
                         if (mBluetooth.getState() == BluetoothAdapter.STATE_OFF) return true;
