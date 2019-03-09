@@ -8,14 +8,21 @@
     <string name="keyguard_indication_turbo_power_time">Hurtig opladning tilsluttet (<xliff:g id="charging_time_left">%s</xliff:g> indtil fuldt opladt)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Hurtig opladning tilsluttet</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Hurtig opladning (fuldt opladet om <xliff:g id="CHARGING_TIME_LEFT">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_super_charging">Hurtig opladning</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Dette fastholder skærmen i visningen, indtil du frigør den. Tryk på Tilbage, og hold fingeren nede for at frigøre skærmen.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Hvis du vil frigøre dette skærmbillede, skal du trykke på Tilbage og holde fingeren nede</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Dette fastholder skærmen i visningen, indtil du frigør den. Tryk på &amp; og hold fingeren på fingeraftrykssensoren for at frigøre skærmen.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Hvis du vil frigøre dette skærmbillede, skal du trykke på &amp; og holde fingeren på fingeraftrykssensoren</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Gendannelse</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Download mode</string>
 </resources>
