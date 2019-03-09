@@ -20,7 +20,9 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Да бисте откључали овај екран, додирните и задржите сензор отиска прста</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Опоравак</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Програм за покретање</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Режим за преузимање</string>
 </resources>

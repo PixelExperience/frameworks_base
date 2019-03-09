@@ -5,6 +5,7 @@
     <string name="keyguard_indication_dash_charging_time">Ātrā lādēšana (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> līdz pilnai uzlādei)</string>
     <string name="keyguard_plugged_in_dash_charging">Ātrā lādēšana</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> līdz pilnā)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Turbo lādēšana pievienota</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->

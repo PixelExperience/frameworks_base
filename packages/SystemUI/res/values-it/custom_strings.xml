@@ -8,8 +8,8 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower connesso (<xliff:g id="charging_time_left">%s</xliff:g> fino al completamento)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connesso</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Ricarica rapida (<xliff:g id="charging_time_left" example="4 hours and 2 minutes"> %s</xliff:g> al termine)</string>
-    <string name="keyguard_plugged_in_super_charging">Ricarica rapida</string>
+    <string name="keyguard_indication_super_charging_time">Ricarica Super (<xliff:g id="charging_time_left" example="4 ore e 2 minuti"> %s</xliff:g> fino al completamento)</string>
+    <string name="keyguard_plugged_in_super_charging">Ricarica Super</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Questo lo tiene in vista finché non lo sblocchi. Tocca &amp; tieni premuto Indietro per sbloccare.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -24,5 +24,5 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Modalità Download</string>
+    <string name="global_action_restart_download">Modalità download</string>
 </resources>

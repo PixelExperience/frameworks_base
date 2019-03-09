@@ -8,8 +8,8 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower 已连接 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已连接</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">正在快速充电 (还需<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
-    <string name="keyguard_plugged_in_super_charging">快速充电中</string>
+    <string name="keyguard_indication_super_charging_time">正在闪充 (还需<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 充满)</string>
+    <string name="keyguard_plugged_in_super_charging">闪充中</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。长按电源键即可取消固定。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
