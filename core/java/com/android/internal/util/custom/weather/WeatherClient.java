@@ -29,6 +29,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Process;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -109,6 +110,10 @@ public class WeatherClient {
         filter.addAction(updateIntentAction);
         filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
         mContext.registerReceiver(weatherReceiver, filter);
+        // check if this is a SystemUI restart and boot was already completed
+        if ("1".equals(SystemProperties.get("sys.boot_completed"))) {
+            mBootAndUnlockDone = true;
+        }
     }
 
     public static boolean isAvailable(Context context) {
