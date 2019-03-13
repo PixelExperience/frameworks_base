@@ -699,7 +699,7 @@ public final class PowerManagerService extends SystemService
                 Process.THREAD_PRIORITY_DISPLAY, false /*allowIo*/);
         mHandlerThread.start();
         mHandler = new PowerManagerHandler(mHandlerThread.getLooper());
-        if (mContext.getResources().getBoolean(com.android.internal.R.bool.config_waitForMpctlOnBoot)) {
+        if (isWaitForMpctlOnBootEnabled()) {
             mMpctlReady = false;
             mWaitMpctlThread = new Thread(() -> {
                 int retries = 20;
@@ -778,7 +778,7 @@ public final class PowerManagerService extends SystemService
                 Process.THREAD_PRIORITY_DISPLAY, false /*allowIo*/);
         mHandlerThread.start();
         mHandler = new PowerManagerHandler(mHandlerThread.getLooper());
-        if (mContext.getResources().getBoolean(com.android.internal.R.bool.config_waitForMpctlOnBoot)) {
+        if (isWaitForMpctlOnBootEnabled()) {
             mMpctlReady = false;
             mWaitMpctlThread = new Thread(() -> {
                 int retries = 20;
@@ -840,14 +840,21 @@ public final class PowerManagerService extends SystemService
         Watchdog.getInstance().addThread(mHandler);
     }
 
+    public boolean isWaitForMpctlOnBootEnabled() {
+        return mContext.getResources().getBoolean(com.android.internal.R.bool.config_waitForMpctlOnBoot);
+    }
+
     @Override
     public void onBootPhase(int phase) {
         synchronized (mLock) {
             if (phase == PHASE_THIRD_PARTY_APPS_CAN_START) {
                 incrementBootCount();
+            } else if ((phase == PHASE_BOOT_COMPLETED && !isWaitForMpctlOnBootEnabled()) || (phase == PHASE_BOOT_COMPLETED && isWaitForMpctlOnBootEnabled() && !mMpctlReady)) {
 
-            } else if (phase == PHASE_BOOT_COMPLETED && !mMpctlReady) {
-                mWaitMpctlThread.start();
+                if (isWaitForMpctlOnBootEnabled() && !mMpctlReady) {
+                  mWaitMpctlThread.start();
+                }
+
                 final long now = SystemClock.uptimeMillis();
                 mBootCompleted = true;
                 mDirty |= DIRTY_BOOT_COMPLETED;
