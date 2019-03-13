@@ -538,7 +538,7 @@
     <bool name="config_monitor_locale_change">true</bool>
 
     <!-- display for radio tech -->
-    <bool name="config_display_rat">true</bool>
+    <bool name="config_display_rat">false</bool>
 
     <!-- config 2G/3G/4G RAT strings for carriers -->
     <string name="config_rat_unknown" translatable="false">""</string>
