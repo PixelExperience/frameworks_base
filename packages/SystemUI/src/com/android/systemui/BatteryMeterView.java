@@ -18,9 +18,11 @@ package com.android.systemui;
 import static android.app.StatusBarManager.DISABLE2_SYSTEM_ICONS;
 import static android.app.StatusBarManager.DISABLE_NONE;
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
+import static android.provider.Settings.System.DISPLAY_CUTOUT_HIDDEN;
 
 import android.animation.ArgbEvaluator;
 import android.app.ActivityManager;
+import android.content.res.Configuration;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -55,6 +57,7 @@ import com.android.systemui.statusbar.policy.IconLogger;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 import com.android.systemui.util.Utils.DisableStateTracker;
+import com.android.systemui.util.leak.RotationUtils;
 import com.android.systemui.R;
 
 import java.text.NumberFormat;
@@ -75,6 +78,7 @@ public class BatteryMeterView extends LinearLayout implements
     private boolean mForceShowPercent;
     private boolean mShowPercentAvailable;
     private boolean mShowPercentInsideIcon;
+    private boolean mShouldEnablePercentInsideIcon;
 
     private int mDarkModeBackgroundColor;
     private int mDarkModeFillColor;
@@ -83,6 +87,7 @@ public class BatteryMeterView extends LinearLayout implements
     private int mLightModeFillColor;
     private float mDarkIntensity;
     private int mUser;
+    private int mCurrentOrientation = -1;
 
     /**
      * Whether we should use colors that adapt based on wallpaper/the scrim behind quick settings.
@@ -136,6 +141,7 @@ public class BatteryMeterView extends LinearLayout implements
                 getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
         addView(mBatteryIconView, mlp);
 
+        updateShouldEnablePercentInsideIcon();
         updateShowPercent();
         setColorsFromContext(context);
         // Init to not dark at all.
@@ -148,6 +154,9 @@ public class BatteryMeterView extends LinearLayout implements
                 getContext().getContentResolver().unregisterContentObserver(mSettingObserver);
                 getContext().getContentResolver().registerContentObserver(
                         Settings.System.getUriFor(SHOW_BATTERY_PERCENT), false, mSettingObserver,
+                        newUserId);
+                getContext().getContentResolver().registerContentObserver(
+                        Settings.System.getUriFor(DISPLAY_CUTOUT_HIDDEN), false, mSettingObserver,
                         newUserId);
             }
         };
@@ -222,6 +231,9 @@ public class BatteryMeterView extends LinearLayout implements
         mUser = ActivityManager.getCurrentUser();
         getContext().getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(SHOW_BATTERY_PERCENT), false, mSettingObserver, mUser);
+        getContext().getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(DISPLAY_CUTOUT_HIDDEN), false, mSettingObserver, mUser);
+        updateShouldEnablePercentInsideIcon();
         updateShowPercent();
         Dependency.get(TunerService.class)
                 .addTunable(this, StatusBarIconController.ICON_BLACKLIST);
@@ -282,7 +294,7 @@ public class BatteryMeterView extends LinearLayout implements
                 SHOW_BATTERY_PERCENT, 0, mUser);
 
         if ((mShowPercentAvailable && systemSetting) || mForceShowPercent) {
-            if (mShowPercentInsideIcon && !mForceShowPercent){
+            if (mShowPercentInsideIcon && mShouldEnablePercentInsideIcon && !mForceShowPercent){
                 if (showing) {
                     removeView(mBatteryPercentView);
                     mBatteryPercentView = null;
@@ -322,6 +334,26 @@ public class BatteryMeterView extends LinearLayout implements
         mShowPercentInsideIcon = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_battery_percentage_show_inside_icon);
         updateShowPercent();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation != mCurrentOrientation){
+            mCurrentOrientation = newConfig.orientation;
+            updateShouldEnablePercentInsideIcon();
+            updateShowPercent();
+        }
+    }
+
+    private void updateShouldEnablePercentInsideIcon(){
+        if (mCurrentOrientation == Configuration.ORIENTATION_LANDSCAPE){
+            mShouldEnablePercentInsideIcon = false;
+        }else{
+            mShouldEnablePercentInsideIcon = 0 == Settings.System
+                .getIntForUser(getContext().getContentResolver(),
+                DISPLAY_CUTOUT_HIDDEN, 0, mUser);
+        }
     }
 
     /**
@@ -394,6 +426,7 @@ public class BatteryMeterView extends LinearLayout implements
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
+            updateShouldEnablePercentInsideIcon();
             updateShowPercent();
         }
     }

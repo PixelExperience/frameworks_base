@@ -20,11 +20,17 @@ import static com.android.systemui.ScreenDecorations.DisplayCutoutView.boundsFro
 
 import android.annotation.ColorInt;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -56,6 +62,7 @@ import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoController.OnUserInfoChangedListener;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.util.leak.RotationUtils;
 
 /**
  * The header group on Keyguard.
@@ -69,6 +76,7 @@ public class KeyguardStatusBarView extends RelativeLayout
 
     private boolean mShowPercentAvailable;
     private boolean mShowPercentInsideIcon;
+    private boolean mShouldEnablePercentInsideIcon;
     private boolean mBatteryCharging;
     private boolean mKeyguardUserSwitcherShowing;
     private boolean mBatteryListening;
@@ -91,11 +99,16 @@ public class KeyguardStatusBarView extends RelativeLayout
     private View mCutoutSpace;
     private ViewGroup mStatusIconArea;
     private int mLayoutState = LAYOUT_NONE;
+    private boolean mDisplayCutoutHidden;
+    private Handler mHandler = new Handler();
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
 
     /**
      * Draw this many pixels into the left/right side of the cutout to optimally use the space
      */
     private int mCutoutSideNudge = 0;
+
+    private int mCurrentOrientation = -1;
 
     public KeyguardStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -115,6 +128,8 @@ public class KeyguardStatusBarView extends RelativeLayout
         loadDimens();
         updateUserSwitcher();
         mBatteryController = Dependency.get(BatteryController.class);
+        updateCutout();
+        mCustomSettingsObserver.observe();
     }
 
     @Override
@@ -152,6 +167,15 @@ public class KeyguardStatusBarView extends RelativeLayout
         lp.setMarginStart(
                 getResources().getDimensionPixelSize(R.dimen.keyguard_carrier_text_margin));
         mCarrierLabel.setLayoutParams(lp);
+        if (mCurrentOrientation != newConfig.orientation){
+            mCurrentOrientation = newConfig.orientation;
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                mShouldEnablePercentInsideIcon = false;
+            }else{
+                mShouldEnablePercentInsideIcon = !mDisplayCutoutHidden;
+            }
+            updateVisibilities();
+        }
 
         lp = (MarginLayoutParams) getLayoutParams();
         lp.height =  getResources().getDimensionPixelSize(
@@ -192,7 +216,7 @@ public class KeyguardStatusBarView extends RelativeLayout
                 mMultiUserSwitch.setVisibility(View.GONE);
             }
         }
-        mBatteryView.setForceShowPercent(mBatteryCharging && mShowPercentAvailable && !mShowPercentInsideIcon);
+        mBatteryView.setForceShowPercent(mBatteryCharging && mShowPercentAvailable && (!mShowPercentInsideIcon && mShouldEnablePercentInsideIcon));
     }
 
     private void updateSystemIconsLayoutParams() {
@@ -470,5 +494,34 @@ public class KeyguardStatusBarView extends RelativeLayout
         if (v instanceof DarkReceiver) {
             ((DarkReceiver) v).onDarkChanged(tintArea, intensity, color);
         }
+    }
+
+    private class CustomSettingsObserver extends ContentObserver {
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DISPLAY_CUTOUT_HIDDEN), false, this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_HIDDEN))) {
+                updateCutout();
+            }
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateCutout();
+        }
+    }
+
+    private void updateCutout() {
+        mDisplayCutoutHidden = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
     }
 }
