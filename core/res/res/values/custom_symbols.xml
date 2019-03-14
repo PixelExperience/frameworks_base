@@ -160,6 +160,9 @@
     <!-- Whether to enable smart clock feature -->
     <java-symbol type="bool" name="config_enableSmartClock" />
 
+    <!-- Minimum icon count to disable smart clock -->
+    <java-symbol type="integer" name="config_smartClockDisableIconCount" />
+
     <!-- Whether device has a physical display cutout -->
     <java-symbol type="bool" name="config_physicalDisplayCutout" />
 
