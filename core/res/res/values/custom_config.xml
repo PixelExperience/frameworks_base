@@ -197,6 +197,9 @@
     <!-- Whether to enable smart clock feature -->
     <bool name="config_enableSmartClock">false</bool>
 
+    <!-- Minimum icon count to disable smart clock -->
+    <integer name="config_smartClockDisableIconCount">1</integer>
+
     <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">false</bool>
 
