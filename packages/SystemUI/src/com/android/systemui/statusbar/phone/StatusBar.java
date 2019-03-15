@@ -6018,7 +6018,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     @Override
     public void onTuningChanged(String key, String newValue) {
        if (LOCKSCREEN_MEDIA_METADATA.equals(key)) {
-            mShowMediaMetadata = newValue == null || Integer.parseInt(newValue) != 0;
+            mShowMediaMetadata = TunerService.parseIntegerSwitch(newValue, true);
         }
     }
 
