@@ -622,6 +622,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mNoAnimationOnNextBarModeChange;
     protected FalsingManager mFalsingManager;
 
+    private boolean mDisplayCutoutHidden;
+
     private final KeyguardUpdateMonitorCallback mUpdateCallback =
             new KeyguardUpdateMonitorCallback() {
                 @Override
@@ -2246,6 +2248,21 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         } catch (RemoteException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void updateCutoutOverlay() {
+        boolean displayCutoutHidden = Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
+        if (mDisplayCutoutHidden != displayCutoutHidden){
+            mDisplayCutoutHidden = displayCutoutHidden;
+            mUiOffloadThread.submit(() -> {
+                try {
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
+                                mDisplayCutoutHidden, mLockscreenUserManager.getCurrentUserId());
+                } catch (RemoteException ignored) {
+                }
+            });
         }
     }
 
@@ -5290,6 +5307,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NAVIGATION_BAR_SHOW),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DISPLAY_CUTOUT_HIDDEN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5298,11 +5318,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.NAVIGATION_BAR_SHOW))) {
                 updateNavigationBar();
+            }else if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_HIDDEN))) {
+                updateCutoutOverlay();
             }
         }
 
         public void update() {
             updateNavigationBar();
+            updateCutoutOverlay();
         }
     }
 
