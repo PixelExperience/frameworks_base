@@ -292,6 +292,9 @@ public class CentralSurfacesImpl extends CoreStartable implements
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
             "customsystem:" + Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
 
+    private static final String DISPLAY_CUTOUT_HIDDEN =
+            "customsystem:" + Settings.System.DISPLAY_CUTOUT_HIDDEN;
+
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
@@ -708,6 +711,9 @@ public class CentralSurfacesImpl extends CoreStartable implements
         onBackPressed();
     };
 
+    private boolean mDisplayCutoutHidden;
+    private Handler mRefreshNavbarHandler;
+
     /**
      * Public constructor for CentralSurfaces.
      *
@@ -803,7 +809,8 @@ public class CentralSurfacesImpl extends CoreStartable implements
             DeviceStateManager deviceStateManager,
             WiredChargingRippleController wiredChargingRippleController,
             IDreamManager dreamManager,
-            TunerService tunerService) {
+            TunerService tunerService,
+            @Main Handler refreshNavbarHandler) {
         super(context);
         mNotificationsController = notificationsController;
         mFragmentService = fragmentService;
@@ -886,6 +893,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
         mStartingSurfaceOptional = startingSurfaceOptional;
         mDreamManager = dreamManager;
         mTunerService = tunerService;
+        mRefreshNavbarHandler = refreshNavbarHandler;
         lockscreenShadeTransitionController.setCentralSurfaces(this);
         statusBarWindowStateController.addListener(this::onStatusBarWindowStateChanged);
 
@@ -943,6 +951,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
         mTunerService.addTunable(this, NAVIGATION_BAR_SHOW);
         mTunerService.addTunable(this, SCREEN_BRIGHTNESS_MODE);
         mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+        mTunerService.addTunable(this, DISPLAY_CUTOUT_HIDDEN);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDisplay = mContext.getDisplay();
@@ -1994,6 +2003,36 @@ public class CentralSurfacesImpl extends CoreStartable implements
     @Override
     public void setBarStateForTest(int state) {
         mState = state;
+    }
+
+    private void updateCutoutOverlay(boolean displayCutoutHidden) {
+        boolean needsRefresh = mDisplayCutoutHidden != displayCutoutHidden;
+        mDisplayCutoutHidden = displayCutoutHidden;
+        try {
+            mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
+                        mDisplayCutoutHidden, mLockscreenUserManager.getCurrentUserId());
+        } catch (RemoteException ignored) {
+        }
+        if (needsRefresh){
+            refreshNavbarOverlay();
+        }
+    }
+
+    private void refreshNavbarOverlay() {
+        final String overlayPackageName = "org.pixelexperience.overlay.dummycutout";
+        try{
+            mOverlayManager.setEnabled(overlayPackageName,
+                false, UserHandle.USER_CURRENT);
+        } catch (RemoteException ignored) {
+        }
+        mRefreshNavbarHandler.removeCallbacksAndMessages(null);
+        mRefreshNavbarHandler.postDelayed(() -> {
+            try{
+                mOverlayManager.setEnabled(overlayPackageName,
+                    true, UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+        }, 1000);
     }
 
     static class AnimateExpandSettingsPanelMessage {
@@ -4458,6 +4497,8 @@ public class CentralSurfacesImpl extends CoreStartable implements
                             Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
             mBrightnessControl = TunerService.parseIntegerSwitch(newValue, false);
+        } else if (DISPLAY_CUTOUT_HIDDEN.equals(key)) {
+            updateCutoutOverlay(TunerService.parseIntegerSwitch(newValue, false));
         }
     }
 
