@@ -160,4 +160,7 @@
     <!-- Whether to enable smart clock feature -->
     <java-symbol type="bool" name="config_enableSmartClock" />
 
+    <!-- Whether device has a physical display cutout -->
+    <java-symbol type="bool" name="config_physicalDisplayCutout" />
+
 </resources>

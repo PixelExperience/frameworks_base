@@ -207,4 +207,7 @@
     <!-- Whether to enable smart clock feature -->
     <bool name="config_enableSmartClock">false</bool>
 
+    <!-- Whether device has a physical display cutout -->
+    <bool name="config_physicalDisplayCutout">false</bool>
+
 </resources>

@@ -4503,6 +4503,16 @@ public final class Settings {
          */
 
         /**
+         * Display cutout
+         * @hide
+         */
+        public static final String DISPLAY_CUTOUT_HIDDEN = "display_cutout_hidden";
+
+        /** @hide */
+        private static final Validator DISPLAY_CUTOUT_HIDDEN_VALIDATOR = new
+                SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4713,6 +4723,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME);
             PRIVATE_SETTINGS.add(FACE_AUTO_UNLOCK);
             PRIVATE_SETTINGS.add(ADVANCED_REBOOT);
+            PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
         }
 
         /**
@@ -4836,6 +4847,7 @@ public final class Settings {
             VALIDATORS.put(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME, AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME_VALIDATOR);
             VALIDATORS.put(FACE_AUTO_UNLOCK, FACE_AUTO_UNLOCK_VALIDATOR);
             VALIDATORS.put(ADVANCED_REBOOT, ADVANCED_REBOOT_VALIDATOR);
+            VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
         }
 
         /**
