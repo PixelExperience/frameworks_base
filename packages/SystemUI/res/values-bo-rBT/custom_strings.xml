@@ -20,6 +20,9 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">བརྙན་ཤེལ་གཏན་འཇགས་རྣམ་པ་ནས་ཕྱིར་སྤྲོད་ན་མཛུབ་རིས་བརྒྱུད་ཁྲིད་ཆས་མནན་རོགས།</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">བསྐྱར་གསོའི་དཔར་ཚུལ།</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">སྣེ་ཁྲིད་བྱ་རིམ།</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">ཕབ་ལེན་གྱི་དཔེ་ཚུལ།</string>
 </resources>
