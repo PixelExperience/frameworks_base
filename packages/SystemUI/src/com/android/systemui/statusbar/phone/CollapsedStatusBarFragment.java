@@ -241,7 +241,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     public void hideClock(boolean animate) {
-        if (!useSmartClock && !mKeyguardMonitor.isShowing()){
+        if (!useSmartClock && !mKeyguardMonitor.isShowing() && !shouldHideNotificationIcons()){
             return;
         }
         animateHiddenState(mClockView, clockHiddenMode(), animate);
