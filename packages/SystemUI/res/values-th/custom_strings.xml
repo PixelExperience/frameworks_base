@@ -6,7 +6,7 @@
     <string name="keyguard_plugged_in_dash_charging">กำลังชาร์จเร็ว</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">เชื่อมต่อ TurboPower แล้ว (<xliff:g id="เหลือเวลาชาร์จอีก">%s</xliff:g> ถึงจะเต็ม)</string>
-    <string name="keyguard_plugged_in_turbo_power_charging">เชื่อมต่อพลังเทอร์โบชาร์จแล้ว</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">เชื่อมต่อ TurboPower แล้ว</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_super_charging_time">กำลังซูเปอร์ชาร์จ (<xliff:g id="เหลือเวลาชาร์จอีก" ตัวอย่าง="4 ชั่วโมง 2 นาที">%s</xliff:g> ถึงจะเต็ม)</string>
     <string name="keyguard_plugged_in_super_charging">ซูเปอร์ชาร์จ</string>

@@ -8,6 +8,7 @@
     <string name="keyguard_indication_turbo_power_time">টুরবো-পাওয়ার সংযুক্ত (পূর্ণ হতে <xliff:g id="charging_time_left">%s</xliff:g> লাগবে)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower সংযুক্ত হয়েছে</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_plugged_in_super_charging">সুপার চার্জিং</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">আপনি যতক্ষণ না বিচ্ছিন্ন করছেন ততক্ষণ এইটি উহাকে প্রদর্শনে রাখবে। বিচ্ছিন্ন করতে প্রত্যাবর্তন বোতাম স্পর্শ করে ধরে রাখুন।</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -18,6 +19,9 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">এই স্ক্রীন বিচ্ছিন্ন করতে, অঙ্গুলাঙ্ক সেন্সর স্পর্শ করে ধরে রাখুন</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">রিকভারি</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">বুটলোডার</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">ডাউনলোড মোড</string>
 </resources>
