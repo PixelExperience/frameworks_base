@@ -62,4 +62,7 @@
 
     <!-- Device has OnePlus haptic motor -->
     <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
+
+    <!-- Whether or not we should show vendor mismatch message -->
+    <java-symbol type="bool" name="config_show_vendor_mismatch_message" />
 </resources>
