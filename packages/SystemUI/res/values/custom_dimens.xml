@@ -36,4 +36,5 @@
 
     <!-- Ambient indication -->
     <dimen name="ambient_indication_icon_size">20.0dip</dimen>
+    <dimen name="ambient_indication_margin_bottom">12.0dip</dimen>
 </resources>

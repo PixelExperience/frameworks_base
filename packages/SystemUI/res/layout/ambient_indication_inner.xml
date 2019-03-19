@@ -7,7 +7,7 @@
     android:visibility="invisible"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="71.0dip"
+    android:layout_marginBottom="@dimen/ambient_indication_margin_bottom"
     android:layout_marginStart="64.0dip"
     android:layout_marginEnd="64.0dip"
     android:forceHasOverlappingRendering="false">
