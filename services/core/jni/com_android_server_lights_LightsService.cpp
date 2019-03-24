@@ -22,6 +22,8 @@
 
 #include <android/hardware/light/2.0/ILight.h>
 #include <android/hardware/light/2.0/types.h>
+#include <vendor/samsung/hardware/light/2.0/ISecLight.h>
+#include <vendor/samsung/hardware/light/2.0/types.h>
 #include <android-base/chrono_utils.h>
 #include <utils/misc.h>
 #include <utils/Log.h>
@@ -39,9 +41,13 @@ using Type       = ::android::hardware::light::V2_0::Type;
 template<typename T>
 using Return     = ::android::hardware::Return<T>;
 
+using ISecLight  = ::vendor::samsung::hardware::light::V2_0::ISecLight;
+using SecType    = ::vendor::samsung::hardware::light::V2_0::SecType;
+
 class LightHal {
 private:
     static sp<ILight> sLight;
+    static sp<ISecLight> sSecLight;
     static bool sLightInit;
 
     LightHal() {}
@@ -57,6 +63,7 @@ public:
                 (sLight != nullptr && !sLight->ping().isOk())) {
             // will return the hal if it exists the first time.
             sLight = ILight::getService();
+            sSecLight = ISecLight::getService();
             sLightInit = true;
 
             if (sLight == nullptr) {
@@ -66,9 +73,14 @@ public:
 
         return sLight;
     }
+
+    static sp<ISecLight> getSecLight() {
+        return sSecLight;
+    }
 };
 
 sp<ILight> LightHal::sLight = nullptr;
+sp<ISecLight> LightHal::sSecLight = nullptr;
 bool LightHal::sLightInit = false;
 
 static bool validate(jint light, jint flash, jint brightness) {
@@ -172,6 +184,21 @@ static void setLight_native(
 
     if (hal == nullptr) {
         return;
+    }
+
+    sp<ISecLight> secHal = LightHal::getSecLight();
+
+    if(secHal != nullptr) {
+        SecType type = static_cast<SecType>(light);
+        LightState state = constructState(
+                colorARGB, flashMode, onMS, offMS, brightnessMode);
+
+        {
+            android::base::Timer t;
+            Return<Status> ret = secHal->setLightSec(type, state);
+            processReturn(ret, static_cast<Type>(light), state);
+            if (t.duration() > 50ms) ALOGD("Excessive delay setting light");
+        }
     }
 
     Type type = static_cast<Type>(light);
