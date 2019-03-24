@@ -4272,7 +4272,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     // Check if screen is fully on before letting the device go to sleep
                     if (mDefaultDisplayPolicy.isScreenOnFully() && mIsFocusPressed) {
                         mPowerManager.goToSleep(SystemClock.uptimeMillis());
-                    } else {
+                    } else if (!interactive && mCameraSleepOnRelease) {
                         mFocusReleasedGoToSleep = true;
                     }
                     mIsFocusPressed = false;
