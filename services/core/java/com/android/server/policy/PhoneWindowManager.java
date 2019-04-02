@@ -158,6 +158,7 @@ import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityManagerInternal;
 import android.app.ActivityManagerInternal.SleepToken;
+import android.app.ActivityManagerNative;
 import android.app.ActivityThread;
 import android.app.AppOpsManager;
 import android.app.IUiModeManager;
@@ -1792,6 +1793,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private void backLongPress() {
         mBackKeyHandled = true;
+
+        if (unpinActivity()) {
+            return;
+        }
 
         switch (mLongPressOnBackBehavior) {
             case LONG_PRESS_BACK_NOTHING:
@@ -4694,6 +4699,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             } catch (Exception e) {
                 Slog.w(TAG, "Could not dispatch event to device key handler", e);
+            }
+        }
+        return false;
+    }
+
+    private boolean unpinActivity() {
+        if (!hasNavigationBar()) {
+            try {
+                if (ActivityManagerNative.getDefault().isInLockTaskMode()) {
+                    ActivityManagerNative.getDefault().stopSystemLockTaskMode();
+                    return true;
+                }
+            } catch (RemoteException e) {
+                // ignore
             }
         }
         return false;
