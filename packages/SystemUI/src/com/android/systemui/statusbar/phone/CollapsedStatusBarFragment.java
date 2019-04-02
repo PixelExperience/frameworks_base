@@ -21,16 +21,9 @@ import static android.app.StatusBarManager.DISABLE_SYSTEM_INFO;
 import android.annotation.Nullable;
 import android.app.Fragment;
 import android.app.StatusBarManager;
-import android.net.Uri;
-import android.database.ContentObserver;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.SparseArray;
-import android.os.Handler;
-import android.os.SystemProperties;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,8 +41,6 @@ import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
-
-import java.lang.Runnable;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -73,15 +64,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private StatusBar mStatusBarComponent;
     private DarkIconManager mDarkIconManager;
     private View mOperatorNameFrame;
-    private Handler smartClockHandler = new Handler();
-    private Handler mHandler = new Handler();
-    private static final int HIDE_DURATION = 60*1000; // 1 minute
-    private static final int SHOW_DURATION = 5*1000; // 5 seconds
-    private boolean useSmartClock = false;
-    private int mNotificationsIconsCount = 0;
-    private int mDisableIconCount = -1;
-    private Context mContext;
-    private boolean mIsLandscape = false;
 
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
@@ -93,12 +75,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = getContext();
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mNetworkController = Dependency.get(NetworkController.class);
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
-        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
-        settingsObserver.observe();
     }
 
     @Override
@@ -124,10 +103,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         showClock(false);
         initEmergencyCryptkeeperText();
         initOperatorName();
-        mDisableIconCount = mContext.getResources().getInteger(
-            com.android.internal.R.integer.config_smartClockDisableIconCount);
-        updateSmartClockStatus();
-        setupSmartClock();
     }
 
     @Override
@@ -140,14 +115,12 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     @Override
     public void onResume() {
-        setupSmartClock();
         super.onResume();
         SysUiServiceProvider.getComponent(getContext(), CommandQueue.class).addCallbacks(this);
     }
 
     @Override
     public void onPause() {
-        disableSmartClock();
         super.onPause();
         SysUiServiceProvider.getComponent(getContext(), CommandQueue.class).removeCallbacks(this);
     }
@@ -203,7 +176,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             if ((state1 & DISABLE_CLOCK) != 0) {
                 hideClock(animate);
             } else {
-                displaySmartClock(animate, true);
+                showClock(animate);
             }
         }
     }
@@ -254,9 +227,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     public void hideClock(boolean animate) {
-        if (!useSmartClock && !mKeyguardMonitor.isShowing() && !shouldHideNotificationIcons()){
-            return;
-        }
         animateHiddenState(mClockView, clockHiddenMode(), animate);
     }
 
@@ -371,119 +341,4 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mOperatorNameFrame = stub.inflate();
         }
     }
-
-    private void setupSmartClock() {
-        if (useSmartClock) {
-            displaySmartClock(true);
-            smartClockHandler.postDelayed(()->setupSmartClock(), HIDE_DURATION);
-        }
-    }
-
-    private void displaySmartClock(boolean animate) {
-        displaySmartClock(animate, false);
-    }
-
-    private void displaySmartClock(boolean animate, boolean forceShow) {
-        if (forceShow){
-            showClock(animate);
-        }else{
-            mayShowClock(animate);
-        }
-        if (useSmartClock) {
-            mHandler.postDelayed(()->hideClock(true), SHOW_DURATION);
-        }
-    }
-
-    private void disableSmartClock() {
-        try {
-            smartClockHandler.removeCallbacksAndMessages(null);
-        } catch (NullPointerException e) {
-            // Do nothing
-        }
-    }
-
-    private void updateSmartClockStatus() {
-        boolean shouldEnableSmartClock = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 0 &&
-                !SystemProperties.get("vold.decrypt", "").equals("trigger_restart_min_framework") &&
-                mNotificationsIconsCount > mDisableIconCount && !mIsLandscape;
-        useSmartClock = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_enableSmartClock) && shouldEnableSmartClock;
-    }
-
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.DISPLAY_CUTOUT_HIDDEN), false,
-                    this, UserHandle.USER_ALL);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_HIDDEN))) {
-                updateSmartClockStatus();
-                if (useSmartClock) {
-                    hideClock(true);
-                    disableSmartClock();
-                    smartClockHandler.postDelayed(()->setupSmartClock(), HIDE_DURATION);
-                } else {
-                    disableSmartClock();
-                    mayShowClock(true);
-                }
-            }
-        }
-    }
-
-    private boolean isHeadsUpLayoutVisible(){
-        if (mStatusBar == null){
-            return false;
-        }
-        return mStatusBar.findViewById(R.id.heads_up_status_bar_view).getVisibility() == View.VISIBLE;
-    }
-
-    private void mayShowClock(final boolean visible){
-        mHandler.post(new Runnable() {
-            public void run() {
-                if (!isHeadsUpLayoutVisible()){
-                    if (!mKeyguardMonitor.isShowing()){
-                        showClock(visible);
-                    }
-                }else{
-                    mHandler.postDelayed(this, 100);
-                }
-            }
-        });
-    }
-
-    public void onNotificationsIconsCountChanged(int count){
-        if (mNotificationsIconsCount != count){
-            mNotificationsIconsCount = count;
-            updateSmartClockIfNecessary();
-        }
-    }
-
-    private void updateSmartClockIfNecessary(){
-        boolean useSmartClock_ = useSmartClock;
-        updateSmartClockStatus();
-        if (useSmartClock != useSmartClock_){
-            if (useSmartClock) {
-                hideClock(true);
-                disableSmartClock();
-                smartClockHandler.postDelayed(()->setupSmartClock(), HIDE_DURATION);
-            } else {
-                disableSmartClock();
-                mayShowClock(true);
-            }
-        }
-    }
-
-    public void setLandscape(boolean isLandscape){
-        mIsLandscape = isLandscape;
-        updateSmartClockIfNecessary();
-    }
-
 }

@@ -49,8 +49,6 @@ public class NotificationIconAreaController implements DarkReceiver {
     private Context mContext;
     private boolean mFullyDark;
     private boolean mHasShelfIconsWhenFullyDark;
-    private NotificationIconsCountListener mNotificationsIconsCountListener;
-    private int mNotificationIconsCount;
 
     public NotificationIconAreaController(Context context, StatusBar statusBar) {
         mStatusBar = statusBar;
@@ -324,10 +322,6 @@ public class NotificationIconAreaController implements DarkReceiver {
         }
         hostLayout.setChangingViewPositions(false);
         hostLayout.setReplacingIcons(null);
-        mNotificationIconsCount = mNotificationIcons.getChildCount();
-        if (mNotificationsIconsCountListener != null){
-            mNotificationsIconsCountListener.onCountChanged(mNotificationIconsCount);
-        }
     }
 
     /**
@@ -371,13 +365,5 @@ public class NotificationIconAreaController implements DarkReceiver {
 
     public void setIsolatedIconLocation(Rect iconDrawingRect, boolean requireStateUpdate) {
         mNotificationIcons.setIsolatedIconLocation(iconDrawingRect, requireStateUpdate);
-    }
-
-    public void setNotificationIconsCountListener(NotificationIconsCountListener notificationsIconsCountListener) {
-        mNotificationsIconsCountListener = notificationsIconsCountListener;
-    }
-
-    public interface NotificationIconsCountListener {
-        void onCountChanged(int count);
     }
 }
