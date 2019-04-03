@@ -11,7 +11,7 @@
     <string name="keyguard_indication_super_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_super_charging">Быстрая зарядка</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку. Нажмите и удерживайте Назад для отмены блокировки.</string>
+    <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку. Нажмите и удерживайте кнопку «Назад» для отмены блокировки.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Чтобы открепить экран, нажмите и удерживайте кнопку «Назад»</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
