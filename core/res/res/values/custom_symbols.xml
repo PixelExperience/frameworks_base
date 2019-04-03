@@ -151,4 +151,7 @@
     <!-- Whether device has a physical display cutout -->
     <java-symbol type="bool" name="config_physicalDisplayCutout" />
 
+    <!-- Whether to show multiuser icon on keyguard -->
+    <java-symbol type="bool" name="config_showMultiuserIconKeyguard" />
+
 </resources>

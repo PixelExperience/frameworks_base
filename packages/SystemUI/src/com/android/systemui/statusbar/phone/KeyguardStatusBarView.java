@@ -103,6 +103,8 @@ public class KeyguardStatusBarView extends RelativeLayout
     private Handler mHandler = new Handler();
     private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
 
+    private boolean mShowMultiUserIconOnKeyguard;
+
     /**
      * Draw this many pixels into the left/right side of the cutout to optimally use the space
      */
@@ -195,6 +197,8 @@ public class KeyguardStatusBarView extends RelativeLayout
                 com.android.internal.R.bool.config_battery_percentage_setting_available);
         mShowPercentInsideIcon = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_battery_percentage_show_inside_icon);
+        mShowMultiUserIconOnKeyguard = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_showMultiuserIconKeyguard);
     }
 
     private void updateVisibilities() {
@@ -209,7 +213,7 @@ public class KeyguardStatusBarView extends RelativeLayout
         if (mKeyguardUserSwitcher == null) {
             // If we have no keyguard switcher, the screen width is under 600dp. In this case,
             // we don't show the multi-user avatar unless there is more than 1 user on the device.
-            if (mUserSwitcherController != null
+            if (mShowMultiUserIconOnKeyguard && mUserSwitcherController != null
                     && mUserSwitcherController.getSwitchableUserCount() > 1) {
                 mMultiUserSwitch.setVisibility(View.VISIBLE);
             } else {
@@ -391,6 +395,8 @@ public class KeyguardStatusBarView extends RelativeLayout
                 com.android.internal.R.bool.config_battery_percentage_setting_available);
         mShowPercentInsideIcon = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_battery_percentage_show_inside_icon);
+        mShowMultiUserIconOnKeyguard = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_showMultiuserIconKeyguard);
     }
 
     public void setKeyguardUserSwitcher(KeyguardUserSwitcher keyguardUserSwitcher) {
