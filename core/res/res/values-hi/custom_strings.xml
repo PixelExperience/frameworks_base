@@ -6,4 +6,5 @@
     <string name="disable_navkeys_summary">ऑनस्क्रीन नाविगेशन बार शुरू करें और हार्डवेअर बटन बंद करें</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">अभी खेल रहे है</string>
+    <string name="ambient_recognition_information">%1$s by %2$s</string>
 </resources>
