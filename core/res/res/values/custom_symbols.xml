@@ -192,4 +192,7 @@
 
     <!-- Custom styles -->
     <java-symbol type="style" name="CustomThemeDeviceDefaultDialogAlert" />
+
+    <!-- Whether to show a custom view for FOD -->
+    <java-symbol type="bool" name="config_needCustomFODView" />
 </resources>
