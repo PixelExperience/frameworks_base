@@ -297,4 +297,8 @@
     <!-- Whether device has oled display -->
     <bool name="config_hasOledDisplay">false</bool>
 
+    <!-- Show a custom view for FOD -->
+    <bool name="config_needCustomFODView">false</bool>
+
+    <bool name="config_usesOnePlusFOD">false</bool>
 </resources>

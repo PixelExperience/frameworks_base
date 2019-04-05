@@ -38,6 +38,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
+import android.content.res.Resources;
 import android.hardware.biometrics.IBiometricPromptReceiver;
 import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
 import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprintClientCallback;
@@ -150,6 +151,8 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
 
     private IBinder mToken = new Binder(); // used for internal FingerprintService enumeration
     private ArrayList<UserFingerprint> mUnknownFingerprints = new ArrayList<>(); // hw fingerprints
+
+    private boolean mUsesOnePlusFOD;
 
     private class UserFingerprint {
         Fingerprint f;
@@ -266,6 +269,7 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 com.android.internal.R.bool.config_notifyClientOnFingerprintCancelSuccess);
         mCleanupUnusedFingerprints = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_cleanupUnusedFingerprints);
+        mUsesOnePlusFOD = context.getResources().getBoolean(com.android.internal.R.bool.config_usesOnePlusFOD);
     }
 
     @Override
@@ -397,6 +401,10 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
     }
 
     protected void handleError(long deviceId, int error, int vendorCode) {
+
+        if (mUsesOnePlusFOD && error == 8)
+            return;
+
         ClientMonitor client = mCurrentClient;
         if (client instanceof InternalRemovalClient || client instanceof InternalEnumerateClient) {
             clearEnumerateState();
@@ -955,7 +963,7 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
         final int groupId = userId; // default group for fingerprint enrollment
 
         EnrollClient client = new EnrollClient(getContext(), mHalDeviceId, token, receiver,
-                userId, groupId, cryptoToken, restricted, opPackageName) {
+                userId, groupId, cryptoToken, restricted, opPackageName, mStatusBarService) {
 
             @Override
             public IBiometricsFingerprint getFingerprintDaemon() {
