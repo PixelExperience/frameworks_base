@@ -118,7 +118,7 @@ public class Watchdog extends Thread {
     int mPhonePid;
     IActivityController mController;
     boolean mAllowRestart = true;
-    SimpleDateFormat mTraceDateFormat = new SimpleDateFormat("dd_MMM_HH_mm_ss.SSS");
+    SimpleDateFormat mTraceDateFormat = new SimpleDateFormat("dd_MM_HH_mm_ss.SSS");
     final OpenFdMonitor mOpenFdMonitor;
 
     /**

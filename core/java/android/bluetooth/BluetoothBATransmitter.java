@@ -34,6 +34,8 @@ import android.os.IBinder;
 import android.os.ParcelUuid;
 import android.os.RemoteException;
 import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 
 import com.android.internal.annotations.GuardedBy;
 
@@ -55,7 +57,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public final class BluetoothBATransmitter implements BluetoothProfile {
     private static final String TAG = "BluetoothBAT";
     private static final boolean DBG = true;
-    private static final boolean VDBG = false;
+    private static final boolean VDBG = true;
+
+    private static final int SEND_DELAYED_MSG_TO_RESET = 1;
+    private static final int BIND_TIMEOUT_MS = 3000; //3sec
 
     /**
      * Intent used to update state change of Broadcast Audio Transmitter.
@@ -168,8 +173,11 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
                         if (DBG) Log.d(TAG, "Unbinding service...");
                         try {
                             mServiceLock.writeLock().lock();
-                            mService = null;
-                            mContext.unbindService(mConnection);
+                            if (mService != null) {
+                                if (DBG) Log.d(TAG, "mService is not null, So unbind BATService.");
+                                mService = null;
+                                mContext.unbindService(mConnection);
+                            }
                         } catch (Exception re) {
                             Log.e(TAG, "", re);
                         } finally {
@@ -230,6 +238,7 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
             return false;
         } else {
             mBinding = true;
+            mBindingReset();
             return true;
         }
     }
@@ -542,4 +551,24 @@ public final class BluetoothBATransmitter implements BluetoothProfile {
     private static void log(String msg) {
       Log.d(TAG, msg);
     }
+
+    private void mBindingReset() {
+       Message message = mHandler.obtainMessage(SEND_DELAYED_MSG_TO_RESET);
+       mHandler.sendMessageDelayed(message, BIND_TIMEOUT_MS);
+    }
+
+    private final Handler mHandler = new Handler() {
+       @Override
+       public void handleMessage(Message msg) {
+           if (DBG) Log.d(TAG, " Handle the message: " + msg.what);
+           switch (msg.what) {
+               case SEND_DELAYED_MSG_TO_RESET:
+                   if (DBG) Log.d(TAG, "Reset mBinding flag");
+                   if (mBinding) mBinding = false;
+                   break;
+               default:
+                   break;
+           }
+       }
+    };
 }

@@ -4570,7 +4570,8 @@ public final class Settings {
             SHOW_BATTERY_PERCENT,
             NOTIFICATION_VIBRATION_INTENSITY,
             HAPTIC_FEEDBACK_INTENSITY,
-            DISPLAY_COLOR_MODE
+            DISPLAY_COLOR_MODE,
+            NOTIFICATION_LIGHT_PULSE,
         };
 
         /**
@@ -4790,7 +4791,7 @@ public final class Settings {
             VALIDATORS.put(DTMF_TONE_TYPE_WHEN_DIALING, DTMF_TONE_TYPE_WHEN_DIALING_VALIDATOR);
             VALIDATORS.put(HEARING_AID, HEARING_AID_VALIDATOR);
             VALIDATORS.put(TTY_MODE, TTY_MODE_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, NOTIFICATION_LIGHT_PULSE_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(POINTER_LOCATION, POINTER_LOCATION_VALIDATOR);
             VALIDATORS.put(SHOW_TOUCHES, SHOW_TOUCHES_VALIDATOR);
             VALIDATORS.put(WINDOW_ORIENTATION_LISTENER_LOG,
@@ -8679,6 +8680,8 @@ public final class Settings {
             VALIDATORS.put(HUSH_GESTURE_USED, HUSH_GESTURE_USED_VALIDATOR);
             VALIDATORS.put(MANUAL_RINGER_TOGGLE_COUNT, MANUAL_RINGER_TOGGLE_COUNT_VALIDATOR);
             VALIDATORS.put(WIFI_DISCONNECT_DELAY_DURATION, WIFI_DISCONNECT_DELAY_DURATION_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_SHOW_NOTIFICATIONS, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -13293,6 +13296,7 @@ public final class Settings {
          * Supported keys:
          * compatibility_wal_supported      (boolean)
          * wal_syncmode       (String)
+         * truncate_size      (int)
          *
          * @hide
          */

@@ -201,22 +201,6 @@ public class NetworkStats implements Parcelable {
             this.txBytes += another.txBytes;
             this.txPackets += another.txPackets;
             this.operations += another.operations;
-
-            if (this.rxBytes < 0) {
-                this.rxBytes = Math.max(this.rxBytes, Long.MAX_VALUE);
-            }
-            if (this.rxPackets < 0) {
-                this.rxPackets = Math.max(this.rxPackets, Long.MAX_VALUE);
-            }
-            if (this.txBytes < 0) {
-                this.txBytes = Math.max(this.txBytes, Long.MAX_VALUE);
-            }
-            if (this.txPackets < 0 ) {
-                this.txPackets = Math.max(this.txPackets, Long.MAX_VALUE);
-            }
-            if (this.operations < 0) {
-                this.operations = Math.max(this.operations, Long.MAX_VALUE);
-            }
         }
 
         @Override
@@ -488,22 +472,6 @@ public class NetworkStats implements Parcelable {
             txBytes[i] += entry.txBytes;
             txPackets[i] += entry.txPackets;
             operations[i] += entry.operations;
-
-            if (rxBytes[i] < 0) {
-                rxBytes[i] = Math.max(rxBytes[i], Long.MAX_VALUE);
-            }
-            if (rxPackets[i] < 0) {
-                rxPackets[i] = Math.max(rxPackets[i], Long.MAX_VALUE);
-            }
-            if (txBytes[i] < 0) {
-                txBytes[i] = Math.max(txBytes[i], Long.MAX_VALUE);
-            }
-            if (txPackets[i] < 0 ) {
-                txPackets[i] = Math.max(txPackets[i], Long.MAX_VALUE);
-            }
-            if (operations[i] < 0) {
-                operations[i] = Math.max(operations[i], Long.MAX_VALUE);
-            }
         }
         return this;
     }
@@ -616,11 +584,7 @@ public class NetworkStats implements Parcelable {
      */
     public long getTotalBytes() {
         final Entry entry = getTotal(null);
-        long total = entry.rxBytes + entry.txBytes;
-        if (total < 0) {
-            total = Math.max(total, Long.MAX_VALUE);
-        }
-        return total;
+        return entry.rxBytes + entry.txBytes;
     }
 
     /**
@@ -688,23 +652,9 @@ public class NetworkStats implements Parcelable {
                 entry.txPackets += txPackets[i];
                 entry.operations += operations[i];
 
-                if (entry.rxBytes < 0) {
-                    entry.rxBytes = Math.max(entry.rxBytes, Long.MAX_VALUE);
-                }
-                if (entry.rxPackets < 0) {
-                    entry.rxPackets = Math.max(entry.rxPackets, Long.MAX_VALUE);
-                }
-                if (entry.txBytes < 0) {
-                    entry.txBytes = Math.max(entry.txBytes, Long.MAX_VALUE);
-                }
-                if (entry.txPackets < 0 ) {
-                    entry.txPackets = Math.max(entry.txPackets, Long.MAX_VALUE);
-                }
-                if (entry.operations < 0) {
-                    entry.operations = Math.max(entry.operations, Long.MAX_VALUE);
-                }
             }
         }
+
         return entry;
     }
 
@@ -715,9 +665,6 @@ public class NetworkStats implements Parcelable {
         long total = 0;
         for (int i = size-1; i >= 0; i--) {
             total += rxPackets[i] + txPackets[i];
-        }
-        if (total < 0) {
-            total = Math.max(total, Long.MAX_VALUE);
         }
         return total;
     }
@@ -831,14 +778,19 @@ public class NetworkStats implements Parcelable {
      * packet needs to be subtracted from the root UID on the base interface both for tx
      * and rx traffic (http://b/12249687, http:/b/33681750).
      *
+     * As for eBPF, the per uid stats is collected by different hook, the rx packets on base
+     * interface will not be counted. Thus, the adjustment on root uid is only needed in tx
+     * direction.
+     *
      * <p>This method will behave fine if {@code stackedIfaces} is an non-synchronized but add-only
      * {@code ConcurrentHashMap}
      * @param baseTraffic Traffic on the base interfaces. Will be mutated.
      * @param stackedTraffic Stats with traffic stacked on top of our ifaces. Will also be mutated.
      * @param stackedIfaces Mapping ipv6if -> ipv4if interface where traffic is counted on both.
+     * @param useBpfStats True if eBPF is in use.
      */
     public static void apply464xlatAdjustments(NetworkStats baseTraffic,
-            NetworkStats stackedTraffic, Map<String, String> stackedIfaces) {
+            NetworkStats stackedTraffic, Map<String, String> stackedIfaces, boolean useBpfStats) {
         // Total 464xlat traffic to subtract from uid 0 on all base interfaces.
         // stackedIfaces may grow afterwards, but NetworkStats will just be resized automatically.
         final NetworkStats adjustments = new NetworkStats(0, stackedIfaces.size());
@@ -857,15 +809,20 @@ public class NetworkStats implements Parcelable {
                 continue;
             }
             // Subtract any 464lat traffic seen for the root UID on the current base interface.
+            // However, for eBPF, the per uid stats is collected by different hook, the rx packets
+            // on base interface will not be counted. Thus, the adjustment on root uid is only
+            // needed in tx direction.
             adjust.iface = baseIface;
-            adjust.rxBytes = -(entry.rxBytes + entry.rxPackets * IPV4V6_HEADER_DELTA);
+            if (!useBpfStats) {
+                adjust.rxBytes = -(entry.rxBytes + entry.rxPackets * IPV4V6_HEADER_DELTA);
+                adjust.rxPackets = -entry.rxPackets;
+            }
             adjust.txBytes = -(entry.txBytes + entry.txPackets * IPV4V6_HEADER_DELTA);
-            adjust.rxPackets = -entry.rxPackets;
             adjust.txPackets = -entry.txPackets;
             adjustments.combineValues(adjust);
 
-            // For 464xlat traffic, xt_qtaguid only counts the bytes of the native IPv4 packet sent
-            // on the stacked interface with prefix "v4-" and drops the IPv6 header size after
+            // For 464xlat traffic, per uid stats only counts the bytes of the native IPv4 packet
+            // sent on the stacked interface with prefix "v4-" and drops the IPv6 header size after
             // unwrapping. To account correctly for on-the-wire traffic, add the 20 additional bytes
             // difference for all packets (http://b/12249687, http:/b/33681750).
             entry.rxBytes += entry.rxPackets * IPV4V6_HEADER_DELTA;
@@ -884,8 +841,8 @@ public class NetworkStats implements Parcelable {
      * base and stacked traffic.
      * @param stackedIfaces Mapping ipv6if -> ipv4if interface where traffic is counted on both.
      */
-    public void apply464xlatAdjustments(Map<String, String> stackedIfaces) {
-        apply464xlatAdjustments(this, this, stackedIfaces);
+    public void apply464xlatAdjustments(Map<String, String> stackedIfaces, boolean useBpfStats) {
+        apply464xlatAdjustments(this, this, stackedIfaces, useBpfStats);
     }
 
     /**

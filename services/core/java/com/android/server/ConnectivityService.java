@@ -230,6 +230,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
     private static final int DEFAULT_LINGER_DELAY_MS = 30_000;
     @VisibleForTesting
     protected int mLingerDelayMs;  // Can't be final, or test subclass constructors can't change it.
+    protected int mNonDefaultSubscriptionLingerDelayMs;
 
     // How long to delay to removal of a pending intent based request.
     // See Settings.Secure.CONNECTIVITY_RELEASE_PENDING_INTENT_DELAY_MS
@@ -778,6 +779,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 Settings.Secure.CONNECTIVITY_RELEASE_PENDING_INTENT_DELAY_MS, 5_000);
 
         mLingerDelayMs = mSystemProperties.getInt(LINGER_DELAY_PROPERTY, DEFAULT_LINGER_DELAY_MS);
+        mNonDefaultSubscriptionLingerDelayMs = 5_000;
 
         mContext = checkNotNull(context, "missing Context");
         mNetd = checkNotNull(netManager, "missing INetworkManagementService");
@@ -2641,16 +2643,8 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 return true;
         }
 
-        if (!nai.everConnected || nai.isVPN() || numRequests > 0) {
+        if (!nai.everConnected || nai.isVPN() || nai.isLingering() || numRequests > 0) {
             return false;
-        }
-
-        if (nai.isLingering()) {
-            if (satisfiesMobileNetworkDataCheck(nai.networkCapabilities)) {
-                return false;
-            } else {
-                nai.clearLingerState();
-            }
         }
 
         for (NetworkRequestInfo nri : mNetworkRequests.values()) {
@@ -5340,7 +5334,11 @@ public class ConnectivityService extends IConnectivityManager.Stub
                     if (currentNetwork != null) {
                         if (VDBG) log("   accepting network in place of " + currentNetwork.name());
                         currentNetwork.removeRequest(nri.request.requestId);
-                        currentNetwork.lingerRequest(nri.request, now, mLingerDelayMs);
+                        if (satisfiesMobileNetworkDataCheck(currentNetwork.networkCapabilities)) {
+                            currentNetwork.lingerRequest(nri.request, now, mLingerDelayMs);
+                        } else {
+                            currentNetwork.lingerRequest(nri.request, now, mNonDefaultSubscriptionLingerDelayMs);
+                        }
                         affectedNetworks.add(currentNetwork);
                     } else {
                         if (VDBG) log("   accepting network in place of null");
@@ -5394,7 +5392,13 @@ public class ConnectivityService extends IConnectivityManager.Stub
                 // a) be requested and b) change is NET_CAPABILITY_TRUSTED,
                 // so this code is only incorrect for a network that loses
                 // the TRUSTED capability, which is a rare case.
-                callCallbackForRequest(nri, newNetwork, ConnectivityManager.CALLBACK_LOST, 0);
+                // Linger the non-DDS network requests and do not send LOST
+                // callback, since ideally callback LOSING is sent if lingering
+                if (satisfiesMobileNetworkDataCheck(newNetwork.networkCapabilities)) {
+                    callCallbackForRequest(nri, newNetwork, ConnectivityManager.CALLBACK_LOST, 0);
+                } else {
+                    newNetwork.lingerRequest(nri.request, now, mNonDefaultSubscriptionLingerDelayMs);
+                }
             }
         }
         if (isNewDefault) {
@@ -5429,6 +5433,15 @@ public class ConnectivityService extends IConnectivityManager.Stub
             processListenRequests(newNetwork, false);
         }
 
+        if (satisfiesMobileNetworkDataCheck(newNetwork.networkCapabilities) == false) {
+            // Force trigger permission change on non-DDS network to close all live connections
+            try {
+                mNetd.setNetworkPermission(newNetwork.network.netId,
+                                           NetworkManagementService.PERMISSION_NETWORK);
+            } catch (RemoteException e) {
+                loge("Exception in setNetworkPermission: " + e);
+            }
+        }
         // do this after the default net is switched, but
         // before LegacyTypeTracker sends legacy broadcasts
         for (NetworkRequestInfo nri : addedRequests) notifyNetworkAvailable(newNetwork, nri);
@@ -6069,7 +6082,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
     private boolean satisfiesMobileNetworkDataCheck(NetworkCapabilities agentNc) {
         if (agentNc != null && agentNc.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
             if((agentNc.hasCapability(NET_CAPABILITY_EIMS) &&
-                 (mSubscriptionManager != null && 
+                 (mSubscriptionManager != null &&
                   (mSubscriptionManager.getActiveSubscriptionInfoList() == null ||
                    mSubscriptionManager.getActiveSubscriptionInfoList().size()==0))) ||
                (getIntSpecifier(agentNc.getNetworkSpecifier()) == SubscriptionManager
