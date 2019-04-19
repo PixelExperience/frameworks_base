@@ -41,4 +41,5 @@
     <!-- Network traffic -->
     <dimen name="net_traffic_text_size">8sp</dimen>
 
+    <dimen name="op_keyguard_indication_margin_bottom">415.0px</dimen>
 </resources>
