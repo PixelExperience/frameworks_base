@@ -252,5 +252,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.INCREASING_RING_START_VOLUME, new InclusiveFloatRangeValidator(0, 1));
         VALIDATORS.put(System.INCREASING_RING_RAMP_UP_TIME, new InclusiveFloatRangeValidator(5, 60));
         VALIDATORS.put(System.DISPLAY_CUTOUT_HIDDEN, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.FORCE_FULLSCREEN_CUTOUT_APPS, ANY_STRING_VALIDATOR);
     }
 }
