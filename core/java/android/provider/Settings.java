@@ -4506,6 +4506,15 @@ public final class Settings {
          * Display cutout
          * @hide
          */
+        public static final String FORCE_FULLSCREEN_CUTOUT_APPS = "force_full_screen_cutout_apps";
+
+        /** @hide */
+        private static final Validator FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR = ANY_STRING_VALIDATOR;
+
+        /**
+         * Display cutout
+         * @hide
+         */
         public static final String DISPLAY_CUTOUT_HIDDEN = "display_cutout_hidden";
 
         /** @hide */
@@ -4848,6 +4857,7 @@ public final class Settings {
             VALIDATORS.put(FACE_AUTO_UNLOCK, FACE_AUTO_UNLOCK_VALIDATOR);
             VALIDATORS.put(ADVANCED_REBOOT, ADVANCED_REBOOT_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
+            VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
         }
 
         /**
