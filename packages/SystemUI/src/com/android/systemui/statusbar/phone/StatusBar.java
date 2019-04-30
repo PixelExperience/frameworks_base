@@ -535,6 +535,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     private boolean mShowMediaMetadata;
 
+    private UserManager mUserManager;
+
     private BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -846,6 +848,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         Dependency.get(ActivityStarterDelegate.class).setActivityStarterImpl(this);
 
         Dependency.get(ConfigurationController.class).addCallback(this);
+
+        mUserManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
     }
 
     // ================================================================================
@@ -1145,6 +1149,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         filter.addAction(DevicePolicyManager.ACTION_SHOW_DEVICE_MONITORING_DIALOG);
         filter.addAction("android.intent.action.SCREEN_CAMERA_GESTURE");
         filter.addAction("com.android.systemui.ACTION_DISMISS_KEYGUARD");
+        filter.addAction(Intent.ACTION_USER_SWITCHED);
         context.registerReceiverAsUser(mBroadcastReceiver, UserHandle.ALL, filter, null, null);
 
         IntentFilter demoFilter = new IntentFilter();
@@ -2312,7 +2317,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
-                                mDisplayCutoutHidden, mLockscreenUserManager.getCurrentUserId());
+                                mDisplayCutoutHidden, UserHandle.myUserId());
                 } catch (RemoteException ignored) {
                 }
             });
@@ -3318,6 +3323,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     Intent launchIntent = (Intent) intent.getParcelableExtra("launch");
                     startActivityDismissingKeyguard(launchIntent, true, true);
                 }
+            }else if (Intent.ACTION_USER_SWITCHED.equals(action)) {
+                updateTheme(false, true);
+                updateCutoutOverlay();
             }
         }
     };
@@ -4149,7 +4157,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         if ((fromPowerSaveCallback || !darkThemeNeeded) && DARK_THEME_IN_NIGHT_MODE && mIsOnPowerSaveMode){
             darkThemeNeeded = true;
         }
-        final boolean useDarkTheme = darkThemeNeeded;
+        final boolean useDarkTheme = darkThemeNeeded && mUserManager.isAdminUser();
         if (themeNeedsRefresh || isUsingDarkTheme() != useDarkTheme) {
             mUiOffloadThread.submit(() -> {
                 umm.setNightMode(useDarkTheme ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
