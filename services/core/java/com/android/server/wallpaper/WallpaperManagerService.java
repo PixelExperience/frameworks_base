@@ -355,8 +355,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         public void startObserving(Context context) {
             context.getContentResolver().registerContentObserver(
                     Settings.Secure.getUriFor(Settings.Secure.THEME_MODE),
-                    false,
-                    this);
+                    false, this, UserHandle.USER_ALL);
         }
 
         public void stopObserving(Context context) {
@@ -418,7 +417,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         synchronized (mLock) {
             wallpaper = mWallpaperMap.get(mCurrentUserId);
             int updatedThemeMode = mPowerManager.isPowerSaveMode() ? Settings.Secure.THEME_MODE_DARK :
-                    Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER);
+                    Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER,
+                        UserHandle.USER_CURRENT);
 
             if (DEBUG) {
                 Slog.v(TAG, "onThemeSettingsChanged, mode = " + updatedThemeMode);
@@ -1519,9 +1520,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                 systemWallpaper.themeSettingsObserver = new ThemeSettingsObserver(null);
                 systemWallpaper.themeSettingsObserver.startObserving(mContext);
             }
-            mThemeMode = Settings.Secure.getInt(
-                    mContext.getContentResolver(), Settings.Secure.THEME_MODE,
-                    Settings.Secure.THEME_MODE_WALLPAPER);
+            mThemeMode = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                             Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER,
+                             UserHandle.USER_CURRENT);
             switchWallpaper(systemWallpaper, reply);
         }
 
