@@ -2263,6 +2263,33 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         return themeInfo != null && themeInfo.isEnabled();
     }
 
+    private void swapWhiteBlackAccent() {
+        OverlayInfo themeInfo = null;
+        try {
+            if (isUsingDarkTheme()){
+                themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.black",
+                        mLockscreenUserManager.getCurrentUserId());
+                if (themeInfo != null && themeInfo.isEnabled()) {
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.black",
+                            false, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.white",
+                            true, mLockscreenUserManager.getCurrentUserId());
+                }
+            } else {
+                themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.white",
+                        mLockscreenUserManager.getCurrentUserId());
+                if (themeInfo != null && themeInfo.isEnabled()) {
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.white",
+                            false, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.black",
+                            true, mLockscreenUserManager.getCurrentUserId());
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void unloadStockDarkTheme() {
         OverlayInfo themeInfo = null;
         try {
@@ -4127,6 +4154,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mUiOffloadThread.submit(() -> {
                 umm.setNightMode(useDarkTheme ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 try {
+                    swapWhiteBlackAccent();
                     mOverlayManager.setEnabled("com.android.system.theme.dark",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.systemui.custom.theme.dark",
