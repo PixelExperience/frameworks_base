@@ -4615,6 +4615,16 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * System accent color
+         * @hide
+         */
+        public static final String THEME_ACCENT = "theme_accent";
+
+        /** @hide */
+        public static final Validator THEME_ACCENT_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4836,6 +4846,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
             PRIVATE_SETTINGS.add(NAV_BAR_INVERSE);
+            PRIVATE_SETTINGS.add(THEME_ACCENT);
         }
 
         /**
@@ -4969,6 +4980,7 @@ public final class Settings {
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
             VALIDATORS.put(NAV_BAR_INVERSE, NAV_BAR_INVERSE_VALIDATOR);
+            VALIDATORS.put(THEME_ACCENT, THEME_ACCENT_VALIDATOR);
         }
 
         /**
