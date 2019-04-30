@@ -2259,6 +2259,33 @@ public class StatusBar extends SystemUI implements DemoMode,
         return themeInfo != null && themeInfo.isEnabled();
     }
 
+    private void swapWhiteBlackAccent() {
+        OverlayInfo themeInfo = null;
+        try {
+            if (isUsingDarkTheme()){
+                themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.black",
+                        mLockscreenUserManager.getCurrentUserId());
+                if (themeInfo != null && themeInfo.isEnabled()) {
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.black",
+                            false, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.white",
+                            true, mLockscreenUserManager.getCurrentUserId());
+                }
+            } else {
+                themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.white",
+                        mLockscreenUserManager.getCurrentUserId());
+                if (themeInfo != null && themeInfo.isEnabled()) {
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.white",
+                            false, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.black",
+                            true, mLockscreenUserManager.getCurrentUserId());
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void unloadStockDarkTheme() {
         OverlayInfo themeInfo = null;
         try {
@@ -4112,6 +4139,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     umm.setNightMode(useDarkTheme ?
                         UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 }
+            });
+            mUiOffloadThread.submit(() -> {
+                swapWhiteBlackAccent();
             });
         }
 
