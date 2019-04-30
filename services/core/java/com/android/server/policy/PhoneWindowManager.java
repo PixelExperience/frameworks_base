@@ -293,8 +293,6 @@ import com.android.server.wm.DisplayFrames;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
-import org.pixelexperience.keydisabler.KeyDisabler;
-
 import com.android.internal.util.custom.hwkeys.ActionUtils;
 import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
 
@@ -2870,15 +2868,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             updateRotation(true);
         }
     }
-    
+
     private void updateKeydisabler(){
-        try {
-            if (KeyDisabler.isSupported()) {
-                KeyDisabler.setActive(mHasNavigationBar);
-            }
-        } catch (Exception e) {
-            Slog.w(TAG, "KeyDisabler operation failed", e);
-        }
+        // TODO: Add hwkeys code here
     }
 
     private void updateWakeGestureListenerLp() {
