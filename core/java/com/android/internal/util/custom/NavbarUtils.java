@@ -21,6 +21,8 @@ import android.os.SystemProperties;
 import android.provider.Settings;
 import android.os.UserHandle;
 
+import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
+
 public class NavbarUtils {
     public static boolean hasNavbarByDefault(Context context) {
         boolean needsNav = context.getResources().getBoolean(com.android.internal.R.bool.config_showNavigationBar);
@@ -33,11 +35,28 @@ public class NavbarUtils {
         return needsNav;
     }
     public static boolean isEnabled(Context context) {
+        if (!canDisable(context)){
+            return true;
+        }
         return Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.NAVIGATION_BAR_SHOW, hasNavbarByDefault(context) ? 1 : 0, UserHandle.USER_CURRENT) != 0;
     }
     public static void setEnabled(Context context, boolean enabled) {
+        if (!canDisable(context)){
+            return;
+        }
         Settings.System.putIntForUser(context.getContentResolver(),
                 Settings.System.NAVIGATION_BAR_SHOW, enabled ? 1 : 0, UserHandle.USER_CURRENT);
+    }
+    public static boolean canDisable(Context context) {
+        boolean canForceDisable = context.getResources().getBoolean(com.android.internal.R.bool.config_canForceDisableNavigationBar);
+        if (canForceDisable){
+            return true;
+        }
+        final int deviceKeys = context.getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareKeys);
+        final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
+        final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
+        return hasHomeKey && hasBackKey;
     }
 }
