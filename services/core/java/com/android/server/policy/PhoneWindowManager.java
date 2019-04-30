@@ -2788,7 +2788,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mNavigationBarCanMove = width != height && shortSizeDp < 600;
 
         mHasNavigationBar = NavbarUtils.isEnabled(mContext);
-        updateKeydisabler();
 
         // For demo purposes, allow the rotation of the HDMI display to be controlled.
         // By default, HDMI locks rotation to landscape.
@@ -2956,7 +2955,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
 
             mHasNavigationBar = NavbarUtils.isEnabled(mContext);
-            updateKeydisabler();
         }
         synchronized (mWindowManagerFuncs.getWindowManagerLock()) {
             PolicyControl.reloadFromSetting(mContext);
@@ -2964,10 +2962,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (updateRotation) {
             updateRotation(true);
         }
-    }
-
-    private void updateKeydisabler(){
-        // TODO: Add hwkeys code here
     }
 
     private void updateWakeGestureListenerLp() {
@@ -4000,6 +3994,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             WindowManager.LayoutParams.TYPE_SYSTEM_ERROR,
         };
 
+    private boolean shouldDisableKey(int keyCode) {
+        return mHasNavigationBar && (keyCode == KeyEvent.KEYCODE_HOME
+                || keyCode == KeyEvent.KEYCODE_MENU
+                || keyCode == KeyEvent.KEYCODE_APP_SWITCH
+                || keyCode == KeyEvent.KEYCODE_ASSIST
+                || keyCode == KeyEvent.KEYCODE_BACK);
+    }
+
     /** {@inheritDoc} */
     @Override
     public long interceptKeyBeforeDispatching(WindowState win, KeyEvent event, int policyFlags) {
@@ -4018,6 +4020,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
                     + repeatCount + " keyguardOn=" + keyguardOn + " mHomePressed=" + mHomePressed
                     + " canceled=" + canceled);
+        }
+
+        // Hardware keys disable
+        if (!fromNavbar && shouldDisableKey(keyCode)) {
+            return -1;
         }
 
         // If we think we might have a volume down & power key chord on the way
@@ -6684,6 +6691,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && (policyFlags & WindowManagerPolicy.FLAG_VIRTUAL) != 0
                 && (!isNavBarVirtKey || mNavBarVirtualKeyHapticFeedbackEnabled)
                 && event.getRepeatCount() == 0;
+
+        if (!fromNavbar && shouldDisableKey(keyCode)){
+            useHapticFeedback = false;
+        }
 
         // Specific device key handling
         if (dispatchKeyToKeyHandlers(event)) {
