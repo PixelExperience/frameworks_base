@@ -80,6 +80,7 @@ public class ImmersiveModeConfirmation {
     // the lock held.
     private boolean mVrModeEnabled;
     private int mLockTaskState = LOCK_TASK_MODE_NONE;
+    private boolean mIsDeviceInPocket = false;
 
     ImmersiveModeConfirmation(Context context, Looper looper, boolean vrModeEnabled) {
         final Display display = context.getDisplay();
@@ -142,7 +143,8 @@ public class ImmersiveModeConfirmation {
                     && !mVrModeEnabled
                     && !navBarEmpty
                     && !UserManager.isDeviceInDemoMode(mContext)
-                    && (mLockTaskState != LOCK_TASK_MODE_LOCKED)) {
+                    && (mLockTaskState != LOCK_TASK_MODE_LOCKED)
+                    && !mIsDeviceInPocket) {
                 mHandler.sendEmptyMessageDelayed(H.SHOW, mShowDelayMs);
             }
         } else {
@@ -409,5 +411,9 @@ public class ImmersiveModeConfirmation {
 
     void onLockTaskModeChangedLw(int lockTaskState) {
         mLockTaskState = lockTaskState;
+    }
+
+    void onDevicePocketStateChanged(boolean onPocket) {
+        mIsDeviceInPocket = onPocket;
     }
 }
