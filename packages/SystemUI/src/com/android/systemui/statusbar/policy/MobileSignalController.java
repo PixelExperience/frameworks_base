@@ -201,7 +201,7 @@ public class MobileSignalController extends SignalController<
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
         mShow4G = Settings.System.getIntForUser(resolver,
-                Settings.System.SHOW_FOURG, 
+                Settings.System.SHOW_FOURG,
                 mContext.getResources().getBoolean(R.bool.config_show4GForLTE) ? 1 : 0,
                 UserHandle.USER_CURRENT) == 1;
         mapIconSets();
