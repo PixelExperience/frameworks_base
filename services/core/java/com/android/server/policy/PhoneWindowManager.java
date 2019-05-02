@@ -2410,7 +2410,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mOPGestures = new OPGesturesListener(context, new OPGesturesListener.Callbacks() {
             @Override
             public void onSwipeThreeFinger() {
-                mHandler.post(mScreenshotRunnable);
+                if (!mPocketLockShowing){
+                    mHandler.post(mScreenshotRunnable);
+                }
             }
         });
 
@@ -8153,6 +8155,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mPocketLock.hide(animate);
         mPocketLockShowing = false;
+
+        if (!mKeyguardManager.isKeyguardLocked()){ // Keyguard disabled ?
+            mPocketManager.onInteractiveChanged(false);
+            updateSystemUiVisibilityLw();
+        }
     }
 
     private void handleHideBootMessage() {
