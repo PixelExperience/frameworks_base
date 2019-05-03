@@ -143,6 +143,7 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
 
     // Custom methods
     private boolean mPocketLockVisible;
+    private boolean mSupportedByDevice;
 
     public PocketService(Context context) {
         super(context);
@@ -159,6 +160,8 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
         if (mLightSensor != null) {
             mLightMaxRange = mLightSensor.getMaximumRange();
         }
+        mSupportedByDevice = mContext.getResources().getBoolean(
+                                 com.android.internal.R.bool.config_pocketModeSupported);
         mObserver = new PocketObserver(mHandler);
         mObserver.onChange(true);
         mObserver.register();
@@ -175,7 +178,7 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
         @Override
         public void onChange(boolean selfChange) {
             final boolean enabled = System.getIntForUser(mContext.getContentResolver(),
-                    POCKET_JUDGE, 0 /* default */, UserHandle.USER_CURRENT) != 0;
+                    POCKET_JUDGE, 0 /* default */, UserHandle.USER_CURRENT) != 0 && mSupportedByDevice;
             setEnabled(enabled);
         }
 
