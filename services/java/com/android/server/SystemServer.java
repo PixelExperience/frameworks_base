@@ -195,6 +195,9 @@ import java.util.concurrent.Future;
 // LineageHardware
 import com.android.server.custom.LineageHardwareService;
 
+// LiveDisplay
+import com.android.server.custom.display.LiveDisplayService;
+
 public final class SystemServer {
 
     private static final String TAG = "SystemServer";
@@ -2018,6 +2021,16 @@ public final class SystemServer {
             if (!mOnlyCore){
                 t.traceBegin("StartLineageHardwareService");
                 mSystemServiceManager.startService(LineageHardwareService.class);
+                t.traceEnd();
+            }
+
+            // LiveDisplay
+            if (!mOnlyCore){
+                t.traceBegin("StartLineageHardwareService");
+                mSystemServiceManager.startService(LineageHardwareService.class);
+                t.traceEnd();
+                t.traceBegin("StartLiveDisplayService");
+                mSystemServiceManager.startService(LiveDisplayService.class);
                 t.traceEnd();
             }
         }

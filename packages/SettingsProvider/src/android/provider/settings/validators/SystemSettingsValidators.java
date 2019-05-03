@@ -32,6 +32,7 @@ import android.hardware.display.ColorDisplayManager;
 import android.os.BatteryManager;
 import android.provider.Settings.System;
 import android.util.ArrayMap;
+import android.text.TextUtils;
 
 import java.util.Map;
 
@@ -255,5 +256,45 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.FORCE_FULLSCREEN_CUTOUT_APPS, ANY_STRING_VALIDATOR);
         VALIDATORS.put(System.SWIPE_TO_SCREENSHOT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.INCALL_FEEDBACK_VIBRATE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.DISPLAY_TEMPERATURE_DAY, new InclusiveIntegerRangeValidator(0, 100000));
+        VALIDATORS.put(System.DISPLAY_TEMPERATURE_NIGHT, new InclusiveIntegerRangeValidator(0, 100000));
+        VALIDATORS.put(System.DISPLAY_TEMPERATURE_MODE, new InclusiveIntegerRangeValidator(0, 4));
+        VALIDATORS.put(System.DISPLAY_AUTO_OUTDOOR_MODE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.DISPLAY_READING_MODE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.DISPLAY_CABC, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.DISPLAY_COLOR_ENHANCE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.DISPLAY_AUTO_CONTRAST, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.DISPLAY_COLOR_ADJUSTMENT, new Validator() {
+            @Override
+            public boolean validate(String value) {
+                String[] colorAdjustment = value == null ?
+                        null : value.split(" ");
+                if (colorAdjustment != null && colorAdjustment.length != 3) {
+                    return false;
+                }
+                Validator floatValidator = new InclusiveFloatRangeValidator(0, 1);
+                return colorAdjustment == null ||
+                        floatValidator.validate(colorAdjustment[0]) &&
+                        floatValidator.validate(colorAdjustment[1]) &&
+                        floatValidator.validate(colorAdjustment[2]);
+            }
+        });
+        VALIDATORS.put(System.DISPLAY_PICTURE_ADJUSTMENT, new Validator() {
+            @Override
+            public boolean validate(String value) {
+                if (TextUtils.isEmpty(value)) {
+                    return true;
+                }
+                final String[] sp = TextUtils.split(value, ",");
+                for (String s : sp) {
+                    final String[] sp2 = TextUtils.split(s, ":");
+                    if (sp2.length != 2) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        });
+        VALIDATORS.put(System.LIVE_DISPLAY_HINTED, new InclusiveIntegerRangeValidator(-3, 1));
     }
 }
