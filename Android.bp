@@ -615,6 +615,10 @@ java_library {
         "core/java/org/chromium/arc/EventLogTags.logtags",
 
         ":framework-statslog-gen",
+
+        // LiveDisplay
+        "core/java/com/android/internal/custom/hardware/ILineageHardwareService.aidl",
+        "core/java/com/android/internal/custom/hardware/ILiveDisplayService.aidl",
     ],
 
     aidl: {
@@ -683,6 +687,7 @@ java_library {
         "android.hardware.wifi-V1.0-java-constants",
         "android.hardware.radio-V1.0-java",
         "android.hardware.usb.gadget-V1.0-java",
+        "vendor.lineage.livedisplay-V2.0-java",
     ],
 
     // Loaded with System.loadLibrary by android.view.textclassifier
