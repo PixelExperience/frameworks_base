@@ -208,4 +208,7 @@
         to communicate pocket state to the pocket judge kernel driver. -->
     <string name="config_pocketBridgeSysfsInpocket"></string>
 
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
+
 </resources>
