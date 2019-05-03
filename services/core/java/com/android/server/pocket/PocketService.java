@@ -162,6 +162,7 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
 
     // Custom methods
     private boolean mPocketLockVisible;
+    private boolean mSupportedByDevice;
 
     public PocketService(Context context) {
         super(context);
@@ -181,9 +182,13 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
             mLightMaxRange = mLightSensor.getMaximumRange();
         }
         mVendorSensor = getSensor(mSensorManager, mVendorPocketSensor);
+        mSupportedByDevice = mContext.getResources().getBoolean(
+                                 com.android.internal.R.bool.config_pocketModeSupported);
         mObserver = new PocketObserver(mHandler);
-        mObserver.onChange(true);
-        mObserver.register();
+        if (mSupportedByDevice){
+            mObserver.onChange(true);
+            mObserver.register();
+        }
     }
 
     private class PocketObserver extends ContentObserver {
@@ -452,6 +457,10 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
     };
 
     private boolean isDeviceInPocket() {
+        if (!mSupportedByDevice){
+            return false;
+        }
+
         if (mVendorSensorState != VENDOR_SENSOR_UNKNOWN) {
             return mVendorSensorState == VENDOR_SENSOR_IN_POCKET;
         }
@@ -464,6 +473,9 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
     }
 
     private void setEnabled(boolean enabled) {
+        if (!mSupportedByDevice){
+            return;
+        }
         if (enabled != mEnabled) {
             mEnabled = enabled;
             mHandler.removeCallbacksAndMessages(null);
@@ -472,6 +484,9 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
     }
 
     private void update() {
+        if (!mSupportedByDevice){
+            return;
+        }
         if (!mEnabled || mInteractive) {
             if (mEnabled && isDeviceInPocket()) {
                 // if device is judged to be in pocket while switching
@@ -486,12 +501,18 @@ public class PocketService extends SystemService implements IBinder.DeathRecipie
     }
 
     private void registerSensorListeners() {
+        if (!mSupportedByDevice){
+            return;
+        }
         startListeningForVendorSensor();
         startListeningForProximity();
         startListeningForLight();
     }
 
     private void unregisterSensorListeners() {
+        if (!mSupportedByDevice){
+            return;
+        }
         stopListeningForVendorSensor();
         stopListeningForProximity();
         stopListeningForLight();

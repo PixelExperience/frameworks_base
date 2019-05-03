@@ -131,5 +131,6 @@
     <java-symbol type="id" name="pocket_hint_message" />
     <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
+    <java-symbol type="bool" name="config_pocketModeSupported" />
 
 </resources>
