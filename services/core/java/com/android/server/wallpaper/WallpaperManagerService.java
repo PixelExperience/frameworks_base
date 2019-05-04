@@ -91,6 +91,7 @@ import android.util.Xml;
 import android.view.Display;
 import android.view.IWindowManager;
 import android.view.WindowManager;
+import android.util.Log;
 
 import com.android.internal.R;
 import com.android.internal.content.PackageMonitor;
@@ -124,6 +125,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import com.android.internal.R;
+
+import com.android.internal.custom.hardware.LiveDisplayManager;
 
 public class WallpaperManagerService extends IWallpaperManager.Stub
         implements IWallpaperManagerService {
@@ -369,6 +372,18 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         }
     }
 
+    private boolean isLiveDisplayNightModeOn() {
+        // SystemUI is initialized before LiveDisplay, so the service may not
+        // be ready when this is called the first time
+        LiveDisplayManager manager = LiveDisplayManager.getInstance(mContext);
+        try {
+            return manager.isNightModeEnabled();
+        } catch (NullPointerException e) {
+            Log.w(TAG, e.getMessage());
+        }
+        return false;
+    }
+
     /**
      * Check whether to call notifyWallpaperColorsChanged. Assumed that the theme mode
      * was wallpaper theme mode and dark wallpaper was set, therefoe, the theme was dark.
@@ -405,6 +420,10 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                     result = !supportDarkTheme;
                 }
                 break;
+            case Settings.Secure.THEME_MODE_TIME:
+                mThemeMode = isLiveDisplayNightModeOn() ? Settings.Secure.THEME_MODE_DARK :
+                    Settings.Secure.THEME_MODE_LIGHT;
+                return true;
             default:
                 Slog.w(TAG, "unkonwn theme mode " + themeMode);
                 return false;
