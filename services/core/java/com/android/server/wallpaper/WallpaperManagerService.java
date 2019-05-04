@@ -125,11 +125,22 @@ import java.util.List;
 import java.util.Objects;
 import com.android.internal.R;
 
+import com.android.server.ServiceThread;
+
+import com.android.server.custom.display.TwilightTracker;
+import com.android.server.custom.display.TwilightTracker.TwilightListener;
+import com.android.server.custom.display.TwilightTracker.TwilightState;
+
 public class WallpaperManagerService extends IWallpaperManager.Stub
         implements IWallpaperManagerService {
     static final String TAG = "WallpaperManagerService";
     static final boolean DEBUG = false;
     static final boolean DEBUG_LIVE = DEBUG || true;
+
+    private final TwilightTracker mTwilightTracker;
+    private final Handler mHandler;
+    private final ServiceThread mHandlerThread;
+    private boolean mIsNightModeEnabled = false;
 
     public static class Lifecycle extends SystemService {
         private IWallpaperManagerService mService;
@@ -405,6 +416,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                     result = !supportDarkTheme;
                 }
                 break;
+            case Settings.Secure.THEME_MODE_TIME:
+                result = true;
+                break;
             default:
                 Slog.w(TAG, "unkonwn theme mode " + themeMode);
                 return false;
@@ -604,9 +618,11 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         WallpaperColors themeColors = new WallpaperColors(colors.getPrimaryColor(),
                 colors.getSecondaryColor(), colors.getTertiaryColor());
 
-        if (mThemeMode == Settings.Secure.THEME_MODE_LIGHT) {
+        if (mThemeMode == Settings.Secure.THEME_MODE_LIGHT ||
+                (mThemeMode == Settings.Secure.THEME_MODE_TIME && !mIsNightModeEnabled)) {
             colorHints &= ~WallpaperColors.HINT_SUPPORTS_DARK_THEME;
-        } else if (mThemeMode == Settings.Secure.THEME_MODE_DARK) {
+        } else if (mThemeMode == Settings.Secure.THEME_MODE_DARK ||
+                (mThemeMode == Settings.Secure.THEME_MODE_TIME && mIsNightModeEnabled)) {
             colorHints |= WallpaperColors.HINT_SUPPORTS_DARK_THEME;
         }
         themeColors.setColorHints(colorHints);
@@ -1304,6 +1320,13 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         mMonitor = new MyPackageMonitor();
         mColorsChangedListeners = new SparseArray<>();
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+
+        mHandlerThread = new ServiceThread(TAG,
+                Process.THREAD_PRIORITY_DEFAULT, false /*allowIo*/);
+        mHandlerThread.start();
+        mHandler = new Handler(mHandlerThread.getLooper());
+
+        mTwilightTracker = new TwilightTracker(mContext);
     }
 
     void initialize() {
@@ -1448,8 +1471,23 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
             systemReady();
         } else if (phase == SystemService.PHASE_THIRD_PARTY_APPS_CAN_START) {
             switchUser(UserHandle.USER_SYSTEM, null);
+        } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
+            mTwilightTracker.registerListener(mTwilightListener, mHandler);
         }
     }
+
+    private final TwilightListener mTwilightListener = new TwilightListener() {
+        @Override
+        public void onTwilightStateChanged() {
+            mIsNightModeEnabled = mTwilightTracker.getCurrentState().isNight();
+            if (mThemeMode == Settings.Secure.THEME_MODE_TIME){
+                WallpaperData wallpaper = mWallpaperMap.get(mCurrentUserId);
+                if (wallpaper != null) {
+                    notifyWallpaperColorsChanged(wallpaper, FLAG_SYSTEM);
+                }
+            }
+        }
+    };
 
     @Override
     public void onUnlockUser(final int userId) {
