@@ -8087,6 +8087,12 @@ public final class Settings {
         public static final int THEME_MODE_DARK = 2;
 
         /**
+         * THEME_MODE value for time mode.
+         * @hide
+         */
+        public static final int THEME_MODE_TIME = 3;
+
+        /**
          * Whether screensavers are enabled.
          * @hide
          */
