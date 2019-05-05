@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">شارژ توربو متصل شد (<xliff:g id="charging_time_left">%s</xliff:g> تا پر شدن کامل)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">شارژ توربو متصل شد</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">ردر حال سوپر شارژ (<xliff:g id="charging_time_left" مثال="4ساعت و 2 دقیقه ">%s </xliff:g> تا پر شدن)</string>
-    <string name="keyguard_plugged_in_super_charging">در حال سوپر شارژ</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه بازگشت را نگه دارید.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -22,4 +19,21 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">اعلان فوری</string>
+    <string name="accessibility_quick_settings_heads_up_off">اعلان فوری خاموش.</string>
+    <string name="accessibility_quick_settings_heads_up_on">اعلان فوری روشن.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">اعلان فوری خاموش شد.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">اعلان فوری روشن شد.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">همگام‌‌سازی</string>
+    <string name="accessibility_quick_settings_sync_off">همگام‌سازی خاموش.</string>
+    <string name="accessibility_quick_settings_sync_on">همگام‌سازی روشن.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">همگام‌سازی خاموش شد.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">همگام‌سازی روشن شد.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
 </resources>

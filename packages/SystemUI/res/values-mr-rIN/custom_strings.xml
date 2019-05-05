@@ -7,7 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower जोडले (<xliff:g id="charging_time_left">%s</xliff:g> पूर्ण होईपर्यंत)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">टर्बो पॉवर कनेक्ट केला</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">हे तुम्ही अनपिन करेपर्यंत व्ह्यूमध्ये राहते. अनपिन करण्यासाठी मागे जाणाऱ्या बटणास दाबून ठेवा.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -18,4 +17,24 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">कॅफीन</string>
+    <string name="accessibility_quick_settings_caffeine_off">कॅफीन बंद.</string>
+    <string name="accessibility_quick_settings_caffeine_on">कॅफिन चालू.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">हेड्स अप</string>
+    <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद.</string>
+    <string name="accessibility_quick_settings_heads_up_on">हेड्स अप चालू.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">हेड्स अप बंद केले.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">हेड्स अप चालू केले.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">संकालन करा</string>
+    <string name="accessibility_quick_settings_sync_off">सिंक बंद.</string>
+    <string name="accessibility_quick_settings_sync_on">सिंक चालू.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">सिंक बंद केले.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">सिंक चालू केले.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
 </resources>

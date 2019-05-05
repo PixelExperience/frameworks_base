@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower punjač spojen (<xliff:g id="charging_time_left">%s</xliff:g> do pune baterije)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower punjač spojen</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Brzo punjenje (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do napunjenosti)</string>
-    <string name="keyguard_plugged_in_super_charging">Brzo punjenje</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite &amp; i držite gumb za povratak natrag da biste ga otkvačili.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -25,4 +22,35 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Način preuzimanja</string>
+    <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Prikaži 4G umjesto LTE</string>
+    <string name="show_fourg_summary">Zamjenjuje LTE pokazivač u statusnoj traci 4G-om</string>
+    <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/s</string>
+    <string name="megabitspersecond_short">Mb/s</string>
+    <string name="kilobytespersecond_short">kB/s</string>
+    <string name="megabytespersecond_short">MB/s</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein isključen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein uključen.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sinkronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Način za čitanje</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Način za čitanje uključen.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Način za čitanje isključen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Način za čitanje je uključen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Način za čitanje je isključen.</string>
 </resources>

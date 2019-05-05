@@ -7,11 +7,8 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Càrrega ràpida connectada (<xliff:g id="charging_time_left">%s</xliff:g> per acabar)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Càrrega ràpida connectada</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Càrrega ràpida (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> per carregar-se)</string>
-    <string name="keyguard_plugged_in_super_charging">Càrrega ràpida</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per fer-ho, toca i mantén premut el botó Enrere.</string>
+    <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Toca i mantén premut el botó Enrere per deixar de fixar aquesta pantalla</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -24,5 +21,30 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Mode baixada</string>
+    <string name="global_action_restart_download">Descàrrega</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Cafeïna</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notificacions emergents</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents apagades.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">S\'han apagat les notificacions emergents.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">S\'han encès les notificacions emergents.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sinc</string>
+    <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">S\'ha desactivat la sincronització.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">S\'ha activat la sincronització.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Mode lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">S\'ha activat el mode lectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">S\'ha desactivat el mode lectura.</string>
 </resources>

@@ -7,4 +7,6 @@
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">अभी खेल रहे है</string>
     <string name="ambient_recognition_information">%1$s by %2$s</string>
+    <!-- Pocket Lock -->
+    <!-- LiveDisplay strings -->
 </resources>
