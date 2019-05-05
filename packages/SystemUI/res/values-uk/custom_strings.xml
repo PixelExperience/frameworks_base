@@ -7,11 +7,8 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Швидка зарядка під\'єднана (<xliff:g id="charging_time_left">%s</xliff:g> до повної зарядки)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Швидка зарядка під\'єднана</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Швидка зарядка (<xliff:g id="charging_time_left" example="4 год. 2 хв.">%s</xliff:g> до повної зарядки)</string>
-    <string name="keyguard_plugged_in_super_charging">Швидка зарядка</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Додаток залишиться активним, поки ви не скасуєте блокування. Натисніть і утримуйте \"Назад\" для розблокування заблокованих.</string>
+    <string name="screen_pinning_description_no_navbar">Ви постійно бачитимете екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте кнопку \"Назад\".</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Щоб відкріпити цей екран, натисніть &amp; і утримуйте кнопку \"Назад\"</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -25,4 +22,35 @@
     <string name="global_action_restart_bootloader">Завантажувач</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Режим завантаження</string>
+    <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Показати 4G, замість LTE</string>
+    <string name="show_fourg_summary">Замінити LTE в рядку стану на 4G</string>
+    <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">кбіт/с</string>
+    <string name="megabitspersecond_short">Мбіт/с</string>
+    <string name="kilobytespersecond_short">Кб/с</string>
+    <string name="megabytespersecond_short">Мб/с</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Кофеїн</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеїн вимкнено.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеїн увімкнено.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
+    <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимкнено.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнено.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Синхронізація</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронізацію увімкнено.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронізація увімкнено.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Режим читання</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим читання увімкнено.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим читання вимкнено.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Режим читання увімкнено.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Режим читання вимкнено.</string>
 </resources>

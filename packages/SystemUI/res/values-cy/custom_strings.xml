@@ -3,13 +3,42 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Nôl i\'w dadbinio.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">Modd adfer</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Cychwynnydd</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Modd lawrlwytho</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffîn</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffîn i ffwrdd.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffîn ymlaen.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Rhagrybudd</string>
+    <string name="accessibility_quick_settings_heads_up_off">Rhagrybudd i ffwrdd.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Rhagrybudd ymlaen.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Rhagrybudd wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Rhagrybudd wedi\'i droi ymlaen.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Cysoni</string>
+    <string name="accessibility_quick_settings_sync_off">Cysoni i ffwrdd.</string>
+    <string name="accessibility_quick_settings_sync_on">Cysoni ymlaen.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Cysoni wedi\'i droi i ffwrdd.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Cysoni wedi\'i droi ymlaen.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modd darllen</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modd darllen ymlaen.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modd darllen i ffwrdd.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Cafodd modd darllen ei droi ymlaen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Cafodd modd darllen ei droi i ffwrdd.</string>
 </resources>

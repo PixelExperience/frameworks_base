@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> για πλήρη φόρτιση)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Συνδέθηκε η γρήγορη φόρτιση</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Ταχεία φόρτιση Dash(<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%s</xliff:g> για πλήρη φόρτιση)</string>
-    <string name="keyguard_plugged_in_super_charging">Ταχεία Φόρτιση</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -20,9 +17,34 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτή την οθόνη, αγγίξτε παρατεταμένα τον αισθητήρα δακτυλικού αποτυπώματος</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Ανάκτηση/Recovery</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Λειτουργία λήψης</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Καφεΐνη</string>
+    <string name="accessibility_quick_settings_caffeine_off">Καφεΐνη ανενεργή.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Καφεΐνη ενεργή.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Αναδυόμενες ειδοποιήσεις</string>
+    <string name="accessibility_quick_settings_heads_up_off">Ανενεργές αναδυόμενες ειδοποιήσεις.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Ενεργές αναδυόμενες ειδοποιήσεις.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Οι αναδυόμενες ειδοποιήσεις απενεργοποιήθηκαν.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Οι αναδυόμενες ειδοποιήσεις ενεργοποιήθηκαν.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Συγχρονισμός</string>
+    <string name="accessibility_quick_settings_sync_off">Ανενεργός συγχρονισμός.</string>
+    <string name="accessibility_quick_settings_sync_on">Ενεργός συγχρονισμός.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Ο συγχρονισμός απενεργοποιήθηκε.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Ο συγχρονισμός ενεργοποιήθηκε.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Λειτουργία ανάγνωσης</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Λειτουργία ανάγνωσης ενεργή.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Λειτουργία ανάγνωσης ανενεργή.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Η λειτουργία ανάγνωσης ενεργοποιήθηκε.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Η λειτουργία ανάγνωσης απενεργοποιήθηκε.</string>
 </resources>
