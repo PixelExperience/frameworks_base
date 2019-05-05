@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower aangesloten (<xliff:g id="charging_time_left">%s</xliff:g> tot volledig opgeladen)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower verbonden</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Snel opladen (<xliff:g id="charging_time_left" example="4 uur en 2 minuten">%s</xliff:g> tot volledig opgeladen)</string>
-    <string name="keyguard_plugged_in_super_charging">Snel opladen</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Het scherm blijft zichtbaar totdat je het losmaakt. Houd \'Terug\' ingedrukt om het los te maken.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -24,5 +21,30 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download modus</string>
+    <string name="global_action_restart_download">Download</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Cafeïne</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Heads-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up uit.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up aan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ingeschakeld.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchroniseren</string>
+    <string name="accessibility_quick_settings_sync_off">Synchr. uit.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchr. aan.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchr. uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchr. ingeschakeld.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Leesmodus</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Leesmodus aan.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Leesmodus uit.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Leesmodus ingeschakeld.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Leesmodus uitgeschakeld.</string>
 </resources>
