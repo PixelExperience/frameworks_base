@@ -2322,6 +2322,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
+            case SCREENSHOT:
+                mHandler.post(mScreenshotRunnable);
+                break;
             default:
                 break;
         }
