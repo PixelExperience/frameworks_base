@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">เชื่อมต่อ TurboPower แล้ว (<xliff:g id="เหลือเวลาชาร์จอีก">%s</xliff:g> ถึงจะเต็ม)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">เชื่อมต่อ TurboPower แล้ว</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">กำลังซูเปอร์ชาร์จ (<xliff:g id="เหลือเวลาชาร์จอีก" ตัวอย่าง="4 ชั่วโมง 2 นาที">%s</xliff:g> ถึงจะเต็ม)</string>
-    <string name="keyguard_plugged_in_super_charging">ซูเปอร์ชาร์จ</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">หน้าจอนี้จะแสดงอยู่จนกว่าจะเลิกปักหมุด แตะปุ่ม &amp; ค้างไว้เพื่อยกเลิกปักหมุด</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -25,4 +22,29 @@
     <string name="global_action_restart_bootloader">บูตโหลดเดอร์</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">โหมด ดาวน์โหลด</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">คาเฟอีน</string>
+    <string name="accessibility_quick_settings_caffeine_off">คาเฟอีนปิดอยู่</string>
+    <string name="accessibility_quick_settings_caffeine_on">คาเฟอีนเปิดอยู่</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up ปิดอยู่</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up เปิดอยู่</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up ปิดอยู่</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up เปิดอยู่</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">ซิงค์</string>
+    <string name="accessibility_quick_settings_sync_off">ปิดการซิงค์</string>
+    <string name="accessibility_quick_settings_sync_on">การซิงค์เปิดอยู่</string>
+    <string name="accessibility_quick_settings_sync_changed_off">การซิงค์ปิดอยู่</string>
+    <string name="accessibility_quick_settings_sync_changed_on">การซิงค์เปิดอยู่</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">โหมดการอ่าน</string>
+    <string name="accessibility_quick_settings_reading_mode_on">เปิดโหมดการอ่าน</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ปิดโหมดการอ่าน</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">โหมดการอ่านเปิดอยู่</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">โหมดการอ่านถูกปิด</string>
 </resources>

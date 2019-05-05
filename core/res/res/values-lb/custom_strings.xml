@@ -3,4 +3,9 @@
 <resources>
     <!-- Buttons - Enable navbar (used by Settings and device parts app) -->
     <!-- Ambient play -->
+    <!-- Pocket Lock -->
+    <!-- LiveDisplay strings -->
+    <string name="live_display_off">Aus</string>
+    <string name="live_display_day">Dag</string>
+    <string name="live_display_night">Nuecht</string>
 </resources>

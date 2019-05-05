@@ -7,11 +7,8 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">ಟರ್ಬೊಪವರ್ ಸಂಪರ್ಕಗೊಂಡಿದೆ (<xliff:g id="charging_time_left">%s</xliff:g> ಪೂರ್ಣಗೊಳ್ಳುವವರೆಗೆ)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">ಟರ್ಬೊಪವರ್ ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">ವೇಗದ ಚಾರ್ಜಿ೦ಗ್ (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> ಪೂರ್ಣಗೊಳ್ಳುವವರೆಗೆ)</string>
-    <string name="keyguard_plugged_in_super_charging">ವೇಗದ ಚಾರ್ಜಿ೦ಗ್</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">ನೀವು ಅನ್ಪಿನ್ ಮಾಡುವವರೆಗೂ ಇದನ್ನು ಗಮನದಲ್ಲಿರಿಸಿಕೊಳ್ಳಿ. ಅನ್ಪಿನ್ ಮಾಡಲು ಅವಲೋಕನವನ್ನು ಒತ್ತಿ ಹಿಡಿದುಕೊಳ್ಳಿ.</string>
+    <string name="screen_pinning_description_no_navbar">ಇದನ್ನು ನೀವು ಬಿಚ್ಚಿಡುವವರೆಗೂ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇರಿಸುತ್ತದೆ. ಬಿಚ್ಚಿಡಲು ಹಿಂದೆ ಗುಂಡಿಯನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -20,9 +17,34 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">ರಿಕವರಿ</string>
+    <string name="global_action_restart_recovery">ಮರುಚೇತರಿಕೆ</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">ಬೂಟ್ ಲೋಡರ್</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">ಡೌನ್ಲೋಡ್ ವಿಧಾನ</string>
+    <string name="global_action_restart_download">ಇಳಿಸು</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">ಕ್ಯಾಫೀನ್</string>
+    <string name="accessibility_quick_settings_caffeine_off">ಕ್ಯಾಫೀನ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_caffeine_on">ಕ್ಯಾಫೀನ್ ಒನ್.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">ಹೆಡ್ಸ್ ಅಪ್</string>
+    <string name="accessibility_quick_settings_heads_up_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್ ಆಗಿದೆ.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
+    <string name="accessibility_quick_settings_sync_off">ಸಿಂಕ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_sync_on">ಸಿಂಕ್ ಆನ್.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">ಸಿಂಕ್ ಆಫ್ ಆಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">ಸಿಂಕ್ ಆನ್ ಆಗಿದೆ.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">ಓದುವ ರೀತಿ</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ಓದುವ ರೀತಿ ಆನ್.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ಓದುವ ರೀತಿ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">ಓದುವ ರೀತಿ ಹೊತ್ತಿತು.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">ಓದುವ ರೀತಿ ನಂದಿತು.</string>
 </resources>

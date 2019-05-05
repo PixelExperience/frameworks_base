@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower је повезан (<xliff:g id="charging_time_left">%s</xliff:g> до краја)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower је повезан</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Брзо пуњење (<xliff:g id="charging_time_left" example="4 сата и 2 минуте">%s</xliff:g> до краја)</string>
-    <string name="keyguard_plugged_in_super_charging">Брзо пуњење</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Ова апликација ће остати активна све док је не откачите дугим притиском на дугме „Назад“.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -20,9 +17,29 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Да бисте откључали овај екран, додирните и задржите сензор отиска прста</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Опоравак</string>
+    <string name="global_action_restart_recovery">Режим опоравка</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">Програм за покретање</string>
+    <string name="global_action_restart_bootloader">Покретач система</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Режим за преузимање</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Искачуће поруке</string>
+    <string name="accessibility_quick_settings_heads_up_off">Искачуће поруке искључене.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Искачуће поруке укључене.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Искачуће поруке ће бити искључене.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Искачуће поруке ће бити укључене.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Синхрон</string>
+    <string name="accessibility_quick_settings_sync_off">Синхрон. искључено.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхрон. укључено.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронизација је искључена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронизација је укључена.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
 </resources>

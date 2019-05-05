@@ -3,7 +3,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -12,4 +11,16 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Iscàrriga</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Cafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <!-- Sync QS tile -->
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
 </resources>

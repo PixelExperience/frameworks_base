@@ -7,9 +7,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower je pripojený (<xliff:g id="charging_time_left">%s</xliff:g> až do plna)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je pripojený</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_super_charging_time">Super nabíjanie (<xliff:g id="Ostáva" example="4 hodiny a 2 minúty">%s</xliff:g> do plného nabitia)</string>
-    <string name="keyguard_plugged_in_super_charging">Super nabíjanie</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním tlačidla Späť.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -25,4 +22,29 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Režim sťahovania</string>
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kofeín</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeín vypnutý.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeín zapnutý.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Plávajúce oznámenia</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plávajúce oznámenia zakázané.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plávajúce oznámenia povolené.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plávajúce oznámenia zakázané.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plávajúce oznámenia povolené.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchronizácia</string>
+    <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
+    <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizácia vypnutá.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizácia zapnutá.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Režim čítania</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Režim čítania zap.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Režim čítania vyp.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čítania je zapnutý.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čítania je vypnutý.</string>
 </resources>

@@ -4,7 +4,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_plugged_in_dash_charging">ଦ୍ରୁତ ଚାର୍ଜିଂ</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -13,4 +12,24 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">ହେଡ୍ସ୍‍ ଅପ୍‍</string>
+    <string name="accessibility_quick_settings_heads_up_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_heads_up_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
+    <string name="accessibility_quick_settings_sync_off">ସିଙ୍କ୍‍ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_sync_on">ସିଙ୍କ୍‍ ଅନ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_sync_changed_off">ସିଙ୍କ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
+    <string name="accessibility_quick_settings_sync_changed_on">ସିଙ୍କ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
 </resources>
