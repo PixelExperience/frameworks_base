@@ -7,4 +7,7 @@
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">درحالِ پخش</string>
     <string name="ambient_recognition_information">%1$s توسط %2$s</string>
+    <!-- Pocket Lock -->
+    <!-- LiveDisplay strings -->
+    <string name="live_display_night">شب</string>
 </resources>

@@ -5,7 +5,6 @@
     <string name="keyguard_indication_dash_charging_time">ఫాస్ట్ ఛార్జింగ్(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>పూర్తి వరకు)</string>
     <string name="keyguard_plugged_in_dash_charging">డాష్ ఛార్జింగ్</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -14,4 +13,24 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- 4G LTE switch -->
+    <!-- Status bar network traffic monitor strings -->
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">కాఫిన్</string>
+    <string name="accessibility_quick_settings_caffeine_off">కాఫిన్ ఆఫ్</string>
+    <string name="accessibility_quick_settings_caffeine_on">కాఫిన్ ఆన్</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">హెచ్చరిక</string>
+    <string name="accessibility_quick_settings_heads_up_off">హెచ్చరిక ఆఫ్.</string>
+    <string name="accessibility_quick_settings_heads_up_on">హెచ్చరిక ఆన్.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">హెచ్చరిక ఆపివేయబడింది.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">హెచ్చరిక ఆన్ చేయబడింది.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">సమకాలీకరణ</string>
+    <string name="accessibility_quick_settings_sync_off">సమకాలీకరణ ఆఫ్.</string>
+    <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">సమకాలీకరణ ఆపివేయబడింది.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">సమకాలీకరణ ఆన్ చేయబడింది.</string>
+    <!-- VoLTE switch -->
+    <!-- Reader mode QS tile -->
 </resources>
