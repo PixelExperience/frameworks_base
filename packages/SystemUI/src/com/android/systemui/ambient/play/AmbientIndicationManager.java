@@ -215,7 +215,7 @@ public class AmbientIndicationManager {
 
     private boolean isBatteryLevelLow() {
         Intent batteryStatus = mContext.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        return batteryStatus.getBooleanExtra(BatteryManager.EXTRA_BATTERY_LOW, false);
+        return batteryStatus != null && batteryStatus.getBooleanExtra(BatteryManager.EXTRA_BATTERY_LOW, false);
     }
 
     private void startRecordingIfNecessary(boolean check) {
