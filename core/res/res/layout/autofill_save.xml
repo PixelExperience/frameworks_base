@@ -29,7 +29,7 @@
         android:layout_marginTop="32dp"
         android:paddingTop="16dp"
         android:elevation="32dp"
-        android:background="@android:color/chooser_service_row_background_color"
+        android:background="@android:color/autofill_save_background_color"
         android:orientation="vertical">
 
         <LinearLayout
