@@ -4112,7 +4112,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         // Hardware keys disable
-        if (!fromNavbar && shouldDisableKey(keyCode)) {
+        if (!fromNavbar && !virtualKey && shouldDisableKey(keyCode)) {
             return -1;
         }
 
@@ -6731,6 +6731,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean canceled = event.isCanceled();
         final int keyCode = event.getKeyCode();
         final boolean fromNavbar = event.getSource() == InputDevice.SOURCE_NAVIGATION_BAR;
+        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
 
         final boolean isInjected = (policyFlags & WindowManagerPolicy.FLAG_INJECTED) != 0;
 
@@ -6825,7 +6826,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && (!isNavBarVirtKey || mNavBarVirtualKeyHapticFeedbackEnabled)
                 && event.getRepeatCount() == 0;
 
-        if (!fromNavbar && shouldDisableKey(keyCode)){
+        if (!fromNavbar && !virtualKey && shouldDisableKey(keyCode)){
             useHapticFeedback = false;
         }
 
