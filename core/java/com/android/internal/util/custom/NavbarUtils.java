@@ -35,9 +35,6 @@ public class NavbarUtils {
         return needsNav;
     }
     public static boolean isEnabled(Context context) {
-        if (!canDisable(context)){
-            return true;
-        }
         return Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.NAVIGATION_BAR_SHOW, hasNavbarByDefault(context) ? 1 : 0, UserHandle.USER_CURRENT) != 0;
     }
