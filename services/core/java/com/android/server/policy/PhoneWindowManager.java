@@ -1926,10 +1926,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void backLongPress() {
         mBackKeyHandled = true;
 
-        if (unpinActivity()) {
-            return;
-        }
-
         switch (mLongPressOnBackBehavior) {
             case LONG_PRESS_BACK_NOTHING:
                 break;
@@ -2118,6 +2114,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private final ScreenshotRunnable mScreenshotRunnable = new ScreenshotRunnable();
+
+    Runnable mBackLongPress = new Runnable() {
+        public void run() {
+            if (unpinActivity(false)) {
+                return;
+            }
+        }
+    };
 
     @Override
     public void showGlobalActions() {
@@ -4321,6 +4325,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mPendingCapsLockToggle = false;
         }
 
+        if (keyCode == KeyEvent.KEYCODE_BACK && !down) {
+            mHandler.removeCallbacks(mBackLongPress);
+        }
+
         // First we always handle the home key here, so applications
         // can never break it, although if keyguard is on, we do let
         // it handle it, because that gives us the correct 5 second
@@ -4661,6 +4669,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 launchAssistAction(Intent.EXTRA_ASSIST_INPUT_HINT_KEYBOARD, event.getDeviceId());
             }
             return -1;
+        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (unpinActivity(true)) {
+                if (down && repeatCount == 0) {
+                    mHandler.postDelayed(mBackLongPress, 2000);
+                }
+            }
         }
 
         // Shortcuts are invoked through Search+key, so intercept those here
@@ -4920,11 +4934,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return false;
     }
 
-    private boolean unpinActivity() {
+    private boolean unpinActivity(boolean checkOnly) {
         if (!hasNavigationBar()) {
             try {
                 if (ActivityManagerNative.getDefault().isInLockTaskMode()) {
-                    ActivityManagerNative.getDefault().stopSystemLockTaskMode();
+                    if (!checkOnly) {
+                        ActivityManagerNative.getDefault().stopSystemLockTaskMode();
+                    }
                     return true;
                 }
             } catch (RemoteException e) {
