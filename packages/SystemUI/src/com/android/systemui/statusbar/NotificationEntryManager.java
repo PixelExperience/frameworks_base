@@ -37,6 +37,7 @@ import android.service.notification.NotificationListenerService;
 import android.service.notification.NotificationStats;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
+import android.telecom.TelecomManager;
 import android.util.ArraySet;
 import android.util.EventLog;
 import android.util.Log;
@@ -136,6 +137,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
      */
     private final ArraySet<String> mKeysKeptForRemoteInput = new ArraySet<>();
 
+    private TelecomManager mTelecomManager;
 
     private final class NotificationClicker implements View.OnClickListener {
 
@@ -241,6 +243,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         mMessagingUtil = new NotificationMessagingUtil(context);
         mSystemServicesProxy = SystemServicesProxy.getInstance(mContext);
         mGroupManager.setPendingEntries(mPendingNotifications);
+        mTelecomManager = (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
     }
 
     public void setUpWithPresenter(NotificationPresenter presenter,
@@ -925,12 +928,14 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
     }
 
     public boolean shouldPeek(NotificationData.Entry entry, StatusBarNotification sbn) {
-        if ((!mUseHeadsUp && !mPresenter.isDozing()) || mPresenter.isDeviceInVrMode()) {
+        String defaultDialerApp = mTelecomManager != null ? mTelecomManager.getDefaultDialerPackage() : "";
+        boolean isDialerApp = sbn.getPackageName().equals(defaultDialerApp);
+        if ((!mUseHeadsUp && !mPresenter.isDozing() && !isDialerApp) || mPresenter.isDeviceInVrMode()) {
             if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode");
             return false;
         }
 
-        if (mNotificationData.shouldFilterOut(entry)) {
+        if (mNotificationData.shouldFilterOut(entry) && !isDialerApp) {
             if (DEBUG) Log.d(TAG, "No peeking: filtered notification: " + sbn.getKey());
             return false;
         }
@@ -944,7 +949,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
             return false;
         }
 
-        if (!mPresenter.isDozing() && mNotificationData.shouldSuppressPeek(entry)) {
+        if (!mPresenter.isDozing() && mNotificationData.shouldSuppressPeek(entry) && !isDialerApp) {
             if (DEBUG) Log.d(TAG, "No peeking: suppressed by DND: " + sbn.getKey());
             return false;
         }
