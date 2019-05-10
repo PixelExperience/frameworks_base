@@ -1472,7 +1472,8 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         } else if (phase == SystemService.PHASE_THIRD_PARTY_APPS_CAN_START) {
             switchUser(UserHandle.USER_SYSTEM, null);
         } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
-            mTwilightTracker.registerListener(mTwilightListener, mHandler);
+            mContext.getMainThreadHandler().postDelayed(() -> 
+                mTwilightTracker.registerListener(mTwilightListener, mHandler), 30000);
         }
     }
 
@@ -1480,6 +1481,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         @Override
         public void onTwilightStateChanged() {
             mIsNightModeEnabled = mTwilightTracker.getCurrentState().isNight();
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                    mIsNightModeEnabled ? 1 : 0, UserHandle.USER_CURRENT);
             if (mThemeMode == Settings.Secure.THEME_MODE_TIME){
                 WallpaperData wallpaper = mWallpaperMap.get(mCurrentUserId);
                 if (wallpaper != null) {
@@ -1560,6 +1564,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
             mThemeMode = Settings.Secure.getInt(
                     mContext.getContentResolver(), Settings.Secure.THEME_MODE,
                     Settings.Secure.THEME_MODE_WALLPAPER);
+            mIsNightModeEnabled = Settings.System.getInt(
+                    mContext.getContentResolver(),
+                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT, 0) != 0;
             switchWallpaper(systemWallpaper, reply);
         }
 
