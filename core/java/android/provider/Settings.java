@@ -4902,6 +4902,15 @@ public final class Settings {
         /** @hide */
         public static final Validator THEME_AUTOMATIC_TIME_IS_NIGHT_VALIDATOR = BOOLEAN_VALIDATOR;
 
+         /**
+         * Dark theme style
+         * @hide
+         */
+        public static final String THEME_DARK_STYLE = "dark_theme_style";
+
+        /** @hide */
+        public static final Validator THEME_DARK_STYLE_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5150,6 +5159,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
             PRIVATE_SETTINGS.add(THEME_AUTOMATIC_TIME_IS_NIGHT);
+            PRIVATE_SETTINGS.add(THEME_DARK_STYLE);
         }
 
         /**
@@ -5309,6 +5319,7 @@ public final class Settings {
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
             VALIDATORS.put(SWIPE_TO_SCREENSHOT, SWIPE_TO_SCREENSHOT_VALIDATOR);
             VALIDATORS.put(THEME_AUTOMATIC_TIME_IS_NIGHT, THEME_AUTOMATIC_TIME_IS_NIGHT_VALIDATOR);
+            VALIDATORS.put(THEME_DARK_STYLE, THEME_DARK_STYLE_VALIDATOR);
         }
 
         /**
