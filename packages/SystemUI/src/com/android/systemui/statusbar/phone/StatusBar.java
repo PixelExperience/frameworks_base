@@ -672,6 +672,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     private boolean mIsOnPowerSaveMode;
 
+    // Dark theme style
+    private boolean mUseBlackTheme;
+
     @Override
     public void start() {
         mGroupManager = Dependency.get(NotificationGroupManager.class);
@@ -760,10 +763,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             // If the system process isn't there we're doomed anyway.
         }
 
-        createAndAddWindows();
-
         mSbSettingsObserver.observe();
         mSbSettingsObserver.update();
+
+        createAndAddWindows();
 
         // Make sure we always have the most current wallpaper info.
         IntentFilter wallpaperChangedFilter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
@@ -4166,9 +4169,13 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 umm.setNightMode(useDarkTheme ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 try {
                     mOverlayManager.setEnabled("com.android.system.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            useDarkTheme && !mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.systemui.custom.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            useDarkTheme && !mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.system.theme.black",
+                            useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.systemui.custom.theme.black",
+                            useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.dark",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.intelligence.theme.dark",
@@ -4180,9 +4187,13 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     mOverlayManager.setEnabled("com.android.wellbeing.theme.dark",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("org.pixelexperience.ota.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            useDarkTheme && !mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.documentsui.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                            useDarkTheme && !mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("org.pixelexperience.ota.theme.black",
+                            useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.documentsui.theme.black",
+                            useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     if (useDarkTheme) {
                         unloadStockDarkTheme();
                     }
@@ -4221,6 +4232,13 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             // Make sure we have the correct navbar/statusbar colors.
             mStatusBarWindowManager.setKeyguardDark(useDarkText);
         }
+    }
+    
+    private void updateDarkThemeStyle(){
+        boolean useBlackByDefault = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_hasOledDisplay);
+        mUseBlackTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.THEME_DARK_STYLE, useBlackByDefault ? 1 : 0, UserHandle.USER_CURRENT) == 1;
     }
 
     private void updateDozingState() {
@@ -5388,6 +5406,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NAV_BAR_INVERSE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.THEME_DARK_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5400,12 +5421,16 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 updateCutoutOverlay();
             }else if (uri.equals(Settings.System.getUriFor(Settings.System.NAV_BAR_INVERSE))) {
                 reloadNavigationBar();
+            }else if (uri.equals(Settings.System.getUriFor(Settings.System.THEME_DARK_STYLE))) {
+                updateDarkThemeStyle();
+                updateTheme(false, true);
             }
         }
 
         public void update() {
             updateNavigationBar(false, false);
             updateCutoutOverlay();
+            updateDarkThemeStyle();
         }
     }
 
