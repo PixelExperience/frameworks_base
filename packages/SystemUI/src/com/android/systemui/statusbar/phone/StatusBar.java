@@ -4179,6 +4179,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                             !useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.wellbeing.theme.dark",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("org.pixelexperience.ota.theme.dark",
+                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.documentsui.theme.dark",
+                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     if (useDarkTheme) {
                         unloadStockDarkTheme();
                     }
