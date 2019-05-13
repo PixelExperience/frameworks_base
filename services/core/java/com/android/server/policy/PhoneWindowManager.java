@@ -2778,9 +2778,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                (hasMenu && !hasAssist)) {
             mMenuLongPressActionHwKeys = Action.SEARCH;
         }
-        mAssistPressActionHwKeys = Action.SEARCH;
-        mAssistLongPressActionHwKeys = Action.VOICE_SEARCH;
-        mAppSwitchPressActionHwKeys = Action.APP_SWITCH;
+        mAssistPressActionHwKeys = Action.fromIntSafe(res.getInteger(
+                com.android.internal.R.integer.config_pressOnAssistBehaviorHwkeys));
+        mAssistLongPressActionHwKeys = Action.fromIntSafe(res.getInteger(
+                com.android.internal.R.integer.config_longPressOnAssistBehaviorHwkeys));
+
+        mAppSwitchPressActionHwKeys = Action.fromIntSafe(res.getInteger(
+                com.android.internal.R.integer.config_pressOnAppSwitchBehaviorHwkeys));
         mAppSwitchLongPressActionHwKeys = Action.fromIntSafe(res.getInteger(
                 com.android.internal.R.integer.config_longPressOnAppSwitchBehaviorHwkeys));
 
