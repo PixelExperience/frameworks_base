@@ -2266,25 +2266,36 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private void swapWhiteBlackAccent() {
         OverlayInfo themeInfo = null;
         try {
+            themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.white",
+                    mLockscreenUserManager.getCurrentUserId());
+            boolean isUsingWhiteAccent = themeInfo != null && themeInfo.isEnabled();
             if (isUsingDarkTheme()){
                 themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.black",
                         mLockscreenUserManager.getCurrentUserId());
                 if (themeInfo != null && themeInfo.isEnabled()) {
+                    isUsingWhiteAccent = true;
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.black",
                             false, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.white",
                             true, mLockscreenUserManager.getCurrentUserId());
                 }
             } else {
-                themeInfo = mOverlayManager.getOverlayInfo("org.pixelexperience.overlay.accent.white",
-                        mLockscreenUserManager.getCurrentUserId());
-                if (themeInfo != null && themeInfo.isEnabled()) {
+                if (isUsingWhiteAccent) {
+                    isUsingWhiteAccent = false;
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.white",
                             false, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.accent.black",
                             true, mLockscreenUserManager.getCurrentUserId());
                 }
             }
+
+            mOverlayManager.setEnabled("org.pixelexperience.overlay.theme.devicesettings",
+                    isUsingWhiteAccent, mLockscreenUserManager.getCurrentUserId());
+            mOverlayManager.setEnabled("org.pixelexperience.overlay.theme.devicesettings2",
+                    isUsingWhiteAccent, mLockscreenUserManager.getCurrentUserId());
+            mOverlayManager.setEnabled("org.pixelexperience.overlay.theme.devicesettings3",
+                    isUsingWhiteAccent, mLockscreenUserManager.getCurrentUserId());
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -4167,12 +4178,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     mOverlayManager.setEnabled("com.android.gboard.theme.light",
                             !useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.wellbeing.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
-                    mOverlayManager.setEnabled("org.pixelexperience.overlay.theme.devicesettings",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
-                    mOverlayManager.setEnabled("org.pixelexperience.overlay.theme.devicesettings2",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
-                    mOverlayManager.setEnabled("org.pixelexperience.overlay.theme.devicesettings3",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     if (useDarkTheme) {
                         unloadStockDarkTheme();
