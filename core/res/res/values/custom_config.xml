@@ -140,7 +140,55 @@
          This needs to match the enums in
          frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
     -->
+    <integer name="config_pressOnAppSwitchBehaviorHwkeys">2</integer>
+
+    <!-- Control the behavior when the user long presses the app switch button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - Launch camera
+            6 - Sleep
+            7 - Last app
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
     <integer name="config_longPressOnAppSwitchBehaviorHwkeys">8</integer>
+
+    <!-- Control the behavior when the user presses the assist button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - Launch camera
+            6 - Sleep
+            7 - Last app
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_pressOnAssistBehaviorHwkeys">3</integer>
+
+    <!-- Control the behavior when the user long presses the assist button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - Launch camera
+            6 - Sleep
+            7 - Last app
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnAssistBehaviorHwkeys">4</integer>
 
     <!-- Indicates that the device has Single-stage Camera key
          (without "Focus" state) instead of Dual-stage. -->
