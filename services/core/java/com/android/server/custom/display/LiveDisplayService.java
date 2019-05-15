@@ -458,6 +458,10 @@ public class LiveDisplayService extends SystemService {
         @Override
         public void onTwilightStateChanged() {
             mState.mTwilight = mTwilightTracker.getCurrentState();
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                    mState.mTwilight.isNight() ? 1 : 0,
+                    UserHandle.USER_CURRENT);
             updateFeatures(TWILIGHT_CHANGED);
             nudge();
         }
