@@ -24,7 +24,7 @@ import android.util.Log;
 
 import com.android.server.custom.common.UserContentObserver;
 import com.android.server.custom.display.LiveDisplayService.State;
-import com.android.server.custom.display.TwilightTracker.TwilightState;
+import com.android.internal.custom.display.TwilightTracker.TwilightState;
 
 import java.io.PrintWriter;
 import java.util.BitSet;

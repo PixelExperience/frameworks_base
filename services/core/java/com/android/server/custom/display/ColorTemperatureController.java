@@ -26,7 +26,7 @@ import android.util.Range;
 import android.util.Slog;
 import android.view.animation.LinearInterpolator;
 
-import com.android.server.custom.display.TwilightTracker.TwilightState;
+import com.android.internal.custom.display.TwilightTracker.TwilightState;
 
 import java.io.PrintWriter;
 import java.util.BitSet;

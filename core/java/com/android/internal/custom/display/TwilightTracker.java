@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.server.custom.display;
+package com.android.internal.custom.display;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

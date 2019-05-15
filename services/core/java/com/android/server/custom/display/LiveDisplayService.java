@@ -39,8 +39,9 @@ import com.android.server.ServiceThread;
 import com.android.server.SystemService;
 
 import com.android.server.custom.common.UserContentObserver;
-import com.android.server.custom.display.TwilightTracker.TwilightListener;
-import com.android.server.custom.display.TwilightTracker.TwilightState;
+import com.android.internal.custom.display.TwilightTracker;
+import com.android.internal.custom.display.TwilightTracker.TwilightListener;
+import com.android.internal.custom.display.TwilightTracker.TwilightState;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
