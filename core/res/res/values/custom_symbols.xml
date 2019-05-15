@@ -189,6 +189,7 @@
     <java-symbol type="bool" name="config_defaultColorEnhancement" />
     <java-symbol type="bool" name="config_defaultCABC" />
     <java-symbol type="bool" name="config_filterDisplayModes" />
+    <java-symbol type="bool" name="config_outdoorCapable" />
     <java-symbol type="array" name="config_displayModeMappings" />
 
     <!-- Whether device has oled display -->
