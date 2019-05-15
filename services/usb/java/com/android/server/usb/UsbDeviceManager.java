@@ -214,6 +214,17 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
         }
     }
 
+    private class ThemeSettingsObserver extends ContentObserver {
+        public ThemeSettingsObserver() {
+            super(null);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            mHandler.sendEmptyMessageDelayed(MSG_LOCALE_CHANGED, 3000);
+        }
+    }
+
     /*
      * Listens for uevent messages from the kernel to monitor the USB state
      */
@@ -372,6 +383,9 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
         mContentResolver.registerContentObserver(
                 Settings.Global.getUriFor(Settings.Global.ADB_ENABLED),
                 false, new AdbSettingsObserver());
+        mContentResolver.registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.THEME_MODE),
+                false, new ThemeSettingsObserver());
     }
 
     UsbProfileGroupSettingsManager getCurrentSettings() {
