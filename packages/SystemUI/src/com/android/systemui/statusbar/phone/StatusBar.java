@@ -674,6 +674,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     // Dark theme style
     private boolean mUseBlackTheme;
+    private int mThemeMode;
+    private boolean mThemeAutomaticTimeIsNight;
+    private boolean shouldReloadOverlays = true;
 
     @Override
     public void start() {
@@ -1348,6 +1351,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     @Override
     public void onOverlayChanged() {
+        if (!shouldReloadOverlays){
+            return;
+        }
         if (mBrightnessMirrorController != null) {
             mBrightnessMirrorController.onOverlayChanged();
         }
@@ -4178,8 +4184,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         if ((fromPowerSaveCallback || !darkThemeNeeded) && mNightModeInBatterySaver && mIsOnPowerSaveMode){
             darkThemeNeeded = true;
         }
+        if (mThemeMode == Settings.Secure.THEME_MODE_TIME){
+            darkThemeNeeded = mThemeAutomaticTimeIsNight;
+        }
         final boolean useDarkTheme = darkThemeNeeded;
         if (themeNeedsRefresh || isUsingDarkTheme() != useDarkTheme) {
+            shouldReloadOverlays = false;
             mUiOffloadThread.submit(() -> {
                 umm.setNightMode(useDarkTheme ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 try {
@@ -4219,6 +4229,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mUiOffloadThread.submit(() -> {
                 swapWhiteBlackAccent();
             });
+            mHandler.postDelayed(() -> {
+                shouldReloadOverlays = true;
+                onOverlayChanged();
+            }, 1000);
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
@@ -5424,6 +5438,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.THEME_DARK_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.THEME_MODE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5439,14 +5459,28 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             }else if (uri.equals(Settings.System.getUriFor(Settings.System.THEME_DARK_STYLE))) {
                 updateDarkThemeStyle();
                 updateTheme(false, true);
+            }else if (uri.equals(Settings.System.getUriFor(Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT)) ||
+                        uri.equals(Settings.Secure.getUriFor(Settings.Secure.THEME_MODE))) {
+                updateSettings();
+                updateTheme(false, false);
             }
         }
 
         public void update() {
+            updateSettings();
             updateNavigationBar(false, false);
             updateCutoutOverlay();
             updateDarkThemeStyle();
         }
+    }
+
+    private void updateSettings(){
+        mThemeMode = Settings.Secure.getInt(
+                mContext.getContentResolver(),
+                Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER);
+        mThemeAutomaticTimeIsNight = Settings.System.getInt(
+                mContext.getContentResolver(),
+                Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT, 0) != 0;
     }
 
     private boolean isNavbarReloading = false;
