@@ -4452,7 +4452,7 @@ public class Notification implements Parcelable
         }
 
         private CharSequence processTextSpans(CharSequence text) {
-            if (hasForegroundColor()) {
+            /*if (hasForegroundColor()) {
                 return NotificationColorUtil.clearColorSpans(text);
             } else if (mThemeContext.getResources()
                 .getBoolean(R.bool.config_useDarkBgNotificationIconTinting)) {
@@ -4460,7 +4460,8 @@ public class Notification implements Parcelable
                 // so let's remove them
                 return NotificationColorUtil.clearColorSpans(text);
             }
-            return text;
+            return text;*/
+            return NotificationColorUtil.clearColorSpans(text);
         }
 
         private void setTextViewColorPrimary(RemoteViews contentView, int id) {
