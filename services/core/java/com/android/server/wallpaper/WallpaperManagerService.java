@@ -438,6 +438,12 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                 Slog.v(TAG, "onThemeSettingsChanged, mode = " + updatedThemeMode);
             }
 
+            if (updatedThemeMode != Settings.Secure.THEME_MODE_TIME){
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                        0, UserHandle.USER_CURRENT);
+            }
+
             if (!needUpdateLocked(wallpaper.primaryColors, updatedThemeMode)) {
                 return;
             }
@@ -1494,8 +1500,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         } else if (phase == SystemService.PHASE_THIRD_PARTY_APPS_CAN_START) {
             switchUser(UserHandle.USER_SYSTEM, null);
         } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
-            mContext.getMainThreadHandler().postDelayed(() -> 
-                mTwilightTracker.registerListener(mTwilightListener, mHandler), 30000);
+            mTwilightTracker.registerListener(mTwilightListener, mHandler);
         }
     }
 
@@ -1503,14 +1508,10 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         @Override
         public void onTwilightStateChanged() {
             mIsNightModeEnabled = mTwilightTracker.getCurrentState().isNight();
-            Settings.System.putIntForUser(mContext.getContentResolver(),
-                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
-                    mIsNightModeEnabled ? 1 : 0, UserHandle.USER_CURRENT);
             if (mThemeMode == Settings.Secure.THEME_MODE_TIME){
-                WallpaperData wallpaper = mWallpaperMap.get(mCurrentUserId);
-                if (wallpaper != null) {
-                    notifyWallpaperColorsChanged(wallpaper, FLAG_SYSTEM);
-                }
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                        mIsNightModeEnabled ? 1 : 0, UserHandle.USER_CURRENT);
             }
         }
     };
