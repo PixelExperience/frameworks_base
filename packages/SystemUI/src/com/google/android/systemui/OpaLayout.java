@@ -146,31 +146,43 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
     }
 
     private void startCollapseAnimation() {
-        mCurrentAnimators.clear();
-        mCurrentAnimators.addAll(getCollapseAnimatorSet());
-        mAnimationState = OpaLayout.ANIMATION_STATE_OTHER;
-        startAll(mCurrentAnimators);
+        try{
+            mCurrentAnimators.clear();
+            mCurrentAnimators.addAll(getCollapseAnimatorSet());
+            mAnimationState = OpaLayout.ANIMATION_STATE_OTHER;
+            startAll(mCurrentAnimators);
+        }catch(Exception ignored){
+        }
     }
 
     private void startDiamondAnimation() {
-        mCurrentAnimators.clear();
-        mCurrentAnimators.addAll(getDiamondAnimatorSet());
-        mAnimationState = OpaLayout.ANIMATION_STATE_DIAMOND;
-        startAll(mCurrentAnimators);
+        try{
+            mCurrentAnimators.clear();
+            mCurrentAnimators.addAll(getDiamondAnimatorSet());
+            mAnimationState = OpaLayout.ANIMATION_STATE_DIAMOND;
+            startAll(mCurrentAnimators);
+        }catch(Exception ignored){
+        }
     }
 
     private void startLineAnimation() {
-        mCurrentAnimators.clear();
-        mCurrentAnimators.addAll(getLineAnimatorSet());
-        mAnimationState = OpaLayout.ANIMATION_STATE_OTHER;
-        startAll(mCurrentAnimators);
+        try{
+            mCurrentAnimators.clear();
+            mCurrentAnimators.addAll(getLineAnimatorSet());
+            mAnimationState = OpaLayout.ANIMATION_STATE_OTHER;
+            startAll(mCurrentAnimators);
+        }catch(Exception ignored){
+        }
     }
 
     private void startRetractAnimation() {
-        mCurrentAnimators.clear();
-        mCurrentAnimators.addAll(getRetractAnimatorSet());
-        mAnimationState = OpaLayout.ANIMATION_STATE_RETRACT;
-        startAll(mCurrentAnimators);
+        try{
+            mCurrentAnimators.clear();
+            mCurrentAnimators.addAll(getRetractAnimatorSet());
+            mAnimationState = OpaLayout.ANIMATION_STATE_RETRACT;
+            startAll(mCurrentAnimators);
+        }catch(Exception ignored){
+        }
     }
 
     private void cancelCurrentAnimation() {
