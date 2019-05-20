@@ -3,25 +3,38 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time">در حال دش شارژ (<xliff:g id="charging_time_left" example="4 ساعت و 2 دقیقه">%s</xliff:g> تا پر‌شدن کامل)</string>
-    <string name="keyguard_plugged_in_dash_charging">در حال دی شارژ</string>
+    <string name="keyguard_plugged_in_dash_charging">در حال دش شارژ</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">شارژ توربو متصل شد (<xliff:g id="charging_time_left">%s</xliff:g> تا پر شدن کامل)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">شارژ توربو متصل شد</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه بازگشت را نگه دارید.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را لمس کرده و نگه دارید</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش داده می‌شود. amp&amp; را لمس کنید; برای از سنجاق درآوردن، سنسور اثرانگشت را نگه دارید.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش میدهد. &amp;amp را لمس کنید; برای از سنجاق درآوردن، سنسور اثرانگشت را نگه دارید.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">برای از حالت سنجاق درآوردن این صفحه، سنسور اثر انگشت را لمس کرده و نگه دارید</string>
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">ریکاوری</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">بوت لودر</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">حالت دانلود</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">نمایش 4G بجای LTE</string>
+    <string name="show_fourg_summary">نشان دهنده LTE در نوار اعلانات را با 4G عوض میکند</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">ک‌ب/ث</string>
+    <string name="megabitspersecond_short">مگ/ث</string>
+    <string name="kilobytespersecond_short">ک‌ب/ث</string>
+    <string name="megabytespersecond_short">مگ/ث</string>
     <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">حالت کافئین</string>
+    <string name="accessibility_quick_settings_caffeine_off">حالت کافئین غیر فعال شد.</string>
+    <string name="accessibility_quick_settings_caffeine_on">حالت کافئین فعال شد.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">اعلان فوری</string>
     <string name="accessibility_quick_settings_heads_up_off">اعلان فوری خاموش.</string>
@@ -36,4 +49,9 @@
     <string name="accessibility_quick_settings_sync_changed_on">همگام‌سازی روشن شد.</string>
     <!-- VoLTE switch -->
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">حالت مطالعه</string>
+    <string name="accessibility_quick_settings_reading_mode_on">حالت مطالعه روشن.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">حالت مطالعه خاموش.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">حالت مطالعه روشن شد.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">حالت مطالعه خاموش شد.</string>
 </resources>

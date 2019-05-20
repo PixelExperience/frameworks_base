@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">Sie hören</string>
     <string name="ambient_recognition_information">%1$s von %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Um zu entsperren, Power-Taste drücken und halten</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatisch</string>
     <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>

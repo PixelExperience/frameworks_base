@@ -7,6 +7,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower povezan (<xliff:g id="charging_time_left">%s</xliff:g> do napolnjenosti)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower povezan</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Super polnjenje (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do napolnjenosti)</string>
+    <string name="keyguard_plugged_in_super_charging">Super polnjenje</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -35,11 +38,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Obvestila na zaslonu</string>
-    <string name="accessibility_quick_settings_heads_up_off">Obvestila na zas. izk.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Obvestila na zas. vkl.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Obvestila na zaslonu izklopljena.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Obvestila na zaslonu vklopljena.</string>
+    <string name="quick_settings_heads_up_label">Pojavna obvestila</string>
+    <string name="accessibility_quick_settings_heads_up_off">Pojavna obvestila onemogočena.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Pojavna obvestila omogočena.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Pojavna obvestila izklopljena.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Pojavna obvestila vklopljena.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinhronizacija</string>
     <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>

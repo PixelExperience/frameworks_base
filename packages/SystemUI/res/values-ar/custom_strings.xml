@@ -7,6 +7,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">متصل بالشحن السريع (<xliff:g id="charging_time_left">%s</xliff:g> حتى يكتمل)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">متصل بالشحن السريع</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">الشحن السريع (<xliff:g id="charging_time_left" example="4 ساعة و 2 دقيقة">%s</xliff:g> حتى الإمتلاء)</string>
+    <string name="keyguard_plugged_in_super_charging">الشحن السريع</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -23,7 +26,13 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">التنزيل</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">إظهار 4G بدلاً من LTE</string>
+    <string name="show_fourg_summary">يستبدل مؤشر شريط الحالة LTE بـ 4G</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">كيلو بت/ثانية</string>
+    <string name="megabitspersecond_short">ميغا بت/ثانية</string>
+    <string name="kilobytespersecond_short">‮كيلوبايت/ث</string>
+    <string name="megabytespersecond_short">‮ميجابايت/ث</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">وضع الكافيين</string>
     <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
