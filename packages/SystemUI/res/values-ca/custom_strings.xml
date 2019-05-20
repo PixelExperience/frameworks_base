@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Càrrega ràpida connectada (<xliff:g id="charging_time_left">%s</xliff:g> per acabar)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Càrrega ràpida connectada</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->

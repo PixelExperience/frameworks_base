@@ -8,7 +8,7 @@
     <string name="ambient_recognition_notification">In riproduzione</string>
     <string name="ambient_recognition_information">%1$s da %2$s</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Tieni premuto il pulsante di spegnimento per sbloccare</string>
+    <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di spegnimento per sbloccare</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatico</string>
     <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
@@ -20,7 +20,7 @@
     <string name="live_display_night_summary">Utilizza solo impostazioni notte</string>
     <string name="live_display_outdoor">All\'aperto (sole)</string>
     <string name="live_display_outdoor_summary">Utilizza solo impostazioni all\'aperto</string>
-    <string name="live_display_hint">LiveDisplay aiuta a ridurre l\'affaticamento degli occhi e aiuta a dormire di notte. Clicca per provarlo!</string>
+    <string name="live_display_hint">LiveDisplay aiuta a ridurre l\'affaticamento degli occhi e aiuta a dormire di notte. Clicca qui per provarlo!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay off.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalità automatica.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalità giorno.</string>

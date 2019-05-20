@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">正在播放</string>
     <string name="ambient_recognition_information">%2$s 的 %1$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">長按電源按鈕以解鎖</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">自動</string>
     <string name="live_display_auto_summary">依日夜週期自動調節螢幕色溫</string>

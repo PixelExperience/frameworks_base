@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Nguồn sạc nhanh đã kết nối (<xliff:g id="charging_time_left">%s</xliff:g> đến khi đầy)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Đã kết nối sạc nhanh</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->

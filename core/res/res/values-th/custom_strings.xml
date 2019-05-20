@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">ขณะนี้กำลังเล่น</string>
     <string name="ambient_recognition_information">%1$s โดย %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">กด ปุ่มเปิด/ปิดเครื่อง ค้างไว้เพื่อปลดล็อค</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">อัตโนมัติ</string>
     <string name="live_display_auto_summary">ตั้งอุณหภูมิสีอัตโนมัติเมื่อดวงอาทิตย์ขึ้นหรือตก</string>

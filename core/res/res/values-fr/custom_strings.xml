@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">Lecture en cours</string>
     <string name="ambient_recognition_information">%1$s par %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pressez et maintenez le bouton power pour déverrouiller</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatique</string>
     <string name="live_display_auto_summary">Ajuster automatiquement la température des couleurs de l\'écran après le coucher et le lever du soleil</string>

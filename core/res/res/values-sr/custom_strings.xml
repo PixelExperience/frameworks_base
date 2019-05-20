@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">Тренутно Пуштено</string>
     <string name="ambient_recognition_information">%1$s од %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Притисни и држи дугме за паљење како би откључао</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Аутоматски</string>
     <string name="live_display_auto_summary">Аутоматски прилагодите температуру боје екрана након сумрака и свитања.</string>

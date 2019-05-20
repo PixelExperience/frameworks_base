@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower 已連接 (還剩 <xliff:g id="charging_time_left">%s</xliff:g> 充滿)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已連接</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">這個動作會讓目前的應用程式保持固定狀態，直到你取消固定為止。輕觸 &amp; 並按住「 返回 」鍵來取消固定。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -23,6 +24,8 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download 模式</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">顯示 4G 以替代 LTE</string>
+    <string name="show_fourg_summary">將狀態列的 LTE 圖示替換為 4G</string>
     <!-- Status bar network traffic monitor strings -->
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">暫停休眠</string>

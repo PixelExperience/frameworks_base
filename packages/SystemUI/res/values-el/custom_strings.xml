@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Συνδέθηκε η γρήγορη φόρτιση (<xliff:g id="charging_time_left">%s</xliff:g> για πλήρη φόρτιση)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Συνδέθηκε η γρήγορη φόρτιση</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -23,7 +24,13 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Λειτουργία λήψης</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Εμφάνιση 4G αντί για LTE</string>
+    <string name="show_fourg_summary">Αντικαθιστά την ένδειξη LTE στην γραμμή κατάστασης με 4G</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/δ</string>
+    <string name="megabitspersecond_short">Mb/δ</string>
+    <string name="kilobytespersecond_short">kB/δ</string>
+    <string name="megabytespersecond_short">MB/δ</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Καφεΐνη</string>
     <string name="accessibility_quick_settings_caffeine_off">Καφεΐνη ανενεργή.</string>
