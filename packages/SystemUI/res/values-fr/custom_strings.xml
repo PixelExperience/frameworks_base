@@ -7,6 +7,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower connecté (<xliff:g id="temps_restant">%s</xliff:g> avant charge complète)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connecté</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Charge rapide (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> avant charge complète)</string>
+    <string name="keyguard_plugged_in_super_charging">Charge rapide</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Cet écran est épinglé et visible jusqu\'à annulation de l\'opération. Pour annuler l\'épinglage de l\'écran, appuyez et maintenez le bouton Retour.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -24,6 +27,7 @@
     <string name="global_action_restart_download">Mode téléchargement</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Afficher 4G au lieu de LTE</string>
+    <string name="show_fourg_summary">Remplacer la barre de statut LTE par 4G</string>
     <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>

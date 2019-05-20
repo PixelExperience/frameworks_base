@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">Παίζει Τώρα</string>
     <string name="ambient_recognition_information">%1$s από %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Πατήστε και κρατήστε πατημένο το κουμπί ενεργοποίησης για να ξεκλειδώσετε</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Αυτόματο</string>
     <string name="live_display_auto_summary">Αυτόματη ρύθμιση της θερμοκρασίας χρώματος της οθόνης μετά το ηλιοβασίλεμα και την ανατολή του ηλίου</string>

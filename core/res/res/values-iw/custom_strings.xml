@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">מנגן כעת</string>
     <string name="ambient_recognition_information">%1$s על ידי %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">לחץ והחזק את כפתור ההפעלה לביטול הנעילה</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">אוטומטי</string>
     <string name="live_display_auto_summary">התאם אוטומטית את טמפרטורת הצבע של המסך לאחר הזריחה והשקיעה</string>

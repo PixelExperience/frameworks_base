@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">قيد التشغيل</string>
     <string name="ambient_recognition_information">%1$s من %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">اضغط مع الاستمرار على زر الطاقة للفتح</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">تلقائي</string>
     <string name="live_display_auto_summary">ضبط درجة الحرارة اللونية للشاشة تلقائياً بعد غروب الشمس وشروق الشمس</string>

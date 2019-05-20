@@ -7,6 +7,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">Швидка зарядка під\'єднана (<xliff:g id="charging_time_left">%s</xliff:g> до повної зарядки)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Швидка зарядка під\'єднана</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Швидке заряджання (<xliff:g id="залишилось_часу" example="4 години та 2 хвилини">%s</xliff:g> до повного заряджання)</string>
+    <string name="keyguard_plugged_in_super_charging">Швидке заряджання</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Ви постійно бачитимете екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте кнопку \"Назад\".</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->

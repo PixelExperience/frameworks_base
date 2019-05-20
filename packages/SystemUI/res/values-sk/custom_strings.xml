@@ -7,6 +7,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time">TurboPower je pripojený (<xliff:g id="charging_time_left">%s</xliff:g> až do plna)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je pripojený</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním tlačidla Späť.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -23,7 +24,11 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Režim sťahovania</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Zobraziť 4G namiesto LTE</string>
+    <string name="show_fourg_summary">Nahradiť indikátor LTE v stavovom riadku indikátorom 4G</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/s</string>
+    <string name="megabitspersecond_short">Mb/s</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kofeín</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofeín vypnutý.</string>
