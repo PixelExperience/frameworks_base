@@ -427,7 +427,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         WallpaperData wallpaper;
         synchronized (mLock) {
             wallpaper = mWallpaperMap.get(mCurrentUserId);
-            int updatedThemeMode = mPowerManager.isPowerSaveMode() ? Settings.Secure.THEME_MODE_DARK :
+            int updatedThemeMode = mNightModeInBatterySaver && mPowerManager.isPowerSaveMode() ? Settings.Secure.THEME_MODE_DARK :
                     Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.THEME_MODE, Settings.Secure.THEME_MODE_WALLPAPER);
 
             boolean isNightModeEnabled = Settings.System.getInt(
@@ -827,6 +827,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     int mCurrentUserId = UserHandle.USER_NULL;
     boolean mInAmbientMode;
     int mThemeMode;
+    boolean mNightModeInBatterySaver;
 
     static class WallpaperData {
 
@@ -1310,6 +1311,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         if (DEBUG) Slog.v(TAG, "WallpaperService startup");
         mContext = context;
         mShuttingDown = false;
+        mNightModeInBatterySaver = context.getResources().getBoolean(R.bool.config_hasOledDisplay);
         mImageWallpaper = ComponentName.unflattenFromString(
                 context.getResources().getString(R.string.image_wallpaper_component));
         mDefaultWallpaperComponent = WallpaperManager.getDefaultWallpaperComponent(context);
@@ -1408,7 +1410,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
             @Override
             public void onReceive(Context context, Intent intent) {
                 final String action = intent.getAction();
-                if (PowerManager.ACTION_POWER_SAVE_MODE_CHANGING.equals(action)) {
+                if (PowerManager.ACTION_POWER_SAVE_MODE_CHANGING.equals(action) && mNightModeInBatterySaver) {
                     onThemeSettingsChanged();
                 }
             }
