@@ -772,10 +772,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mNightModeInBatterySaver = mContext.getResources().getBoolean(
                     com.android.internal.R.bool.config_hasOledDisplay);
 
+        createAndAddWindows();
+
         mSbSettingsObserver.observe();
         mSbSettingsObserver.update();
-
-        createAndAddWindows();
 
         // Make sure we always have the most current wallpaper info.
         IntentFilter wallpaperChangedFilter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
