@@ -39,6 +39,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Figures out whether it's twilight time based on the user's location.
@@ -48,7 +52,7 @@ import java.util.Objects;
  */
 public final class TwilightTracker {
     private static final String TAG = "TwilightTracker";
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final String ACTION_UPDATE_TWILIGHT_STATE =
             "lineageos.platform.intent.action.UPDATE_TWILIGHT_STATE";
 
@@ -170,7 +174,6 @@ public final class TwilightTracker {
         private long mLastNetworkRegisterTime = -MIN_LOCATION_UPDATE_MS;
         private long mLastUpdateInterval;
         private Location mLocation;
-        private final TwilightCalculator mTwilightCalculator = new TwilightCalculator();
 
         public void processNewLocation(Location location) {
             Message msg = obtainMessage(MSG_PROCESS_NEW_LOCATION, location);
@@ -345,26 +348,26 @@ public final class TwilightTracker {
             }
 
             final long now = System.currentTimeMillis();
+            final SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(
+                    mLocation, TimeZone.getDefault().getID());
+            final Calendar today = GregorianCalendar.getInstance();
+            final Calendar yesterday = GregorianCalendar.getInstance();
+            final Calendar tomorrow = GregorianCalendar.getInstance();
+            yesterday.add(Calendar.DAY_OF_MONTH, -1);
+            tomorrow.add(Calendar.DAY_OF_MONTH, 1);
 
             // calculate yesterday's twilight
-            mTwilightCalculator.calculateTwilight(now - DateUtils.DAY_IN_MILLIS,
-                    mLocation.getLatitude(), mLocation.getLongitude());
-            final long yesterdaySunset = mTwilightCalculator.mSunset;
+            final long yesterdaySunset = calculator.getOfficialSunsetCalendarForDate(yesterday).getTimeInMillis();
 
             // calculate today's twilight
-            mTwilightCalculator.calculateTwilight(now,
-                    mLocation.getLatitude(), mLocation.getLongitude());
-            final boolean isNight = (mTwilightCalculator.mState == TwilightCalculator.NIGHT);
-            final long todaySunrise = mTwilightCalculator.mSunrise;
-            final long todaySunset = mTwilightCalculator.mSunset;
-
+            final long todaySunrise = calculator.getOfficialSunriseCalendarForDate(today).getTimeInMillis();
+            final long todaySunset = calculator.getOfficialSunsetCalendarForDate(today).getTimeInMillis();
+            final boolean isDay = today.getTimeInMillis() >= todaySunrise && today.getTimeInMillis() < todaySunset;
             // calculate tomorrow's twilight
-            mTwilightCalculator.calculateTwilight(now + DateUtils.DAY_IN_MILLIS,
-                    mLocation.getLatitude(), mLocation.getLongitude());
-            final long tomorrowSunrise = mTwilightCalculator.mSunrise;
+            final long tomorrowSunrise = calculator.getOfficialSunriseCalendarForDate(tomorrow).getTimeInMillis();
 
             // set twilight state
-            TwilightState state = new TwilightState(isNight, yesterdaySunset,
+            TwilightState state = new TwilightState(!isDay, yesterdaySunset,
                     todaySunrise, todaySunset, tomorrowSunrise);
             if (DEBUG) {
                 Slog.d(TAG, "Updating twilight state: " + state);
