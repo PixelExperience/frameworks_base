@@ -4213,7 +4213,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         }
         final boolean useDarkTheme = darkThemeNeeded;
         if (themeNeedsRefresh || isUsingDarkTheme() != useDarkTheme) {
-            forceStopSettingsIfNeeded();
             shouldReloadOverlays = false;
             mUiOffloadThread.submit(() -> {
                 umm.setNightMode(useDarkTheme ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
@@ -4257,6 +4256,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mHandler.postDelayed(() -> {
                 shouldReloadOverlays = true;
                 onOverlayChanged();
+                forceStopSettingsIfNeeded();
             }, 1000);
         }
 
