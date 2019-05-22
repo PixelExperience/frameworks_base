@@ -23,7 +23,9 @@ import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_DAY;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OFF;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OUTDOOR;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.database.ContentObserver;
@@ -67,6 +69,23 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
     private static final int OFF_TEMPERATURE = 6500;
 
+    private BroadcastReceiver bootReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent == null) {
+                return;
+            }
+            if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+                if (mLiveDisplay.getConfig() != null) {
+                    mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
+                        !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
+                } else {
+                    mOutdoorModeAvailable = false;
+                }
+            }
+        }
+    };
+
     public LiveDisplayTile(QSHost host) {
         super(host);
 
@@ -82,16 +101,16 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
 
         mLiveDisplay = LiveDisplayManager.getInstance(mContext);
         if (mLiveDisplay.getConfig() != null) {
-            mOutdoorModeAvailable = mLiveDisplay.getConfig().hasFeature(MODE_OUTDOOR) &&
-                    !mLiveDisplay.getConfig().hasFeature(FEATURE_MANAGED_OUTDOOR_MODE);
             mDayTemperature = mLiveDisplay.getDayColorTemperature();
         } else {
-            mOutdoorModeAvailable = false;
             mDayTemperature = -1;
         }
 
         mObserver = new LiveDisplayObserver(mHandler);
         mObserver.startObserving();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_BOOT_COMPLETED);
+        mContext.registerReceiver(bootReceiver, filter);
     }
 
     private void updateEntries() {
