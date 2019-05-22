@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.WindowInsets;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.widget.ViewClippingUtil;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.CrossFadeHelper;
@@ -65,6 +66,17 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
     private final View.OnLayoutChangeListener mStackScrollLayoutChangeListener =
             (v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom)
                     -> updatePanelTranslation();
+<<<<<<< HEAD   (49d037 Frameworks: pop up error when rename a file in the Documents)
+=======
+    private final ViewClippingUtil.ClippingParameters mParentClippingParams =
+            new ViewClippingUtil.ClippingParameters() {
+                @Override
+                public boolean shouldFinish(View view) {
+                    return view.getId() == R.id.status_bar;
+                }
+            };
+    private boolean mAnimationsEnabled = true;
+>>>>>>> CHANGE (4ab936 HeadsUpAppearanceController: allow heads-up to draw beyond b)
     Point mPoint;
 
     public HeadsUpAppearanceController(
@@ -229,21 +241,93 @@ public class HeadsUpAppearanceController implements OnHeadsUpChangedListener,
         if (mShown != isShown) {
             mShown = isShown;
             if (isShown) {
+                updateParentClipping(false /* shouldClip */);
                 mHeadsUpStatusBarView.setVisibility(View.VISIBLE);
                 CrossFadeHelper.fadeIn(mHeadsUpStatusBarView, CONTENT_FADE_DURATION /* duration */,
                         CONTENT_FADE_DELAY /* delay */);
                 CrossFadeHelper.fadeOut(mClockView, CONTENT_FADE_DURATION/* duration */,
                         0 /* delay */, () -> mClockView.setVisibility(View.INVISIBLE));
             } else {
+<<<<<<< HEAD   (49d037 Frameworks: pop up error when rename a file in the Documents)
                 CrossFadeHelper.fadeIn(mClockView, CONTENT_FADE_DURATION /* duration */,
                         CONTENT_FADE_DELAY /* delay */);
                 CrossFadeHelper.fadeOut(mHeadsUpStatusBarView, CONTENT_FADE_DURATION/* duration */,
                         0 /* delay */, () -> mHeadsUpStatusBarView.setVisibility(View.GONE));
 
+=======
+                show(mClockView);
+                if (mOperatorNameView != null) {
+                    show(mOperatorNameView);
+                }
+                hide(mHeadsUpStatusBarView, View.GONE, () -> {
+                    updateParentClipping(true /* shouldClip */);
+                });
+>>>>>>> CHANGE (4ab936 HeadsUpAppearanceController: allow heads-up to draw beyond b)
             }
         }
     }
 
+<<<<<<< HEAD   (49d037 Frameworks: pop up error when rename a file in the Documents)
+=======
+    private void updateParentClipping(boolean shouldClip) {
+        ViewClippingUtil.setClippingDeactivated(
+                mHeadsUpStatusBarView, !shouldClip, mParentClippingParams);
+    }
+
+    /**
+     * Hides the view and sets the state to endState when finished.
+     *
+     * @param view The view to hide.
+     * @param endState One of {@link View#INVISIBLE} or {@link View#GONE}.
+     * @see HeadsUpAppearanceController#hide(View, int, Runnable)
+     * @see View#setVisibility(int)
+     *
+     */
+    private void hide(View view, int endState) {
+        hide(view, endState, null);
+    }
+
+    /**
+     * Hides the view and sets the state to endState when finished.
+     *
+     * @param view The view to hide.
+     * @param endState One of {@link View#INVISIBLE} or {@link View#GONE}.
+     * @param callback Runnable to be executed after the view has been hidden.
+     * @see View#setVisibility(int)
+     *
+     */
+    private void hide(View view, int endState, Runnable callback) {
+        if (mAnimationsEnabled) {
+            CrossFadeHelper.fadeOut(view, CONTENT_FADE_DURATION /* duration */,
+                    0 /* delay */, () -> {
+                        view.setVisibility(endState);
+                        if (callback != null) {
+                            callback.run();
+                        }
+                    });
+        } else {
+            view.setVisibility(endState);
+            if (callback != null) {
+                callback.run();
+            }
+        }
+    }
+
+    private void show(View view) {
+        if (mAnimationsEnabled) {
+            CrossFadeHelper.fadeIn(view, CONTENT_FADE_DURATION /* duration */,
+                    CONTENT_FADE_DELAY /* delay */);
+        } else {
+            view.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @VisibleForTesting
+    void setAnimationsEnabled(boolean enabled) {
+        mAnimationsEnabled = enabled;
+    }
+
+>>>>>>> CHANGE (4ab936 HeadsUpAppearanceController: allow heads-up to draw beyond b)
     @VisibleForTesting
     public boolean isShown() {
         return mShown;
