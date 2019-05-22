@@ -41,20 +41,4 @@ oneway interface ISoftApCallback
      * @param numClients number of connected clients
      */
     void onNumClientsChanged(int numClients);
-
-    /**
-     * Service to manager callback providing Macaddress of connected stations.
-     *
-     * @param Macaddr Mac Address of connected clients
-     * @param numClients number of connected clients
-     */
-    void onStaConnected(String Macaddr, int numClients);
-
-    /**
-     * Service to manager callback providing Macaddress of disconnected stations.
-     *
-     * @param Macaddr Mac Address of disconnected clients
-     * @param numClients number of connected clients
-     */
-    void onStaDisconnected(String Macaddr, int numClients);
 }
