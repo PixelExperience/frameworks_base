@@ -52,7 +52,7 @@ import java.util.TimeZone;
  */
 public final class TwilightTracker {
     private static final String TAG = "TwilightTracker";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String ACTION_UPDATE_TWILIGHT_STATE =
             "lineageos.platform.intent.action.UPDATE_TWILIGHT_STATE";
 
