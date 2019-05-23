@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e46bfe9e_fdf7418c",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/LiveDisplayTile.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000032
+      },
+      "writtenOn": "2019-05-23T13:13:08Z",
+      "side": 1,
+      "message": "Remove \"final\" modificator",
+      "revId": "d86c4dc153af069864004be419e386e254ea1cb8",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a",
+      "unresolved": true
+    }
+  ]
+}
