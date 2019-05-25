@@ -8063,9 +8063,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return;
         }
 
-        if (DEBUG) {
+        //if (DEBUG) {
             Log.d(TAG, "showPocketLock, animate=" + animate);
-        }
+        //}
 
         mPocketLock.show(animate);
         mPocketLockShowing = true;
@@ -8086,9 +8086,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return;
         }
 
-        if (DEBUG) {
+        //if (DEBUG) {
             Log.d(TAG, "hidePocketLock, animate=" + animate);
-        }
+        //}
 
         mPocketLock.hide(animate);
         mPocketLockShowing = false;
