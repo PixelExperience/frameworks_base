@@ -203,4 +203,9 @@
     <!-- Whether device has oled display -->
     <java-symbol type="bool" name="config_hasOledDisplay" />
 
+    <!-- Custom fonts -->
+    <java-symbol type="style" name="TextAppearancePreference" />
+    <java-symbol type="style" name="TextAppearancePreferenceSecondary" />
+    <java-symbol type="style" name="TextAppearancePreferenceCategory" />
+
 </resources>
