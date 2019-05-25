@@ -345,9 +345,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     /** Whether to force dark theme if Configuration.UI_MODE_NIGHT_YES. */
     private static final boolean DARK_THEME_IN_NIGHT_MODE = true;
 
-    /** Whether to switch the device into night mode in battery saver. (Disabled.) */
-    private boolean mNightModeInBatterySaver;
-
     /**
      * Never let the alpha become zero for surfaces that draw with SRC - otherwise the RenderNode
      * won't draw anything and uninitialized memory will show through
@@ -670,14 +667,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private Handler ambientClearingHandler;
     private Runnable ambientClearingRunnable;
 
-    private boolean mIsOnPowerSaveMode;
-
     // Dark theme style
     private boolean mUseBlackTheme;
     private int mThemeMode;
     private boolean mThemeAutomaticTimeIsNight;
     private boolean shouldReloadOverlays = true;
-    private ActivityManager mActivityManager;
 
     @Override
     public void start() {
@@ -750,8 +744,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
         mMediaManager.setUpWithPresenter(this, mEntryManager);
 
-        mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
-
         // Connect in to the status bar manager service
         mCommandQueue = getComponent(CommandQueue.class);
         mCommandQueue.addCallbacks(this);
@@ -768,9 +760,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         } catch (RemoteException ex) {
             // If the system process isn't there we're doomed anyway.
         }
-
-        mNightModeInBatterySaver = mContext.getResources().getBoolean(
-                    com.android.internal.R.bool.config_hasOledDisplay);
 
         mSbSettingsObserver.observe();
         mSbSettingsObserver.update();
@@ -867,7 +856,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         final Context context = mContext;
         updateDisplaySize(); // populates mDisplayMetrics
         updateResources();
-        updateTheme(false, themeNeedsRefresh());
+        updateTheme(themeNeedsRefresh());
 
         inflateStatusBarWindow(context);
         mStatusBarWindow.setService(this);
@@ -1024,14 +1013,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mBatteryController.addCallback(new BatteryStateChangeCallback() {
             @Override
             public void onPowerSaveChanged(boolean isPowerSave) {
-                mIsOnPowerSaveMode = isPowerSave;
                 mHandler.post(mCheckBarModes);
                 if (mDozeServiceHost != null) {
                     mDozeServiceHost.firePowerSaveChanged(isPowerSave);
-                }
-
-                if (mNightModeInBatterySaver) {
-                    updateTheme(true, false);
                 }
             }
 
@@ -4171,7 +4155,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
      * Switches theme from light to dark and vice-versa.
      */
     protected void updateTheme() {
-        updateTheme(false, false);
+        updateTheme(false);
     }
 
     private boolean themeNeedsRefresh(){
@@ -4182,36 +4166,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         return true;
     }
 
-    private void forceStopSettingsIfNeeded(){
-        boolean shouldForceStop;
-        if (!mPowerManager.isInteractive() || isKeyguardShowing()){
-            shouldForceStop = true;
-        }else{
-            List<ActivityManager.RunningTaskInfo> taskInfo = mActivityManager.getRunningTasks(1);
-            ActivityManager.RunningTaskInfo foregroundApp = null;
-            if (taskInfo != null && !taskInfo.isEmpty()) {
-                foregroundApp = taskInfo.get(0);
-            }
-            shouldForceStop = foregroundApp == null ||
-                    !foregroundApp.baseActivity.getPackageName().equals("com.android.settings");
-        }
-        if (shouldForceStop){
-            try{
-                mActivityManager.forceStopPackage("com.android.settings");
-            }catch(Exception ignored){
-            }
-        }
-    }
-
-    protected void updateTheme(boolean fromPowerSaveCallback, boolean themeNeedsRefresh) {
+    protected void updateTheme(boolean themeNeedsRefresh) {
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
         final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
         // The system wallpaper defines if QS should be light or dark.
         final WallpaperColors systemColors = mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
         boolean darkThemeNeeded = systemColors != null && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
-        if ((fromPowerSaveCallback || !darkThemeNeeded) && mNightModeInBatterySaver && mIsOnPowerSaveMode){
-            darkThemeNeeded = true;
-        }
         if (mThemeMode == Settings.Secure.THEME_MODE_TIME){
             darkThemeNeeded = mThemeAutomaticTimeIsNight;
         }
@@ -4229,8 +4189,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                             useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.systemui.custom.theme.black",
                             useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
-                    mOverlayManager.setEnabled("com.android.settings.theme.dark",
-                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.intelligence.theme.dark",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.gboard.theme.dark",
@@ -4260,7 +4218,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mHandler.postDelayed(() -> {
                 shouldReloadOverlays = true;
                 onOverlayChanged();
-                forceStopSettingsIfNeeded();
             }, 1000);
         }
 
@@ -5487,11 +5444,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 reloadNavigationBar();
             }else if (uri.equals(Settings.System.getUriFor(Settings.System.THEME_DARK_STYLE))) {
                 updateDarkThemeStyle();
-                updateTheme(false, true);
+                updateTheme(true);
             }else if (uri.equals(Settings.System.getUriFor(Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT)) ||
                         uri.equals(Settings.Secure.getUriFor(Settings.Secure.THEME_MODE))) {
                 updateSettings();
-                updateTheme(false, false);
+                updateTheme();
             }
         }
 
