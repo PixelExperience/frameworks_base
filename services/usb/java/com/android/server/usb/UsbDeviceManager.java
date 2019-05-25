@@ -384,6 +384,9 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
         mContentResolver.registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.THEME_MODE),
                 false, new ThemeSettingsObserver());
+        mContentResolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT),
+                false, new ThemeSettingsObserver());
     }
 
     UsbProfileGroupSettingsManager getCurrentSettings() {
@@ -408,7 +411,7 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
 
     public void bootCompleted() {
         if (DEBUG) Slog.d(TAG, "boot completed");
-        mHandler.sendEmptyMessage(MSG_BOOT_COMPLETED);
+        mHandler.sendEmptyMessageDelayed(MSG_BOOT_COMPLETED, 3000);
     }
 
     public void setCurrentUser(int newCurrentUserId, UsbProfileGroupSettingsManager settings) {
@@ -978,7 +981,6 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                                         NotificationManager.IMPORTANCE_HIGH));
                     }
                     mSystemReady = true;
-                    finishBoot();
                     break;
                 case MSG_LOCALE_CHANGED:
                     updateAdbNotification(true);
