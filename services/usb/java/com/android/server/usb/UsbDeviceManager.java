@@ -408,7 +408,7 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
 
     public void bootCompleted() {
         if (DEBUG) Slog.d(TAG, "boot completed");
-        mHandler.sendEmptyMessage(MSG_BOOT_COMPLETED);
+        mHandler.sendEmptyMessageDelayed(MSG_BOOT_COMPLETED, 3000);
     }
 
     public void setCurrentUser(int newCurrentUserId, UsbProfileGroupSettingsManager settings) {
@@ -978,7 +978,6 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                                         NotificationManager.IMPORTANCE_HIGH));
                     }
                     mSystemReady = true;
-                    finishBoot();
                     break;
                 case MSG_LOCALE_CHANGED:
                     updateAdbNotification(true);
