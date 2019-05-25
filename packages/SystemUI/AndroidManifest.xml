@@ -228,7 +228,6 @@
 
     <!-- DayNight mode -->
     <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
-    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
 
     <!-- QS Tiles -->
     <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
