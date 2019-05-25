@@ -1,0 +1,14 @@
+<resources>
+    <!-- Custom fonts -->
+    <style name="TextAppearancePreference">
+        <item name="textSize">@dimen/text_size_subhead_material</item>
+        <item name="fontFamily">@string/config_headlineFontFamily</item>
+        <item name="textColor">?attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearancePreferenceCategory">
+        <item name="textSize">@dimen/text_size_body_2_material</item>
+        <item name="fontFamily">@string/config_headlineFontFamilyMedium</item>
+        <item name="textColor">?attr/textColorPrimary</item>
+    </style>
+
+</resources>
