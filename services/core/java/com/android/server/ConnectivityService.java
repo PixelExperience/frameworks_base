@@ -4756,11 +4756,12 @@ public class ConnectivityService extends IConnectivityManager.Stub
         } else {
             updateProxy(newLp, oldLp, networkAgent);
         }
+
+        synchronized (networkAgent) {
+            networkAgent.linkProperties = newLp;
+        }
         // TODO - move this check to cover the whole function
         if (!Objects.equals(newLp, oldLp)) {
-            synchronized (networkAgent) {
-                networkAgent.linkProperties = newLp;
-            }
             notifyIfacesChangedForNetworkStats();
             notifyNetworkCallbacks(networkAgent, ConnectivityManager.CALLBACK_IP_CHANGED);
         }
@@ -5398,6 +5399,15 @@ public class ConnectivityService extends IConnectivityManager.Stub
             }
         }
         if (isNewDefault) {
+            // restore permission to actual value if it becomes the default network again..
+            if (!newNetwork.isVPN()) {
+                try {
+                    mNetd.setNetworkPermission(newNetwork.network.netId,
+                                               getNetworkPermission(newNetwork.networkCapabilities));
+                } catch (RemoteException e) {
+                    loge("Exception in setNetworkPermission: " + e);
+                }
+            }
             // Notify system services that this network is up.
             makeDefault(newNetwork);
             // Log 0 -> X and Y -> X default network transitions, where X is the new default.

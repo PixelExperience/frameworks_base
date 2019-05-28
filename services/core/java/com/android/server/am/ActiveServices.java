@@ -97,6 +97,9 @@ import android.util.SparseArray;
 import android.util.TimeUtils;
 import android.util.proto.ProtoOutputStream;
 import android.webkit.WebViewZygote;
+import vendor.qti.hardware.servicetracker.V1_0.IServicetracker;
+import vendor.qti.hardware.servicetracker.V1_0.ServiceData;
+import vendor.qti.hardware.servicetracker.V1_0.ClientData;
 
 public final class ActiveServices {
     private static final String TAG = TAG_WITH_CLASS_NAME ? "ActiveServices" : TAG_AM;
@@ -167,6 +170,8 @@ public final class ActiveServices {
 
     /** Amount of time to allow a last ANR message to exist before freeing the memory. */
     static final int LAST_ANR_LIFETIME_DURATION_MSECS = 2 * 60 * 60 * 1000; // Two hours
+
+    private IServicetracker mServicetracker;
 
     String mLastAnrDump;
 
@@ -357,6 +362,24 @@ public final class ActiveServices {
     void systemServicesReady() {
         AppStateTracker ast = LocalServices.getService(AppStateTracker.class);
         ast.addListener(new ForcedStandbyListener());
+    }
+
+    private boolean getServicetrackerInstance() {
+        if (mServicetracker == null ) {
+            try {
+                mServicetracker = IServicetracker.getService(false);
+            } catch (java.util.NoSuchElementException e) {
+                // Service doesn't exist or cannot be opened logged below
+            } catch (RemoteException e) {
+                if (DEBUG_SERVICE) Slog.e(TAG, "Failed to get servicetracker interface", e);
+                return false;
+            }
+            if (mServicetracker == null) {
+                if (DEBUG_SERVICE) Slog.w(TAG, "servicetracker HIDL not available");
+                return false;
+            }
+        }
+        return true;
     }
 
     ServiceRecord getServiceByNameLocked(ComponentName name, int callingUser) {
@@ -1644,6 +1667,30 @@ public final class ActiveServices {
             }
             clist.add(c);
 
+            ServiceData sData = new ServiceData();
+            sData.packageName = s.packageName;
+            sData.processName = s.shortName;
+            sData.lastActivity = s.lastActivity;
+            if (s.app != null) {
+                sData.pid = s.app.pid;
+                sData.serviceB = s.app.serviceb;
+            } else {
+                 sData.pid = -1;
+                 sData.serviceB = false;
+            }
+
+            ClientData cData = new ClientData();
+            cData.processName = callerApp.processName;
+            cData.pid = callerApp.pid;
+            try {
+                if (getServicetrackerInstance()) {
+                   mServicetracker.bindService(sData, cData);
+                }
+            } catch (RemoteException e) {
+                Slog.e(TAG, "Failed to send bind details to servicetracker HAL", e);
+                mServicetracker = null;
+            }
+
             if ((flags&Context.BIND_AUTO_CREATE) != 0) {
                 s.lastActivity = SystemClock.uptimeMillis();
                 if (bringUpServiceLocked(s, service.getFlags(), callerFg, false,
@@ -1759,6 +1806,29 @@ public final class ActiveServices {
         try {
             while (clist.size() > 0) {
                 ConnectionRecord r = clist.get(0);
+                ServiceData sData = new ServiceData();
+                sData.packageName = r.binding.service.packageName;
+                sData.processName = r.binding.service.shortName;
+                sData.lastActivity = r.binding.service.lastActivity;
+                if(r.binding.service.app != null) {
+                    sData.pid = r.binding.service.app.pid;
+                    sData.serviceB = r.binding.service.app.serviceb;
+                } else {
+                    sData.pid = -1;
+                    sData.serviceB = false;
+                }
+
+                ClientData cData = new ClientData();
+                cData.processName = r.binding.client.processName;
+                cData.pid = r.binding.client.pid;
+                try {
+                    if (getServicetrackerInstance()) {
+                        mServicetracker.unbindService(sData, cData);
+                    }
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "Failed to send unbind details to servicetracker HAL", e);
+                    mServicetracker = null;
+                }
                 removeConnectionLocked(r, null, null);
                 if (clist.size() > 0 && clist.get(0) == r) {
                     // In case it didn't get removed above, do it now.
@@ -2531,6 +2601,22 @@ public final class ActiveServices {
                     app.repProcState);
             r.postNotification();
             created = true;
+
+            ServiceData sData = new ServiceData();
+            sData.packageName = r.packageName;
+            sData.processName = r.shortName;
+            sData.pid = r.app.pid;
+            sData.lastActivity = r.lastActivity;
+            sData.serviceB = r.app.serviceb;
+
+            try {
+                if (getServicetrackerInstance()) {
+                    mServicetracker.startService(sData);
+                }
+            } catch (RemoteException e) {
+                Slog.e(TAG, "Failed to send start details to servicetracker HAL", e);
+                mServicetracker = null;
+            }
         } catch (DeadObjectException e) {
             Slog.w(TAG, "Application dead when creating service " + r);
             mAm.appDiedLocked(app);
@@ -2723,7 +2809,25 @@ public final class ActiveServices {
     private final void bringDownServiceLocked(ServiceRecord r) {
         //Slog.i(TAG, "Bring down service:");
         //r.dump("  ");
+        ServiceData sData = new ServiceData();
+        sData.packageName = r.packageName;
+        sData.processName = r.shortName;
+        sData.lastActivity = r.lastActivity;
+        if (r.app != null) {
+            sData.pid = r.app.pid;
+        } else {
+            sData.pid = -1;
+            sData.serviceB = false;
+        }
 
+        try {
+            if (getServicetrackerInstance()) {
+                mServicetracker.destroyService(sData);
+            }
+        } catch (RemoteException e) {
+            Slog.e(TAG, "Failed to send destroy details to servicetracker HAL", e);
+            mServicetracker = null;
+        }
         // Report to all of the connections that the service is no longer
         // available.
         for (int conni=r.connections.size()-1; conni>=0; conni--) {
@@ -3354,6 +3458,15 @@ public final class ActiveServices {
                     }
                 }
             }
+        }
+
+        try {
+            if (getServicetrackerInstance()) {
+                mServicetracker.killProcess(app.pid);
+            }
+        } catch (RemoteException e) {
+            Slog.e(TAG, "Failed to send kill process details to servicetracker HAL", e);
+            mServicetracker = null;
         }
 
         // Clean up any connections this application has to other services.

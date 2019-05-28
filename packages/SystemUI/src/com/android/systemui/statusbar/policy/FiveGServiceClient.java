@@ -36,6 +36,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.DeadObjectException;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
@@ -347,6 +348,14 @@ public class FiveGServiceClient {
 
                 token = mNetworkService.queryNrIconType(phoneId, mClient);
                 Log.d(TAG, "queryNrIconType result:" + token);
+            }catch(DeadObjectException e) {
+                Log.e(TAG, "initFiveGServiceState: Exception = " + e);
+                Log.d(TAG, "try to re-binder service");
+                mInitRetryTimes = 0;
+                mServiceConnected = false;
+                mNetworkService = null;
+                mClient = null;
+                binderService();
             }catch (Exception e) {
                 Log.d(TAG, "initFiveGServiceState: Exception = " + e);
                 if ( mInitRetryTimes < MAX_RETRY && !mHandler.hasMessages(MESSAGE_REINIT) ) {

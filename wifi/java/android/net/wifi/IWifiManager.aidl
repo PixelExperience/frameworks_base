@@ -209,5 +209,7 @@ interface IWifiManager
     boolean isWifiCoverageExtendFeatureEnabled();
 
     void enableWifiCoverageExtendFeature(boolean enable);
+
+    int setLatencyLevel(int level, String packageName);
 }
 

@@ -714,6 +714,7 @@ final class ProcessRecord {
             }
             if (ux_perf != null) {
                 ux_perf.perfUXEngine_events(BoostFramework.UXE_EVENT_KILL, 0, this.processName, 0);
+                ux_perf.perfHint(BoostFramework.VENDOR_HINT_KILL, this.processName, pid, 0);
             }
             Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
         }

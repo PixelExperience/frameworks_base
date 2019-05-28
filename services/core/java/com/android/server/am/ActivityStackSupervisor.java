@@ -225,8 +225,8 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     public static boolean mPerfSendTapHint = false;
     public static boolean mIsPerfBoostAcquired = false;
     public static int mPerfHandle = -1;
-    public BoostFramework mPerfBoost = null;
-    public BoostFramework mUxPerf = null;
+    public BoostFramework mPerfBoost = new BoostFramework();
+    public BoostFramework mUxPerf = new BoostFramework();
     static final int HANDLE_DISPLAY_ADDED = FIRST_SUPERVISOR_STACK_MSG + 5;
     static final int HANDLE_DISPLAY_CHANGED = FIRST_SUPERVISOR_STACK_MSG + 6;
     static final int HANDLE_DISPLAY_REMOVED = FIRST_SUPERVISOR_STACK_MSG + 7;
@@ -1200,6 +1200,16 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
 
     void reportActivityLaunchedLocked(boolean timeout, ActivityRecord r, long totalTime) {
         boolean changed = false;
+        if (totalTime > 0) {
+            if (mPerfBoost != null) {
+               if (r.app != null) {
+                   mPerfBoost.perfHint(BoostFramework.VENDOR_HINT_FIRST_DRAW, r.packageName, r.app.pid, BoostFramework.Draw.EVENT_TYPE_V1);
+               }
+            }
+            if (mUxPerf != null) {
+                mUxPerf.perfUXEngine_events(BoostFramework.UXE_EVENT_DISPLAYED_ACT, 0, r.packageName, (int)totalTime);
+            }
+        }
         for (int i = mWaitingActivityLaunched.size() - 1; i >= 0; i--) {
             WaitResult w = mWaitingActivityLaunched.remove(i);
             if (w.who == null) {
@@ -3441,9 +3451,6 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
 
     void acquireAppLaunchPerfLock(ActivityRecord r) {
        /* Acquire perf lock during new app launch */
-       if (mPerfBoost == null) {
-           mPerfBoost = new BoostFramework();
-       }
        if (mPerfBoost != null) {
            mPerfBoost.perfHint(BoostFramework.VENDOR_HINT_FIRST_LAUNCH_BOOST, r.packageName, -1, BoostFramework.Launch.BOOST_V1);
            mPerfSendTapHint = true;
@@ -3465,7 +3472,6 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     }
 
     void acquireUxPerfLock(int opcode, String packageName) {
-        mUxPerf = new BoostFramework();
         if (mUxPerf != null) {
             mUxPerf.perfUXEngine_events(opcode, 0, packageName, 0);
         }

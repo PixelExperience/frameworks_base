@@ -4535,7 +4535,11 @@ public class ActivityManagerService extends IActivityManager.Stub
                 mPerfServiceStartHint = new BoostFramework();
             }
             if (mPerfServiceStartHint != null) {
-                mPerfServiceStartHint.perfHint(BoostFramework.VENDOR_HINT_FIRST_LAUNCH_BOOST, app.processName, -1, BoostFramework.Launch.TYPE_SERVICE_START);
+                if (hostingType.equals("activity")) {
+                    if (startResult != null) {
+                        mPerfServiceStartHint.perfHint(BoostFramework.VENDOR_HINT_FIRST_LAUNCH_BOOST, app.processName, startResult.pid, BoostFramework.Launch.TYPE_START_PROC);
+                    }
+                }
             }
 
             checkTime(startTime, "startProcess: returned from zygote!");
@@ -6169,6 +6173,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
             if (mUxPerf != null) {
                 mUxPerf.perfUXEngine_events(BoostFramework.UXE_EVENT_KILL, 0, app.processName, 0);
+                mUxPerf.perfHint(BoostFramework.VENDOR_HINT_KILL, app.processName, pid, 0);
             }
             EventLog.writeEvent(EventLogTags.AM_PROC_DIED, app.userId, app.pid, app.processName,
                     app.setAdj, app.setProcState);
@@ -7361,6 +7366,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
             if (mUxPerf != null) {
                 mUxPerf.perfUXEngine_events(BoostFramework.UXE_EVENT_KILL, 0, packageName, 0);
+                mUxPerf.perfHint(BoostFramework.VENDOR_HINT_KILL, packageName, appId, 0);
             }
 
             mAppErrors.resetProcessCrashTimeLocked(packageName == null, appId, userId);

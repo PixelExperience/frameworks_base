@@ -82,6 +82,7 @@ public class BoostFramework {
     public static final int VENDOR_HINT_PACKAGE_INSTALL_BOOST = 0x00001088;
     public static final int VENDOR_HINT_ROTATION_LATENCY_BOOST = 0x00001089;
     public static final int VENDOR_HINT_ROTATION_ANIM_BOOST = 0x00001090;
+    public static final int VENDOR_HINT_KILL = 0x00001091;
     //perf events
     public static final int VENDOR_HINT_FIRST_DRAW = 0x00001042;
     public static final int VENDOR_HINT_TAP_EVENT = 0x00001043;
@@ -111,7 +112,10 @@ public class BoostFramework {
         public static final int BOOST_V2 = 2;
         public static final int BOOST_V3 = 3;
         public static final int BOOST_GAME = 4;
+        public static final int RESERVED_1 = 5;
+        public static final int RESERVED_2 = 6;
         public static final int TYPE_SERVICE_START = 100;
+        public static final int TYPE_START_PROC = 101;
     };
 
     public class Draw {
