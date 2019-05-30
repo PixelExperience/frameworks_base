@@ -1681,7 +1681,8 @@ public class ApplicationsState {
                 "org.pixelexperience.overlay.theme.devicesettings",
                 "org.pixelexperience.overlay.theme.devicesettings2",
                 "org.pixelexperience.overlay.theme.devicesettings3",
-                "org.pixelexperience.overlay.hidecutout"};
+                "org.pixelexperience.overlay.hidecutout",
+                "com.android.facelock.theme.dark"};
 
         @Override
         public void init() {
