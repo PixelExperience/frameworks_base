@@ -28,6 +28,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -140,6 +141,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
                 new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         mObserver.observe();
         mIsStatsDirty = true;
+        setTypeface(Typeface.create(com.android.internal.R.string.config_headlineFontFamily, Typeface.NORMAL));
         mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
         mKeyguardUpdateMonitor.registerCallback(mKeyguardMonitorCallback);
         updateKeyguardVisibility(mKeyguardUpdateMonitor.isKeyguardVisible());
