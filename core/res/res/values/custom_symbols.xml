@@ -203,4 +203,6 @@
     <!-- Whether device has oled display -->
     <java-symbol type="bool" name="config_hasOledDisplay" />
 
+    <!-- Custom accent color -->
+    <java-symbol type="color" name="custom_accent_color" />
 </resources>
