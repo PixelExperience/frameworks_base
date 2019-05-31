@@ -106,4 +106,10 @@
     <!-- Default end time for Ambient Play quiet period -->
     <java-symbol type="integer" name="config_defaultAmbientPlayQuitPeriodEndTime" />
 
+    <!-- Custom accent color -->
+    <java-symbol type="color" name="custom_accent_color" />
+
+    <!-- Custom fonts -->
+    <java-symbol type="style" name="TextAppearanceTitle" />
+
 </resources>
