@@ -68,9 +68,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private static final String TAG = "NetworkTraffic";
 
     private static final int MODE_DISABLED = 0;
-    private static final int MODE_UPSTREAM_ONLY = 1;
-    private static final int MODE_DOWNSTREAM_ONLY = 2;
-    private static final int MODE_UPSTREAM_AND_DOWNSTREAM = 3;
+    private static final int MODE_UPSTREAM_AND_DOWNSTREAM = 1;
 
     private static final int MESSAGE_TYPE_PERIODIC_REFRESH = 0;
     private static final int MESSAGE_TYPE_UPDATE_VIEW = 1;
@@ -88,12 +86,11 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private static final long AUTOHIDE_THRESHOLD_KILOBYTES = 8;
     private static final long AUTOHIDE_THRESHOLD_MEGABYTES = 80;
 
-    private int mMode = MODE_DISABLED;
+    private boolean mEnabled;
     private long mTxKbps;
     private long mRxKbps;
     private long mLastUpdateTime;
-    private int mTextSizeSingle;
-    private int mTextSizeMulti;
+    private int mTextSize;
     private String mTextFontFamily;
     private boolean mAutoHide;
     private long mAutoHideThreshold;
@@ -123,8 +120,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         super(context, attrs, defStyle);
 
         final Resources resources = getResources();
-        mTextSizeSingle = resources.getDimensionPixelSize(R.dimen.net_traffic_single_text_size);
-        mTextSizeMulti = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
+        mTextSize = resources.getDimensionPixelSize(R.dimen.net_traffic_text_size);
         mTextFontFamily = resources.getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
         mHasNotch = resources.getBoolean(
                 com.android.internal.R.bool.config_physicalDisplayCutout);
@@ -144,6 +140,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         mObserver.observe();
         mIsStatsDirty = true;
         setTypeface(Typeface.create(mTextFontFamily, Typeface.NORMAL));
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) mTextSize);
         mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
         mKeyguardUpdateMonitor.registerCallback(mKeyguardMonitorCallback);
         updateKeyguardVisibility(mKeyguardUpdateMonitor.isKeyguardVisible());
@@ -196,13 +193,9 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
                 mRxKbps = (long) (rxBytes * 8f / (timeDelta / 1000f) / 1000f);
             }
 
-            final boolean enabled = mMode != MODE_DISABLED && mActiveIfaceStats.size() != 0;
-            final boolean showUpstream =
-                    mMode == MODE_UPSTREAM_ONLY || mMode == MODE_UPSTREAM_AND_DOWNSTREAM;
-            final boolean showDownstream =
-                    mMode == MODE_DOWNSTREAM_ONLY || mMode == MODE_UPSTREAM_AND_DOWNSTREAM;
-            final boolean shouldHide = mAutoHide && (!showUpstream || mTxKbps < mAutoHideThreshold)
-                    && (!showDownstream || mRxKbps < mAutoHideThreshold);
+            final boolean enabled = mEnabled && mActiveIfaceStats.size() != 0;
+            final boolean shouldHide = mAutoHide && (mTxKbps < mAutoHideThreshold)
+                    && (mRxKbps < mAutoHideThreshold);
 
             if (!enabled || shouldHide) {
                 setText("");
@@ -210,27 +203,10 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
             } else {
                 // Get information for uplink ready so the line return can be added
                 StringBuilder output = new StringBuilder();
-                if (showUpstream) {
-                    output.append(formatOutput(mTxKbps));
-                }
-
-                // Ensure text size is where it needs to be
-                int textSize;
-                if (showUpstream && showDownstream) {
-                    output.append("\n");
-                    textSize = mTextSizeMulti;
-                } else {
-                    textSize = mTextSizeSingle;
-                }
-
-                // Add information for downlink if it's called for
-                if (showDownstream) {
-                    output.append(formatOutput(mRxKbps));
-                }
-
+                output.append(formatOutput(mTxKbps));
+                output.append(formatOutput(mRxKbps));
                 // Update view if there's anything new to show
                 if (!output.toString().contentEquals(getText())) {
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) textSize);
                     setText(output.toString());
                 }
                 mTrafficVisible = true;
@@ -298,7 +274,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.NETWORK_TRAFFIC_MODE),
+                    Settings.System.NETWORK_TRAFFIC_ENABLED),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE),
@@ -395,8 +371,8 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         updateVisibility();
         ContentResolver resolver = mContext.getContentResolver();
 
-        mMode = isNotchHidden() ? Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_MODE, 0, UserHandle.USER_CURRENT) : MODE_DISABLED;
+        mEnabled = isNotchHidden() ? Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_ENABLED, 0, UserHandle.USER_CURRENT) == 1 : false;
         mAutoHide = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0, UserHandle.USER_CURRENT) == 1;
         mUnits = Settings.System.getIntForUser(resolver,
@@ -425,7 +401,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
                 Settings.System.NETWORK_TRAFFIC_SHOW_UNITS, 1,
                 UserHandle.USER_CURRENT) == 1;
 
-        if (mMode != MODE_DISABLED) {
+        if (mEnabled) {
             updateTrafficDrawable();
         }
         updateViewState();
@@ -441,17 +417,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     }
 
     private void updateTrafficDrawable() {
-        final int drawableResId;
-        if (mMode == MODE_UPSTREAM_AND_DOWNSTREAM) {
-            drawableResId = R.drawable.stat_sys_network_traffic_updown;
-        } else if (mMode == MODE_UPSTREAM_ONLY) {
-            drawableResId = R.drawable.stat_sys_network_traffic_up;
-        } else if (mMode == MODE_DOWNSTREAM_ONLY) {
-            drawableResId = R.drawable.stat_sys_network_traffic_down;
-        } else {
-            drawableResId = 0;
-        }
-        mDrawable = drawableResId != 0 ? getResources().getDrawable(drawableResId) : null;
+        mDrawable = mEnabled ? getResources().getDrawable(R.drawable.stat_sys_network_traffic_updown) : null;
         setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
         updateTrafficDrawableColor();
     }
@@ -481,7 +447,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
 
     @Override
     public boolean isIconVisible() {
-        return mMode != MODE_DISABLED && mActiveIfaceStats.size() != 0;
+        return mEnabled && mActiveIfaceStats.size() != 0;
     }
 
     @Override
