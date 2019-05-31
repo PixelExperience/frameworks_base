@@ -28,6 +28,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -93,6 +94,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private long mLastUpdateTime;
     private int mTextSizeSingle;
     private int mTextSizeMulti;
+    private String mTextFontFamily;
     private boolean mAutoHide;
     private long mAutoHideThreshold;
     private int mUnits;
@@ -123,6 +125,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         final Resources resources = getResources();
         mTextSizeSingle = resources.getDimensionPixelSize(R.dimen.net_traffic_single_text_size);
         mTextSizeMulti = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
+        mTextFontFamily = resources.getString(com.android.internal.R.string.config_headlineFontFamily);
         mHasNotch = resources.getBoolean(
                 com.android.internal.R.bool.config_physicalDisplayCutout);
 
@@ -140,6 +143,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
                 new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         mObserver.observe();
         mIsStatsDirty = true;
+        setTypeface(Typeface.create(mTextFontFamily, Typeface.NORMAL));
         mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
         mKeyguardUpdateMonitor.registerCallback(mKeyguardMonitorCallback);
         updateKeyguardVisibility(mKeyguardUpdateMonitor.isKeyguardVisible());
