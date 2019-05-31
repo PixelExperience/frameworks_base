@@ -56,11 +56,6 @@ public class NetworkTraffic extends TextView {
 
     private static final boolean DEBUG = false;
 
-    private static final int MODE_DISABLED = 0;
-    private static final int MODE_UPSTREAM_ONLY = 1;
-    private static final int MODE_DOWNSTREAM_ONLY = 2;
-    private static final int MODE_UPSTREAM_AND_DOWNSTREAM = 3;
-
     private static final int MESSAGE_TYPE_PERIODIC_REFRESH = 0;
     private static final int MESSAGE_TYPE_UPDATE_VIEW = 1;
 
@@ -77,15 +72,14 @@ public class NetworkTraffic extends TextView {
     private static final long AUTOHIDE_THRESHOLD_KILOBYTES = 8;
     private static final long AUTOHIDE_THRESHOLD_MEGABYTES = 80;
 
-    private int mMode = MODE_DISABLED;
+    private boolean mEnabled;
     private boolean mNetworkTrafficIsVisible;
     private long mTxKbps;
     private long mRxKbps;
     private long mLastTxBytes;
     private long mLastRxBytes;
     private long mLastUpdateTime;
-    private int mTextSizeSingle;
-    private int mTextSizeMulti;
+    private int mTextSize;
     private boolean mAutoHide;
     private long mAutoHideThreshold;
     private int mUnits;
@@ -124,8 +118,7 @@ public class NetworkTraffic extends TextView {
         super(context, attrs, defStyle);
 
         final Resources resources = getResources();
-        mTextSizeSingle = resources.getDimensionPixelSize(R.dimen.net_traffic_single_text_size);
-        mTextSizeMulti = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
+        mTextSize = resources.getDimensionPixelSize(R.dimen.net_traffic_text_size);
 
         mNetworkTrafficIsVisible = false;
 
@@ -164,6 +157,7 @@ public class NetworkTraffic extends TextView {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) mTextSize);
 
         CustomStatusBarItem.Manager manager =
                 CustomStatusBarItem.findManager((View) this);
@@ -222,13 +216,9 @@ public class NetworkTraffic extends TextView {
                 mLastUpdateTime = now;
             }
 
-            final boolean enabled = mMode != MODE_DISABLED && isConnectionAvailable();
-            final boolean showUpstream =
-                    mMode == MODE_UPSTREAM_ONLY || mMode == MODE_UPSTREAM_AND_DOWNSTREAM;
-            final boolean showDownstream =
-                    mMode == MODE_DOWNSTREAM_ONLY || mMode == MODE_UPSTREAM_AND_DOWNSTREAM;
-            final boolean shouldHide = mAutoHide && (!showUpstream || mTxKbps < mAutoHideThreshold)
-                    && (!showDownstream || mRxKbps < mAutoHideThreshold);
+            final boolean enabled = mEnabled && isConnectionAvailable();
+            final boolean shouldHide = mAutoHide && (mTxKbps < mAutoHideThreshold)
+                    && (mRxKbps < mAutoHideThreshold);
 
             if (!enabled || shouldHide) {
                 setText("");
@@ -236,27 +226,11 @@ public class NetworkTraffic extends TextView {
             } else {
                 // Get information for uplink ready so the line return can be added
                 StringBuilder output = new StringBuilder();
-                if (showUpstream) {
-                    output.append(formatOutput(mTxKbps));
-                }
-
-                // Ensure text size is where it needs to be
-                int textSize;
-                if (showUpstream && showDownstream) {
-                    output.append("\n");
-                    textSize = mTextSizeMulti;
-                } else {
-                    textSize = mTextSizeSingle;
-                }
-
-                // Add information for downlink if it's called for
-                if (showDownstream) {
-                    output.append(formatOutput(mRxKbps));
-                }
-
+                output.append(formatOutput(mTxKbps));
+                output.append("\n");
+                output.append(formatOutput(mRxKbps));
                 // Update view if there's anything new to show
                 if (!output.toString().contentEquals(getText())) {
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) textSize);
                     setText(output.toString());
                 }
                 setVisibility(VISIBLE);
@@ -322,7 +296,7 @@ public class NetworkTraffic extends TextView {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.NETWORK_TRAFFIC_MODE),
+                    Settings.System.NETWORK_TRAFFIC_ENABLED),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE),
@@ -361,8 +335,8 @@ public class NetworkTraffic extends TextView {
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
-        mMode = isNotchHidden() ? Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_MODE, 0, UserHandle.USER_CURRENT) : MODE_DISABLED;
+        mEnabled = isNotchHidden() ? Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_ENABLED, 0, UserHandle.USER_CURRENT) == 1 : false;
         mAutoHide = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0, UserHandle.USER_CURRENT) == 1;
         mUnits = Settings.System.getIntForUser(resolver,
@@ -391,7 +365,7 @@ public class NetworkTraffic extends TextView {
                 Settings.System.NETWORK_TRAFFIC_SHOW_UNITS, 1,
                 UserHandle.USER_CURRENT) == 1;
 
-        if (mMode != MODE_DISABLED) {
+        if (mEnabled) {
             updateTrafficDrawable();
         }
         updateViewState();
@@ -407,17 +381,7 @@ public class NetworkTraffic extends TextView {
     }
 
     private void updateTrafficDrawable() {
-        final int drawableResId;
-        if (mMode == MODE_UPSTREAM_AND_DOWNSTREAM) {
-            drawableResId = R.drawable.stat_sys_network_traffic_updown;
-        } else if (mMode == MODE_UPSTREAM_ONLY) {
-            drawableResId = R.drawable.stat_sys_network_traffic_up;
-        } else if (mMode == MODE_DOWNSTREAM_ONLY) {
-            drawableResId = R.drawable.stat_sys_network_traffic_down;
-        } else {
-            drawableResId = 0;
-        }
-        mDrawable = drawableResId != 0 ? getResources().getDrawable(drawableResId) : null;
+        mDrawable = mEnabled ? getResources().getDrawable(R.drawable.stat_sys_network_traffic_updown) : null;
         setCompoundDrawablesWithIntrinsicBounds(null, null, mDrawable, null);
         updateTrafficDrawableColor();
     }
