@@ -1678,9 +1678,6 @@ public class ApplicationsState {
                 "org.pixelexperience.overlay.accent.green",
                 "org.pixelexperience.overlay.accent.pink",
                 "com.android.gboard.theme.light",
-                "org.pixelexperience.overlay.theme.devicesettings",
-                "org.pixelexperience.overlay.theme.devicesettings2",
-                "org.pixelexperience.overlay.theme.devicesettings3",
                 "org.pixelexperience.overlay.hidecutout",
                 "com.android.facelock.theme.dark"};
 
