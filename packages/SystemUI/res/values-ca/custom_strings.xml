@@ -8,6 +8,8 @@
     <string name="keyguard_indication_turbo_power_time">Càrrega ràpida connectada (<xliff:g id="charging_time_left">%s</xliff:g> per acabar)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Càrrega ràpida connectada</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Super càrrega ràpida (<xliff:g id="charging_time_left" example="4 hores i 2 minuts">%s</xliff:g> per carregar-se)</string>
+    <string name="keyguard_plugged_in_super_charging">Super càrrega ràpida</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -24,7 +26,13 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Descàrrega</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Mostra 4G en lloc d\'LTE</string>
+    <string name="show_fourg_summary">Substitueix l\'indicador LTE de la barra d\'estat per 4G</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/s</string>
+    <string name="megabitspersecond_short">Mb/s</string>
+    <string name="kilobytespersecond_short">kB/s</string>
+    <string name="megabytespersecond_short">MB/s</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeïna</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>

@@ -6,7 +6,20 @@
     <string name="disable_navkeys_summary">ऑनस्क्रीन नाविगेशन बार शुरू करें और हार्डवेअर बटन बंद करें</string>
     <!-- Ambient play -->
     <string name="ambient_recognition_notification">अभी खेल रहे है</string>
-    <string name="ambient_recognition_information">%1$s by %2$s</string>
+    <string name="ambient_recognition_information">%2$s द्वारा %1$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">अनलॉक करने के लिए पावर बटन दबाए रखें</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">आटोमेटिक</string>
+    <string name="live_display_auto_summary">सूर्यास्त और सूर्योदय के बाद स्क्रीन के रंग तापमान को स्वचालित रूप से समायोजित करें</string>
+    <string name="live_display_off">बंद</string>
+    <string name="live_display_off_summary">सभी समायोजन अक्षम करें</string>
+    <string name="live_display_day">दिन</string>
+    <string name="live_display_day_summary">केवल दिन की सेटिंग्स का उपयोग करें</string>
+    <string name="live_display_night">रात</string>
+    <string name="live_display_night_summary">केवल रात की सेटिंग्स का ही इस्तेमाल करें</string>
+    <string name="live_display_outdoor">बाहर (चमकदार सूरज)</string>
+    <string name="live_display_outdoor_summary">केवल बाहरी सेटिंग्स का उपयोग करें</string>
+    <string name="live_display_hint">लाइवडिसप्ले आंखों के तनाव को कम करने और रात में सोने में आपकी मदद कर सकता है। इसे आज़माने के लिए यहाँ क्लिक करें!</string>
+    <string name="accessibility_quick_settings_live_display_off">लाइवडिसप्ले बंद।</string>
 </resources>
