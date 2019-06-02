@@ -769,6 +769,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             // If the system process isn't there we're doomed anyway.
         }
 
+        initCoreOverlays();
+
         mNightModeInBatterySaver = mContext.getResources().getBoolean(
                     com.android.internal.R.bool.config_hasOledDisplay);
 
@@ -4201,6 +4203,13 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             }catch(Exception ignored){
             }
         }
+    }
+
+    private void initCoreOverlays(){
+        boolean aodAvailable = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        mOverlayManager.setEnabled("com.google.android.setupwizard.overlay",
+            aodAvailable, mLockscreenUserManager.getCurrentUserId());
     }
 
     protected void updateTheme(boolean fromPowerSaveCallback, boolean themeNeedsRefresh) {
