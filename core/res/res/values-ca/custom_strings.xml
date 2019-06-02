@@ -8,6 +8,7 @@
     <string name="ambient_recognition_notification">Ara sona</string>
     <string name="ambient_recognition_information">%1$s de %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Manteniu premut el botó d’encesa per desbloquejar</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automàtic</string>
     <string name="live_display_auto_summary">Ajusta automàticament la temperatura de color de la pantalla després de la posta de sol i de l\'alba</string>

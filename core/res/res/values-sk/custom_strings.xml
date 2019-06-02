@@ -8,13 +8,14 @@
     <string name="ambient_recognition_notification">Práve sa prehráva</string>
     <string name="ambient_recognition_information">%1$s od %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Stlačte a podržte tlačidlo napájania pre odomknutie</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaticky</string>
     <string name="live_display_auto_summary">Automaticky upraviť teplotu farieb obrazovky po západe a východe slnka</string>
-    <string name="live_display_off">Vypnuté</string>
-    <string name="live_display_off_summary">Zakázať všetky úpravy</string>
+    <string name="live_display_off">Vypnúť</string>
+    <string name="live_display_off_summary">Zahodiť všetky úpravy</string>
     <string name="live_display_day">Deň</string>
-    <string name="live_display_day_summary">Použiť len nastavenia pre deň</string>
+    <string name="live_display_day_summary">Použiť nastavenia len cez deň</string>
     <string name="live_display_night">Noc</string>
     <string name="live_display_night_summary">Použiť len nastavenia pre noc</string>
     <string name="live_display_outdoor">Vonku (slnečno)</string>
