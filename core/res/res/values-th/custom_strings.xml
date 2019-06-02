@@ -11,7 +11,7 @@
     <string name="pocket_lock_message_long_press">กด ปุ่มเปิด/ปิดเครื่อง ค้างไว้เพื่อปลดล็อค</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">อัตโนมัติ</string>
-    <string name="live_display_auto_summary">ตั้งอุณหภูมิสีอัตโนมัติเมื่อดวงอาทิตย์ขึ้นหรือตก</string>
+    <string name="live_display_auto_summary">ปรับอุณหภูมิสีของหน้าจออัตโนมัติหลังจากพระอาทิตย์ขึ้นและตก</string>
     <string name="live_display_off">ปิด</string>
     <string name="live_display_off_summary">ปิดการใช้งานทั้งหมด</string>
     <string name="live_display_day">กลางวัน</string>
@@ -21,7 +21,7 @@
     <string name="live_display_outdoor">กลางแจ้ง (แดดจ้ามาก)</string>
     <string name="live_display_outdoor_summary">ใช้การตั้งค่ากลางแจ้งเท่านั้น</string>
     <string name="live_display_hint">LiveDisplay สามารถช่วยลดอาการปวดตา และช่วยให้คุณนอนหลับในเวลากลางคืน คลิกที่นี่เพื่อลอง!</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay ปิดอยู่</string>
+    <string name="accessibility_quick_settings_live_display_off">Live Display ปิดอยู่</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: รูปแบบอัตโนมัติ</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: รูปแบบกลางวัน</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: รูปแบบกลางคืน</string>

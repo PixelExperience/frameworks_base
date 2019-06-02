@@ -24,8 +24,8 @@
     <string name="accessibility_quick_settings_caffeine_off">Desactivar Cafeína.</string>
     <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">"Avisos
-emerxentes"</string>
+    <string name="quick_settings_heads_up_label">Avisos
+emerxentes</string>
     <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emerxentes.</string>
     <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emerxentes.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emerxentes desactivaes.</string>
