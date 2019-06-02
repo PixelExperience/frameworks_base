@@ -1682,7 +1682,8 @@ public class ApplicationsState {
                 "org.pixelexperience.overlay.theme.devicesettings",
                 "org.pixelexperience.overlay.theme.devicesettings2",
                 "org.pixelexperience.overlay.theme.devicesettings3",
-                "org.pixelexperience.overlay.hidecutout"};
+                "org.pixelexperience.overlay.hidecutout",
+                "com.google.android.setupwizard.overlay"};
 
         @Override
         public void init() {
