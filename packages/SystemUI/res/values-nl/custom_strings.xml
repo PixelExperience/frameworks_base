@@ -8,11 +8,11 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower aangesloten (<xliff:g id="charging_time_left">%s</xliff:g> tot volledig opgeladen)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower verbonden</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Snel opladen (<xliff:g id="charging_time_left" example="4 uur en 2 minuten">%s</xliff:g> tot volledig opgeladen)</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Het scherm blijft zichtbaar totdat je het losmaakt. Houd \'Terug\' ingedrukt om het los te maken.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">"Blijf de Terug-knop aanraken om dit scherm los te maken
-"</string>
+    <string name="screen_pinning_toast_no_navbar">Blijf de Terug-knop aanraken om dit scherm los te maken</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <string name="screen_pinning_description_no_navbar_fpsensor">Het scherm blijft zichtbaar totdat je het losmaakt. Houd \'Terug\' ingedrukt om het los te maken.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
@@ -25,7 +25,13 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Toon 4G in plaats van LTE</string>
+    <string name="show_fourg_summary">Vervangt LTE statusbar indicator met 4G</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/s</string>
+    <string name="megabitspersecond_short">Mb/s</string>
+    <string name="kilobytespersecond_short">kB/s</string>
+    <string name="megabytespersecond_short">MB/s</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeïne</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit.</string>
