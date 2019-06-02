@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2019 The Pixel Experience Project
+* Copyright (C) 2017 The Pixel Experience Project
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,5 +16,5 @@
 package com.android.internal.util.custom;
 
 public class OverlayUtils {
-    public static String[] AllPackages = {};
+    public static String[] AllPackages = {"com.google.android.setupwizard.overlay"};
 }

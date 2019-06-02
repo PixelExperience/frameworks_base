@@ -715,6 +715,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             // If the system process isn't there we're doomed anyway.
         }
 
+        initCoreOverlays();
+
         createAndAddWindows();
 
         // Make sure we always have the most current wallpaper info.
@@ -1101,6 +1103,16 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         // Private API call to make the shadows look better for Recents
         ThreadedRenderer.overrideProperty("ambientRatio", String.valueOf(1.5f));
+    }
+
+    private void initCoreOverlays(){
+        boolean aodAvailable = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        try{
+            mOverlayManager.setEnabled("com.google.android.setupwizard.overlay",
+                !aodAvailable, mLockscreenUserManager.getCurrentUserId());
+        } catch (RemoteException ignored) {
+        }
     }
 
     protected void createNavigationBar() {
