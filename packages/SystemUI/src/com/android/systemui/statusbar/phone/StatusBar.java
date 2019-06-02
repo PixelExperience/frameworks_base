@@ -761,6 +761,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             // If the system process isn't there we're doomed anyway.
         }
 
+        initCoreOverlays();
+
         mSbSettingsObserver.observe();
         mSbSettingsObserver.update();
 
@@ -4155,7 +4157,39 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         return true;
     }
 
+<<<<<<< HEAD
     protected void updateTheme(boolean themeNeedsRefresh) {
+=======
+    private void forceStopSettingsIfNeeded(){
+        boolean shouldForceStop;
+        if (!mPowerManager.isInteractive() || isKeyguardShowing()){
+            shouldForceStop = true;
+        }else{
+            List<ActivityManager.RunningTaskInfo> taskInfo = mActivityManager.getRunningTasks(1);
+            ActivityManager.RunningTaskInfo foregroundApp = null;
+            if (taskInfo != null && !taskInfo.isEmpty()) {
+                foregroundApp = taskInfo.get(0);
+            }
+            shouldForceStop = foregroundApp == null ||
+                    !foregroundApp.baseActivity.getPackageName().equals("com.android.settings");
+        }
+        if (shouldForceStop){
+            try{
+                mActivityManager.forceStopPackage("com.android.settings");
+            }catch(Exception ignored){
+            }
+        }
+    }
+
+    private void initCoreOverlays(){
+        boolean aodAvailable = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        mOverlayManager.setEnabled("com.google.android.setupwizard.overlay",
+            aodAvailable, mLockscreenUserManager.getCurrentUserId());
+    }
+
+    protected void updateTheme(boolean fromPowerSaveCallback, boolean themeNeedsRefresh) {
+>>>>>>> 782cc0e... Add overlay for SetupWizard [1/2]
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
         final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
         // The system wallpaper defines if QS should be light or dark.
