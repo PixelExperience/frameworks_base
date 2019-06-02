@@ -761,6 +761,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             // If the system process isn't there we're doomed anyway.
         }
 
+        initCoreOverlays();
+
         mSbSettingsObserver.observe();
         mSbSettingsObserver.update();
 
@@ -1162,6 +1164,16 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         ThreadedRenderer.overrideProperty("ambientRatio", String.valueOf(1.5f));
 
         mFlashlightController = Dependency.get(FlashlightController.class);
+    }
+
+    private void initCoreOverlays(){
+        boolean aodAvailable = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        try{
+            mOverlayManager.setEnabled("com.google.android.setupwizard.overlay",
+                !aodAvailable, mLockscreenUserManager.getCurrentUserId());
+        } catch (RemoteException ignored) {
+        }
     }
 
     private AmbientIndicationManagerCallback mAmbientCallback = new AmbientIndicationManagerCallback() {

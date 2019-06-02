@@ -1679,7 +1679,8 @@ public class ApplicationsState {
                 "org.pixelexperience.overlay.accent.pink",
                 "com.android.gboard.theme.light",
                 "org.pixelexperience.overlay.hidecutout",
-                "com.android.facelock.theme.dark"};
+                "com.android.facelock.theme.dark",
+                "com.google.android.setupwizard.overlay"};
 
         @Override
         public void init() {
