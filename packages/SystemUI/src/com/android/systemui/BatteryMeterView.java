@@ -294,13 +294,13 @@ public class BatteryMeterView extends LinearLayout implements
                 SHOW_BATTERY_PERCENT, 0, mUser);
 
         if ((mShowPercentAvailable && systemSetting) || mForceShowPercent) {
-            if (mShowPercentInsideIcon && mShouldEnablePercentInsideIcon && !mForceShowPercent){
+            if (mShowPercentInsideIcon && mShouldEnablePercentInsideIcon && !mForceShowPercent && mLevel != 100){
                 if (showing) {
                     removeView(mBatteryPercentView);
                     mBatteryPercentView = null;
                 }
                 mDrawable.setShowPercent(true);
-                scaleBatteryMeterViews(mLevel != 100);
+                scaleBatteryMeterViews(true);
             }else if (!showing) {
                 mDrawable.setShowPercent(false);
                 scaleBatteryMeterViews();
