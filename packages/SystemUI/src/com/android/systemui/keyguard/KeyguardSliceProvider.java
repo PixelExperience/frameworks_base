@@ -164,7 +164,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
      * @param builder The slice builder.
      */
     protected void addZenMode(ListBuilder builder) {
-        if (!isDndSuppressingNotifications()) {
+        if (!isDndEnabled()) {
             return;
         }
         RowBuilder dndBuilder = new RowBuilder(builder, mDndUri)
@@ -175,13 +175,10 @@ public class KeyguardSliceProvider extends SliceProvider implements
     }
 
     /**
-     * Return true if DND is enabled suppressing notifications.
+     * Return true if DND is enabled
      */
-    protected boolean isDndSuppressingNotifications() {
-        boolean suppressingNotifications = (mZenModeController.getConfig().suppressedVisualEffects
-                & NotificationManager.Policy.SUPPRESSED_EFFECT_NOTIFICATION_LIST) != 0;
-        return mZenModeController.getZen() != Settings.Global.ZEN_MODE_OFF
-                && suppressingNotifications;
+    protected boolean isDndEnabled() {
+        return mZenModeController.getZen() != Settings.Global.ZEN_MODE_OFF;
     }
 
     @Override
