@@ -39,6 +39,6 @@
     <dimen name="ambient_indication_margin_bottom">12.0dip</dimen>
 
     <!-- Network traffic -->
-    <dimen name="net_traffic_text_size">8sp</dimen>
+    <dimen name="net_traffic_text_size">8.8dip</dimen>
 
 </resources>
