@@ -40,8 +40,6 @@ import com.android.server.ServiceThread;
 import com.android.server.SystemService;
 
 import com.android.server.custom.common.UserContentObserver;
-import com.android.server.custom.display.TwilightTracker.TwilightListener;
-import com.android.server.custom.display.TwilightTracker.TwilightState;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -64,6 +62,10 @@ import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_LAST;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OFF;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OUTDOOR;
 
+import com.android.server.twilight.TwilightListener;
+import com.android.server.twilight.TwilightManager;
+import com.android.server.twilight.TwilightState;
+
 /**
  * LiveDisplay is an advanced set of features for improving
  * display quality under various ambient conditions.
@@ -73,7 +75,7 @@ import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OUTDO
  * and calibration. It interacts with LineageHardwareService to relay
  * changes down to the lower layers.
  */
-public class LiveDisplayService extends SystemService {
+public class LiveDisplayService extends SystemService implements TwilightListener {
 
     private static final String TAG = "LiveDisplay";
 
@@ -83,7 +85,7 @@ public class LiveDisplayService extends SystemService {
 
     private DisplayManager mDisplayManager;
     private ModeObserver mModeObserver;
-    private final TwilightTracker mTwilightTracker;
+    private final TwilightManager mTwilightManager;
 
     private boolean mAwaitingNudge = true;
     private boolean mSunset = false;
@@ -133,7 +135,7 @@ public class LiveDisplayService extends SystemService {
         mHandlerThread.start();
         mHandler = new Handler(mHandlerThread.getLooper());
 
-        mTwilightTracker = new TwilightTracker(context);
+        mTwilightManager = getLocalService(TwilightManager.class);
     }
 
     @Override
@@ -199,8 +201,8 @@ public class LiveDisplayService extends SystemService {
                     pmi.getLowPowerState(SERVICE_TYPE_DUMMY).globalBatterySaverEnabled;
 
             if (!isNightDisplayAvailable) {
-                mTwilightTracker.registerListener(mTwilightListener, mHandler);
-                mState.mTwilight = mTwilightTracker.getCurrentState();
+                mTwilightManager.registerListener(this, mHandler);
+                mState.mTwilight = mTwilightManager.getLastTwilightState();
             }
 
             if (mConfig.hasModeSupport()) {
@@ -371,7 +373,7 @@ public class LiveDisplayService extends SystemService {
 
         @Override
         public boolean isNight() {
-            final TwilightState twilight = mTwilightTracker.getCurrentState();
+            final TwilightState twilight = mTwilightManager.getLastTwilightState();
             return twilight != null && twilight.isNight();
         }
     };
@@ -460,19 +462,12 @@ public class LiveDisplayService extends SystemService {
         }
     }
 
-    // Night watchman
-    private final TwilightListener mTwilightListener = new TwilightListener() {
-        @Override
-        public void onTwilightStateChanged() {
-            mState.mTwilight = mTwilightTracker.getCurrentState();
-            Settings.System.putIntForUser(mContext.getContentResolver(),
-                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
-                    mState.mTwilight.isNight() ? 1 : 0,
-                    UserHandle.USER_CURRENT);
-            updateFeatures(TWILIGHT_CHANGED);
-            nudge();
-        }
-    };
+    @Override
+    public void onTwilightStateChanged(TwilightState state) {
+        mState.mTwilight = state;
+        updateFeatures(TWILIGHT_CHANGED);
+        nudge();
+    }
 
     private boolean isScreenOn() {
         return mDisplayManager.getDisplay(
@@ -513,7 +508,7 @@ public class LiveDisplayService extends SystemService {
      * @param state
      */
     private void nudge() {
-        final TwilightState twilight = mTwilightTracker.getCurrentState();
+        final TwilightState twilight = mTwilightManager.getLastTwilightState();
         if (!mAwaitingNudge || twilight == null) {
             return;
         }
