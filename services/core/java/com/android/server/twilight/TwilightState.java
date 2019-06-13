@@ -33,10 +33,15 @@ public final class TwilightState {
 
     private final long mSunriseTimeMillis;
     private final long mSunsetTimeMillis;
+    private final long mYesterdaySunsetTimeMillis;
+    private final long mTomorrowSunriseTimeMillis;
 
-    public TwilightState(long sunriseTimeMillis, long sunsetTimeMillis) {
+    public TwilightState(long sunriseTimeMillis, long sunsetTimeMillis, 
+                      long yesterdaySunsetTimeMillis, long tomorrowSunriseTimeMillis) {
         mSunriseTimeMillis = sunriseTimeMillis;
         mSunsetTimeMillis = sunsetTimeMillis;
+        mYesterdaySunsetTimeMillis = yesterdaySunsetTimeMillis;
+        mTomorrowSunriseTimeMillis = tomorrowSunriseTimeMillis;
     }
 
     /**
@@ -77,6 +82,22 @@ public final class TwilightState {
     public boolean isNight() {
         final long now = System.currentTimeMillis();
         return now >= mSunsetTimeMillis && now < mSunriseTimeMillis;
+    }
+
+    /**
+     * Returns the time of yesterday's sunset in the System.currentTimeMillis() timebase,
+     * or -1 if the sun never sets.
+     */
+    public long yesterdaySunsetTimeMillis() {
+        return mYesterdaySunsetTimeMillis;
+    } 
+
+    /**
+     * Returns the time of tomorrow's sunrise in the System.currentTimeMillis() timebase,
+     * or -1 if the sun never rises.
+     */
+    public long tomorrowSunriseTimeMillis() {
+        return mTomorrowSunriseTimeMillis;
     }
 
     @Override
