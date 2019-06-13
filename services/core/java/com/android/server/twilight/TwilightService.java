@@ -27,10 +27,12 @@ import android.icu.util.Calendar;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.provider.Settings;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Slog;
 
@@ -46,13 +48,10 @@ import java.util.Objects;
  * effects based on sunrise and sunset.
  */
 public final class TwilightService extends SystemService
-        implements AlarmManager.OnAlarmListener, Handler.Callback, LocationListener {
+        implements AlarmManager.OnAlarmListener, LocationListener {
 
     private static final String TAG = "TwilightService";
     private static final boolean DEBUG = false;
-
-    private static final int MSG_START_LISTENING = 1;
-    private static final int MSG_STOP_LISTENING = 2;
 
     @GuardedBy("mListeners")
     private final ArrayMap<TwilightListener, Handler> mListeners = new ArrayMap<>();
@@ -62,9 +61,6 @@ public final class TwilightService extends SystemService
     protected AlarmManager mAlarmManager;
     private LocationManager mLocationManager;
 
-    private boolean mBootCompleted;
-    private boolean mHasListeners;
-
     private BroadcastReceiver mTimeChangedReceiver;
     protected Location mLastLocation;
 
@@ -73,7 +69,7 @@ public final class TwilightService extends SystemService
 
     public TwilightService(Context context) {
         super(context);
-        mHandler = new Handler(Looper.getMainLooper(), this);
+        mHandler = new Handler(Looper.getMainLooper());
     }
 
     @Override
@@ -85,10 +81,6 @@ public final class TwilightService extends SystemService
                 synchronized (mListeners) {
                     final boolean wasEmpty = mListeners.isEmpty();
                     mListeners.put(listener, handler);
-
-                    if (wasEmpty && !mListeners.isEmpty()) {
-                        mHandler.sendEmptyMessage(MSG_START_LISTENING);
-                    }
                 }
             }
 
@@ -97,10 +89,6 @@ public final class TwilightService extends SystemService
                 synchronized (mListeners) {
                     final boolean wasEmpty = mListeners.isEmpty();
                     mListeners.remove(listener);
-
-                    if (!wasEmpty && mListeners.isEmpty()) {
-                        mHandler.sendEmptyMessage(MSG_STOP_LISTENING);
-                    }
                 }
             }
 
@@ -119,35 +107,8 @@ public final class TwilightService extends SystemService
             final Context c = getContext();
             mAlarmManager = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
             mLocationManager = (LocationManager) c.getSystemService(Context.LOCATION_SERVICE);
-
-            mBootCompleted = true;
-            if (mHasListeners) {
-                startListening();
-            }
+            startListening();
         }
-    }
-
-    @Override
-    public boolean handleMessage(Message msg) {
-        switch (msg.what) {
-            case MSG_START_LISTENING:
-                if (!mHasListeners) {
-                    mHasListeners = true;
-                    if (mBootCompleted) {
-                        startListening();
-                    }
-                }
-                return true;
-            case MSG_STOP_LISTENING:
-                if (mHasListeners) {
-                    mHasListeners = false;
-                    if (mBootCompleted) {
-                        stopListening();
-                    }
-                }
-                return true;
-        }
-        return false;
     }
 
     private void startListening() {
@@ -187,22 +148,6 @@ public final class TwilightService extends SystemService
         updateTwilightState();
     }
 
-    private void stopListening() {
-        Slog.d(TAG, "stopListening");
-
-        if (mTimeChangedReceiver != null) {
-            getContext().unregisterReceiver(mTimeChangedReceiver);
-            mTimeChangedReceiver = null;
-        }
-
-        if (mLastTwilightState != null) {
-            mAlarmManager.cancel(this);
-        }
-
-        mLocationManager.removeUpdates(this);
-        mLastLocation = null;
-    }
-
     private void updateTwilightState() {
         // Calculate the twilight state based on the current time and location.
         final long currentTimeMillis = System.currentTimeMillis();
@@ -236,6 +181,10 @@ public final class TwilightService extends SystemService
             final long triggerAtMillis = state.isNight()
                     ? state.sunriseTimeMillis() : state.sunsetTimeMillis();
             mAlarmManager.setExact(AlarmManager.RTC, triggerAtMillis, TAG, this, mHandler);
+            Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                    state.isNight() ? 1 : 0,
+                    UserHandle.USER_CURRENT);
         }
     }
 
