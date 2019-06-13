@@ -27,7 +27,7 @@ import android.util.Range;
 import android.util.Slog;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
-import com.android.server.custom.display.TwilightTracker.TwilightState;
+import com.android.server.twilight.TwilightState;
 
 import java.io.PrintWriter;
 import java.util.BitSet;
@@ -329,8 +329,7 @@ public class ColorTemperatureController extends LiveDisplayFeature {
 
         if (twilight != null) {
             final long now = System.currentTimeMillis();
-            adjustment = adj(now, twilight.getYesterdaySunset(), twilight.getTodaySunrise()) *
-                    adj(now, twilight.getTodaySunset(), twilight.getTomorrowSunrise());
+            adjustment = adj(now, twilight.sunsetTimeMillis(), twilight.sunriseTimeMillis());
         }
 
         return (int)MathUtils.lerp(mNightTemperature, mDayTemperature, adjustment);

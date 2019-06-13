@@ -22,9 +22,9 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.util.Log;
 
+import com.android.server.twilight.TwilightState;
 import com.android.server.custom.common.UserContentObserver;
 import com.android.server.custom.display.LiveDisplayService.State;
-import com.android.server.custom.display.TwilightTracker.TwilightState;
 
 import java.io.PrintWriter;
 import java.util.BitSet;
