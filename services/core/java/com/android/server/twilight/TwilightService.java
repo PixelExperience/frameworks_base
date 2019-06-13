@@ -22,15 +22,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.icu.impl.CalendarAstronomer;
 import android.icu.util.Calendar;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.provider.Settings;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Slog;
 
@@ -38,6 +39,8 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.server.SystemService;
 
 import java.util.Objects;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 /**
  * Figures out whether it's twilight time based on the user's location.
@@ -209,6 +212,10 @@ public final class TwilightService extends SystemService
         final Location location = mLastLocation != null ? mLastLocation
                 : mLocationManager.getLastLocation();
         final TwilightState state = calculateTwilightState(location, currentTimeMillis);
+        Settings.System.putIntForUser(getContext().getContentResolver(),
+                Settings.System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                state.isNight() ? 1 : 0,
+                UserHandle.USER_CURRENT);
         if (DEBUG) {
             Slog.d(TAG, "updateTwilightState: " + state);
         }
@@ -285,29 +292,12 @@ public final class TwilightService extends SystemService
             return null;
         }
 
-        final CalendarAstronomer ca = new CalendarAstronomer(
-                location.getLongitude(), location.getLatitude());
-
-        final Calendar noon = Calendar.getInstance();
-        noon.setTimeInMillis(timeMillis);
-        noon.set(Calendar.HOUR_OF_DAY, 12);
-        noon.set(Calendar.MINUTE, 0);
-        noon.set(Calendar.SECOND, 0);
-        noon.set(Calendar.MILLISECOND, 0);
-        ca.setTime(noon.getTimeInMillis());
-
-        long sunriseTimeMillis = ca.getSunRiseSet(true /* rise */);
-        long sunsetTimeMillis = ca.getSunRiseSet(false /* rise */);
-
-        if (sunsetTimeMillis < timeMillis) {
-            noon.add(Calendar.DATE, 1);
-            ca.setTime(noon.getTimeInMillis());
-            sunriseTimeMillis = ca.getSunRiseSet(true /* rise */);
-        } else if (sunriseTimeMillis > timeMillis) {
-            noon.add(Calendar.DATE, -1);
-            ca.setTime(noon.getTimeInMillis());
-            sunsetTimeMillis = ca.getSunRiseSet(false /* rise */);
-        }
+        final SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(
+                location, TimeZone.getDefault().getID());
+        final Calendar today = GregorianCalendar.getInstance();
+        // calculate today's twilight
+        final long sunriseTimeMillis = calculator.getOfficialSunriseCalendarForDate(today).getTimeInMillis();
+        final long sunsetTimeMillis = calculator.getOfficialSunsetCalendarForDate(today).getTimeInMillis();
 
         return new TwilightState(sunriseTimeMillis, sunsetTimeMillis);
     }
