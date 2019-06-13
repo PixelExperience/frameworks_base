@@ -27,6 +27,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.provider.Settings.Secure;
 import android.provider.Settings.System;
 import android.util.Slog;
@@ -490,6 +491,10 @@ public final class ColorDisplayController {
             switch (setting) {
                 case Secure.NIGHT_DISPLAY_ACTIVATED:
                     mCallback.onActivated(isActivated());
+                    System.putIntForUser(mContext.getContentResolver(),
+                            System.THEME_AUTOMATIC_TIME_IS_NIGHT,
+                            isActivated() ? 1 : 0,
+                            UserHandle.USER_CURRENT);
                     break;
                 case Secure.NIGHT_DISPLAY_AUTO_MODE:
                     mCallback.onAutoModeChanged(getAutoMode());
