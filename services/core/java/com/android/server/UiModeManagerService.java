@@ -44,6 +44,7 @@ import android.os.ShellCallback;
 import android.os.ShellCommand;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.provider.Settings;
 import android.service.dreams.Sandman;
 import android.service.vr.IVrManager;
@@ -68,12 +69,17 @@ import com.android.server.twilight.TwilightListener;
 import com.android.server.twilight.TwilightManager;
 import com.android.server.twilight.TwilightState;
 
+import java.util.Objects;
+
 final class UiModeManagerService extends SystemService {
     private static final String TAG = UiModeManager.class.getSimpleName();
     private static final boolean LOG = false;
 
     // Enable launching of applications when entering the dock.
     private static final boolean ENABLE_LAUNCH_DESK_DOCK_APP = true;
+
+    // Night mode state
+    private static final String SYSTEM_PROPERTY_DEVICE_THEME = "persist.sys.theme";
 
     final Object mLock = new Object();
     private int mDockState = Intent.EXTRA_DOCK_STATE_UNDOCKED;
@@ -231,6 +237,8 @@ final class UiModeManagerService extends SystemService {
         mNightMode = Settings.Secure.getInt(context.getContentResolver(),
                 Settings.Secure.UI_NIGHT_MODE, defaultNightMode);
 
+        updateNightModeProp(mNightMode);
+
         // Update the initial, static configurations.
         SystemServerInitThreadPool.get().submit(() -> {
             synchronized (mLock) {
@@ -240,6 +248,14 @@ final class UiModeManagerService extends SystemService {
 
         }, TAG + ".onStart");
         publishBinderService(Context.UI_MODE_SERVICE, mService);
+    }
+
+    private void updateNightModeProp(int mode){
+        if (UserManager.get(getContext()).isPrimaryUser()) {
+            if (!Objects.equals(SystemProperties.get(SYSTEM_PROPERTY_DEVICE_THEME), mode)) {
+                SystemProperties.set(SYSTEM_PROPERTY_DEVICE_THEME, Integer.toString(mode));
+            }
+        }
     }
 
     private final IUiModeManager.Stub mService = new IUiModeManager.Stub() {
@@ -336,6 +352,7 @@ final class UiModeManagerService extends SystemService {
                     if (mNightMode != mode) {
                         Settings.Secure.putInt(getContext().getContentResolver(),
                                 Settings.Secure.UI_NIGHT_MODE, mode);
+                        updateNightModeProp(mode);
                         mNightMode = mode;
                         updateLocked(0, 0);
                     }
