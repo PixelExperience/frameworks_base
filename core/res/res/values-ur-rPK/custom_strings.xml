@@ -8,5 +8,9 @@
     <string name="ambient_recognition_notification">اب چل رہا ہے</string>
     <string name="ambient_recognition_information">%1$s سے %2$s</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">پاور بٹن کو دبا کر رکھیں لاک کھولنے کے لئے</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">خود کار</string>
+    <string name="live_display_auto_summary">رنگوں کے درجہ حرارت خود کار طریقے سے استعمال کریں طلوع آفتاب اور غروب آفتاب کے وقت</string>
+    <string name="live_display_off">آف</string>
 </resources>

@@ -8,8 +8,12 @@
     <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> līdz pilnā)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">Turbo lādēšana pievienota</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">Super Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> līdz pilns)</string>
+    <string name="keyguard_plugged_in_super_charging">Super Charging</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Šis notur to skatā līdz tiek atsprausts. Pieskarieties &amp; turiet atpakaļ lai atspraustu.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Lai atspraustu šo ekrānu, pieskarieties &amp; turiet atpakaļ pogu</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <!-- Advanced restart menu -->
