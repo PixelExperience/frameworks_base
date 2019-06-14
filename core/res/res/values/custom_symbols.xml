@@ -140,4 +140,6 @@
     <!-- Whether to allow sending active app broadcast -->
     <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 
+    <!-- Custom styles -->
+    <java-symbol type="style" name="CustomThemeDeviceDefaultDialogAlert" />
 </resources>
