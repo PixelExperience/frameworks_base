@@ -8,14 +8,14 @@
     <string name="ambient_recognition_notification">Сега се изпълнява</string>
     <string name="ambient_recognition_information">%1$s от %2$s</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Натисни и задръж бутона включване за да отключиш</string>
+    <string name="pocket_lock_message_long_press">Натиснете и задръжте бутона за включване, за да отключите</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Автоматичен</string>
+    <string name="live_display_auto">Автоматично</string>
     <string name="live_display_auto_summary">Автоматично регулиране на цветовата температура след залез/изгрев</string>
-    <string name="live_display_off">Изключен</string>
-    <string name="live_display_off_summary">Няма зададен режим на екрана</string>
+    <string name="live_display_off">Изключено</string>
+    <string name="live_display_off_summary">Деактивиране на всички регулировки</string>
     <string name="live_display_day">Дневен</string>
-    <string name="live_display_day_summary">Само настройки на дневен режим</string>
+    <string name="live_display_day_summary">Използвайте само настройките за ден</string>
     <string name="live_display_night">Нощен</string>
     <string name="live_display_night_summary">Само настройки на нощен режим</string>
     <string name="live_display_outdoor">На открито (ярко слънце)</string>

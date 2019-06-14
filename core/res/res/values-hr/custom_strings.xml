@@ -8,7 +8,7 @@
     <string name="ambient_recognition_notification">Sada sviram</string>
     <string name="ambient_recognition_information">%1$s od %2$s</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Za otključavanje pritisnite i držite zaslon</string>
+    <string name="pocket_lock_message_long_press">Za otključavanje pritisnite i držite gumb power</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatski</string>
     <string name="live_display_auto_summary">Automatski prilagodi temperaturu boje zaslona nakon zalaska i izlaska sunca</string>

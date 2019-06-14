@@ -8,6 +8,8 @@
     <string name="keyguard_indication_turbo_power_time">شارژ توربو متصل شد (<xliff:g id="charging_time_left">%s</xliff:g> تا پر شدن کامل)</string>
     <string name="keyguard_plugged_in_turbo_power_charging">شارژ توربو متصل شد</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a super charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_super_charging_time">در حال سوپرشارژ (<xliff:g id="charging_time_left" مثال="4 ساعت و 2 دقیقه">%s </xliff:g> تا پر شدن)</string>
+    <string name="keyguard_plugged_in_super_charging">در حال سوپر شارژ</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش داده می‌شود. برای از سنجاق درآوردن دکمه بازگشت را نگه دارید.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -20,16 +22,16 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">ریکاوری</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <string name="global_action_restart_bootloader">بوت لودر</string>
+    <string name="global_action_restart_bootloader">بوت‌لودر</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">حالت دانلود</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">نمایش 4G بجای LTE</string>
-    <string name="show_fourg_summary">نشان دهنده LTE در نوار اعلانات را با 4G عوض میکند</string>
+    <string name="show_fourg_summary">نشان دهنده LTE در نوار اعلانات را با 4G عوض می‌کند</string>
     <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">ک‌ب/ث</string>
     <string name="megabitspersecond_short">مگ/ث</string>
-    <string name="kilobytespersecond_short">ک‌ب/ث</string>
+    <string name="kilobytespersecond_short">ث/ک‌ب</string>
     <string name="megabytespersecond_short">مگ/ث</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">حالت کافئین</string>

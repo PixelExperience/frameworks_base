@@ -5,10 +5,10 @@
     <string name="disable_navkeys_title">On-Screen Navigationsleiste aktivieren</string>
     <string name="disable_navkeys_summary">Hardware Tasten deaktivieren und stattdessen Navigationsleiste auf dem Bildschirm anzeigen</string>
     <!-- Ambient play -->
-    <string name="ambient_recognition_notification">Sie hören</string>
+    <string name="ambient_recognition_notification">Aktuell läuft</string>
     <string name="ambient_recognition_information">%1$s von %2$s</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Um zu entsperren, Power-Taste drücken und halten</string>
+    <string name="pocket_lock_message_long_press">Zum Entsperren Power-Taste drücken und halten</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatisch</string>
     <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
@@ -18,8 +18,8 @@
     <string name="live_display_day_summary">Nur Tag-Modus verwenden</string>
     <string name="live_display_night">Nacht</string>
     <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
-    <string name="live_display_outdoor">Außen (helle Sonne)</string>
-    <string name="live_display_outdoor_summary">Nur Außen-Modus verwenden</string>
+    <string name="live_display_outdoor">Draußen (helle Sonne)</string>
+    <string name="live_display_outdoor_summary">Nur Draußen-Modus verwenden</string>
     <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>
@@ -30,5 +30,5 @@
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Außen-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Draußen-Modus geändert.</string>
 </resources>
