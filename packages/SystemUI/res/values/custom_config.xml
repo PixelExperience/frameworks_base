@@ -23,4 +23,6 @@
     <!-- Use wakelock for flashlight -->
     <bool name="config_useWakeLockForFlashlight">false</bool>
 
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
 </resources>
