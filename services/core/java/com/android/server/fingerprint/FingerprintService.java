@@ -1056,8 +1056,9 @@ public class FingerprintService extends SystemService implements IHwBinder.Death
                 @Override
                 public void run() {
                     int remaining2 = remaining;
+		    int overrideSamsung = android.os.SystemProperties.getInt("persist.sys.phh.samsung_fingerprint", -1);
                     String fp = android.os.SystemProperties.get("ro.vendor.build.fingerprint");
-                    if(fp != null && (fp.startsWith("samsung/")))
+                    if(overrideSamsung == 1 || (overrideSamsung != 0 && fp != null && fp.startsWith("samsung/")))
                         remaining2 = 100 - remaining2;
                     handleEnrollResult(deviceId, fingerId, groupId, remaining2);
                 }
