@@ -218,6 +218,9 @@ public final class LineageHardwareManager {
     }
 
     private boolean isSupportedLegacy(int feature) {
+        if (feature == FEATURE_READING_ENHANCEMENT){
+            return false;
+        }
         try {
             if (checkService()) {
                 return feature == (sService.getSupportedFeatures() & feature);
@@ -244,8 +247,8 @@ public final class LineageHardwareManager {
                     return IDisplayModes.getService(true);
                 case FEATURE_PICTURE_ADJUSTMENT:
                     return IPictureAdjustment.getService(true);
-                case FEATURE_READING_ENHANCEMENT:
-                    return IReadingEnhancement.getService(true);
+                /*case FEATURE_READING_ENHANCEMENT:
+                    return IReadingEnhancement.getService(true);*/
                 case FEATURE_SUNLIGHT_ENHANCEMENT:
                     return ISunlightEnhancement.getService(true);
             }
@@ -304,9 +307,9 @@ public final class LineageHardwareManager {
                     case FEATURE_SUNLIGHT_ENHANCEMENT:
                         ISunlightEnhancement sunlightEnhancement = (ISunlightEnhancement) obj;
                         return sunlightEnhancement.isEnabled();
-                    case FEATURE_READING_ENHANCEMENT:
+                    /*case FEATURE_READING_ENHANCEMENT:
                         IReadingEnhancement readingEnhancement = (IReadingEnhancement) obj;
-                        return readingEnhancement.isEnabled();
+                        return readingEnhancement.isEnabled();*/
                 }
             } else if (checkService()) {
                 return sService.get(feature);
@@ -347,9 +350,9 @@ public final class LineageHardwareManager {
                     case FEATURE_SUNLIGHT_ENHANCEMENT:
                         ISunlightEnhancement sunlightEnhancement = (ISunlightEnhancement) obj;
                         return sunlightEnhancement.setEnabled(enable);
-                    case FEATURE_READING_ENHANCEMENT:
+                    /*case FEATURE_READING_ENHANCEMENT:
                         IReadingEnhancement readingEnhancement = (IReadingEnhancement) obj;
-                        return readingEnhancement.setEnabled(enable);
+                        return readingEnhancement.setEnabled(enable);*/
                 }
             } else if (checkService()) {
                 return sService.set(feature, enable);

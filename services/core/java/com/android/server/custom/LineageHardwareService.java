@@ -133,8 +133,8 @@ public class LineageHardwareService extends SystemService {
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT;
             if (DisplayColorCalibration.isSupported())
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
-            if (ReadingEnhancement.isSupported())
-                mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
+            /*if (ReadingEnhancement.isSupported())
+                mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;*/
             if (SunlightEnhancement.isSupported())
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT;
             if (AutoContrast.isSupported())
@@ -148,7 +148,7 @@ public class LineageHardwareService extends SystemService {
             if (mAcceleratedTransform) {
                 mDTMService = LocalServices.getService(DisplayTransformManager.class);
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
-                mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
+                //mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
             }
         }
 
@@ -164,10 +164,10 @@ public class LineageHardwareService extends SystemService {
                     return AutoContrast.isEnabled();
                 case LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT:
                     return ColorEnhancement.isEnabled();
-                case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
+                /*case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
                     if (mAcceleratedTransform)
                         return mReadingEnhancementEnabled;
-                    return ReadingEnhancement.isEnabled();
+                    return ReadingEnhancement.isEnabled();*/
                 case LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT:
                     return SunlightEnhancement.isEnabled();
                 default:
@@ -184,14 +184,14 @@ public class LineageHardwareService extends SystemService {
                     return AutoContrast.setEnabled(enable);
                 case LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT:
                     return ColorEnhancement.setEnabled(enable);
-                case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
+                /*case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
                     if (mAcceleratedTransform) {
                         mReadingEnhancementEnabled = enable;
                         mDTMService.setColorMatrix(LEVEL_COLOR_MATRIX_READING,
                                 enable ? MATRIX_GRAYSCALE : MATRIX_NORMAL);
                         return true;
                     }
-                    return ReadingEnhancement.setEnabled(enable);
+                    return ReadingEnhancement.setEnabled(enable);*/
                 case LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT:
                     return SunlightEnhancement.setEnabled(enable);
                 default:
