@@ -148,7 +148,9 @@ public class LineageHardwareService extends SystemService {
             if (mAcceleratedTransform) {
                 mDTMService = LocalServices.getService(DisplayTransformManager.class);
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
-                mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
+                if (!LineageHardwareManager.isWellbeingAvailable(mContext)){
+                    mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
+                }
             }
         }
 
