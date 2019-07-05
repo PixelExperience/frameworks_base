@@ -59,9 +59,6 @@
     <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
 
-    <!-- VoLTE switch -->
-    <string name="volte_switch_title" translatable="false">VoLTE</string>
-
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Reading mode</string>
     <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>
