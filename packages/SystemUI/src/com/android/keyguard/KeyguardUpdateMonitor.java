@@ -1044,9 +1044,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener,
         public static final int CHARGING_SLOWLY = 0;
         public static final int CHARGING_REGULAR = 1;
         public static final int CHARGING_FAST = 2;
-        public static final int CHARGING_DASH = 3;
-        public static final int CHARGING_TURBO_POWER = 4;
-        public static final int CHARGING_SUPER = 5;
 
         public final int status;
         public final int level;
@@ -1106,9 +1103,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener,
         }
 
         public final int getChargingSpeed(int slowThreshold, int fastThreshold) {
-            return dashChargeStatus ? CHARGING_DASH :
-                    turboPowerStatus ? CHARGING_TURBO_POWER :
-                    superChargeStatus ? CHARGING_SUPER :
+            return (dashChargeStatus || turboPowerStatus || superChargeStatus) ? CHARGING_FAST :
                     maxChargingWattage <= 0 ? CHARGING_UNKNOWN :
                     maxChargingWattage < slowThreshold ? CHARGING_SLOWLY :
                     maxChargingWattage > fastThreshold ? CHARGING_FAST :
