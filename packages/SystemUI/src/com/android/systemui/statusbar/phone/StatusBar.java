@@ -671,6 +671,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     // Dark theme style
     private boolean mUseBlackTheme;
+    private ActivityManager mActivityManager;
 
     @Override
     public void start() {
@@ -742,6 +743,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mLockPatternUtils = new LockPatternUtils(mContext);
 
         mMediaManager.setUpWithPresenter(this, mEntryManager);
+
+        mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
 
         // Connect in to the status bar manager service
         mCommandQueue = getComponent(CommandQueue.class);
@@ -4201,6 +4204,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     umm.setNightMode(useDarkTheme ?
                         UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
                 }
+                forceStopSettingsIfNeeded();
             });
             mUiOffloadThread.submit(() -> {
                 swapWhiteBlackAccent();
@@ -4232,6 +4236,21 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
             // Make sure we have the correct navbar/statusbar colors.
             mStatusBarWindowManager.setKeyguardDark(useDarkText);
+        }
+    }
+
+    private void forceStopSettingsIfNeeded(){
+        List<ActivityManager.RunningTaskInfo> taskInfo = mActivityManager.getRunningTasks(1);
+        ActivityManager.RunningTaskInfo foregroundApp = null;
+        if (taskInfo != null && !taskInfo.isEmpty()) {
+            foregroundApp = taskInfo.get(0);
+        }
+        if (foregroundApp == null ||
+                !foregroundApp.baseActivity.getPackageName().equals("com.android.settings")){
+            try{
+                mActivityManager.forceStopPackage("com.android.settings");
+            }catch(Exception ignored){
+            }
         }
     }
     
