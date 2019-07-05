@@ -213,4 +213,8 @@
 
     <!-- Custom styles -->
     <java-symbol type="style" name="CustomThemeDeviceDefaultDialogAlert" />
+
+    <!-- Default android launcher icon -->
+    <java-symbol type="drawable" name="ic_launcher_android" />
+
 </resources>
