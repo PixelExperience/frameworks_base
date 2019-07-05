@@ -17,6 +17,7 @@
 package com.android.internal.custom.hardware;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hidl.base.V1_0.IBase;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -138,6 +139,7 @@ public final class LineageHardwareManager {
 
     private final ArrayMap<String, String> mDisplayModeMappings = new ArrayMap<String, String>();
     private final boolean mFilterDisplayModes;
+    private final boolean mAcceleratedTransform;
 
     // HIDL hals
     private HashMap<Integer, IBase> mHIDLMap = new HashMap<Integer, IBase>();
@@ -172,6 +174,9 @@ public final class LineageHardwareManager {
         }
         mFilterDisplayModes = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_filterDisplayModes);
+
+        mAcceleratedTransform = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_setColorTransformAccelerated);
     }
 
     /**
@@ -245,7 +250,9 @@ public final class LineageHardwareManager {
                 case FEATURE_PICTURE_ADJUSTMENT:
                     return IPictureAdjustment.getService(true);
                 case FEATURE_READING_ENHANCEMENT:
-                    return IReadingEnhancement.getService(true);
+                    if (!isWellbeingAvailable(mContext)){
+                        return IReadingEnhancement.getService(true);
+                    }
                 case FEATURE_SUNLIGHT_ENHANCEMENT:
                     return ISunlightEnhancement.getService(true);
             }
@@ -755,4 +762,15 @@ public final class LineageHardwareManager {
         return true;
     }
 
+    public static boolean isWellbeingAvailable(Context context) {
+        final PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo("com.google.android.apps.wellbeing", PackageManager.GET_ACTIVITIES);
+            int enabled = pm.getApplicationEnabledSetting("com.google.android.apps.wellbeing");
+            return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
+                    enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
 }
