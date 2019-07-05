@@ -77,6 +77,8 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+import com.android.internal.util.custom.OverlayUtils;
+
 /**
  * Keeps track of information about all installed applications, lazy-loading
  * as needed.
@@ -1655,41 +1657,13 @@ public class ApplicationsState {
 
     public static final AppFilter FILTER_EVERYTHING = new AppFilter() {
 
-        private final String[] overlays = {"com.android.documentsui.theme.dark",
-                "com.android.systemui.custom.theme.dark",
-                "com.android.gboard.theme.dark",
-                "com.android.settings.intelligence.theme.dark",
-                "com.android.wellbeing.theme",
-                "com.android.system.theme.dark",
-                "com.android.settings.theme.dark",
-                "org.pixelexperience.ota.theme.dark",
-                "com.android.documentsui.theme.black",
-                "com.android.systemui.custom.theme.black",
-                "com.android.system.theme.black",
-                "org.pixelexperience.ota.theme.black",
-                "org.pixelexperience.overlay.accent.cyan",
-                "org.pixelexperience.overlay.accent.purple",
-                "org.pixelexperience.overlay.accent.white",
-                "org.pixelexperience.overlay.accent.red",
-                "org.pixelexperience.overlay.accent.brown",
-                "org.pixelexperience.overlay.accent.yellow",
-                "org.pixelexperience.overlay.accent.teal",
-                "org.pixelexperience.overlay.accent.black",
-                "org.pixelexperience.overlay.accent.orange",
-                "org.pixelexperience.overlay.accent.green",
-                "org.pixelexperience.overlay.accent.pink",
-                "com.android.gboard.theme.light",
-                "org.pixelexperience.overlay.hidecutout",
-                "com.android.facelock.theme.dark",
-                "com.google.android.setupwizard.overlay"};
-
         @Override
         public void init() {
         }
 
         @Override
         public boolean filterApp(AppEntry entry) {
-            return !Arrays.asList(overlays).contains(entry.info.packageName);
+            return !Arrays.asList(OverlayUtils.AllPackages).contains(entry.info.packageName);
         }
     };
 
