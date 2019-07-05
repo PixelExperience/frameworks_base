@@ -244,8 +244,8 @@ public final class LineageHardwareManager {
                     return IDisplayModes.getService(true);
                 case FEATURE_PICTURE_ADJUSTMENT:
                     return IPictureAdjustment.getService(true);
-                case FEATURE_READING_ENHANCEMENT:
-                    return IReadingEnhancement.getService(true);
+                //case FEATURE_READING_ENHANCEMENT:
+                //    return IReadingEnhancement.getService(true);
                 case FEATURE_SUNLIGHT_ENHANCEMENT:
                     return ISunlightEnhancement.getService(true);
             }
