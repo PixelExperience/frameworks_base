@@ -102,7 +102,6 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private Drawable mDrawable;
     private HashMap<String, IfaceTrafficStats> mActiveIfaceStats;
     private boolean mIsStatsDirty;
-    private boolean mHasNotch;
     private KeyguardUpdateMonitor mKeyguardUpdateMonitor;
     private boolean mColorIsStatic = false;
 
@@ -120,8 +119,6 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         final Resources resources = getResources();
         mTextSize = resources.getDimensionPixelSize(R.dimen.net_traffic_text_size);
         mTextFontFamily = resources.getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
-        mHasNotch = resources.getBoolean(
-                com.android.internal.R.bool.config_physicalDisplayCutout);
 
         mObserver = new SettingsObserver(mTrafficHandler);
 
@@ -284,9 +281,6 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NETWORK_TRAFFIC_SHOW_UNITS),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DISPLAY_CUTOUT_HIDDEN),
-                    false, this, UserHandle.USER_ALL);
         }
 
         void unobserve() {
@@ -357,20 +351,11 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         return true;
     }
 
-    private boolean isNotchHidden(){
-        if (mHasNotch){
-            return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
-        }else{
-            return true;
-        }
-    }
-
     private void updateSettings() {
         updateVisibility();
         ContentResolver resolver = mContext.getContentResolver();
 
-        mEnabled = isNotchHidden() ? Settings.System.getIntForUser(resolver,
+        mEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_ENABLED, 0, UserHandle.USER_CURRENT) == 1 : false;
         mAutoHide = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0, UserHandle.USER_CURRENT) == 1;
