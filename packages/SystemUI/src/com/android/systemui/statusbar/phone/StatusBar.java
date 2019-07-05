@@ -672,6 +672,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private int mThemeMode;
     private boolean mThemeAutomaticTimeIsNight;
     private boolean shouldReloadOverlays = true;
+    private ActivityManager mActivityManager;
 
     @Override
     public void start() {
@@ -743,6 +744,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mLockPatternUtils = new LockPatternUtils(mContext);
 
         mMediaManager.setUpWithPresenter(this, mEntryManager);
+
+        mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
 
         // Connect in to the status bar manager service
         mCommandQueue = getComponent(CommandQueue.class);
@@ -4168,6 +4171,23 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         return true;
     }
 
+    private void forceStopSettingsIfNeeded(){
+        boolean shouldForceStop;
+        List<ActivityManager.RunningTaskInfo> taskInfo = mActivityManager.getRunningTasks(1);
+        ActivityManager.RunningTaskInfo foregroundApp = null;
+        if (taskInfo != null && !taskInfo.isEmpty()) {
+            foregroundApp = taskInfo.get(0);
+        }
+        shouldForceStop = foregroundApp == null ||
+            !foregroundApp.baseActivity.getPackageName().equals("com.android.settings");
+        if (shouldForceStop){
+            try{
+                mActivityManager.forceStopPackage("com.android.settings");
+            }catch(Exception ignored){
+            }
+        }
+    }
+
     protected void updateTheme(boolean themeNeedsRefresh) {
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
         final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
@@ -4191,6 +4211,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                             useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.systemui.custom.theme.black",
                             useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.settings.theme.dark",
+                            useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.intelligence.theme.dark",
                             useDarkTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.gboard.theme.dark",
@@ -4222,6 +4244,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             mHandler.postDelayed(() -> {
                 shouldReloadOverlays = true;
                 onOverlayChanged();
+                forceStopSettingsIfNeeded();
             }, 1000);
         }
 
