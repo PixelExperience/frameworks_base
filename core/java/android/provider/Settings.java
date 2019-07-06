@@ -4725,33 +4725,6 @@ public final class Settings {
         public static final Validator POCKET_JUDGE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Color temperature of the display during the day
-         */
-        public static final String DISPLAY_TEMPERATURE_DAY = "display_temperature_day";
-
-        /** @hide */
-        public static final Validator DISPLAY_TEMPERATURE_DAY_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 100000);
-
-        /**
-         * Color temperature of the display at night
-         */
-        public static final String DISPLAY_TEMPERATURE_NIGHT = "display_temperature_night";
-
-        /** @hide */
-        public static final Validator DISPLAY_TEMPERATURE_NIGHT_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 100000);
-
-        /**
-         * Display color temperature adjustment mode, one of DAY (default), NIGHT, or AUTO.
-         */
-        public static final String DISPLAY_TEMPERATURE_MODE = "display_temperature_mode";
-
-        /** @hide */
-        public static final Validator DISPLAY_TEMPERATURE_MODE_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
-
-        /**
          * Automatic outdoor mode
          * 0 = 0ff, 1 = on
          */
@@ -4759,16 +4732,6 @@ public final class Settings {
 
         /** @hide */
         public static final Validator DISPLAY_AUTO_OUTDOOR_MODE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Reader mode
-         * 0 = 0ff, 1 = on
-         */
-        public static final String DISPLAY_READING_MODE = "display_reading_mode";
-
-        /** @hide */
-        public static final Validator DISPLAY_READING_MODE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
         /**
@@ -4848,16 +4811,6 @@ public final class Settings {
                         return true;
                     }
                 };
-
-        /**
-         * Did we tell about how they can stop breaking their eyes?
-         * @hide
-         */
-        public static final String LIVE_DISPLAY_HINTED = "live_display_hinted";
-
-        /** @hide */
-        public static final Validator LIVE_DISPLAY_HINTED_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(-3, 1);
 
          /**
           * Screenshod sound enable, This is the noise made when taking a screesnhot
@@ -5130,17 +5083,12 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_SHOW_UNITS);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD);
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
-            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_DAY);
-            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_NIGHT);
-            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_AUTO_OUTDOOR_MODE);
-            PRIVATE_SETTINGS.add(DISPLAY_READING_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_CABC);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ENHANCE);
             PRIVATE_SETTINGS.add(DISPLAY_AUTO_CONTRAST);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
-            PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
             PRIVATE_SETTINGS.add(THEME_AUTOMATIC_TIME_IS_NIGHT);
@@ -5289,17 +5237,12 @@ public final class Settings {
             VALIDATORS.put(NETWORK_TRAFFIC_SHOW_UNITS, NETWORK_TRAFFIC_SHOW_UNITS_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD_VALIDATOR);
             VALIDATORS.put(POCKET_JUDGE, POCKET_JUDGE_VALIDATOR);
-            VALIDATORS.put(DISPLAY_TEMPERATURE_DAY, DISPLAY_TEMPERATURE_DAY_VALIDATOR);
-            VALIDATORS.put(DISPLAY_TEMPERATURE_NIGHT, DISPLAY_TEMPERATURE_NIGHT_VALIDATOR);
-            VALIDATORS.put(DISPLAY_TEMPERATURE_MODE, DISPLAY_TEMPERATURE_MODE_VALIDATOR);
             VALIDATORS.put(DISPLAY_AUTO_OUTDOOR_MODE, DISPLAY_AUTO_OUTDOOR_MODE_VALIDATOR);
-            VALIDATORS.put(DISPLAY_READING_MODE, DISPLAY_READING_MODE_VALIDATOR);
             VALIDATORS.put(DISPLAY_CABC, DISPLAY_CABC_VALIDATOR);
             VALIDATORS.put(DISPLAY_COLOR_ENHANCE, DISPLAY_COLOR_ENHANCE_VALIDATOR);
             VALIDATORS.put(DISPLAY_AUTO_CONTRAST, DISPLAY_AUTO_CONTRAST_VALIDATOR);
             VALIDATORS.put(DISPLAY_COLOR_ADJUSTMENT, DISPLAY_COLOR_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
-            VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
             VALIDATORS.put(SWIPE_TO_SCREENSHOT, SWIPE_TO_SCREENSHOT_VALIDATOR);
             VALIDATORS.put(THEME_AUTOMATIC_TIME_IS_NIGHT, THEME_AUTOMATIC_TIME_IS_NIGHT_VALIDATOR);
