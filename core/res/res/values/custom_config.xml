@@ -265,19 +265,8 @@
 
     <!-- Default values for LiveDisplay -->
     <integer name="config_dayColorTemperature">6500</integer>
-    <integer name="config_nightColorTemperature">4800</integer>
     <integer name="config_outdoorAmbientLux">12000</integer>
     <integer name="config_outdoorAmbientLuxHysteresis">1500</integer>
-    <integer name="config_defaultLiveDisplayMode">0</integer>
-
-    <!-- These values should map to the true min and max
-         that the backend is capable of adjusting to. This
-         is more important when using the ColorBalance mode,
-         as the discrete adjustment is interpolated between
-         this range (with config_dayColorTemperature at zero) -->
-    <integer name="config_minColorTemperature">1000</integer>
-    <integer name="config_maxColorTemperature">10000</integer>
-
     <bool name="config_defaultAutoContrast">false</bool>
     <bool name="config_defaultAutoOutdoorMode">true</bool>
     <bool name="config_defaultColorEnhancement">true</bool>

@@ -24,7 +24,6 @@ interface ILiveDisplayService {
     LiveDisplayConfig getConfig();
 
     int getMode();
-    boolean setMode(int mode);
 
     float[] getColorAdjustment();
     boolean setColorAdjustment(in float[] adj);
@@ -38,19 +37,10 @@ interface ILiveDisplayService {
     boolean isColorEnhancementEnabled();
     boolean setColorEnhancementEnabled(boolean enabled);
 
-    int getDayColorTemperature();
-    boolean setDayColorTemperature(int temperature);
-
-    int getNightColorTemperature();
-    boolean setNightColorTemperature(int temperature);
-
-    int getColorTemperature();
-
     boolean isAutomaticOutdoorModeEnabled();
     boolean setAutomaticOutdoorModeEnabled(boolean enabled);
 
     HSIC getPictureAdjustment();
     HSIC getDefaultPictureAdjustment();
     boolean setPictureAdjustment(in HSIC adj);
-    boolean isNight();
 }
