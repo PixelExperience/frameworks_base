@@ -54,26 +54,15 @@ public class LiveDisplayManager {
      */
     public static final int MODE_NIGHT = 1;
 
-    /**
-     * Enable automatic detection of appropriate mode
-     */
-    public static final int MODE_AUTO = 2;
-
-    /**
-     * Increase brightness/contrast/saturation for sunlight
-     */
-    public static final int MODE_OUTDOOR = 3;
-
-    /**
-     * Change color temperature to day mode, and allow
-     * detection of outdoor conditions
-     */
-    public static final int MODE_DAY = 4;
-
     /** @hide */
     public static final int MODE_FIRST = MODE_OFF;
     /** @hide */
-    public static final int MODE_LAST = MODE_DAY;
+    public static final int MODE_LAST = MODE_NIGHT;
+
+    /**
+     * System supports outdoor mode
+     */
+    public static final int FEATURE_OUTDOOR_MODE = 3;
 
     /**
      * Content adaptive backlight control, adjust images to
@@ -120,11 +109,6 @@ public class LiveDisplayManager {
      * adjustment of display.
      */
     public static final int FEATURE_PICTURE_ADJUSTMENT = 17;
-
-    /**
-     * System supports grayscale matrix overlay
-     */
-    public static final int FEATURE_READING_ENHANCEMENT = 18;
 
     public static final int ADJUSTMENT_HUE = 0;
     public static final int ADJUSTMENT_SATURATION = 1;
@@ -326,54 +310,14 @@ public class LiveDisplayManager {
     }
 
     /**
-     * Gets the user-specified color temperature to use in the daytime.
-     *
-     * @return the day color temperature
-     */
-    public int getDayColorTemperature() {
-        try {
-            return checkService() ? sService.getDayColorTemperature() : -1;
-        } catch (RemoteException e) {
-            return -1;
-        }
-    }
-
-    /**
-     * Sets the color temperature to use in the daytime.
+     * Sets the color temperature
      *
      * @param temperature
      * @return true if state was changed
      */
-    public boolean setDayColorTemperature(int temperature) {
+    public boolean setDisplayTemperature(int temperature) {
         try {
-            return checkService() && sService.setDayColorTemperature(temperature);
-        } catch (RemoteException e) {
-            return false;
-        }
-    }
-
-    /**
-     * Gets the user-specified color temperature to use at night.
-     *
-     * @return the night color temperature
-     */
-    public int getNightColorTemperature() {
-        try {
-            return checkService() ? sService.getNightColorTemperature() : -1;
-        } catch (RemoteException e) {
-            return -1;
-        }
-    }
-
-    /**
-     * Sets the color temperature to use at night.
-     *
-     * @param temperature
-     * @return true if state was changed
-     */
-    public boolean setNightColorTemperature(int temperature) {
-        try {
-            return checkService() && sService.setNightColorTemperature(temperature);
+            return checkService() && sService.setDisplayTemperature(temperature);
         } catch (RemoteException e) {
             return false;
         }
@@ -486,20 +430,5 @@ public class LiveDisplayManager {
         } catch (RemoteException e) {
         }
         return null;
-    }
-
-    /**
-     * Determine whether night mode is enabled (be it automatic or manual)
-     */
-    public boolean isNightModeEnabled() {
-        // This method might be called before config has been set up
-        // so a NPE would have been thrown, just report night mode is disabled instead
-        try {
-            return getMode() == MODE_NIGHT || sService.isNight();
-        } catch (NullPointerException e) {
-            Log.w(TAG, "Can\'t check whether night mode is enabled because the service isn\'t ready");
-        } catch (RemoteException ignored) {
-        }
-        return false;
     }
 }
