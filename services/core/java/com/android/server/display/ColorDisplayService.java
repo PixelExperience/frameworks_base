@@ -94,9 +94,13 @@ public final class ColorDisplayService extends SystemService
     private Boolean mIsActivated;
     private AutoMode mAutoMode;
 
+    private boolean hasHWC2Support = false;
+
     public ColorDisplayService(Context context) {
         super(context);
         mHandler = new Handler(Looper.getMainLooper());
+
+        hasHWC2Support = context.getResources().getBoolean(R.bool.config_nightDisplayAvailable);
     }
 
     @Override
@@ -276,7 +280,6 @@ public final class ColorDisplayService extends SystemService
     @Override
     public void onCustomEndTimeChanged(LocalTime endTime) {
         Slog.d(TAG, "onCustomEndTimeChanged: endTime=" + endTime);
-
         if (mAutoMode != null) {
             mAutoMode.onCustomEndTimeChanged(endTime);
         }
@@ -290,7 +293,7 @@ public final class ColorDisplayService extends SystemService
 
     @Override
     public void onDisplayColorModeChanged(int mode) {
-        if (mode == -1) {
+        if (mode == -1 || !hasHWC2Support) {
             return;
         }
 
@@ -330,6 +333,10 @@ public final class ColorDisplayService extends SystemService
      * @param immediate {@code true} skips transition animation
      */
     private void applyTint(boolean immediate) {
+        if (!hasHWC2Support){
+            return;
+        }
+
         // Cancel the old animator if still running.
         if (mColorMatrixAnimator != null) {
             mColorMatrixAnimator.cancel();

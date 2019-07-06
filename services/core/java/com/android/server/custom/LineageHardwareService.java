@@ -116,7 +116,7 @@ public class LineageHardwareService extends SystemService {
         private final int LEVEL_COLOR_MATRIX_CALIB = LEVEL_COLOR_MATRIX_NIGHT_DISPLAY + 1;
         private final int LEVEL_COLOR_MATRIX_READING = LEVEL_COLOR_MATRIX_GRAYSCALE + 1;
 
-        private boolean mAcceleratedTransform;
+        private boolean mHasHWC2Support;
         private DisplayTransformManager mDTMService;
 
         private int[] mCurColors = { MAX, MAX, MAX };
@@ -125,8 +125,8 @@ public class LineageHardwareService extends SystemService {
         private int mSupportedFeatures = 0;
 
         public LegacyLineageHardware() {
-            mAcceleratedTransform = mContext.getResources().getBoolean(
-                    com.android.internal.R.bool.config_setColorTransformAccelerated);
+            mHasHWC2Support = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_nightDisplayAvailable);
             if (AdaptiveBacklight.isSupported())
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_ADAPTIVE_BACKLIGHT;
             if (ColorEnhancement.isSupported())
@@ -145,7 +145,7 @@ public class LineageHardwareService extends SystemService {
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_COLOR_BALANCE;
             if (PictureAdjustment.isSupported())
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_PICTURE_ADJUSTMENT;
-            if (mAcceleratedTransform) {
+            if (mHasHWC2Support) {
                 mDTMService = LocalServices.getService(DisplayTransformManager.class);
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
@@ -165,7 +165,7 @@ public class LineageHardwareService extends SystemService {
                 case LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT:
                     return ColorEnhancement.isEnabled();
                 case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
-                    if (mAcceleratedTransform)
+                    if (mHasHWC2Support)
                         return mReadingEnhancementEnabled;
                     return ReadingEnhancement.isEnabled();
                 case LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT:
@@ -185,7 +185,7 @@ public class LineageHardwareService extends SystemService {
                 case LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT:
                     return ColorEnhancement.setEnabled(enable);
                 case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
-                    if (mAcceleratedTransform) {
+                    if (mHasHWC2Support) {
                         mReadingEnhancementEnabled = enable;
                         mDTMService.setColorMatrix(LEVEL_COLOR_MATRIX_READING,
                                 enable ? MATRIX_GRAYSCALE : MATRIX_NORMAL);
@@ -245,7 +245,7 @@ public class LineageHardwareService extends SystemService {
         }
 
         public int[] getDisplayColorCalibration() {
-            int[] rgb = mAcceleratedTransform ? mCurColors :
+            int[] rgb = mHasHWC2Support ? mCurColors :
                     splitStringToInt(DisplayColorCalibration.getCurColors(), " ");
             if (rgb == null || rgb.length != 3) {
                 Log.e(TAG, "Invalid color calibration string");
@@ -256,14 +256,14 @@ public class LineageHardwareService extends SystemService {
             currentCalibration[LineageHardwareManager.COLOR_CALIBRATION_GREEN_INDEX] = rgb[1];
             currentCalibration[LineageHardwareManager.COLOR_CALIBRATION_BLUE_INDEX] = rgb[2];
             currentCalibration[LineageHardwareManager.COLOR_CALIBRATION_MIN_INDEX] =
-                mAcceleratedTransform ? MIN : DisplayColorCalibration.getMinValue();
+                mHasHWC2Support ? MIN : DisplayColorCalibration.getMinValue();
             currentCalibration[LineageHardwareManager.COLOR_CALIBRATION_MAX_INDEX] =
-                mAcceleratedTransform ? MAX : DisplayColorCalibration.getMaxValue();
+                mHasHWC2Support ? MAX : DisplayColorCalibration.getMaxValue();
             return currentCalibration;
         }
 
         public boolean setDisplayColorCalibration(int[] rgb) {
-            if (mAcceleratedTransform) {
+            if (mHasHWC2Support) {
                 mCurColors = rgb;
                 mDTMService.setColorMatrix(LEVEL_COLOR_MATRIX_CALIB, rgbToMatrix(rgb));
                 return true;
