@@ -22,7 +22,6 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.util.Log;
 
-import com.android.server.twilight.TwilightState;
 import com.android.server.custom.common.UserContentObserver;
 import com.android.server.custom.display.LiveDisplayService.State;
 
@@ -34,7 +33,6 @@ import android.provider.Settings;
 import static com.android.server.custom.display.LiveDisplayService.ALL_CHANGED;
 import static com.android.server.custom.display.LiveDisplayService.DISPLAY_CHANGED;
 import static com.android.server.custom.display.LiveDisplayService.MODE_CHANGED;
-import static com.android.server.custom.display.LiveDisplayService.TWILIGHT_CHANGED;
 
 public abstract class LiveDisplayFeature {
 
@@ -67,9 +65,6 @@ public abstract class LiveDisplayFeature {
         if ((flags & DISPLAY_CHANGED) != 0) {
             onScreenStateChanged();
         }
-        if (((flags & TWILIGHT_CHANGED) != 0) && mState.mTwilight != null) {
-            onTwilightUpdated();
-        }
         if ((flags & MODE_CHANGED) != 0) {
             onUpdate();
         }
@@ -90,8 +85,6 @@ public abstract class LiveDisplayFeature {
     }
 
     protected void onScreenStateChanged() { }
-
-    protected void onTwilightUpdated() { }
 
     protected final void registerSettings(Uri... settings) {
         mSettingsObserver.register(settings);
@@ -137,14 +130,6 @@ public abstract class LiveDisplayFeature {
 
     protected final boolean isScreenOn() {
         return mState.mScreenOn;
-    }
-
-    protected final TwilightState getTwilight() {
-        return mState.mTwilight;
-    }
-
-    public final boolean isNight() {
-        return mState.mTwilight != null && mState.mTwilight.isNight();
     }
 
     final class SettingsObserver extends UserContentObserver {
