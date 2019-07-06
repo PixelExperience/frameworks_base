@@ -15,10 +15,6 @@
  */
 package com.android.server.custom.display;
 
-import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_AUTO;
-import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_DAY;
-import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OUTDOOR;
-
 import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
@@ -30,7 +26,14 @@ import com.android.internal.custom.hardware.LineageHardwareManager;
 import com.android.internal.custom.hardware.LiveDisplayManager;
 import android.provider.Settings;
 
-public class OutdoorModeController extends LiveDisplayFeature {
+import com.android.server.LocalServices;
+import com.android.server.twilight.TwilightListener;
+import com.android.server.twilight.TwilightManager;
+import com.android.server.twilight.TwilightState;
+
+import static com.android.internal.custom.hardware.LiveDisplayManager.FEATURE_OUTDOOR_MODE;
+
+public class OutdoorModeController extends LiveDisplayFeature implements TwilightListener {
 
     private final LineageHardwareManager mHardware;
     private AmbientLuxObserver mLuxObserver;
@@ -51,6 +54,10 @@ public class OutdoorModeController extends LiveDisplayFeature {
     // sliding window for sensor event smoothing
     private static final int SENSOR_WINDOW_MS = 3000;
 
+    private final Handler mHandler;
+    private final TwilightManager mTwilightManager;
+    private TwilightState mTwilight;
+
     public OutdoorModeController(Context context, Handler handler) {
         super(context, handler);
 
@@ -64,6 +71,9 @@ public class OutdoorModeController extends LiveDisplayFeature {
                 com.android.internal.R.integer.config_outdoorAmbientLuxHysteresis);
         mDefaultAutoOutdoorMode = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_defaultAutoOutdoorMode);
+
+        mHandler = handler;
+        mTwilightManager = LocalServices.getService(TwilightManager.class);
     }
 
     @Override
@@ -71,6 +81,9 @@ public class OutdoorModeController extends LiveDisplayFeature {
         if (!mUseOutdoorMode) {
             return;
         }
+
+        mTwilightManager.registerListener(this, mHandler);
+        mTwilight = mTwilightManager.getLastTwilightState();
 
         if (!mSelfManaged) {
             mLuxObserver = new AmbientLuxObserver(mContext, mHandler.getLooper(),
@@ -82,9 +95,19 @@ public class OutdoorModeController extends LiveDisplayFeature {
     }
 
     @Override
+    public void onTwilightStateChanged(TwilightState state) {
+        mTwilight = state;
+        updateOutdoorMode();
+    }
+
+    private boolean isNight(){
+        return mTwilight != null && mTwilight.isNight();
+    }
+
+    @Override
     public boolean getCapabilities(final BitSet caps) {
         if (mUseOutdoorMode) {
-            caps.set(LiveDisplayManager.MODE_OUTDOOR);
+            caps.set(LiveDisplayManager.FEATURE_OUTDOOR_MODE);
             if (mSelfManaged) {
                 caps.set(LiveDisplayManager.FEATURE_MANAGED_OUTDOOR_MODE);
             }
@@ -94,11 +117,6 @@ public class OutdoorModeController extends LiveDisplayFeature {
 
     @Override
     protected void onUpdate() {
-        updateOutdoorMode();
-    }
-
-    @Override
-    protected void onTwilightUpdated() {
         updateOutdoorMode();
     }
 
@@ -113,7 +131,7 @@ public class OutdoorModeController extends LiveDisplayFeature {
 
         // Disable outdoor mode on screen off so that we don't melt the users
         // face if they turn it back on in normal conditions
-        if (!isScreenOn() && !mSelfManaged && getMode() != MODE_OUTDOOR) {
+        if (!isScreenOn() && !mSelfManaged) {
             mIsOutdoor = false;
             mHardware.set(LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT, false);
         }
@@ -156,10 +174,7 @@ public class OutdoorModeController extends LiveDisplayFeature {
         if (isScreenOn() && !isLowPowerMode()) {
             if (isAutomaticOutdoorModeEnabled()) {
                 int mode = getMode();
-                if (mode == MODE_DAY) {
-                    // always turn it on if day mode is selected
-                    sensorEnabled = true;
-                } else if (mode == MODE_AUTO && !isNight()) {
+                if (!isNight()) {
                     // in auto mode we turn it on during actual daytime
                     sensorEnabled = true;
                 }
@@ -195,9 +210,7 @@ public class OutdoorModeController extends LiveDisplayFeature {
             if (!isLowPowerMode()) {
                 int mode = getMode();
                 // turn it on if the user manually selected the mode
-                if (mode == MODE_OUTDOOR) {
-                    enabled = true;
-                } else if (isAutomaticOutdoorModeEnabled()) {
+                if (isAutomaticOutdoorModeEnabled()) {
                     // self-managed mode means we just flip a switch and an external
                     // implementation does all the sensing. this allows the user
                     // to turn on/off the feature.
@@ -205,11 +218,7 @@ public class OutdoorModeController extends LiveDisplayFeature {
                         enabled = true;
                     } else if (mIsOutdoor) {
                         // if we're here, the sensor detects extremely bright light.
-                        if (mode == MODE_DAY) {
-                            // if the user manually selected day mode, go ahead and
-                            // melt their face
-                            enabled = true;
-                        } else if (mode == MODE_AUTO && !isNight()) {
+                        if (!isNight()) {
                             // if we're in auto mode, we should also check if it's
                             // night time, since we don't get much sun at night
                             // on this planet :)
