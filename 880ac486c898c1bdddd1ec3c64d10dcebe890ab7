@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3443472e_ab2318fe",
+        "filename": "core/java/com/android/internal/app/ColorDisplayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-07-06T20:58:43Z",
+      "side": 1,
+      "message": "debug",
+      "revId": "880ac486c898c1bdddd1ec3c64d10dcebe890ab7",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a",
+      "unresolved": true
+    }
+  ]
+}
