@@ -40,7 +40,6 @@ import vendor.lineage.livedisplay.V2_0.IColorEnhancement;
 import vendor.lineage.livedisplay.V2_0.IDisplayColorCalibration;
 import vendor.lineage.livedisplay.V2_0.IDisplayModes;
 import vendor.lineage.livedisplay.V2_0.IPictureAdjustment;
-import vendor.lineage.livedisplay.V2_0.IReadingEnhancement;
 import vendor.lineage.livedisplay.V2_0.ISunlightEnhancement;
 
 import java.io.UnsupportedEncodingException;
@@ -106,12 +105,6 @@ public final class LineageHardwareManager {
     public static final int FEATURE_DISPLAY_MODES = 0x100;
 
     /**
-     * Reading mode
-     */
-    @VisibleForTesting
-    public static final int FEATURE_READING_ENHANCEMENT = 0x400;
-
-    /**
      * Color balance
      */
     @VisibleForTesting
@@ -127,8 +120,7 @@ public final class LineageHardwareManager {
         FEATURE_ADAPTIVE_BACKLIGHT,
         FEATURE_AUTO_CONTRAST,
         FEATURE_COLOR_ENHANCEMENT,
-        FEATURE_SUNLIGHT_ENHANCEMENT,
-        FEATURE_READING_ENHANCEMENT
+        FEATURE_SUNLIGHT_ENHANCEMENT
     );
 
     private static ILineageHardwareService sService;
@@ -218,9 +210,6 @@ public final class LineageHardwareManager {
     }
 
     private boolean isSupportedLegacy(int feature) {
-        if (feature == FEATURE_READING_ENHANCEMENT){
-            return false;
-        }
         try {
             if (checkService()) {
                 return feature == (sService.getSupportedFeatures() & feature);
@@ -247,8 +236,6 @@ public final class LineageHardwareManager {
                     return IDisplayModes.getService(true);
                 case FEATURE_PICTURE_ADJUSTMENT:
                     return IPictureAdjustment.getService(true);
-                /*case FEATURE_READING_ENHANCEMENT:
-                    return IReadingEnhancement.getService(true);*/
                 case FEATURE_SUNLIGHT_ENHANCEMENT:
                     return ISunlightEnhancement.getService(true);
             }
@@ -307,9 +294,6 @@ public final class LineageHardwareManager {
                     case FEATURE_SUNLIGHT_ENHANCEMENT:
                         ISunlightEnhancement sunlightEnhancement = (ISunlightEnhancement) obj;
                         return sunlightEnhancement.isEnabled();
-                    /*case FEATURE_READING_ENHANCEMENT:
-                        IReadingEnhancement readingEnhancement = (IReadingEnhancement) obj;
-                        return readingEnhancement.isEnabled();*/
                 }
             } else if (checkService()) {
                 return sService.get(feature);
@@ -350,9 +334,6 @@ public final class LineageHardwareManager {
                     case FEATURE_SUNLIGHT_ENHANCEMENT:
                         ISunlightEnhancement sunlightEnhancement = (ISunlightEnhancement) obj;
                         return sunlightEnhancement.setEnabled(enable);
-                    /*case FEATURE_READING_ENHANCEMENT:
-                        IReadingEnhancement readingEnhancement = (IReadingEnhancement) obj;
-                        return readingEnhancement.setEnabled(enable);*/
                 }
             } else if (checkService()) {
                 return sService.set(feature, enable);
