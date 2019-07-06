@@ -53,6 +53,8 @@ import com.android.internal.R;
 
 import static com.android.server.display.DisplayTransformManager.LEVEL_COLOR_MATRIX_NIGHT_DISPLAY;
 
+import com.android.internal.custom.hardware.LiveDisplayManager;
+
 /**
  * Tints the display at night.
  */
@@ -94,9 +96,15 @@ public final class ColorDisplayService extends SystemService
     private Boolean mIsActivated;
     private AutoMode mAutoMode;
 
+    private final LiveDisplayManager mLiveDisplay;
+    private boolean hasHWC2Support = false;
+
     public ColorDisplayService(Context context) {
         super(context);
         mHandler = new Handler(Looper.getMainLooper());
+
+        hasHWC2Support = context.getResources().getBoolean(R.bool.config_nightDisplayAvailable);
+        mLiveDisplay = LiveDisplayManager.getInstance(context);
     }
 
     @Override
@@ -276,7 +284,6 @@ public final class ColorDisplayService extends SystemService
     @Override
     public void onCustomEndTimeChanged(LocalTime endTime) {
         Slog.d(TAG, "onCustomEndTimeChanged: endTime=" + endTime);
-
         if (mAutoMode != null) {
             mAutoMode.onCustomEndTimeChanged(endTime);
         }
@@ -291,6 +298,12 @@ public final class ColorDisplayService extends SystemService
     @Override
     public void onDisplayColorModeChanged(int mode) {
         if (mode == -1) {
+            return;
+        }
+
+        if (!hasHWC2Support){
+            mLiveDisplay.setMode(mIsActivated ? LiveDisplayManager.MODE_OFF : LiveDisplayManager.MODE_NIGHT);
+            mLiveDisplay.setDisplayTemperature(mController.getColorTemperature());
             return;
         }
 
@@ -330,6 +343,12 @@ public final class ColorDisplayService extends SystemService
      * @param immediate {@code true} skips transition animation
      */
     private void applyTint(boolean immediate) {
+        if (!hasHWC2Support){
+            mLiveDisplay.setMode(mIsActivated ? LiveDisplayManager.MODE_OFF : LiveDisplayManager.MODE_NIGHT);
+            mLiveDisplay.setDisplayTemperature(mController.getColorTemperature());
+            return;
+        }
+
         // Cancel the old animator if still running.
         if (mColorMatrixAnimator != null) {
             mColorMatrixAnimator.cancel();

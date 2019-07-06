@@ -55,16 +55,9 @@ import com.android.internal.custom.hardware.ILiveDisplayService;
 import com.android.internal.custom.hardware.LiveDisplayConfig;
 import android.provider.Settings;
 
-import static com.android.internal.custom.hardware.LiveDisplayManager.FEATURE_MANAGED_OUTDOOR_MODE;
-import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_DAY;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_FIRST;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_LAST;
 import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OFF;
-import static com.android.internal.custom.hardware.LiveDisplayManager.MODE_OUTDOOR;
-
-import com.android.server.twilight.TwilightListener;
-import com.android.server.twilight.TwilightManager;
-import com.android.server.twilight.TwilightState;
 
 /**
  * LiveDisplay is an advanced set of features for improving
@@ -75,7 +68,7 @@ import com.android.server.twilight.TwilightState;
  * and calibration. It interacts with LineageHardwareService to relay
  * changes down to the lower layers.
  */
-public class LiveDisplayService extends SystemService implements TwilightListener {
+public class LiveDisplayService extends SystemService {
 
     private static final String TAG = "LiveDisplay";
 
@@ -85,10 +78,6 @@ public class LiveDisplayService extends SystemService implements TwilightListene
 
     private DisplayManager mDisplayManager;
     private ModeObserver mModeObserver;
-    private final TwilightManager mTwilightManager;
-
-    private boolean mAwaitingNudge = true;
-    private boolean mSunset = false;
 
     private final List<LiveDisplayFeature> mFeatures = new ArrayList<LiveDisplayFeature>();
 
@@ -101,7 +90,6 @@ public class LiveDisplayService extends SystemService implements TwilightListene
 
     static int MODE_CHANGED = 1;
     static int DISPLAY_CHANGED = 2;
-    static int TWILIGHT_CHANGED = 4;
     static int ALL_CHANGED = 255;
 
     // PowerManager ServiceType to use when we're only
@@ -112,14 +100,12 @@ public class LiveDisplayService extends SystemService implements TwilightListene
         public boolean mLowPowerMode = false;
         public boolean mScreenOn = false;
         public int mMode = -1;
-        public TwilightState mTwilight = null;
 
         @Override
         public String toString() {
             return String.format(Locale.US,
-                    "[mLowPowerMode=%b, mScreenOn=%b, mMode=%d, mTwilight=%s",
-                    mLowPowerMode, mScreenOn, mMode,
-                    (mTwilight == null ? "NULL" : mTwilight.toString()));
+                    "[mLowPowerMode=%b, mScreenOn=%b, mMode=%d",
+                    mLowPowerMode, mScreenOn, mMode);
         }
     }
 
@@ -134,8 +120,6 @@ public class LiveDisplayService extends SystemService implements TwilightListene
                 Process.THREAD_PRIORITY_DEFAULT, false /*allowIo*/);
         mHandlerThread.start();
         mHandler = new Handler(mHandlerThread.getLooper());
-
-        mTwilightManager = getLocalService(TwilightManager.class);
     }
 
     @Override
@@ -147,8 +131,6 @@ public class LiveDisplayService extends SystemService implements TwilightListene
     public void onBootPhase(int phase) {
         if (phase == PHASE_BOOT_COMPLETED) {
             final boolean isNightDisplayAvailable = ColorDisplayController.isAvailable(mContext);
-
-            mAwaitingNudge = getSunsetCounter() < 1;
 
             mDHC = new DisplayHardwareController(mContext, mHandler);
             mFeatures.add(mDHC);
@@ -173,16 +155,10 @@ public class LiveDisplayService extends SystemService implements TwilightListene
                 }
             }
 
-            // static config
-            int defaultMode = mContext.getResources().getInteger(
-                    com.android.internal.R.integer.config_defaultLiveDisplayMode);
-
             mConfig = new LiveDisplayConfig(capabilities,
-                    isNightDisplayAvailable ? MODE_OFF : defaultMode,
-                    mCTC.getDefaultDayTemperature(), mCTC.getDefaultNightTemperature(),
+                    MODE_OFF,
                     mOMC.getDefaultAutoOutdoorMode(), mDHC.getDefaultAutoContrast(),
                     mDHC.getDefaultCABC(), mDHC.getDefaultColorEnhancement(),
-                    mCTC.getColorTemperatureRange(), mCTC.getColorBalanceRange(),
                     mPAC.getHueRange(), mPAC.getSaturationRange(),
                     mPAC.getIntensityRange(), mPAC.getContrastRange(),
                     mPAC.getSaturationThresholdRange());
@@ -199,11 +175,6 @@ public class LiveDisplayService extends SystemService implements TwilightListene
             // ServiceType does not matter when retrieving global saver mode.
             mState.mLowPowerMode =
                     pmi.getLowPowerState(SERVICE_TYPE_DUMMY).globalBatterySaverEnabled;
-
-            if (!isNightDisplayAvailable) {
-                mTwilightManager.registerListener(this, mHandler);
-                mState.mTwilight = mTwilightManager.getLastTwilightState();
-            }
 
             if (mConfig.hasModeSupport()) {
                 mModeObserver = new ModeObserver(mHandler);
@@ -317,34 +288,11 @@ public class LiveDisplayService extends SystemService implements TwilightListene
         }
 
         @Override
-        public int getDayColorTemperature() {
-            return mCTC.getDayColorTemperature();
-        }
-
-        @Override
-        public boolean setDayColorTemperature(int temperature) {
+        public boolean setDisplayTemperature(int temperature) {
             mContext.enforceCallingOrSelfPermission(
                     "lineageos.permission.MANAGE_LIVEDISPLAY", null);
-            mCTC.setDayColorTemperature(temperature);
+            mCTC.setDisplayTemperature(temperature);
             return true;
-        }
-
-        @Override
-        public int getNightColorTemperature() {
-            return mCTC.getNightColorTemperature();
-        }
-
-        @Override
-        public boolean setNightColorTemperature(int temperature) {
-            mContext.enforceCallingOrSelfPermission(
-                    "lineageos.permission.MANAGE_LIVEDISPLAY", null);
-            mCTC.setNightColorTemperature(temperature);
-            return true;
-        }
-
-        @Override
-        public int getColorTemperature() {
-            return mCTC.getColorTemperature();
         }
 
         @Override
@@ -364,17 +312,10 @@ public class LiveDisplayService extends SystemService implements TwilightListene
             pw.println("LiveDisplay Service State:");
             pw.println("  mState=" + mState.toString());
             pw.println("  mConfig=" + mConfig.toString());
-            pw.println("  mAwaitingNudge=" + mAwaitingNudge);
 
             for (int i = 0; i < mFeatures.size(); i++) {
                 mFeatures.get(i).dump(pw);
             }
-        }
-
-        @Override
-        public boolean isNight() {
-            final TwilightState twilight = mTwilightManager.getLastTwilightState();
-            return twilight != null && twilight.isNight();
         }
     };
 
@@ -424,7 +365,7 @@ public class LiveDisplayService extends SystemService implements TwilightListene
     private final class ModeObserver extends UserContentObserver {
 
         private final Uri MODE_SETTING =
-                Settings.System.getUriFor(Settings.System.DISPLAY_TEMPERATURE_MODE);
+                Settings.Secure.getUriFor(Settings.Secure.NIGHT_DISPLAY_ACTIVATED);
 
         ModeObserver(Handler handler) {
             super(handler);
@@ -446,27 +387,17 @@ public class LiveDisplayService extends SystemService implements TwilightListene
         }
 
         int getMode() {
-            return getInt(Settings.System.DISPLAY_TEMPERATURE_MODE,
+            return getInt(Settings.Secure.NIGHT_DISPLAY_ACTIVATED,
                     mConfig.getDefaultMode());
         }
 
         boolean setMode(int mode) {
             if (mConfig.hasFeature(mode) && mode >= MODE_FIRST && mode <= MODE_LAST) {
-                putInt(Settings.System.DISPLAY_TEMPERATURE_MODE, mode);
-                if (mode != mConfig.getDefaultMode()) {
-                    stopNudgingMe();
-                }
+                putInt(Settings.Secure.NIGHT_DISPLAY_ACTIVATED, mode);
                 return true;
             }
             return false;
         }
-    }
-
-    @Override
-    public void onTwilightStateChanged(TwilightState state) {
-        mState.mTwilight = state;
-        updateFeatures(TWILIGHT_CHANGED);
-        nudge();
     }
 
     private boolean isScreenOn() {
@@ -474,90 +405,13 @@ public class LiveDisplayService extends SystemService implements TwilightListene
                 Display.DEFAULT_DISPLAY).getState() == Display.STATE_ON;
     }
 
-    private int getSunsetCounter() {
-        // Counter used to determine when we should tell the user about this feature.
-        // If it's not used after 3 sunsets, we'll show the hint once.
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LIVE_DISPLAY_HINTED,
-                -3,
-                UserHandle.USER_CURRENT);
-    }
-
-
-    private void updateSunsetCounter(int count) {
-        Settings.System.putIntForUser(mContext.getContentResolver(),
-                Settings.System.LIVE_DISPLAY_HINTED,
-                count,
-                UserHandle.USER_CURRENT);
-        mAwaitingNudge = count > 0;
-    }
-
-    private void stopNudgingMe() {
-        if (mAwaitingNudge) {
-            updateSunsetCounter(1);
-        }
-    }
-
-    /**
-     * Show a friendly notification to the user about the potential benefits of decreasing
-     * blue light at night. Do this only once if the feature has not been used after
-     * three sunsets. It would be great to enable this by default, but we don't want
-     * the change of screen color to be considered a "bug" by a user who doesn't
-     * understand what's happening.
-     *
-     * @param state
-     */
-    private void nudge() {
-        final TwilightState twilight = mTwilightManager.getLastTwilightState();
-        if (!mAwaitingNudge || twilight == null) {
-            return;
-        }
-
-        int counter = getSunsetCounter();
-
-        // check if we should send the hint only once after sunset
-        boolean transition = twilight.isNight() && !mSunset;
-        mSunset = twilight.isNight();
-        if (!transition) {
-            return;
-        }
-
-        if (counter <= 0) {
-            counter++;
-            updateSunsetCounter(counter);
-        }
-        if (counter == 0) {
-            //show the notification and don't come back here
-            final Intent intent = new Intent("com.android.settings.LIVEDISPLAY_SETTINGS");
-            PendingIntent result = PendingIntent.getActivity(
-                    mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            Notification.Builder builder = new Notification.Builder(mContext)
-                    .setContentTitle(mContext.getResources().getString(
-                            com.android.internal.R.string.live_display_title))
-                    .setContentText(mContext.getResources().getString(
-                            com.android.internal.R.string.live_display_hint))
-                    .setSmallIcon(com.android.internal.R.drawable.ic_livedisplay_notif)
-                    .setStyle(new Notification.BigTextStyle().bigText(mContext.getResources()
-                             .getString(
-                                     com.android.internal.R.string.live_display_hint)))
-                    .setContentIntent(result)
-                    .setAutoCancel(true);
-
-            NotificationManager nm =
-                    (NotificationManager)mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.notifyAsUser(null, 1, builder.build(), UserHandle.CURRENT);
-
-            updateSunsetCounter(1);
-        }
-    }
-
     private int getInt(String setting, int defValue) {
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
+        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 setting, defValue, UserHandle.USER_CURRENT);
     }
 
     private void putInt(String setting, int value) {
-        Settings.System.putIntForUser(mContext.getContentResolver(),
+        Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 setting, value, UserHandle.USER_CURRENT);
     }
 }
