@@ -47,11 +47,9 @@ import com.android.internal.custom.hardware.ColorEnhancement;
 import com.android.internal.custom.hardware.DisplayColorCalibration;
 import com.android.internal.custom.hardware.DisplayModeControl;
 import com.android.internal.custom.hardware.PictureAdjustment;
-import com.android.internal.custom.hardware.ReadingEnhancement;
 import com.android.internal.custom.hardware.SunlightEnhancement;
 
 import static com.android.server.display.DisplayTransformManager.LEVEL_COLOR_MATRIX_NIGHT_DISPLAY;
-import static com.android.server.display.DisplayTransformManager.LEVEL_COLOR_MATRIX_GRAYSCALE;
 
 /** @hide */
 public class LineageHardwareService extends SystemService {
@@ -94,17 +92,6 @@ public class LineageHardwareService extends SystemService {
         private final int MIN = 0;
         private final int MAX = 255;
 
-        /**
-         * Matrix and offset used for converting color to grayscale.
-         * Copied from com.android.server.accessibility.DisplayAdjustmentUtils.MATRIX_GRAYSCALE
-         */
-        private final float[] MATRIX_GRAYSCALE = {
-            .2126f, .2126f, .2126f, 0,
-            .7152f, .7152f, .7152f, 0,
-            .0722f, .0722f, .0722f, 0,
-                 0,      0,      0, 1
-        };
-
         /** Full color matrix and offset */
         private final float[] MATRIX_NORMAL = {
             1, 0, 0, 0,
@@ -114,13 +101,11 @@ public class LineageHardwareService extends SystemService {
         };
 
         private final int LEVEL_COLOR_MATRIX_CALIB = LEVEL_COLOR_MATRIX_NIGHT_DISPLAY + 1;
-        private final int LEVEL_COLOR_MATRIX_READING = LEVEL_COLOR_MATRIX_GRAYSCALE + 1;
 
         private boolean mAcceleratedTransform;
         private DisplayTransformManager mDTMService;
 
         private int[] mCurColors = { MAX, MAX, MAX };
-        private boolean mReadingEnhancementEnabled;
 
         private int mSupportedFeatures = 0;
 
@@ -133,8 +118,6 @@ public class LineageHardwareService extends SystemService {
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT;
             if (DisplayColorCalibration.isSupported())
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
-            /*if (ReadingEnhancement.isSupported())
-                mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;*/
             if (SunlightEnhancement.isSupported())
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT;
             if (AutoContrast.isSupported())
@@ -148,7 +131,6 @@ public class LineageHardwareService extends SystemService {
             if (mAcceleratedTransform) {
                 mDTMService = LocalServices.getService(DisplayTransformManager.class);
                 mSupportedFeatures |= LineageHardwareManager.FEATURE_DISPLAY_COLOR_CALIBRATION;
-                //mSupportedFeatures |= LineageHardwareManager.FEATURE_READING_ENHANCEMENT;
             }
         }
 
@@ -164,10 +146,6 @@ public class LineageHardwareService extends SystemService {
                     return AutoContrast.isEnabled();
                 case LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT:
                     return ColorEnhancement.isEnabled();
-                /*case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
-                    if (mAcceleratedTransform)
-                        return mReadingEnhancementEnabled;
-                    return ReadingEnhancement.isEnabled();*/
                 case LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT:
                     return SunlightEnhancement.isEnabled();
                 default:
@@ -184,14 +162,6 @@ public class LineageHardwareService extends SystemService {
                     return AutoContrast.setEnabled(enable);
                 case LineageHardwareManager.FEATURE_COLOR_ENHANCEMENT:
                     return ColorEnhancement.setEnabled(enable);
-                /*case LineageHardwareManager.FEATURE_READING_ENHANCEMENT:
-                    if (mAcceleratedTransform) {
-                        mReadingEnhancementEnabled = enable;
-                        mDTMService.setColorMatrix(LEVEL_COLOR_MATRIX_READING,
-                                enable ? MATRIX_GRAYSCALE : MATRIX_NORMAL);
-                        return true;
-                    }
-                    return ReadingEnhancement.setEnabled(enable);*/
                 case LineageHardwareManager.FEATURE_SUNLIGHT_ENHANCEMENT:
                     return SunlightEnhancement.setEnabled(enable);
                 default:
