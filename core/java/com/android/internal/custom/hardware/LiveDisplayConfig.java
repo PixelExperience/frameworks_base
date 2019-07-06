@@ -44,29 +44,20 @@ public class LiveDisplayConfig implements Parcelable {
     private final BitSet mCapabilities;
     private final BitSet mAllModes = new BitSet();
 
-    private final int mDefaultDayTemperature;
-    private final int mDefaultNightTemperature;
-    private final int mDefaultMode;
-
     private final boolean mDefaultAutoContrast;
     private final boolean mDefaultAutoOutdoorMode;
     private final boolean mDefaultCABC;
     private final boolean mDefaultColorEnhancement;
 
-    private final Range<Integer> mColorTemperatureRange;
-    private final Range<Integer> mColorBalanceRange;
     private final Range<Float> mHueRange;
     private final Range<Float> mSaturationRange;
     private final Range<Float> mIntensityRange;
     private final Range<Float> mContrastRange;
     private final Range<Float> mSaturationThresholdRange;
 
-    public LiveDisplayConfig(BitSet capabilities, int defaultMode,
-            int defaultDayTemperature, int defaultNightTemperature,
-            boolean defaultAutoOutdoorMode, boolean defaultAutoContrast,
+    public LiveDisplayConfig(BitSet capabilities, boolean defaultAutoOutdoorMode,
+            boolean defaultAutoContrast,
             boolean defaultCABC, boolean defaultColorEnhancement,
-            Range<Integer> colorTemperatureRange,
-            Range<Integer> colorBalanceRange,
             Range<Float> hueRange,
             Range<Float> saturationRange,
             Range<Float> intensityRange,
@@ -75,15 +66,10 @@ public class LiveDisplayConfig implements Parcelable {
         super();
         mCapabilities = (BitSet) capabilities.clone();
         mAllModes.set(MODE_FIRST, MODE_LAST);
-        mDefaultMode = defaultMode;
-        mDefaultDayTemperature = defaultDayTemperature;
-        mDefaultNightTemperature = defaultNightTemperature;
         mDefaultAutoContrast = defaultAutoContrast;
         mDefaultAutoOutdoorMode = defaultAutoOutdoorMode;
         mDefaultCABC = defaultCABC;
         mDefaultColorEnhancement = defaultColorEnhancement;
-        mColorTemperatureRange = colorTemperatureRange;
-        mColorBalanceRange = colorBalanceRange;
         mHueRange = hueRange;
         mSaturationRange = saturationRange;
         mIntensityRange = intensityRange;
@@ -98,45 +84,26 @@ public class LiveDisplayConfig implements Parcelable {
 
         // temp vars
         long capabilities = 0;
-        int defaultMode = 0;
-        int defaultDayTemperature = -1;
-        int defaultNightTemperature = -1;
         boolean defaultAutoContrast = false;
         boolean defaultAutoOutdoorMode = false;
         boolean defaultCABC = false;
         boolean defaultColorEnhancement = false;
-        int minColorTemperature = 0;
-        int maxColorTemperature = 0;
-        int minColorBalance = 0;
-        int maxColorBalance = 0;
         float[] paRanges = new float[10];
 
         capabilities = parcel.readLong();
-        defaultMode = parcel.readInt();
-        defaultDayTemperature = parcel.readInt();
-        defaultNightTemperature = parcel.readInt();
         defaultAutoContrast = parcel.readInt() == 1;
         defaultAutoOutdoorMode = parcel.readInt() == 1;
         defaultCABC = parcel.readInt() == 1;
         defaultColorEnhancement = parcel.readInt() == 1;
-        minColorTemperature = parcel.readInt();
-        maxColorTemperature = parcel.readInt();
-        minColorBalance = parcel.readInt();
-        maxColorBalance = parcel.readInt();
         parcel.readFloatArray(paRanges);
 
         // set temps
         mCapabilities = BitSet.valueOf(new long[] { capabilities });
         mAllModes.set(MODE_FIRST, MODE_LAST);
-        mDefaultMode = defaultMode;
-        mDefaultDayTemperature = defaultDayTemperature;
-        mDefaultNightTemperature = defaultNightTemperature;
         mDefaultAutoContrast = defaultAutoContrast;
         mDefaultAutoOutdoorMode = defaultAutoOutdoorMode;
         mDefaultCABC = defaultCABC;
         mDefaultColorEnhancement = defaultColorEnhancement;
-        mColorTemperatureRange = Range.create(minColorTemperature, maxColorTemperature);
-        mColorBalanceRange = Range.create(minColorBalance, maxColorBalance);
         mHueRange = Range.create(paRanges[0], paRanges[1]);
         mSaturationRange = Range.create(paRanges[2], paRanges[3]);
         mIntensityRange = Range.create(paRanges[4], paRanges[5]);
@@ -151,17 +118,10 @@ public class LiveDisplayConfig implements Parcelable {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("capabilities=").append(mCapabilities.toString());
-        sb.append(" defaultMode=").append(mDefaultMode);
-        sb.append(" defaultDayTemperature=").append(mDefaultDayTemperature);
-        sb.append(" defaultNightTemperature=").append(mDefaultNightTemperature);
         sb.append(" defaultAutoOutdoorMode=").append(mDefaultAutoOutdoorMode);
         sb.append(" defaultAutoContrast=").append(mDefaultAutoContrast);
         sb.append(" defaultCABC=").append(mDefaultCABC);
         sb.append(" defaultColorEnhancement=").append(mDefaultColorEnhancement);
-        sb.append(" colorTemperatureRange=").append(mColorTemperatureRange);
-        if (mCapabilities.get(LiveDisplayManager.FEATURE_COLOR_BALANCE)) {
-            sb.append(" colorBalanceRange=").append(mColorBalanceRange);
-        }
         if (mCapabilities.get(LiveDisplayManager.FEATURE_PICTURE_ADJUSTMENT)) {
             sb.append(" hueRange=").append(mHueRange);
             sb.append(" saturationRange=").append(mSaturationRange);
@@ -185,17 +145,10 @@ public class LiveDisplayConfig implements Parcelable {
         // ==== FIG =====
         long[] caps = mCapabilities.toLongArray();
         out.writeLong(caps != null && caps.length > 0 ? caps[0] : 0L);
-        out.writeInt(mDefaultMode);
-        out.writeInt(mDefaultDayTemperature);
-        out.writeInt(mDefaultNightTemperature);
         out.writeInt(mDefaultAutoContrast ? 1 : 0);
         out.writeInt(mDefaultAutoOutdoorMode ? 1 : 0);
         out.writeInt(mDefaultCABC ? 1 : 0);
         out.writeInt(mDefaultColorEnhancement ? 1 : 0);
-        out.writeInt(mColorTemperatureRange.getLower());
-        out.writeInt(mColorTemperatureRange.getUpper());
-        out.writeInt(mColorBalanceRange.getLower());
-        out.writeInt(mColorBalanceRange.getUpper());
         out.writeFloatArray(new float[] {
                 mHueRange.getLower(), mHueRange.getUpper(),
                 mSaturationRange.getLower(), mSaturationRange.getUpper(),
@@ -238,37 +191,6 @@ public class LiveDisplayConfig implements Parcelable {
     }
 
     /**
-     * Gets the default color temperature to use in the daytime. This is typically
-     * set to 6500K, however this may not be entirely accurate. Use this value for
-     * resetting controls to the default.
-     *
-     * @return the default day temperature in K
-     */
-    public int getDefaultDayTemperature() {
-        return mDefaultDayTemperature;
-    }
-
-    /**
-     * Gets the default color temperature to use at night. This is typically set
-     * to 4500K, but this may not be entirely accurate. Use this value for resetting
-     * controls to defaults.
-     *
-     * @return the default night color temperature
-     */
-    public int getDefaultNightTemperature() {
-        return mDefaultNightTemperature;
-    }
-
-    /**
-     * Get the default adaptive mode.
-     *
-     * @return the default mode
-     */
-    public int getDefaultMode() {
-        return mDefaultMode;
-    }
-
-    /**
      * Get the default value for auto contrast
      *
      * @return true if enabled
@@ -302,24 +224,6 @@ public class LiveDisplayConfig implements Parcelable {
      */
     public boolean getDefaultColorEnhancement() {
         return mDefaultColorEnhancement;
-    }
-
-    /**
-     * Get the range of supported color temperatures
-     *
-     * @return range in Kelvin
-     */
-    public Range<Integer> getColorTemperatureRange() {
-        return mColorTemperatureRange;
-    }
-
-    /**
-     * Get the range of supported color balance
-     *
-     * @return linear range which maps into the temperature range curve
-     */
-    public Range<Integer> getColorBalanceRange() {
-        return mColorBalanceRange;
     }
 
     /**
