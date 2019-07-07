@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fed1b81_552a82cd",
+        "filename": "services/core/java/com/android/server/display/ColorDisplayService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-07-07T03:38:38Z",
+      "side": 0,
+      "message": "Comment removed by: Henrique Silva",
+      "revId": "dd8a8e92a759ab1aa83ded6913719e6fe6a3c391",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a",
+      "unresolved": true
+    }
+  ]
+}
