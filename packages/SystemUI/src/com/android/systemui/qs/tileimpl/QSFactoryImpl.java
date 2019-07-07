@@ -23,6 +23,7 @@ import android.view.ContextThemeWrapper;
 import com.android.systemui.R;
 import com.android.systemui.plugins.qs.*;
 import com.android.systemui.plugins.qs.QSTileView;
+import com.android.systemui.qs.custom.WellbeingHelper;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
@@ -68,6 +69,9 @@ public class QSFactoryImpl implements QSFactory {
     }
 
     private QSTileImpl createTileInternal(String tileSpec) {
+        if (!WellbeingHelper.shouldAddTile(mHost.getContext(), tileSpec)){
+            return null;
+        }
         switch (tileSpec) {
             // Stock tiles.
             case "wifi":
