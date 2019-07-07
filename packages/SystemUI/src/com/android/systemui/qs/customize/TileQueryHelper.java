@@ -36,6 +36,7 @@ import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTile.State;
 import com.android.systemui.qs.QSTileHost;
+import com.android.systemui.qs.custom.WellbeingHelper;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tileimpl.QSTileImpl.DrawableIcon;
 import com.android.systemui.util.leak.GarbageMonitor;
@@ -124,6 +125,10 @@ public class TileQueryHelper {
             for (ResolveInfo info : services) {
                 String packageName = info.serviceInfo.packageName;
                 ComponentName componentName = new ComponentName(packageName, info.serviceInfo.name);
+
+                if (!WellbeingHelper.shouldAddTile(mContext, componentName)){
+                    continue;
+                }
 
                 // Don't include apps that are a part of the default tile set.
                 if (stockTiles.contains(componentName.flattenToString())) {
