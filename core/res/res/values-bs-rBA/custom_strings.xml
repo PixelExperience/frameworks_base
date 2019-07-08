@@ -3,7 +3,10 @@
 <resources>
     <!-- Buttons - Enable navbar (used by Settings and device parts app) -->
     <string name="disable_navkeys_title">Uključi navigacijsku traku na ekranu</string>
+    <string name="disable_navkeys_summary">Omogući zaslonske navigacijske tipke i onemogući hardverske tipke</string>
     <!-- Ambient play -->
+    <string name="ambient_recognition_notification">Trenutno svira</string>
+    <string name="ambient_recognition_information">%1$s od %2$s</string>
     <!-- Pocket Lock -->
-    <!-- LiveDisplay strings -->
+    <string name="pocket_lock_message_long_press">Stisni i drži power tipku za otključavanje</string>
 </resources>
