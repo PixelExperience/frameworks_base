@@ -8,5 +8,5 @@
     <string name="ambient_recognition_notification">གཏོང་སྤྲོད་བྱེད་བཞིན་པ།</string>
     <string name="ambient_recognition_information">%1$sཡི་%2$s</string>
     <!-- Pocket Lock -->
-    <!-- LiveDisplay strings -->
+    <string name="pocket_lock_message_long_press">གློག་སྒའི་མཐེབ་མནན་ནས་ཟྭ་ཕྱེ་བ།</string>
 </resources>

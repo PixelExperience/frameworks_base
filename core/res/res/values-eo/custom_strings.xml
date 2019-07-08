@@ -4,6 +4,4 @@
     <!-- Buttons - Enable navbar (used by Settings and device parts app) -->
     <!-- Ambient play -->
     <!-- Pocket Lock -->
-    <!-- LiveDisplay strings -->
-    <string name="live_display_day">Tago</string>
 </resources>
