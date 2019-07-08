@@ -319,6 +319,13 @@ public class AccessPoint implements Comparable<AccessPoint> {
         bssid = firstResult.BSSID;
         security = getSecurity(firstResult);
         apSupportsSaeAndPsk = checkForSaeAndPsk(firstResult);
+        if (apSupportsSaeAndPsk) {
+            boolean wpa3Support = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_wifi_wpa3_supported);
+            if (!wpa3Support)
+                security = SECURITY_PSK;
+        }
+
         if (security == SECURITY_PSK) {
             pskType = getPskType(firstResult);
         }

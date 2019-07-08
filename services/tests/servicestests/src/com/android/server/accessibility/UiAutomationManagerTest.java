@@ -50,7 +50,7 @@ import org.mockito.MockitoAnnotations;
 public class UiAutomationManagerTest {
     static final int SERVICE_ID = 42;
 
-    final UiAutomationManager mUiAutomationManager = new UiAutomationManager();
+    final UiAutomationManager mUiAutomationManager = new UiAutomationManager(new Object());
 
     MessageCapturingHandler mMessageCapturingHandler;
 

@@ -43,6 +43,9 @@ import com.android.settingslib.WirelessUtils;
 
 import android.telephony.TelephonyManager;
 
+import com.android.systemui.statusbar.policy.FiveGServiceClient;
+import com.android.systemui.statusbar.policy.FiveGServiceClient.FiveGServiceState;
+
 public class CarrierText extends TextView {
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
     private static final String TAG = "CarrierText";
@@ -62,6 +65,8 @@ public class CarrierText extends TextView {
     private WifiManager mWifiManager;
 
     private boolean[] mSimErrorState = new boolean[TelephonyManager.getDefault().getPhoneCount()];
+
+    private FiveGServiceClient mFiveGServiceClient;
 
     private final KeyguardUpdateMonitorCallback mCallback = new KeyguardUpdateMonitorCallback() {
         @Override
@@ -203,6 +208,11 @@ public class CarrierText extends TextView {
                     }
                     networkClass = networkClassToString(TelephonyManager
                             .getNetworkClass(networkType));
+                    String fiveGNetworkClass = get5GNetworkClass(subs.get(i));
+                    if ( fiveGNetworkClass != null ) {
+                        networkClass = fiveGNetworkClass;
+                    }
+
                 }
             }
             CharSequence carrierName = subs.get(i).getCarrierName();
@@ -328,6 +338,9 @@ public class CarrierText extends TextView {
                 ConnectivityManager.TYPE_MOBILE)) {
             mKeyguardUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
             mKeyguardUpdateMonitor.registerCallback(mCallback);
+
+            mFiveGServiceClient = FiveGServiceClient.getInstance(mContext);
+            mFiveGServiceClient.registerCallback(mCallback);
         } else {
             // Don't listen and clear out the text when the device isn't a phone.
             mKeyguardUpdateMonitor = null;
@@ -569,5 +582,34 @@ public class CarrierText extends TextView {
             }
         }
         return originalString;
+    }
+
+    private String get5GNetworkClass(SubscriptionInfo sub) {
+        int slotIndex = sub.getSimSlotIndex();
+        int subId = sub.getSubscriptionId();
+
+        if ( mFiveGServiceClient == null ) {
+            mFiveGServiceClient = FiveGServiceClient.getInstance(mContext);
+            mFiveGServiceClient.registerCallback(mCallback);
+        }
+        FiveGServiceState fiveGServiceState =
+                mFiveGServiceClient.getCurrentServiceState(slotIndex);
+        if ( fiveGServiceState.isConnectedOnNsaMode() && isDataRegisteredOnLte(subId)) {
+            return mContext.getResources().getString(R.string.data_connection_5g);
+        }
+
+        return null;
+    }
+
+    private boolean isDataRegisteredOnLte(int subId) {
+        TelephonyManager telephonyManager = (TelephonyManager)
+                mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        int dataType = telephonyManager.getDataNetworkType(subId);
+        if (  dataType == TelephonyManager.NETWORK_TYPE_LTE ||
+                dataType == TelephonyManager.NETWORK_TYPE_LTE_CA) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }

@@ -150,8 +150,14 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
     private WifiNetworkScoreCache mScoreCache;
     private boolean mNetworkScoringUiEnabled;
     private long mMaxSpeedLabelScoreCacheAge;
+    private boolean mWpa3Support;
 
-
+    private static final String WIFI_SECURITY_PSK = "PSK";
+    private static final String WIFI_SECURITY_EAP = "EAP";
+    private static final String WIFI_SECURITY_SAE = "SAE";
+    private static final String WIFI_SECURITY_OWE = "OWE";
+    private static final String WIFI_SECURITY_DPP = "DPP";
+    private static final String WIFI_SECURITY_SUITE_B_192 = "SUITE_B_192";
 
     @VisibleForTesting
     Scanner mScanner;
@@ -217,6 +223,10 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
                 .build();
 
         mNetworkScoreManager = networkScoreManager;
+
+        mWpa3Support = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_wifi_wpa3_supported);
+
 
         // TODO(sghuman): Remove this and create less hacky solution for testing
         final HandlerThread workThread = new HandlerThread(TAG
@@ -500,17 +510,64 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
     }
 
     /**
+     * Filters unsupported networks from scan results. New WPA3 networks
+     * may not be compatible with the device HW/SW.
+     * @param scanResults List of scan results
+     * @return List of filtered scan results based on local device capabilities
+     */
+    private List<ScanResult> filterScanResultsByCapabilities(List<ScanResult> scanResults) {
+        if (scanResults == null) {
+            return null;
+        }
+
+        List<ScanResult> filteredScanResultList = new ArrayList<>();
+
+        // Iterate through the list of scan results and filter out APs which are not
+        // compatible with our device.
+        for (ScanResult scanResult : scanResults) {
+            if (scanResult.capabilities.contains(WIFI_SECURITY_PSK)) {
+                // All devices (today) support RSN-PSK or WPA-PSK
+                // Add this here because some APs may support both PSK and SAE and the check
+                // below will filter it out.
+                filteredScanResultList.add(scanResult);
+                continue;
+            }
+
+            if (!mWpa3Support
+                    && (scanResult.capabilities.contains(WIFI_SECURITY_SUITE_B_192)
+                        || scanResult.capabilities.contains(WIFI_SECURITY_SAE)
+                        || scanResult.capabilities.contains(WIFI_SECURITY_OWE)
+                        || scanResult.capabilities.contains(WIFI_SECURITY_DPP))) {
+                if (isVerboseLoggingEnabled()) {
+                    Log.v(TAG, "filterScanResultsByCapabilities: Filtering SSID "
+                            + scanResult.SSID + " with capabilities: " + scanResult.capabilities);
+                }
+            } else {
+                // Safe to add
+                filteredScanResultList.add(scanResult);
+            }
+        }
+
+        return filteredScanResultList;
+    }
+
+    /**
      * Retrieves latest scan results and wifi configs, then calls
      * {@link #updateAccessPoints(List, List)}.
      */
     private void fetchScansAndConfigsAndUpdateAccessPoints() {
-        final List<ScanResult> newScanResults = mWifiManager.getScanResults();
+        List<ScanResult> newScanResults = mWifiManager.getScanResults();
+
+        // Filter all unsupported networks from the scan result list
+        final List<ScanResult> filteredScanResults =
+                filterScanResultsByCapabilities(newScanResults);
+
         if (isVerboseLoggingEnabled()) {
-            Log.i(TAG, "Fetched scan results: " + newScanResults);
+            Log.i(TAG, "Fetched scan results: " + filteredScanResults);
         }
 
         List<WifiConfiguration> configs = mWifiManager.getConfiguredNetworks();
-        updateAccessPoints(newScanResults, configs);
+        updateAccessPoints(filteredScanResults, configs);
     }
 
     /** Update the internal list of access points. */
@@ -544,10 +601,18 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
             final List<NetworkKey> scoresToRequest = new ArrayList<>();
 
             for (Map.Entry<String, List<ScanResult>> entry : scanResultsByApKey.entrySet()) {
+                WifiConfiguration passpointConfig = null;
                 for (ScanResult result : entry.getValue()) {
                     NetworkKey key = NetworkKey.createFromScanResult(result);
                     if (key != null && !mRequestedScores.contains(key)) {
                         scoresToRequest.add(key);
+                    }
+                    if (passpointConfig == null && result.isPasspointNetwork()) {
+                        try {
+                            passpointConfig = mWifiManager.getMatchingWifiConfig(result);
+                        } catch (UnsupportedOperationException e) {
+                            // Passpoint not supported on the device.
+                        }
                     }
                 }
 
@@ -559,6 +624,11 @@ public class WifiTracker implements LifecycleObserver, OnStart, OnStop, OnDestro
 
                 // Update the matching config if there is one, to populate saved network info
                 accessPoint.update(configsByKey.get(entry.getKey()));
+
+                // For passpoint network
+                if (passpointConfig != null) {
+                    accessPoint.update(passpointConfig);
+                }
 
                 accessPoints.add(accessPoint);
             }

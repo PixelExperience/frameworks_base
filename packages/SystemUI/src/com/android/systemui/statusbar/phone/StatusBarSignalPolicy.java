@@ -66,7 +66,6 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
     private boolean mBlockEthernet;
     private boolean mActivityEnabled;
     private boolean mForceBlockWifi;
-    private boolean m4GStateEnabledOn5G;
     // Track as little state as possible, and only for padding purposes
     private boolean mIsAirplaneMode = false;
     private boolean mWifiVisible = false;
@@ -83,7 +82,6 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         mSlotEthernet = mContext.getString(com.android.internal.R.string.status_bar_ethernet);
         mSlotVpn      = mContext.getString(com.android.internal.R.string.status_bar_vpn);
         mActivityEnabled = mContext.getResources().getBoolean(R.bool.config_showActivity);
-        m4GStateEnabledOn5G = mContext.getResources().getBoolean(R.bool.config_display_4GStateOn5G);
 
         mIconController = iconController;
         mNetworkController = Dependency.get(NetworkController.class);

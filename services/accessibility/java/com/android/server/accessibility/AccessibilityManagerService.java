@@ -246,7 +246,7 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub
 
     private final UserManager mUserManager;
 
-    private final UiAutomationManager mUiAutomationManager = new UiAutomationManager();
+    private final UiAutomationManager mUiAutomationManager = new UiAutomationManager(mLock);
 
     private int mCurrentUserId = UserHandle.USER_SYSTEM;
 
