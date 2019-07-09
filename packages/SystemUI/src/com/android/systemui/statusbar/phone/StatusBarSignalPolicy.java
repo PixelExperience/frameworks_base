@@ -108,14 +108,13 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         if (subId != null) {
             MobileIconState state = getState(subId[0]);
             if (state != null) {
-                state.mProvisioned = isProvisioned;
-                if (!isProvisioned) {
-                    state.visible = false;
+                state.provisioned = isProvisioned;
+                if (!state.provisioned) {
+                    // This hopefully gets rid of silly leftover padding
+                    // after disabling one of the SIMs.
+                    state.typeId = 0;
                 }
             }
-
-            mNetworkController.removeCallback(this);
-            mNetworkController.addCallback(this);
         }
     }
 
@@ -221,7 +220,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         // Visibility of the data type indicator changed
         boolean typeChanged = statusType != state.typeId && (statusType == 0 || state.typeId == 0);
 
-        state.visible = statusIcon.visible && !mBlockMobile && state.mProvisioned;
+        state.visible = statusIcon.visible && !mBlockMobile;
         state.strengthId = statusIcon.icon;
         state.typeId = statusType;
         state.contentDescription = statusIcon.contentDescription;
@@ -422,18 +421,18 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         public int typeId;
         public boolean roaming;
         public boolean needsLeadingPadding;
+        public boolean provisioned;
         public String typeContentDescription;
         public int volteId;
-        private boolean mProvisioned = true;
         public Context context;
 
         private MobileIconState(int subId, Context context) {
             super();
             this.subId = subId;
+            this.context = context;
+
             TelephonyExtUtils extTelephony = TelephonyExtUtils.getInstance(context);
-            if (extTelephony.hasService()) {
-                mProvisioned = extTelephony.isSubProvisioned(subId);
-            }
+            this.provisioned = !extTelephony.hasService() || extTelephony.isSubProvisioned(subId);
         }
 
         @Override
@@ -451,6 +450,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
                     typeId == that.typeId &&
                     roaming == that.roaming &&
                     needsLeadingPadding == that.needsLeadingPadding &&
+                    provisioned == that.provisioned &&
                     Objects.equals(typeContentDescription, that.typeContentDescription) &&
                     volteId == that.volteId;
         }
@@ -477,6 +477,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
             other.typeId = typeId;
             other.roaming = roaming;
             other.needsLeadingPadding = needsLeadingPadding;
+            other.provisioned = provisioned;
             other.typeContentDescription = typeContentDescription;
             other.volteId = volteId;
         }
