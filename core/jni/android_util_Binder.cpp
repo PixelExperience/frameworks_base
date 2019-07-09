@@ -1011,7 +1011,7 @@ static void android_os_BinderInternal_proxyLimitcallback(int uid)
         // Calls into BinderProxy must be serialized
         AutoMutex _l(gProxyLock);
         env->CallStaticVoidMethod(gBinderProxyOffsets.mClass,
-                                  gBinderProxyOffsets.mDumpProxyDebugInfo);
+                                    gBinderProxyOffsets.mDumpProxyDebugInfo);
     }
     if (env->ExceptionCheck()) {
         ScopedLocalRef<jthrowable> excep(env, env->ExceptionOccurred());

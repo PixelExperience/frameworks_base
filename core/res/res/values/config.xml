@@ -702,6 +702,9 @@
     <!-- Wifi driver supports IEEE80211AC for softap -->
     <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">false</bool>
 
+    <!-- Device supports WPA3 -->
+    <bool translatable="false" name="config_wifi_wpa3_supported">true</bool>
+
     <!-- Flag indicating whether we should enable the automatic brightness.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">false</bool>

@@ -28,8 +28,6 @@
 -->
 
 <resources>
-    <!-- When true, display 4G/LTE information also if 5G is available. -->
-    <bool name="config_display_4GStateOn5G">true</bool>
 
     <integer name="config_5g_num_signal_strength_bins">4</integer>
 

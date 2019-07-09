@@ -43,6 +43,8 @@ class UiAutomationManager {
             new ComponentName("com.android.server.accessibility", "UiAutomation");
     private static final String LOG_TAG = "UiAutomationManager";
 
+    private final Object mLock;
+
     private UiAutomationService mUiAutomationService;
 
     private AccessibilityServiceInfo mUiAutomationServiceInfo;
@@ -58,11 +60,13 @@ class UiAutomationManager {
                 public void binderDied() {
                     mUiAutomationServiceOwner.unlinkToDeath(this, 0);
                     mUiAutomationServiceOwner = null;
-                    if (mUiAutomationService != null) {
-                        destroyUiAutomationService();
-                    }
+                    destroyUiAutomationService();
                 }
             };
+
+    UiAutomationManager(Object lock){
+        mLock = lock;
+    }
 
     /**
      * Register a UiAutomation. Only one may be registered at a time.
@@ -176,18 +180,20 @@ class UiAutomationManager {
     }
 
     private void destroyUiAutomationService() {
-        synchronized (mUiAutomationService.mLock) {
-            mUiAutomationService.mServiceInterface.asBinder().unlinkToDeath(mUiAutomationService,
-                    0);
-            mUiAutomationService.onRemoved();
-            mUiAutomationService.resetLocked();
-            mUiAutomationService = null;
-            mUiAutomationFlags = 0;
-            if (mUiAutomationServiceOwner != null) {
-                mUiAutomationServiceOwner.unlinkToDeath(mUiAutomationServiceOwnerDeathRecipient, 0);
-                mUiAutomationServiceOwner = null;
+        synchronized (mLock) {
+            if(mUiAutomationService != null){
+                mUiAutomationService.mServiceInterface.asBinder().unlinkToDeath(mUiAutomationService,
+                        0);
+                mUiAutomationService.onRemoved();
+                mUiAutomationService.resetLocked();
+                mUiAutomationService = null;
+                mUiAutomationFlags = 0;
+                if (mUiAutomationServiceOwner != null) {
+                    mUiAutomationServiceOwner.unlinkToDeath(mUiAutomationServiceOwnerDeathRecipient, 0);
+                    mUiAutomationServiceOwner = null;
+                }
+                mSystemSupport.onClientChange(false);
             }
-            mSystemSupport.onClientChange(false);
         }
     }
 

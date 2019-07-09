@@ -1712,6 +1712,10 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
                     app.addPackage(r.info.packageName, r.info.applicationInfo.longVersionCode,
                             mService.mProcessStats);
                 }
+                if (mPerfBoost != null) {
+                    Slog.i(TAG, "The Process " + app.processName + " Already Exists in BG. So sending its PID: " + app.pid);
+                    mPerfBoost.perfHint(BoostFramework.VENDOR_HINT_FIRST_LAUNCH_BOOST, app.processName, app.pid, BoostFramework.Launch.TYPE_START_PROC);
+                }
                 realStartActivityLocked(r, app, andResume, checkConfig);
                 return;
             } catch (RemoteException e) {
