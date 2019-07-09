@@ -87,7 +87,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         mSlotWifi     = mContext.getString(com.android.internal.R.string.status_bar_wifi);
         mSlotEthernet = mContext.getString(com.android.internal.R.string.status_bar_ethernet);
         mSlotVpn      = mContext.getString(com.android.internal.R.string.status_bar_vpn);
-        mActivityEnabled = mContext.getResources().getBoolean(R.bool.config_showActivity);
+        mActivityEnabled = false;
 
         mIconController = iconController;
         mNetworkController = Dependency.get(NetworkController.class);
