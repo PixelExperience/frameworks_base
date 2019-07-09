@@ -16,6 +16,24 @@
       "revId": "dd8a8e92a759ab1aa83ded6913719e6fe6a3c391",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6f90c09_f45f97b1",
+        "filename": "services/core/java/com/android/server/display/ColorDisplayService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-07-09T12:38:05Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "3fed1b81_552a82cd",
+      "revId": "dd8a8e92a759ab1aa83ded6913719e6fe6a3c391",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a",
+      "unresolved": false
     }
   ]
 }
