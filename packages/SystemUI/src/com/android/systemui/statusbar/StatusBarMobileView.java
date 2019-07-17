@@ -145,7 +145,7 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
 
     private void initViewState() {
         setContentDescription(mState.contentDescription);
-        if (!mState.visible || !mState.provisioned) {
+        if (!mState.visible) {
             mMobileGroup.setVisibility(View.GONE);
         } else {
             mMobileGroup.setVisibility(View.VISIBLE);
@@ -169,8 +169,9 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
 
     private void updateState(MobileIconState state) {
         setContentDescription(state.contentDescription);
-        mMobileGroup.setVisibility(state.visible && state.provisioned
-                ? View.VISIBLE : View.GONE);
+        if (mState.visible != state.visible) {
+            mMobileGroup.setVisibility(state.visible ? View.VISIBLE : View.GONE);
+        }
         if (mState.strengthId != state.strengthId) {
             mMobileDrawable.setLevel(state.strengthId);
         }
