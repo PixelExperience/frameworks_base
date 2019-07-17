@@ -112,7 +112,7 @@ public class AmbientIndicationManager {
         }
         lastAlarmInterval = 0;
         if (!isRecognitionEnabled()) return;
-        int duration = 120000; // 2 minutes by default
+        int duration = 90000; // 1 minute and 30 seconds by default
         lastAlarmInterval = duration;
         mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + duration, pendingIntent);
         if (DEBUG) Log.d(TAG, "updateAmbientPlayAlarm: Alarm scheduled");
@@ -123,7 +123,7 @@ public class AmbientIndicationManager {
     }
 
     public int getAmbientClearViewInterval() {
-        return 120000; // Interval to clean the view after song is detected. (Default 2 minutes)
+        return 60000; // Interval to clean the view after song is detected. (Default 1 minute)
     }
 
     private void updateNetworkStatus() {
