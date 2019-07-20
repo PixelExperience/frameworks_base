@@ -29,4 +29,8 @@
 
     <!-- Width of the battery icon (with percentage inside) in the status bar. -->
     <dimen name="status_bar_battery_icon_width_percentage_inside">10.5dp</dimen>
+
+    <!-- Bottom margin size when fingerprint in display is active -->
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
+
 </resources>
