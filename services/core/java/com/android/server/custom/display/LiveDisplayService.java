@@ -207,6 +207,10 @@ public class LiveDisplayService extends SystemService {
             }
 
             updateFeatures(ALL_CHANGED);
+
+            Intent intent = new Intent("lineageos.intent.action.INITIALIZE_LIVEDISPLAY");
+            intent.setPackage("com.android.systemui");
+            mContext.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
         }
     }
 
