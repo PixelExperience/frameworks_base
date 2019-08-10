@@ -776,7 +776,8 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
 
         final SurfaceControl.Builder b = mService.makeSurfaceBuilder(mSession)
                 .setSize(mSurfaceSize, mSurfaceSize)
-                .setOpaque(true);
+                .setOpaque(true)
+                .setContainerLayer(true);
         mWindowingLayer = b.setName("Display Root").build();
         mOverlayLayer = b.setName("Display Overlays").build();
 
@@ -3703,13 +3704,19 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
                         .show(mSplitScreenDividerAnchor);
                 scheduleAnimation();
             } else {
-                mAppAnimationLayer.destroy();
+                // At this time mBoostedAppAnimationLayer may be used for animating,
+                // and ResizeableActivity is in it. mBoostedAppAnimationLayer.destroy()
+                // can also destroy the surface of ResizeableActivity, but the surface will
+                // be used after. So change to use transaction to call destroy to delay it,
+                // and ResizeableActivity is not in mBoostedAppAnimationLayer.
+                getPendingTransaction()
+                        .destroy(mAppAnimationLayer)
+                        .destroy(mBoostedAppAnimationLayer)
+                        .destroy(mHomeAppAnimationLayer)
+                        .destroy(mSplitScreenDividerAnchor);
                 mAppAnimationLayer = null;
-                mBoostedAppAnimationLayer.destroy();
                 mBoostedAppAnimationLayer = null;
-                mHomeAppAnimationLayer.destroy();
                 mHomeAppAnimationLayer = null;
-                mSplitScreenDividerAnchor.destroy();
                 mSplitScreenDividerAnchor = null;
             }
         }
@@ -3894,7 +3901,7 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
         SurfaceSession s = child != null ? child.getSession() : getSession();
         final SurfaceControl.Builder b = mService.makeSurfaceBuilder(s);
         b.setSize(mSurfaceSize, mSurfaceSize);
-
+        b.setContainerLayer(true);
         if (child == null) {
             return b;
         }
