@@ -18,4 +18,7 @@
 
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">true</bool>
+
+    <!-- Allow devices to hide ringer button above volume slider -->
+    <bool name="config_hideRingerButton">false</bool>
 </resources>
