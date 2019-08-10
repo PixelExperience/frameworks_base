@@ -220,8 +220,7 @@
     <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
 
     <!-- Ambient Indication -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
     <uses-permission android:name="org.pixelexperience.ambient.play.history.MANAGE_HISTORY" />
     <uses-permission android:name="org.pixelexperience.ambient.play.provider.MANAGE_DATA" />
 

@@ -37,6 +37,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.telecom.TelecomManager;
 import android.util.Log;
 
 import com.android.internal.util.custom.ambient.play.AmbientPlayHistoryManager;
@@ -72,7 +73,6 @@ public class AmbientIndicationManager {
 
     public boolean isRecognitionEnabled() {
         if (!mIsRecognitionEnabled) {
-            updateAmbientPlayAlarm(true);
             return false;
         }
         if (mCurrentNetworkStatus == -1) {
@@ -95,7 +95,20 @@ public class AmbientIndicationManager {
             if (DEBUG) Log.d(TAG, "Disabling recognition due to quiet period");
             return false;
         }
+        if (isInCall()) {
+            updateAmbientPlayAlarm(true);
+            if (DEBUG) Log.d(TAG, "Disabling recognition due to incall state");
+            return false;
+        }
         return true;
+    }
+
+    private boolean isInCall() {
+        TelecomManager telecomManager = (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
+        if (telecomManager != null && telecomManager.isInCall()){
+            return true;
+        }
+        return false;
     }
 
     private boolean needsUpdate() {
@@ -111,19 +124,15 @@ public class AmbientIndicationManager {
             return;
         }
         lastAlarmInterval = 0;
-        if (!isRecognitionEnabled()) return;
-        int duration = 90000; // 1 minute and 30 seconds by default
+        if (!mIsRecognitionEnabled) return;
+        int duration = DEBUG ? 10000 : 90000; // 1 minute and 30 seconds by default or 10 seconds if debug enabled
         lastAlarmInterval = duration;
         mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + duration, pendingIntent);
         if (DEBUG) Log.d(TAG, "updateAmbientPlayAlarm: Alarm scheduled");
     }
 
-    public int getRecordingMaxTime() {
-        return 10000; // 10 seconds
-    }
-
     public int getAmbientClearViewInterval() {
-        return 60000; // Interval to clean the view after song is detected. (Default 1 minute)
+        return 90000; // Interval to clean the view after song is detected. (Default 1 minute and 30 seconds)
     }
 
     private void updateNetworkStatus() {

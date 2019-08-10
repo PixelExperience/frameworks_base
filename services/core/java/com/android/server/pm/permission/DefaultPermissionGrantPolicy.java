@@ -80,6 +80,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.android.internal.util.custom.ambient.play.AmbientPlayProvider;
 import com.android.internal.util.custom.weather.WeatherClient;
 
 /**
@@ -862,6 +863,12 @@ public final class DefaultPermissionGrantPolicy {
         PackageParser.Package weatherClientPackage = getSystemPackage(WeatherClient.SERVICE_PACKAGE);
         if (weatherClientPackage != null && doesPackageSupportRuntimePermissions(weatherClientPackage)) {
             grantRuntimePermissions(weatherClientPackage, LOCATION_PERMISSIONS, userId);
+        }
+
+        // Ambient play provider
+        PackageParser.Package ambientPlayPackage = getSystemPackage(AmbientPlayProvider.SERVICE_PACKAGE);
+        if (ambientPlayPackage != null && doesPackageSupportRuntimePermissions(ambientPlayPackage)) {
+            grantRuntimePermissions(ambientPlayPackage, MICROPHONE_PERMISSIONS, userId);
         }
 
         if (mPermissionGrantedCallback != null) {
