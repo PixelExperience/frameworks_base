@@ -66,7 +66,7 @@ public class AmbientIndicationManager {
     private boolean mIsBatteryLow = false;
     private int mCurrentNetworkStatus = -1;
     private AmbientPlayQuietPeriod mAmbientPlayQuietPeriod;
-    public boolean DEBUG = false;
+    public boolean DEBUG = true;
 
     private List<AmbientIndicationManagerCallback> mCallbacks;
 
@@ -112,14 +112,10 @@ public class AmbientIndicationManager {
         }
         lastAlarmInterval = 0;
         if (!isRecognitionEnabled()) return;
-        int duration = 90000; // 1 minute and 30 seconds by default
+        int duration = 10000; // 10 seconds for debugging
         lastAlarmInterval = duration;
         mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + duration, pendingIntent);
         if (DEBUG) Log.d(TAG, "updateAmbientPlayAlarm: Alarm scheduled");
-    }
-
-    public int getRecordingMaxTime() {
-        return 10000; // 10 seconds
     }
 
     public int getAmbientClearViewInterval() {
