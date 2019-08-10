@@ -250,6 +250,7 @@ public final class PowerManagerService extends SystemService
     private DreamManagerInternal mDreamManager;
     private Light mAttentionLight;
     private Light mButtonsLight;
+    private static final boolean mDisableButtonsLight = android.os.SystemProperties.getBoolean("persist.sys.phh.disable_buttons_light", false);
 
     private final Object mLock = LockGuard.installNewLock(LockGuard.INDEX_POWER);
 
@@ -2069,9 +2070,11 @@ public final class PowerManagerService extends SystemService
                             + screenOffTimeout - screenDimDuration;
                     if (now < nextTimeout) {
                         if (now > mLastUserActivityTime + BUTTON_ON_DURATION) {
-                            mButtonsLight.setBrightness(0);
+                            if(!mDisableButtonsLight)
+                                mButtonsLight.setBrightness(0);
                         } else {
-                            mButtonsLight.setBrightness(screenBrightness);
+                            if(!mDisableButtonsLight)
+                                mButtonsLight.setBrightness(screenBrightness);
                             nextTimeout = now + BUTTON_ON_DURATION;
                         }
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
