@@ -35,6 +35,7 @@ import com.android.internal.util.custom.weather.WeatherClient;
 import com.android.internal.util.custom.ambient.play.AmbientPlayHistoryManager;
 import com.android.internal.util.custom.ambient.play.AmbientPlayProvider;
 import com.android.internal.util.custom.thermal.ThermalController;
+import com.android.internal.custom.longshot.LongScreenshotManagerService;
 
 public class Utils {
 
@@ -296,6 +297,7 @@ public class Utils {
                 || pkg.packageName.equals(AmbientPlayHistoryManager.SERVICE_PACKAGE)
                 || pkg.packageName.equals(AmbientPlayProvider.SERVICE_PACKAGE)
                 || pkg.packageName.equals(ThermalController.SERVICE_PACKAGE)
+                || pkg.packageName.equals(LongScreenshotManagerService.PACKAGENAME_LONGSHOT)
                 || isDeviceProvisioningPackage(resources, pkg.packageName);
     }
 
