@@ -32,6 +32,9 @@ import android.view.Gravity;
 import android.os.Handler;
 import android.os.Looper;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.PrintWriter;
 
 import vendor.xiaomi.hardware.fingerprintextension.V1_0.IXiaomiFingerprint;
@@ -53,8 +56,11 @@ public class FacolaView extends ImageView implements OnTouchListener {
     private boolean visible = false;
 
     private final WindowManager mWM;
+    private final boolean samsungFod = samsungHasCmd("fod_enable");
     FacolaView(Context context) {
         super(context);
+
+	android.util.Log.d("PHH", "Samsung FOD " + samsungFod);
 
         mMainHandler = new Handler(Looper.getMainLooper());
 
@@ -157,6 +163,9 @@ public class FacolaView extends ImageView implements OnTouchListener {
     }
 
     public void show() {
+	    if(samsungFod) {
+		    samsungCmd("fod_enable,1,1");
+	    }
         if(mX == -1 || mY == -1 || mW == -1 || mH == -1) return;
 
         try {
@@ -191,6 +200,9 @@ public class FacolaView extends ImageView implements OnTouchListener {
     }
 
     public void hide() {
+	    if(samsungFod) {
+		    samsungCmd("fod_enable,0");
+	    }
         if(mX == -1 || mY == -1 || mW == -1 || mH == -1) return;
 
         try {
@@ -210,5 +222,47 @@ public class FacolaView extends ImageView implements OnTouchListener {
         Slog.d("PHH-Enroll", "Removed facola");
         mWM.removeView(this);
         visible = false;
+    }
+
+    private static boolean samsungHasCmd(String cmd) {
+	    try {
+		    File f = new File("/sys/devices/virtual/sec/tsp/cmd_list");
+		    if(!f.exists()) return false;
+
+		    BufferedReader b = new BufferedReader(new FileReader(f));
+		    String line = null;
+		    while( (line = b.readLine()) != null) {
+			    if(line.equals(cmd)) return true;
+		    }
+		    return false;
+	    } catch(Exception e) {
+		    return false;
+	    }
+    }
+
+    private static String readFile(String path) {
+	    try {
+		    File f = new File(path);
+
+		    BufferedReader b = new BufferedReader(new FileReader(f));
+		    return b.readLine();
+	    } catch(Exception e) {
+		    return null;
+	    }
+    }
+
+    private static void samsungCmd(String cmd) {
+	    try {
+		    PrintWriter writer = new PrintWriter("/sys/devices/virtual/sec/tsp/cmd", "UTF-8");
+		    writer.println(cmd);
+		    writer.close();
+
+		    String status = readFile("/sys/devices/virtual/sec/tsp/cmd_status");
+		    String ret = readFile("/sys/devices/virtual/sec/tsp/cmd_result");
+
+		    android.util.Log.d("PHH", "Sending command " + cmd + " returned " + ret + ":" + status);
+	    } catch(Exception e) {
+		    android.util.Log.d("PHH", "Failed sending command " + cmd, e);
+	    }
     }
 }
