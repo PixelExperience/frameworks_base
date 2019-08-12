@@ -62,6 +62,7 @@ import com.android.server.am.BatteryStatsService;
 import com.android.server.policy.WindowManagerPolicy;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 /**
  * Controls the power state of the display.
@@ -501,6 +502,13 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
 
         if (!DEBUG_PRETEND_PROXIMITY_SENSOR_ABSENT) {
             mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+            if(mProximitySensor == null) {
+                List<Sensor> sensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
+                for(Sensor sensor: sensors) {
+                    if("com.samsung.sensor.touch_proximity".equals(sensor.getStringType()))
+                        mProximitySensor = sensor;
+                }
+            }
             if (mProximitySensor != null) {
                 mProximityThreshold = Math.min(mProximitySensor.getMaximumRange(),
                         TYPICAL_PROXIMITY_THRESHOLD);
@@ -1816,6 +1824,13 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         public void onSensorChanged(SensorEvent event) {
             if (mProximitySensorEnabled) {
                 final long time = SystemClock.uptimeMillis();
+                if("com.samsung.sensor.touch_proximity".equals(mProximitySensor.getStringType())) {
+                    int v = (int)event.values[0];
+                    boolean positive = (v <= 4);
+                    android.util.Log.d("PHH", "Samsung sensor changed " + positive + ":" + v);
+                    handleProximitySensorEvent(time, positive);
+                    return;
+                }
                 final float distance = event.values[0];
                 boolean positive = distance >= 0.0f && distance < mProximityThreshold;
                 handleProximitySensorEvent(time, positive);
