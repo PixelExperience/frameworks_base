@@ -16,6 +16,9 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.WindowManager;
+
+import com.android.internal.custom.screenshot.StitchImageUtility;
 
 import java.util.function.Consumer;
 
@@ -34,9 +37,11 @@ public class ScreenshotHelper {
     private final Object mScreenshotLock = new Object();
     private ServiceConnection mScreenshotConnection = null;
     private final Context mContext;
+    private final StitchImageUtility mStitchImageUtility;
 
     public ScreenshotHelper(Context context) {
         mContext = context;
+        mStitchImageUtility = new StitchImageUtility(mContext);
     }
 
     /**
@@ -93,6 +98,10 @@ public class ScreenshotHelper {
             final boolean hasNav, long timeoutMs, @NonNull Handler handler,
             @Nullable Consumer<Uri> completionConsumer) {
         synchronized (mScreenshotLock) {
+            if (screenshotType == WindowManager.TAKE_SCREENSHOT_FULLSCREEN &&
+                    mStitchImageUtility.takeScreenShot()){
+                return;
+            }
             if (mScreenshotConnection != null) {
                 return;
             }
