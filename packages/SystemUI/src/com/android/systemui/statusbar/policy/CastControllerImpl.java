@@ -41,6 +41,8 @@ import java.util.UUID;
 
 import static android.media.MediaRouter.ROUTE_TYPE_REMOTE_DISPLAY;
 
+import com.android.internal.custom.screenshot.StitchImageUtility;
+
 /** Platform implementation of the cast controller. **/
 public class CastControllerImpl implements CastController {
     private static final String TAG = "CastController";
@@ -134,14 +136,20 @@ public class CastControllerImpl implements CastController {
         final ArraySet<CastDevice> devices = new ArraySet<CastDevice>();
         synchronized (mProjectionLock) {
             if (mProjection != null) {
-                final CastDevice device = new CastDevice();
-                device.id = mProjection.getPackageName();
-                device.name = getAppName(mProjection.getPackageName());
-                device.description = mContext.getString(R.string.quick_settings_casting);
-                device.state = CastDevice.STATE_CONNECTED;
-                device.tag = mProjection;
-                devices.add(device);
-                return devices;
+                if (mProjection.getPackageName().equals(
+                        StitchImageUtility.STITCHIMAGE_APP_PACKAGE_NAME)){
+                    mProjection = null;
+                }
+                if (mProjection != null){
+                    final CastDevice device = new CastDevice();
+                    device.id = mProjection.getPackageName();
+                    device.name = getAppName(mProjection.getPackageName());
+                    device.description = mContext.getString(R.string.quick_settings_casting);
+                    device.state = CastDevice.STATE_CONNECTED;
+                    device.tag = mProjection;
+                    devices.add(device);
+                    return devices;
+                }
             }
         }
         synchronized(mRoutes) {
