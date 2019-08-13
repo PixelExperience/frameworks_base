@@ -12,6 +12,9 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.Log;
+import android.view.WindowManager;
+
+import com.android.internal.custom.screenshot.StitchImageUtility;
 
 public class ScreenshotHelper {
     private static final String TAG = "ScreenshotHelper";
@@ -28,9 +31,11 @@ public class ScreenshotHelper {
     private final Object mScreenshotLock = new Object();
     private ServiceConnection mScreenshotConnection = null;
     private final Context mContext;
+    private StitchImageUtility mStitchImageUtility;
 
     public ScreenshotHelper(Context context) {
         mContext = context;
+        mStitchImageUtility = new StitchImageUtility(mContext);
     }
 
     /**
@@ -46,6 +51,10 @@ public class ScreenshotHelper {
     public void takeScreenshot(final int screenshotType, final boolean hasStatus,
             final boolean hasNav, @NonNull Handler handler) {
         synchronized (mScreenshotLock) {
+            if (screenshotType == WindowManager.TAKE_SCREENSHOT_FULLSCREEN &&
+                    mStitchImageUtility.takeScreenShot()){
+                return;
+            }
             if (mScreenshotConnection != null) {
                 return;
             }
