@@ -85,7 +85,9 @@ static bool checkAndClearExceptionFromCallback(JNIEnv* env, const char* methodNa
 // The caller must be holding gPowerHalMutex.
 static void connectPowerHalLocked() {
     if (gPowerHalExists && gPowerHalV1_0_ == nullptr) {
-        gPowerHalV1_0_ = IPowerV1_0::getService();
+        gPowerHalV1_0_ = IPowerV1_0::getService("miscpower");
+	if(gPowerHalV1_0_ == nullptr)
+	    gPowerHalV1_0_ = IPowerV1_0::getService();
         if (gPowerHalV1_0_ != nullptr) {
             ALOGI("Loaded power HAL 1.0 service");
             // Try cast to powerHAL V1_1
