@@ -505,6 +505,13 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             if(mProximitySensor == null) {
                 List<Sensor> sensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
                 for(Sensor sensor: sensors) {
+                    if("com.samsung.sensor.physical_proximity".equals(sensor.getStringType()))
+                        mProximitySensor = sensor;
+                }
+            }
+            if(mProximitySensor == null) {
+                List<Sensor> sensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
+                for(Sensor sensor: sensors) {
                     if("com.samsung.sensor.touch_proximity".equals(sensor.getStringType()))
                         mProximitySensor = sensor;
                 }
