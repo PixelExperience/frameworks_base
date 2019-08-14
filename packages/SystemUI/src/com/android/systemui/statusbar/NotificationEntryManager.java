@@ -941,12 +941,15 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
     public boolean shouldPeek(NotificationData.Entry entry, StatusBarNotification sbn) {
         String defaultDialerApp = mTelecomManager != null ? mTelecomManager.getDefaultDialerPackage() : "";
         boolean isDialerApp = sbn.getPackageName().equals(defaultDialerApp);
-        if ((!mUseHeadsUp && !mPresenter.isDozing() && !isDialerApp) || mPresenter.isDeviceInVrMode()) {
+        if (isDialerApp){
+            mUseHeadsUp = true;
+        }
+        if ((!mUseHeadsUp && !mPresenter.isDozing()) || mPresenter.isDeviceInVrMode()) {
             if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode");
             return false;
         }
 
-        if (mNotificationData.shouldFilterOut(entry) && !isDialerApp) {
+        if (mNotificationData.shouldFilterOut(entry)) {
             if (DEBUG) Log.d(TAG, "No peeking: filtered notification: " + sbn.getKey());
             return false;
         }
@@ -960,7 +963,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
             return false;
         }
 
-        if (!mPresenter.isDozing() && mNotificationData.shouldSuppressPeek(entry) && !isDialerApp) {
+        if (!mPresenter.isDozing() && mNotificationData.shouldSuppressPeek(entry)) {
             if (DEBUG) Log.d(TAG, "No peeking: suppressed by DND: " + sbn.getKey());
             return false;
         }
