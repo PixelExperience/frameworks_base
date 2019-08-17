@@ -608,6 +608,9 @@
     <!-- Used to launch a common app (FlipFlap) for devices with flip cover. -->
     <protected-broadcast android:name="android.intent.action.LID_STATE_CHANGED" />
 
+    <!-- Ambient Indication -->
+    <protected-broadcast android:name="com.android.internal.util.custom.ambient.play.AMBIENT_PLAY_SONG_MATCH" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->

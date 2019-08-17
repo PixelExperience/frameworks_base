@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/ambient_indication"
+    android:paddingTop="8.0dip"
+    android:visibility="invisible"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/ambient_indication_margin_bottom"
+    android:layout_marginStart="64.0dip"
+    android:layout_marginEnd="64.0dip"
+    android:forceHasOverlappingRendering="false">
+
+    <TextView
+        android:textSize="13.0sp"
+        android:textColor="?attr/wallpaperTextColorSecondary"
+        android:gravity="center_vertical"
+        android:id="@+id/ambient_indication_text"
+        android:background="@drawable/ambient_indication_pill_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="17.0sp"
+        android:paddingTop="8.0sp"
+        android:paddingRight="17.0sp"
+        android:paddingBottom="8.0sp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:drawablePadding="12.0sp"
+        android:drawableTint="?wallpaperTextColorSecondary"
+        android:fontFamily="google-sans"
+        android:drawableTintMode="src_in"
+        android:forceHasOverlappingRendering="false" />
+
+</LinearLayout>

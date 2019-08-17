@@ -33,6 +33,9 @@
         android:layout_gravity="bottom|center_horizontal"
         android:orientation="vertical">
 
+        <include layout="@layout/ambient_indication"
+            android:id="@+id/ambient_indication_container" />
+
         <com.android.systemui.statusbar.phone.KeyguardIndicationTextView
             android:id="@+id/keyguard_indication_enterprise_disclosure"
             android:layout_width="match_parent"

@@ -23,4 +23,7 @@
     <dimen name="opa_line_x_trans_ry">15.0dip</dimen>
     <dimen name="opa_line_y_translation">16.0dip</dimen>
 
+    <!-- Ambient indication -->
+    <dimen name="ambient_indication_icon_size">20.0dip</dimen>
+    <dimen name="ambient_indication_margin_bottom">12.0dip</dimen>
 </resources>

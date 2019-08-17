@@ -4345,6 +4345,94 @@ public final class Settings {
                BOOLEAN_VALIDATOR;
 
         /**
+         * Whether Ambient Play enabled/disabled
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION = "ambient_recognition";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether Ambient Play is shown on the lockscreen
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_KEYGUARD = "ambient_recognition_keyguard";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_KEYGUARD_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether Ambient Play notification is enabled
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_NOTIFICATION = "ambient_recognition_notification";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_NOTIFICATION_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Ambient Play saving options: Low battery
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_SAVING_OPTIONS_LOW_BATTERY = "ambient_recognition_saving_options_low_battery";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_SAVING_OPTIONS_LOW_BATTERY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Ambient Play saving options: Mobile data
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_SAVING_OPTIONS_MOBILE_DATA = "ambient_recognition_saving_options_mobile_data";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_SAVING_OPTIONS_MOBILE_DATA_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Ambient Play saving options: Quiet period
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD = "ambient_recognition_saving_options_quiet_period";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Ambient Play saving options: Quiet period start time
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_START_TIME = "ambient_recognition_saving_options_quiet_period_start_time";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_START_TIME_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
+         * Ambient Play saving options: Quiet period end time
+         *
+         * @hide
+         */
+        public static final String AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME = "ambient_recognition_saving_options_quiet_period_end_time";
+
+        /** @hide */
+        private static final Validator AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4550,6 +4638,14 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(WEATHER_LOCKSCREEN_UNIT);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_KEYGUARD);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_NOTIFICATION);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_SAVING_OPTIONS_LOW_BATTERY);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_SAVING_OPTIONS_MOBILE_DATA);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_START_TIME);
+            PRIVATE_SETTINGS.add(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME);
         }
 
         /**
@@ -4661,6 +4757,14 @@ public final class Settings {
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(WEATHER_LOCKSCREEN_UNIT, WEATHER_LOCKSCREEN_UNIT_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION, AMBIENT_RECOGNITION_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_KEYGUARD, AMBIENT_RECOGNITION_KEYGUARD_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_NOTIFICATION, AMBIENT_RECOGNITION_NOTIFICATION_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_SAVING_OPTIONS_LOW_BATTERY, AMBIENT_RECOGNITION_SAVING_OPTIONS_LOW_BATTERY_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_SAVING_OPTIONS_MOBILE_DATA, AMBIENT_RECOGNITION_SAVING_OPTIONS_MOBILE_DATA_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD, AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_START_TIME, AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_START_TIME_VALIDATOR);
+            VALIDATORS.put(AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME, AMBIENT_RECOGNITION_SAVING_OPTIONS_QUIET_PERIOD_END_TIME_VALIDATOR);
         }
 
         /**

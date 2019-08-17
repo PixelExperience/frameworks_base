@@ -222,6 +222,10 @@
     <!-- Force stop packages -->
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
 
+    <!-- Ambient Indication -->
+    <uses-permission android:name="org.pixelexperience.ambient.play.history.MANAGE_HISTORY" />
+    <uses-permission android:name="org.pixelexperience.ambient.play.provider.MANAGE_DATA" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
