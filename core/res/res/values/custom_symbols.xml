@@ -112,4 +112,10 @@
     <!-- Custom fonts -->
     <java-symbol type="style" name="TextAppearanceTitle" />
 
+    <!-- Whether device has a physical display cutout -->
+    <java-symbol type="bool" name="config_physicalDisplayCutout" />
+
+    <!-- Whether device has a big physical display cutout -->
+    <java-symbol type="bool" name="config_bigPhysicalDisplayCutout" />
+
 </resources>
