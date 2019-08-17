@@ -59,6 +59,7 @@ import com.android.systemui.tuner.TunerService.Tunable;
 import com.android.systemui.util.Utils.DisableStateTracker;
 import com.android.systemui.util.leak.RotationUtils;
 import com.android.systemui.R;
+import com.android.systemui.Interpolators;
 
 import java.text.NumberFormat;
 
@@ -98,6 +99,13 @@ public class BatteryMeterView extends LinearLayout implements
     private int mNonAdaptedBackgroundColor;
 
     private boolean mCharging;
+
+    // Smart battery percentage
+    private static final int FADE_IN_DURATION = 320;
+    private static final int FADE_IN_DELAY = 50;
+    private static final int SHOW_DURATION = 5*1000; // 5 seconds
+    private boolean mShowingOnQS = false;
+    private boolean mBatteryPercentAnimationRunning = false;
 
     public BatteryMeterView(Context context) {
         this(context, null, 0);
@@ -168,6 +176,11 @@ public class BatteryMeterView extends LinearLayout implements
     public void setForceShowPercent(boolean show) {
         mForceShowPercent = show;
         updateShowPercent();
+    }
+
+    public void setShowingOnQS(boolean show) {
+        mShowingOnQS = show;
+        setForceShowPercent(show);
     }
 
     /**
@@ -285,6 +298,61 @@ public class BatteryMeterView extends LinearLayout implements
             mBatteryPercentView.setText(
                     NumberFormat.getPercentInstance().format(mLevel / 100f));
         }
+        showAndHidePercentTextConditionally();
+    }
+
+    private void showAndHidePercentTextConditionally(){
+        // configHasBigNotch
+        if (true && mBatteryPercentView != null){
+            showPercentTextAnimated();
+        }else if(mBatteryPercentView != null){
+            mBatteryPercentView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void showPercentTextAnimated(){
+        if (mBatteryPercentAnimationRunning){
+            return;
+        }
+        mBatteryPercentAnimationRunning = true;
+        mBatteryPercentView.animate().cancel();
+        mBatteryPercentView.setVisibility(View.VISIBLE);
+        mBatteryPercentView.animate()
+                .alpha(1f)
+                .setDuration(FADE_IN_DURATION)
+                .setInterpolator(Interpolators.ALPHA_IN)
+                .setStartDelay(FADE_IN_DELAY)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mBatteryPercentView != null){
+                            hidePercentTextAnimated();
+                        }else{
+                            mBatteryPercentAnimationRunning = false;
+                        }
+                    }
+                });
+    }
+
+    private void hidePercentTextAnimated() {
+        if (mShowingOnQS || mCurrentOrientation == Configuration.ORIENTATION_LANDSCAPE){
+            return;
+        }
+        mBatteryPercentView.animate().cancel();
+        mBatteryPercentView.animate()
+                .alpha(0f)
+                .setDuration(160)
+                .setStartDelay(SHOW_DURATION)
+                .setInterpolator(Interpolators.ALPHA_OUT)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mBatteryPercentView != null){
+                            mBatteryPercentView.setVisibility(View.GONE);
+                        }
+                        mBatteryPercentAnimationRunning = false;
+                    }
+                });
     }
 
     private void updateShowPercent() {
@@ -343,6 +411,7 @@ public class BatteryMeterView extends LinearLayout implements
             mCurrentOrientation = newConfig.orientation;
             updateShouldEnablePercentInsideIcon();
             updateShowPercent();
+            showAndHidePercentTextConditionally();
         }
     }
 
