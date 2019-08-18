@@ -194,7 +194,7 @@ public class KeyguardStatusBarView extends RelativeLayout
         if (mKeyguardUserSwitcher == null) {
             // If we have no keyguard switcher, the screen width is under 600dp. In this case,
             // we don't show the multi-user avatar unless there is more than 1 user on the device.
-            if (mUserSwitcherController != null
+            if (!mHasBigCutout && mUserSwitcherController != null
                     && mUserSwitcherController.getSwitchableUserCount() > 1) {
                 mMultiUserSwitch.setVisibility(View.VISIBLE);
             } else {
