@@ -174,4 +174,7 @@
     <java-symbol type="bool" name="config_defaultCABC" />
     <java-symbol type="bool" name="config_filterDisplayModes" />
     <java-symbol type="array" name="config_displayModeMappings" />
+
+    <!-- Whether device supports internal audio recording -->
+    <java-symbol type="bool" name="config_hasInternalAudioRecordingSupport" />
 </resources>
