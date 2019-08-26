@@ -935,12 +935,13 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
     }
 
     public boolean shouldPeek(NotificationData.Entry entry, StatusBarNotification sbn) {
+        boolean useHeadsup = mUseHeadsUp;
         String defaultDialerApp = mTelecomManager != null ? mTelecomManager.getDefaultDialerPackage() : "";
         boolean isDialerApp = sbn.getPackageName().equals(defaultDialerApp);
         if (isDialerApp){
-            mUseHeadsUp = true;
+            useHeadsup = true;
         }
-        if ((!mUseHeadsUp && !mPresenter.isDozing()) || mPresenter.isDeviceInVrMode()) {
+        if ((!useHeadsup && !mPresenter.isDozing()) || mPresenter.isDeviceInVrMode()) {
             if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode");
             return false;
         }
