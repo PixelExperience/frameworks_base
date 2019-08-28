@@ -124,6 +124,8 @@ import java.util.List;
 import java.util.Objects;
 import com.android.internal.R;
 
+import com.android.internal.util.custom.theme.AutomaticThemeTimeController;
+
 public class WallpaperManagerService extends IWallpaperManager.Stub
         implements IWallpaperManagerService {
     static final String TAG = "WallpaperManagerService";
@@ -186,6 +188,22 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         WALLPAPER_LOCK_ORIG, WALLPAPER_LOCK_CROP,
         WALLPAPER_INFO
     };
+
+    private AutomaticThemeTimeController mAutomaticThemeTimeController;
+    private boolean mIsOnDarkThemePeriod = false;
+    private AutomaticThemeTimeController.Observer mAutomaticThemeTimeObserver =
+        new AutomaticThemeTimeController.Observer(){
+            @Override
+            public void onDarkThemePeriodChanged(boolean isDarkTheme){
+                if (isDarkTheme != mIsOnDarkThemePeriod){
+                    mIsOnDarkThemePeriod = isDarkTheme;
+                    WallpaperData wallpaper = mWallpaperMap.get(mCurrentUserId);
+                    if (wallpaper != null) {
+                        notifyWallpaperColorsChanged(wallpaper, FLAG_SYSTEM);
+                    }
+                }
+            }
+        };
 
     /**
      * Observes the wallpaper for changes and notifies all IWallpaperServiceCallbacks
@@ -393,16 +411,24 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
                 } else {
                     result = !supportDarkTheme;
                 }
+                mAutomaticThemeTimeController.unregisterListener();
                 break;
             case Settings.Secure.THEME_MODE_LIGHT:
                 if (mThemeMode == Settings.Secure.THEME_MODE_WALLPAPER) {
                     result = supportDarkTheme;
                 }
+                mAutomaticThemeTimeController.unregisterListener();
                 break;
             case Settings.Secure.THEME_MODE_DARK:
                 if (mThemeMode == Settings.Secure.THEME_MODE_WALLPAPER) {
                     result = !supportDarkTheme;
                 }
+                mAutomaticThemeTimeController.unregisterListener();
+                break;
+            case Settings.Secure.THEME_MODE_TIME:
+                mAutomaticThemeTimeController.registerListener(mAutomaticThemeTimeObserver);
+                mIsOnDarkThemePeriod = mAutomaticThemeTimeController.isOnPeriod();
+                result = true;
                 break;
             default:
                 Slog.w(TAG, "unkonwn theme mode " + themeMode);
@@ -626,9 +652,11 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         WallpaperColors themeColors = new WallpaperColors(colors.getPrimaryColor(),
                 colors.getSecondaryColor(), colors.getTertiaryColor());
 
-        if (mThemeMode == Settings.Secure.THEME_MODE_LIGHT) {
+        if (mThemeMode == Settings.Secure.THEME_MODE_LIGHT ||
+                (mThemeMode == Settings.Secure.THEME_MODE_TIME && !mIsOnDarkThemePeriod)) {
             colorHints &= ~WallpaperColors.HINT_SUPPORTS_DARK_THEME;
-        } else if (mThemeMode == Settings.Secure.THEME_MODE_DARK) {
+        } else if (mThemeMode == Settings.Secure.THEME_MODE_DARK ||
+                (mThemeMode == Settings.Secure.THEME_MODE_TIME && mIsOnDarkThemePeriod)) {
             colorHints |= WallpaperColors.HINT_SUPPORTS_DARK_THEME;
         }
         themeColors.setColorHints(colorHints);
@@ -1324,6 +1352,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
         mAppOpsManager = (AppOpsManager) mContext.getSystemService(Context.APP_OPS_SERVICE);
         mMonitor = new MyPackageMonitor();
         mColorsChangedListeners = new SparseArray<>();
+        mAutomaticThemeTimeController = new AutomaticThemeTimeController(context);
     }
 
     void initialize() {
@@ -1530,6 +1559,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
             mThemeMode = Settings.Secure.getInt(
                     mContext.getContentResolver(), Settings.Secure.THEME_MODE,
                     Settings.Secure.THEME_MODE_WALLPAPER);
+            if (mThemeMode == Settings.Secure.THEME_MODE_TIME){
+                mAutomaticThemeTimeController.registerListener(mAutomaticThemeTimeObserver);
+            }
             switchWallpaper(systemWallpaper, reply);
         }
 
