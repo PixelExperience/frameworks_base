@@ -4822,6 +4822,28 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Start time of automatic system theme
+         *
+         * @hide
+         */
+        public static final String THEME_MODE_AUTOMATIC_START_TIME = "theme_mode_automatic_start_time";
+
+        /** @hide */
+        private static final Validator THEME_MODE_AUTOMATIC_START_TIME_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
+         * End time of automatic system theme
+         *
+         * @hide
+         */
+        public static final String THEME_MODE_AUTOMATIC_END_TIME = "theme_mode_automatic_end_time";
+
+        /** @hide */
+        private static final Validator THEME_MODE_AUTOMATIC_END_TIME_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5064,6 +5086,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(FACE_AUTO_UNLOCK);
+            PRIVATE_SETTINGS.add(THEME_MODE_AUTOMATIC_START_TIME);
+            PRIVATE_SETTINGS.add(THEME_MODE_AUTOMATIC_END_TIME);
         }
 
         /**
@@ -5219,6 +5243,8 @@ public final class Settings {
             VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
             VALIDATORS.put(FACE_AUTO_UNLOCK, FACE_AUTO_UNLOCK_VALIDATOR);
+            VALIDATORS.put(THEME_MODE_AUTOMATIC_START_TIME, THEME_MODE_AUTOMATIC_START_TIME_VALIDATOR);
+            VALIDATORS.put(THEME_MODE_AUTOMATIC_END_TIME, THEME_MODE_AUTOMATIC_END_TIME_VALIDATOR);
         }
 
         /**
@@ -8005,6 +8031,12 @@ public final class Settings {
          * @hide
          */
         public static final int THEME_MODE_DARK = 2;
+
+        /**
+         * THEME_MODE value for time mode.
+         * @hide
+         */
+        public static final int THEME_MODE_TIME = 3;
 
         /**
          * Whether screensavers are enabled.

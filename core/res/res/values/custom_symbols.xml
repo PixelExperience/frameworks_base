@@ -177,4 +177,10 @@
 
     <!-- Whether device supports internal audio recording -->
     <java-symbol type="bool" name="config_hasInternalAudioRecordingSupport" />
+
+    <!-- Default start time for automatic system theme -->
+    <java-symbol type="integer" name="config_defaultAutomaticThemeStartTime" />
+
+    <!-- Default end time for automatic system theme -->
+    <java-symbol type="integer" name="config_defaultAutomaticThemeEndTime" />
 </resources>
