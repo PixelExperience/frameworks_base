@@ -270,4 +270,12 @@
     <!-- Whether device supports internal audio recording -->
     <bool name="config_hasInternalAudioRecordingSupport">true</bool>
 
+    <!-- Default start time for automatic system theme
+         Represented as milliseconds from midnight (e.g. 64800000 == 6pm). -->
+    <integer name="config_defaultAutomaticThemeStartTime">64800000</integer>
+
+    <!-- Default end time for automatic system theme
+         Represented as milliseconds from midnight (e.g. 21600000 == 6am). -->
+    <integer name="config_defaultAutomaticThemeEndTime">21600000</integer>
+
 </resources>
