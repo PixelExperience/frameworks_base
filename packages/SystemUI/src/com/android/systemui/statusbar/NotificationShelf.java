@@ -135,6 +135,12 @@ public class NotificationShelf extends ActivatableNotificationView implements
         }
     }
 
+    public void onOverlayChanged() {
+        initDimens();
+        initBackground();
+        updateAppearance();
+    }
+
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -468,6 +474,7 @@ public class NotificationShelf extends ActivatableNotificationView implements
             boolean scrolling, boolean scrollingFast, boolean expandingAnimated,
             boolean isLastChild) {
         StatusBarIconView icon = row.getEntry().expandedIcon;
+        icon.updateShelfColor();
         NotificationIconContainer.IconState iconState = getIconState(icon);
         if (iconState == null) {
             return 0.0f;
