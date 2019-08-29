@@ -173,7 +173,7 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
         mDensity = context.getResources().getDisplayMetrics().densityDpi;
         if (mNotification != null) {
             setDecorColor(getContext().getColor(
-                    com.android.internal.R.color.notification_default_color_light));
+                    com.android.internal.R.color.notification_overflow_dot_color));
         }
         reloadDimens();
         maybeUpdateIconScaleDimens();
@@ -846,6 +846,10 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
     }
 
     public void setIsInShelf(boolean isInShelf) {
+        if (mIsInShelf != isInShelf && mNotification != null) {
+            setDecorColor(getContext().getColor(
+                    com.android.internal.R.color.notification_overflow_dot_color));
+        }
         mIsInShelf = isInShelf;
     }
 

@@ -278,4 +278,6 @@
          Represented as milliseconds from midnight (e.g. 21600000 == 6am). -->
     <integer name="config_defaultAutomaticThemeEndTime">21600000</integer>
 
+    <!-- Notification tinting -->
+    <bool name="config_useDarkNotification">false</bool>
 </resources>
