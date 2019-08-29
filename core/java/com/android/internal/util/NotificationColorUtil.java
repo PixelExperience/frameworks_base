@@ -40,6 +40,8 @@ import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.util.Pair;
 
+import com.android.internal.R;
+
 import java.util.Arrays;
 import java.util.WeakHashMap;
 
@@ -489,6 +491,7 @@ public class NotificationColorUtil {
         final int resolvedColor = resolveColor(context, notificationColor);
 
         int color = resolvedColor;
+        isDark = isDark || shouldUseDarkNotification(context);
         color = NotificationColorUtil.ensureTextContrast(color, backgroundColor, isDark);
 
         if (color != resolvedColor) {
@@ -621,6 +624,11 @@ public class NotificationColorUtil {
 
     public static boolean isColorLight(int backgroundColor) {
         return calculateLuminance(backgroundColor) > 0.5f;
+    }
+
+    public static boolean shouldUseDarkNotification(Context context) {
+        return context.getResources().getBoolean(
+                R.bool.config_useDarkNotification);
     }
 
     /**
