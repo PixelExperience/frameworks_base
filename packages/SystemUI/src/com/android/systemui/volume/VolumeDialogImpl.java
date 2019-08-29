@@ -254,6 +254,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         mZenIcon = mRinger.findViewById(R.id.dnd_icon);
         mExpandRowsView = mDialog.findViewById(R.id.expandable_indicator_container);
         mExpandRows = mDialog.findViewById(R.id.expandable_indicator);
+        mExpandRows.setDefaultDirection(!isAudioPanelOnLeftSide());
 
         if (mRows.isEmpty()) {
             if (!AudioSystem.isSingleVolume(mContext)) {
