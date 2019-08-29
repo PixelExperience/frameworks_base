@@ -183,4 +183,10 @@
 
     <!-- Default end time for automatic system theme -->
     <java-symbol type="integer" name="config_defaultAutomaticThemeEndTime" />
+
+    <!-- Notification tinting -->
+    <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+    <java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
+    <java-symbol type="bool" name="config_notificationTinting_override" />
+    <java-symbol type="color" name="notification_info_button_text" />
 </resources>
