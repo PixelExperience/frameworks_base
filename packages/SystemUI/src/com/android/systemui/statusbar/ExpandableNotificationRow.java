@@ -983,7 +983,7 @@ public class ExpandableNotificationRow extends ActivatableNotificationView
     }
 
     public void setGutsView(MenuItem item) {
-        if (mGuts != null && item.getGutsView() instanceof GutsContent) {
+        if (mGuts != null && item != null && item.getGutsView() instanceof GutsContent) {
             ((GutsContent) item.getGutsView()).setGutsParent(mGuts);
             mGuts.setGutsContent((GutsContent) item.getGutsView());
         }
@@ -1048,6 +1048,14 @@ public class ExpandableNotificationRow extends ActivatableNotificationView
     @Override
     public void onDensityOrFontScaleChanged() {
         super.onDensityOrFontScaleChanged();
+        onDensityFontScaleOrOverlayChanged();
+    }
+
+    public void onOverlayChanged() {
+        onDensityFontScaleOrOverlayChanged();
+    }
+
+    public void onDensityFontScaleOrOverlayChanged() {
         initDimens();
         initBackground();
         // Let's update our childrencontainer. This is intentionally not guarded with
