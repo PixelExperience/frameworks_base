@@ -648,6 +648,9 @@
     <!-- Used to force the state of battery led -->
     <protected-broadcast android:name="android.intent.action.BATTERY_LED_STATE_OVERRIDE" />
 
+    <!-- Used to get camera status. -->
+    <protected-broadcast android:name="android.intent.action.CAMERA_STATUS_CHANGED" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
