@@ -4884,6 +4884,17 @@ public final class Settings {
                 NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
+         * Notification style
+         *
+         * @hide
+         */
+        public static final String NOTIFICATION_THEME = "notification_theme";
+
+        /** @hide */
+        private static final Validator NOTIFICATION_THEME_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5132,6 +5143,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
             PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(NOTIFICATION_THEME);
         }
 
         /**
@@ -5293,6 +5305,7 @@ public final class Settings {
             VALIDATORS.put(QS_ROWS_LANDSCAPE, QS_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(QS_COLUMNS_PORTRAIT, QS_COLUMNS_PORTRAIT_VALIDATOR);
             VALIDATORS.put(QS_COLUMNS_LANDSCAPE, QS_COLUMNS_LANDSCAPE_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_THEME, NOTIFICATION_THEME_VALIDATOR);
         }
 
         /**
