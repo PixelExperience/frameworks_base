@@ -671,6 +671,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     // Dark theme style
     private boolean mUseBlackTheme;
+    private boolean mNotificationTheme;
+    private int NOTIFICATION_THEME_DEFAULT = 1;
+    private int NOTIFICATION_THEME_DARK = 1;
     private ActivityManager mActivityManager;
 
     @Override
@@ -4177,10 +4180,14 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 try {
                     mOverlayManager.setEnabled("com.android.system.theme.dark",
                             useDarkTheme && !mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.system.theme.notifications.dark",
+                            useDarkTheme && !mUseBlackTheme && mNotificationTheme == NOTIFICATION_THEME_DARK, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.systemui.custom.theme.dark",
                             useDarkTheme && !mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.system.theme.black",
                             useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.system.theme.notifications.black",
+                            useDarkTheme && mUseBlackTheme && mNotificationTheme == NOTIFICATION_THEME_DARK, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.systemui.custom.theme.black",
                             useDarkTheme && mUseBlackTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.dark",
@@ -4252,6 +4259,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             }catch(Exception ignored){
             }
         }
+    }
+
+    private void updateNotificationTheme(){
+        mNotificationTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.NOTIFICATION_THEME, NOTIFICATION_STYLE_DEFAULT, UserHandle.USER_CURRENT);
     }
 
     private void updateDarkThemeStyle(){
@@ -5446,6 +5458,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_COLUMNS_LANDSCAPE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_THEME),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5466,11 +5481,15 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_PORTRAIT)) ||
                 uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_LANDSCAPE))) {
                 setQsRowsColumns();
+            }else if (uri.equals(Settings.System.getUriFor(Settings.System.NOTIFICATION_THEME))) {
+                updateNotificationTheme();
+                updateTheme(true);
             }
         }
 
         public void update() {
             updateNavigationBar(false, false);
+            updateNotificationTheme();
             updateDarkThemeStyle();
             updateCutoutOverlay();
             setQsRowsColumns();
