@@ -39,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Mod tal-qari mitfi.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Mod tal-qari mixgħula.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Mod tal-qari mitfija.</string>
+    <!-- QS customizer -->
 </resources>

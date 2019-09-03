@@ -24,8 +24,8 @@
     <string name="quick_settings_heads_up_label">Bildiriş pəncərələri</string>
     <string name="accessibility_quick_settings_heads_up_off">Bildiriş pəncərələri q-aktivdir.</string>
     <string name="accessibility_quick_settings_heads_up_on">Bildiriş pəncərələri aktivdir.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Bildiriş pəncərələri aktivdir edildi.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Bildiriş pəncərələri q-aktiv edildi.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildiriş pəncərələri q-aktiv edildi.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildiriş pəncərələri aktiv edildi.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinx.</string>
     <string name="accessibility_quick_settings_sync_off">Sinx. q-aktivdir.</string>
@@ -34,4 +34,11 @@
     <string name="accessibility_quick_settings_sync_changed_on">Sinxronizasiya aktivdir.</string>
     <!-- VoLTE switch -->
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Oxuma rejimi</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Oxuma rejimi aktvidir.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Oxuma rejimi q-aktivdir.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Oxuma rejimi aktiv edildi.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Oxuma rejimi q-aktivləşdirildi.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Piltə əlavə etmək/silmək üçün sürükləyin və ya toxunun</string>
 </resources>

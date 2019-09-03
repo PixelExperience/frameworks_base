@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Olvasómód bekapcsolva.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Olvasómód kikapcsolva.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempe hozzáadásához/eltávolításához</string>
 </resources>

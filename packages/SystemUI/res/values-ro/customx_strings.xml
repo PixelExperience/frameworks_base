@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Mod lectură dezactivat.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modul lectură a fost activat.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modul lectură a fost dezactivat.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Trageţi sau atingeți pentru a adăuga/elimina dale</string>
 </resources>

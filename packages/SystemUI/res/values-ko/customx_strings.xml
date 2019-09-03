@@ -10,7 +10,7 @@
     <string name="global_action_restart_download">다운로드 모드</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">LTE 대신 4G 표시</string>
-    <string name="show_fourg_summary">LTE 상태 표시줄 표시를 4G로 바꿉니다</string>
+    <string name="show_fourg_summary">LTE 상태 표시줄 표시기를 4G로 바꿉니다</string>
     <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">독서 모드 꺼짐.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">독서 모드가 켜졌습니다.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">독서 모드가 꺼졌습니다.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">드래그하거나 탭하여 타일 추가/삭제</string>
 </resources>

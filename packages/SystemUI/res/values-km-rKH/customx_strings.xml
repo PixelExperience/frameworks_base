@@ -19,4 +19,5 @@
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">ម៉ូដការអាន</string>
     <string name="accessibility_quick_settings_reading_mode_on">ម៉ូដការអានបានបើក</string>
+    <!-- QS customizer -->
 </resources>

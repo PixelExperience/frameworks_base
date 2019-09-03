@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">מצב קריאה כבוי.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">מצב קריאה הודלק.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">מצב קריאה כובה.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">גרור כדי להוסיף/להסיר משבצות</string>
 </resources>

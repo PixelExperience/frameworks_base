@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Λειτουργία ανάγνωσης ανενεργή.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Η λειτουργία ανάγνωσης ενεργοποιήθηκε.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Η λειτουργία ανάγνωσης απενεργοποιήθηκε.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Σύρετε ή πατήστε για να προσθέσετε/αφαιρέσετε πλακίδια</string>
 </resources>

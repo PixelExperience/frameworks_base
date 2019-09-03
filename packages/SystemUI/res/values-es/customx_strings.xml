@@ -7,7 +7,7 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Gestor de arranque</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Descargar</string>
+    <string name="global_action_restart_download">Modo descarga</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Mostrar 4G en lugar de LTE</string>
     <string name="show_fourg_summary">Reemplaza el indicador LTE de la barra de estado con 4G</string>
@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modo lectura desactivado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modo lectura activado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modo lectura desactivado.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Arrastre o toque para añadir/quitar accesos directos</string>
 </resources>

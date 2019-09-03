@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Режим чтения выкл.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режим чтения активирован.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режим чтения выключен.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Перетащите или нажмите для добавления/удаления плиток</string>
 </resources>

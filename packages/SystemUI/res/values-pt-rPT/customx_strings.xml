@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modo de leitura desativado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">O modo de leitura foi ativado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">O modo de leitura foi desativado.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Arraste ou toque para adicionar/remover blocos</string>
 </resources>

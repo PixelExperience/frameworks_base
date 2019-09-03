@@ -39,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">关闭阅读模式。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已开启。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
+    <!-- QS customizer -->
 </resources>

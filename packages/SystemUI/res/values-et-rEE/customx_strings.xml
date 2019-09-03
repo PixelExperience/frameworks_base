@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Lugemisrežiim väljas.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lugemisrežiim sisselülitatud.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lugemisrežiim väljalülitatud.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Ikooni lisamiseks/eemaldamiseks lohistage või puudutage</string>
 </resources>

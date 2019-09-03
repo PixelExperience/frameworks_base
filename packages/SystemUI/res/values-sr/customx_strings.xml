@@ -39,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Режим читања искључен.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режим читања је укључен.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режим читања је искључен.</string>
+    <!-- QS customizer -->
 </resources>

@@ -33,4 +33,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Tha am modh leughaidh dheth.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Tha am modh leughaidh air.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Tha am modh leughaidh dheth.</string>
+    <!-- QS customizer -->
 </resources>

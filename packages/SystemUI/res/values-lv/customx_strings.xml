@@ -39,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Lasīšanas režīms izslēgts.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lasīšanas režīms ieslēgts.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lasīšanas režīms izslēgts.</string>
+    <!-- QS customizer -->
 </resources>

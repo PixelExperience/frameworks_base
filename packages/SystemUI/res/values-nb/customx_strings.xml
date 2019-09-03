@@ -33,4 +33,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Lesemodus av.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lesemodus påslått.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus avslått.</string>
+    <!-- QS customizer -->
 </resources>

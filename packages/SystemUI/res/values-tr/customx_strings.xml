@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Kare eklemek/kaldırmak için sürükleyin veya dokunun</string>
 </resources>

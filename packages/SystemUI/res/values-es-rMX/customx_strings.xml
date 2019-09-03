@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modo lectura desactivado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modo lectura desactivado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modo lectura activado.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Arrastre o toque para añadir/quitar accesos directos</string>
 </resources>

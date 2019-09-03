@@ -3,7 +3,7 @@
 <resources>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaticky</string>
-    <string name="live_display_auto_summary">Automaticky upravit teplotu barev obrazovky po západu a východu slunce</string>
+    <string name="live_display_auto_summary">Automaticky regulovat teplotu barev obrazovky po západu a východu Slunce</string>
     <string name="live_display_off">Vyp.</string>
     <string name="live_display_off_summary">Zakázat všechny úpravy</string>
     <string name="live_display_day">Den</string>
@@ -12,7 +12,7 @@
     <string name="live_display_night_summary">Použít pouze noční nastavení</string>
     <string name="live_display_outdoor">Venku (slunečno)</string>
     <string name="live_display_outdoor_summary">Použít pouze venkovní nastavení</string>
-    <string name="live_display_hint">LiveDisplay může pomoci proti namáhání očí a také spánku v noci. Dotykem zde tuto funkci můžete vyzkoušet!</string>
+    <string name="live_display_hint">LiveDisplay může pomoci proti namáhání očí hlavně při používání v noci. Dotykem zde tuto funkci můžete vyzkoušet!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay vyp.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: režim ve dne.</string>

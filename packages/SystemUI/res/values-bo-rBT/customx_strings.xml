@@ -39,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">དཔེ་ཀློག་རྣམ་པའི་ཁ་རྒྱག</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">དཔེ་ཀློག་རྣམ་པའི་ཁ་ཕྱེ་ཟིན།</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">དཔེ་ཀློག་རྣམ་པའི་ཁ་བརྒྱབ་ཟིན།</string>
+    <!-- QS customizer -->
 </resources>

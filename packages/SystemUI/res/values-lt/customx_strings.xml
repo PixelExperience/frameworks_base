@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Skaitymo režimas išjungtas.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Įjungtas skaitymo režimas.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Skaitymo režimas išjungtas.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Vilkite arba spustelėkite, kad pridėtumėte/panaikintumėte plyteles</string>
 </resources>

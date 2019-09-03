@@ -39,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">ปิดโหมดการอ่าน</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">เปิดโหมดการอ่านแล้ว</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">ปิดโหมดการอ่าน</string>
+    <!-- QS customizer -->
 </resources>

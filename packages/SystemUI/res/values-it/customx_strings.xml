@@ -9,8 +9,8 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Modalità download</string>
     <!-- 4G LTE switch -->
-    <string name="show_fourg_title">Mostra 4G invece che LTE</string>
-    <string name="show_fourg_summary">Sostituisci l\'indicatore LTE con 4G nella barra di stato</string>
+    <string name="show_fourg_title">Mostra 4G al posto di LTE</string>
+    <string name="show_fourg_summary">Sostituisci l\'icona di stato LTE con 4G</string>
     <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modalità lettura non attiva.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modalità lettura attivata.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modalità lettura disattivata.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Tieni premuto e trascina per aggiungere riquadri</string>
 </resources>

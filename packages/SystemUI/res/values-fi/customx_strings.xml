@@ -10,6 +10,7 @@
     <string name="global_action_restart_download">Download mode</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Näytä 4G LTE:n sijasta</string>
+    <string name="show_fourg_summary">Korvaa LTE-kuvakkeen 4G:llä tilapalkissa</string>
     <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
@@ -38,4 +39,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Lukutila pois.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lukutila otettiin käyttöön.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lukutila poistettiin käytöstä.</string>
+    <!-- QS customizer -->
 </resources>

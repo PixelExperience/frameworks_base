@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">Način za branje izklopljen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Način za branje vklopljen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Način za branje izklopljen.</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Povlecite ali tapnite za dodajanje/odstranjevanje ploščic</string>
 </resources>

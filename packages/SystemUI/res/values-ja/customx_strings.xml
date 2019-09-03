@@ -39,4 +39,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">読書モード OFF</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードを ON にしました</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードを OFF にしました</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">タイルを追加や削除するにはドラックかタップして下さい</string>
 </resources>
