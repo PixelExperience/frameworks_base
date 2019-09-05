@@ -691,15 +691,6 @@ public final class PowerManager {
     }
 
     /**
-     * Gets the default button brightness value.
-     * @hide
-     */
-    public int getDefaultButtonBrightness() {
-        return mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
-    }
-
-    /**
      * Creates a new wake lock with the specified level and flags.
      * <p>
      * The {@code levelAndFlags} parameter specifies a wake lock level and optional flags
@@ -952,22 +943,6 @@ public final class PowerManager {
     public void wakeUp(long time, String reason) {
         try {
             mService.wakeUp(time, reason, mContext.getOpPackageName());
-        } catch (RemoteException e) {
-            throw e.rethrowFromSystemServer();
-        }
-    }
-
-    /**
-     * Forces the device to wake up from sleep only if
-     * nothing is blocking the proximity sensor
-     *
-     * @see #wakeUp
-     *
-     * @hide
-     */
-    public void wakeUpWithProximityCheck(long time, String reason) {
-        try {
-            mService.wakeUpWithProximityCheck(time, reason, mContext.getOpPackageName());
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }

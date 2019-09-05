@@ -14,20 +14,9 @@
     <integer name="config_buttonBrightnessSettingDefault">255</integer>
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 
-    <!-- Default value for proximity check on screen wake
-         NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
-    -->
-    <bool name="config_proximityCheckOnWake">false</bool>
-    <integer name="config_proximityCheckTimeout">250</integer>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
-
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
     <bool name="config_useSystemClockforRotationSensor">false</bool>
-
-    <!-- Full screen aspect ratio -->
-    <bool name="config_haveHigherAspectRatioScreen">false</bool>
-    <item name="config_screenAspectRatio" format="float" type="dimen">2.1</item>
 
     <!-- The list of components which should be automatically disabled. -->
     <string-array name="config_disabledComponents" translatable="false">
@@ -50,9 +39,6 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <bool name="config_allowMediaUidForCameraServiceProxy">false</bool>
-
-    <!-- Whether device ignores the RSSNR signal implementation -->
-    <bool name="config_ignoreRssnrSignalLevel">false</bool>
 
     <!-- Whether device needs to wait for Qualcomm MPCTL service to start
          before setting power profiles on boot. -->
@@ -219,8 +205,5 @@
 
     <!-- Whether device has a big physical display cutout -->
     <bool name="config_bigPhysicalDisplayCutout">false</bool>
-
-    <!-- Shows the required view for in-display fingerprint -->
-    <bool name="config_supportsInDisplayFingerprint">false</bool>
 
 </resources>

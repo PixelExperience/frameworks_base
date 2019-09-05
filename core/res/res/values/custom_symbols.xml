@@ -10,21 +10,8 @@
     <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
-    <!-- Proximity check on screen on -->
-    <java-symbol type="bool" name="config_proximityCheckOnWake" />
-
-    <!-- Proximity check timeout -->
-    <java-symbol type="integer" name="config_proximityCheckTimeout" />
-
-    <!-- Proximity check on screen on default -->
-    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
-
     <!-- Rotation sensor -->
     <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
-
-    <!-- Full screen aspect ratio -->
-    <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
-    <java-symbol type="dimen" name="config_screenAspectRatio" />
 
     <!-- Package Manager -->
     <java-symbol type="array" name="config_disabledComponents" />
@@ -41,9 +28,6 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
-
-    <!-- Whether device ignores the RSSNR signal implementation -->
-    <java-symbol type="bool" name="config_ignoreRssnrSignalLevel" />
 
     <!-- Whether device needs to wait for Qualcomm MPCTL service to start
          before setting power profiles on boot. -->
@@ -117,8 +101,5 @@
 
     <!-- Whether device has a big physical display cutout -->
     <java-symbol type="bool" name="config_bigPhysicalDisplayCutout" />
-
-    <!-- In-display Fingerprint -->
-    <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
 
 </resources>
