@@ -344,6 +344,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
                 super.onDraw(canvas);
             }
         };
+        mPressedView.setImageResource(R.drawable.fod_icon_pressed);
 
         mWindowManager.addView(this, mParams);
 
