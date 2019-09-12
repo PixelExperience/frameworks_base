@@ -223,6 +223,11 @@
     <uses-permission android:name="org.pixelexperience.ambient.play.history.MANAGE_HISTORY" />
     <uses-permission android:name="org.pixelexperience.ambient.play.provider.MANAGE_DATA" />
 
+    <!-- Pixel Live Wallpapers -->
+    <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
+    <permission android:name="com.breel.wallpapers.notifications"/>
+    <uses-permission android:name="com.breel.wallpapers.notifications"/>
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
