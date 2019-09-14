@@ -4,4 +4,6 @@
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Моно</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Стерео</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">Двухканальный звук</string>
+    <!-- Deep sleep info -->
+    <string name="status_deep_sleep">(Глубокий сон: %1$d%2$s)</string>
 </resources>
