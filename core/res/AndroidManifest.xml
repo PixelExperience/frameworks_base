@@ -4006,9 +4006,6 @@
     <permission android:name="android.permission.PREVENT_POWER_KEY"
                 android:protectionLevel="signature|privileged" />
 
-    <!-- Weather on lockscreen -->
-    <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
-
     <!-- Live display -->
     <protected-broadcast android:name="lineageos.intent.action.INITIALIZE_LINEAGE_HARDWARE" />
     <protected-broadcast android:name="lineageos.intent.action.INITIALIZE_LIVEDISPLAY" />

@@ -201,11 +201,6 @@
          (without "Focus" state) instead of Dual-stage. -->
     <bool name="config_singleStageCameraKey">false</bool>
 
-    <!-- Weather default unit
-         0 - Celsius
-         1 - Fahrenheit -->
-    <integer name="weather_lockscreen_default_unit">0</integer>
-
     <!-- Default start time for Ambient Play quiet period
          Represented as milliseconds from midnight (e.g. 79200000 == 10pm). -->
     <integer name="config_defaultAmbientPlayQuitPeriodStartTime">79200000</integer>
