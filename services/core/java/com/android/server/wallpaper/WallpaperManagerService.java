@@ -75,6 +75,7 @@ import android.os.RemoteException;
 import android.os.SELinux;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -495,6 +496,9 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     }
 
     private void notifyWallpaperColorsChanged(@NonNull WallpaperData wallpaper, int which) {
+        if (which == FLAG_SYSTEM){
+            updateNightModeProp(wallpaper == null ? null : getThemeColorsLocked(wallpaper.primaryColors));
+        }
         boolean needsExtraction;
         synchronized (mLock) {
             final RemoteCallbackList<IWallpaperManagerCallback> currentUserColorListeners =
@@ -532,6 +536,14 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
 
     private static <T extends IInterface> boolean emptyCallbackList(RemoteCallbackList<T> list) {
         return (list == null || list.getRegisteredCallbackCount() == 0);
+    }
+
+    private void updateNightModeProp(WallpaperColors wallpaperColors){
+        boolean useDarkTheme = wallpaperColors != null
+                && (wallpaperColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+        SystemProperties.set("persist.sys.theme", useDarkTheme ?
+            "2" /* UiModeManager.MODE_NIGHT_YES */ :
+            "1" /* UiModeManager.MODE_NIGHT_NO */);
     }
 
     private void notifyColorListeners(@NonNull WallpaperColors wallpaperColors, int which,
