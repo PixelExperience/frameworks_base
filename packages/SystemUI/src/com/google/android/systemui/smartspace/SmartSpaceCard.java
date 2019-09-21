@@ -269,10 +269,6 @@ public class SmartSpaceCard {
         try {
             Intent parseUri = (cardWrapper.card.tapAction == null || TextUtils.isEmpty(cardWrapper.card.tapAction.intent)) ? null : Intent.parseUri(cardWrapper.card.tapAction.intent, 0);
             Bitmap decodeByteArray = cardWrapper.icon != null ? BitmapFactory.decodeByteArray(cardWrapper.icon, 0, cardWrapper.icon.length, null) : null;
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.header_icon_size);
-            if (decodeByteArray != null && decodeByteArray.getHeight() > dimensionPixelSize) {
-                decodeByteArray = Bitmap.createScaledBitmap(decodeByteArray, (int) (((float) decodeByteArray.getWidth()) * (((float) dimensionPixelSize) / ((float) decodeByteArray.getHeight()))), dimensionPixelSize, true);
-            }
             SmartSpaceCard smartSpaceCard = new SmartSpaceCard(context, cardWrapper.card, parseUri, z, decodeByteArray, cardWrapper.isIconGrayscale, cardWrapper.publishTime);
             return smartSpaceCard;
         } catch (Exception e) {

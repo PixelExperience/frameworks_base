@@ -1,10 +1,10 @@
 package com.google.android.systemui;
 
 import android.content.Context;
-import com.android.systemui.statusbar.NotificationLockscreenUserManagerImpl;
+import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
-public class NotificationLockscreenUserManagerGoogle extends NotificationLockscreenUserManagerImpl {
+public class NotificationLockscreenUserManagerGoogle extends NotificationLockscreenUserManager {
     public NotificationLockscreenUserManagerGoogle(Context context) {
         super(context);
     }
