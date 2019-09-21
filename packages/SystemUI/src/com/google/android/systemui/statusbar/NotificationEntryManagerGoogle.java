@@ -11,8 +11,8 @@ import android.service.notification.NotificationListenerService.RankingMap;
 import android.service.notification.StatusBarNotification;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.NotificationPresenter;
-import com.android.systemui.statusbar.notification.NotificationEntryManager;
-import com.android.systemui.statusbar.notification.stack.NotificationListContainer;
+import com.android.systemui.statusbar.NotificationEntryManager;
+import com.android.systemui.statusbar.NotificationListContainer;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
 import com.google.android.collect.Sets;
 import java.util.HashSet;
@@ -44,8 +44,8 @@ public class NotificationEntryManagerGoogle extends NotificationEntryManager {
     }
 
     @Override
-    public void setUpWithPresenter(NotificationPresenter notificationPresenter, NotificationListContainer notificationListContainer, HeadsUpManager headsUpManager) {
-        super.setUpWithPresenter(notificationPresenter, notificationListContainer, headsUpManager);
+    public void setUpWithPresenter(NotificationPresenter presenter, NotificationListContainer listContainer, Callback callback, HeadsUpManager headsUpManager) {
+        super.setUpWithPresenter(presenter, listContainer, callback, headsUpManager);
         mContext.registerReceiver(mWallpaperChangedReceiver, new IntentFilter("android.intent.action.WALLPAPER_CHANGED"));
         checkNotificationBroadcastSupport();
     }
