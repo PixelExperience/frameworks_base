@@ -434,6 +434,7 @@
     <string name="wifi_status_mac_randomized" msgid="5589328382467438245">"O MAC é randomizado"</string>
     <plurals name="wifi_tether_connected_summary" formatted="false" msgid="3871603864314407780">
       <item quantity="one">%1$d dispositivo conectado</item>
+      <item quantity="zero">%1$d dispositivos conectados</item>
       <item quantity="other">%1$d dispositivos conectados</item>
     </plurals>
     <string name="accessibility_manual_zen_more_time" msgid="1636187409258564291">"Mais tempo."</string>
