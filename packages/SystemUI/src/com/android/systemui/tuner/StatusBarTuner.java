@@ -29,15 +29,11 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.R;
 
-import com.android.internal.util.custom.cutout.CutoutUtils;
-
 public class StatusBarTuner extends PreferenceFragment {
 
     private static final String SHOW_FOURG = "show_fourg";
-    private static final String SHOW_VOLTE = "show_volte";
 
     private SwitchPreference mShowFourG;
-    private SwitchPreference mShowVoLTE;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -45,19 +41,12 @@ public class StatusBarTuner extends PreferenceFragment {
         setHasOptionsMenu(true);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
         mShowFourG = (SwitchPreference) findPreference(SHOW_FOURG);
-        mShowVoLTE = (SwitchPreference) findPreference(SHOW_VOLTE);
         if (isWifiOnly()) {
             getPreferenceScreen().removePreference(mShowFourG);
-            getPreferenceScreen().removePreference(mShowVoLTE);
-        }else if (!isNotchHidden()) {
-            getPreferenceScreen().removePreference(mShowVoLTE);
         } else {
             mShowFourG.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.SHOW_FOURG,
                 getActivity().getResources().getBoolean(R.bool.config_show4GForLTE) ? 1 : 0,
-                UserHandle.USER_CURRENT) == 1);
-            mShowVoLTE.setChecked(Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.SHOW_VOLTE_ICON, 0,
                 UserHandle.USER_CURRENT) == 1);
         }
     }
@@ -95,11 +84,6 @@ public class StatusBarTuner extends PreferenceFragment {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_FOURG, checked ? 1 : 0);
             return true;
-        }else if (preference == mShowVoLTE) {
-            boolean checked = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SHOW_VOLTE_ICON, checked ? 1 : 0);
-            return true;
         }
         return super.onPreferenceTreeClick(preference);
     }
@@ -108,9 +92,5 @@ public class StatusBarTuner extends PreferenceFragment {
         ConnectivityManager cm = (ConnectivityManager)getActivity().getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         return (cm != null && cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
-    }
-
-    private boolean isNotchHidden(){
-        return !CutoutUtils.hasBigCutout(getContext());
     }
 }

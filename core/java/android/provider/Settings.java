@@ -4638,15 +4638,6 @@ public final class Settings {
         public static final Validator STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to show VoLTE icon or not
-         * @hide
-         */
-        public static final String SHOW_VOLTE_ICON = "volte_icon";
-
-        /** @hide */
-        public static final Validator SHOW_VOLTE_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
          * Screenshod sound enable, This is the noise made when taking a screesnhot
          * Defaults to 1 - sounds enabled
          * @hide
@@ -5111,7 +5102,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_UNITS);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_SHOW_UNITS);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD);
-            PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_DAY);
@@ -5272,7 +5262,6 @@ public final class Settings {
             VALIDATORS.put(NETWORK_TRAFFIC_UNITS, NETWORK_TRAFFIC_UNITS_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_SHOW_UNITS, NETWORK_TRAFFIC_SHOW_UNITS_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD_VALIDATOR);
-            VALIDATORS.put(SHOW_VOLTE_ICON, SHOW_VOLTE_ICON_VALIDATOR);
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
             VALIDATORS.put(SWIPE_TO_SCREENSHOT, SWIPE_TO_SCREENSHOT_VALIDATOR);
             VALIDATORS.put(DISPLAY_TEMPERATURE_DAY, DISPLAY_TEMPERATURE_DAY_VALIDATOR);
