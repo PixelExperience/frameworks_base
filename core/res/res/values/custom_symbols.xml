@@ -71,16 +71,6 @@
     <!-- Camera key type -->
     <java-symbol type="bool" name="config_singleStageCameraKey" />
 
-    <!-- Ambient play -->
-    <java-symbol type="string" name="ambient_recognition_notification" />
-    <java-symbol type="string" name="ambient_recognition_information" />
-
-    <!-- Default start time for Ambient Play quiet period -->
-    <java-symbol type="integer" name="config_defaultAmbientPlayQuitPeriodStartTime" />
-
-    <!-- Default end time for Ambient Play quiet period -->
-    <java-symbol type="integer" name="config_defaultAmbientPlayQuitPeriodEndTime" />
-
     <!-- Custom accent color -->
     <java-symbol type="color" name="custom_accent_color" />
 
