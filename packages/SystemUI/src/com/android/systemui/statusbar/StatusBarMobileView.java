@@ -145,7 +145,7 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
 
     private void initViewState() {
         setContentDescription(mState.contentDescription);
-        if (!mState.visible || !mState.provisioned) {
+        if (!mState.visible) {
             mMobileGroup.setVisibility(View.GONE);
         } else {
             mMobileGroup.setVisibility(View.VISIBLE);
@@ -169,8 +169,9 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
 
     private void updateState(MobileIconState state) {
         setContentDescription(state.contentDescription);
-        mMobileGroup.setVisibility(state.visible && state.provisioned
-                ? View.VISIBLE : View.GONE);
+        if (mState.visible != state.visible) {
+            mMobileGroup.setVisibility(state.visible ? View.VISIBLE : View.GONE);
+        }
         if (mState.strengthId != state.strengthId) {
             mMobileDrawable.setLevel(state.strengthId);
         }
@@ -250,17 +251,13 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         mVisibleState = state;
         switch (state) {
             case STATE_ICON:
-                if (mState == null || (mState.visible && mState.provisioned)) {
-                    mMobileGroup.setVisibility(View.VISIBLE);
-                    mDotView.setVisibility(View.GONE);
-                    break;
-                }
+                mMobileGroup.setVisibility(View.VISIBLE);
+                mDotView.setVisibility(View.GONE);
+                break;
             case STATE_DOT:
-                if (mState == null || (mState.visible && mState.provisioned)) {
-                    mMobileGroup.setVisibility(View.INVISIBLE);
-                    mDotView.setVisibility(View.VISIBLE);
-                    break;
-                }
+                mMobileGroup.setVisibility(View.INVISIBLE);
+                mDotView.setVisibility(View.VISIBLE);
+                break;
             case STATE_HIDDEN:
             default:
                 mMobileGroup.setVisibility(View.GONE);
