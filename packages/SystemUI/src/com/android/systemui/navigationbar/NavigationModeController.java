@@ -19,12 +19,16 @@ package com.android.systemui.navigationbar;
 import static android.content.Intent.ACTION_OVERLAY_CHANGED;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.res.ApkAssets;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.Handler;
 import android.os.PatternMatcher;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -58,6 +62,7 @@ public class NavigationModeController implements Dumpable {
 
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
+        default void onSettingsChanged() {}
     }
 
     private final Context mContext;
@@ -80,6 +85,21 @@ public class NavigationModeController implements Dumpable {
                     updateCurrentInteractionMode(true /* notify */);
                 }
             };
+
+    private final class SettingsObserver extends ContentObserver {
+        public SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            for (int i = 0; i < mListeners.size(); i++) {
+                mListeners.get(i).onSettingsChanged();
+            }
+        }
+    }
+
+    private SettingsObserver mSettingsObserver;
 
     // The primary user SysUI process doesn't get AppInfo changes from overlay package changes for
     // the secondary user (b/158613864), so we need to update the interaction mode here as well
@@ -114,6 +134,11 @@ public class NavigationModeController implements Dumpable {
         overlayFilter.addDataScheme("package");
         overlayFilter.addDataSchemeSpecificPart("android", PatternMatcher.PATTERN_LITERAL);
         mContext.registerReceiverAsUser(mReceiver, UserHandle.ALL, overlayFilter, null, null);
+
+        mSettingsObserver = new SettingsObserver(new Handler());
+        mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                Settings.System.BACK_GESTURE_HEIGHT),
+                false, mSettingsObserver, UserHandle.USER_ALL);
 
         configurationController.addCallback(new ConfigurationController.ConfigurationListener() {
             @Override
