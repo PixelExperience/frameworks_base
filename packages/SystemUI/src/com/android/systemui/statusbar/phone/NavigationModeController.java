@@ -36,11 +36,13 @@ import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.util.Log;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.dagger.qualifiers.UiBackground;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.tuner.TunerService;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -54,13 +56,16 @@ import javax.inject.Singleton;
  * Controller for tracking the current navigation bar mode.
  */
 @Singleton
-public class NavigationModeController implements Dumpable {
+public class NavigationModeController implements Dumpable, TunerService.Tunable {
 
     private static final String TAG = NavigationModeController.class.getSimpleName();
     private static final boolean DEBUG = true;
 
+    private static final String BACK_GESTURE_HEIGHT = "customsystem:" + Settings.System.BACK_GESTURE_HEIGHT;
+
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
+        default void onSettingsChanged() {}
     }
 
     private final Context mContext;
@@ -124,6 +129,8 @@ public class NavigationModeController implements Dumpable {
                 updateCurrentInteractionMode(true /* notify */);
             }
         });
+
+        Dependency.get(TunerService.class).addTunable(this, BACK_GESTURE_HEIGHT);
 
         updateCurrentInteractionMode(false /* notify */);
     }
@@ -236,6 +243,15 @@ public class NavigationModeController implements Dumpable {
         ApkAssets[] assets = context.getResources().getAssets().getApkAssets();
         for (ApkAssets a : assets) {
             Log.d(TAG, "    " + a.getAssetPath());
+        }
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (BACK_GESTURE_HEIGHT.equals(key)) {
+            for (int i = 0; i < mListeners.size(); i++) {
+                mListeners.get(i).onSettingsChanged();
+            }
         }
     }
 }
