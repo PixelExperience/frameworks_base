@@ -57,4 +57,12 @@
     <!-- Component name of popup camera service -->
     <string name="config_popUpCameraServiceComponentName" translatable="false"></string>
 
+    <!-- Whether device has physical tri state switch -->
+    <bool name="config_hasAlertSlider">false</bool>
+
+    <!-- The location of the devices physical tri state switch
+         0: Left side
+         1: Right side -->
+    <integer name="config_alertSliderLocation">0</integer>
+
 </resources>
