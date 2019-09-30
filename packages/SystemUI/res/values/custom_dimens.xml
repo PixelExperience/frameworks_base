@@ -11,4 +11,29 @@
 
     <!-- Floating rotation button margin when on 2-button navbar mode -->
     <dimen name="floating_rotation_button_min_margin_navbar">60dp</dimen>
+
+    <!-- Alert Slider -->
+    <dimen name="tri_state_down_dialog_position">0px</dimen>
+    <dimen name="tri_state_down_dialog_position_l">0px</dimen>
+    <dimen name="tri_state_middle_dialog_position">0px</dimen>
+    <dimen name="tri_state_middle_dialog_position_l">0px</dimen>
+    <dimen name="tri_state_up_dialog_position">0px</dimen>
+    <dimen name="tri_state_up_dialog_position_l">0px</dimen>
+    <dimen name="tri_state_up_dialog_position_deep">0px</dimen>
+    <dimen name="tri_state_up_dialog_position_deep_land">0px</dimen>
+    <dimen name="tri_state_dialog_elevation">4.0dip</dimen>
+    <dimen name="tri_state_dialog_icon_size">24.0dip</dimen>
+    <dimen name="tri_state_dialog_padding">8.0dip</dimen>
+    <dimen name="tri_state_down_bottom_left_radius">24.0dip</dimen>
+    <dimen name="tri_state_down_bottom_right_radius">24.0dip</dimen>
+    <dimen name="tri_state_down_top_left_radius">24.0dip</dimen>
+    <dimen name="tri_state_down_top_right_radius">0.0dip</dimen>
+    <dimen name="tri_state_mid_bottom_left_radius">24.0dip</dimen>
+    <dimen name="tri_state_mid_bottom_right_radius">24.0dip</dimen>
+    <dimen name="tri_state_mid_top_left_radius">24.0dip</dimen>
+    <dimen name="tri_state_mid_top_right_radius">24.0dip</dimen>
+    <dimen name="tri_state_up_bottom_left_radius">24.0dip</dimen>
+    <dimen name="tri_state_up_bottom_right_radius">0.0dip</dimen>
+    <dimen name="tri_state_up_top_left_radius">24.0dip</dimen>
+    <dimen name="tri_state_up_top_right_radius">24.0dip</dimen>
 </resources>
