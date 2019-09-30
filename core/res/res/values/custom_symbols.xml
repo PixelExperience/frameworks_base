@@ -41,4 +41,8 @@
     <!-- Component name of popup camera service -->
     <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
 
+    <!-- Alert slider -->
+    <java-symbol type="bool" name="config_hasAlertSlider" />
+    <java-symbol type="integer" name="config_alertSliderLocation" />
+
 </resources>
