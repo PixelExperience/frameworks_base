@@ -39,6 +39,7 @@ import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.telecom.TelecomManager;
 import android.util.ArraySet;
+import android.util.ArrayMap;
 import android.util.EventLog;
 import android.util.Log;
 import android.view.View;
@@ -72,6 +73,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * NotificationEntryManager is responsible for the adding, removing, and updating of notifications.
@@ -116,6 +118,12 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
             Dependency.get(NotificationListener.class);
     private final SmartReplyController mSmartReplyController =
             Dependency.get(SmartReplyController.class);
+
+    // A lifetime extender that watches for foreground service notifications
+    private final NotificationLifetimeExtender mFGSExtender =
+            new ForegroundServiceLifetimeExtender();
+    private final Map<NotificationData.Entry, NotificationLifetimeExtender> mRetainedNotifications =
+            new ArrayMap<>();
 
     protected IStatusBarService mBarService;
     protected NotificationPresenter mPresenter;
@@ -240,6 +248,16 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
                 pw.println(entry.notification);
             }
         }
+        pw.println("  Lifetime-extended notifications:");
+        if (mRetainedNotifications.isEmpty()) {
+            pw.println("    None");
+        } else {
+            for (Map.Entry<NotificationData.Entry, NotificationLifetimeExtender> entry
+                    : mRetainedNotifications.entrySet()) {
+                pw.println("    " + entry.getKey().notification + " retained by "
+                        + entry.getValue().getClass().getName());
+            }
+        }
         pw.print("  mUseHeadsUp=");
         pw.println(mUseHeadsUp);
         pw.print("  mKeysKeptForRemoteInput: ");
@@ -254,7 +272,11 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         mMessagingUtil = new NotificationMessagingUtil(context);
         mSystemServicesProxy = SystemServicesProxy.getInstance(mContext);
         mGroupManager.setPendingEntries(mPendingNotifications);
+<<<<<<< HEAD   (4e9743 PackageManager: Refactor en-/disabling of components)
         mTelecomManager = (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
+=======
+        mFGSExtender.setCallback(key -> removeNotification(key, mLatestRankingMap));
+>>>>>>> CHANGE (0a7f22 Force FGS notifications to show for a minimum time)
     }
 
     public void setUpWithPresenter(NotificationPresenter presenter,
@@ -301,6 +323,12 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
 
         mHeadsUpObserver.onChange(true); // set up
         mOnAppOpsClickListener = mGutsManager::openGuts;
+    }
+
+    @VisibleForTesting
+    protected Map<NotificationData.Entry, NotificationLifetimeExtender>
+    getRetainedNotificationMap() {
+        return mRetainedNotifications;
     }
 
     public NotificationData getNotificationData() {
@@ -488,8 +516,17 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
 
     @Override
     public void removeNotification(String key, NotificationListenerService.RankingMap ranking) {
-        boolean deferRemoval = false;
+        // First chance to extend the lifetime of a notification
+        NotificationData.Entry pendingEntry = mPendingNotifications.get(key);
+        if (pendingEntry != null) {
+            if (mFGSExtender.shouldExtendLifetimeForPendingNotification(pendingEntry)) {
+                extendLifetime(pendingEntry, mFGSExtender);
+                return;
+            }
+        }
+
         abortExistingInflation(key);
+        boolean deferRemoval = false;
         if (mHeadsUpManager.isHeadsUp(key)) {
             // A cancel() in response to a remote input shouldn't be delayed, as it makes the
             // sending look longer than it takes.
@@ -548,6 +585,11 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
             }
         }
 
+        if (entry != null && mFGSExtender.shouldExtendLifetime(entry)) {
+            extendLifetime(entry, mFGSExtender);
+            return;
+        }
+
         // Actually removing notification so smart reply controller can forget about it.
         mSmartReplyController.stopSending(entry);
 
@@ -583,7 +625,28 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         handleGroupSummaryRemoved(key);
         StatusBarNotification old = removeNotificationViews(key, ranking);
 
+        // Make sure no lifetime extension is happening anymore
+        cancelLifetimeExtension(entry);
         mCallback.onNotificationRemoved(key, old);
+    }
+
+    private void extendLifetime(
+            NotificationData.Entry entry, NotificationLifetimeExtender extender) {
+        // Cancel any other extender which might be holding on to this notification entry
+        NotificationLifetimeExtender activeExtender = mRetainedNotifications.get(entry);
+        if (activeExtender != null && activeExtender != extender) {
+            activeExtender.setShouldManageLifetime(entry, false);
+        }
+
+        mRetainedNotifications.put(entry, extender);
+        extender.setShouldManageLifetime(entry, true);
+    }
+
+    private void cancelLifetimeExtension(NotificationData.Entry entry) {
+        NotificationLifetimeExtender activeExtender = mRetainedNotifications.remove(entry);
+        if (activeExtender != null) {
+            activeExtender.setShouldManageLifetime(entry, false);
+        }
     }
 
     public StatusBarNotification rebuildNotificationWithRemoteInput(NotificationData.Entry entry,
@@ -874,6 +937,9 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
             mGutsManager.setKeyToRemoveOnGutsClosed(null);
             Log.w(TAG, "Notification that was kept for guts was updated. " + key);
         }
+
+        // No need to keep the lifetime extension around if an update comes in
+        cancelLifetimeExtension(entry);
 
         Notification n = notification.getNotification();
         mNotificationData.updateRanking(ranking);
