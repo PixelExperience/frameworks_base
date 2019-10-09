@@ -4,7 +4,7 @@
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Esta función mantiene fija la vista de la pantalla hasta que la desactivas. Mantén presionado el botón Atrás para anular la fijación.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Mantén pulsado el botón Atrás para dejar de fijar esta pantalla</string>
+    <string name="screen_pinning_toast_no_navbar">Para anular la fijación, mantenga presionado el botón de atrás</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <string name="screen_pinning_description_no_navbar_fpsensor">Esto mantiene la pantalla a la vista hasta que la sueltes. Manten presionado el sensor de huella para soltar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
