@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">حالت مطالعه روشن شد.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">حالت مطالعه خاموش شد.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">برای افزودن، کاشی‌ها را بکشید یا روی آن‌ها ضربه بزنید</string>
 </resources>

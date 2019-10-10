@@ -9,8 +9,17 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Рэжым спампоўкі</string>
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Паказваць 4G замест LTE</string>
+    <string name="show_fourg_summary">Замяняе LTE індыкатар ў радку стану на 4G</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">кб/с</string>
+    <string name="megabitspersecond_short">Мб/c</string>
+    <string name="kilobytespersecond_short">кБ/с</string>
+    <string name="megabytespersecond_short">МБ/с</string>
     <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Забарона сну</string>
+    <string name="accessibility_quick_settings_caffeine_off">Забарона сну выключана.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Забарона сну ўключана.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Усплывальныя паведамленні</string>
     <string name="accessibility_quick_settings_heads_up_off">Усплывальныя паведамленні адключаны.</string>
@@ -25,5 +34,11 @@
     <string name="accessibility_quick_settings_sync_changed_on">Сінхранізацыя ўключана.</string>
     <!-- VoLTE switch -->
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Рэжым чытання</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Рэжым чытання ўключаны.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Рэжым чытання адключаны.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Рэжым чытання актываваны.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Рэжым чытання дэактываваны.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Перацягнiце альбо націснiце, каб дадаць/выдаліць пліткі</string>
 </resources>

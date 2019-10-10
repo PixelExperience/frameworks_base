@@ -4,8 +4,10 @@
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <!-- 4G LTE switch -->
+    <string name="show_fourg_title">4G uweisen amplatz LTE</string>
     <!-- Status bar network traffic monitor strings -->
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Koffein</string>

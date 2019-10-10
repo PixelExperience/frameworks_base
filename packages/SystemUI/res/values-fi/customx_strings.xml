@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lukutila otettiin käyttöön.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lukutila poistettiin käytöstä.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Vedä tai paina lisääksesi/poistaaksesi tiilejä</string>
 </resources>

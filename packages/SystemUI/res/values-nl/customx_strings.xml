@@ -3,7 +3,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Herstel</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
@@ -19,13 +19,13 @@
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeïne modus</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeïne modus uitgeschakeld.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïne modus ingeschakeld.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads-up melding</string>
+    <string name="quick_settings_heads_up_label">Heads-up meldingen</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads-up meldingen uitgeschakeld.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads-up aan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up uitgeschakeld.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ingeschakeld.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up meldingen ingeschakeld.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up meldingen uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up meldingen ingeschakeld.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchroniseren</string>
     <string name="accessibility_quick_settings_sync_off">Synchr. uit.</string>
@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Leesmodus ingeschakeld.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Leesmodus uitgeschakeld.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Sleep of tik om items toe te voegen/te verwijderen</string>
 </resources>

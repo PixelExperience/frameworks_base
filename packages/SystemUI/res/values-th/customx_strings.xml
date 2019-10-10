@@ -7,7 +7,7 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">บูตโหลดเดอร์</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">โหมด ดาวน์โหลด</string>
+    <string name="global_action_restart_download">ดาวน์โหลดโหมด</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">แสดงสัญลักษณ์ 4G แทน LTE</string>
     <string name="show_fourg_summary">แทนที่สัญลักษณ์ LTE บนแถบสถานะ ด้วย สัญลักษณ์ 4G</string>
@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">เปิดโหมดการอ่านแล้ว</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">ปิดโหมดการอ่าน</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">ลากหรือแตะเพื่อเพิ่ม/ลบ ไทล์</string>
 </resources>

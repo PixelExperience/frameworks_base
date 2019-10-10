@@ -3,7 +3,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Oporavak</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Način za čitanje je uključen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Način za čitanje je isključen.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Prevuci ili dodirni za dodavanje gumba</string>
 </resources>

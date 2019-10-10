@@ -5,4 +5,6 @@
     <string name="live_display_auto">خود کار</string>
     <string name="live_display_auto_summary">رنگوں کے درجہ حرارت خود کار طریقے سے استعمال کریں طلوع آفتاب اور غروب آفتاب کے وقت</string>
     <string name="live_display_off">آف</string>
+    <string name="live_display_day">دن</string>
+    <string name="live_display_night">رات</string>
 </resources>

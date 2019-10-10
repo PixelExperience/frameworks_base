@@ -3,8 +3,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <string name="global_action_restart_recovery">రికవరీ</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <string name="global_action_restart_bootloader">బూట్‌లోడర్</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">డౌన్‌లోడ్ మోడ్</string>
     <!-- 4G LTE switch -->
     <!-- Status bar network traffic monitor strings -->
     <!-- Caffeine QS tile -->

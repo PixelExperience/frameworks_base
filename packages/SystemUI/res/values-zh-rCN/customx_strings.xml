@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已开启。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">拖动或点击以添加/删除图标</string>
 </resources>
