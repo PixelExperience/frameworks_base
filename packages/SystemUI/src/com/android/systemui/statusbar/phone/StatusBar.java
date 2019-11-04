@@ -418,7 +418,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private View mReportRejectedTouch;
 
     private int mMaxAllowedKeyguardNotifications;
-    private int mMaxAllowedKeyguardNotificationsAmbientPlay;
 
     private boolean mExpandedVisible;
 
@@ -3286,9 +3285,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         mMaxAllowedKeyguardNotifications = res.getInteger(
                 R.integer.keyguard_max_notification_count);
 
-        mMaxAllowedKeyguardNotificationsAmbientPlay = res.getInteger(
-            R.integer.keyguard_max_notification_count_ambient_play);
-
         if (DEBUG) Log.v(TAG, "defineSlots");
     }
 
@@ -4235,14 +4231,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public int getMaxNotificationsWhileLocked(boolean recompute) {
         if (recompute) {
-            int maxAllowedKeyguardNotifications = mMaxAllowedKeyguardNotifications;
-            if (mAmbientIndicationContainer != null &&
-                mAmbientIndicationContainer.getVisibility() == View.VISIBLE){
-                maxAllowedKeyguardNotifications = mMaxAllowedKeyguardNotificationsAmbientPlay;
-            }
             mMaxKeyguardNotifications = Math.max(1,
                     mNotificationPanel.computeMaxKeyguardNotifications(
-                            maxAllowedKeyguardNotifications));
+                            mMaxAllowedKeyguardNotifications));
             return mMaxKeyguardNotifications;
         }
         return mMaxKeyguardNotifications;
@@ -4818,9 +4809,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             mKeyguardViewMediator.setAodShowing(mDozing);
             mStatusBarWindowManager.setDozing(mDozing);
             mStatusBarKeyguardViewManager.setDozing(mDozing);
-            if (mAmbientIndicationContainer instanceof DozeReceiver) {
-                ((DozeReceiver) mAmbientIndicationContainer).setDozing(mDozing);
-            }
             mEntryManager.updateNotifications();
             updateDozingState();
             updateReportRejectedTouchVisibility();
