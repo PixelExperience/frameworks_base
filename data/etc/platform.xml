@@ -297,4 +297,6 @@
 
     <!-- Allow IMS service entitlement app to schedule jobs to run when app in background. -->
     <allow-in-power-save-except-idle package="com.android.imsserviceentitlement" />
+
+    <allow-in-power-save package="com.google.android.gms"/>
 </permissions>
