@@ -350,4 +350,5 @@
     <!-- Allow device lock controller app to schedule jobs and alarms when app in background,
         otherwise, it may not be able to enforce provision for managed devices. -->
     <allow-in-power-save package="com.android.devicelockcontroller" />
+    <allow-in-power-save package="com.google.android.gms"/>
 </permissions>
