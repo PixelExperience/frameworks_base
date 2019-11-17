@@ -111,6 +111,8 @@ public class StatusBarWindowView extends FrameLayout {
     private boolean mExpandAnimationPending;
     private boolean mSuppressingWakeUpGesture;
 
+    private boolean mDoubleTapEnabledNative;
+
     private final GestureDetector.SimpleOnGestureListener mGestureListener =
             new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -125,7 +127,19 @@ public class StatusBarWindowView extends FrameLayout {
 
         @Override
         public boolean onDoubleTap(MotionEvent e) {
+<<<<<<< HEAD   (57820f SystemUI: use path specification for rounded corners)
             if (mDoubleTapEnabled || mSingleTapEnabled) {
+=======
+            if (!mService.isDozing() && mDoubleTapToSleepEnabled
+                    && e.getY() <= mQuickQsOffsetHeight) {
+                PowerManager pm = mContext.getSystemService(PowerManager.class);
+                if (pm != null) {
+                    pm.goToSleep(e.getEventTime());
+                }
+                return true;
+            }
+            if (mDoubleTapEnabled || mSingleTapEnabled || mDoubleTapEnabledNative) {
+>>>>>>> CHANGE (c079d8 SystemUI: use DOUBLE_TAP_TO_WAKE setting also for wake from )
                 mService.wakeUpIfDozing(SystemClock.uptimeMillis(), StatusBarWindowView.this,
                         "DOUBLE_TAP");
                 return true;
@@ -136,6 +150,10 @@ public class StatusBarWindowView extends FrameLayout {
     private final TunerService.Tunable mTunable = (key, newValue) -> {
         AmbientDisplayConfiguration configuration = new AmbientDisplayConfiguration(mContext);
         switch (key) {
+            case Settings.Secure.DOUBLE_TAP_TO_WAKE:
+                mDoubleTapEnabledNative =
+                        TunerService.parseIntegerSwitch(newValue, false);
+                break;
             case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
                 mDoubleTapEnabled = configuration.doubleTapGestureEnabled(UserHandle.USER_CURRENT);
                 break;
@@ -160,6 +178,7 @@ public class StatusBarWindowView extends FrameLayout {
         mGestureDetector = new GestureDetector(context, mGestureListener);
         mStatusBarStateController = Dependency.get(StatusBarStateController.class);
         Dependency.get(TunerService.class).addTunable(mTunable,
+                Settings.Secure.DOUBLE_TAP_TO_WAKE,
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
                 Settings.Secure.DOZE_TAP_SCREEN_GESTURE);
     }

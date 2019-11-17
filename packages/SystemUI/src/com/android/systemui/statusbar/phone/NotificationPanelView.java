@@ -1230,6 +1230,14 @@ public class NotificationPanelView extends PanelView implements
             return false;
         }
 
+<<<<<<< HEAD   (57820f SystemUI: use path specification for rounded corners)
+=======
+        if (mDoubleTapToSleepEnabled && mBarState == StatusBarState.KEYGUARD
+                && !mPulsing && !mDozing) {
+            mDoubleTapGesture.onTouchEvent(event);
+        }
+
+>>>>>>> CHANGE (c079d8 SystemUI: use DOUBLE_TAP_TO_WAKE setting also for wake from )
         // Make sure the next touch won't the blocked after the current ends.
         if (event.getAction() == MotionEvent.ACTION_UP
                 || event.getAction() == MotionEvent.ACTION_CANCEL) {
