@@ -755,6 +755,9 @@
     <!-- QuickSettings: Label for the toggle that controls whether One-handed mode is enabled. [CHAR LIMIT=NONE] -->
     <string name="quick_settings_onehanded_label">One-handed mode</string>
 
+    <!--- QuickSettings: Label for data card switcher -->
+    <string name="quick_settings_data_switch_label">Switch data card</string>
+
     <!--- Title of dialog triggered if the microphone is disabled but an app tried to access it. [CHAR LIMIT=150] -->
     <string name="sensor_privacy_start_use_mic_dialog_title">Unblock device microphone?</string>
     <!--- Title of dialog triggered if the camera is disabled but an app tried to access it. [CHAR LIMIT=150] -->

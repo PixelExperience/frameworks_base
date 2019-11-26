@@ -332,6 +332,9 @@
     <uses-permission android:name="android.permission.READ_COMPAT_CHANGE_CONFIG" />
     <uses-permission android:name="android.permission.READ_DEVICE_CONFIG" />
 
+    <!-- DataSwitch tile -->
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+
     <!-- To read safety center status -->
     <uses-permission android:name="android.permission.READ_SAFETY_CENTER_STATUS" />
 
