@@ -334,7 +334,6 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
         }
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            setDim(true);
             setImageDrawable(null);
         }
 
