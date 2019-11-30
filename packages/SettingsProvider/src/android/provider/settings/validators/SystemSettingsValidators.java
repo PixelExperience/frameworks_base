@@ -241,5 +241,7 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.SWAP_VOLUME_KEYS_ON_ROTATION, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.CLICK_PARTIAL_SCREENSHOT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_BATTERY_STYLE, new InclusiveIntegerRangeValidator(0, 2));
+        VALIDATORS.put(System.STATUS_BAR_SHOW_BATTERY_PERCENT, new InclusiveIntegerRangeValidator(0, 2));
     }
 }

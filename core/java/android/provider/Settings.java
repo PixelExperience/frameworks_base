@@ -5530,6 +5530,26 @@ public final class Settings {
                 "lockscreen_scramble_pin_layout";
 
         /**
+         * Display style of the status bar battery information
+         * 0: Display the battery an icon in portrait mode
+         * 1: Display the battery as a circle
+         * 2: Display the battery as plain text
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+
+        /**
+         * Status bar battery %
+         * 0: Hide the battery percentage
+         * 1: Display the battery percentage inside the icon
+         * 2: Display the battery percentage next to the icon
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_BATTERY_PERCENT =
+                "status_bar_show_battery_percent";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
