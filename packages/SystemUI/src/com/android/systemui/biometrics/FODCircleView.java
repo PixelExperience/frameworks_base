@@ -79,12 +79,13 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
     private boolean mIsInsideCircle;
     private boolean mIsPressed;
     private boolean mIsPulsing;
-    private boolean mIsScreenOn;
     private boolean mIsViewAdded;
 
     private Handler mHandler;
 
     private Timer mBurnInProtectionTimer;
+
+    private boolean mEnrolling;
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -122,23 +123,27 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
             mIsDreaming = dreaming;
             mIsInsideCircle = false;
             setIcon();
+            android.util.Log.d("FODCircleView", "onDreamingStateChanged: mIsDreaming=" + (mIsDreaming ? "true" : "false"));
         }
 
         @Override
         public void onPulsing(boolean pulsing) {
             super.onPulsing(pulsing);
             mIsPulsing = pulsing;
-	    if (mIsPulsing) {
+            if (mIsPulsing) {
                 mIsDreaming = false;
-	    }
+            }
             mIsInsideCircle = false;
             setIcon();
+            android.util.Log.d("FODCircleView", "onPulsing: onPulsing=" + (mIsPulsing ? "true" : "false"));
         }
 
         @Override
         public void onScreenTurnedOff() {
             super.onScreenTurnedOff();
+            android.util.Log.d("FODCircleView", "onScreenTurnedOff");
             mIsInsideCircle = false;
+            onHideFODView();
         }
 
         @Override
@@ -160,8 +165,9 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
         @Override
         public void onScreenTurnedOn() {
             super.onScreenTurnedOn();
-            mIsScreenOn = true;
             mIsInsideCircle = false;
+            onShowFODView();
+            android.util.Log.d("FODCircleView", "onScreenTurnedOn");
         }
 
         @Override
@@ -352,7 +358,10 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        onHideFODView();
+    }
 
+    private void onHideFODView(){
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
         if (daemon != null) {
             try {
@@ -366,7 +375,10 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        onShowFODView();
+    }
 
+    private void onShowFODView(){
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
         if (daemon != null) {
             try {
@@ -392,6 +404,10 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
             }
         }
         return mFingerprintInscreenDaemon;
+    }
+
+    public void onEnrollStateChanged(boolean enrolling) {
+        mEnrolling = enrolling;
     }
 
     public void show() {
@@ -482,6 +498,9 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
     }
 
     private void setDim(boolean dim) {
+        if (mEnrolling){
+            return;
+        }
         if (dim) {
             int curBrightness = Settings.System.getInt(getContext().getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS, 100);

@@ -113,4 +113,6 @@ interface IStatusBarService
     // Used to show or hide in display fingerprint view
     void showInDisplayFingerprintView();
     void hideInDisplayFingerprintView();
+    // Used to pass enroll state to display fingerprint view
+    void onInDisplayFingerprintEnrollStateChanged(boolean enrolling);
 }

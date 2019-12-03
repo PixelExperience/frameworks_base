@@ -610,6 +610,11 @@ public class FingerprintService extends BiometricServiceBase {
                         }
                     }
                     try {
+                        mStatusBarService.onInDisplayFingerprintEnrollStateChanged(false);
+                    } catch (RemoteException e) {
+                        Slog.e(TAG, "onInDisplayFingerprintEnrollStateChanged failed", e);
+                    }
+                    try {
                         mStatusBarService.hideInDisplayFingerprintView();
                     } catch (RemoteException e) {
                         Slog.e(TAG, "hideInDisplayFingerprintView failed", e);
@@ -782,6 +787,11 @@ public class FingerprintService extends BiometricServiceBase {
                     } catch (RemoteException e) {
                         Slog.e(TAG, "onStartEnroll failed", e);
                     }
+                }
+                try {
+                    mStatusBarService.onInDisplayFingerprintEnrollStateChanged(true);
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "onInDisplayFingerprintEnrollStateChanged failed", e);
                 }
                 try {
                     mStatusBarService.showInDisplayFingerprintView();
