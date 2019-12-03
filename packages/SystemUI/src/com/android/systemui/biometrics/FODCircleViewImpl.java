@@ -59,4 +59,11 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
             mFodCircleView.hide();
         }
     }
+
+    @Override
+    public void onInDisplayFingerprintEnrollStateChanged(boolean enrolling) {
+        if (mFodCircleView != null) {
+            mFodCircleView.onEnrollStateChanged(enrolling);
+        }
+    }
 }
