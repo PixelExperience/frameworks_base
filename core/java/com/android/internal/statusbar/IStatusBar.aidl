@@ -165,6 +165,8 @@ oneway interface IStatusBar
     // Used to show or hide in display fingerprint view
     void showInDisplayFingerprintView();
     void hideInDisplayFingerprintView();
+    // Used to pass enroll state to display fingerprint view
+    void onInDisplayFingerprintEnrollStateChanged(boolean enrolling);
 
     /**
      * Notifies System UI that the display is ready to show system decorations.
