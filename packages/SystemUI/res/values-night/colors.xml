@@ -83,6 +83,13 @@
     <color name="biometric_dialog_accent">@*android:color/accent_device_default_dark</color>
     <color name="biometric_dialog_error">#fff28b82</color> <!-- red 300 -->
 
+    <color name="volume_background_tint">#141414</color>
+
+    <color name="ringer_icon_normal">@android:color/white</color>
+    <color name="ringer_bcg_normal">@color/volume_background_tint</color>
+
+    <color name="ringer_icon_mute">@android:color/white</color>
+
     <color name="brightness_slider_progress">#9B9B9D</color>
     <color name="brightness_slider_background">@android:color/black</color>
     <color name="brightness_slider_icons">@android:color/black</color>
