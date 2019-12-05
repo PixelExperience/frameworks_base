@@ -29,6 +29,7 @@ import static android.os.BatteryManager.EXTRA_MAX_CHARGING_CURRENT;
 import static android.os.BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE;
 import static android.os.BatteryManager.EXTRA_PLUGGED;
 import static android.os.BatteryManager.EXTRA_STATUS;
+import static android.os.BatteryManager.EXTRA_WARP_CHARGER;
 import static android.telephony.PhoneStateListener.LISTEN_ACTIVE_DATA_SUBSCRIPTION_ID_CHANGE;
 
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_BOOT;
@@ -1056,9 +1057,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                     maxChargingMicroWatt = -1;
                 }
                 final boolean dashChargeStatus = intent.getBooleanExtra(EXTRA_DASH_CHARGER, false);
+                final boolean warpChargeStatus = intent.getBooleanExtra(EXTRA_WARP_CHARGER, false);
                 final Message msg = mHandler.obtainMessage(
                         MSG_BATTERY_UPDATE, new BatteryStatus(status, level, plugged, health,
-                                maxChargingMicroWatt, dashChargeStatus));
+                                maxChargingMicroWatt, dashChargeStatus, warpChargeStatus));
                 mHandler.sendMessage(msg);
             } else if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
                 SimData args = SimData.fromIntent(intent);
@@ -1297,6 +1299,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public static final int CHARGING_REGULAR = 1;
         public static final int CHARGING_FAST = 2;
         public static final int CHARGING_DASH = 3;
+        public static final int CHARGING_WARP = 4;
 
         public final int status;
         public final int level;
@@ -1304,14 +1307,16 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public final int health;
         public final int maxChargingWattage;
         public final boolean dashChargeStatus;
+        public final boolean warpChargeStatus;
         public BatteryStatus(int status, int level, int plugged, int health,
-                int maxChargingWattage, boolean dashChargeStatus) {
+                int maxChargingWattage, boolean dashChargeStatus, boolean warpChargeStatus) {
             this.status = status;
             this.level = level;
             this.plugged = plugged;
             this.health = health;
             this.maxChargingWattage = maxChargingWattage;
             this.dashChargeStatus = dashChargeStatus;
+            this.warpChargeStatus = warpChargeStatus;
         }
 
         /**
@@ -1353,6 +1358,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         public final int getChargingSpeed(int slowThreshold, int fastThreshold) {
              return dashChargeStatus ? CHARGING_DASH :
+                    warpChargeStatus ? CHARGING_WARP :
                     maxChargingWattage <= 0 ? CHARGING_UNKNOWN :
                     maxChargingWattage < slowThreshold ? CHARGING_SLOWLY :
                     maxChargingWattage > fastThreshold ? CHARGING_FAST :
@@ -1507,7 +1513,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
 
         // Take a guess at initial SIM state, battery status and PLMN until we get an update
-        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false);
+        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false, false);
 
         // Watch for interesting updates
         final IntentFilter filter = new IntentFilter();
@@ -2284,6 +2290,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         // change in dash charging while plugged in
         if (nowPluggedIn && current.dashChargeStatus != old.dashChargeStatus) {
+            return true;
+        }
+
+        // change in warp charging while plugged in
+        if (nowPluggedIn && current.warpChargeStatus != old.warpChargeStatus) {
             return true;
         }
 
