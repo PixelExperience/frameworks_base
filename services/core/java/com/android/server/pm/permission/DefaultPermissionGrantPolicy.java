@@ -961,6 +961,10 @@ final class DefaultPermissionGrantPolicy {
         // Google Connectivity Services
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.apps.gcs", userId, ALWAYS_LOCATION_PERMISSIONS);
 
+        // Data Restore Tool
+        grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.apps.restore", userId, PHONE_PERMISSIONS,
+                CONTACTS_PERMISSIONS, SMS_PERMISSIONS);
+
         // Project Fi
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.apps.tycho", userId, CONTACTS_PERMISSIONS,
                 PHONE_PERMISSIONS, MICROPHONE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS, SMS_PERMISSIONS);
@@ -1007,7 +1011,7 @@ final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.gsf.login", userId, CONTACTS_PERMISSIONS,
                 PHONE_PERMISSIONS);
 
-        // Google Setup Wizard
+        // Google Setup Wizard (Android Setup)
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.setupwizard", userId, CONTACTS_PERMISSIONS,
                 PHONE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS, CAMERA_PERMISSIONS);
 
@@ -1017,6 +1021,9 @@ final class DefaultPermissionGrantPolicy {
         // Google Contacts Sync
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.syncadapters.contacts", userId,
                 CONTACTS_PERMISSIONS);
+
+        // Carrier Setup
+        grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.wfcactivation", userId, SMS_PERMISSIONS);
 
         // Pixel Live Wallpapers
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.pixel.livewallpaper", userId,
