@@ -3,7 +3,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Bluetooth Audio Codec Channel Mode -->
     <string name="bluetooth_a2dp_codec_channel_mode_default">使用系統選擇（預設）</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_mono">等寬字</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">單聲道</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">立體聲</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual_channel">雙聲道</string>
 </resources>

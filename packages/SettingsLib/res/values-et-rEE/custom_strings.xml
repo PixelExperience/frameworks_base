@@ -5,5 +5,5 @@
     <string name="bluetooth_a2dp_codec_channel_mode_default">Kasuta süsteemi valikut (vaikimisi)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual_channel">Kahekordne kanal</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual_channel">Kahekanaliline</string>
 </resources>
