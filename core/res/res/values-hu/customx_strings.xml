@@ -9,7 +9,7 @@
     <string name="live_display_day">Nap</string>
     <string name="live_display_day_summary">Csak a nappali beállítások használata</string>
     <string name="live_display_night">Éjszaka</string>
-    <string name="live_display_night_summary">Csak az éjszakai béállítások használata</string>
+    <string name="live_display_night_summary">Csak az éjszakai beállítások használata</string>
     <string name="live_display_outdoor">Kültéri (erős napfény)</string>
     <string name="live_display_outdoor_summary">Csak a kültéri beállítások használata</string>
     <string name="live_display_hint">A LiveDisplay segíthet a szemek terhelésének csökkentésében és a jobb éjszakai alvásban. Kattintson ide, hogy kipróbálja!</string>

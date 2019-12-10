@@ -17,18 +17,18 @@
     <string name="kilobytespersecond_short">‮كيلوبايت/ث</string>
     <string name="megabytespersecond_short">‮ميجابايت/ث</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">وضع الكافيين</string>
-    <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
-    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
+    <string name="quick_settings_caffeine_label">وضع الاستراحة</string>
+    <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الاستراحة.</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الاستراحة.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">إنذار مسبق</string>
-    <string name="accessibility_quick_settings_heads_up_off">تعطيل الإنذار المسبق.</string>
-    <string name="accessibility_quick_settings_heads_up_on">تشغيل الإنذار المسبق.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإنذار المسبق.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإنذار المسبق.</string>
+    <string name="quick_settings_heads_up_label">إخطار منبثق</string>
+    <string name="accessibility_quick_settings_heads_up_off">تعطيل الإخطارات المنبثقة.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل الإخطارات المنبثقة.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإخطارات المنبثقة.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإخطارات المنبثقة.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">المزامنة</string>
-    <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
+    <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_on">تم تشغيل المزامنة.</string>
@@ -40,5 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">وضع القراءة قيد التشغيل.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">وضع القراءة قيد الإيقاف.</string>
     <!-- QS customizer -->
-    <string name="drag_or_tap_to_add_tiles">اسحب أو انقر لإضافة أو حذف مربعات</string>
+    <string name="drag_or_tap_to_add_tiles">اسحب أو انقر لإضافة اختصارات</string>
 </resources>

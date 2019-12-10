@@ -14,4 +14,13 @@
     <string name="live_display_outdoor_summary">केवल बाहरी सेटिंग्स का उपयोग करें</string>
     <string name="live_display_hint">लाइवडिसप्ले आंखों के तनाव को कम करने और रात में सोने में आपकी मदद कर सकता है। इसे आज़माने के लिए यहाँ क्लिक करें!</string>
     <string name="accessibility_quick_settings_live_display_off">लाइवडिसप्ले बंद।</string>
+    <string name="accessibility_quick_settings_live_display_auto">लाइव डिस्पले: स्वत:</string>
+    <string name="accessibility_quick_settings_live_display_day">लाइव डिस्पले: दिन की तरह</string>
+    <string name="accessibility_quick_settings_live_display_night">लाइव डिस्प्ले: रात्रि की तरह</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">लाइव डिस्पले: बाहर की तराह</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">लाइव डिस्पले बंद</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">लाइव डिस्पले स्वत: में बदल गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">लाइव डिस्पले दिन मोड में बदल गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">लाइव डिस्पले रात्री मोड में बदल गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">लाइव डिस्पले बहारी मोड में बदल गया</string>
 </resources>

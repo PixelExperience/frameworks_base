@@ -10,8 +10,12 @@
     <string name="global_action_restart_download">डाउनलोड मोड</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">LTE के बजाय 4G दिखाएँ</string>
-    <string name="show_fourg_summary">4 जी के साथ एलटीई स्थिति पट्टी संकेतक बदल देता है</string>
+    <string name="show_fourg_summary">LTE की जगह 4G दिखाए।</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">किलो बिट प्रति सेकेंड</string>
+    <string name="megabitspersecond_short">मेगा बिट प्रति सेकेंड</string>
+    <string name="kilobytespersecond_short">किलो बाइट प्रति सेकेंड</string>
+    <string name="megabytespersecond_short">मेगा बाइट प्रति सेकेंड</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">कैफीन मोड</string>
     <string name="accessibility_quick_settings_caffeine_off">कैफीन मोड बंद</string>
@@ -36,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">पठन मोड चालू है।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">पठन मोड बंद है।</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">टाइल जोड़ने के लिए दबाएँ या दबा कर खींचें</string>
 </resources>

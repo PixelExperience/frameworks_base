@@ -40,5 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">閱讀模式已開啟。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">閱讀模式已關閉。</string>
     <!-- QS customizer -->
-    <string name="drag_or_tap_to_add_tiles">拖曳或點擊以新增/移除圖塊</string>
+    <string name="drag_or_tap_to_add_tiles">拖曳或輕觸以新增圖塊</string>
 </resources>

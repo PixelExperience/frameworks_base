@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Irakurketa modua gaitu da.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Irakurketa modua desgaitu da.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Arratratu edo sakatu fitxak gehitzeko / kentzeko</string>
 </resources>

@@ -17,4 +17,10 @@
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatiskt läge.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dagläge.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nattläge.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: utomhusläge.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay avslaget.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay ändrades till automatiskt läge.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ändrades till dagläge.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ändrades till nattläge.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay ändrades till utomhusläge.</string>
 </resources>

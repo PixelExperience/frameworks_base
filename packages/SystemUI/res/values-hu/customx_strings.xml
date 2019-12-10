@@ -3,14 +3,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Helyreállítás</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download-mód</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">4G megjelenítése LTE helyett</string>
-    <string name="show_fourg_summary">Lecseréli az LTE hálozatkijelző ikonját 4G-re</string>
+    <string name="show_fourg_summary">Lecseréli az LTE hálózatkijelző ikonját 4G-re</string>
     <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>

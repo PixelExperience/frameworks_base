@@ -40,4 +40,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">S\'ha activat el mode lectura.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">S\'ha desactivat el mode lectura.</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Arrossegueu o toqueu per afegir o treure funcions</string>
 </resources>
