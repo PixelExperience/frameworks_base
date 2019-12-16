@@ -124,6 +124,11 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
             super.onDreamingStateChanged(dreaming);
             mIsDreaming = dreaming;
             mIsInsideCircle = false;
+            if (dreaming){
+                android.util.Log.d("FOD", "onDreamingStateChanged: dreaming");
+            }else{
+                android.util.Log.d("FOD", "onDreamingStateChanged: not dreaming");
+            }
             if (dreaming) {
                 mBurnInProtectionTimer = new Timer();
                 mBurnInProtectionTimer.schedule(new BurnInProtectionTask(), 0, 60 * 1000);
@@ -147,22 +152,26 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
         public void onScreenTurnedOff() {
             super.onScreenTurnedOff();
             mIsInsideCircle = false;
+            android.util.Log.d("FOD", "onScreenTurnedOff");
         }
 
         @Override
         public void onStartedGoingToSleep(int why) {
             super.onStartedGoingToSleep(why);
             mIsInsideCircle = false;
+            android.util.Log.d("FOD", "onStartedGoingToSleep");
         }
 
         @Override
         public void onFinishedGoingToSleep(int why) {
             super.onFinishedGoingToSleep(why);
+            android.util.Log.d("FOD", "onFinishedGoingToSleep");
         }
 
         @Override
         public void onStartedWakingUp() {
             super.onStartedWakingUp();
+            android.util.Log.d("FOD", "onStartedWakingUp");
         }
 
         @Override
@@ -170,12 +179,14 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
             super.onScreenTurnedOn();
             mIsScreenOn = true;
             mIsInsideCircle = false;
+            android.util.Log.d("FOD", "onScreenTurnedOn");
         }
 
         @Override
         public void onKeyguardVisibilityChanged(boolean showing) {
             super.onKeyguardVisibilityChanged(showing);
             mIsInsideCircle = false;
+            android.util.Log.d("FOD", "onKeyguardVisibilityChanged");
         }
 
         @Override
