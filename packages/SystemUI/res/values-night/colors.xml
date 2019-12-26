@@ -94,4 +94,7 @@
     <color name="brightness_slider_background">@android:color/black</color>
     <color name="brightness_slider_icons">@android:color/black</color>
 
+    <color name="recents_dismiss_all_background_color">@color/volume_background_tint</color>
+    <color name="recents_dismiss_all_icon_color">@android:color/white</color>
+
 </resources>

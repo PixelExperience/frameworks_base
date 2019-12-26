@@ -218,4 +218,14 @@
    <color name="row_icon_dark">@color/ringer_icon_normal</color>
    <color name="row_icon_white">@android:color/white</color>
 
+    <color name="keyguard_affordance_background_color">#80000000</color>
+
+    <color name="keyguard_affordance_background_preview">#797979</color>
+    <color name="keyguard_affordance_background_preview_background">#f2f2f2</color>
+
+    <color name="qs_tile_background_color_disabled">@color/volume_background_tint</color>
+
+    <color name="recents_dismiss_all_background_color">@android:color/white</color>
+    <color name="recents_dismiss_all_icon_color">#8a000000</color>
+
 </resources>
