@@ -780,6 +780,7 @@ java_defaults {
         "android.hardware.vibrator-V1.3-java",
         "android.hardware.wifi-V1.0-java-constants",
         "devicepolicyprotosnano",
+        "vendor.lineage.touch-V1.0-java",
     ],
 
     required: [
