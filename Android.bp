@@ -783,6 +783,7 @@ java_defaults {
         "android.hardware.wifi-V1.0-java-constants",
         "devicepolicyprotosnano",
         "vendor.lineage.livedisplay-V2.0-java",
+        "vendor.lineage.touch-V1.0-java",
     ],
 
     required: [
