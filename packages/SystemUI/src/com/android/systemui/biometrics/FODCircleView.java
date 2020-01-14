@@ -71,6 +71,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     private int mDreamingOffsetX;
     private int mDreamingOffsetY;
 
+    private int mColor;
+    private int mColorBackground;
+
     private int mCurrentBrightness;
     private boolean mIsBouncer;
     private boolean mIsDreaming;
@@ -167,8 +170,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
 
         Resources res = context.getResources();
 
+        mColor = res.getColor(R.color.config_fodColor);
+        mColorBackground = res.getColor(R.color.config_fodColorBackground);
+
         mPaintFingerprint.setAntiAlias(true);
-        mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
+        mPaintFingerprint.setColor(mColorBackground);
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
@@ -310,12 +316,16 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         updateAlpha();
         dispatchPress();
 
+        mPaintFingerprint.setColor(mColor);
+
         setImageResource(R.drawable.fod_icon_pressed);
         invalidate();
     }
 
     public void hideCircle() {
         mIsCircleShowing = false;
+
+        mPaintFingerprint.setColor(mColorBackground);
 
         setImageResource(R.drawable.fod_icon_default);
         invalidate();
