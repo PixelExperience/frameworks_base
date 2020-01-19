@@ -34,7 +34,7 @@
         android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_right"
         android:paddingTop="@dimen/volume_dialog_panel_transparent_padding"
         android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
-        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding"
+        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_left"
         android:orientation="vertical"
         android:clipToPadding="false">
 
