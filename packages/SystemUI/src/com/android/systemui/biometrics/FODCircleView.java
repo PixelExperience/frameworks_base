@@ -76,6 +76,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     private boolean mIsBouncer;
     private boolean mIsDreaming;
+    private boolean mIsKeyguard;
     private boolean mIsShowing;
     private boolean mIsCircleShowing;
 
@@ -118,6 +119,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         @Override
         public void onKeyguardVisibilityChanged(boolean showing) {
+            mIsKeyguard = showing;
+            updatePosition();
             if (mFODAnimation != null) {
                 mFODAnimation.setAnimationKeyguard(showing);
             }
@@ -422,6 +425,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
                 break;
             default:
                 throw new IllegalArgumentException("Unknown rotation: " + rotation);
+        }
+
+        if (mIsKeyguard) {
+            mParams.x = mPositionX;
+            mParams.y = mPositionY - cutoutMaskedExtra;
         }
 
         if (mIsDreaming) {
