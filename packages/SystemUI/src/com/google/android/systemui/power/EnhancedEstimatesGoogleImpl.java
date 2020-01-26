@@ -1,3 +1,4 @@
+
 package com.google.android.systemui.power;
 
 import android.content.Context;
@@ -35,7 +36,7 @@ public class EnhancedEstimatesGoogleImpl implements EnhancedEstimates {
                 return false;
             }
             updateFlags();
-            return mParser.getBoolean("hybrid_enabled", true);
+            return true;
         } catch (PackageManager.NameNotFoundException unused) {
             return false;
         }
@@ -43,9 +44,8 @@ public class EnhancedEstimatesGoogleImpl implements EnhancedEstimates {
 
     @Override
     public Estimate getEstimate() {
-        Builder appendPath = new Builder().scheme("content").authority("com.google.android.apps.turbo.estimated_time_remaining").appendPath("time_remaining").appendPath("id");
         try {
-           Cursor query = mContext.getContentResolver().query(appendPath.build(), null, null, null, null);
+            Cursor query = mContext.getContentResolver().query(getEnhancedBatteryPredictionUri(), null, null, null, null);
             if (query != null) {
                 if (query.moveToFirst()) {
                     boolean z = true;
@@ -100,7 +100,11 @@ public class EnhancedEstimatesGoogleImpl implements EnhancedEstimates {
     @Override
     public boolean getLowWarningEnabled() {
         updateFlags();
-        return mParser.getBoolean("low_warning_enabled", false);
+        return false;
+    }
+
+    private Uri getEnhancedBatteryPredictionUri() {
+        return new Builder().scheme("content").authority("com.google.android.apps.turbo.estimated_time_remaining").appendPath("time_remaining").build();
     }
 
     protected void updateFlags() {
