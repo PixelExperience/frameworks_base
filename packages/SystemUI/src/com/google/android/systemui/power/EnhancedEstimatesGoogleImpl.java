@@ -32,10 +32,12 @@ public class EnhancedEstimatesGoogleImpl implements EnhancedEstimates {
     public boolean isHybridNotificationEnabled() {
         try {
             if (!mContext.getPackageManager().getPackageInfo("com.google.android.apps.turbo", PackageManager.MATCH_DISABLED_COMPONENTS).applicationInfo.enabled) {
+                android.util.Log.d("Turbo", "Turbo package not found");
                 return false;
             }
+            android.util.Log.d("Turbo", "Enabled hybrid notification");
             updateFlags();
-            return mParser.getBoolean("hybrid_enabled", true);
+            return true;
         } catch (PackageManager.NameNotFoundException unused) {
             return false;
         }
@@ -87,12 +89,14 @@ public class EnhancedEstimatesGoogleImpl implements EnhancedEstimates {
 
     @Override
     public long getLowWarningThreshold() {
+        android.util.Log.d("Turbo", "Getting low treshold");
         updateFlags();
         return mParser.getLong("low_threshold", Duration.ofHours(3).toMillis());
     }
 
     @Override
     public long getSevereWarningThreshold() {
+        android.util.Log.d("Turbo", "Getting severe warning");
         updateFlags();
         return mParser.getLong("severe_threshold", Duration.ofHours(1).toMillis());
     }
@@ -100,11 +104,12 @@ public class EnhancedEstimatesGoogleImpl implements EnhancedEstimates {
     @Override
     public boolean getLowWarningEnabled() {
         updateFlags();
-        return mParser.getBoolean("low_warning_enabled", false);
+        return false;
     }
 
     protected void updateFlags() {
         try {
+            android.util.Log.d("Turbo", "Updating flags");
             mParser.setString(Settings.Global.getString(mContext.getContentResolver(), "hybrid_sysui_battery_warning_flags"));
         } catch (IllegalArgumentException unused) {
             Log.e("EnhancedEstimates", "Bad hybrid sysui warning flags");
