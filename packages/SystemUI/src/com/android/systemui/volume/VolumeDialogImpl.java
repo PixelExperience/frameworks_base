@@ -939,7 +939,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             mRingerIcon.setEnabled(enable);
         }
         if (mZenIcon != null) {
-            mZenIcon.setVisibility(enable ? GONE : VISIBLE);
+            mZenIcon.setVisibility(View.GONE);
         }
     }
 
