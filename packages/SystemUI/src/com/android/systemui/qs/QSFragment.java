@@ -18,11 +18,18 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.Rect;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
+import android.net.Uri;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -30,6 +37,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.SeekBar;
+import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 
 import androidx.annotation.Nullable;
@@ -59,6 +70,7 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
     private static final String EXTRA_EXPANDED = "expanded";
     private static final String EXTRA_LISTENING = "listening";
 
+    private Context mContext;
     private final Rect mQsBounds = new Rect();
     private final StatusBarStateController mStatusBarStateController;
     private boolean mQsExpanded;
@@ -85,6 +97,28 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
     private final QSTileHost mHost;
     private boolean mShowCollapsedOnKeyguard;
     private boolean mLastKeyguardAndExpanded;
+
+    private ContentResolver mResolver;
+    private SeekBar mBrightnessSlider;
+    private FrameLayout mBrightnessSliderParent;
+    // aosp brightness slider is not linear, try to replicate values its supposed to set
+    int[] BrightnessValues = {0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, // 0-10
+                              3, 3, 3, 4, 4, 4, 5, 5, 5, 6, // 11-20
+                              6, 6, 7, 7, 7, 8, 8, 8, 9, 9, // 21-30
+                              9, 10, 10, 11, 11, 12, 12, 13, 14, 14, // 31-40
+                              15, 16, 17, 17, 18, 19, 20, 20, 21, 22, // 41-50
+                              23, 24, 25, 26, 27, 28, 29, 30, 31, 32, // 51-60
+                              33, 35, 37, 38, 39, 42, 44, 46, 48, 52, // 61 - 70
+                              55, 58, 61, 64, 67, 71, 76, 79, 84, 86, // 71 - 80
+                              91, 96, 102, 107, 112, 119, 122, 130, 138, 145, // 81 - 90
+                              152, 162, 171, 180, 191, 200, 212, 223, 235, 255 // 91 - 100
+                              };
+    private SettingObserver mSettingObserver;
+    private Handler mBrightnessSliderHandler;
+    private int idx;
+    private boolean brightnessChangeFromUser;
+    private boolean mUnexpandedQSBrightnessSlider;
+
     /**
      * The last received state from the controller. This should not be used directly to check if
      * we're on keyguard but use {@link #isKeyguardShowing()} instead since that is more accurate
@@ -104,6 +138,7 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
                 .observe(getLifecycle(), this);
         mHost = qsTileHost;
         mStatusBarStateController = statusBarStateController;
+        mContext = context;
     }
 
     @Override
@@ -141,7 +176,84 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
         setHost(mHost);
         mStatusBarStateController.addCallback(this);
         onStateChanged(mStatusBarStateController.getState());
+
+        mBrightnessSliderParent = view.findViewById(R.id.qs_brightness_slider_parent);
+        mBrightnessSlider = (SeekBar) view.findViewById(R.id.qs_brightness_slider);
+        mBrightnessSliderHandler = new Handler();
+        mResolver = mContext.getContentResolver();
+
+        mBrightnessSlider.setMax(1000);
+        mSettingObserver = new SettingObserver(new Handler(mContext.getMainLooper()));
+        mSettingObserver.observe();
+        mSettingObserver.update();
     }
+
+    private void updateBrightnessSliderVisibility(boolean show) {
+        if (show) {
+            updateBrightnessSliderProgress(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS, 0));
+            mBrightnessSliderParent.setVisibility(View.VISIBLE);
+            mBrightnessSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                    int value = seekBar.getProgress() / 10;
+                    if (brightnessChangeFromUser) {
+                        Settings.System.putInt(mResolver, Settings.System.SCREEN_BRIGHTNESS, BrightnessValues[value]);
+                    }
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+                    brightnessChangeFromUser = true;
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                    brightnessChangeFromUser = false;
+                }
+            });
+
+        } else {
+            mBrightnessSliderParent.setVisibility(View.GONE);
+            mBrightnessSlider.setOnSeekBarChangeListener(null);
+        }
+    }
+
+    private void updateBrightnessSliderProgress(int brightness) {
+        if (!brightnessChangeFromUser) {
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    int distance = Math.abs(BrightnessValues[0] - brightness);
+                    idx = 0;
+
+                    for(int i = 0; i < BrightnessValues.length; i++){
+                        int cdistance = Math.abs(BrightnessValues[i] - brightness);
+                        if(cdistance < distance){
+                            idx = i;
+                            distance = cdistance;
+                        } else if(cdistance > distance) {
+                            i = 999; // break
+                        }
+                    }
+                updateBrightnessSliderValue(idx * 10);
+                }
+            });
+        }
+    }
+
+    private void updateBrightnessSliderValue(int progress) {
+        mBrightnessSliderHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                if (mBrightnessSlider != null) {
+                    mBrightnessSlider.setMax(0);
+                    mBrightnessSlider.setMax(1000);
+                    mBrightnessSlider.setProgress(progress);
+                }
+            }
+        });
+    } 
 
     @Override
     public void onDestroy() {
@@ -528,5 +640,38 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
     public void onStateChanged(int newState) {
         mState = newState;
         setKeyguardShowing(newState == StatusBarState.KEYGUARD);
+    }
+
+    private final class SettingObserver extends ContentObserver {
+        public SettingObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SCREEN_BRIGHTNESS),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            super.onChange(selfChange, uri);
+            if (uri.equals(Settings.System.getUriFor(Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED))) {
+                update();
+            } if (mUnexpandedQSBrightnessSlider && uri.equals(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS))) {
+                updateBrightnessSliderProgress(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS, 0));
+            }
+        }
+
+        public void update() {
+            mUnexpandedQSBrightnessSlider = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.BRIGHTNESS_SLIDER_QS_UNEXPANDED, 0) != 0;
+            updateBrightnessSliderVisibility(mUnexpandedQSBrightnessSlider);
+        }
     }
 }

@@ -20,7 +20,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/qs_footer"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/qs_footer_height"
+    android:layout_height="@*android:dimen/extra_qs_footer_height"
     android:layout_marginStart="@dimen/qs_footer_margin"
     android:layout_marginEnd="@dimen/qs_footer_margin"
     android:elevation="4dp"
@@ -30,10 +30,51 @@
     android:clipChildren="false"
     android:clipToPadding="false">
 
+    <FrameLayout
+        android:id="@+id/qs_brightness_slider_parent"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="-15dp"
+        android:layout_marginRight="-15dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        android:gravity="center" >
+
+        <SeekBar
+            android:id="@+id/qs_brightness_slider"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:progressDrawable="@drawable/brightness_seekbar"
+            android:thumb="@android:color/transparent"
+            android:paddingLeft="0px"
+            android:paddingRight="0px"
+            android:background="@null"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical|left"
+            android:src="@drawable/brightness_left"
+            android:layout_marginLeft="30dp"
+            android:tint="@color/brightness_slider_icons"
+            android:scaleType="centerInside"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/brightness_right"
+            android:layout_marginRight="30dp"
+            android:tint="@color/brightness_slider_icons"
+            android:scaleType="centerInside"/>
+
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
+        android:layout_height="48dp"
+        android:layout_gravity="top"
         android:gravity="end" >
 
         <com.android.keyguard.AlphaOptimizedLinearLayout
@@ -132,7 +173,7 @@
         android:id="@+id/qs_drag_handle_view"
         android:layout_width="24dp"
         android:layout_height="4dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@*android:dimen/qs_drag_handle_margin_bottom"
         android:layout_gravity="center_horizontal|bottom"
         android:background="@drawable/qs_footer_drag_handle" />
 

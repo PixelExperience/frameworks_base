@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:elevation="4dp"
-        android:background="@drawable/qs_background_primary" />
+        android:background="@drawable/qs_background_inset" />
 
     <!-- Black part behind the status bar -->
     <View
@@ -54,7 +54,7 @@
         android:layout_marginTop="@*android:dimen/quick_qs_offset_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/qs_footer_height"
+        android:layout_marginBottom="@*android:dimen/extra_qs_footer_height"
         android:elevation="4dp"
         android:background="@android:color/transparent"
         android:focusable="true"
