@@ -4762,6 +4762,15 @@ public final class Settings {
         public static final String DISMISS_ALL_BUTTON = "dismiss_all_button";
 
         /**
+         * Whether to use new QS panel bg tint or not
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_NEW_TINT = "qs_panel_bg_use_new_tint";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4827,6 +4836,7 @@ public final class Settings {
             ALARM_ALERT,
             NOTIFICATION_LIGHT_PULSE,
             GESTURE_PILL_TOGGLE,
+            QS_PANEL_BG_USE_NEW_TINT,
         };
 
         /**
@@ -4971,6 +4981,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_QS_UNEXPANDED);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
         }
 
         /**
@@ -5089,6 +5100,7 @@ public final class Settings {
             VALIDATORS.put(NAVIGATION_BAR_MODE_OVERLAY, NAVIGATION_BAR_MODE_OVERLAY_VALIDATOR);
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
             VALIDATORS.put(BRIGHTNESS_SLIDER_QS_UNEXPANDED, BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
         }
 
         /**
