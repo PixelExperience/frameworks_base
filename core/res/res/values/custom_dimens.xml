@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Size of the FOD animation -->
-    <dimen name="fod_animation_size">280dp</dimen>
+    <dimen name="fod_animation_size">550.0px</dimen>
 
 </resources>
