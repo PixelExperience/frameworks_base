@@ -2,4 +2,9 @@
     <!-- Strings for Bluetooth service -->
     <!-- toast message informing user that Bluetooth stays on after airplane mode is turned on. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_airplane_mode_toast">Bluetooth will stay on during airplane mode</string>
+
+    <!-- Popup camera dialog -->
+    <string name="popup_camera_dialog_message">Do you want to raise the front facing camera?</string>
+    <string name="popup_camera_dialog_no">No</string>
+    <string name="popup_camera_dialog_raise">Yes</string>
 </resources>
