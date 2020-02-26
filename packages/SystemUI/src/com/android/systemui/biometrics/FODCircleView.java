@@ -403,7 +403,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         setKeepScreenOn(true);
 
-        setDim(true);
+        updateDim();
+        updateBoost();
         updateAlpha();
         dispatchPress();
 
@@ -423,7 +424,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         dispatchRelease();
 
-        setDim(false);
+        updateBoost();
+        updateDim();
         updateAlpha();
 
         setKeepScreenOn(false);
@@ -513,8 +515,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         mWindowManager.updateViewLayout(this, mParams);
     }
 
-    private void setDim(boolean dim) {
-        if (dim) {
+    private void updateDim() {
+        if (mIsCircleShowing) {
             int curBrightness = Settings.System.getInt(getContext().getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS, 100);
             int dimAmount = 0;
@@ -523,20 +525,27 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             try {
                 dimAmount = daemon.getDimAmount(curBrightness);
             } catch (RemoteException e) {
-                // do nothing
-            }
-
-            if (mShouldBoostBrightness) {
-                mParams.screenBrightness = 1.0f;
+                return;
             }
 
             mParams.dimAmount = dimAmount / 255.0f;
         } else {
-            mParams.screenBrightness = 0.0f;
             mParams.dimAmount = 0.0f;
         }
 
         mWindowManager.updateViewLayout(this, mParams);
+    }
+
+    private void updateBoost() {
+        if (mShouldBoostBrightness) {
+            if (mIsCircleShowing) {
+                mParams.screenBrightness = 1.0f;
+            } else {
+                mParams.screenBrightness = 0.0f;
+            }
+
+            mWindowManager.updateViewLayout(this, mParams);
+        }
     }
 
     private class BurnInProtectionTask extends TimerTask {
