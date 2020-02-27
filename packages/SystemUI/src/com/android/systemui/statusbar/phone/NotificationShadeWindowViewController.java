@@ -114,7 +114,7 @@ public class NotificationShadeWindowViewController {
     private static final String DOUBLE_TAP_SLEEP_GESTURE =
             "customsystem:" + Settings.System.DOUBLE_TAP_SLEEP_GESTURE;
     private boolean mDoubleTapToSleepEnabled;
-    private int mQuickQsTotalHeight;
+    private int mQuickQsOffsetHeight;
 
     @Inject
     public NotificationShadeWindowViewController(
@@ -195,8 +195,8 @@ public class NotificationShadeWindowViewController {
                 Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
                 Settings.Secure.DOUBLE_TAP_TO_WAKE,
                 DOUBLE_TAP_SLEEP_GESTURE);
-        mQuickQsTotalHeight = mView.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_total_height);
+        mQuickQsOffsetHeight = mView.getResources().getDimensionPixelSize(
+                com.android.internal.R.dimen.quick_qs_offset_height);
 
         GestureDetector.SimpleOnGestureListener gestureListener =
                 new GestureDetector.SimpleOnGestureListener() {
@@ -213,7 +213,7 @@ public class NotificationShadeWindowViewController {
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
                         if (!mStatusBarStateController.isDozing() && mDoubleTapToSleepEnabled
-                                && e.getY() < mQuickQsTotalHeight) {
+                                && e.getY() < mQuickQsOffsetHeight) {
                             mPowerManager.goToSleep(e.getEventTime());
                             return true;
                         }
