@@ -5324,6 +5324,13 @@ public final class Settings {
         public static final String KEY_APP_SWITCH_LONG_PRESS_ACTION = "key_app_switch_long_press_action";
 
         /**
+         * Action to perform when the screen edge is long-swiped. (Default is 0)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         * @hide
+         */
+        public static final String KEY_EDGE_LONG_SWIPE_ACTION = "key_edge_long_swipe_action";
+
+        /**
          * Whether to wake the screen with the home key, the value is boolean.
          * 0 = 0ff, 1 = on
          * @hide
@@ -5639,6 +5646,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(KEY_ASSIST_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(KEY_EDGE_LONG_SWIPE_ACTION);
             PRIVATE_SETTINGS.add(HOME_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(BACK_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(MENU_WAKE_SCREEN);
