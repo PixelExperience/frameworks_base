@@ -4661,6 +4661,16 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
 
         /**
+         * Action to perform when the screen edge is long-swiped. (Default is 0)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         */
+        public static final String KEY_EDGE_LONG_SWIPE_ACTION = "key_edge_long_swipe_action";
+
+        /** @hide */
+        public static final Validator KEY_EDGE_LONG_SWIPE_ACTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
+
+        /**
          * Whether to wake the screen with the home key, the value is boolean.
          * 0 = 0ff, 1 = on
          */
@@ -5742,6 +5752,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR);
+            PRIVATE_SETTINGS.add(KEY_EDGE_LONG_SWIPE_ACTION);
             PRIVATE_SETTINGS.add(HOME_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(BACK_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(MENU_WAKE_SCREEN);
@@ -5932,6 +5943,7 @@ public final class Settings {
             VALIDATORS.put(KEY_APP_SWITCH_ACTION, KEY_APP_SWITCH_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION, KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR, KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
+            VALIDATORS.put(KEY_EDGE_LONG_SWIPE_ACTION, KEY_EDGE_LONG_SWIPE_ACTION_VALIDATOR);
             VALIDATORS.put(HOME_WAKE_SCREEN, HOME_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(BACK_WAKE_SCREEN, BACK_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(MENU_WAKE_SCREEN, MENU_WAKE_SCREENN_VALIDATOR);
