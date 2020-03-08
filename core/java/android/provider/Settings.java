@@ -5813,6 +5813,13 @@ public final class Settings {
                 "status_bar_show_battery_percent";
 
         /**
+         * Action to perform when the screen edge is long-swiped. (Default is 0)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         * @hide
+         */
+        public static final String KEY_EDGE_LONG_SWIPE_ACTION = "key_edge_long_swipe_action";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5976,6 +5983,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_AM_PM);
             PRIVATE_SETTINGS.add(STATUS_BAR_BATTERY_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_BATTERY_PERCENT);
+            PRIVATE_SETTINGS.add(KEY_EDGE_LONG_SWIPE_ACTION);
         }
         /**
          * These entries are considered common between the personal and the managed profile,
