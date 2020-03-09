@@ -413,9 +413,9 @@
 
     <dimen name="volume_dialog_spacer">9dip</dimen>
 
-    <dimen name="volume_dialog_slider_margin_top">-12dp</dimen>
+    <dimen name="volume_dialog_slider_margin_top">-12.5dp</dimen>
 
-    <dimen name="volume_dialog_slider_margin_bottom">-12dp</dimen>
+    <dimen name="volume_dialog_slider_margin_bottom">-12.5dp</dimen>
 
     <dimen name="volume_dialog_row_margin_bottom">0dp</dimen>
 
