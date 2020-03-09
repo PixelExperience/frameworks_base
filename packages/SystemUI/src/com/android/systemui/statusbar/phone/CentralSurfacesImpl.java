@@ -254,6 +254,7 @@ import com.android.wm.shell.startingsurface.SplashscreenContentDrawer;
 import com.android.wm.shell.startingsurface.StartingSurface;
 
 import com.android.internal.util.custom.NavbarUtils;
+import com.android.internal.util.custom.cutout.CutoutUtils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -2015,9 +2016,22 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mState = state;
     }
 
+    private boolean isCenteredClock() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 2) == 1;
+    }
+
+    private void moveClockToLeft() {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 2);
+    }
+
     private void updateCutoutOverlay(boolean displayCutoutHidden) {
         boolean needsRefresh = mDisplayCutoutHidden != displayCutoutHidden;
         mDisplayCutoutHidden = displayCutoutHidden;
+        if (!mDisplayCutoutHidden && CutoutUtils.hasCenteredCutout(mContext, true) && isCenteredClock()){
+            moveClockToLeft();
+        }
         try {
             mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
                         mDisplayCutoutHidden, mLockscreenUserManager.getCurrentUserId());
