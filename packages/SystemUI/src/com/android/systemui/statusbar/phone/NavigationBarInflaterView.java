@@ -59,6 +59,7 @@ public class NavigationBarInflaterView extends FrameLayout
     public static final String NAV_BAR_LEFT = "sysui_nav_bar_left";
     public static final String NAV_BAR_RIGHT = "sysui_nav_bar_right";
     public static final String NAV_BAR_INVERSE = "sysui_nav_bar_inverse";
+    public static final String NAV_BAR_COMPACT = "customsystem:" + Settings.System.NAV_BAR_COMPACT_LAYOUT;
 
     public static final String MENU_IME_ROTATE = "menu_ime";
     public static final String BACK = "back";
@@ -113,12 +114,15 @@ public class NavigationBarInflaterView extends FrameLayout
 
     private boolean mInverseLayout;
     private boolean mIsHintEnabled;
+    private boolean mCompactLayout;
 
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         createInflaters();
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
         mNavBarMode = Dependency.get(NavigationModeController.class).addListener(this);
+        mCompactLayout = Settings.System.getInt(context.getContentResolver(),
+                                Settings.System.NAV_BAR_COMPACT_LAYOUT, 0) != 0;
     }
 
     @VisibleForTesting
@@ -158,12 +162,17 @@ public class NavigationBarInflaterView extends FrameLayout
         if (!mIsHintEnabled && defaultResource == R.string.config_navBarLayoutHandle) {
             return getContext().getString(defaultResource).replace(HOME_HANDLE, "");
         }
+        if ((defaultResource == R.string.config_navBarLayout ||
+                defaultResource == R.string.config_navBarLayoutQuickstep) && mCompactLayout){
+            return "left;back,home,recent;right";
+        }
         return getContext().getString(defaultResource);
     }
 
     @Override
     public void onNavigationModeChanged(int mode) {
         mNavBarMode = mode;
+        onLikelyDefaultLayoutChange();
         updateHint();
     }
 
@@ -172,6 +181,7 @@ public class NavigationBarInflaterView extends FrameLayout
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_INVERSE);
         Dependency.get(TunerService.class).addTunable(this, KEY_NAVIGATION_HINT);
+        Dependency.get(TunerService.class).addTunable(this, NAV_BAR_COMPACT);
     }
 
     @Override
@@ -190,6 +200,15 @@ public class NavigationBarInflaterView extends FrameLayout
             mIsHintEnabled = TunerService.parseIntegerSwitch(newValue, true);
             updateHint();
             onLikelyDefaultLayoutChange();
+        }else if(NAV_BAR_COMPACT.equals(key)){
+            boolean compactLayout = TunerService.parseIntegerSwitch(newValue, false);
+            if (compactLayout != mCompactLayout){
+                mCompactLayout = compactLayout;
+                setNavigationBarLayout(getDefaultLayout());
+            }
+        }
+        if (QuickStepContract.isGesturalMode(mNavBarMode)) {
+            setNavigationBarLayout(newValue);
         }
     }
 
@@ -200,12 +219,18 @@ public class NavigationBarInflaterView extends FrameLayout
     }
 
     public void onLikelyDefaultLayoutChange() {
-
         // Reevaluate new layout
         final String newValue = getDefaultLayout();
         if (!Objects.equals(mCurrentLayout, newValue)) {
             clearViews();
             inflateLayout(newValue);
+        }
+    }
+
+    private void setNavigationBarLayout(String layoutValue) {
+        if (!Objects.equals(mCurrentLayout, layoutValue)) {
+            clearViews();
+            inflateLayout(layoutValue);
         }
     }
 
