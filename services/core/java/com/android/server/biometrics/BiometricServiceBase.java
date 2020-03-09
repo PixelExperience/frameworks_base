@@ -795,6 +795,7 @@ public abstract class BiometricServiceBase extends SystemService
     protected void handleEnumerate(BiometricAuthenticator.Identifier identifier, int remaining) {
         ClientMonitor client = getCurrentClient();
 
+        if(client == null) return;
         client.onEnumerationResult(identifier, remaining);
 
         // All templates in the HAL for this user were enumerated
