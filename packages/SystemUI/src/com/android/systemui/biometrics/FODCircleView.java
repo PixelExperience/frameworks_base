@@ -27,6 +27,7 @@ import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.view.Display;
@@ -65,6 +66,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
+    private PowerManager mPowerManager;
+    private PowerManager.WakeLock mWakeLock;
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
 
@@ -75,6 +78,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     private int mColorBackground;
 
     private int mCurrentBrightness;
+    private int mCurrentDim;
     private boolean mIsBouncer;
     private boolean mIsDreaming;
     private boolean mIsShowing;
@@ -205,6 +209,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+        mPowerManager = context.getSystemService(PowerManager.class);
+        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                FODCircleView.class.getSimpleName());
         Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
 
         updateCutoutFlags();
@@ -215,7 +222,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
     @Override
     public void onTuningChanged(String key, String newValue) {
         mCurrentBrightness = newValue != null ?  Integer.parseInt(newValue) : 0;
-        updateDim();
+        setDim(true);
     }
 
     @Override
@@ -308,19 +315,36 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         }
     }
 
+    public void switchHbm(boolean z) {
+        if (mShouldBoostBrightness) {
+            if (z) {
+                mParams.screenBrightness = 1.0f;
+            } else {
+                mParams.screenBrightness = 0.0f;
+            }
+            mWindowManager.updateViewLayout(this, mParams);
+        }
+        try {
+            getFingerprintInScreenDaemon().switchHbm(z);
+        } catch (RemoteException unused) {
+        }
+    }
+
     public void showCircle() {
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
+        if (mIsDreaming) {
+            mWakeLock.acquire(700);
+        }
 
-        updateDim();
-        updateBoost();
         updateAlpha();
         dispatchPress();
 
         mPaintFingerprint.setColor(mColor);
 
         setImageResource(R.drawable.fod_icon_pressed);
+        setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
         invalidate();
     }
 
@@ -330,12 +354,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         mPaintFingerprint.setColor(mColorBackground);
 
         setImageResource(R.drawable.fod_icon_default);
+        setColorFilter(Color.argb(mCurrentDim, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
         invalidate();
 
         dispatchRelease();
 
-        updateBoost();
-        updateDim();
         updateAlpha();
 
         setKeepScreenOn(false);
@@ -353,19 +376,22 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         }
 
         mIsShowing = true;
-
-        updatePosition();
-
         dispatchShow();
+        setDim(true);
+
+        mHandler.postDelayed(() -> switchHbm(true), 230);
+
         setVisibility(View.VISIBLE);
     }
 
     public void hide() {
         mIsShowing = false;
-
+        mHandler.postDelayed(() -> switchHbm(false), 50);
+        setDim(false);
         setVisibility(View.GONE);
         hideCircle();
         dispatchHide();
+        Dependency.get(TunerService.class).removeTunable(this);
     }
 
     private void updateAlpha() {
@@ -415,35 +441,21 @@ public class FODCircleView extends ImageView implements ConfigurationListener, T
         mWindowManager.updateViewLayout(this, mParams);
     }
 
-    private void updateDim() {
-        if (mIsCircleShowing) {
-            int dimAmount = 0;
-
-            IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
+    private void setDim(boolean z) {
+        int i;
+        if (z) {
             try {
-                dimAmount = daemon.getDimAmount(mCurrentBrightness);
-            } catch (RemoteException e) {
-                return;
+                i = getFingerprintInScreenDaemon().getDimAmount(mCurrentBrightness);
+            } catch (RemoteException unused) {
+                i = 0;
             }
-
-            mParams.dimAmount = dimAmount / 255.0f;
+            mCurrentDim = i;
+            mParams.dimAmount = ((float) i) / 255.0f;
+            setColorFilter(Color.argb(i, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
         } else {
             mParams.dimAmount = 0.0f;
         }
-
         mWindowManager.updateViewLayout(this, mParams);
-    }
-
-    private void updateBoost() {
-        if (mShouldBoostBrightness) {
-            if (mIsCircleShowing) {
-                mParams.screenBrightness = 1.0f;
-            } else {
-                mParams.screenBrightness = 0.0f;
-            }
-
-            mWindowManager.updateViewLayout(this, mParams);
-        }
     }
 
     private class BurnInProtectionTask extends TimerTask {
