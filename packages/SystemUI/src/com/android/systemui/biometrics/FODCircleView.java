@@ -19,7 +19,6 @@ package com.android.systemui.biometrics;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -30,9 +29,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
-import android.os.UserHandle;
 import android.provider.Settings;
-import android.net.Uri;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -46,6 +43,7 @@ import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 
@@ -56,7 +54,8 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FODCircleView extends ImageView implements ConfigurationListener {
+public class FODCircleView extends ImageView implements ConfigurationListener, TunerService.Tunable {
+    private final String SCREEN_BRIGHTNESS = "system:" + Settings.System.SCREEN_BRIGHTNESS;
 
     private final int mPositionX;
     private final int mPositionY;
@@ -151,44 +150,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
     };
 
-    private class BrightnessObserver extends ContentObserver {
-        Context mContext;
-
-        BrightnessObserver(Context context, Handler handler) {
-            super(handler);
-            mContext = context;
-        }
-
-        void registerBrightnessListener() {
-            mContext.getContentResolver().registerContentObserver(
-                    Settings.System.getUriFor(
-                    Settings.System.SCREEN_BRIGHTNESS),
-                    false, this, UserHandle.USER_ALL);
-            updateCurrentBrightnessValue();
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            super.onChange(selfChange, uri);
-            if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SCREEN_BRIGHTNESS))) {
-                updateCurrentBrightnessValue();
-            }
-        }
-
-        public void updateCurrentBrightnessValue() {
-            int currentBrightness = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS, 0,
-                    UserHandle.USER_CURRENT);
-            mCurrentBrightness = currentBrightness;
-            updateDim();
-        }
-    }
-
     private boolean mCutoutMasked;
     private int mStatusbarHeight;
-
-    private BrightnessObserver mBrightnessObserver;
 
     public FODCircleView(Context context) {
         super(context);
@@ -250,13 +213,17 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
-
-        mBrightnessObserver = new BrightnessObserver(context, mHandler);
-        mBrightnessObserver.registerBrightnessListener();
+        Dependency.get(TunerService.class).addTunable(this, SCREEN_BRIGHTNESS);
 
         updateCutoutFlags();
 
         Dependency.get(ConfigurationController.class).addCallback(this);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        mCurrentBrightness = newValue != null ?  Integer.parseInt(newValue) : 0;
+        updateDim();
     }
 
     @Override
