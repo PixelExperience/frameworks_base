@@ -120,7 +120,7 @@ class DragState {
     // A surface used to catch input events for the drag-and-drop operation.
     SurfaceControl mInputSurface;
 
-    final SurfaceControl.Transaction mTransaction;
+    private final SurfaceControl.Transaction mTransaction;
 
     private final Rect mTmpClipRect = new Rect();
 
@@ -129,6 +129,7 @@ class DragState {
      * {@code true} when {@link #closeLocked()} is called.
      */
     private boolean mIsClosing;
+    IBinder mTransferTouchFromToken;
 
     DragState(WindowManagerService service, DragDropController controller, IBinder token,
             SurfaceControl surface, int flags, IBinder localWin) {
@@ -172,9 +173,10 @@ class DragState {
 
         mTmpClipRect.set(0, 0, mDisplaySize.x, mDisplaySize.y);
         mTransaction.setWindowCrop(mInputSurface, mTmpClipRect);
+        mTransaction.transferTouchFocus(mTransferTouchFromToken, h.token);
+        mTransferTouchFromToken = null;
 
-        // syncInputWindows here to ensure the input window info is sent before the
-        // transferTouchFocus is called.
+        // syncInputWindows here to ensure the input channel isn't removed before the transfer.
         mTransaction.syncInputWindows();
         mTransaction.apply();
     }

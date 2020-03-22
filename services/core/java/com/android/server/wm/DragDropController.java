@@ -113,7 +113,7 @@ class DragDropController {
 
                     final WindowState callingWin = mService.windowForClientLocked(
                             null, window, false);
-                    if (callingWin == null || callingWin.cantReceiveTouchInput()) {
+                    if (callingWin == null) {
                         Slog.w(TAG_WM, "Bad requesting window " + window);
                         return null;  // !!! TODO: throw here?
                     }
@@ -167,7 +167,8 @@ class DragDropController {
                     final SurfaceControl surfaceControl = mDragState.mSurfaceControl;
                     if (SHOW_LIGHT_TRANSACTIONS) Slog.i(TAG_WM, ">>> OPEN TRANSACTION performDrag");
 
-                    final SurfaceControl.Transaction transaction = mDragState.mTransaction;
+                    final SurfaceControl.Transaction transaction =
+                            callingWin.getPendingTransaction();
                     transaction.setAlpha(surfaceControl, mDragState.mOriginalAlpha);
                     transaction.setPosition(
                             surfaceControl, touchX - thumbCenterX, touchY - thumbCenterY);
