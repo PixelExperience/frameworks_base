@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
+import com.android.systemui.assist.AssistManager;
 import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.shared.system.QuickStepContract;
 import com.android.systemui.statusbar.phone.ButtonInterface;
@@ -61,6 +62,8 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
     private boolean mIsPressed;
     private boolean mIsVertical;
     private View mLeft;
+    private boolean mOpaEnabled;
+    private boolean mOpaEnabledNeedsUpdate;
     private OverviewProxyService mOverviewProxyService;
     private View mRed;
     private Resources mResources;
@@ -146,7 +149,7 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
         mAnimatedViews.add(mWhiteCutout);
         mAnimatedViews.add(mHalo);
         mOverviewProxyService = (OverviewProxyService) Dependency.get(OverviewProxyService.class);
-        updateOpaLayout();
+        setOpaEnabled(UserSettingsUtils.load(getContext().getContentResolver()));
     }
 
     @Override
@@ -173,7 +176,7 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (ValueAnimator.areAnimatorsEnabled()) {
+        if (mOpaEnabled && ValueAnimator.areAnimatorsEnabled()) {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
@@ -261,6 +264,13 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         mOverviewProxyService.addCallback(mOverviewProxyListener);
+        mOpaEnabledNeedsUpdate = true;
+        post(new Runnable() {
+            @Override
+            public final void run() {
+                getOpaEnabled();
+            }
+        });
     }
 
     @Override
@@ -577,15 +587,34 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
         return arraySet;
     }
 
+
+    public boolean getOpaEnabled() {
+        if (mOpaEnabledNeedsUpdate) {
+            ((AssistManagerGoogle) Dependency.get(AssistManager.class)).dispatchOpaEnabledState();
+        }
+        return mOpaEnabled;
+    }
+
+    public void setOpaEnabled(boolean z) {
+        mOpaEnabled = z;
+        mOpaEnabledNeedsUpdate = false;
+        updateOpaLayout();
+    }
+
     private void updateOpaLayout() {
         boolean shouldShowSwipeUpUI = mOverviewProxyService.shouldShowSwipeUpUI();
-        mHalo.setVisibility(!shouldShowSwipeUpUI ? View.VISIBLE : View.INVISIBLE);
+        boolean z = true;
+        boolean z2 = mOpaEnabled && !shouldShowSwipeUpUI;
+        mHalo.setVisibility(z2 ? View.VISIBLE : View.INVISIBLE);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) mHalo.getLayoutParams();
+        if (z2 || shouldShowSwipeUpUI) {
+            z = false;
+        }
         layoutParams.width = mHomeDiameter;
         layoutParams.height = mHomeDiameter;
         mWhite.setLayoutParams(layoutParams);
         mWhiteCutout.setLayoutParams(layoutParams);
-        ImageView.ScaleType scaleType = ImageView.ScaleType.CENTER;
+        ImageView.ScaleType scaleType = z ? ImageView.ScaleType.FIT_CENTER : ImageView.ScaleType.CENTER;
         mWhite.setScaleType(scaleType);
         mWhiteCutout.setScaleType(scaleType);
     }
