@@ -25,6 +25,7 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
+import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
@@ -51,6 +52,8 @@ import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreenC
 import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.android.internal.util.custom.fod.FodScreenOffHandler;
 
 public class FODCircleView extends ImageView implements ConfigurationListener {
     private final int mPositionX;
@@ -82,6 +85,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private Timer mBurnInProtectionTimer;
 
     private FODAnimation mFODAnimation;
+
+    private FodScreenOffHandler mFodScreenOffHandler;
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -135,6 +140,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         @Override
         public void onScreenTurnedOff() {
             hide();
+            dispatchFodScreenStateChanged(false);
         }
 
         @Override
@@ -142,6 +148,13 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
+            dispatchFodScreenStateChanged(true);
+        }
+
+        @Override
+        public void onBiometricRunningStateChanged(boolean running,
+            BiometricSourceType biometricSourceType) {
+            dispatchFodFingerprintRunningStateChanged(running);
         }
 
         @Override
@@ -153,11 +166,25 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
     };
 
+    private void dispatchFodScreenStateChanged(boolean interactive){
+        if (mFodScreenOffHandler != null){
+            mFodScreenOffHandler.onScreenStateChanged(interactive);
+        }
+    }
+
+    private void dispatchFodFingerprintRunningStateChanged(boolean running){
+        if (mFodScreenOffHandler != null){
+            mFodScreenOffHandler.onFingerprintRunningStateChanged(running);
+        }
+    }
+
     private boolean mCutoutMasked;
     private int mStatusbarHeight;
 
-    public FODCircleView(Context context) {
+    public FODCircleView(Context context, FodScreenOffHandler fodScreenOffHandler) {
         super(context);
+
+        mFodScreenOffHandler = fodScreenOffHandler;
 
         setScaleType(ScaleType.CENTER);
 
