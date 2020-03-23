@@ -223,4 +223,10 @@
     <!-- Whether device supports variable refresh rate -->
     <bool name="config_hasVariableRefreshRate">false</bool>
 
+    <!-- Library path of screen off fod handler -->
+    <string name="config_fodScreenOffHandlerLib" translatable="false"></string>
+
+    <!-- Class name of screen off fod handler -->
+    <string name="config_fodScreenOffHandlerClass" translatable="false"></string>
+
 </resources>
