@@ -223,4 +223,10 @@
     <!-- Whether device supports variable refresh rate -->
     <bool name="config_hasVariableRefreshRate">false</bool>
 
+    <!-- Library path of fod screen state receiver -->
+    <string name="config_fodScreenStateReceiverLib" translatable="false"></string>
+
+    <!-- Class name of fod screen state receiver -->
+    <string name="config_fodScreenStateReceiverClass" translatable="false"></string>
+
 </resources>

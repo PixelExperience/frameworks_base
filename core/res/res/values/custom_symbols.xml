@@ -88,4 +88,10 @@
     <!-- Whether device supports variable refresh rate -->
     <java-symbol type="bool" name="config_hasVariableRefreshRate" />
 
+    <!-- Library path of fod screen state receiver -->
+    <java-symbol type="string" name="config_fodScreenStateReceiverLib" />
+
+    <!-- Class name of fod screen state receiver -->
+    <java-symbol type="string" name="config_fodScreenStateReceiverClass" />
+
 </resources>
