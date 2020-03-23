@@ -25,11 +25,16 @@ import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 
 import com.android.internal.util.custom.fod.FodUtils;
+import com.android.internal.util.custom.fod.FodScreenStateReceiver;
+
+import dalvik.system.PathClassLoader;
+import java.lang.reflect.Constructor;
 
 public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callbacks {
     private static final String TAG = "FODCircleViewImpl";
 
     private FODCircleView mFodCircleView;
+    private FodScreenStateReceiver mFodScreenStateReceiver;
 
     @Override
     public void start() {
@@ -39,8 +44,32 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
             return;
         }
         getComponent(CommandQueue.class).addCallback(this);
+
+
+        String fodScreenStateReceiverLib = mContext.getResources().getString(
+                com.android.internal.R.string.config_fodScreenStateReceiverLib);
+
+        String fodScreenStateReceiverClass = mContext.getResources().getString(
+                com.android.internal.R.string.config_fodScreenStateReceiverClass);
+
+        if (!fodScreenStateReceiverLib.isEmpty() && !fodScreenStateReceiverClass.isEmpty()) {
+            try {
+                PathClassLoader loader =  new PathClassLoader(fodScreenStateReceiverLib,
+                        getClass().getClassLoader());
+
+                Class<?> klass = loader.loadClass(fodScreenStateReceiverClass);
+                Constructor<?> constructor = klass.getConstructor(Context.class);
+                mFodScreenStateReceiver = (FodScreenStateReceiver) constructor.newInstance(
+                        mContext);
+            } catch (Exception e) {
+                Slog.w(TAG, "Could not instantiate fod screen state receiver "
+                        + fodScreenStateReceiverClass + " from class "
+                        + fodScreenStateReceiverLib, e);
+            }
+        }
+
         try {
-            mFodCircleView = new FODCircleView(mContext);
+            mFodCircleView = new FODCircleView(mContext, mFodScreenStateReceiver);
         } catch (RuntimeException e) {
             Slog.e(TAG, "Failed to initialize FODCircleView", e);
         }

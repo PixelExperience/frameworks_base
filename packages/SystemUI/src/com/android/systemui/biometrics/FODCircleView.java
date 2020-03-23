@@ -52,6 +52,8 @@ import java.util.NoSuchElementException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.android.internal.util.custom.fod.FodScreenStateReceiver;
+
 public class FODCircleView extends ImageView implements ConfigurationListener {
     private final int mPositionX;
     private final int mPositionY;
@@ -81,6 +83,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private Timer mBurnInProtectionTimer;
 
     private FODAnimation mFODAnimation;
+
+    private FodScreenStateReceiver mFodScreenStateReceiver;
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -132,6 +136,10 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         @Override
         public void onScreenTurnedOff() {
             hide();
+
+            if (mFodScreenStateReceiver != null){
+                mFodScreenStateReceiver.onScreenStateChanged(false);
+            }
         }
 
         @Override
@@ -139,14 +147,20 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
+
+            if (mFodScreenStateReceiver != null){
+                mFodScreenStateReceiver.onScreenStateChanged(true);
+            }
         }
     };
 
     private boolean mCutoutMasked;
     private int mStatusbarHeight;
 
-    public FODCircleView(Context context) {
+    public FODCircleView(Context context, FodScreenStateReceiver fodScreenStateReceiver) {
         super(context);
+
+        mFodScreenStateReceiver = fodScreenStateReceiver;
 
         setScaleType(ScaleType.CENTER);
 
