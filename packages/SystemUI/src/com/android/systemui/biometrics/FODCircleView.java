@@ -153,6 +153,14 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             BiometricSourceType biometricSourceType) {
             dispatchFodFingerprintRunningStateChanged(running);
         }
+
+        @Override
+        public void onBiometricHelp(int msgId, String helpString,
+                BiometricSourceType biometricSourceType) {
+            if (msgId == -1){ // Auth error
+                mHandler.post(() -> mFODAnimation.hideFODanimation());
+            }
+        }
     };
 
     private void dispatchFodScreenStateChanged(boolean interactive){
