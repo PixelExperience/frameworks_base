@@ -623,7 +623,9 @@ public class DisplayPolicy {
                 mDisplayContent.getDisplayInfo(),
                 mService.mHighRefreshRateBlacklist);
 
-        mSettingsObserver = new SettingsObserver(mHandler);
+        if (mDisplayContent.isDefaultDisplay) {
+            mSettingsObserver = new SettingsObserver(mHandler);
+        }
     }
 
     private void updateNavigationBarState(){
