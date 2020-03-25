@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+/*
 **
-** Copyright 2012, The Android Open Source Project
+** Copyright 2006, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -18,9 +19,8 @@
 -->
 <resources>
 
-    <!-- Height of the sliding KeyguardSecurityContainer
-         (includes 2x keyguard_security_view_top_margin) -->
-    <dimen name="keyguard_security_height">610dp</dimen>
+    <!-- The margin between Emergency Carrier area and pattern/pin
+         view to incorporate the FOD icon -->
+    <dimen name="keyguard_security_fod_view_margin">140dp</dimen>
 
-    <dimen name="widget_big_font_size">100dp</dimen>
 </resources>
