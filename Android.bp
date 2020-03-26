@@ -696,6 +696,10 @@ java_defaults {
         // LiveDisplay
         "core/java/com/android/internal/custom/hardware/ILineageHardwareService.aidl",
         "core/java/com/android/internal/custom/hardware/ILiveDisplayService.aidl",
+
+        // Moto additions
+        "core/java/com/motorola/internal/app/IMotoFaceService.aidl",
+        "core/java/com/motorola/internal/app/IMotoFaceServiceReceiver.aidl",
     ],
 
     aidl: {
