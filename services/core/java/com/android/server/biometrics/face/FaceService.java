@@ -27,8 +27,14 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.hardware.biometrics.BiometricAuthenticator;
 import android.hardware.biometrics.BiometricConstants;
@@ -46,6 +52,7 @@ import android.hardware.face.IFaceServiceReceiver;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.NativeHandle;
 import android.os.RemoteException;
@@ -55,6 +62,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.util.Slog;
+import android.util.SparseArray;
 
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
@@ -84,6 +92,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.motorola.internal.app.IMotoFaceService;
+import com.motorola.internal.app.IMotoFaceServiceReceiver;
+
 /**
  * A service to manage multiple clients that want to access the face HAL API.
  * The service is responsible for maintaining a list of clients and dispatching all
@@ -102,6 +113,229 @@ public class FaceService extends BiometricServiceBase {
 
     private static final String NOTIFICATION_TAG = "FaceService";
     private static final int NOTIFICATION_ID = 1;
+
+
+    /** Start moto changes */
+
+    private static final int MOTO_DEVICE_ID = 1108;
+    private static final String BIND_MOTOFACEID_ACTION = "com.motorola.faceunlock.BIND";
+    private static final String PACKAGE_MOTOFACEID_PACKAGE_NAME = "com.motorola.faceunlock";
+    private static final String PACKAGE_MOTOFACEID_SERVICE_NAME = "com.motorola.faceunlock.service.FaceAuthService";
+
+    SparseArray<IMotoFaceService> mMotoFaceServices = new SparseArray<>();
+    IMotoFaceServiceReceiver mMotoReceiver = new IMotoFaceServiceReceiver.Stub() {
+        @Override
+        public void onEnrollResult(int faceId, int userId, int remaining) {
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    FaceService.super.handleEnrollResult(new Face(getBiometricUtils().getUniqueName(.getContext(), userId), faceId, MOTO_DEVICE_ID), remaining);
+                }
+            });
+        }
+
+        @Override
+        public void onAuthenticated(int faceId, int userId, byte[] token) {
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    Face face = new Face("", faceId, MOTO_DEVICE_ID);
+                    ArrayList<Byte> token_AL = new ArrayList<>(token.length);
+                    for (byte b : token) {
+                        token_AL.add(new Byte(b));
+                    }
+                    FaceService.super.handleAuthenticated(face, token_AL);
+                }
+            });
+        }
+
+        @Override
+        public void onAcquired(int userId, int acquiredInfo, int vendorCode) {
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    FaceService.super.handleAcquired(MOTO_DEVICE_ID, acquiredInfo, vendorCode);
+                }
+            });
+        }
+
+        @Override
+        public void onError(int error, int vendorCode) {
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    FaceService.super.handleError(MOTO_DEVICE_ID, error, vendorCode);
+                }
+            });
+        }
+
+        @Override
+        public void onRemoved(int[] faceIds, int userId) throws RemoteException {
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    if (faceIds.length > 0) {
+                        for (int i = 0; i < faceIds.length; i++) {
+                            FaceService.super.handleRemoved(new Face("", faceIds[i], MOTO_DEVICE_ID), (faceIds.length - i) - 1);
+                        }
+                        return;
+                    }
+                    FaceService.super.handleRemoved(new Face("", 0, MOTO_DEVICE_ID), 0);
+                }
+            });
+        }
+
+        @Override
+        public void onEnumerate(int[] faceIds, int userId) throws RemoteException {
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    if (faceIds.length > 0) {
+                        for (int i = 0; i < faceIds.length; i++) {
+                            FaceService.super.handleEnumerate(new Face("", faceIds[i], MOTO_DEVICE_ID), (faceIds.length - i) - 1);
+                        }
+                        return;
+                    }
+                    FaceService.super.handleEnumerate(null, 0);
+                }
+            });
+        }
+
+        @Override
+        public void onLockoutChanged(long duration) throws RemoteException {
+            if (duration == 0) {
+                int unused = mCurrentUserLockoutMode = 0;
+            } else if (duration == JobStatus.NO_LATEST_RUNTIME) {
+                int unused2 = mCurrentUserLockoutMode = 2;
+            } else {
+                int unused3 = mCurrentUserLockoutMode = 1;
+            }
+            mHandler.post(new Runnable() {
+                @Override
+                public final void run() {
+                    if (duration == 0) {
+                        notifyLockoutResetMonitors();
+                    }
+                }
+            });
+        }
+    };
+    private Handler mMotoServiceHandler;
+    private static final boolean mUseMotoFaceUnlockService = SystemProperties.getBoolean("ro.face.moto_unlock_service", false);
+    private final BroadcastReceiver mUserUnlockReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (mUseMotoFaceUnlockService) {
+                if (getMotoFaceService(mCurrentUserId) == null) {
+                    bindMotoFaceAuthService(fmCurrentUserId);
+                }
+            }
+        }
+    };
+
+    private class MotoFaceServiceConnection implements ServiceConnection {
+        int mUserId;
+
+        public MotoFaceServiceConnection(int userId) {
+            mUserId = userId;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            Slog.d(TAG, "MotoFaceService connected");
+            IMotoFaceService motoFaceService = IMotoFaceService.Stub.asInterface(service);
+            if (motoFaceService != null) {
+                synchronized (mMotoFaceServices) {
+                    try {
+                        motoFaceService.setCallback(mMotoReceiver);
+                        motoFaceService.asBinder().linkToDeath(new IBinder.DeathRecipient() {
+                            @Override
+                            public void binderDied() {
+                                Slog.e(TAG, "MotoFaceService binder died");
+                                mMotoFaceServices.remove(mUserId);
+                                if (mUserId == mCurrentUserId) {
+                                    boolean unused = bindMotoFaceAuthService(mUserId);
+                                }
+                            }
+                        }, 0);
+                        mMotoFaceServices.put(mUserId, motoFaceService);
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public final void run() {
+                                if (mMotoFaceServices.size() == 1) {
+                                    loadAuthenticatorIds();
+                                }
+                                updateActiveGroup(mUserId, null);
+                                doTemplateCleanupForUser(mUserId);
+                            }
+                        });
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    mIsMotoServiceBinding = false;
+                }
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName className) {
+            Slog.d(TAG, "MotoFaceService disconnected");
+            mMotoFaceServices.remove(mUserId);
+            mIsMotoServiceBinding = false;
+            if (mUserId == mCurrentUserId) {
+                bindMotoFaceAuthService(mUserId);
+            }
+        }
+    }
+
+    private boolean isMotoFaceServiceEnabled() {
+        PackageManager pm = getContext().getPackageManager();
+        if (!mUseMotoFaceUnlockService) {
+            return false;
+        }
+        Intent intent = new Intent(BIND_MOTOFACEID_ACTION);
+        intent.setClassName(PACKAGE_MOTOFACEID_PACKAGE_NAME, PACKAGE_MOTOFACEID_SERVICE_NAME);
+        ResolveInfo info = pm.resolveService(intent, DumpState.DUMP_INTENT_FILTER_VERIFIERS);
+        if (info == null || !info.serviceInfo.isEnabled()) {
+            return false;
+        }
+        return true;
+    }
+
+    private IMotoFaceService getMotoFaceService(int userId) {
+        if (userId == -10000) {
+            updateActiveGroup(ActivityManager.getCurrentUser(), null);
+        }
+        return mMotoFaceServices.get(tmCurrentUserId);
+    }
+
+    private boolean bindMotoFaceAuthService(int userId) {
+        Slog.d(TAG, "bindMotoFaceAuthService");
+        if (!isMotoFaceServiceEnabled()) {
+            Slog.d(TAG, "MotoFaceService disabled");
+            return false;
+        } else if (mIsMotoServiceBinding) {
+            Slog.d(TAG, "MotoFaceService is binding");
+            return true;
+        } else {
+            if (userId != -10000 && getMotoFaceService(userId) == null) {
+                try {
+                    Intent intent = new Intent(BIND_MOTOFACEID_ACTION);
+                    intent.setClassName(PACKAGE_MOTOFACEID_PACKAGE_NAME, PACKAGE_MOTOFACEID_SERVICE_NAME);
+                    boolean result = getContext().bindServiceAsUser(intent, new MotoFaceServiceConnection(userId), 65, UserHandle.of(userId));
+                    if (result) {
+                        mIsMotoServiceBinding = true;
+                    }
+                    return result;
+                } catch (SecurityException e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
+        }
+    }
+
+    /* End moto changes*/
 
     /**
      * Events for bugreports.
@@ -219,11 +453,17 @@ public class FaceService extends BiometricServiceBase {
 
         @Override
         public boolean shouldFrameworkHandleLockout() {
+            if (mUseMotoFaceUnlockService){
+                return true;
+            }
             return false;
         }
 
         @Override
         public boolean wasUserDetected() {
+            if (mUseMotoFaceUnlockService){
+                return mLastAcquire != FaceManager.FACE_ACQUIRED_NOT_DETECTED;
+            }
             return mLastAcquire != FaceManager.FACE_ACQUIRED_NOT_DETECTED
                     && mLastAcquire != FaceManager.FACE_ACQUIRED_SENSOR_DIRTY;
         }
@@ -541,6 +781,20 @@ public class FaceService extends BiometricServiceBase {
                     Binder.getCallingUid(), Binder.getCallingPid(),
                     UserHandle.getCallingUserId())) {
                 return false;
+            }
+            if (mUseMotoFaceUnlockService) {
+                boolean enabled = isMotoFaceServiceEnabled();
+                if (enabled) {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public final void run() {
+                            if (getMotoFaceService(mCurrentUserId) == null) {
+                                bindMotoFaceAuthService(mCurrentUserId);
+                            }
+                        }
+                    });
+                }
+                return enabled;
             }
 
             final long token = Binder.clearCallingIdentity();
@@ -977,6 +1231,16 @@ public class FaceService extends BiometricServiceBase {
     private final DaemonWrapper mDaemonWrapper = new DaemonWrapper() {
         @Override
         public int authenticate(long operationId, int groupId) throws RemoteException {
+            if (mUseMotoFaceUnlockService) {
+                IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+                if (service != null) {
+                    service.authenticate(operationId);
+                    return 0;
+                }
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(TAG, "authenticate(): moto face service not started!");
+                return 3;
+            }
             IBiometricsFace daemon = getFaceDaemon();
             if (daemon == null) {
                 Slog.w(TAG, "authenticate(): no face HAL!");
@@ -987,6 +1251,14 @@ public class FaceService extends BiometricServiceBase {
 
         @Override
         public int cancel() throws RemoteException {
+            if (mUseMotoFaceUnlockService) {
+                IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+                if (service == null) {
+                    return 0;
+                }
+                service.cancel();
+                return 0;
+            }
             IBiometricsFace daemon = getFaceDaemon();
             if (daemon == null) {
                 Slog.w(TAG, "cancel(): no face HAL!");
@@ -997,6 +1269,16 @@ public class FaceService extends BiometricServiceBase {
 
         @Override
         public int remove(int groupId, int biometricId) throws RemoteException {
+            if (mUseMotoFaceUnlockService) {
+                IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+                if (service != null) {
+                    service.remove(biometricId);
+                    return 0;
+                }
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(TAG, "remove(): moto face service not started!");
+                return 3;
+            }
             IBiometricsFace daemon = getFaceDaemon();
             if (daemon == null) {
                 Slog.w(TAG, "remove(): no face HAL!");
@@ -1007,6 +1289,25 @@ public class FaceService extends BiometricServiceBase {
 
         @Override
         public int enumerate() throws RemoteException {
+            if (mUseMotoFaceUnlockService) {
+                IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+                if (service != null) {
+                    mMotoServiceHandler.post(new Runnable() {
+                        @Override
+                        public final void run() {
+                            try {
+                                service.enumerate();
+                            } catch (RemoteException e) {
+                                super.handleError(MOTO_DEVICE_ID, 8, 0);
+                            }
+                        }
+                    });
+                    return 0;
+                }
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(TAG, "enumerate(): moto face service not started!");
+                return 3;
+            }
             IBiometricsFace daemon = getFaceDaemon();
             if (daemon == null) {
                 Slog.w(TAG, "enumerate(): no face HAL!");
@@ -1018,6 +1319,23 @@ public class FaceService extends BiometricServiceBase {
         @Override
         public int enroll(byte[] cryptoToken, int groupId, int timeout,
                 ArrayList<Integer> disabledFeatures) throws RemoteException {
+            if (mUseMotoFaceUnlockService) {
+                IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+                int[] dfs = null;
+                if (disabledFeatures != null && disabledFeatures.size() > 0) {
+                    dfs = new int[disabledFeatures.size()];
+                    for (int i = 0; i < disabledFeatures.size(); i++) {
+                        dfs[i] = disabledFeatures.get(i).intValue();
+                    }
+                }
+                if (service != null) {
+                    service.enroll(cryptoToken, timeout, dfs);
+                    return 0;
+                }
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(FaceService.TAG, "enroll(): moto face service not started!");
+                return 3;
+            }
             IBiometricsFace daemon = getFaceDaemon();
             if (daemon == null) {
                 Slog.w(TAG, "enroll(): no face HAL!");
@@ -1032,6 +1350,16 @@ public class FaceService extends BiometricServiceBase {
 
         @Override
         public void resetLockout(byte[] cryptoToken) throws RemoteException {
+            if (mUseMotoFaceUnlockService) {
+                IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+                if (service != null) {
+                    service.resetLockout(cryptoToken);
+                    return;
+                }
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(TAG, "resetLockout(): moto face service not started!");
+                return;
+            }
             IBiometricsFace daemon = getFaceDaemon();
             if (daemon == null) {
                 Slog.w(TAG, "resetLockout(): no face HAL!");
@@ -1065,6 +1393,8 @@ public class FaceService extends BiometricServiceBase {
                 .getIntArray(R.array.config_face_acquire_enroll_ignorelist);
         mEnrollIgnoreListVendor = getContext().getResources()
                 .getIntArray(R.array.config_face_acquire_vendor_enroll_ignorelist);
+
+        context.registerReceiver(mUserUnlockReceiver, new IntentFilter("android.intent.action.USER_UNLOCKED"));
     }
 
     @Override
@@ -1080,6 +1410,11 @@ public class FaceService extends BiometricServiceBase {
     public void onStart() {
         super.onStart();
         publishBinderService(Context.FACE_SERVICE, new FaceServiceWrapper());
+        if (mUseMotoFaceUnlockService) {
+            mMotoServiceHandler = BackgroundThread.getHandler();
+            mHalDeviceId = MOTO_DEVICE_ID;
+            return;
+        }
         // Get the face daemon on FaceService's on thread so SystemServerInitThreadPool isn't
         // blocked
         SystemServerInitThreadPool.get().submit(() -> mHandler.post(this::getFaceDaemon),
@@ -1128,6 +1463,28 @@ public class FaceService extends BiometricServiceBase {
 
     @Override
     protected void updateActiveGroup(int userId, String clientPackage) {
+        if (mUseMotoFaceUnlockService) {
+            long j = 0;
+            mCurrentUserId = userId;
+            IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+            if (service != null) {
+                try {
+                    Map map = mAuthenticatorIds;
+                    Integer valueOf = Integer.valueOf(mCurrentUserId);
+                    if (hasEnrolledBiometrics(mCurrentUserId)) {
+                        j = (long) service.getAuthenticatorId();
+                    }
+                    map.put(valueOf, Long.valueOf(j));
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(TAG, "updateActiveGroup(): moto face service not started!");
+            }
+            return;
+        }
+
         IBiometricsFace daemon = getFaceDaemon();
 
         if (daemon != null) {
@@ -1178,7 +1535,16 @@ public class FaceService extends BiometricServiceBase {
 
     @Override
     protected void handleUserSwitching(int userId) {
-        super.handleUserSwitching(userId);
+        if (mUseMotoFaceUnlockService) {
+            updateActiveGroup(userId, null);
+            if (getMotoFaceService(userId) != null) {
+                doTemplateCleanupForUser(userId);
+            } else {
+                bindMotoFaceAuthService(userId);
+            }
+        } else {
+            super.handleUserSwitching(userId);
+        }
         // Will be updated when we get the callback from HAL
         mCurrentUserLockoutMode = AuthenticationClient.LOCKOUT_NONE;
     }
@@ -1267,6 +1633,22 @@ public class FaceService extends BiometricServiceBase {
     }
 
     private long startGenerateChallenge(IBinder token) {
+        if (mUseMotoFaceUnlockService) {
+            IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+            if (service != null) {
+                try {
+                    return service.generateChallenge(CHALLENGE_TIMEOUT_SEC);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                    return 0;
+                }
+            } else {
+                bindMotoFaceAuthService(mCurrentUserId);
+                Slog.w(TAG, "startGenerateChallenge(): moto face service not started!");
+                return 0;
+            }
+            return;
+        }
         IBiometricsFace daemon = getFaceDaemon();
         if (daemon == null) {
             Slog.w(TAG, "startGenerateChallenge: no face HAL!");
@@ -1281,6 +1663,17 @@ public class FaceService extends BiometricServiceBase {
     }
 
     private int startRevokeChallenge(IBinder token) {
+        if (mUseMotoFaceUnlockService) {
+            IMotoFaceService service = getMotoFaceService(mCurrentUserId);
+            if (service != null) {
+                try {
+                    return service.revokeChallenge();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+            return 0;
+        }
         IBiometricsFace daemon = getFaceDaemon();
         if (daemon == null) {
             Slog.w(TAG, "startRevokeChallenge: no face HAL!");
@@ -1355,7 +1748,8 @@ public class FaceService extends BiometricServiceBase {
         // Additionally, this flag allows turning off face for a device
         // (either permanently through the build or on an individual device).
         if (SystemProperties.getBoolean("ro.face.disable_debug_data", false)
-                || SystemProperties.getBoolean("persist.face.disable_debug_data", false)) {
+                || SystemProperties.getBoolean("persist.face.disable_debug_data", false)
+                || mUseMotoFaceUnlockService) {
             return;
         }
 
