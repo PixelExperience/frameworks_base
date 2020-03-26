@@ -103,6 +103,208 @@ public class FaceService extends BiometricServiceBase {
     private static final String NOTIFICATION_TAG = "FaceService";
     private static final int NOTIFICATION_ID = 1;
 
+
+    /** Start Motorola changes */
+
+    private static final int MOTO_DEVICE_ID = 1108;
+    private static final String BIND_MOTOFACEID_ACTION = "com.motorola.faceunlock.BIND";
+    private static final String PACKAGE_MOTOFACEID_PACKAGE_NAME = "com.motorola.faceunlock";
+    private static final String PACKAGE_MOTOFACEID_SERVICE_NAME = "com.motorola.faceunlock.service.FaceAuthService";
+
+    SparseArray<IMotoFaceService> mMotoFaceServices = new SparseArray<>();
+    IMotoFaceServiceReceiver mMotoReceiver = new IMotoFaceServiceReceiver.Stub() {
+        /* class com.android.server.biometrics.face.FaceService.AnonymousClass4 */
+
+        public void onEnrollResult(int faceId, int userId, int remaining) {
+            FaceService.this.mHandler.post(new Runnable(userId, faceId, remaining) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$YnPAie70AybcSp9vXGzEF258po */
+                private final /* synthetic */ int f$1;
+                private final /* synthetic */ int f$2;
+                private final /* synthetic */ int f$3;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onEnrollResult$0$FaceService$4(this.f$1, this.f$2, this.f$3);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onEnrollResult$0$FaceService$4(int userId, int faceId, int remaining) {
+            FaceService.super.handleEnrollResult(new Face(FaceService.this.getBiometricUtils().getUniqueName(FaceService.this.getContext(), userId), faceId, MOTO_DEVICE_ID), remaining);
+        }
+
+        public void onAuthenticated(int faceId, int userId, byte[] token) {
+            FaceService.this.mHandler.post(new Runnable(faceId, token) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$nGfEbmsYqVg9EpArkvkHT1KbiRI */
+                private final /* synthetic */ int f$1;
+                private final /* synthetic */ byte[] f$2;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onAuthenticated$1$FaceService$4(this.f$1, this.f$2);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onAuthenticated$1$FaceService$4(int faceId, byte[] token) {
+            Face face = new Face("", faceId, MOTO_DEVICE_ID);
+            ArrayList<Byte> token_AL = new ArrayList<>(token.length);
+            for (byte b : token) {
+                token_AL.add(new Byte(b));
+            }
+            FaceService.super.handleAuthenticated(face, token_AL);
+        }
+
+        public void onAcquired(int userId, int acquiredInfo, int vendorCode) {
+            FaceService.this.mHandler.post(new Runnable(acquiredInfo, vendorCode) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$h__85sWTTAKzjk3_Cy6O3pbQ7xY */
+                private final /* synthetic */ int f$1;
+                private final /* synthetic */ int f$2;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onAcquired$2$FaceService$4(this.f$1, this.f$2);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onAcquired$2$FaceService$4(int acquiredInfo, int vendorCode) {
+            FaceService.super.handleAcquired(MOTO_DEVICE_ID, acquiredInfo, vendorCode);
+        }
+
+        public void onError(int error, int vendorCode) {
+            FaceService.this.mHandler.post(new Runnable(error, vendorCode) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$FZ5AsOHA6IaQAdJ9j0pjF4X06gw */
+                private final /* synthetic */ int f$1;
+                private final /* synthetic */ int f$2;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onError$3$FaceService$4(this.f$1, this.f$2);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onError$3$FaceService$4(int error, int vendorCode) {
+            FaceService.super.handleError(MOTO_DEVICE_ID, error, vendorCode);
+        }
+
+        public void onRemoved(int[] faceIds, int userId) throws RemoteException {
+            FaceService.this.mHandler.post(new Runnable(faceIds) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$EJVrdJ7zBG1Yzg3IsRRm0m2XvXo */
+                private final /* synthetic */ int[] f$1;
+
+                {
+                    this.f$1 = r2;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onRemoved$4$FaceService$4(this.f$1);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onRemoved$4$FaceService$4(int[] faceIds) {
+            if (faceIds.length > 0) {
+                for (int i = 0; i < faceIds.length; i++) {
+                    FaceService.super.handleRemoved(new Face("", faceIds[i], MOTO_DEVICE_ID), (faceIds.length - i) - 1);
+                }
+                return;
+            }
+            FaceService.super.handleRemoved(new Face("", 0, MOTO_DEVICE_ID), 0);
+        }
+
+        public void onEnumerate(int[] faceIds, int userId) throws RemoteException {
+            FaceService.this.mHandler.post(new Runnable(faceIds) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$lScP1JPYjv8F3RZJdUydd3nEsDc */
+                private final /* synthetic */ int[] f$1;
+
+                {
+                    this.f$1 = r2;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onEnumerate$5$FaceService$4(this.f$1);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onEnumerate$5$FaceService$4(int[] faceIds) {
+            if (faceIds.length > 0) {
+                for (int i = 0; i < faceIds.length; i++) {
+                    FaceService.super.handleEnumerate(new Face("", faceIds[i], MOTO_DEVICE_ID), (faceIds.length - i) - 1);
+                }
+                return;
+            }
+            FaceService.super.handleEnumerate(null, 0);
+        }
+
+        public void onLockoutChanged(long duration) throws RemoteException {
+            if (duration == 0) {
+                int unused = FaceService.this.mCurrentUserLockoutMode = 0;
+            } else if (duration == JobStatus.NO_LATEST_RUNTIME) {
+                int unused2 = FaceService.this.mCurrentUserLockoutMode = 2;
+            } else {
+                int unused3 = FaceService.this.mCurrentUserLockoutMode = 1;
+            }
+            FaceService.this.mHandler.post(new Runnable(duration) {
+                /* class com.android.server.biometrics.face.$$Lambda$FaceService$4$U_1AMOXpAWT59UXflv_IhLWIwEU */
+                private final /* synthetic */ long f$1;
+
+                {
+                    this.f$1 = r2;
+                }
+
+                public final void run() {
+                    FaceService.AnonymousClass4.this.lambda$onLockoutChanged$6$FaceService$4(this.f$1);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$onLockoutChanged$6$FaceService$4(long duration) {
+            if (duration == 0) {
+                FaceService.this.notifyLockoutResetMonitors();
+            }
+        }
+    };
+    /* access modifiers changed from: private */
+    public Handler mMotoServiceHandler;
+    /* access modifiers changed from: private */
+    public boolean mUseMotoFaceUnlockService = false;
+    private final BroadcastReceiver mUserUnlockReceiver = new BroadcastReceiver() {
+        /* class com.android.server.biometrics.face.FaceService.AnonymousClass3 */
+
+        public void onReceive(Context context, Intent intent) {
+            if (FaceService.this.mUseMotoFaceUnlockService) {
+                FaceService faceService = FaceService.this;
+                if (faceService.getMotoFaceService(faceService.mCurrentUserId) == null) {
+                    FaceService faceService2 = FaceService.this;
+                    boolean unused = faceService2.bindMotoFaceAuthService(faceService2.mCurrentUserId);
+                }
+            }
+        }
+    };
+
+
+    /* End motorola changes*/
+
     /**
      * Events for bugreports.
      */
@@ -219,13 +421,12 @@ public class FaceService extends BiometricServiceBase {
 
         @Override
         public boolean shouldFrameworkHandleLockout() {
-            return false;
+            return true;
         }
 
         @Override
         public boolean wasUserDetected() {
-            return mLastAcquire != FaceManager.FACE_ACQUIRED_NOT_DETECTED
-                    && mLastAcquire != FaceManager.FACE_ACQUIRED_SENSOR_DIRTY;
+            return mLastAcquire != FaceManager.FACE_ACQUIRED_NOT_DETECTED;
         }
 
         @Override
@@ -770,7 +971,7 @@ public class FaceService extends BiometricServiceBase {
         public void onEnrollResult(BiometricAuthenticator.Identifier identifier, int remaining)
                 throws RemoteException {
             if (mFaceServiceReceiver != null) {
-                mFaceServiceReceiver.onEnrollResult(identifier.getDeviceId(),
+                mFaceServiceReceiver.onEnrollResult(MOTO_DEVICE_ID,
                         identifier.getBiometricId(),
                         remaining);
             }
@@ -1080,10 +1281,16 @@ public class FaceService extends BiometricServiceBase {
     public void onStart() {
         super.onStart();
         publishBinderService(Context.FACE_SERVICE, new FaceServiceWrapper());
-        // Get the face daemon on FaceService's on thread so SystemServerInitThreadPool isn't
-        // blocked
-        SystemServerInitThreadPool.get().submit(() -> mHandler.post(this::getFaceDaemon),
+        mUseMotoFaceUnlockService = SystemProperties.getBoolean("ro.face.moto_unlock_service", false);
+        if (!mUseMotoFaceUnlockService) {
+            // Get the face daemon on FaceService's on thread so SystemServerInitThreadPool isn't
+            // blocked
+            SystemServerInitThreadPool.get().submit(() -> mHandler.post(this::getFaceDaemon),
                 TAG + ".onStart");
+            return;
+        }
+        mMotoServiceHandler = BackgroundThread.getHandler();
+        mHalDeviceId = MOTO_DEVICE_ID;
     }
 
     @Override
