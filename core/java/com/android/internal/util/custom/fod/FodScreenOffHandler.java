@@ -38,4 +38,11 @@ public interface FodScreenOffHandler {
      * @param dreaming Whether device is dreaming
      */
     public void onDreamingStateChanged(boolean dreaming);
+
+    /**
+     * Set whether device has at least one finger enrolled
+     *
+     * @param enrolled Whether device has at least one finger enrolled
+     */
+    public void hasEnrolledFingerprints(boolean enrolled);
 }
