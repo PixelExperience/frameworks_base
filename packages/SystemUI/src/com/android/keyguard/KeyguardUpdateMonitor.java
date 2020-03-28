@@ -260,6 +260,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private boolean mLockIconPressed;
 
     private final boolean mFingerprintWakeAndUnlock;
+    private final boolean mFaceAuthOnlyOnSecurityView;
 
     /**
      * Short delay before restarting biometric authentication after a successful try
@@ -1493,6 +1494,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         mStrongAuthTracker = new StrongAuthTracker(context, this::notifyStrongAuthStateChanged);
         mFingerprintWakeAndUnlock = mContext.getResources().getBoolean(
                 R.bool.config_fingerprintWakeAndUnlock);
+        mFaceAuthOnlyOnSecurityView = mContext.getResources().getBoolean(
+                R.bool.config_faceAuthOnlyOnSecurityView);
 
         // Since device can't be un-provisioned, we only need to register a content observer
         // to update mDeviceProvisioned when we are...
@@ -1703,7 +1706,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
      * If face auth is allows to scan on this exact moment.
      */
     public boolean shouldListenForFace() {
-        final boolean awakeKeyguard = mKeyguardIsVisible && mDeviceInteractive && !mGoingToSleep;
+        boolean awakeKeyguard = mKeyguardIsVisible && mDeviceInteractive && !mGoingToSleep;
         final int user = getCurrentUser();
         final int strongAuth = mStrongAuthTracker.getStrongAuthForUser(user);
         final boolean isLockOutOrLockDown =
@@ -1725,6 +1728,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         // Lockout/lockdown modes shouldn't scan, since they are more explicit.
         boolean strongAuthAllowsScanning = (!isEncryptedOrTimedOut || canBypass && !mBouncer)
                 && !isLockOutOrLockDown;
+
+        if (!mBouncer && awakeKeyguard && mFaceAuthOnlyOnSecurityView){
+            awakeKeyguard = false;
+        }
 
         // Only listen if this KeyguardUpdateMonitor belongs to the primary user. There is an
         // instance of KeyguardUpdateMonitor for each user but KeyguardUpdateMonitor is user-aware.
