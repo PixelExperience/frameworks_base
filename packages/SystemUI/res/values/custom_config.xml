@@ -33,4 +33,7 @@
     <!-- Whether to show biometric help only when failed -->
     <bool name="config_biometricHelpShowOnlyWhenFailed">false</bool>
 
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
+
 </resources>
