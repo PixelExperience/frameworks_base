@@ -33,6 +33,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.biometrics.BiometricSourceType;
+import android.hardware.fingerprint.FingerprintManager;
 import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.os.Looper;
@@ -119,6 +120,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
     };
 
+    private FingerprintManager mFingerprintManager;
     private KeyguardUpdateMonitor mUpdateMonitor;
 
     private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
@@ -212,6 +214,15 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private void dispatchFodDreamingStateChanged(){
         if (mFodScreenOffHandler != null){
             mFodScreenOffHandler.onDreamingStateChanged(mIsDreaming);
+        }
+    }
+
+    private void dispatchFodFingerprintHasEnrolledFinger(b){
+        if (mFodScreenOffHandler != null &&
+                mFingerprintManager != null && 
+                mFingerprintManager.isHardwareDetected()) {
+            boolean enrolled = mFingerprintManager.hasEnrolledFingerprints(userId);
+            mFodScreenOffHandler.hasEnrolledFingerprints(enrolled);
         }
     }
 
