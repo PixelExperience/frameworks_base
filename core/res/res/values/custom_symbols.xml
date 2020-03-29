@@ -38,4 +38,7 @@
     <!-- Whether device has a big physical display cutout -->
     <java-symbol type="bool" name="config_physicalDisplayCutoutCentered" />
 
+    <!-- Component name of popup camera service -->
+    <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
+
 </resources>
