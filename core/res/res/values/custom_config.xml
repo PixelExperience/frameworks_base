@@ -49,9 +49,6 @@
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
 
-    <!-- Whether to send camera status intent -->
-    <bool name="config_sendCameraStatusIntent">false</bool>
-
     <!-- The list of components which should be automatically disabled for a specific device.
          Note: this MUST not be used to randomly disable components, ask for approval first! -->
     <string-array name="config_deviceDisabledComponents" translatable="false">
@@ -228,5 +225,8 @@
 
     <!-- Class name of screen off fod handler -->
     <string name="config_fodScreenOffHandlerClass" translatable="false"></string>
+
+    <!-- Component name of popup camera service -->
+    <string name="config_popUpCameraServiceComponentName" translatable="false"></string>
 
 </resources>
