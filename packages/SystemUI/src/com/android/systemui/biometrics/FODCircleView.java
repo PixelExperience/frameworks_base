@@ -141,7 +141,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
 
-            if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+            if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
                 final SecurityMode sec = mUpdateMonitor.getSecurityMode();
                 final boolean maybeShow = sec == SecurityMode.Pattern ||
                         sec == SecurityMode.PIN;
