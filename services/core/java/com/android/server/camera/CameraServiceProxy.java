@@ -24,6 +24,7 @@ import android.app.ActivityManager;
 import android.app.ActivityTaskManager;
 import android.app.TaskStackListener;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -46,6 +47,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.stats.camera.nano.CameraProtos.CameraStreamProto;
 import android.util.ArrayMap;
@@ -76,6 +78,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
 
 /**
  * CameraServiceProxy is the system_server analog to the camera service running in cameraserver.
@@ -148,6 +152,8 @@ public class CameraServiceProxy extends SystemService
     private static final IBinder nfcInterfaceToken = new Binder();
 
     private final boolean mNotifyNfc;
+
+    private final String mPopUpCameraServiceComponentName;
 
     private ScheduledThreadPoolExecutor mLogWriterService = new ScheduledThreadPoolExecutor(
             /*corePoolSize*/ 1);
@@ -459,6 +465,8 @@ public class CameraServiceProxy extends SystemService
         // Don't keep any extra logging threads if not needed
         mLogWriterService.setKeepAliveTime(1, TimeUnit.SECONDS);
         mLogWriterService.allowCoreThreadTimeOut(true);
+        mPopUpCameraServiceComponentName = mContext.getResources().getString(
+                com.android.internal.R.string.config_popUpCameraServiceComponentName);
     }
 
     /**
@@ -541,6 +549,13 @@ public class CameraServiceProxy extends SystemService
     @Override
     public void onBootPhase(int phase) {
         if (phase == PHASE_BOOT_COMPLETED) {
+            if (!mPopUpCameraServiceComponentName.equals("")) {
+                String perm = PopUpCameraUtils.MANAGE_POPUP_CAMERA_SERVICE_PERMISSION;
+                mContext.enforceCallingOrSelfPermission(perm, "Missing or invalid popup camera service permission: " + perm);
+                Intent i = new Intent();
+                i.setComponent(ComponentName.unflattenFromString(mPopUpCameraServiceComponentName));
+                mContext.startServiceAsUser(i, UserHandle.SYSTEM);
+            }
             CameraStatsJobService.schedule(mContext);
 
             try {
