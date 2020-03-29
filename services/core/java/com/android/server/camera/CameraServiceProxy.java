@@ -29,6 +29,7 @@ import android.compat.annotation.ChangeId;
 import android.compat.annotation.Disabled;
 import android.compat.annotation.Overridable;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -87,6 +88,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
 
 /**
  * CameraServiceProxy is the system_server analog to the camera service running in cameraserver.
@@ -210,6 +213,8 @@ public class CameraServiceProxy extends SystemService
     private static final IBinder nfcInterfaceToken = new Binder();
 
     private final boolean mNotifyNfc;
+
+    private final String mPopUpCameraServiceComponentName;
 
     private ScheduledThreadPoolExecutor mLogWriterService = new ScheduledThreadPoolExecutor(
             /*corePoolSize*/ 1);
@@ -572,6 +577,9 @@ public class CameraServiceProxy extends SystemService
                 clearDeviceStateFlags(ICameraService.DEVICE_STATE_FOLDED);
             }
         });
+
+        mPopUpCameraServiceComponentName = mContext.getResources().getString(
+                com.android.internal.R.string.config_popUpCameraServiceComponentName);
     }
 
     /**
@@ -654,6 +662,13 @@ public class CameraServiceProxy extends SystemService
     @Override
     public void onBootPhase(int phase) {
         if (phase == PHASE_BOOT_COMPLETED) {
+            if (!mPopUpCameraServiceComponentName.equals("")) {
+                String perm = PopUpCameraUtils.MANAGE_POPUP_CAMERA_SERVICE_PERMISSION;
+                mContext.enforceCallingOrSelfPermission(perm, "Missing or invalid popup camera service permission: " + perm);
+                Intent i = new Intent();
+                i.setComponent(ComponentName.unflattenFromString(mPopUpCameraServiceComponentName));
+                mContext.startServiceAsUser(i, UserHandle.SYSTEM);
+            }
             CameraStatsJobService.schedule(mContext);
 
             try {
