@@ -9,7 +9,6 @@ import javax.inject.Singleton;
 
 @Singleton
 public class NotificationLockscreenUserManagerGoogle extends NotificationLockscreenUserManagerImpl {
-    @Inject
     public NotificationLockscreenUserManagerGoogle(Context context) {
         super(context);
     }

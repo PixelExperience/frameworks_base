@@ -22,10 +22,6 @@ public abstract class SystemUIGoogleModule {
         EnhancedEstimatesGoogleImpl enhancedEstimates);
 
     @Binds
-    abstract NotificationEntryManager bindNotificationEntryManager(
-        NotificationEntryManagerGoogle notificationEntryManagerManager);
-
-    @Binds
     abstract NotificationLockscreenUserManager bindNotificationLockscreenUserManager(
         NotificationLockscreenUserManagerGoogle notificationLockscreenUserManager);
 }
