@@ -5318,4 +5318,26 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
             proto.end(token);
         }
     }
+
+    @Override
+    public void longshotStart() {
+        try {
+            if (mClient != null) {
+                mClient.longshotStart();
+                Slog.d(TAG, " longshotStart");
+            }
+        } catch (RemoteException e) {
+        }
+    }
+
+    @Override
+    public void longshotStop() {
+        try {
+            if (mClient != null) {
+                Slog.i(TAG, " longshotStop");
+                mClient.longshotStop();
+            }
+        } catch (RemoteException e) {
+        }
+    }
 }

@@ -605,6 +605,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      */
     int mChildUnhandledKeyListeners = 0;
 
+    /** Longshot */
+    private ViewGroupInjector mViewGroupInjector;
+
     /**
      * Empty ActionMode used as a sentinel in recursive entries to startActionModeForChild.
      *
@@ -676,6 +679,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
         initViewGroup();
         initFromAttributes(context, attrs, defStyleAttr, defStyleRes);
+        mViewGroupInjector = new ViewGroupInjector();
     }
 
     private void initViewGroup() {
@@ -2786,6 +2790,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
         if (!handled && mInputEventConsistencyVerifier != null) {
             mInputEventConsistencyVerifier.onUnhandledEvent(ev, 1);
+        }
+        if (ev.getAction() == 0 && mLongshotUtils != null && !isGeneralScrollView()) {
+            mViewGroupInjector.updateLastItem(this, getLongshotUtils());
         }
         return handled;
     }

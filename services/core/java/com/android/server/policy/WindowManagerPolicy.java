@@ -482,6 +482,11 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
          * @return The {@link WindowFrames} associated with this {@link WindowState}
          */
         WindowFrames getWindowFrames();
+
+        /* Longshot */
+        void longshotStart();
+
+        void longshotStop();
     }
 
     /**
@@ -1502,4 +1507,12 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
      * @return whether the value was changed.
      */
     boolean setAodShowing(boolean aodShowing);
+
+    /**
+     * Long screenshot
+     * @hide
+     */
+    void takeOPScreenshot(int type);
+    void stopLongshotConnection();
+    void onLongshotStart();
 }

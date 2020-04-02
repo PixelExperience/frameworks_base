@@ -87,6 +87,7 @@ import static android.util.StatsLogInternal.BUBBLE_DEVELOPER_ERROR_REPORTED__ERR
 import static android.util.StatsLogInternal.BUBBLE_DEVELOPER_ERROR_REPORTED__ERROR__ACTIVITY_INFO_NOT_RESIZABLE;
 import static android.util.StatsLogInternal.BUBBLE_DEVELOPER_ERROR_REPORTED__ERROR__DOCUMENT_LAUNCH_NOT_ALWAYS;
 import static android.view.WindowManager.LayoutParams.TYPE_TOAST;
+import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_LONGSHOT;
 
 import static com.android.server.am.PendingIntentRecord.FLAG_ACTIVITY_SENDER;
 import static com.android.server.am.PendingIntentRecord.FLAG_BROADCAST_SENDER;
@@ -276,6 +277,8 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
+
+import com.android.internal.custom.longshot.OpLongScreenshotManagerService;
 
 /** {@hide} */
 public class NotificationManagerService extends SystemService {
@@ -2373,6 +2376,11 @@ public class NotificationManagerService extends SystemService {
                         }
 
                         Binder token = new Binder();
+                        if (OpLongScreenshotManagerService.OP_SCREENSHOT_PACKAGE.equals(pkg)) {
+                            mWindowManagerInternal.addWindowToken(token, TYPE_SYSTEM_LONGSHOT, displayId);
+                        } else {
+                            mWindowManagerInternal.addWindowToken(token, TYPE_TOAST, displayId);
+                        }
                         mWindowManagerInternal.addWindowToken(token, TYPE_TOAST, displayId);
                         record = new ToastRecord(callingPid, pkg, callback, duration, token,
                                 displayId);

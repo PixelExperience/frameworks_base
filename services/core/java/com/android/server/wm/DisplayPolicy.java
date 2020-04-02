@@ -3662,10 +3662,12 @@ public class DisplayPolicy {
      */
     public void takeScreenshot(int screenshotType) {
         if (mScreenshotHelper != null) {
-            mScreenshotHelper.takeScreenshot(screenshotType,
-                    mStatusBar != null && mStatusBar.isVisibleLw(),
-                    mNavigationBar != null && mNavigationBar.isVisibleLw(),
-                    mHandler, null /* completionConsumer */);
+            OpDisplayPolicyInjector.takeScreenshot(mFocusedWindow, mContext,
+                mDisplayContent.getDockedDividerController().isMinimizedDock(),
+                mScreenshotHelper, mService.mPolicy.isUserSetupComplete(),
+                mDisplayRotation, mStatusBar != null && mStatusBar.isVisibleLw(),
+                mNavigationBar != null && mNavigationBar.isVisibleLw(), mHandler,
+                screenshotType);
         }
     }
 
@@ -3797,5 +3799,11 @@ public class DisplayPolicy {
         final WindowManager wm = mContext.getSystemService(WindowManager.class);
         wm.removeView(mPointerLocationView);
         mPointerLocationView = null;
+    }
+
+    public void stopLongshotConnection() {
+        if (mScreenshotHelper != null) {
+            OpDisplayPolicyInjector.stopLongshotConnection(mScreenshotHelper, mFocusedWindow);
+        }
     }
 }
