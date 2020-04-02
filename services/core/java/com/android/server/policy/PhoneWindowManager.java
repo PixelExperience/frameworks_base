@@ -254,6 +254,8 @@ import java.util.List;
 
 import com.android.internal.util.custom.NavbarUtils;
 
+import com.android.internal.custom.longshot.ILongScreenshotManager;
+
 /**
  * WindowManagerPolicy implementation for the Android phone UI.  This
  * introduces a new method suffix, Lp, for an internal lock of the
@@ -697,6 +699,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
 
     private VolumeKeyHandler mVolumeKeyHandler;
+
+    private ILongScreenshotManager mLongScreenshotManager;
 
     private static final int MSG_DISPATCH_MEDIA_KEY_WITH_WAKE_LOCK = 3;
     private static final int MSG_DISPATCH_MEDIA_KEY_REPEAT_WITH_WAKE_LOCK = 4;
@@ -1698,6 +1702,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     void showGlobalActionsInternal() {
+        stopLongshot();
         if (mGlobalActions == null) {
             mGlobalActions = new GlobalActions(mContext, mWindowManagerFuncs);
         }
@@ -3895,6 +3900,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mDisplayFoldController != null) {
             mDisplayFoldController.onDefaultDisplayFocusChanged(
                     newFocus != null ? newFocus.getOwningPackage() : null);
+        }
+        ensureLongshotManager();
+        if (newFocus != null && mLongScreenshotManager != null) {
+            try {
+                if (mLongScreenshotManager.isLongshotMode()) {
+                    newFocus.longshotStop();
+                }
+            } catch (Exception e) {
+                Slog.d(TAG, e.toString());
+            }
         }
     }
 
@@ -6666,4 +6681,53 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
+    private void ensureLongshotManager(){
+        if (mLongScreenshotManager == null){
+            mLongScreenshotManager = ILongScreenshotManager.Stub.asInterface(ServiceManager.getService(Context.LONGSCREENSHOT_SERVICE));
+        }
+    }
+
+    private void stopLongshot() {
+        ensureLongshotManager();
+        if (mLongScreenshotManager != null) {
+            try {
+                if (mLongScreenshotManager.isLongshotMode()) {
+                    mLongScreenshotManager.stopLongshot(2);
+                }
+            } catch (Exception e) {
+                Slog.d(TAG, e.toString());
+            }
+        }
+    }
+
+    @Override
+    public void onLongshotStart() {
+        Log.i(TAG, "longshotStart");
+        WindowState focusedWindowState = mDefaultDisplayPolicy.getFocusedWindowState();
+        if (focusedWindowState != null) {
+            focusedWindowState.longshotStart();
+            ensureLongshotManager();
+            try {
+                IBinder windowToken = focusedWindowState.getWindowToken();
+                if (mLongScreenshotManager != null && mLongScreenshotManager.isLongshotMode()) {
+                    mLongScreenshotManager.notifyWindowLayerChange(windowToken);
+                }
+            } catch (Exception e) {
+                Slog.d(TAG, e.toString());
+            }
+        }
+    }
+
+    @Override
+    public void stopLongshotConnection() {
+        if (mDefaultDisplayPolicy != null) {
+            mDefaultDisplayPolicy.stopLongshotConnection();
+        }
+    }
+
+    @Override
+    public void takeOPScreenshot(int type, int reason) {
+        mScreenshotRunnable.setScreenshotType(type);
+        mHandler.post(mScreenshotRunnable);
+    }
 }

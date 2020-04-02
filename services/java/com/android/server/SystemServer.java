@@ -172,6 +172,9 @@ import java.util.concurrent.Future;
 import com.android.server.custom.LineageHardwareService;
 import com.android.server.custom.display.LiveDisplayService;
 
+// Long screenshot
+import com.android.internal.custom.longshot.OpLongScreenshotManagerService;
+
 public final class SystemServer {
 
     private static final String TAG = "SystemServer";
@@ -1090,6 +1093,10 @@ public final class SystemServer {
 
             traceBeginAndSlog("SignedConfigService");
             SignedConfigService.registerUpdateReceiver(mSystemContext);
+            traceEnd();
+
+            traceBeginAndSlog("OpLongScreenshotManagerService");
+            ServiceManager.addService(Context.LONGSCREENSHOT_SERVICE, OpLongScreenshotManagerService.getInstance(context).asBinder());
             traceEnd();
         } catch (RuntimeException e) {
             Slog.e("System", "******************************************");

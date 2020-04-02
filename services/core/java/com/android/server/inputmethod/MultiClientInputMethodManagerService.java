@@ -1429,6 +1429,12 @@ public final class MultiClientInputMethodManagerService {
 
         @BinderThread
         @Override
+        public boolean hideSoftInputForLongshot(int flags, ResultReceiver resultReceiver) {
+            return false;
+        }
+
+        @BinderThread
+        @Override
         public boolean showSoftInput(
                 IInputMethodClient client, int flags, ResultReceiver resultReceiver) {
             final int callingUid = Binder.getCallingUid();

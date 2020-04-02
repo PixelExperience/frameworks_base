@@ -379,6 +379,9 @@ public class DisplayPolicy {
 
     private SettingsObserver mSettingsObserver;
 
+    /** Long screenshot */
+    private int mDisplayRotation;
+
     /**
      * The area covered by system windows which belong to another display. Forwarded insets is set
      * in case this is a virtual display, this is displayed on another display that has insets, and
@@ -1469,6 +1472,7 @@ public class DisplayPolicy {
      */
     public void beginLayoutLw(DisplayFrames displayFrames, int uiMode) {
         displayFrames.onBeginLayout();
+        mDisplayRotation = displayFrames.mRotation;
         mSystemGestures.screenWidth = displayFrames.mUnrestricted.width();
         mSystemGestures.screenHeight = displayFrames.mUnrestricted.height();
 
@@ -3662,10 +3666,12 @@ public class DisplayPolicy {
      */
     public void takeScreenshot(int screenshotType) {
         if (mScreenshotHelper != null) {
-            mScreenshotHelper.takeScreenshot(screenshotType,
-                    mStatusBar != null && mStatusBar.isVisibleLw(),
-                    mNavigationBar != null && mNavigationBar.isVisibleLw(),
-                    mHandler, null /* completionConsumer */);
+            OpDisplayPolicyInjector.takeScreenshot(mFocusedWindow, mContext,
+                mDisplayContent.getDockedDividerController().isMinimizedDock(),
+                mScreenshotHelper, mService.mPolicy.isUserSetupComplete(),
+                mDisplayRotation, mStatusBar != null && mStatusBar.isVisibleLw(),
+                mNavigationBar != null && mNavigationBar.isVisibleLw(), mHandler,
+                screenshotType);
         }
     }
 
@@ -3797,5 +3803,15 @@ public class DisplayPolicy {
         final WindowManager wm = mContext.getSystemService(WindowManager.class);
         wm.removeView(mPointerLocationView);
         mPointerLocationView = null;
+    }
+
+    public void stopLongshotConnection() {
+        if (mScreenshotHelper != null) {
+            OpDisplayPolicyInjector.stopLongshotConnection(mScreenshotHelper, mFocusedWindow);
+        }
+    }
+
+    public WindowState getFocusedWindowState() {
+        return mFocusedWindow;
     }
 }
