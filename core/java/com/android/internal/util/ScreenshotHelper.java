@@ -19,6 +19,8 @@ import android.util.Log;
 
 import java.util.function.Consumer;
 
+import com.android.internal.custom.longshot.injector.ScreenshotHelperInjector;
+
 public class ScreenshotHelper {
     private static final String TAG = "ScreenshotHelper";
 
@@ -37,6 +39,7 @@ public class ScreenshotHelper {
 
     public ScreenshotHelper(Context context) {
         mContext = context;
+        mScreenshotHelperInjector = new ScreenshotHelperInjector(context);
     }
 
     /**
@@ -195,6 +198,10 @@ public class ScreenshotHelper {
         errorIntent.addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT |
                 Intent.FLAG_RECEIVER_FOREGROUND);
         mContext.sendBroadcastAsUser(errorIntent, UserHandle.CURRENT);
+    }
+
+    public ScreenshotHelperInjector getScreenshotHelperInjector() {
+        return mScreenshotHelperInjector;
     }
 
 }

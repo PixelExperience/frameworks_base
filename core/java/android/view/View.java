@@ -164,6 +164,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
+import com.android.internal.custom.longshot.injector.ViewInjector;
+import com.android.internal.custom.longshot.injector.OpViewInjector;
+import com.android.internal.custom.longshot.LongshotUtil;
+
 /**
  * <p>
  * This class represents the basic building block for user interface components. A View
@@ -5156,6 +5160,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Cached reference to the {@link ContentCaptureSession}, is reset on {@link #invalidate()}.
      */
     private ContentCaptureSession mCachedContentCaptureSession;
+
+
+    /** Longshot */
+    private String LONGSHOTDE_TAG = ViewInjector.LONGSHOTDE_TAG;
+    private boolean LONGSHOT_DEBUG = false;
+    protected LongshotUtil mLongshotUtils;
 
     /**
      * Simple constructor to use when creating a view from code.
@@ -15297,6 +15307,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 || (viewFlags & LONG_CLICKABLE) == LONG_CLICKABLE)
                 || (viewFlags & CONTEXT_CLICKABLE) == CONTEXT_CLICKABLE;
 
+        OpViewInjector.View.isInjection = (event.getSource() & InputDevice.SOURCE_CLASS_LONGSHOT) != 0;
+
         if ((viewFlags & ENABLED_MASK) == DISABLED) {
             if (action == MotionEvent.ACTION_UP && (mPrivateFlags & PFLAG_PRESSED) != 0) {
                 setPressed(false);
@@ -15311,6 +15323,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 return true;
             }
         }
+
+        ViewInjector.processActionDownLongshot(mContext, this);
 
         if (clickable || (viewFlags & TOOLTIP) == TOOLTIP) {
             switch (action) {
@@ -17839,6 +17853,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             mScrollY = y;
             invalidateParentCaches();
             onScrollChanged(mScrollX, mScrollY, oldX, oldY);
+            if mLongshotUtils != null && isGeneralScrollView()) {
+                onScrollChangedForLongshot(mScrollX, mScrollY, oldX, oldY);
+            }
             if (!awakenScrollBars()) {
                 postInvalidateOnAnimation();
             }
@@ -17982,7 +17999,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     protected boolean awakenScrollBars(int startDelay, boolean invalidate) {
         final ScrollabilityCache scrollCache = mScrollCache;
 
-        if (scrollCache == null || !scrollCache.fadeScrollBars) {
+        if (OpViewInjector.View.onAwakenScrollBars(mContext) || scrollCache == null || !scrollCache.fadeScrollBars) {
             return false;
         }
 
@@ -26372,6 +26389,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         onOverScrolled(newScrollX, newScrollY, clampedX, clampedY);
 
+        OpViewInjector.View.onOverScrolled(mContext, clampedY);
+
         return clampedX || clampedY;
     }
 
@@ -29824,5 +29843,26 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 }
             }
         }
+    }
+
+    public void setLongshotUtil(LongshotUtil util) {
+        mLongshotUtils = util;
+    }
+
+    public void onScrollChangedForLongshot(int x, int y, int oldx, int oldy) {
+        if (mLongshotUtils != null && OpViewInjector.View.isInjection) {
+            mLongshotUtils.onScrollChanged(getContext(), x, y, oldx, oldy);
+        }
+    }
+
+    public boolean isGeneralScrollView() {
+        if (mLongshotUtils != null) {
+            return !mLongshotUtils.isRecyclerView(this);
+        }
+        return true;
+    }
+
+    public LongshotUtil getLongshotUtils() {
+        return mLongshotUtils;
     }
 }
