@@ -590,6 +590,8 @@ public final class ViewRootImpl implements ViewParent,
 
     private final InputEventCompatProcessor mInputCompatProcessor;
 
+    private ViewRootImplInjector mViewRootImplInjector;
+
     /**
      * Consistency verifier for debugging purposes.
      */
@@ -646,6 +648,7 @@ public final class ViewRootImpl implements ViewParent,
         mFallbackEventHandler = new PhoneFallbackEventHandler(context);
         mChoreographer = Choreographer.getInstance();
         mDisplayManager = (DisplayManager)context.getSystemService(Context.DISPLAY_SERVICE);
+        mViewRootImplInjector = new ViewRootImplInjector(this);
 
         String processorOverrideName = context.getResources().getString(
                                     R.string.config_inputEventCompatProcessorOverrideClassName);
@@ -8730,6 +8733,30 @@ public final class ViewRootImpl implements ViewParent,
             }
         }
 
+        @Override
+        public void longshotStart() {
+            final ViewRootImpl viewAncestor = mViewAncestor.get();
+            if (viewAncestor != null) {
+                viewAncestor.longshotStart();
+            }
+        }
+
+        @Override
+        public void longshotStop() {
+            final ViewRootImpl viewAncestor = mViewAncestor.get();
+            if (viewAncestor != null) {
+                viewAncestor.longshotStop();
+            }
+        }
+
+    }
+
+    public void longshotStart() {
+        mViewRootImplInjector.longshotStart(mHandler, mView);
+    }
+
+    public void longshotStop() {
+        mViewRootImplInjector.longshotStop(mHandler, mView);
     }
 
     public static final class CalledFromWrongThreadException extends AndroidRuntimeException {

@@ -7813,4 +7813,19 @@ public class WindowManagerService extends IWindowManager.Stub
                     0 /* configChanges */, !PRESERVE_WINDOWS, true /* notifyClients */);
         }
     }
+
+    @Override
+    public void onLongshotStart() {
+        mPolicy.onLongshotStart();
+    }
+
+    @Override
+    public void stopLongshotConnection() {
+        mPolicy.stopLongshotConnection();
+    }
+
+    @Override
+    public void takeOPScreenshot(int type, int reason) {
+        mPolicy.takeOPScreenshot(type, reason);
+    }
 }
