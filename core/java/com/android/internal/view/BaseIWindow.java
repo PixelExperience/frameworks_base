@@ -145,4 +145,12 @@ public class BaseIWindow extends IWindow.Stub {
     @Override
     public void dispatchPointerCaptureChanged(boolean hasCapture) {
     }
+
+    @Override
+    public void longshotStart() {
+    }
+
+    @Override
+    public void longshotStop() {
+    }
 }

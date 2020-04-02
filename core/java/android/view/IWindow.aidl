@@ -123,4 +123,12 @@ oneway interface IWindow {
      * Tell the window that it is either gaining or losing pointer capture.
      */
     void dispatchPointerCaptureChanged(boolean hasCapture);
+
+    /**
+     * Long screenshot
+     * @hide
+     */
+    void longshotStart();
+
+    void longshotStop();
 }
