@@ -186,7 +186,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         @Override
         public void onStrongAuthStateChanged(int userId) {
-            mCanUnlockWithFp = canUnlockWithFp();
+            mCanUnlockWithFp = canUnlockWithFp(mUpdateMonitor);
             if (mIsShowing && !mCanUnlockWithFp){
                 hide();
             }
@@ -221,11 +221,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
     }
 
-    private boolean canUnlockWithFp() {
-        int currentUser = ActivityManager.getCurrentUser();
-        boolean biometrics = mUpdateMonitor.isUnlockingWithBiometricsPossible(currentUser);
+    public static boolean canUnlockWithFp(KeyguardUpdateMonitor updateMonitor) {
+        int currentUser = KeyguardUpdateMonitor.getCurrentUser();
+        boolean biometrics = updateMonitor.isUnlockingWithBiometricsPossible(currentUser);
         KeyguardUpdateMonitor.StrongAuthTracker strongAuthTracker =
-                mUpdateMonitor.getStrongAuthTracker();
+                updateMonitor.getStrongAuthTracker();
         int strongAuth = strongAuthTracker.getStrongAuthForUser(currentUser);
         if (biometrics && !strongAuthTracker.hasUserAuthenticatedSinceBoot()) {
             return false;
@@ -304,7 +304,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
 
-        mCanUnlockWithFp = canUnlockWithFp();
+        mCanUnlockWithFp = canUnlockWithFp(mUpdateMonitor);
 
         updateCutoutFlags();
 
