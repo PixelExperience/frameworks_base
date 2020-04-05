@@ -43,6 +43,8 @@ import android.util.Slog;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.server.LocalServices;
+import com.android.server.lights.Light;
+import com.android.server.lights.LightsManager;
 import com.android.server.ServiceThread;
 import com.android.server.SystemService;
 import com.android.server.wm.WindowManagerInternal;
@@ -135,6 +137,9 @@ public class CameraServiceProxy extends SystemService
 
     private long mClosedEvent;
     private long mOpenEvent;
+
+    // Popup light
+    private Light mPopUpLight;
 
     /**
      * Structure to track camera usage
@@ -309,6 +314,9 @@ public class CameraServiceProxy extends SystemService
         publishLocalService(CameraServiceProxy.class, this);
 
         CameraStatsJobService.schedule(mContext);
+
+        mPopUpLight = ((LightsManager) LocalServices.getService(LightsManager.class))
+                .getLight(LightsManager.LIGHT_ID_NOTIFICATIONS);
     }
 
     @Override
@@ -632,10 +640,25 @@ public class CameraServiceProxy extends SystemService
     }
 
     private void sendCameraStateIntent(String cameraState) {
+        boolean opened = cameraState.equals("1");
         Intent intent = new Intent(android.content.Intent.ACTION_CAMERA_STATUS_CHANGED);
         intent.putExtra(android.content.Intent.EXTRA_CAMERA_STATE, cameraState);
         mContext.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
-
+        if (PopUpCameraUtils.isLedEnabled()){
+            PopUpCameraUtils.blockBatteryLed(mContext, opened);
+            int onMs = 801;
+            int offMs = 0;
+            int color = 0;
+            if (opened) {
+                mPopUpLight.setFlashing(0, Lights.LIGHT_FLASH_NONE, onMs, offMs);
+            }
+            color = -1;
+            onMs = opened ? 801 : 802;
+            if (!opened) {
+                offMs = 802;
+            }
+            mPopUpLight.setFlashing(color, Lights.LIGHT_FLASH_HARDWARE, onMs, offMs);
+        }
     }
 
     private static String nfcNotifyToString(@NfcNotifyState int nfcNotifyState) {
