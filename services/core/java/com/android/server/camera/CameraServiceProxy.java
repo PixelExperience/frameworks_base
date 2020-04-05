@@ -43,6 +43,8 @@ import android.util.Slog;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.server.LocalServices;
+import com.android.server.lights.Light;
+import com.android.server.lights.LightsManager;
 import com.android.server.ServiceThread;
 import com.android.server.SystemService;
 import com.android.server.wm.WindowManagerInternal;
@@ -135,6 +137,10 @@ public class CameraServiceProxy extends SystemService
 
     private long mClosedEvent;
     private long mOpenEvent;
+
+    // Popup light
+    private final Handler mPopUpLightHandler;
+    private Light mPopUpLight;
 
     /**
      * Structure to track camera usage
@@ -256,6 +262,7 @@ public class CameraServiceProxy extends SystemService
         mHandlerThread = new ServiceThread(TAG, Process.THREAD_PRIORITY_DISPLAY, /*allowTo*/false);
         mHandlerThread.start();
         mHandler = new Handler(mHandlerThread.getLooper(), this);
+        mPopUpLightHandler = new Handler(mHandlerThread.getLooper(), this);
 
         int notifyNfc = SystemProperties.getInt(NFC_NOTIFICATION_PROP, 0);
         if (notifyNfc < NFC_NOTIFY_NONE || notifyNfc > NFC_NOTIFY_FRONT) {
@@ -309,6 +316,9 @@ public class CameraServiceProxy extends SystemService
         publishLocalService(CameraServiceProxy.class, this);
 
         CameraStatsJobService.schedule(mContext);
+
+        mPopUpLight = ((LightsManager) LocalServices.getService(LightsManager.class))
+                .getLight(LightsManager.LIGHT_ID_NOTIFICATIONS);
     }
 
     @Override
@@ -632,10 +642,35 @@ public class CameraServiceProxy extends SystemService
     }
 
     private void sendCameraStateIntent(String cameraState) {
+        boolean opened = cameraState.equals("1");
         Intent intent = new Intent(android.content.Intent.ACTION_CAMERA_STATUS_CHANGED);
         intent.putExtra(android.content.Intent.EXTRA_CAMERA_STATE, cameraState);
         mContext.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
+        if (PopUpCameraUtils.supportsLed(mContext)){
+            mPopUpLightHandler.removeCallbacksAndMessages(null);
+            boolean enabled = PopUpCameraUtils.isLedEnabled(mContext);
+            if (opened){
+                PopUpCameraUtils.blockBatteryLed(mContext, opened);
+            }else{
+                restoreBatteryLed();
+            }
+            if (enabled){
+                mPopUpLight.setFlashing(-1, Light.LIGHT_FLASH_NONE, 0, 0);
+                turnOffPopUpLight();
+            }
+        }
+    }
 
+    private void turnOffPopUpLight(){
+        mPopUpLightHandler.postDelayed(() -> {
+            mPopUpLight.setFlashing(0, Light.LIGHT_FLASH_NONE, 0, 0);
+        }, 1000);
+    }
+
+    private void restoreBatteryLed(){
+        mPopUpLightHandler.postDelayed(() -> {
+            PopUpCameraUtils.blockBatteryLed(mContext, false);
+        }, 1500);
     }
 
     private static String nfcNotifyToString(@NfcNotifyState int nfcNotifyState) {
