@@ -1,0 +1,7 @@
+<resources>
+    <!-- QS Details -->
+    <color name="qs_detail_toolbar_background">@*android:color/primary_dark_device_default_settings</color>
+    <color name="qs_detail_background">@*android:color/primary_dark_device_default_settings</color>
+
+</resources>
+
