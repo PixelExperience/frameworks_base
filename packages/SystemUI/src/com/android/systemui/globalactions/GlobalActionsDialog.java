@@ -634,6 +634,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
+            onPress();
             return true;
         }
     }
