@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplicație oprită</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automat</string>
     <string name="live_display_auto_summary">Reglează automat temperatura culorii ecranului în funcție de apus şi răsărit</string>

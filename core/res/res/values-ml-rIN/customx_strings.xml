@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">അപ്പ്ലിക്കേഷന്റെ പ്രവർത്തനം അവസാനിപ്പിച്ചു</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">ഓട്ടോമാറ്റിക്ക്</string>
     <string name="live_display_auto_summary">സൂര്യാസ്തമയത്തിനും സൂര്യോദയത്തിനും ശേഷം സ്ക്രീനിന്റെ കളര്‍ താപനില സ്വയം ക്രമീകരിക്കുക</string>
@@ -20,4 +21,6 @@
     <string name="accessibility_quick_settings_live_display_outdoor">ലൈവ്ഡിസ്പ്ലേ: ഔട്ഡോർ മോഡ്.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">ലൈവ്ഡിസ്പ്ലേ ഓഫ് ചെയ്തു.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">ലൈവ്ഡിസ്പ്ലേ ഓട്ടോ മോഡിലേക്ക് മാറ്റിയിരിക്കുന്നു.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">തത്സമയ പ്രദർശനം രാത്രി മോഡ്ൽലേക്ക് മാറിയിരിക്കുന്നു</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">തത്സമയ പ്രദർശനം ഔട്ഡോർ മോഡ്ലേക്ക് മാറിയിരിക്കുന്നു</string>
 </resources>

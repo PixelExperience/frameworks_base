@@ -10,7 +10,9 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">حالت دانلود</string>
     <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <string name="global_action_restart_fastboot">فست‌بوتd</string>
     <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">کنونی</string>
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">نشانگر چپ</string>
     <string name="accessibility_dpad_right">نشانگر راست</string>
@@ -71,7 +73,14 @@
     <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
     <string name="quick_settings_location_detail_mode_battery_saving_description">استفاده از Wi\u2011Fi, بلوتوث یا شبکه های تلفن همراه برای تعیین موقعیت</string>
     <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="quick_settings_location_detail_mode_sensors_only_description">استفاده از GPS برای تعیین موقعیت مکانی</string>
     <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">وی.پی.ان (VPN)</string>
+    <string name="quick_settings_vpn_connect_dialog_title">اتصال به \u2026</string>
+    <string name="vpn_credentials_hint">لطفا برای اتصال به <xliff:g id="name">%s</xliff:g> اطلاعات خود را وارد کنید</string>
+    <string name="vpn_credentials_username">نام کاربری</string>
+    <string name="vpn_credentials_password">کلمه عبور</string>
+    <string name="vpn_credentials_dialog_connect">اتصال</string>
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">برای افزودن، کاشی‌ها را بکشید یا روی آن‌ها ضربه بزنید</string>
     <!-- Status bar network traffic monitor strings -->

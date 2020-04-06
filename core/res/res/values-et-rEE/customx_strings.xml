@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Rakendus sundsuletud</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaatne</string>
     <string name="live_display_auto_summary">Automaatselt reguleeri ekraani värvitemperatuuri pärast päikeseloojangut ja -tõusu</string>

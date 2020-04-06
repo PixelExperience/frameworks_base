@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Приложение закрыто</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Автоматически</string>
-    <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и восхода солнца</string>
+    <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и рассвета</string>
     <string name="live_display_off">Отключить</string>
     <string name="live_display_off_summary">Отключить автоподстройку</string>
     <string name="live_display_day">День</string>

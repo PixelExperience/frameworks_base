@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">已強制結束應用程式</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">自動</string>
     <string name="live_display_auto_summary">依日夜週期自動調節螢幕色溫</string>

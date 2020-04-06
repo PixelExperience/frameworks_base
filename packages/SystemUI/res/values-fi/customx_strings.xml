@@ -10,6 +10,7 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Lataa</string>
     <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <string name="global_action_restart_fastboot">Nopealähtö</string>
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Nykyinen</string>
     <!-- Navigation bar dpad -->
@@ -43,14 +44,14 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient-näyttö pois päältä.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient-näyttö päällä.</string>
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Sijainnin raportointi: virransäästötila.</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Sijainnin raportointi: akunsäästötila.</string>
     <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Sijainti: Vain laite.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Sijainti: ei näyttö</string>
     <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_location_high_accuracy">Sijainnin raportointi: korkea tarkkuus.</string>
     <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Virransäästö</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Virran-\nsäästö</string>
+    <string name="quick_settings_location_battery_saving_label">Akunsäästö</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Akku\nsäästö</string>
     <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
     <string name="quick_settings_location_gps_only_label">Vain laite</string>
     <string name="quick_settings_location_gps_only_label_twoline">Vain\nlaite</string>
@@ -64,7 +65,7 @@
     <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
     <string name="quick_settings_location_detail_mode_high_accuracy_title">Korkea tarkkuus</string>
     <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Virransäästö</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Akunsäästö</string>
     <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
     <string name="quick_settings_location_detail_mode_sensors_only_title">Vain laite</string>
     <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
@@ -74,9 +75,17 @@
     <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
     <string name="quick_settings_location_detail_mode_sensors_only_description">Paikanna sijaintisi GPS:n avulla</string>
     <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Yhdistä profiiliin...</string>
+    <string name="vpn_credentials_hint">Syötä tietosi yhdistääksesi <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Käyttäjänimi</string>
+    <string name="vpn_credentials_password">Salasana</string>
+    <string name="vpn_credentials_dialog_connect">Yhdistä</string>
     <!-- QS customizer -->
-    <string name="drag_or_tap_to_add_tiles">Vedä tai paina lisääksesi/poistaaksesi tiilejä</string>
+    <string name="drag_or_tap_to_add_tiles">Vedä tai paina lisääksesi/poistaaksesi </string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/s</string>
+    <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kt/s</string>
     <string name="megabytespersecond_short">Mt/s</string>
     <!-- 4G LTE switch -->
@@ -85,7 +94,7 @@
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Lukutila</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lukutila päällä.</string>
-    <string name="accessibility_quick_settings_reading_mode_off">Lukutila pois.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lukutila pois päältä.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lukutila otettiin käyttöön.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lukutila poistettiin käytöstä.</string>
 </resources>
