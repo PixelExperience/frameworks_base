@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar"> ئەمە لە پیشاندان دەمێنێتەوە تاکو بەریدەدەیتەوە. گرتە لە&amp;  دوگمەی گەڕانەوە داگرە بۆ بەردانەوە.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">بۆ بەردانەوەی ئەم پەردەیە، گرتە لە &amp; پەنجە لەسەر دوگمەی گەڕانەوە ڕاگرە</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">ئەمە لە پیشاندان دەمێنێتەوە تاوەکو بەریدەدەیتەوە. گرتە لە &amp;  پەنجە لەسەر هەستەوەری پەنجەمۆر ڕاگرە بۆ بەردانەوە.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">بۆ بەردانی ئەم پەردەیە ، گرتەبکە &amp; هەستەوەری پەنجەمۆر داگرە</string>
+</resources>
