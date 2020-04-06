@@ -24,7 +24,12 @@
     <!-- Unlock ripple animation -->
     <bool name="config_enableUnlockRippleAnimation">true</bool>
 
+<<<<<<< HEAD   (d50be0 Notifications channels are not locked at first boot)
     <!-- Body font family -->
     <string name="config_bodyFontFamily">@*android:string/config_bodyFontFamily</string>
+=======
+    <!-- Whether usage of the proximity sensor during doze is supported -->
+    <bool name="doze_proximity_sensor_supported">true</bool>
+>>>>>>> CHANGE (635a81 DozeSensors: only use proximity sensor if supported)
 
 </resources>
