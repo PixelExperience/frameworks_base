@@ -11,7 +11,7 @@
     <string name="live_display_day_summary">Utilizar solo los ajustes de día</string>
     <string name="live_display_night">Noche</string>
     <string name="live_display_night_summary">Utilizar solo los ajustes de noche</string>
-    <string name="live_display_outdoor">Al aire libre (luz del sol)</string>
+    <string name="live_display_outdoor">Al aire libre (luz solar)</string>
     <string name="live_display_outdoor_summary">Utilizar solo los ajustes al aire libre</string>
     <string name="live_display_hint">LiveDisplay puede reducir la fatiga visual y ayudarte a dormir por la noche. ¡Toca aquí para probarlo!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivado.</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplikácia bola ukončená</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaticky</string>
     <string name="live_display_auto_summary">Automaticky upraviť teplotu farieb obrazovky po západe a východe slnka</string>

@@ -5,7 +5,9 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">ڈاؤن لوڈ</string>
     <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <string name="global_action_restart_fastboot">فاسٹ بوٹ</string>
     <!-- Label for current user in power menu options dialog -->
     <!-- Navigation bar dpad -->
     <!-- Custom QS tiles -->
@@ -30,6 +32,7 @@
     <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
     <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
     <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">وی پی این</string>
     <!-- QS customizer -->
     <!-- Status bar network traffic monitor strings -->
     <!-- 4G LTE switch -->
