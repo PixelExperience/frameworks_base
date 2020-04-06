@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Η εφαρμογή τερματίστηκε</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Αυτόματο</string>
     <string name="live_display_auto_summary">Αυτόματη ρύθμιση της θερμοκρασίας χρώματος της οθόνης μετά τη δύση και την ανατολή του ηλίου</string>

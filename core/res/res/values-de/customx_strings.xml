@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Anwendung wurde geschlossen</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatisch</string>
     <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
@@ -11,7 +12,7 @@
     <string name="live_display_night">Nacht</string>
     <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
     <string name="live_display_outdoor">Draußen (helle Sonne)</string>
-    <string name="live_display_outdoor_summary">Nur Draußen-Modus verwenden</string>
+    <string name="live_display_outdoor_summary">Nur Außen-Modus verwenden</string>
     <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>

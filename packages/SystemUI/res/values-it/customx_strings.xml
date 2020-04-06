@@ -10,7 +10,7 @@
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
     <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
-    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_fastboot">Fastboot</string>
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Attuale</string>
     <!-- Navigation bar dpad -->
@@ -22,27 +22,27 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeina off.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeina on.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads Up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads Up disattivato.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads Up attivo.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up disattivato.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up attivato.</string>
+    <string name="quick_settings_heads_up_label">Notifiche a comparsa</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifiche a comparsa non attive.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifiche a comparsa attive.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche a comparsa disattivate.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche a comparsa attivate.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronizzazione</string>
-    <string name="accessibility_quick_settings_sync_off">Sincronia OFF</string>
-    <string name="accessibility_quick_settings_sync_on">Sincronia ON.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione spenta.</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizzazione non attiva.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizzazione attiva.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata.</string>
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Pannello volume</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient display disattivato.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient display attivato.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display disattivato.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display attivato.</string>
+    <string name="quick_settings_ambient_display_label">Display ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Display ambient non attivo.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Display ambient attivo.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Display ambient disattivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Display ambient attivato.</string>
     <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_location_battery_saving">Geolocalizzazione: modalità risparmio batteria.</string>
     <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -84,6 +84,10 @@
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Tieni premuto e trascina per aggiungere riquadri</string>
     <!-- Status bar network traffic monitor strings -->
+    <string name="kilobitspersecond_short">kb/s</string>
+    <string name="megabitspersecond_short">Mb/s</string>
+    <string name="kilobytespersecond_short">kB/s</string>
+    <string name="megabytespersecond_short">MB/s</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Mostra 4G al posto di LTE</string>
     <string name="show_fourg_summary">Sostituisci l\'icona di stato LTE con 4G</string>
