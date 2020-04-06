@@ -9,5 +9,9 @@
     <color name="edge_light_red">#ea4234</color>
     <color name="edge_light_yellow">#fbbc06</color>
 
+    <!-- QS Details -->
+    <color name="qs_detail_toolbar_background">@*android:color/secondary_material_settings_light</color>
+    <color name="qs_detail_background">@color/qs_detail_transition</color>
+
 </resources>
 
