@@ -19,6 +19,9 @@
         of waking the screen while the screen is off or in lpm. -->
     <bool name="config_pulseOnFingerDown">false</bool>
 
+    <!-- Whether usage of the proximity sensor during doze is supported -->
+    <bool name="doze_proximity_sensor_supported">true</bool>
+
     <!-- SystemUI Google -->
     <bool name="flag_monet">true</bool>
     <bool name="flag_smartspace">true</bool>
