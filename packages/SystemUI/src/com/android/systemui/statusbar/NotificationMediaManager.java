@@ -506,7 +506,7 @@ public class NotificationMediaManager implements Dumpable {
     private void finishUpdateMediaMetaData(boolean metaDataChanged, boolean allowEnterAnimation,
             @Nullable Bitmap bmp) {
         Drawable artworkDrawable = null;
-        if (bmp != null) {
+        if (bmp != null && (mShowMediaMetadata || !ENABLE_LOCKSCREEN_WALLPAPER)) {
             artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), bmp);
         }
         boolean hasMediaArtwork = artworkDrawable != null;
