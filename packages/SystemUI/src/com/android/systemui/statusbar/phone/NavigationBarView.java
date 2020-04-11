@@ -726,9 +726,10 @@ public class NavigationBarView extends FrameLayout implements
             disableHome = true;
             disableHomeHandle = true;
             disableRecent = true;
+            disableBack = true;
         }
 
-        if (mKeyguardBouncerShowing){
+        if (mKeyguardBouncerShowing && !isGesturalMode(mNavBarMode)){
             disableBack = false;
         }
 
