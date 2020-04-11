@@ -224,8 +224,7 @@ sk_sp<SkImage> ImageConsumer::dequeueImage(bool* queueEmpty, SurfaceTexture& st,
             uirenderer::RenderPipelineType::SkiaGL) {
             err = renderState.getRenderThread().eglManager().fenceWait(item.mFence);
         } else {
-            err = renderState.getRenderThread().vulkanManager().fenceWait(
-                    item.mFence, renderState.getRenderThread().getGrContext());
+            err = renderState.getRenderThread().vulkanManager().fenceWait(item.mFence);
         }
         if (err != OK) {
             st.releaseBufferLocked(slot, st.mSlots[slot].mGraphicBuffer, EGL_NO_DISPLAY,
@@ -247,8 +246,7 @@ sk_sp<SkImage> ImageConsumer::dequeueImage(bool* queueEmpty, SurfaceTexture& st,
             err = eglManager.createReleaseFence(st.mUseFenceSync, &mImageSlots[slot].eglFence(),
                                                 releaseFence);
         } else {
-            err = renderState.getRenderThread().vulkanManager().createReleaseFence(
-                    releaseFence, renderState.getRenderThread().getGrContext());
+            err = renderState.getRenderThread().vulkanManager().createReleaseFence(releaseFence);
         }
         if (OK != err) {
             st.releaseBufferLocked(slot, st.mSlots[slot].mGraphicBuffer, EGL_NO_DISPLAY,
