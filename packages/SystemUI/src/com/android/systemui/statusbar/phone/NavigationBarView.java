@@ -44,6 +44,8 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.Region.Op;
 import android.os.Bundle;
+import android.os.UserManager;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
@@ -62,6 +64,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.keyguard.KeyguardUpdateMonitor;
+import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.Dependency;
 import com.android.systemui.DockedStackExistsListener;
 import com.android.systemui.Interpolators;
@@ -152,6 +156,8 @@ public class NavigationBarView extends FrameLayout implements
      * fully locked mode we only show that unlocking is blocked.
      */
     private ScreenPinningNotify mScreenPinningNotify;
+
+    private final UserManager mUserManager;
 
     private class NavTransitionListener implements TransitionListener {
         private boolean mBackTransitioning;
@@ -257,8 +263,22 @@ public class NavigationBarView extends FrameLayout implements
         info.touchableRegion.setEmpty();
     };
 
+    private boolean mKeyguardBouncerShowing;
+    private KeyguardUpdateMonitor mUpdateMonitor;
+    private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
+        @Override
+        public void onKeyguardBouncerChanged(boolean isBouncer) {
+            if (mKeyguardBouncerShowing != isBouncer){
+                mKeyguardBouncerShowing = isBouncer;
+                updateNavButtonIcons();
+            }
+        }
+    };
+
     public NavigationBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mUserManager = context.getSystemService(UserManager.class);
 
         mIsVertical = false;
         mLongClickableAccessibilityButton = false;
@@ -660,6 +680,17 @@ public class NavigationBarView extends FrameLayout implements
                     lt.addTransitionListener(mTransitionListener);
                 }
             }
+        }
+
+        int userId = KeyguardUpdateMonitor.getCurrentUser();
+        if (!mUserManager.isUserUnlocked(userId)) {
+            disableHome = true;
+            disableHomeHandle = true;
+            disableRecent = true;
+        }
+
+        if (mKeyguardBouncerShowing){
+            disableBack = false;
         }
 
         getBackButton().setVisibility(disableBack      ? View.INVISIBLE : View.VISIBLE);
@@ -1072,6 +1103,8 @@ public class NavigationBarView extends FrameLayout implements
         requestApplyInsets();
         reorient();
         onNavigationModeChanged(mNavBarMode);
+        mUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
+        mUpdateMonitor.registerCallback(mMonitorCallback);
         setUpSwipeUpOnboarding(isQuickStepSwipeUpEnabled());
         if (mRotationButtonController != null) {
             mRotationButtonController.registerListeners();
@@ -1084,6 +1117,7 @@ public class NavigationBarView extends FrameLayout implements
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        mUpdateMonitor.removeCallback(mMonitorCallback);
         Dependency.get(NavigationModeController.class).removeListener(this);
         setUpSwipeUpOnboarding(false);
         for (int i = 0; i < mButtonDispatchers.size(); ++i) {
