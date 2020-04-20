@@ -90,6 +90,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private boolean mIsCircleShowing;
     private boolean mCanUnlockWithFp;
 
+    private float mCurrentDimAmount = 0.0f;
+
     private Handler mHandler;
 
     private Timer mBurnInProtectionTimer;
@@ -313,6 +315,16 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         updateCutoutFlags();
 
         Dependency.get(ConfigurationController.class).addCallback(this);
+
+        getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            float drawingDimAmount = mParams.dimAmount;
+            if (mCurrentDimAmount == 0.0f && drawingDimAmount > 0.0f) {
+                dispatchPress();
+                mCurrentDimAmount = drawingDimAmount;
+            } else if (mCurrentDimAmount > 0.0f && drawingDimAmount == 0.0f) {
+                mCurrentDimAmount = drawingDimAmount;
+            }
+        });
     }
 
     @Override
@@ -409,7 +421,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         setDim(true);
         updateAlpha();
-        dispatchPress();
 
         mPaintFingerprint.setColor(mColor);
 
