@@ -98,6 +98,7 @@ android_library {
         "lottie",
         "tensorflowlite_java",
         "SystemUIGoogle-lib",
+        "vendor.lineage.powershare-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["SystemUIGoogle-Manifest.xml"],
@@ -186,6 +187,7 @@ android_library {
         "dagger2",
         "jsr330",
         "WindowManager-Shell",
+        "vendor.lineage.powershare-V1.0-java",
     ],
     libs: [
         "android.test.runner",
