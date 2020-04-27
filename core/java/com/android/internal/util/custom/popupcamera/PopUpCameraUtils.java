@@ -15,6 +15,23 @@
 */
 package com.android.internal.util.custom.popupcamera;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.UserHandle;
+
 public class PopUpCameraUtils {
-    public static String MANAGE_POPUP_CAMERA_SERVICE_PERMISSION = "org.pixelexperience.device.MANAGE_POPUP_CAMERA_SERVICE";
+    public static String MANAGE_POPUP_CAMERA_SERVICE_PERMISSION =
+            "org.pixelexperience.device.MANAGE_POPUP_CAMERA_SERVICE";
+
+    public static String ACTION_BATTERY_LED_STATE_OVERRIDE =
+            "android.intent.action.BATTERY_LED_STATE_OVERRIDE";
+
+    public static String EXTRA_OVERRIDE_BATTERY_LED_STATE =
+            "android.intent.extra.OVERRIDE_BATTERY_LED_STATE";
+
+    public static void blockBatteryLed(Context context, boolean blocked) {
+        Intent intent = new Intent(ACTION_BATTERY_LED_STATE_OVERRIDE);
+        intent.putExtra(EXTRA_OVERRIDE_BATTERY_LED_STATE, blocked);
+        context.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
+    }
 }
