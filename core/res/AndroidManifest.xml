@@ -642,6 +642,9 @@
     <!-- Used for long press power torch feature - automatic turn off on timeout -->
     <protected-broadcast android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
 
+    <!-- Used to force the state of battery led -->
+    <protected-broadcast android:name="android.intent.action.BATTERY_LED_STATE_OVERRIDE" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
