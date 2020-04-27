@@ -4779,26 +4779,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to turn on the notification light when the state of the front camera changes
-         * 0 = 0ff, 1 = on
-         */
-        public static final String POPUP_CAMERA_LED_ENABLED = "popup_camera_led_enabled";
-
-        /** @hide */
-        public static final Validator POPUP_CAMERA_LED_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether battery led is temporarily blocked
-         * 0 = 0ff, 1 = on
-         */
-        public static final String POPUP_CAMERA_BATTERY_LED_BLOCKED = "popup_camera_battery_led_blocked";
-
-        /** @hide */
-        public static final Validator POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to allow killing of the foreground app by long-pressing the Back button
          * @hide
          */
@@ -5764,8 +5744,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(REFRESH_RATE_SETTING);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
-            PRIVATE_SETTINGS.add(POPUP_CAMERA_LED_ENABLED);
-            PRIVATE_SETTINGS.add(POPUP_CAMERA_BATTERY_LED_BLOCKED);
             PRIVATE_SETTINGS.add(KILL_APP_LONGPRESS_BACK);
             PRIVATE_SETTINGS.add(POWER_MENU_ACTIONS);
             PRIVATE_SETTINGS.add(ADVANCED_REBOOT);
@@ -5955,8 +5933,6 @@ public final class Settings {
             VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_MODE_OVERLAY, NAVIGATION_BAR_MODE_OVERLAY_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
-            VALIDATORS.put(POPUP_CAMERA_LED_ENABLED, POPUP_CAMERA_LED_ENABLED_VALIDATOR);
-            VALIDATORS.put(POPUP_CAMERA_BATTERY_LED_BLOCKED, POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR);
             VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
             VALIDATORS.put(POWER_MENU_ACTIONS, POWER_MENU_ACTIONS_VALIDATOR);
             VALIDATORS.put(ADVANCED_REBOOT, ADVANCED_REBOOT_VALIDATOR);
