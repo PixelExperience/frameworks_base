@@ -639,9 +639,6 @@
     <protected-broadcast
         android:name="com.android.server.connectivity.tethering.PROVISIONING_RECHECK_ALARM" />
 
-    <!-- Used to get camera status. -->
-    <protected-broadcast android:name="android.intent.action.CAMERA_STATUS_CHANGED" />
-
     <!-- Used for long press power torch feature - automatic turn off on timeout -->
     <protected-broadcast android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
 
