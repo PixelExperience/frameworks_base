@@ -656,6 +656,10 @@
     <!-- For tether entitlement recheck-->
     <protected-broadcast
         android:name="com.android.server.connectivity.tethering.PROVISIONING_RECHECK_ALARM" />
+
+    <!-- Used to force the state of battery led -->
+    <protected-broadcast android:name="android.intent.action.BATTERY_LED_STATE_OVERRIDE" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
