@@ -312,8 +312,8 @@ public final class BatteryService extends SystemService {
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.BATTERY_LIGHT_ENABLED),
+            resolver.registerContentObserver(Settings.Global.getUriFor(
+                    Settings.Global.BATTERY_LIGHT_ENABLED),
                     false, this, UserHandle.USER_ALL);
             update();
         }
@@ -326,8 +326,8 @@ public final class BatteryService extends SystemService {
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
             Resources res = mContext.getResources();
-            mBatteryLightEnabled = Settings.System.getInt(resolver,
-                    Settings.System.BATTERY_LIGHT_ENABLED, mContext.getResources().getBoolean(
+            mBatteryLightEnabled = Settings.Global.getInt(resolver,
+                    Settings.Global.BATTERY_LIGHT_ENABLED, mContext.getResources().getBoolean(
                         com.android.internal.R.bool.config_intrusiveBatteryLed) ? 1 : 0) == 1;
             updateLed();
         }
