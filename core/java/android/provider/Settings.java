@@ -4769,16 +4769,6 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
-        * Whether to allow battery light
-        * @hide
-        */
-        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
-
-        /** @hide */
-        public static final Validator BATTERY_LIGHT_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to allow killing of the foreground app by long-pressing the Back button
          * @hide
          */
@@ -5743,7 +5733,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(REFRESH_RATE_SETTING);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
             PRIVATE_SETTINGS.add(KILL_APP_LONGPRESS_BACK);
             PRIVATE_SETTINGS.add(POWER_MENU_ACTIONS);
             PRIVATE_SETTINGS.add(ADVANCED_REBOOT);
@@ -5932,7 +5921,6 @@ public final class Settings {
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(REFRESH_RATE_SETTING, REFRESH_RATE_SETTING_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_MODE_OVERLAY, NAVIGATION_BAR_MODE_OVERLAY_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
             VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
             VALIDATORS.put(POWER_MENU_ACTIONS, POWER_MENU_ACTIONS_VALIDATOR);
             VALIDATORS.put(ADVANCED_REBOOT, ADVANCED_REBOOT_VALIDATOR);
@@ -15153,6 +15141,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_DISABLE_POWER_MENU = "LOCKSCREEN_DISABLE_POWER_MENU";
 
+
+        /**
+        * Whether to allow battery light
+        * @hide
+        */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /** @hide */
+        public static final Validator BATTERY_LIGHT_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -15271,6 +15270,7 @@ public final class Settings {
             VALIDATORS.put(POWER_BUTTON_LONG_PRESS, POWER_BUTTON_LONG_PRESS_VALIDATOR);
             VALIDATORS.put(POWER_BUTTON_VERY_LONG_PRESS, POWER_BUTTON_VERY_LONG_PRESS_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_BUBBLES, NOTIFICATION_BUBBLES_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
         }
 
         /**
