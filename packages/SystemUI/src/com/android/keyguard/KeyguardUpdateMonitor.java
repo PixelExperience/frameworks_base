@@ -121,7 +121,7 @@ import java.util.function.Consumer;
 public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
     private static final String TAG = "KeyguardUpdateMonitor";
-    private static final boolean DEBUG = KeyguardConstants.DEBUG;
+    private static final boolean DEBUG = false;
     private static final boolean DEBUG_SIM_STATES = KeyguardConstants.DEBUG_SIM_STATES;
     private static final boolean DEBUG_FACE = true;
     private static final int LOW_BATTERY_THRESHOLD = 20;
@@ -1626,8 +1626,18 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     }
 
     private void updateBiometricListeningState() {
+        updateBiometricListeningState(false);
+    }
+
+    private void updateBiometricListeningState(boolean fromBouncerChangedCallback) {
         updateFingerprintListeningState();
-        updateFaceListeningState();
+        if (fromBouncerChangedCallback && mFaceAuthOnlyOnSecurityView){
+            mHandler.postDelayed(() -> {
+                updateFaceListeningState();
+            }, 500);
+        }else{
+            updateFaceListeningState();
+        }
     }
 
     private void updateFingerprintListeningState() {
@@ -2268,7 +2278,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 cb.onKeyguardBouncerChanged(isBouncer);
             }
         }
-        updateBiometricListeningState();
+        updateBiometricListeningState(true);
     }
 
     /**
