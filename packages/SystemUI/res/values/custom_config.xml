@@ -36,4 +36,13 @@
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
 
+<<<<<<< HEAD   (ab214c FODCircleView: Remove animation)
+=======
+    <!-- Asus stitch editor component name -->
+    <string name="config_stitchEditor">com.asus.stitchimage/com.asus.stitchimage.editor.ScreenshotEditorActivity</string>
+
+    <!-- Whether to disable assist hint on lockscreen -->
+    <bool name="config_disableAssistHintOnLockscreen">false</bool>
+
+>>>>>>> CHANGE (30100b SystemUI: Add overlay to disable assist hint on lockscreen)
 </resources>
