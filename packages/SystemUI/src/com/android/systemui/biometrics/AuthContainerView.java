@@ -300,6 +300,8 @@ public class AuthContainerView extends LinearLayout
         mBackgroundView = mInjector.getBackgroundView(mFrameLayout);
 
         addView(mFrameLayout);
+        mBiometricScrollView.setClipChildren(false);
+        mFrameLayout.setClipChildren(false);
 
         // TODO: De-dupe the logic with AuthCredentialPasswordView
         setOnKeyListener((v, keyCode, event) -> {
@@ -430,7 +432,6 @@ public class AuthContainerView extends LinearLayout
                         .translationY(0)
                         .setDuration(ANIMATION_DURATION_SHOW_MS)
                         .setInterpolator(mLinearOutSlowIn)
-                        .withLayer()
                         .start();
                 if (mCredentialView != null && mCredentialView.isAttachedToWindow()) {
                     mCredentialView.setY(mTranslationY);
@@ -571,7 +572,6 @@ public class AuthContainerView extends LinearLayout
                     .translationY(mTranslationY)
                     .setDuration(ANIMATION_DURATION_AWAY_MS)
                     .setInterpolator(mLinearOutSlowIn)
-                    .withLayer()
                     .start();
             if (mCredentialView != null && mCredentialView.isAttachedToWindow()) {
                 mCredentialView.animate()

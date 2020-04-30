@@ -5258,6 +5258,13 @@ public final class Settings {
         public static final String FOD_GESTURE = "fod_gesture";
 
         /**
+         * Indicates whether we should only show the app lock view when the device is woken up
+         * Or always.
+         * @hide
+         */
+        public static final String APP_LOCK_SHOW_ONLY_ON_WAKE = "app_lock_show_only_on_wake";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
