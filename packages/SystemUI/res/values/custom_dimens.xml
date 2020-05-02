@@ -54,4 +54,8 @@
     <!-- Qs visibility -->
     <dimen name="qs_tile_height_wo_label">64dp</dimen>
 
+    <!-- Network traffic monitor -->
+    <dimen name="net_traffic_multi_text_size">14dp</dimen>
+    <dimen name="net_traffic_txt_img_padding">5dp</dimen>
+
 </resources>
