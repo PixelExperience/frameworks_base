@@ -1793,14 +1793,29 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.STATUS_BAR_CLOCK, 2);
     }
 
-    private void updateCutoutOverlay() {
+    private boolean isNetworkTrafficShowingOnStatusbar() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 0) == 1;
+    }
+
+    private void setNetworkTrafficEnabledOnQs() {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 2);
+    }
+
+    private void updateCutoutOverlay(boolean force) {
         boolean displayCutoutHidden = Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
-        if (mDisplayCutoutHidden != displayCutoutHidden){
+        if (force || mDisplayCutoutHidden != displayCutoutHidden){
             mDisplayCutoutHidden = displayCutoutHidden;
             if (!mDisplayCutoutHidden && CutoutUtils.hasCenteredCutout(mContext, true) && isCenteredClock()){
                 moveClockToLeft();
             }
+
+            if (!mDisplayCutoutHidden && isNetworkTrafficShowingOnStatusbar()){
+                setNetworkTrafficEnabledOnQs();
+            }
+
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
@@ -4957,7 +4972,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.NAVIGATION_BAR_SHOW))) {
                 updateNavigationBar();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_HIDDEN))) {
-                updateCutoutOverlay();
+                updateCutoutOverlay(false);
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_PORTRAIT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_LANDSCAPE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_PORTRAIT)) ||
@@ -4969,7 +4984,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         public void update() {
-            updateCutoutOverlay();
+            updateCutoutOverlay(true);
             setQsRowsColumns();
         }
     }
