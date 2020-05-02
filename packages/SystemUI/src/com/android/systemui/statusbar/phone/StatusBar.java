@@ -1793,6 +1793,16 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.STATUS_BAR_CLOCK, 2);
     }
 
+    private boolean isNetworkTrafficShowingOnStatusbar() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 0) == 1;
+    }
+
+    private void setNetworkTrafficEnabledOnQs() {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 2);
+    }
+
     private void updateCutoutOverlay() {
         boolean displayCutoutHidden = Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
@@ -1801,6 +1811,11 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (!mDisplayCutoutHidden && CutoutUtils.hasCenteredCutout(mContext, true) && isCenteredClock()){
                 moveClockToLeft();
             }
+
+            if (!mDisplayCutoutHidden && isNetworkTrafficShowingOnStatusbar()){
+                setNetworkTrafficEnabledOnQs();
+            }
+
             mUiOffloadThread.submit(() -> {
                 try {
                     mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
