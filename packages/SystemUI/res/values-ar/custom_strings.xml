@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">هذا يجعلها في العرض حتى تقوم بإلغاء التثبيت. اضغط مطولاً على مستشعر البصمة لإلغاء التثبيت.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">لإلغاء تثبيت هذه الشاشة, استمر بالضغط على مستشعر البصمة</string>
+    <!-- PowerShare QS tile -->
 </resources>

@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per fer-ho, toca i mantén premut el lector d\'empremtes dactilars.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Toca i mantén premut el sensor d\'empremtes dactilars per deixar de fixar aquesta pantalla</string>
+    <!-- PowerShare QS tile -->
 </resources>

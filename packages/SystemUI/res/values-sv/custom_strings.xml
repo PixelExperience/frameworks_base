@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Detta hålls synlig tills du frigör den. Tryck &amp; håll nere fingeravtrycks-sensorn för att frigöra.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">För att frigöra, tryck &amp; håll fingeravtrycks-sensorn</string>
+    <!-- PowerShare QS tile -->
 </resources>

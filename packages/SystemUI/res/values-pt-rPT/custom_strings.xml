@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Isto mantém a aplicação no ecrã até soltar, toque e mantenha premido &amp; no sensor de impressão digital para soltar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, toque e mantenha premido no &amp; Mantenha o dedo no sensor de impressão digital</string>
+    <!-- PowerShare QS tile -->
 </resources>

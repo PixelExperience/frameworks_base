@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Dzięki temu będzie on widoczny aż do odpięcia. Dotknij i przytrzymaj czytnik linii papilarnych, aby odpiąć.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Aby odpiąć ten ekran, naciśnij i przytrzymaj czytnik linii papilarnych</string>
+    <!-- PowerShare QS tile -->
 </resources>

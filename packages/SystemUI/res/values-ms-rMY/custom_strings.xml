@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Ini akan mengekalkan ia di paparan sehingga anda membuang pin. Tekan seketika sensor cap jari untuk membuang pin.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk membuang pin paparan, tekan seketika sensor cap jari</string>
+    <!-- PowerShare QS tile -->
 </resources>

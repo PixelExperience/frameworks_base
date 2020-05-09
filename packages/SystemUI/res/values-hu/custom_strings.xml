@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Mindaddig megjelenítve marad, amíg Ön fel nem oldja a rögzítést. A feloldáshoz tartsa lenyomva az ujjlenyomat-olvasót.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Képernyő rögzítésének feloldásához tartsa nyomva az ujjlenyomat-olvasót</string>
+    <!-- PowerShare QS tile -->
 </resources>

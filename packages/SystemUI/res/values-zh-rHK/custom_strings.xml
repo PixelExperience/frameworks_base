@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">此功能會固定螢幕顯示直到您取消固定。觸控並長按指紋感測器即可解除固定。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定，請觸碰並按助指紋感測器以取消。</string>
+    <!-- PowerShare QS tile -->
 </resources>

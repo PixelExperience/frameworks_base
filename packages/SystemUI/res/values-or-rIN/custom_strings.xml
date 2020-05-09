@@ -6,4 +6,5 @@
     <string name="screen_pinning_toast_no_navbar">ଏହି ସ୍କ୍ରିନ୍‍ କୁ ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ,  &amp; କୁ ସ୍ପର୍ଶ କରନ୍ତୁ ଓ ବ୍ୟାକ୍‍ ବଟନ୍‍ କୁ ଧରିରଖନ୍ତୁ।</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <!-- PowerShare QS tile -->
 </resources>

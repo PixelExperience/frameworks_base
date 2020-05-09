@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Šis notur to skatā līdz tiek atsprausts. Pieskarieties &amp; turiet pirksta nospieduma sensoru lai atspraustu.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Lai atspraustu šo ekrānu, pieskarieties &amp; turiet pirksta nospiedumu sensoru</string>
+    <!-- PowerShare QS tile -->
 </resources>

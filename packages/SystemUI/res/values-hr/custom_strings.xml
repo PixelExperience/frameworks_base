@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite &amp; i držite senzor otiska prsta da biste ga otkvačili.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Da biste otkvačili ovaj zaslon, dodirnite &amp; i držite senzor otiska prsta</string>
+    <!-- PowerShare QS tile -->
 </resources>
