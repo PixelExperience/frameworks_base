@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">ਅਨਪਿੰਨ ਕਰਨ ਤੱਕ ਇਹ ਦਿਸਦਾ ਰਹੇਗਾ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਦੱਬੀ ਰੱਖੋ।</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਦੱਬੀ ਰੱਖੋ</string>
+    <!-- PowerShare QS tile -->
 </resources>

@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε παρατεταμένα το αισθητήρα δακτυλικού αποτυπώματος για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτή την οθόνη, αγγίξτε παρατεταμένα τον αισθητήρα δακτυλικού αποτυπώματος</string>
+    <!-- PowerShare QS tile -->
 </resources>

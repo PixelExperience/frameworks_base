@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Bu əməliyyat, siz sancaqı çıxarana qədər tətbiqi aktiv saxlayır. Sancaqı çıxarmaq üçün barmaq izi sensoruna basıb saxlayın.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Bu ekrandan çıxmaq üçün barmaq izi sensoruna basıb saxlayın</string>
+    <!-- PowerShare QS tile -->
 </resources>

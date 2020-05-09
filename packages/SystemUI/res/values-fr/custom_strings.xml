@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Cet écran est épinglé.  Appuyez longuement sur le lecteur d\'empreintes pour le désépingler.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Pour désepingler l\'écran, appuyez sur &amp; maintenez le lecteur d\'empreintes</string>
+    <!-- PowerShare QS tile -->
 </resources>

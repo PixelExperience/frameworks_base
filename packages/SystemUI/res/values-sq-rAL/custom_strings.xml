@@ -6,4 +6,5 @@
     <string name="screen_pinning_toast_no_navbar">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur butonin Prapa</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <!-- PowerShare QS tile -->
 </resources>

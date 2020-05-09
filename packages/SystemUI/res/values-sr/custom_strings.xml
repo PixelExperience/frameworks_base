@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Ова апликација ће остати активна све док је не откачите дугим притиском на сензор отиска прста.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Да бисте откључали овај екран, додирните и задржите сензор отиска прста</string>
+    <!-- PowerShare QS tile -->
 </resources>

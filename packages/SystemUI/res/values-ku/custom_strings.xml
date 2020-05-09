@@ -8,4 +8,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">ئەمە لە پیشاندان دەمێنێتەوە تاوەکو بەریدەدەیتەوە. گرتە لە &amp;  پەنجە لەسەر هەستەوەری پەنجەمۆر ڕاگرە بۆ بەردانەوە.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">بۆ بەردانی ئەم پەردەیە ، گرتەبکە &amp; هەستەوەری پەنجەمۆر داگرە</string>
+    <!-- PowerShare QS tile -->
 </resources>
