@@ -47,7 +47,6 @@ import android.widget.ImageView;
 
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
-import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.systemui.R;
 import com.android.systemui.Dependency;
 import com.android.systemui.statusbar.policy.ConfigurationController;
@@ -135,17 +134,10 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
 
-            if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
-                final SecurityMode sec = mUpdateMonitor.getSecurityMode();
-                final boolean maybeShow = sec == SecurityMode.Pattern ||
-                        sec == SecurityMode.PIN;
-                if (maybeShow || !mIsBouncer) {
-                    show();
-                } else {
-                    hide();
-                }
-            } else {
+            if (isBouncer) {
                 hide();
+            } else if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
+                show();
             }
         }
 
@@ -182,7 +174,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         @Override
         public void onStrongAuthStateChanged(int userId) {
-            mCanUnlockWithFp = canUnlockWithFp(mUpdateMonitor);
+            mCanUnlockWithFp = canUnlockWithFp();
             if (mIsShowing && !mCanUnlockWithFp){
                 hide();
             }
@@ -217,11 +209,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
     }
 
-    public static boolean canUnlockWithFp(KeyguardUpdateMonitor updateMonitor) {
-        int currentUser = KeyguardUpdateMonitor.getCurrentUser();
-        boolean biometrics = updateMonitor.isUnlockingWithBiometricsPossible(currentUser);
+    private boolean canUnlockWithFp() {
+        int currentUser = ActivityManager.getCurrentUser();
+        boolean biometrics = mUpdateMonitor.isUnlockingWithBiometricsPossible(currentUser);
         KeyguardUpdateMonitor.StrongAuthTracker strongAuthTracker =
-                updateMonitor.getStrongAuthTracker();
+                mUpdateMonitor.getStrongAuthTracker();
         int strongAuth = strongAuthTracker.getStrongAuthForUser(currentUser);
         if (biometrics && !strongAuthTracker.hasUserAuthenticatedSinceBoot()) {
             return false;
@@ -298,7 +290,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
         mUpdateMonitor.registerCallback(mMonitorCallback);
 
-        mCanUnlockWithFp = canUnlockWithFp(mUpdateMonitor);
+        mCanUnlockWithFp = canUnlockWithFp();
 
         updateCutoutFlags();
 
