@@ -9,8 +9,7 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Actual</string>
     <!-- Navigation bar dpad -->
@@ -43,37 +42,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Raportarea locației: mod economisire baterie.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Raportarea locației: doar senzori.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Raportarea locației: precizie ridicată.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Economisire baterie</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Economisire\nbaterie</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Doar dispozitiv</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Doar\ndispozitiv</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Precizie ridicată</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Precizie\nridicată</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Locație</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Selectați modul:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Precizie ridicată</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Economisire baterie</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Doar dispozitiv</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizează GPS, Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizează Wi\u2011Fi, Bluetooth sau rețelele mobile pentru determinarea locației</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizează GPS pentru a determina locația</string>
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Conectare la\u2026</string>

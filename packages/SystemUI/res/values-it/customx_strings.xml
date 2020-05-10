@@ -8,9 +8,8 @@
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_download">Modalità download</string>
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Attuale</string>
     <!-- Navigation bar dpad -->
@@ -19,8 +18,8 @@
     <!-- Custom QS tiles -->
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeina</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeina off.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeina on.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeina spenta.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeina accesa.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notifiche a comparsa</string>
     <string name="accessibility_quick_settings_heads_up_off">Notifiche a comparsa non attive.</string>
@@ -43,37 +42,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Display ambient attivo.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Display ambient disattivato.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Display ambient attivato.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Geolocalizzazione: modalità risparmio batteria.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo sensori.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Geolocalizzazione: modalità alta precisione.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Risparmio batteria</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Risparmio\nBatteria</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Solo\ndispositivo</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisione</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Localizzazione</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Seleziona modalità:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisione</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Risparmio batteria</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Solo dispositivo</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Utilizza GPS, Wi\u2011Fi, Bluetooth o reti dati per stabilire la posizione</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Utilizza Wi\u2011Fi, Bluetooth o reti dati per stabilire la posizione</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Utilizza il GPS per stabilire la posizione</string>
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Connetti a\u2026</string>

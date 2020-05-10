@@ -9,8 +9,7 @@
     <string name="global_action_restart_bootloader">Perkrovos režimas</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Atsisiuntimo režimas</string>
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
-    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Dabartinis</string>
     <!-- Navigation bar dpad -->
@@ -43,37 +42,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Ambient display įjungta.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display išjungta.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display įjungta.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Vietovės ataskaitos: akumuliatoriaus tausojimo režimas.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Vietovės ataskaitos: tik daviklių režimas.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Vietovės ataskaitos: didelio tikslumo režimas.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Akumuliatoriaus tausojimas</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Akumuliatoriaus\ntausojimas</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Tik įrenginys</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Tik\nįrenginys</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Didelis tikslumas</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Didelis\ntikslumas</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Vieta</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Pasirinkite režimą:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Didelis tikslumas</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Akumuliatoriaus tausojimas</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Tik įrenginys</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Naudoti GPS, Wi\u2011Fi, \"Bluetooth\" arba mobiliojo ryšio tinklus vietovei nustatyti</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Naudoti Wi\u2011Fi, \"Bluetooth\" arba mobiliojo ryšio tinklus vietovei nustatyti</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Norėdami nustatyti vietą, naudokite GPS</string>
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Prisijunkite prie \ u2026</string>

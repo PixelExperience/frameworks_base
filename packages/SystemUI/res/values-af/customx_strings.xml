@@ -6,7 +6,7 @@
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Wyser na links</string>
@@ -38,36 +38,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Omgewingstemperatuur vertoning aan.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Omgewingstemperatuur skerm vertoning is afgeskakel.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Omgewingstemperatuur skerm vertoning is aangeskakel.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Liggingverslaggewing: battery besparing.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Liggingverslaggewing: sensors alleenlik.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Liggingverslaggewing: hoë akkuraatheid modus.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Battery besparend</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Battery\nbesparend</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Slegs Toestel</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Slegs\ntoestel</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Hoë akkuraatheid</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Hoë\nakkuraatheid</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Ligging</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Kies modus:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Hoë akkuraatheid</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Battery besparend</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Slegs Toestel</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Gebruik GPS, Wi\u2011Fi, Bluetooth of sellulêre netwerke om ligging te bepaal</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Gebruik Wi-Fi, Bluetooth of sellulêre netwerke om ligging te bepaal</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <!-- QS customizer -->
     <!-- Status bar network traffic monitor strings -->

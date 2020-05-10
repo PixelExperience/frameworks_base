@@ -9,8 +9,7 @@
     <string name="global_action_restart_bootloader">Zagonski nalagalnik</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Prenos</string>
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
-    <string name="global_action_restart_fastboot">Namen. zagon. nalagalnik</string>
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Trenutni</string>
     <!-- Navigation bar dpad -->
@@ -43,37 +42,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Poročanje o lokaciji: način varčevanja z energijo akumulatorja.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Poročanje o lokaciji: način \'samo tipala\'.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Poročanje o lokaciji: način visoke natančnosti.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Varčevanje z energijo akumulatorja</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Varčevanje\nz energijo akumulatorja</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Samo v napravi</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Samo v\nnapravi</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Visoka natančnost</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Visoka\nnatančnost</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Lokacija</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Izberite način:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka natančnost</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Varčevanje z energijo akumulatorja</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Samo v napravi</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Uporaba GPS-ja, Bluetootha, Wi\u2011Fi-ja in mobilnih omrežij za določanje lokacije</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Uporaba Wi\u2011Fi-ja, Bluetootha in mobilnih omrežij za določanje lokacije</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Uporaba GPS-ja za določanje lokacije</string>
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Poveži z \u2026</string>

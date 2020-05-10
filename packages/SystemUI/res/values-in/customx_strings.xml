@@ -9,8 +9,7 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
-    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Saat ini</string>
     <!-- Navigation bar dpad -->
@@ -43,37 +42,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambien hidup.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan ambien dimatikan.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan ambien dihidupkan.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Laporan Lokasi: mode hanya sensor.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Hemat baterai</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Hanya perangkat</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Hanya\nperangkat</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Lokasi</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Pilih mode:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Hemat baterai</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Menggunakan GPS, Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth atau jaringan seluler untuk menentukan lokasi</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi</string>
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Mengubungkan ke\u2026</string>

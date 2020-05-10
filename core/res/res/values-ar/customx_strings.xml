@@ -11,7 +11,7 @@
     <string name="live_display_day_summary">استخدام إعدادات النهار فقط</string>
     <string name="live_display_night">الليل</string>
     <string name="live_display_night_summary">استخدام إعدادات الليل فقط</string>
-    <string name="live_display_outdoor">خارج المنزل ( شمس ساطعة)</string>
+    <string name="live_display_outdoor">في الخارج ( شمس ساطعة)</string>
     <string name="live_display_outdoor_summary">استخدم إعدادات خارج المنزل فقط</string>
     <string name="live_display_hint">يمكن أن تساعد ميزة LiveDisplay في تقليل إجهاد العين ومساعدتك على النوم في الليل. انقر هنا لتجربتها!</string>
     <string name="accessibility_quick_settings_live_display_off">إيقاف تشغيل LiveDisplay.</string>

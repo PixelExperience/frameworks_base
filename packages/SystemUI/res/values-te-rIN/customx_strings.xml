@@ -8,7 +8,7 @@
     <string name="global_action_restart_bootloader">బూట్‌లోడర్</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">డౌన్‌లోడ్ మోడ్</string>
-    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">కర్సర్ ఎడమకి</string>
@@ -40,29 +40,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">పరిసర ప్రదర్శన ఆన్.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">పరిసర ప్రదర్శన ఆపివేయబడింది.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">పరిసర ప్రదర్శన ఆన్ చేయబడింది.</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">స్థాన నివేదిక: బ్యాటరీ సేవింగ్ మోడ్.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">స్థాన నివేదిక: సెన్సార్లు మాత్రమే మోడ్.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">స్థాన నివేదిక: అధిక ఖచ్చితత్వ మోడ్.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">బ్యాటరీ ఆదా</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">పరికరం మాత్రమే</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">అధిక నిర్దుష్టత</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">అధిక నిర్దుష్టత</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">బ్యాటరీ ఆదా</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">పరికరం మాత్రమే</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <!-- AOD QS tile -->
     <!-- VPN QS tile -->
     <!-- QS customizer -->
     <!-- Status bar network traffic monitor strings -->

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplicació tancada</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automàtic</string>
     <string name="live_display_auto_summary">Ajusta automàticament la temperatura de color de la pantalla després de la posta de sol i de l\'alba</string>
