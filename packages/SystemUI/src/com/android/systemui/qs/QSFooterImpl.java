@@ -94,7 +94,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     protected View mEdit;
     protected View mEditContainer;
-    private TouchAnimator mSettingsCogAnimator;
 
     private View mActionsContainer;
     private View mDragHandle;
@@ -155,8 +154,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
         updateResources();
 
-        addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight,
-                oldBottom) -> updateAnimator(right - left));
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
         updateEverything();
         //setBuildText();
@@ -174,22 +171,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         } else {
             v.setVisibility(View.GONE);
         }*/
-    }
-
-    private void updateAnimator(int width) {
-        int numTiles = QuickQSPanel.getNumQuickTiles(mContext);
-        int size = mContext.getResources().getDimensionPixelSize(R.dimen.qs_quick_tile_size)
-                - mContext.getResources().getDimensionPixelSize(dimen.qs_quick_tile_padding);
-        int remaining = (width - numTiles * size) / (numTiles - 1);
-        int defSpace = mContext.getResources().getDimensionPixelOffset(R.dimen.default_gear_space);
-
-        mSettingsCogAnimator = new Builder()
-                .addFloat(mSettingsContainer, "translationX",
-                        isLayoutRtl() ? (remaining - defSpace) : -(remaining - defSpace), 0)
-                .addFloat(mSettingsButton, "rotation", -120, 0)
-                .build();
-
-        setExpansion(mExpansionAmount);
     }
 
     @Override
@@ -243,7 +224,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     @Override
     public void setExpansion(float headerExpansionFraction) {
         mExpansionAmount = headerExpansionFraction;
-        if (mSettingsCogAnimator != null) mSettingsCogAnimator.setPosition(headerExpansionFraction);
 
         if (mFooterAnimator != null) {
             mFooterAnimator.setPosition(headerExpansionFraction);
