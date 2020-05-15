@@ -7440,5 +7440,7 @@ message MetricsEvent {
     // Panel for Mobile Data
     PANEL_MOBILE_DATA = 2002;
 
+    // BICPR Constants
+    BICPR = 450;
   }
 }
