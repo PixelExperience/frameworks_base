@@ -5074,6 +5074,11 @@ public final class Settings {
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
         /**
+         * Whether to take partial screenshot with volume down + power click.
+         */
+        public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5238,6 +5243,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_BATTERY_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
+            PRIVATE_SETTINGS.add(CLICK_PARTIAL_SCREENSHOT);
         }
 
         /**
