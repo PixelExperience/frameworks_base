@@ -31,10 +31,10 @@
                     android:drawable="@android:color/transparent" />
                 <item>
                     <shape android:shape="rectangle"
-                        android:tint="@color/brightness_slider_progress">
+                        android:tint="?android:attr/colorAccent">
                         <corners android:radius="8dp"/>
                         <size android:height="42dp" />
-                        <solid android:color="@color/brightness_slider_progress" />
+                        <solid android:color="?android:attr/colorAccent" />
                     </shape>
                 </item>
             </selector>
