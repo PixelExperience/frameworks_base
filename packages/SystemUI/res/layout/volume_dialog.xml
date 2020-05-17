@@ -62,7 +62,7 @@
                 android:paddingRight="@dimen/volume_dialog_rows_padding_right"
                 android:gravity="center"
                 android:orientation="horizontal">
-                    <!-- volume rows added and removed here! :-) -->
+                <!-- volume rows added and removed here! :-) -->
             </LinearLayout>
         </LinearLayout>
 
@@ -94,16 +94,32 @@
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
                     android:padding="@dimen/volume_dialog_ringer_icon_padding"
-                    android:tint="@android:color/white"
+                    android:tint="?android:attr/colorAccent"
                     android:layout_gravity="center"
                     android:soundEffectsEnabled="false" />
 
                 <include layout="@layout/volume_dnd_icon"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginRight="@dimen/volume_dialog_stream_padding"
-                     android:layout_marginTop="6dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/volume_dialog_stream_padding"
+                    android:layout_marginTop="6dp"/>
             </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/odi_captions"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/volume_dialog_tap_target_size">
+                <com.android.systemui.volume.CaptionsToggleImageButton
+                    android:id="@+id/odi_captions_icon"
+                    android:layout_width="@dimen/volume_dialog_tap_target_size"
+                    android:layout_height="@dimen/volume_dialog_tap_target_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_volume_odi_captions_disabled"
+                    android:contentDescription="@string/accessibility_volume_settings"
+                    android:background="@drawable/ripple_drawable_20dp"
+                    android:tint="?android:attr/colorAccent"
+                    android:soundEffectsEnabled="false" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/settings_container"
@@ -111,40 +127,16 @@
                 android:layout_height="@dimen/volume_dialog_tap_target_size">
                 <com.android.keyguard.AlphaOptimizedImageButton
                     android:id="@+id/settings"
-                    android:src="@drawable/ic_tune_black_16dp"
+                    android:src="@drawable/ic_settings"
                     android:layout_width="@dimen/volume_dialog_tap_target_size"
                     android:layout_height="@dimen/volume_dialog_tap_target_size"
                     android:layout_gravity="center"
                     android:contentDescription="@string/accessibility_volume_settings"
                     android:background="@drawable/ripple_drawable_20dp"
-                    android:tint="?android:attr/textColorSecondary"
+                    android:tint="?android:attr/colorAccent"
                     android:soundEffectsEnabled="false" />
             </LinearLayout>
-
         </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/odi_captions"
-            android:layout_width="@dimen/volume_dialog_caption_size"
-            android:layout_height="@dimen/volume_dialog_caption_size"
-            android:layout_marginTop="@dimen/volume_dialog_spacer"
-            android:gravity="right"
-            android:layout_gravity="right"
-            android:clipToPadding="false"
-            android:translationZ="@dimen/volume_dialog_elevation"
-            android:background="@drawable/rounded_bg_full">
-            <com.android.systemui.volume.CaptionsToggleImageButton
-                android:id="@+id/odi_captions_icon"
-                android:src="@drawable/ic_volume_odi_captions_disabled"
-                style="@style/VolumeButtons"
-                android:background="@drawable/rounded_ripple"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:tint="@color/caption_tint_color_selector"
-                android:layout_gravity="center"
-                android:soundEffectsEnabled="false"
-                sysui:optedOut="false"/>
-        </FrameLayout>
 
     </LinearLayout>
 

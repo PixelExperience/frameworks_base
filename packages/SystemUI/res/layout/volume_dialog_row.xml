@@ -57,6 +57,7 @@
                 android:progressDrawable="@drawable/volume_dialog_seekbar"
                 android:thumb="@android:color/transparent"
                 android:background="@null"
+                android:alpha="0.42"
                 android:rotation="90" />
         </FrameLayout>
 
@@ -67,7 +68,7 @@
             android:layout_height="@dimen/volume_dialog_tap_target_size"
             android:background="@drawable/ripple_drawable_20dp"
             android:layout_marginTop="@dimen/volume_dialog_row_icon_margintop"
-            android:tint="@android:color/white"
+            android:tint="?android:attr/colorAccent"
             android:clickable="false"
             android:soundEffectsEnabled="false" />
     </LinearLayout>
