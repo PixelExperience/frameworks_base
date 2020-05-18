@@ -4814,4 +4814,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
         return null;
     }
+
+    public int getFodHeight(boolean includeDecor) {
+        return mFODCircleViewImpl.getHeight(includeDecor);
+    }
 }
