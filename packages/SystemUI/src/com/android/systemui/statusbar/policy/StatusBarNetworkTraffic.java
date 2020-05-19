@@ -1,29 +1,43 @@
 package com.android.systemui.statusbar.policy;
 
-import static com.android.systemui.statusbar.StatusBarIconView.STATE_DOT;
-import static com.android.systemui.statusbar.StatusBarIconView.STATE_HIDDEN;
-import static com.android.systemui.statusbar.StatusBarIconView.STATE_ICON;
-
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.android.systemui.Dependency;
-import com.android.systemui.R;
-import com.android.systemui.plugins.DarkIconDispatcher;
-import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
-import com.android.systemui.statusbar.StatusIconDisplayable;
-
 import com.android.internal.util.custom.cutout.CutoutUtils;
 
-public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIconDisplayable {
+import com.android.systemui.statusbar.CustomStatusBarItem;
 
-    public static final String SLOT = "networktraffic";
+public class StatusBarNetworkTraffic extends NetworkTraffic {
 
-    private int mVisibleState = -1;
-    private boolean mSystemIconVisible = true;
-    private boolean mColorIsStatic = false;
+    private boolean mNetworkTrafficIsVisible;
+    private int mDarkModeFillColor;
+    private int mLightModeFillColor;
+
+    private CustomStatusBarItem.DarkReceiver mDarkReceiver =
+            new CustomStatusBarItem.DarkReceiver() {
+        public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+            mTintColor = tint;
+            setTextColor(mTintColor);
+            updateTrafficDrawable();
+        }
+
+        public void setFillColors(int darkColor, int lightColor) {
+            mDarkModeFillColor = darkColor;
+            mLightModeFillColor = lightColor;
+        }
+    };
+
+    private CustomStatusBarItem.VisibilityReceiver mVisibilityReceiver =
+            new CustomStatusBarItem.VisibilityReceiver() {
+        public void onVisibilityChanged(boolean isVisible) {
+            if (mNetworkTrafficIsVisible != isVisible) {
+                mNetworkTrafficIsVisible = isVisible;
+                updateViewState();
+            }
+        }
+    };
 
     public StatusBarNetworkTraffic(Context context) {
         this(context, null);
@@ -41,88 +55,18 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
     @Override
     protected void onAttachedToWindow() {
         if (!mAttached) {
-            Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
+            CustomStatusBarItem.Manager manager =
+                    CustomStatusBarItem.findManager((View) this);
+            manager.addDarkReceiver(mDarkReceiver);
+            manager.addVisibilityReceiver(mVisibilityReceiver);
         }
         super.onAttachedToWindow();
     }
 
     @Override
-    protected void onDetachedFromWindow() {
-        if (mAttached) {
-            Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(this);
-        }
-        super.onDetachedFromWindow();
-    }
-
-    @Override
-    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
-        if (mColorIsStatic) {
-            return;
-        }
-        mTintColor = DarkIconDispatcher.getTint(area, this, tint);
-        setTextColor(mTintColor);
-        updateTrafficDrawable();
-    }
-
-    @Override
-    public String getSlot() {
-        return SLOT;
-    }
-
-    @Override
-    public boolean isIconVisible() {
-        return mMode == MODE_STATUS_BAR;
-    }
-
-    @Override
-    public int getVisibleState() {
-        return mVisibleState;
-    }
-
-    @Override
-    public void setVisibleState(int state, boolean animate) {
-        if (state == mVisibleState) {
-            return;
-        }
-        mVisibleState = state;
-
-        switch (state) {
-            case STATE_ICON:
-                mSystemIconVisible = true;
-                break;
-            case STATE_DOT:
-            case STATE_HIDDEN:
-            default:
-                mSystemIconVisible = false;
-                break;
-        }
-        updateVisibility();
-    }
-
-    @Override
-    protected void updateVisibility() {
-        if (!mSystemIconVisible) {
-            setVisibility(View.GONE);
-        }else{
-            super.updateVisibility();
-        }
-    }
-
-    @Override
-    public void setStaticDrawableColor(int color) {
-        mColorIsStatic = true;
-        mTintColor = color;
-        setTextColor(mTintColor);
-        updateTrafficDrawable();
-    }
-
-    @Override
-    public void setDecorColor(int color) {
-    }
-
-    @Override
     protected int getMyMode(){
-        if (CutoutUtils.hasCutout(mContext, true /* ignoreCutoutMasked*/)){
+        if (!mNetworkTrafficIsVisible ||
+                CutoutUtils.hasCutout(mContext, true /* ignoreCutoutMasked*/)){
             return MODE_DISABLED;
         }
         return MODE_STATUS_BAR;
