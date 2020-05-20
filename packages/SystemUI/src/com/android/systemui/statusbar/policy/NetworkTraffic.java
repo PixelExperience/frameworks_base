@@ -12,7 +12,6 @@ import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Typeface;
-import android.view.Gravity;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
@@ -61,20 +60,15 @@ public class NetworkTraffic extends TextView {
 
     private static final int REFRESH_INTERVAL = 2000;
 
-    private static final int UNITS_KILOBITS = 0;
-    private static final int UNITS_MEGABITS = 1;
-    private static final int UNITS_KILOBYTES = 2;
-    private static final int UNITS_MEGABYTES = 3;
-
     // Thresholds themselves are always defined in kbps
-    private static final long AUTOHIDE_THRESHOLD_KILOBITS  = 10;
-    private static final long AUTOHIDE_THRESHOLD_MEGABITS  = 100;
-    private static final long AUTOHIDE_THRESHOLD_KILOBYTES = 8;
-    private static final long AUTOHIDE_THRESHOLD_MEGABYTES = 80;
+    private static final long AUTOHIDE_THRESHOLD  = 10;
 
     protected static final int MODE_DISABLED = 0;
     protected static final int MODE_STATUS_BAR = 1;
     private static final int MODE_QS = 2;
+
+    private static final int UNIT_TYPE_BYTES = 0;
+    private static final int UNIT_TYPE_BITS = 1;
 
     private long mTxKbps;
     private long mRxKbps;
@@ -86,8 +80,7 @@ public class NetworkTraffic extends TextView {
     private boolean mAutoHide;
     private boolean mScreenOn = true;
     private boolean mKeyguardShowing;
-    private long mAutoHideThreshold;
-    private int mUnits;
+    private int mUnitType = UNIT_TYPE_BYTES;
     private boolean mIndicatorUp = false;
     private boolean mIndicatorDown = false;
     private SettingsObserver mObserver;
@@ -167,20 +160,18 @@ public class NetworkTraffic extends TextView {
                     && isConnectionAvailable() && !mKeyguardShowing;
             final boolean shouldHide = !enabled ||
                     (mAutoHide &&
-                        mRxKbps < mAutoHideThreshold && mTxKbps < mAutoHideThreshold);
+                        mRxKbps < AUTOHIDE_THRESHOLD && mTxKbps < AUTOHIDE_THRESHOLD);
 
             if (shouldHide) {
                 setText("");
                 mTrafficVisible = false;
             } else if (mTxKbps > mRxKbps) {
                 // Show information for uplink if it's called for
-                String output = formatOutput(mTxKbps);
+                String output = formatOutput(mTxKbps * 125 /* Convert kilobit to bytes for proper format */);
 
                 // Update view if there's anything new to show
                 if (!output.contentEquals(getText())) {
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSize);
-                    setTypeface(Typeface.create(mTxtFont, Typeface.NORMAL));
-                    setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+                    updateTextViewStyle();
                     setText(output);
                     mIndicatorUp = mTxKbps != 0;
                     mIndicatorDown = false;
@@ -188,13 +179,11 @@ public class NetworkTraffic extends TextView {
                 mTrafficVisible = true;
             } else {
                 // Add information for downlink if it's called for
-                String output = formatOutput(mRxKbps);
+                String output = formatOutput(mRxKbps * 125 /* Convert kilobit to bytes for proper format */);
 
                 // Update view if there's anything new to show
                 if (!output.contentEquals(getText())) {
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSize);
-		            setTypeface(Typeface.create(mTxtFont, Typeface.NORMAL));
-                    setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+                    updateTextViewStyle();
                     setText(output);
                     mIndicatorDown = mRxKbps != 0;
                     mIndicatorUp = false;
@@ -212,33 +201,22 @@ public class NetworkTraffic extends TextView {
             }
         }
 
-        private String formatOutput(long kbps) {
-            final String value;
-            final String unit;
-            switch (mUnits) {
-                case UNITS_KILOBITS:
-                    value = String.format("%d", kbps);
-                    unit = mContext.getString(R.string.kilobitspersecond_short);
-                    break;
-                case UNITS_MEGABITS:
-                    value = String.format("%.1f", (float) kbps / 1000);
-                    unit = mContext.getString(R.string.megabitspersecond_short);
-                    break;
-                case UNITS_KILOBYTES:
-                    value = String.format("%d", kbps / 8);
-                    unit = mContext.getString(R.string.kilobytespersecond_short);
-                    break;
-                case UNITS_MEGABYTES:
-                    value = String.format("%.2f", (float) kbps / 8000);
-                    unit = mContext.getString(R.string.megabytespersecond_short);
-                    break;
-                default:
-                    value = "unknown";
-                    unit = "unknown";
-                    break;
+        private String formatOutput(long size) {
+            String[] units = new String[]{"", "kB/s", "MB/s", "GB/s", "TB/s", "PB/s"};
+            int mod = 1024;
+            if (mUnitType == UNIT_TYPE_BITS){
+                units = new String[]{"", "kbps", "Mbps", "Gbps", "Tbps", "Pbps"};
+                mod = 1000;
+                size = size / 8;
             }
-
-            return value + " " + unit;
+            if ((mUnitType == UNIT_TYPE_BYTES && size < 1000) ||
+                    (mUnitType == UNIT_TYPE_BITS && size < 125)) {
+                return String.format("< %d %s", 0, units[1]);
+            }
+            double power = (size > 0) ? Math.floor(Math.log(size) / Math.log(mod)) : 0;
+            String unit = units[(int) power];
+            double result = size / Math.pow(mod, power);
+            return String.format("%d %s", (int) result, unit);
         }
     };
 
@@ -266,7 +244,7 @@ public class NetworkTraffic extends TextView {
                     .getUriFor(Settings.System.NETWORK_TRAFFIC_AUTOHIDE), false,
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.NETWORK_TRAFFIC_UNITS), false,
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_UNIT_TYPE), false,
                     this, UserHandle.USER_ALL);
         }
 
@@ -364,26 +342,9 @@ public class NetworkTraffic extends TextView {
                 UserHandle.USER_CURRENT);
         mAutoHide = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0, UserHandle.USER_CURRENT) == 1;
-        mUnits = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_UNITS, UNITS_MEGABITS,
+        mUnitType = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_UNIT_TYPE, UNIT_TYPE_BYTES,
                 UserHandle.USER_CURRENT);
-        switch (mUnits) {
-            case UNITS_KILOBITS:
-                mAutoHideThreshold = AUTOHIDE_THRESHOLD_KILOBITS;
-                break;
-            case UNITS_MEGABITS:
-                mAutoHideThreshold = AUTOHIDE_THRESHOLD_MEGABITS;
-                break;
-            case UNITS_KILOBYTES:
-                mAutoHideThreshold = AUTOHIDE_THRESHOLD_KILOBYTES;
-                break;
-            case UNITS_MEGABYTES:
-                mAutoHideThreshold = AUTOHIDE_THRESHOLD_MEGABYTES;
-                break;
-            default:
-                mAutoHideThreshold = 0;
-                break;
-        }
         updateViewState();
     }
 
@@ -409,7 +370,7 @@ public class NetworkTraffic extends TextView {
             mIndicatorUp = false;
             mIndicatorDown = false;
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
         }
     }
 
@@ -417,8 +378,17 @@ public class NetworkTraffic extends TextView {
         final Resources resources = getResources();
         mTxtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
         mTxtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSize);
         setCompoundDrawablePadding(mTxtImgPadding);
+        updateTextViewStyle();
+    }
+
+    protected void updateTextViewStyle(){
+        if (getMyMode() == MODE_STATUS_BAR) {
+            setAutoSizeTextTypeUniformWithConfiguration(
+                    1, 40, 1, TypedValue.COMPLEX_UNIT_PX);
+        }else{
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSize);
+        }
         setTypeface(Typeface.create(mTxtFont, Typeface.NORMAL));
     }
 
