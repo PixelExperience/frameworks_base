@@ -70,7 +70,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
     private static final String TAG = "StatusBarClock";
 
     public static final String CLOCK_SECONDS = "system:" + Settings.System.STATUS_BAR_CLOCK_SECONDS;;
-    public static final String CLOCK_STYLE = "system:" + Settings.System.STATUS_BAR_AM_PM;
+    private static final String CLOCK_STYLE = "system:" + Settings.System.STATUS_BAR_AM_PM;
 
     private static final String CLOCK_SUPER_PARCELABLE = "clock_super_parcelable";
     private static final String CURRENT_USER_ID = "current_user_id";

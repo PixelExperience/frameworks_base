@@ -69,18 +69,9 @@ public class TunerServiceImpl extends TunerService {
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_BLACKLIST = new String[] {
-            BatteryMeterView.STATUS_BAR_BATTERY_STYLE,
-            Clock.CLOCK_STYLE,
-            ClockController.CLOCK_POSITION,
-            EdgeBackGestureHandler.KEY_EDGE_LONG_SWIPE_ACTION,
-            NavigationBarView.NAVIGATION_BAR_MENU_ARROW_KEYS,
-            NotificationPanelView.DOUBLE_TAP_SLEEP_GESTURE,
-            NotificationPanelView.STATUS_BAR_QUICK_QS_PULLDOWN,
-            NotificationStackScrollLayout.LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON,
-            StatusBar.SCREEN_BRIGHTNESS_MODE,
-            StatusBar.STATUS_BAR_BRIGHTNESS_CONTROL
+            StatusBar.SCREEN_BRIGHTNESS_MODE
     };
 
     private final Observer mObserver = new Observer();
