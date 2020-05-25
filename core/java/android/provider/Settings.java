@@ -4867,13 +4867,14 @@ public final class Settings {
 
         /**
          * Whether to show the brightness slider in quick settings panel.
+         * 0 = Never, 1 = show when expanded, 2 = show always
          * @hide
          */
         public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
 
         /** @hide */
         public static final Validator QS_SHOW_BRIGHTNESS_SLIDER_VALIDATOR =
-                BOOLEAN_VALIDATOR;
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
          * Whether to show the auto brightness icon in quick settings panel.
