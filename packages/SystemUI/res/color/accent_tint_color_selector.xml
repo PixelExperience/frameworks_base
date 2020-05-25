@@ -19,5 +19,5 @@
 />
 
     <item android:color="?android:attr/colorAccent"
-          android:alpha="0.42"/>
+          android:alpha="0.30"/>
 </selector>

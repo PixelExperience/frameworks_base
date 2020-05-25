@@ -57,7 +57,7 @@
                 android:progressDrawable="@drawable/volume_dialog_seekbar"
                 android:thumb="@android:color/transparent"
                 android:background="@null"
-                android:alpha="0.42"
+                android:alpha="0.30"
                 android:rotation="90" />
         </FrameLayout>
 
