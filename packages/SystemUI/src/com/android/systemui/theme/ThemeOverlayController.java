@@ -36,6 +36,7 @@ import android.util.Log;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SystemUI;
+import com.android.systemui.tuner.TunerService;
 
 import com.google.android.collect.Sets;
 
@@ -60,6 +61,36 @@ public class ThemeOverlayController extends SystemUI {
 
     private ThemeOverlayManager mThemeManager;
     private UserManager mUserManager;
+
+    static final String KEY_GREY_THEME =
+            "system:" + Settings.System.USE_GREY_THEME;
+    static final String OVERLAY_GREY_THEME =
+            "org.pixelexperience.overlay.customization.greytheme";
+    private final TunerService.Tunable mTunable =
+            new TunerService.Tunable() {
+                @Override
+                public void onTuningChanged(String key, String newValue) {
+                    if (KEY_GREY_THEME.equals(key)) {
+                        applyGreyTheme(TunerService.parseIntegerSwitch(newValue, false));
+                    }
+                }
+            };
+
+    private OverlayManager mOverlayManager;
+
+    private void applyGreyTheme(boolean state) {
+        UserHandle userId = UserHandle.of(ActivityManager.getCurrentUser());
+        try {
+            mOverlayManager.setEnabled(OVERLAY_GREY_THEME, state, userId);
+            if (DEBUG) {
+                Log.d(TAG, "applyGreyTheme: overlayPackage="
+                        + OVERLAY_GREY_THEME + " userId=" + userId);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                    + " overlay " + OVERLAY_GREY_THEME + " for user " + userId);
+        }
+    }
 
     @Override
     public void start() {
@@ -94,6 +125,8 @@ public class ThemeOverlayController extends SystemUI {
                     }
                 },
                 UserHandle.USER_ALL);
+        mOverlayManager = mContext.getSystemService(OverlayManager.class);
+        Dependency.get(TunerService.class).addTunable(mTunable, KEY_GREY_THEME);
     }
 
     private void updateThemeOverlays() {
