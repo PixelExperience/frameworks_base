@@ -16,7 +16,6 @@
 
 package com.android.systemui.biometrics;
 
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Slog;
 import android.view.View;
@@ -26,16 +25,11 @@ import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 
 import com.android.internal.util.custom.fod.FodUtils;
-import com.android.internal.util.custom.fod.FodScreenOffHandler;
-
-import dalvik.system.PathClassLoader;
-import java.lang.reflect.Constructor;
 
 public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callbacks {
     private static final String TAG = "FODCircleViewImpl";
 
     private FODCircleView mFodCircleView;
-    private FodScreenOffHandler mFodScreenOffHandler;
 
     @Override
     public void start() {
@@ -45,32 +39,8 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
             return;
         }
         getComponent(CommandQueue.class).addCallback(this);
-
-
-        String fodScreenOffHandlerLib = mContext.getResources().getString(
-                com.android.internal.R.string.config_fodScreenOffHandlerLib);
-
-        String fodScreenOffHandlerClass = mContext.getResources().getString(
-                com.android.internal.R.string.config_fodScreenOffHandlerClass);
-
-        if (!fodScreenOffHandlerLib.isEmpty() && !fodScreenOffHandlerClass.isEmpty()) {
-            try {
-                PathClassLoader loader =  new PathClassLoader(fodScreenOffHandlerLib,
-                        getClass().getClassLoader());
-
-                Class<?> klass = loader.loadClass(fodScreenOffHandlerClass);
-                Constructor<?> constructor = klass.getConstructor(Context.class);
-                mFodScreenOffHandler = (FodScreenOffHandler) constructor.newInstance(
-                        mContext);
-            } catch (Exception e) {
-                Slog.w(TAG, "Could not instantiate fod screen off handler "
-                        + fodScreenOffHandlerClass + " from class "
-                        + fodScreenOffHandlerLib, e);
-            }
-        }
-
         try {
-            mFodCircleView = new FODCircleView(mContext, mFodScreenOffHandler);
+            mFodCircleView = new FODCircleView(mContext);
         } catch (RuntimeException e) {
             Slog.e(TAG, "Failed to initialize FODCircleView", e);
         }
