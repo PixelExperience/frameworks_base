@@ -85,12 +85,6 @@
     <!-- Whether device supports variable refresh rate -->
     <java-symbol type="bool" name="config_hasVariableRefreshRate" />
 
-    <!-- Library path of screen off fod handler -->
-    <java-symbol type="string" name="config_fodScreenOffHandlerLib" />
-
-    <!-- Class name of screen off fod handler -->
-    <java-symbol type="string" name="config_fodScreenOffHandlerClass" />
-
     <!-- Component name of popup camera service -->
     <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
 
