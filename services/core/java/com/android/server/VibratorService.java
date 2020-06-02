@@ -1082,7 +1082,7 @@ public class VibratorService extends IVibratorService.Stub
 
     private boolean updateLowPowerModeLocked() {
         boolean lowPowerMode = mPowerManagerInternal
-                .getLowPowerState(ServiceType.VIBRATION).batterySaverEnabled;
+                .getLowPowerState(ServiceType.VIBRATION).globalBatterySaverEnabled;
         if (lowPowerMode != mLowPowerMode) {
             mLowPowerMode = lowPowerMode;
             return true;
