@@ -287,6 +287,7 @@ public class NetworkTraffic extends TextView {
         mConnectivityManager.registerNetworkCallback(request, mNetworkCallback);
         mObserver = new SettingsObserver(mTrafficHandler);
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(context);
+        setVisibility(View.GONE);
     }
 
     @Override
