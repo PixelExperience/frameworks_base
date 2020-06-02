@@ -54,13 +54,13 @@ public class StatusBarNetworkTraffic extends NetworkTraffic {
 
     @Override
     protected void onAttachedToWindow() {
-        if (!mAttached) {
+        super.onAttachedToWindow();
+        if (mAttached) {
             CustomStatusBarItem.Manager manager =
                     CustomStatusBarItem.findManager((View) this);
             manager.addDarkReceiver(mDarkReceiver);
             manager.addVisibilityReceiver(mVisibilityReceiver);
         }
-        super.onAttachedToWindow();
     }
 
     @Override
