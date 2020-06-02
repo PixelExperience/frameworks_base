@@ -184,6 +184,8 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
     @Nullable private AssistHandleCallbacks mAssistHandleCallbacks;
     @Nullable private ComponentName mDefaultHome;
 
+    private boolean mHasFOD;
+
     @Inject
     AssistHandleReminderExpBehavior(
             @Named(UPTIME_NAME) Clock clock,
@@ -236,6 +238,8 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
         mLastLearningTimestamp = mClock.currentTimeMillis();
 
         callbackForCurrentState(/* justUnlocked = */ false);
+
+        mHasFOD = context.getResources().getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint);
     }
 
     @Override
@@ -404,7 +408,11 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
         if (!isFullyAwake() || mIsNavBarHidden || isSuppressed()) {
             mAssistHandleCallbacks.hide();
         } else if (mOnLockscreen) {
-            mAssistHandleCallbacks.showAndStay();
+            if (mHasFOD){
+                mAssistHandleCallbacks.hide();
+            }else{
+                mAssistHandleCallbacks.showAndStay();
+            }
         } else if (mIsLauncherShowing) {
             mAssistHandleCallbacks.showAndGo();
         } else if (mConsecutiveTaskSwitches == 1) {
