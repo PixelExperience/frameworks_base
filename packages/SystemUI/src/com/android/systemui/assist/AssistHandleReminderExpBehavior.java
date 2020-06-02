@@ -186,7 +186,7 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
     @Nullable private AssistHandleCallbacks mAssistHandleCallbacks;
     @Nullable private ComponentName mDefaultHome;
 
-    private boolean mDisableAssistHintOnLockscreen;
+    private boolean mHasFOD;
 
     @Inject
     AssistHandleReminderExpBehavior(
@@ -241,7 +241,7 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
 
         callbackForCurrentState(/* justUnlocked = */ false);
 
-        mDisableAssistHintOnLockscreen = context.getResources().getBoolean(R.bool.config_disableAssistHintOnLockscreen);
+        mHasFOD = context.getResources().getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint);
     }
 
     @Override
@@ -410,7 +410,7 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
         if (!isFullyAwake() || mIsNavBarHidden || isSuppressed()) {
             mAssistHandleCallbacks.hide();
         } else if (mOnLockscreen) {
-            if (mDisableAssistHintOnLockscreen){
+            if (mHasFOD){
                 mAssistHandleCallbacks.hide();
             }else{
                 mAssistHandleCallbacks.showAndStay();
