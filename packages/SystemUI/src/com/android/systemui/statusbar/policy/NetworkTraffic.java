@@ -387,7 +387,7 @@ public class NetworkTraffic extends TextView {
     protected void updateTextViewStyle(){
         if (getMyMode() == MODE_STATUS_BAR) {
             setAutoSizeTextTypeUniformWithConfiguration(
-                    1, 40, 1, TypedValue.COMPLEX_UNIT_PX);
+                    1, 32, 1, TypedValue.COMPLEX_UNIT_PX);
         }else{
             setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSize);
         }
