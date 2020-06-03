@@ -1190,4 +1190,8 @@
     <dimen name="dismiss_all_button_width">55dp</dimen>
     <dimen name="dismiss_all_fab_src_size">24dp</dimen>
 
+    <!--  Allow CornerHandleView and PathSpecCornerPathRenderer to decouple from corner-radius -->
+    <dimen name="config_rounded_mask_size">@*android:dimen/rounded_corner_radius</dimen>
+    <dimen name="config_rounded_mask_size_top">@*android:dimen/rounded_corner_radius_top</dimen>
+    <dimen name="config_rounded_mask_size_bottom">@*android:dimen/rounded_corner_radius_top</dimen>
 </resources>
