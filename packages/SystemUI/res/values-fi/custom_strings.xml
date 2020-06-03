@@ -9,4 +9,8 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Poistaaksesi tämän näytön kiinnityksen, kosketa sormenjälkitunnistinta pitkään</string>
     <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Langaton Virranjako</string>
+    <string name="quick_settings_powershare_off_powersave_label">Langaton Virranjako pois\nAkun säästö</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Langaton Virranjako pois\nAkku vähissä</string>
+    <string name="quick_settings_powershare_enabled_label">Langaton Virranjako on päällä</string>
 </resources>
