@@ -43,8 +43,6 @@ import com.android.systemui.shared.system.QuickStepContract;
 import com.android.systemui.shared.system.TaskStackChangeListener;
 import com.android.systemui.statusbar.StatusBarState;
 
-import com.android.systemui.R;
-
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -186,8 +184,6 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
     @Nullable private AssistHandleCallbacks mAssistHandleCallbacks;
     @Nullable private ComponentName mDefaultHome;
 
-    private boolean mDisableAssistHintOnLockscreen;
-
     @Inject
     AssistHandleReminderExpBehavior(
             @Named(UPTIME_NAME) Clock clock,
@@ -240,8 +236,6 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
         mLastLearningTimestamp = mClock.currentTimeMillis();
 
         callbackForCurrentState(/* justUnlocked = */ false);
-
-        mDisableAssistHintOnLockscreen = context.getResources().getBoolean(R.bool.config_disableAssistHintOnLockscreen);
     }
 
     @Override
@@ -410,11 +404,7 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
         if (!isFullyAwake() || mIsNavBarHidden || isSuppressed()) {
             mAssistHandleCallbacks.hide();
         } else if (mOnLockscreen) {
-            if (mDisableAssistHintOnLockscreen){
-                mAssistHandleCallbacks.hide();
-            }else{
-                mAssistHandleCallbacks.showAndStay();
-            }
+            mAssistHandleCallbacks.showAndStay();
         } else if (mIsLauncherShowing) {
             mAssistHandleCallbacks.showAndGo();
         } else if (mConsecutiveTaskSwitches == 1) {
