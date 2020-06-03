@@ -36,5 +36,6 @@
     
     <!-- Volume panel dialog on left -->
     <dimen name="volume_dialog_panel_transparent_padding_left">4dp</dimen>
+    <dimen name="volume_dialog_panel_land_margin">68dp</dimen>
 
 </resources>
