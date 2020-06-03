@@ -70,6 +70,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
 import android.view.ViewGroup;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
 import android.view.Window;
@@ -80,6 +81,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -134,7 +136,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewGroup mDialogRowsView;
     private ViewGroup mRinger;
     private ImageButton mRingerIcon;
-    private ViewGroup mODICaptionsView;
+    private FrameLayout mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
     private View mSettingsView;
     private ImageButton mSettingsIcon;
@@ -205,6 +207,9 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void initDialog() {
+        int land_margin = (int) mContext.getResources().getDimension(
+                R.dimen.volume_dialog_panel_land_margin);
+
         mDialog = new CustomDialog(mContext);
 
         mConfigurableTexts = new ConfigurableTexts(mContext);
@@ -234,6 +239,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
         mDialog.setContentView(R.layout.volume_dialog);
+
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
@@ -264,33 +270,62 @@ public class VolumeDialogImpl implements VolumeDialog,
             return true;
         });
 
+        if (isAudioPanelOnLeftSide()){
+            if(isLandscape()){
+                FrameLayout layout = mDialog.findViewById(R.id.volume_dialog);
+                setLayoutGravity(layout.getLayoutParams(), Gravity.LEFT);
+            }else{
+                LinearLayout layout = mDialog.findViewById(R.id.volume_dialog);
+                setLayoutGravity(layout.getLayoutParams(), Gravity.LEFT);
+            }
+        }
+
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
             mZenIcon = mRinger.findViewById(R.id.dnd_icon);
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.RIGHT);
-            } else {
+            if(isAudioPanelOnLeftSide()) {
                 mRinger.setForegroundGravity(Gravity.LEFT);
+            }
+            if(isLandscape() && isAudioPanelOnLeftSide()){
+                MarginLayoutParams ringerLayoutParams = (MarginLayoutParams) mRinger.getLayoutParams();
+                ringerLayoutParams.setMargins(0, 0, land_margin, 0);
+                mRinger.setLayoutParams(ringerLayoutParams);
             }
         }
 
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
+            if(isLandscape()){
+                setLayoutGravity(mODICaptionsView.getLayoutParams(), panelGravity);
+                MarginLayoutParams captionsLayoutParams = (MarginLayoutParams) mODICaptionsView.getLayoutParams();
+                if(isAudioPanelOnLeftSide()){
+                    captionsLayoutParams.setMargins(land_margin, 0, 0, 0);
+                }
+                mODICaptionsView.setLayoutParams(captionsLayoutParams);
+            }else{
+                setLayoutGravity(mODICaptionsView.getLayoutParams(), panelGravity);
+            }
         }
-        mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
+        mODICaptionsTooltipViewStub = mDialog.findViewById(isAudioPanelOnLeftSide() ?
+                R.id.odi_captions_tooltip_stub_left :
+                R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
         }else if (mODICaptionsTooltipViewStub != null){
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.RIGHT);
-            } else {
+            if(isAudioPanelOnLeftSide()) {
                 mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.LEFT);
             }
+        }
 
+        if(isLandscape() && isAudioPanelOnLeftSide()){
+            LinearLayout mainView = mDialog.findViewById(R.id.main);
+            MarginLayoutParams mainLayoutParams = (MarginLayoutParams) mainView.getLayoutParams();
+            mainLayoutParams.setMargins(0, land_margin, land_margin, 0);
+            mainView.setLayoutParams(mainLayoutParams);
         }
 
         mSettingsView = mDialog.findViewById(R.id.settings_container);
