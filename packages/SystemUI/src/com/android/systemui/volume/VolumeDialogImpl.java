@@ -70,6 +70,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
 import android.view.ViewGroup;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
 import android.view.Window;
@@ -80,6 +81,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -134,7 +136,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewGroup mDialogRowsView;
     private ViewGroup mRinger;
     private ImageButton mRingerIcon;
-    private ViewGroup mODICaptionsView;
+    private FrameLayout mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
     private View mSettingsView;
     private ImageButton mSettingsIcon;
@@ -205,7 +207,13 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void initDialog() {
+        int land_margin = (int) mContext.getResources().getDimension(
+                R.dimen.volume_dialog_panel_land_margin);
+
         mDialog = new CustomDialog(mContext);
+
+        // Gravitate various views left/right depending on panel placement setting.
+        final int panelGravity = isAudioPanelOnLeftSide() ? Gravity.LEFT : Gravity.RIGHT;
 
         mConfigurableTexts = new ConfigurableTexts(mContext);
         mHovering = false;
@@ -226,14 +234,12 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.format = PixelFormat.TRANSLUCENT;
         lp.setTitle(VolumeDialogImpl.class.getSimpleName());
         lp.windowAnimations = -1;
-        lp.gravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
-        if(isAudioPanelOnLeftSide()){
-            lp.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
-        }
+        lp.gravity = panelGravity | Gravity.CENTER_VERTICAL;
         mWindow.setAttributes(lp);
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
         mDialog.setContentView(R.layout.volume_dialog);
+
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
@@ -264,33 +270,60 @@ public class VolumeDialogImpl implements VolumeDialog,
             return true;
         });
 
+        if(isLandscape()){
+            FrameLayout layout = mDialog.findViewById(R.id.volume_dialog);
+            setLayoutGravity(layout.getLayoutParams(), panelGravity);
+        }else{
+            LinearLayout layout = mDialog.findViewById(R.id.volume_dialog);
+            setLayoutGravity(layout.getLayoutParams(), panelGravity);
+        }
+
         mDialogRowsView = mDialog.findViewById(R.id.volume_dialog_rows);
         mRinger = mDialog.findViewById(R.id.ringer);
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
             mZenIcon = mRinger.findViewById(R.id.dnd_icon);
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.RIGHT);
-            } else {
+            if(isAudioPanelOnLeftSide()) {
                 mRinger.setForegroundGravity(Gravity.LEFT);
+            }
+            if(isLandscape() && isAudioPanelOnLeftSide()){
+                MarginLayoutParams ringerLayoutParams = (MarginLayoutParams) mRinger.getLayoutParams();
+                ringerLayoutParams.setMargins(0, 0, land_margin, 0);
+                mRinger.setLayoutParams(ringerLayoutParams);
             }
         }
 
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
+            if(isLandscape()){
+                setLayoutGravity(mODICaptionsView.getLayoutParams(), panelGravity);
+                MarginLayoutParams captionsLayoutParams = (MarginLayoutParams) mODICaptionsView.getLayoutParams();
+                if(isAudioPanelOnLeftSide()){
+                    captionsLayoutParams.setMargins(land_margin, 0, 0, 0);
+                }
+                mODICaptionsView.setLayoutParams(captionsLayoutParams);
+            }else{
+                setLayoutGravity(mODICaptionsView.getLayoutParams(), panelGravity);
+            }
         }
-        mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
+        mODICaptionsTooltipViewStub = mDialog.findViewById(isAudioPanelOnLeftSide() ?
+                R.id.odi_captions_tooltip_stub_left :
+                R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
         }else if (mODICaptionsTooltipViewStub != null){
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.RIGHT);
-            } else {
+            if(isAudioPanelOnLeftSide()) {
                 mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.LEFT);
             }
+        }
 
+        if(isLandscape() && isAudioPanelOnLeftSide()){
+            LinearLayout mainView = mDialog.findViewById(R.id.main);
+            MarginLayoutParams mainLayoutParams = (MarginLayoutParams) mainView.getLayoutParams();
+            mainLayoutParams.setMargins(0, land_margin, land_margin, 0);
+            mainView.setLayoutParams(mainLayoutParams);
         }
 
         mSettingsView = mDialog.findViewById(R.id.settings_container);
@@ -324,6 +357,17 @@ public class VolumeDialogImpl implements VolumeDialog,
         initRingerH();
         initSettingsH();
         initODICaptionsH();
+    }
+
+    // Helper to set layout gravity.
+    // Particular useful when the ViewGroup in question
+    // is different for portait vs landscape.
+    private void setLayoutGravity(Object obj, int gravity) {
+        if (obj instanceof FrameLayout.LayoutParams) {
+            ((FrameLayout.LayoutParams) obj).gravity = gravity;
+        } else if (obj instanceof LinearLayout.LayoutParams) {
+            ((LinearLayout.LayoutParams) obj).gravity = gravity;
+        }
     }
 
     private float getAnimatorX() {
