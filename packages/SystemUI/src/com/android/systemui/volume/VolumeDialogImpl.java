@@ -70,6 +70,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
 import android.view.ViewGroup;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
 import android.view.Window;
@@ -206,6 +207,9 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void initDialog() {
+        int land_margin = (int) mContext.getResources().getDimension(
+                R.dimen.volume_dialog_panel_land_margin);
+
         mDialog = new CustomDialog(mContext);
 
         // Gravitate various views left/right depending on panel placement setting.
@@ -236,6 +240,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
         mDialog.setContentView(R.layout.volume_dialog);
+
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
@@ -271,6 +276,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
             mZenIcon = mRinger.findViewById(R.id.dnd_icon);
+            if(isLandscape() && mVolumePanelOnLeft){
+                MarginLayoutParams ringerLayoutParams = (MarginLayoutParams) mRinger.getLayoutParams();
+                ringerLayoutParams.setMargins(0, 0, land_margin, 0);
+                mRinger.setLayoutParams(ringerLayoutParams);
+            }
             // Apply ringer layout gravity based on panel left/right setting
             // Layout type is different between landscape/portrait.
             setLayoutGravity(mRinger.getLayoutParams(), panelGravity);
@@ -279,11 +289,23 @@ public class VolumeDialogImpl implements VolumeDialog,
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
+            if(isLandscape() && mVolumePanelOnLeft){
+                MarginLayoutParams captionsLayoutParams = (MarginLayoutParams) mODICaptionsView.getLayoutParams();
+                captionsLayoutParams.setMargins(0, 0, 0, 0);
+                mODICaptionsView.setLayoutParams(captionsLayoutParams);
+            }
         }
         mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
+        }
+
+        if(isLandscape() && mVolumePanelOnLeft){
+            LinearLayout mainView = mDialog.findViewById(R.id.main);
+            MarginLayoutParams mainLayoutParams = (MarginLayoutParams) mainView.getLayoutParams();
+            mainLayoutParams.setMargins(0, land_margin, land_margin, 0);
+            mainView.setLayoutParams(mainLayoutParams);
         }
 
         mSettingsView = mDialog.findViewById(R.id.settings_container);
