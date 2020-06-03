@@ -27,9 +27,6 @@
     -->
     <integer name="hardware_ui_align">53</integer>
 
-    <!-- Whether to show biometric help only when failed -->
-    <bool name="config_biometricHelpShowOnlyWhenFailed">false</bool>
-
     <!-- Whether to use the mask for the quicksettings icons-->
     <bool name="config_useMaskForQs">true</bool>
 
