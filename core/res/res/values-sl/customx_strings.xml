@@ -4,7 +4,7 @@
     <string name="app_killed_message">Aplikacija prisilno zaustavljena.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Samodejno</string>
-    <string name="live_display_auto_summary">Samodejno nastavi barvno temperaturo zaslona po sončnem zahodu in vzhodu</string>
+    <string name="live_display_auto_summary">Samodejno nastavi barvno temperaturo zaslona po sončnem vzhodu in zahodu.</string>
     <string name="live_display_off">Izklopljeno</string>
     <string name="live_display_off_summary">Onemogoči vse prilagoditve</string>
     <string name="live_display_day">Dan</string>
@@ -20,8 +20,8 @@
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nočni način.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: način na prostem.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay izklopljen.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay spremenjen v samodejni način.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay spremenjen v dnevni način.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay spremenjen v nočni način.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay spremenjen na samodejni način.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay spremenjen na dnevni način.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay spremenjen na nočni način.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay spremenjen v način na prostem.</string>
 </resources>

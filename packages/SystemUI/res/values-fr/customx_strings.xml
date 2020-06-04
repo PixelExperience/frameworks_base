@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Affichage en mode veille désactivé.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Affichage en mode veille activé.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Alway On Display</string>
+    <string name="quick_settings_aod_off_powersave_label">Always on display désactivé\nÉconomiseur de batterie</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Se connecter à\u2026</string>

@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientné zobrazenie povolené.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientné zobrazenie zakázané.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nŠetrenie batérie</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Pripojiť k\u2026</string>

@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">环境显示已关闭。</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">环境显示已开启。</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">息屏显示</string>
+    <string name="quick_settings_aod_off_powersave_label">息屏显示 关闭\n省电模式</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">连接到\u2026</string>

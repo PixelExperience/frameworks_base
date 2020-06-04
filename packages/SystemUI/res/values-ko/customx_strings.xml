@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">절전 모드 자동 해제가 꺼졌습니다.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">절전 모드 자동 해제가 켜졌습니다.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Always On Display</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 꺼짐 \ 배터리 보호기</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">연결\u2026</string>

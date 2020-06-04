@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Η οθόνη ambient απενεργοποιήθηκε.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Η οθόνη ambient ενεργοποιήθηκε.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Οθόνη πάντα ενεργή</string>
+    <string name="quick_settings_aod_off_powersave_label">Λειτουργία Πάντα Ενεργής Οθόνης Απενεργοποιημένη\Ενεργή εξοικονόμηση μπαταρίας</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Σύνδεση σε\u2026</string>

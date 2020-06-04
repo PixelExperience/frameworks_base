@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Aktywny wyświetlacz został wyłączony.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Aktywny wyświetlacz został włączony.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Tryb Always-On-Display</string>
+    <string name="quick_settings_aod_off_powersave_label">Tryb AOD wyłączony\nOszczędzanie baterii</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Połącz z\u2026</string>

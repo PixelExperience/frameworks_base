@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل العرض المحيط.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">شاشة العرض الدائمة</string>
+    <string name="quick_settings_aod_off_powersave_label">إيقاف تشغيل الشاشة الدائمة عند تشغيل موفر البطارية</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">‏شبكة افتراضية خاصة (VPN)</string>
     <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ\u2026</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Application killed</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Fèin-obrachail</string>
     <string name="live_display_auto_summary">Cuir gleus air teothachd nan dath air an sgrìn gu fèin-obrachail às dèidh laighe is èirigh na grèine</string>

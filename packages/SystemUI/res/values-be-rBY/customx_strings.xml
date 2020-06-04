@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Сістэма</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Рэжым аднаўлення</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
@@ -10,6 +11,7 @@
     <string name="global_action_restart_download">Рэжым спампоўкі</string>
     <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Бягучы</string>
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Курсор налева</string>
     <string name="accessibility_dpad_right">Курсор направа</string>
@@ -41,7 +43,15 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Індыкацыя падзей экранам адключаная.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Індыкацыя падзей экранам уключана.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Актыўны дысплей</string>
+    <string name="quick_settings_aod_off_powersave_label">Актыўны экран адкл.\nЭканомія батарэі</string>
     <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Падлучэнне да\u2026</string>
+    <string name="vpn_credentials_hint">Калі ласка, увядзіце вашыя уліковыя дадзеныя для падлучэння да <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Імя карыстальніка</string>
+    <string name="vpn_credentials_password">Пароль</string>
+    <string name="vpn_credentials_dialog_connect">Падлучыць</string>
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Перацягнiце альбо націснiце, каб дадаць/выдаліць пліткі</string>
     <!-- Status bar network traffic monitor strings -->

@@ -43,6 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">接続先...</string>

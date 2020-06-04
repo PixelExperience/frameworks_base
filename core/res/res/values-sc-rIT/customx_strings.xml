@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Application killed</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automàticu</string>
     <string name="live_display_auto_summary">Acontza automaticamente sa temperadura de su colore de s\'ischermu a pustis de s\'arbèschida e de s\'intrinada</string>
@@ -12,6 +13,7 @@
     <string name="live_display_night_summary">Imprea petzi sas impostatziones pro sa note</string>
     <string name="live_display_outdoor">In foras (lughe de su sole)</string>
     <string name="live_display_outdoor_summary">Imprea petzi sas impostatziones pro istare in foras</string>
+    <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay istudadu.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalidade automàtica.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalidade pro sa die.</string>
