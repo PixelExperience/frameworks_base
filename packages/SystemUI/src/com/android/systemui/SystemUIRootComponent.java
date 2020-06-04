@@ -20,6 +20,7 @@ import static com.android.systemui.Dependency.ALLOW_NOTIFICATION_LONG_PRESS_NAME
 
 import com.android.systemui.fragments.FragmentService;
 import com.android.systemui.statusbar.phone.StatusBar;
+import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.util.InjectionInflationController;
 import com.android.systemui.util.leak.GarbageMonitor;
 
@@ -43,11 +44,19 @@ import dagger.Component;
         SystemUIDefaultModule.class,
         SystemUIGoogleModule.class})
 public interface SystemUIRootComponent {
+
     /**
      * Main dependency providing module.
      */
     @Singleton
     Dependency.DependencyInjector createDependency();
+
+
+    /**
+     * Creates a ConfigurationController.
+     */
+    @Singleton
+    ConfigurationController getConfigurationController();
 
     /**
      * Injects the StatusBar.

@@ -35,6 +35,7 @@ import android.text.format.DateFormat;
 import android.text.style.CharacterStyle;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
@@ -65,6 +66,8 @@ import java.util.TimeZone;
  */
 public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.Callbacks,
         DarkReceiver, ConfigurationListener {
+
+    private static final String TAG = "StatusBarClock";
 
     public static final String CLOCK_SECONDS = "system:" + Settings.System.STATUS_BAR_CLOCK_SECONDS;;
     public static final String CLOCK_STYLE = "system:" + Settings.System.STATUS_BAR_AM_PM;
@@ -229,9 +232,18 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+            Handler handler = getHandler();
+            if (handler == null) {
+                Log.e(TAG,
+                        "Received intent, but handler is null - still attached to window? Window "
+                                + "token: "
+                                + getWindowToken());
+                return;
+            }
+
             if (action.equals(Intent.ACTION_TIMEZONE_CHANGED)) {
                 String tz = intent.getStringExtra("time-zone");
-                getHandler().post(() -> {
+                handler.post(() -> {
                     mCalendar = Calendar.getInstance(TimeZone.getTimeZone(tz));
                     if (mClockFormat != null) {
                         mClockFormat.setTimeZone(mCalendar.getTimeZone());
@@ -239,14 +251,14 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
                 });
             } else if (action.equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
                 final Locale newLocale = getResources().getConfiguration().locale;
-                getHandler().post(() -> {
+                handler.post(() -> {
                     if (!newLocale.equals(mLocale)) {
                         mLocale = newLocale;
                         mClockFormatString = ""; // force refresh
                     }
                 });
             }
-            getHandler().post(() -> updateClock());
+            handler.post(() -> updateClock());
         }
     };
 
