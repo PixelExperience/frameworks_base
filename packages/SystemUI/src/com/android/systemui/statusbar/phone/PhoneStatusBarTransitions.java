@@ -41,15 +41,13 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
         super(backgroundView, R.drawable.status_background);
         final Resources res = statusBarView.getContext().getResources();
         mIconAlphaWhenOpaque = res.getFraction(R.dimen.status_bar_icon_drawing_alpha, 1, 1);
-    }
 
-    public void init() {
-        mLeftSide = mView.findViewById(R.id.status_bar_left_side);
-        mStatusIcons = mView.findViewById(R.id.statusIcons);
-        mBattery = mView.findViewById(R.id.battery);
-        mClock = mView.findViewById(R.id.clock);
-        mCenterClock = mView.findViewById(R.id.center_clock);
-        mRightClock = mView.findViewById(R.id.right_clock);
+        mLeftSide = statusBarView.findViewById(R.id.status_bar_left_side);
+        mStatusIcons = statusBarView.findViewById(R.id.statusIcons);
+        mBattery = statusBarView.findViewById(R.id.battery);
+        mClock = statusBarView.findViewById(R.id.clock);
+        mCenterClock = statusBarView.findViewById(R.id.center_clock);
+        mRightClock = statusBarView.findViewById(R.id.right_clock);
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
