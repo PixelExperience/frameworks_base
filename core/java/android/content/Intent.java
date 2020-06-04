@@ -4412,6 +4412,29 @@ public class Intent implements Parcelable, Cloneable {
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
     public static final String ACTION_VIEW_LOCUS = "android.intent.action.VIEW_LOCUS";
 
+<<<<<<< HEAD   (65ffd4 VolumeDialog: Fix live caption button when on left side)
+=======
+    /**
+     * Broadcast Action: Update preferences for the power menu dialog. This is to provide a
+     * way for the preferences that need to be enabled/disabled to update because they were
+     * toggled elsewhere in the settings (ie screenshot, user switcher, etc) so we don't have
+     * to do constant lookups while we wait for the menu to be created. Getting the values once
+     * when necessary is enough.
+     *@hide
+     */
+    public static final String ACTION_UPDATE_POWER_MENU =
+            "android.intent.action.UPDATE_POWER_MENU";
+
+    /**
+     * Broadcast action: notify the system that the user has performed a gesture on the screen
+     * to launch the camera. Broadcast should be protected to receivers holding the
+     * {@link Manifest.permission#STATUS_BAR_SERVICE} permission.
+     * @hide
+     */
+    public static final String ACTION_SCREEN_CAMERA_GESTURE =
+            "android.intent.action.SCREEN_CAMERA_GESTURE";
+
+>>>>>>> CHANGE (b553fd Use open camera intent string from Intent class)
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
     // Standard intent categories (see addCategory()).
