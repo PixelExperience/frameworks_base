@@ -11,7 +11,6 @@ import com.android.systemui.statusbar.CustomStatusBarItem;
 
 public class StatusBarNetworkTraffic extends NetworkTraffic {
 
-    private boolean mNetworkTrafficIsVisible;
     private int mDarkModeFillColor;
     private int mLightModeFillColor;
 
@@ -26,16 +25,6 @@ public class StatusBarNetworkTraffic extends NetworkTraffic {
         public void setFillColors(int darkColor, int lightColor) {
             mDarkModeFillColor = darkColor;
             mLightModeFillColor = lightColor;
-        }
-    };
-
-    private CustomStatusBarItem.VisibilityReceiver mVisibilityReceiver =
-            new CustomStatusBarItem.VisibilityReceiver() {
-        public void onVisibilityChanged(boolean isVisible) {
-            if (mNetworkTrafficIsVisible != isVisible) {
-                mNetworkTrafficIsVisible = isVisible;
-                updateViewState();
-            }
         }
     };
 
@@ -59,14 +48,12 @@ public class StatusBarNetworkTraffic extends NetworkTraffic {
             CustomStatusBarItem.Manager manager =
                     CustomStatusBarItem.findManager((View) this);
             manager.addDarkReceiver(mDarkReceiver);
-            manager.addVisibilityReceiver(mVisibilityReceiver);
         }
     }
 
     @Override
     protected int getMyMode(){
-        if (!mNetworkTrafficIsVisible ||
-                CutoutUtils.hasCutout(mContext, true /* ignoreCutoutMasked*/)){
+        if (CutoutUtils.hasCutout(mContext, true /* ignoreCutoutMasked*/)){
             return MODE_DISABLED;
         }
         return MODE_STATUS_BAR;

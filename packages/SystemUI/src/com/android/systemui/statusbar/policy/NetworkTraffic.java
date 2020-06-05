@@ -156,7 +156,7 @@ public class NetworkTraffic extends TextView {
                 mLastUpdateTime = now;
             }
 
-            final boolean enabled = mMode == getMyMode() && mScreenOn
+            final boolean enabled = mMode != MODE_DISABLED && mScreenOn
                     && isConnectionAvailable() && !mKeyguardShowing;
             final boolean shouldHide = !enabled ||
                     (mAutoHide &&
@@ -395,7 +395,7 @@ public class NetworkTraffic extends TextView {
     }
 
     protected void updateVisibility() {
-        if (mMode == getMyMode() && mTrafficVisible) {
+        if (mMode != MODE_DISABLED && mMode == getMyMode() && mTrafficVisible) {
             setVisibility(View.VISIBLE);
         } else {
             setVisibility(View.GONE);
