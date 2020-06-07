@@ -163,5 +163,8 @@
 
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
+    
+    <!-- FOD icon dim-->
+    <bool name="config_targetUsesInKernelDimming">false</bool>
 
 </resources>
