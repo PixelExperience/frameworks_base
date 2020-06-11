@@ -10,7 +10,7 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Drahtloses Aufladen</string>
-    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
-    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare aus\nEnergiesparmodus</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare aus\nAkkustand zu niedrig</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare ist aktiviert</string>
 </resources>
