@@ -5156,17 +5156,6 @@ public final class Settings {
         public static final Validator INCREASING_RING_RAMP_UP_TIME_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(5, 60);
 
-        /**
-         * Screenshod sound enable, This is the noise made when taking a screesnhot
-         * Defaults to 1 - sounds enabled
-         * @hide
-         */
-        public static final String SCREENSHOT_SOUND = "screenshot_sound";
-
-        /** @hide */
-        public static final Validator SCREENSHOT_SOUND_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
          /**
          * Swipe to screenshot
          * @hide
@@ -5766,7 +5755,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCREASING_RING);
             PRIVATE_SETTINGS.add(INCREASING_RING_START_VOLUME);
             PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
-            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(LOCKSCREEN_DISABLE_POWER_MENU);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
@@ -5954,7 +5942,6 @@ public final class Settings {
             VALIDATORS.put(INCREASING_RING, INCREASING_RING_VALIDATOR);
             VALIDATORS.put(INCREASING_RING_START_VOLUME, INCREASING_RING_START_VOLUME_VALIDATOR);
             VALIDATORS.put(INCREASING_RING_RAMP_UP_TIME, INCREASING_RING_RAMP_UP_TIME_VALIDATOR);
-            VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_DISABLE_POWER_MENU, LOCKSCREEN_DISABLE_POWER_MENU_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK_SECONDS, STATUS_BAR_CLOCK_SECONDS_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
