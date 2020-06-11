@@ -23,7 +23,6 @@ import android.content.pm.ResolveInfo;
 import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.UserHandle;
-import android.provider.Settings;
 import android.util.Log;
 
 import java.util.List;
@@ -67,9 +66,7 @@ public class StitchImageUtility {
             mCameraSound = new MediaActionSound();
             mCameraSound.load(MediaActionSound.SHUTTER_CLICK);
         }
-        if (Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.SCREENSHOT_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
-            mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
-        }
+        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
     }
 
     private boolean isPackageAllowed(String focusedPackageName){
