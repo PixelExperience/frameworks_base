@@ -40,12 +40,8 @@ public class AODTile extends QSTileImpl<BooleanState> implements
     @Inject
     public AODTile(QSHost host, BatteryController batteryController) {
         super(host);
-
-        final boolean enabledByDefault = mContext.getResources()
-                .getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnEnabled);
-
         mAodDisabled = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ALWAYS_ON, enabledByDefault ? 1 : 0) == 0;
+                Settings.Secure.DOZE_ALWAYS_ON, 1) == 0;
 
         mBatteryController = batteryController;
         batteryController.observe(getLifecycle(), this);
