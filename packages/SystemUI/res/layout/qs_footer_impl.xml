@@ -49,6 +49,7 @@
             android:thumb="@android:color/transparent"
             android:paddingLeft="0px"
             android:paddingRight="0px"
+            android:alpha="0.30"
             android:background="@null"/>
 
         <ImageView

@@ -205,8 +205,6 @@
     <color name="GM2_yellow_500">#FFFBBC04</color>
     <color name="GM2_green_500">#FF34A853</color>
     <color name="brightness_slider_background">#FFFFFF</color>
-    <color name="brightness_slider_icons">#FFFFFF</color>
-
 
     <color name="volume_background_tint">#f2f2f2</color>
 
