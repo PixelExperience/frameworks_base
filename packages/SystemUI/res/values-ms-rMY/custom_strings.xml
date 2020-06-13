@@ -3,14 +3,13 @@
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Ini akan mengekalkan ia di paparan sehingga anda membuang pin. Tekan seketika butang Kembali untuk membuang pin.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Untuk membuang pin di paparan, tekan dan tahan butang \"Kebelakang\".</string>
+    <string name="screen_pinning_toast_no_navbar">Untuk membuang pin di paparan, tekan dan tahan butang \"Kembali\".</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">Ini akan mengekalkan ia di paparan sehingga anda membuang pin. Tekan seketika sensor cap jari untuk membuang pin.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ini akan mengekalkan ia di paparan sehingga anda membuang pin. Tekan dan tahan seketika sensor cap jari untuk membuang pin.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk membuang pin paparan, tekan seketika sensor cap jari</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk membuang pin paparan ini, tekan dan tahan seketika sensor cap jari</string>
     <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
-    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
+    <string name="quick_settings_powershare_label">Perkongsian kuasa tanpa wayar</string>
+    <string name="quick_settings_powershare_off_powersave_label">Perkongsian kuasa tanpa wayar mati\nPenjimatan Bateri</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Perkongsian kuasa tanpa wayar mati\Bateri terlalu rendah</string>
 </resources>

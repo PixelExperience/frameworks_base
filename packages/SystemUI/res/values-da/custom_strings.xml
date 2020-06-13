@@ -11,6 +11,4 @@
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Trådløs strøm deling</string>
     <string name="quick_settings_powershare_off_powersave_label">Slå trådløs strøm deling fra / slå strømbesparelse til</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
-    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
 </resources>
