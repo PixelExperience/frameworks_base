@@ -2,7 +2,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart menu -->
     <!-- Button to restart the device, within the Restart Options dialog -->
-    <string name="global_action_restart_system">System</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Pemulihan</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
@@ -11,10 +10,7 @@
     <string name="global_action_restart_download">Mod muat turun</string>
     <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
-    <string name="global_action_current_user">Current</string>
     <!-- Navigation bar dpad -->
-    <string name="accessibility_dpad_left">Cursor left</string>
-    <string name="accessibility_dpad_right">Cursor right</string>
     <!-- Custom QS tiles -->
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Mod Kafein</string>
@@ -33,32 +29,13 @@
     <string name="accessibility_quick_settings_sync_changed_off">Segerak dimatikan.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Segerak dihidupkan.</string>
     <!-- USB tethering QS tile -->
-    <string name="quick_settings_usb_tether_label">USB tethering</string>
     <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">Volume panel</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
     <!-- VPN QS tile -->
-    <string name="quick_settings_vpn_label">VPN</string>
-    <string name="quick_settings_vpn_connect_dialog_title">Connect to\u2026</string>
-    <string name="vpn_credentials_hint">Please enter your credentials for connecting to <xliff:g id="name">%s</xliff:g></string>
-    <string name="vpn_credentials_username">Username</string>
-    <string name="vpn_credentials_password">Password</string>
-    <string name="vpn_credentials_dialog_connect">Connect</string>
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Seret atau tekan untuk tambah/buang jubin</string>
     <!-- Status bar network traffic monitor strings -->
-    <string name="kilobitspersecond_short">kb/s</string>
-    <string name="megabitspersecond_short">Mb/s</string>
-    <string name="kilobytespersecond_short">kB/s</string>
-    <string name="megabytespersecond_short">MB/s</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Papar 4G selain dari LTE</string>
     <string name="show_fourg_summary">Ganti indikator bar status LTE kepada 4G</string>
