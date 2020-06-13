@@ -43,8 +43,6 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">আম্বিয়েন্ট ডিসপ্লে বন্ধ করা হয়েছে।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">আম্বিয়েন্ট ডিসপ্লে চালু করা হয়েছে।</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">ভিপিএন</string>
     <string name="quick_settings_vpn_connect_dialog_title">সংযোগ করুন\u2026 এর সাথে</string>

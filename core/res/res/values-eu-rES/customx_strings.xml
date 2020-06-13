@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
-    <string name="app_killed_message">Application killed</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatikoa</string>
     <string name="live_display_auto_summary">Doitu automatikoki pantailaren kolore tenperatura ilunabarra eta egunsentiaren ostean</string>

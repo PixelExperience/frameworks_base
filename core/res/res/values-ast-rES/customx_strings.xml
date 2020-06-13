@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
-    <string name="app_killed_message">Application killed</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automáticu</string>
     <string name="live_display_auto_summary">Axusta automáticamente la temperatura de color de la pantalla dempués del tapecer y l\'aséu</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
-    <string name="app_killed_message">Application killed</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Awtomatig</string>
     <string name="live_display_auto_summary">Addasu tymheredd lliw\'r sgrin yn awtomatig ar ôl machlud a gwawr</string>
