@@ -4633,6 +4633,11 @@
     <permission android:name="lineage.permission.PREVENT_POWER_KEY"
                 android:protectionLevel="signature|privileged" />
 
+    <!-- LineageHardware -->
+    <protected-broadcast android:name="lineageos.intent.action.INITIALIZE_LINEAGE_HARDWARE" />
+    <permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"
+                android:protectionLevel="signature|privileged" />
+
     <application android:process="system"
                  android:persistent="true"
                  android:hasCode="false"

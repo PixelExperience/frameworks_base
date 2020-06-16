@@ -692,6 +692,9 @@ java_defaults {
         ":platform-properties",
 
         ":framework-statslog-gen",
+
+        // LineageHardware
+        "core/java/com/android/internal/custom/hardware/ILineageHardwareService.aidl",
     ],
 
     aidl: {

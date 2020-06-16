@@ -167,6 +167,9 @@ import java.util.Timer;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
+// LineageHardware
+import com.android.server.custom.LineageHardwareService;
+
 public final class SystemServer {
 
     private static final String TAG = "SystemServer";
@@ -1824,6 +1827,13 @@ public final class SystemServer {
             traceBeginAndSlog("StartCrossProfileAppsService");
             mSystemServiceManager.startService(CrossProfileAppsService.class);
             traceEnd();
+
+            // LineageHardware
+            if (!mOnlyCore){
+                traceBeginAndSlog("StartLineageHardwareService");
+                mSystemServiceManager.startService(LineageHardwareService.class);
+                traceEnd();
+            }
         }
 
         if (!isWatch) {
