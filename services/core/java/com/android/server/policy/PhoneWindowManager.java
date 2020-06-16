@@ -244,6 +244,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import com.android.internal.util.custom.NavbarUtils;
+import com.android.internal.custom.hardware.LineageHardwareManager;
 
 /**
  * WindowManagerPolicy implementation for the Android phone UI.  This
@@ -686,6 +687,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     // Custom additions
     private static final int MSG_CAMERA_LONG_PRESS = 101;
+
+    private LineageHardwareManager mLineageHardware;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -2139,6 +2142,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void updateKeyAssignments() {
+        updateKeyDisablerState();
+
         int activeHardwareKeys = mDeviceHardwareKeys;
 
         if (mHasNavigationBar) {
@@ -2219,6 +2224,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mShortPressOnWindowBehavior = SHORT_PRESS_WINDOW_NOTHING;
         if (mContext.getPackageManager().hasSystemFeature(FEATURE_PICTURE_IN_PICTURE)) {
             mShortPressOnWindowBehavior = SHORT_PRESS_WINDOW_PICTURE_IN_PICTURE;
+        }
+    }
+
+    private void updateKeyDisablerState(){
+        if (mLineageHardware == null){
+            try{
+                mLineageHardware = LineageHardwareManager.getInstance(mContext);
+            }catch(Exception e){
+                mLineageHardware = null;
+            }
+        }
+        if (mLineageHardware != null &&
+            mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)){
+            mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE, mHasNavigationBar);
         }
     }
 
