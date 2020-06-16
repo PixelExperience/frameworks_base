@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Pozostanie to widoczne, gdy nie odepniesz. Przytrzymaj \"Wstecz\" aby odpiąć.</string>
+    <string name="screen_pinning_description_no_navbar">Pozostanie to widoczne, dopóki nie odepniesz. Przytrzymaj \"Wstecz\", aby odpiąć.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij &amp; przytrzymaj Wstecz</string>
+    <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij i przytrzymaj przycisk Wstecz</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
     <string name="screen_pinning_description_no_navbar_fpsensor">Dzięki temu będzie on widoczny aż do odpięcia. Dotknij i przytrzymaj czytnik linii papilarnych, aby odpiąć.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
