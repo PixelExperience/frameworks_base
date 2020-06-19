@@ -123,7 +123,11 @@ public class CellularTile extends QSTileImpl<SignalState> {
             return;
         }
         if (mDataController.isMobileDataEnabled()) {
-            maybeShowDisableDialog();
+            if (mKeyguardMonitor.isSecure() && !mUnlockMethodCache.canSkipBouncer()) {
+                mActivityStarter.postQSRunnableDismissingKeyguard(this::maybeShowDisableDialog);
+            } else {
+                mUiHandler.post(this::maybeShowDisableDialog);
+            }
         } else {
             if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
                 Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
