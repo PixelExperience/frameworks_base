@@ -163,7 +163,7 @@ public class StatusBarWindowView extends FrameLayout {
                 mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
                 break;
             case DOUBLE_TAP_SLEEP_GESTURE:
-                mDoubleTapToSleepEnabled = newValue != null && Integer.parseInt(newValue) == 1;
+                mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, false);
                 break;
         }
     };
