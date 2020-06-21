@@ -589,7 +589,7 @@ public class NotificationPanelView extends PanelView implements
             try {
                 mOneFingerQuickSettingsIntercept = Integer.parseInt(newValue);
             } catch (NumberFormatException ex) {
-                mOneFingerQuickSettingsIntercept = 1;
+                mOneFingerQuickSettingsIntercept = 0;
             }
         } else if (DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
             mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, false);
