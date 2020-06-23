@@ -27,6 +27,7 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
+import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
@@ -63,6 +64,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<DndTile> mDndTileProvider;
     private final Provider<ColorInversionTile> mColorInversionTileProvider;
     private final Provider<AirplaneModeTile> mAirplaneModeTileProvider;
+    private final Provider<AODTile> mAODTileProvider;
     private final Provider<WorkModeTile> mWorkModeTileProvider;
     private final Provider<RotationLockTile> mRotationLockTileProvider;
     private final Provider<FlashlightTile> mFlashlightTileProvider;
@@ -87,6 +89,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<DndTile> dndTileProvider,
             Provider<ColorInversionTile> colorInversionTileProvider,
             Provider<AirplaneModeTile> airplaneModeTileProvider,
+            Provider<AODTile> aodTileProvider,
             Provider<WorkModeTile> workModeTileProvider,
             Provider<RotationLockTile> rotationLockTileProvider,
             Provider<FlashlightTile> flashlightTileProvider,
@@ -107,6 +110,7 @@ public class QSFactoryImpl implements QSFactory {
         mDndTileProvider = dndTileProvider;
         mColorInversionTileProvider = colorInversionTileProvider;
         mAirplaneModeTileProvider = airplaneModeTileProvider;
+        mAODTileProvider = aodTileProvider;
         mWorkModeTileProvider = workModeTileProvider;
         mRotationLockTileProvider = rotationLockTileProvider;
         mFlashlightTileProvider = flashlightTileProvider;
@@ -150,6 +154,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mColorInversionTileProvider.get();
             case "airplane":
                 return mAirplaneModeTileProvider.get();
+           case "aod":
+                return mAODTileProvider.get();
             case "work":
                 return mWorkModeTileProvider.get();
             case "rotation":
