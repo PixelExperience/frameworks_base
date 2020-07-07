@@ -1690,7 +1690,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private void launchCameraAction() {
         sendCloseSystemWindows();
-        Intent intent = new Intent(Intent.ACTION_SCREEN_CAMERA_GESTURE);
+        Intent intent = new Intent("android.intent.action.SCREEN_CAMERA_GESTURE");
         mContext.sendBroadcast(intent, android.Manifest.permission.STATUS_BAR_SERVICE);
     }
 
