@@ -10006,7 +10006,7 @@ public class CarrierConfigManager {
         sDefaults.putStringArray(KEY_ENABLE_APPS_STRING_ARRAY, null);
         sDefaults.putBoolean(KEY_EDITABLE_WFC_MODE_BOOL, true);
         sDefaults.putStringArray(KEY_WFC_OPERATOR_ERROR_CODES_STRING_ARRAY, null);
-        sDefaults.putInt(KEY_WFC_SPN_FORMAT_IDX_INT, 0);
+        sDefaults.putInt(KEY_WFC_SPN_FORMAT_IDX_INT, 1);
         sDefaults.putInt(KEY_WFC_DATA_SPN_FORMAT_IDX_INT, 0);
         sDefaults.putInt(KEY_WFC_FLIGHT_MODE_SPN_FORMAT_IDX_INT, -1);
         sDefaults.putBoolean(KEY_WFC_SPN_USE_ROOT_LOCALE, false);
