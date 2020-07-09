@@ -101,25 +101,25 @@ public final class LineageHardwareManager {
      * QCOM CABL or Samsung CABC)
      */
     @VisibleForTesting
-    public static final int FEATURE_ADAPTIVE_BACKLIGHT = 0x20;
+    public static final int FEATURE_ADAPTIVE_BACKLIGHT = 0x1;
 
     /**
      * Color enhancement support
      */
     @VisibleForTesting
-    public static final int FEATURE_COLOR_ENHANCEMENT = 0x100;
+    public static final int FEATURE_COLOR_ENHANCEMENT = 0x2;
 
     /**
      * Display RGB color calibration
      */
     @VisibleForTesting
-    public static final int FEATURE_DISPLAY_COLOR_CALIBRATION = 0x400;
+    public static final int FEATURE_DISPLAY_COLOR_CALIBRATION = 0x4;
 
     /**
      * Increased display readability in bright light
      */
     @VisibleForTesting
-    public static final int FEATURE_SUNLIGHT_ENHANCEMENT = 0x800;
+    public static final int FEATURE_SUNLIGHT_ENHANCEMENT = 0x100;
 
     /**
      * Auto contrast
