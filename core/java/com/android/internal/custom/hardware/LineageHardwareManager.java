@@ -76,25 +76,25 @@ public final class LineageHardwareManager {
      * High touch sensitivity for touch panels
      */
     @VisibleForTesting
-    public static final int FEATURE_HIGH_TOUCH_SENSITIVITY = 0x1;
+    public static final int FEATURE_HIGH_TOUCH_SENSITIVITY = 0x10;
 
     /**
      * Hardware navigation key disablement
      */
     @VisibleForTesting
-    public static final int FEATURE_KEY_DISABLE = 0x2;
+    public static final int FEATURE_KEY_DISABLE = 0x20;
 
     /**
      * Touchscreen hovering
      */
     @VisibleForTesting
-    public static final int FEATURE_TOUCH_HOVERING = 0x4;
+    public static final int FEATURE_TOUCH_HOVERING = 0x800;
 
     /**
      * Touchscreen gesture
      */
     @VisibleForTesting
-    public static final int FEATURE_TOUCHSCREEN_GESTURES = 0x10;
+    public static final int FEATURE_TOUCHSCREEN_GESTURES = 0x80000;
 
     /**
      * Adaptive backlight support (this refers to technologies like NVIDIA SmartDimmer,
