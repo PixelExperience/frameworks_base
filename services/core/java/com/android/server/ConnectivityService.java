@@ -1040,7 +1040,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
 
         String hostname = Settings.System.getString(context.getContentResolver(),
                 Settings.System.DEVICE_HOSTNAME);
-        if (hostname != null && hostname != ""){
+        if (hostname != null){
             SystemProperties.set("net.hostname", hostname);
         }
     }
