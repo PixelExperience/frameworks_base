@@ -9,4 +9,8 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Да бисте откључали овај екран, додирните и задржите сензор отиска прста</string>
     <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Бежични PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Бежични PowerShare искључен\nУштеда батерије</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Бежични PowerShare искључен\nСлаба батерија</string>
+    <string name="quick_settings_powershare_enabled_label">Бежични PowerShare је омогућен</string>
 </resources>
