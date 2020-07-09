@@ -21,6 +21,7 @@
     <string name="accessibility_quick_settings_live_display_outdoor">ലൈവ്ഡിസ്പ്ലേ: ഔട്ഡോർ മോഡ്.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">ലൈവ്ഡിസ്പ്ലേ ഓഫ് ചെയ്തു.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">ലൈവ്ഡിസ്പ്ലേ ഓട്ടോ മോഡിലേക്ക് മാറ്റിയിരിക്കുന്നു.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">ലൈവ്ഡിസ്പ്ലേ ഡേ മോഡിലേക്ക് മാറ്റിയിരിക്കുന്നു.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">തത്സമയ പ്രദർശനം രാത്രി മോഡ്ൽലേക്ക് മാറിയിരിക്കുന്നു</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">തത്സമയ പ്രദർശനം ഔട്ഡോർ മോഡ്ലേക്ക് മാറിയിരിക്കുന്നു</string>
 </resources>

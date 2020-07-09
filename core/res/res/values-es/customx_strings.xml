@@ -19,9 +19,9 @@
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo nocturno.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay se ha desactivado.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay cambió a modo automático.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ha cambiado a modo diurno.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ha cambiado a modo nocturno.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambiado a modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay se ha cambiado a modo diurno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay se ha cambiado a modo nocturno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay se ha cambiado a modo exterior.</string>
 </resources>
