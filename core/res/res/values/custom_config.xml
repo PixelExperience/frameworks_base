@@ -223,4 +223,6 @@
     <bool name="config_pocketModeSupported">true</bool>
     <bool name="config_pocketUseLightSensor">true</bool>
 
+    <!-- Whether device supports in-display fingerprint when screen is turned off -->
+    <bool name="config_supportsScreenOffInDisplayFingerprint">false</bool>
 </resources>
