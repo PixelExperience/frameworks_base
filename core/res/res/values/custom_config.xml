@@ -17,6 +17,9 @@
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">false</bool>
 
+    <!-- Whether device supports in-display fingerprint when screen is turned off -->
+    <bool name="config_supportsScreenOffInDisplayFingerprint">false</bool>
+
     <!-- The list of vendor package signatures that should also be considered
          platform signatures, specifically for use on devices with a vendor partition. -->
     <string-array name="config_vendorPlatformSignatures">

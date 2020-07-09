@@ -12,6 +12,9 @@
     <!-- In-display Fingerprint -->
     <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
 
+    <!-- Whether device supports in-display fingerprint when screen is turned off -->
+    <java-symbol type="bool" name="config_supportsScreenOffInDisplayFingerprint" />
+
     <!-- Vendor signatures -->
     <java-symbol type="array" name="config_vendorPlatformSignatures" />
 
