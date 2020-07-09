@@ -4964,6 +4964,12 @@ public final class Settings {
                 "high_touch_sensitivity_enable";
 
         /**
+         * Screen off fod
+         * @hide
+         */
+        public static final String FOD_GESTURE = "fod_gesture";
+
+        /**
          * Whether to wake the screen with the volume key, the value is boolean.
          * 0 = 0ff, 1 = on
          */
@@ -5447,6 +5453,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_HINT);
             PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
+            PRIVATE_SETTINGS.add(FOD_GESTURE);
         }
 
         /**
