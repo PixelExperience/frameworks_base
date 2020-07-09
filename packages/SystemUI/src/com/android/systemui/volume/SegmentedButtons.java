@@ -31,8 +31,8 @@ import java.util.Objects;
 
 public class SegmentedButtons extends LinearLayout {
     private static final int LABEL_RES_KEY = R.id.label;
-    private final Typeface mRegularTypeFace;
-    private final Typeface mMediumTypeFace;
+    private static final Typeface REGULAR = Typeface.create("sans-serif", Typeface.NORMAL);
+    private static final Typeface MEDIUM = Typeface.create("sans-serif-medium", Typeface.NORMAL);
 
     private final Context mContext;
     protected final LayoutInflater mInflater;
@@ -47,12 +47,6 @@ public class SegmentedButtons extends LinearLayout {
         mInflater = LayoutInflater.from(mContext);
         setOrientation(HORIZONTAL);
         mConfigurableTexts = new ConfigurableTexts(mContext);
-        String regularFontFamily = mContext.getResources().getString(
-                com.android.internal.R.string.config_headlineFontFamily);
-        String regularFontFamilyMedium = mContext.getResources().getString(
-                com.android.internal.R.string.config_headlineFontFamilyMedium);
-        mRegularTypeFace = Typeface.create(regularFontFamily, Typeface.NORMAL);
-        mMediumTypeFace = Typeface.create(regularFontFamilyMedium, Typeface.NORMAL);
     }
 
     public void setCallback(Callback callback) {
@@ -77,7 +71,7 @@ public class SegmentedButtons extends LinearLayout {
     }
 
     protected void setSelectedStyle(TextView textView, boolean selected) {
-        textView.setTypeface(selected ? mMediumTypeFace : mRegularTypeFace);
+        textView.setTypeface(selected ? MEDIUM : REGULAR);
     }
 
     public Button inflateButton() {
