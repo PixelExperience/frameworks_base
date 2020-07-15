@@ -23,15 +23,19 @@ import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STR
 
 import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.hardware.biometrics.BiometricSourceType;
+import android.hardware.display.ColorDisplayManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
@@ -90,15 +94,51 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private boolean mIsKeyguard;
     private boolean mIsCircleShowing;
     private boolean mCanUnlockWithFp;
-    private boolean mIsKeyguard;
 
     private Handler mHandler;
+
+    private boolean mNightLightChangedByFOD;
+    private boolean mSaturationChangedByFOD;
+
+    private float mAnimatorDurationScale;
+
+    private ColorDisplayManager mColorDisplayManager;
 
     private final ImageView mPressedView;
 
     private LockPatternUtils mLockPatternUtils;
 
     private Timer mBurnInProtectionTimer;
+
+    private AnimatorDurationObserver mAnimatorDurationObserver =
+            new AnimatorDurationObserver(mHandler);
+
+    private class AnimatorDurationObserver extends ContentObserver {
+
+        AnimatorDurationObserver(Handler handler) {
+            super(handler);
+        }
+
+        void startObserving() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.Global.getUriFor(
+                    Settings.Global.ANIMATOR_DURATION_SCALE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        void stopObserving() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.Global.ANIMATOR_DURATION_SCALE))) {
+                mAnimatorDurationScale = Settings.Global.getFloat(mContext.getContentResolver(),
+                        Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f);
+            }
+        }
+    }
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -147,12 +187,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             } else if (mBurnInProtectionTimer != null) {
                 mBurnInProtectionTimer.cancel();
             }
-        }
-
-        @Override
-        public void onKeyguardVisibilityChanged(boolean showing) {
-            mIsKeyguard = showing;
-            updatePosition();
         }
 
         @Override
@@ -269,6 +303,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         mDreamingMaxOffset = (int) (mSize * 0.1f);
 
+        mColorDisplayManager = context.getSystemService(ColorDisplayManager.class);
+
         mHandler = new Handler(Looper.getMainLooper());
 
         mParams.height = mSize;
@@ -312,6 +348,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         updateCutoutFlags();
 
         Dependency.get(ConfigurationController.class).addCallback(this);
+        mAnimatorDurationScale = Settings.Global.getFloat(context.getContentResolver(),
+                Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f);
     }
 
     @Override
@@ -405,6 +443,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         if (mFading) return;
         mIsCircleShowing = true;
 
+        handleNightLight(true);
+        handleGrayscale(true);
+
         setKeepScreenOn(true);
 
         setDim(true);
@@ -417,6 +458,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     public void hideCircle() {
         mIsCircleShowing = false;
+
+        handleNightLight(false);
+        handleGrayscale(false);
 
         setImageResource(R.drawable.fod_icon_default);
         invalidate();
@@ -447,6 +491,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             // Ignore show calls if biometric state is false
             return;
         }
+        mAnimatorDurationObserver.stopObserving();
 
         updatePosition();
 
@@ -471,6 +516,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         hideCircle();
         dispatchHide();
+        mAnimatorDurationObserver.startObserving();
     }
 
     private void updateAlpha() {
@@ -612,4 +658,44 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             updatePosition();
         }
     }
-}
+    public void handleNightLight(boolean isFromShow) {
+        if (isFromShow) {
+            if (mColorDisplayManager.isNightDisplayActivated()) {
+                Settings.Global.putFloat(mContext.getContentResolver(),
+                        Settings.Global.ANIMATOR_DURATION_SCALE, 0);
+                mNightLightChangedByFOD = true;
+                mColorDisplayManager.setNightDisplayActivated(false);
+            } else {
+                mNightLightChangedByFOD = false;
+            }
+        } else {
+            if (!mColorDisplayManager.isNightDisplayActivated() && mNightLightChangedByFOD) {
+                Settings.Global.putFloat(mContext.getContentResolver(),
+                        Settings.Global.ANIMATOR_DURATION_SCALE, mAnimatorDurationScale);
+                mColorDisplayManager.setNightDisplayActivated(true);
+                mNightLightChangedByFOD = false;
+            }
+        }
+    }
+
+    private void handleGrayscale(boolean isFromShow) {
+        if (isFromShow) {
+            if (mColorDisplayManager.isSaturationActivated()) {
+                mSaturationChangedByFOD = true;
+                Settings.Global.putFloat(mContext.getContentResolver(),
+                        Settings.Global.ANIMATOR_DURATION_SCALE, 0);
+                mColorDisplayManager.setSaturationLevel(100);
+            } else {
+                mSaturationChangedByFOD = false;
+            }
+        } else {
+            if (!mColorDisplayManager.isSaturationActivated() && mSaturationChangedByFOD) {
+                Settings.Global.putFloat(mContext.getContentResolver(),
+                        Settings.Global.ANIMATOR_DURATION_SCALE, mAnimatorDurationScale);
+                mColorDisplayManager.setSaturationLevel(0);
+                mSaturationChangedByFOD = false;
+            }
+        }
+    }
+
+    }
