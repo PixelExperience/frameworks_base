@@ -756,13 +756,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 Settings.System.ANIM_TILE_DURATION, 2000, UserHandle.USER_CURRENT);
         int interpolatorType = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.ANIM_TILE_INTERPOLATOR, 0, UserHandle.USER_CURRENT);
-        if (animStyle == 0) {
-            //No animation
-        }
         if (animStyle == 1) {
             animTile = ObjectAnimator.ofFloat(v, "rotationY", 0f, 360f);
-        }
-        if (animStyle == 2) {
+        } else if (animStyle == 2) {
             animTile = ObjectAnimator.ofFloat(v, "rotation", 0f, 360f);
         }
         if (animTile != null) {
