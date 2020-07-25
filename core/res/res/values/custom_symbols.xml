@@ -134,4 +134,7 @@
     <java-symbol type="bool" name="config_pocketModeSupported" />
     <java-symbol type="bool" name="config_pocketUseLightSensor" />
 
+    <!-- DC Dimming -->
+    <java-symbol type="string" name="config_deviceDcDimmingSysfsNode" />
+
 </resources>
