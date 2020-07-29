@@ -53,4 +53,7 @@ interface ILiveDisplayService {
     HSIC getDefaultPictureAdjustment();
     boolean setPictureAdjustment(in HSIC adj);
     boolean isNight();
+
+    boolean isAntiFlickerEnabled();
+    boolean setAntiFlickerEnabled(boolean enabled);
 }
