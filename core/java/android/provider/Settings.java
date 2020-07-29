@@ -5904,6 +5904,13 @@ public final class Settings {
         public static final String DISPLAY_AUTO_OUTDOOR_MODE = "display_auto_outdoor_mode";
 
         /**
+         * Anti flicker
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String DISPLAY_ANTI_FLICKER = "display_anti_flicker";
+
+        /**
          * Reader mode
          * 0 = 0ff, 1 = on
          * @hide
@@ -6126,6 +6133,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_NIGHT);
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_AUTO_OUTDOOR_MODE);
+            PRIVATE_SETTINGS.add(DISPLAY_ANTI_FLICKER);
             PRIVATE_SETTINGS.add(DISPLAY_READING_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_CABC);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ENHANCE);
