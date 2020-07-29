@@ -371,6 +371,18 @@ public class LiveDisplayService extends SystemService {
             final TwilightState twilight = mTwilightTracker.getCurrentState();
             return twilight != null && twilight.isNight();
         }
+
+        @Override
+        public boolean isAntiFlickerEnabled() {
+            return mDHC.isAntiFlickerEnabled();
+        }
+
+        @Override
+        public boolean setAntiFlickerEnabled(boolean enabled) {
+            mContext.enforceCallingOrSelfPermission(
+                    "lineageos.permission.MANAGE_LIVEDISPLAY", null);
+            return mDHC.setAntiFlickerEnabled(enabled);
+        }
     };
 
     // Listener for screen on/off events
