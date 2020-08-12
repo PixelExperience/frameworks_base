@@ -32,10 +32,10 @@
         android:gravity="right"
         android:layout_gravity="right"
         android:background="@android:color/transparent"
-        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:paddingRight="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:paddingTop="@dimen/volume_dialog_panel_transparent_padding"
         android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
-        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding"
+        android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:clipToPadding="false">
 
         <FrameLayout
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:minWidth="@dimen/volume_dialog_panel_width"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/volume_dialog_panel_land_margin"
+            android:layout_marginTop="68dp"
             android:gravity="right"
             android:layout_gravity="right"
             android:orientation="vertical"
@@ -113,7 +113,7 @@
             android:id="@+id/odi_captions"
             android:layout_width="@dimen/volume_dialog_caption_size"
             android:layout_height="@dimen/volume_dialog_caption_size"
-            android:layout_marginRight="@dimen/volume_dialog_panel_land_margin"
+            android:layout_marginRight="68dp"
             android:gravity="right"
             android:layout_gravity="right"
             android:clipToPadding="false"
