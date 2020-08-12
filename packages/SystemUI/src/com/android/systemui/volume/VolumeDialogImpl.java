@@ -178,8 +178,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mAccessibilityMgr = Dependency.get(AccessibilityManagerWrapper.class);
         mDeviceProvisionedController = Dependency.get(DeviceProvisionedController.class);
         mShowActiveStreamOnly = showActiveStreamOnly();
-        mHasSeenODICaptionsTooltip =
-                Prefs.getBoolean(context, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
+        mHasSeenODICaptionsTooltip = false;
         mVolumePanelOnLeft = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
     }
 
@@ -628,7 +627,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                     if (D.BUG) Log.d(TAG, "tool:checkODICaptionsTooltip() putBoolean true");
                     Prefs.putBoolean(mContext,
                             Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, true);
-                    mHasSeenODICaptionsTooltip = true;
+                    /*mHasSeenODICaptionsTooltip = true;*/
+                    mHasSeenODICaptionsTooltip = false;
                     if (mODICaptionsIcon != null) {
                         mODICaptionsIcon
                                 .postOnAnimation(getSinglePressFor(mODICaptionsIcon));
