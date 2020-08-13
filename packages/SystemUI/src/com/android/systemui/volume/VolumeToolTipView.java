@@ -60,9 +60,15 @@ public class VolumeToolTipView extends LinearLayout {
 
     private void drawArrow() {
         View arrowView = findViewById(R.id.arrow);
+        if (isAudioPanelOnLeftSide()){
+            arrowView.setVisibility(View.GONE);
+            View arrowViewLeft = findViewById(R.id.arrow_left);
+            arrowViewLeft.setVisibility(View.VISIBLE);
+            arrowView = arrowViewLeft;
+        }
         ViewGroup.LayoutParams arrowLp = arrowView.getLayoutParams();
         ShapeDrawable arrowDrawable = new ShapeDrawable(TriangleShape.createHorizontal(
-                arrowLp.width, arrowLp.height, false));
+                arrowLp.width, arrowLp.height, isAudioPanelOnLeftSide()));
         Paint arrowPaint = arrowDrawable.getPaint();
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
@@ -72,5 +78,9 @@ public class VolumeToolTipView extends LinearLayout {
                 getResources().getDimension(R.dimen.volume_tool_tip_arrow_corner_radius)));
         arrowView.setBackground(arrowDrawable);
 
+    }
+
+    private boolean isAudioPanelOnLeftSide() {
+        return getContext().getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
     }
 }
