@@ -158,9 +158,9 @@
         android:layout="@layout/volume_tool_tip_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom | right"
+        android:layout_gravity="center_vertical | right"
         android:layout_marginRight="@dimen/volume_tool_tip_right_margin"
-        android:layout_marginBottom="@dimen/volume_tool_tip_bottom_margin"/>
+        android:layout_marginTop="@dimen/volume_tool_tip_top_margin"/>
 
     <ViewStub
         android:id="@+id/odi_captions_tooltip_stub_left"
@@ -168,8 +168,8 @@
         android:layout="@layout/volume_tool_tip_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom | left"
+        android:layout_gravity="center_vertical | left"
         android:layout_marginLeft="@dimen/volume_tool_tip_right_margin"
-        android:layout_marginBottom="@dimen/volume_tool_tip_bottom_margin"/>
+        android:layout_marginTop="@dimen/volume_tool_tip_top_margin"/>
 
 </FrameLayout>
