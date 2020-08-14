@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofeina wył.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeina wł.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Wyskakujące powiadomienia</string>
-    <string name="accessibility_quick_settings_heads_up_off">Wyskakujące powiadomienia wyłączone.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia włączone.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia zostały wyłączone.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia zostały włączone.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchronizacja</string>
     <string name="accessibility_quick_settings_sync_off">Synchronizacja wyłączona.</string>

@@ -24,8 +24,8 @@
     <string name="quick_settings_heads_up_label">Iššokantys pranešimai</string>
     <string name="accessibility_quick_settings_heads_up_off">Iššokantys pranešimai išjungti.</string>
     <string name="accessibility_quick_settings_heads_up_on">Iššokantys pranešimai įjungti.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Iššokantys pranešimai išjungti.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Iššokantys pranešimai įjungti.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Iššokantieji pranešimai buvo išjungti.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Iššokantieji pranešimai įjungti.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinchronizavimas</string>
     <string name="accessibility_quick_settings_sync_off">Sinchronizavimas išjungtas.</string>

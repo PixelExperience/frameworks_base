@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Կոֆեինն անջատված է</string>
     <string name="accessibility_quick_settings_caffeine_on">Կոֆեինը միացված է</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Լողացող ծանուցումներ</string>
-    <string name="accessibility_quick_settings_heads_up_off">Լողացող ծանուցումները անջ․</string>
-    <string name="accessibility_quick_settings_heads_up_on">Լողացող ծանուցումները միաց․</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Լողացող ծանուցումները անջատված են։</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Լողացող ծանուցումները միացված են։</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Համաժամել</string>
     <string name="accessibility_quick_settings_sync_off">Համաժամացումը անջ․</string>

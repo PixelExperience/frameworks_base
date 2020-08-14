@@ -16,11 +16,6 @@
     <string name="accessibility_quick_settings_caffeine_off">قەھۋەخانە ھالىتىنى تاقاش.</string>
     <string name="accessibility_quick_settings_caffeine_on">قەھۋەخانە ھالىتىنى ئېچىش.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">لەيلىمە ئۇقتۇرۇش</string>
-    <string name="accessibility_quick_settings_heads_up_off">لەيلىمە ئۇقتۇرۇش تاقاق.</string>
-    <string name="accessibility_quick_settings_heads_up_on">لەيلىمە ئۇقتۇرۇش ئوچۇق.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">لەيلىمە ئۇقتۇرۇش تاقالدى.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">لەيلىمە ئۇقتۇرۇش ئېچىلدى.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">قەدەمداش</string>
     <string name="accessibility_quick_settings_sync_off">قەدەمداش تاقاق.</string>

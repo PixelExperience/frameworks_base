@@ -21,11 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine ki.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine be.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Lebegő értesítés</string>
-    <string name="accessibility_quick_settings_heads_up_off">Lebegő értesítés ki.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítés be.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítés kikapcsolva.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítés bekapcsolva.</string>
+    <string name="quick_settings_heads_up_label">Felugró értesítések</string>
+    <string name="accessibility_quick_settings_heads_up_off">A Felugró értesítések letiltva.</string>
+    <string name="accessibility_quick_settings_heads_up_on">A Felugró értesítések bekapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">A Felugró értesítések kikapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">A Felugró értesítések bekapcsolva.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Szinkronizálás</string>
     <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki.</string>

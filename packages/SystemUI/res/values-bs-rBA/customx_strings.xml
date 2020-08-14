@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine mod je onemogućen.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine mod je omogućen.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Iskačuća obaveštenja</string>
-    <string name="accessibility_quick_settings_heads_up_off">Iskačuća obaveštenja su onemogućena.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Iskačuća obaveštenja su omogućena.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Iskačuća obaveštenja su isključena.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Iskačuća obaveštenja su uključena.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinhronizacija</string>
     <string name="accessibility_quick_settings_sync_off">Sinhronizacija isključena.</string>
@@ -43,6 +38,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambijentalni prikaz isključen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambijentalni prikaz uključen.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD isključen\nUšteda baterije</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Poveži na\u2026</string>

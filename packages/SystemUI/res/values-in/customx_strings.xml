@@ -4,11 +4,11 @@
     <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistem</string>
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Pemulihan</string>
     <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
     <!-- Button to restart the device into download mode, within the Restart Options dialog -->
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Mode Download</string>
     <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Saat ini</string>
@@ -21,11 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Kafein mati.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafein hidup.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
+    <string name="quick_settings_heads_up_label">Notifikasi Pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi Pop-up nonaktif</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi pop-up aktif</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi pop-up dimatikan</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi pop-up dinyalakan</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinkronisasi</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati.</string>

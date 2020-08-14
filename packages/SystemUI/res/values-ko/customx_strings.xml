@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐.</string>
     <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">헤드업 알림</string>
-    <string name="accessibility_quick_settings_heads_up_off">헤드업 알림 꺼짐.</string>
-    <string name="accessibility_quick_settings_heads_up_on">헤드업 알림 켜짐.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">헤드업 알림이 꺼졌습니다.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">헤드업 알림이 켜졌습니다.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">동기화</string>
     <string name="accessibility_quick_settings_sync_off">동기화 꺼짐.</string>

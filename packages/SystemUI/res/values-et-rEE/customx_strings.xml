@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofeiin välja.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeiin sisse.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Piiluvad teated</string>
-    <string name="accessibility_quick_settings_heads_up_off">Piiluvad teated väljas.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Piiluvad teated sees.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Piiluvad teated on väljalülitatud.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Piiluvad teated on sisselülitatud.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sünk</string>
     <string name="accessibility_quick_settings_sync_off">Sünk väljas.</string>

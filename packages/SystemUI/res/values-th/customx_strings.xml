@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">คาเฟอีนปิดอยู่</string>
     <string name="accessibility_quick_settings_caffeine_on">คาเฟอีนเปิดอยู่</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up ปิดอยู่</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up เปิดอยู่</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up ปิดอยู่</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up เปิดอยู่</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">ซิงค์</string>
     <string name="accessibility_quick_settings_sync_off">ปิดการซิงค์</string>

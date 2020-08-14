@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Açılan başlıqlar</string>
-    <string name="accessibility_quick_settings_heads_up_off">Açılan başlıqlar bağlıdır.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Açılan başlıqlar açıqdır.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıqlar söndürüldü.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıqlar işə salındı.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Eyniləşdirmə</string>
     <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>

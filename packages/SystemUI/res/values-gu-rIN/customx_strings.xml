@@ -16,11 +16,6 @@
     <string name="accessibility_quick_settings_caffeine_off">કેફીન બંધ.</string>
     <string name="accessibility_quick_settings_caffeine_on">કેફીન ચાલુ.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">હેડ્સ અપ</string>
-    <string name="accessibility_quick_settings_heads_up_off">હેડ્સ અપ બંધ.</string>
-    <string name="accessibility_quick_settings_heads_up_on">હેડ્સ અપ ચાલુ.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">હેડ્સ અપ બંધ કરાયું.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">હેડ્સ અપ ચાલુ કરાયું.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">સમન્વયન</string>
     <string name="accessibility_quick_settings_sync_off">સિંક્રનાઇઝ બંધ.</string>

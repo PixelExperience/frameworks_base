@@ -2,4 +2,8 @@
 <resources>
     <!-- Long-press back kill application -->
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматтык түрдө</string>
+    <string name="live_display_off">Өчүрүү</string>
+    <string name="live_display_day">Күн</string>
+    <string name="live_display_night">Түн</string>
 </resources>

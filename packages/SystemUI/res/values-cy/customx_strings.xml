@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffîn i ffwrdd.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffîn ymlaen.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Rhagrybudd</string>
-    <string name="accessibility_quick_settings_heads_up_off">Rhagrybudd i ffwrdd.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Rhagrybudd ymlaen.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Rhagrybudd wedi\'i droi i ffwrdd.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Rhagrybudd wedi\'i droi ymlaen.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Cysoni</string>
     <string name="accessibility_quick_settings_sync_off">Cysoni i ffwrdd.</string>

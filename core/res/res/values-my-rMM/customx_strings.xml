@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">App ကိုပိတ်ပြီးပါပြီ</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">အလိုအလျောက်</string>
     <string name="live_display_auto_summary">နေ၀င် နေထွက်အချိန်ပေါ်မူတည်၍ မျက်နှာပြင်အလင်းအမှောင်ကို အလိုအလျောက် ချိန်ညှိခြင်း</string>

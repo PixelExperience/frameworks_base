@@ -17,11 +17,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Mod kafein dinyahaktifkan.</string>
     <string name="accessibility_quick_settings_caffeine_on">Mod kafein diaktifkan.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notifikasi pop naik</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notifikasi pop naik dinyahaktifkan.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notifikasi pop naik diaktifkan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi pop naik dimatikan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi pop dihidupkan.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Segerak</string>
     <string name="accessibility_quick_settings_sync_off">Segerak dimatikan.</string>

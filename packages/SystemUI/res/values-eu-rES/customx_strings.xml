@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kafeina ez.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafeina bai.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Jakinarazpen flotatzaileak</string>
-    <string name="accessibility_quick_settings_heads_up_off">Jakinarazpen flotatzaileak ezgaituta.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Jakinarazpen flotatzaileak gaituta.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Jakinarazpen flotatzaileak ezgaituta.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Jakinarazpen flotatzaileak gaituta.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinkronizazioa</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronizazioa ezgaituta.</string>

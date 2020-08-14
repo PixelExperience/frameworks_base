@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofeín vypnutý.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeín zapnutý.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Plávajúce oznámenia</string>
-    <string name="accessibility_quick_settings_heads_up_off">Plávajúce oznámenia zakázané.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Plávajúce oznámenia povolené.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Plávajúce oznámenia zakázané.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Plávajúce oznámenia povolené.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchronizácia</string>
     <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>

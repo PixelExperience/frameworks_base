@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен.</string>
     <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Искачуће поруке</string>
-    <string name="accessibility_quick_settings_heads_up_off">Искачуће поруке искључене.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Искачуће поруке укључене.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Искачуће поруке ће бити искључене.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Искачуће поруке ће бити укључене.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Синхрон</string>
     <string name="accessibility_quick_settings_sync_off">Синхрон. искључено.</string>
@@ -43,6 +38,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Амбијент приказ ће бити искључен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Амбијент приказ ће бити укључен.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD искључен\nУштеда батерије</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Повезивање са…</string>

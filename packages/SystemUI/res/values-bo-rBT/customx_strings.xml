@@ -17,11 +17,6 @@
     <string name="accessibility_quick_settings_caffeine_off">བརྙན་ཤེལ་ཟྭ་རྒྱག་པ་སྟངས་འཛིན།</string>
     <string name="accessibility_quick_settings_caffeine_on">བརྙན་ཤེལ་ཟྭ་མི་རྒྱག་པ་སྟངས་འཛིན་བྱེད།</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">བརྡ་ཐོ།</string>
-    <string name="accessibility_quick_settings_heads_up_off">བརྡ་ཐོའི་ཁ་རྒྱག</string>
-    <string name="accessibility_quick_settings_heads_up_on">བརྡ་ཐོའི་ཁ་འབྱེད།</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">བརྡ་ཐོའི་ཁ་བརྒྱབ་ཟིན།</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">བརྡ་ཐོའི་ཁ་ཕྱེ་ཟིན།</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">མཉམ་བགྲོད། </string>
     <string name="accessibility_quick_settings_sync_off">མཉམ་བགྲོད་ཀྱི་ཁ་རྒྱག</string>

@@ -20,11 +20,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Tha Caffeine dheth.</string>
     <string name="accessibility_quick_settings_caffeine_on">Tha Caffeine air.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">An aire</string>
-    <string name="accessibility_quick_settings_heads_up_off">Tha am modh aire dheth.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Tha am modh aire air.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Chaidh am modh aire a chur dheth.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Chaidh am modh aire a chur air.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sioncronaich</string>
     <string name="accessibility_quick_settings_sync_off">Sioncronachadh dheth.</string>

@@ -22,8 +22,8 @@
     <string name="accessibility_quick_settings_caffeine_on">Καφεΐνη ενεργή.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Αναδυόμενες ειδοποιήσεις</string>
-    <string name="accessibility_quick_settings_heads_up_off">Ανενεργές αναδυόμενες ειδοποιήσεις.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Ενεργές αναδυόμενες ειδοποιήσεις.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Οι αναδυόμενες ειδοποιήσεις απενεργοποιήθηκαν.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Οι αναδυόμενες ειδοποιήσεις ενεργοποιήθηκαν.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Οι αναδυόμενες ειδοποιήσεις απενεργοποιήθηκαν.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Οι αναδυόμενες ειδοποιήσεις ενεργοποιήθηκαν.</string>
     <!-- Sync QS tile -->
@@ -35,7 +35,7 @@
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Πρόσδεση USB</string>
     <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">Πάνελ έντασης</string>
+    <string name="quick_settings_volume_panel_label">Πίνακας έντασης</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Οθόνη ambient</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ανενεργή οθόνη ambient.</string>
@@ -43,8 +43,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Η οθόνη ambient απενεργοποιήθηκε.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Η οθόνη ambient ενεργοποιήθηκε.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">Οθόνη πάντα ενεργή</string>
-    <string name="quick_settings_aod_off_powersave_label">Λειτουργία Πάντα Ενεργής Οθόνης Απενεργοποιημένη\Ενεργή εξοικονόμηση μπαταρίας</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ανενεργό\nΕξοικονόμηση μπαταρίας</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Σύνδεση σε\u2026</string>

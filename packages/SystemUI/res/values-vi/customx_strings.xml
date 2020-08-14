@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Đã tắt Cafein.</string>
     <string name="accessibility_quick_settings_caffeine_on">Đã bật Cafein.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up tắt.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up bật.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up đã tắt.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up đã bật.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Đồng bộ</string>
     <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ.</string>

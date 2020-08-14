@@ -19,11 +19,6 @@
     <string name="accessibility_quick_settings_caffeine_off">కాఫిన్ ఆఫ్</string>
     <string name="accessibility_quick_settings_caffeine_on">కాఫిన్ ఆన్</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">హెచ్చరిక</string>
-    <string name="accessibility_quick_settings_heads_up_off">హెచ్చరిక ఆఫ్.</string>
-    <string name="accessibility_quick_settings_heads_up_on">హెచ్చరిక ఆన్.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">హెచ్చరిక ఆపివేయబడింది.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">హెచ్చరిక ఆన్ చేయబడింది.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">సమకాలీకరణ</string>
     <string name="accessibility_quick_settings_sync_off">సమకాలీకరణ ఆఫ్.</string>

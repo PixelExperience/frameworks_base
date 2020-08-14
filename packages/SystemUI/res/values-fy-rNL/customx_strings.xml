@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kafeïne út.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafeïne oan.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads-up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads-up út.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads-up oan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up útskeakele.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ynskeakele.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Syngronisearje</string>
     <string name="accessibility_quick_settings_sync_off">Syngr. út.</string>

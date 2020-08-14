@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
     <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">إنذار مسبق</string>
-    <string name="accessibility_quick_settings_heads_up_off">تعطيل الإنذار المسبق.</string>
-    <string name="accessibility_quick_settings_heads_up_on">تشغيل الإنذار المسبق.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإنذار المسبق.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإنذار المسبق.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">المزامنة</string>
     <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>

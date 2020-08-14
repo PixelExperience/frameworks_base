@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Deshabilitar Cafeína.</string>
     <string name="accessibility_quick_settings_caffeine_on">Habilitar Cafeína.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notificacións emerxentes</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notificacións emerxentes desactivadas.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notificacións emerxentes activadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">As notificacións emerxentes foron desactivadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">As notificacións emerxentes foron activadas.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronización</string>
     <string name="accessibility_quick_settings_sync_off">Sincronización apagada.</string>

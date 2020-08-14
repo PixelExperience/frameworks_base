@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads-up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads-up uit.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads-up aan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up uitgeschakeld.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ingeschakeld.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchroniseren</string>
     <string name="accessibility_quick_settings_sync_off">Synchr. uit.</string>

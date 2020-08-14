@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">കഫീൻ ഓഫ്‌.</string>
     <string name="accessibility_quick_settings_caffeine_on">കഫീൻ ഓണ്‍.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">മുന്നറിയിപ്പ്</string>
-    <string name="accessibility_quick_settings_heads_up_off">ഹെഡ്സ് അപ്പ് ഓഫ്.</string>
-    <string name="accessibility_quick_settings_heads_up_on">ഹെഡ്സ് അപ്പ് ഓണ്‍.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">ഹെഡ്സ് അപ്പ് ഓഫ് ചെയ്തു.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">ഹെഡ്സ് അപ്പ് ഓണ്‍ ചെയ്തു.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">സമന്വയിപ്പിക്കുക</string>
     <string name="accessibility_quick_settings_sync_off">പൊരുത്തപ്പെടൽ ഓഫ്.</string>
