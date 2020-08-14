@@ -67,6 +67,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FODCircleView extends ImageView implements ConfigurationListener {
+    private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
+
     private final int mPositionX;
     private final int mPositionY;
     private final int mSize;
@@ -99,7 +101,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private boolean mPressPending;
     private boolean mScreenTurnedOn;
 
-    private Context mContext;
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
 
@@ -117,7 +118,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         public void onFingerDown() {
             if (mSupportsFodGesture && mFodGestureEnable && !mScreenTurnedOn) {
                 if (mDozeEnabled) {
-                    mHandler.post(() -> mContext.sendBroadcast(new Intent("com.android.systemui.doze.pulse")));
+                    mHandler.post(() -> mContext.sendBroadcast(new Intent(DOZE_INTENT)));
                 } else {
                     mWakeLock.acquire(3000);
                     mHandler.post(() -> mPowerManager.wakeUp(SystemClock.uptimeMillis(),
@@ -239,7 +240,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         FodGestureSettingsObserver(Context context, Handler handler) {
             super(handler);
-            mContext = context;
         }
 
         void registerListener() {
@@ -278,8 +278,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     public FODCircleView(Context context) {
         super(context);
-
-        mContext = context;
 
         setScaleType(ScaleType.CENTER);
 
