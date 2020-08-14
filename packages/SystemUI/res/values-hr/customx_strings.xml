@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofein isključen.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein uključen.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
-    <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinkronizacija</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>

@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kafeina inaktive.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafeina aktive.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads-up inaktiv.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads-up Aktiv.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Njoftimet Heads-up u çaktivizuan.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Njoftimet Heads-up u aktivizuan.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinkronizimi</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronizimi inaktiv.</string>

@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">حالت کافئین غیر فعال شد.</string>
     <string name="accessibility_quick_settings_caffeine_on">حالت کافئین فعال شد.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">اعلان فوری</string>
-    <string name="accessibility_quick_settings_heads_up_off">اعلان فوری خاموش.</string>
-    <string name="accessibility_quick_settings_heads_up_on">اعلان فوری روشن.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">اعلان فوری خاموش شد.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">اعلان فوری روشن شد.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">همگام‌‌سازی</string>
     <string name="accessibility_quick_settings_sync_off">همگام‌سازی خاموش.</string>

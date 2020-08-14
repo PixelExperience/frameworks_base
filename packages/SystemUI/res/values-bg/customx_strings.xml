@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Кофеин изключен.</string>
     <string name="accessibility_quick_settings_caffeine_on">Кофеин включен.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Изскачащи известия</string>
-    <string name="accessibility_quick_settings_heads_up_off">Изключи изскачащи известия.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Включи изскачащи известия.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Изскачащите известия са изключени.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Изскачащите известия са включени.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Синхронизация</string>
     <string name="accessibility_quick_settings_sync_off">Изключена синхронизация.</string>
@@ -43,6 +38,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Активен дисплей е изключен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Активен дисплей е включен.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD изкл.\nИкономия на заряда на батерията</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Свързване с \u2026</string>

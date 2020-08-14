@@ -18,11 +18,6 @@
     <string name="accessibility_quick_settings_caffeine_off">கேஃபைன் ஆஃப்.</string>
     <string name="accessibility_quick_settings_caffeine_on">கேஃபைன் ஆன்.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">ஹெட்ஸ் அப்</string>
-    <string name="accessibility_quick_settings_heads_up_off">ஹெட்ஸ் அப் ஆஃப்.</string>
-    <string name="accessibility_quick_settings_heads_up_on">ஹெட்ஸ் அப் ஆன்.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">ஹெட்ஸ் அப் ஆஃப் செய்யப்பட்டது.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">ஹெட்ஸ் அப் ஆன் செய்யப்பட்டது.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">ஒத்திசை</string>
     <string name="accessibility_quick_settings_sync_off">ஒத்திசைவு ஆஃப்</string>

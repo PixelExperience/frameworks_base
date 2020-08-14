@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Koffein fra.</string>
     <string name="accessibility_quick_settings_caffeine_on">Koffein til.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Banner notifikationer</string>
-    <string name="accessibility_quick_settings_heads_up_off">Banner notifikationer fra.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Banner notifikationer til.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Banner notifikationer slået fra.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Banner notifikationer slået til.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synkronisering</string>
     <string name="accessibility_quick_settings_sync_off">Synkronisering fra.</string>

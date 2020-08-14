@@ -17,7 +17,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
     <!-- Sync QS tile -->
     <!-- USB tethering QS tile -->
     <!-- Volume panel QS tile -->

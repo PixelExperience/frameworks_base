@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">کافایینی ناچالاکە.</string>
     <string name="accessibility_quick_settings_caffeine_on">کافایینی چالاکە.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">ئاگانامەی زیندوو</string>
-    <string name="accessibility_quick_settings_heads_up_off">ئاگانامەی زیندوو ناچالاکە.</string>
-    <string name="accessibility_quick_settings_heads_up_on">ئاگانامەی زیندوو چالاکە.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">ئاگانامەی زیندوو ناچالاککرا</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">ئاگانامەی زیندوو چالاککرا</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">هاوکاتکردن</string>
     <string name="accessibility_quick_settings_sync_off">هاوکاتکردن ناچالاکە.</string>

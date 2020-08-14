@@ -22,8 +22,8 @@
     <string name="accessibility_quick_settings_caffeine_on">保持亮屏开启。</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">浮动通知</string>
-    <string name="accessibility_quick_settings_heads_up_off">浮动通知关。</string>
-    <string name="accessibility_quick_settings_heads_up_on">浮动通知开。</string>
+    <string name="accessibility_quick_settings_heads_up_off">浮动通知关闭。</string>
+    <string name="accessibility_quick_settings_heads_up_on">浮动通知开启。</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭。</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启。</string>
     <!-- Sync QS tile -->

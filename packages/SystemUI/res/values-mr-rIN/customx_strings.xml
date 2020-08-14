@@ -16,11 +16,6 @@
     <string name="accessibility_quick_settings_caffeine_off">कॅफीन बंद.</string>
     <string name="accessibility_quick_settings_caffeine_on">कॅफिन चालू.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">हेड्स अप</string>
-    <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद.</string>
-    <string name="accessibility_quick_settings_heads_up_on">हेड्स अप चालू.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">हेड्स अप बंद केले.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">हेड्स अप चालू केले.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">संकालन करा</string>
     <string name="accessibility_quick_settings_sync_off">सिंक बंद.</string>

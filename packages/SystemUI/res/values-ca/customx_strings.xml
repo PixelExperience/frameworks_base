@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notificacions emergents</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents apagades.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">S\'han apagat les notificacions emergents.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">S\'han encès les notificacions emergents.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinc</string>
     <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>

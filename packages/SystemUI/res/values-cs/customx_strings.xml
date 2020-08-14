@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofein vyp.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein zap.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Plovoucí oznámení</string>
-    <string name="accessibility_quick_settings_heads_up_off">Plovoucí oznámení vyp.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Plovoucí oznámení zap.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Vyskakovací oznámení je vypnuto.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Vyskakovací oznámení je zapnuto.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synch.</string>
     <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>

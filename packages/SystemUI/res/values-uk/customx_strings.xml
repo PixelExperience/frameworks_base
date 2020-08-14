@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Кофеїн вимкнено.</string>
     <string name="accessibility_quick_settings_caffeine_on">Кофеїн увімкнено.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
-    <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимкнено.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнено.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Синхронізація</string>
     <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>

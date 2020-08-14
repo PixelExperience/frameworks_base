@@ -20,11 +20,11 @@
     <string name="accessibility_quick_settings_caffeine_off">ಕ್ಯಾಫೀನ್ ಆಫ್.</string>
     <string name="accessibility_quick_settings_caffeine_on">ಕ್ಯಾಫೀನ್ ಒನ್.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">ಹೆಡ್ಸ್ ಅಪ್</string>
-    <string name="accessibility_quick_settings_heads_up_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್.</string>
-    <string name="accessibility_quick_settings_heads_up_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">ಹೆಡ್ಸ್ ಅಪ್ ಆಫ್ ಆಗಿದೆ.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">ಹೆಡ್ಸ್ ಅಪ್ ಆನ್ ಆಗಿದೆ.</string>
+    <string name="quick_settings_heads_up_label">ಪಾಪ್-ಅಪ್ ಅಧಿಸೂಚನೆಗಳು</string>
+    <string name="accessibility_quick_settings_heads_up_off">ಪಾಪ್-ಅಪ್ ಅಧಿಸೂಚನೆಗಳನ್ನು ಅನುಮತಿಸಲಾಗಿಲ್ಲ.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ಪಾಪ್-ಅಪ್ ಅಧಿಸೂಚನೆಗಳು ಸಕ್ರಿಯವಾಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ಪಾಪ್-ಅಪ್ ಅಧಿಸೂಚನೆಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ಪಾಪ್-ಅಪ್ ಅಧಿಸೂಚನೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
     <string name="accessibility_quick_settings_sync_off">ಸಿಂಕ್ ಆಫ್.</string>

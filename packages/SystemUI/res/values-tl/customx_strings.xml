@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine mode ay hindi gumagana.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine mode ay gumagana.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Pop-up notifications</string>
-    <string name="accessibility_quick_settings_heads_up_off">Ang Pop-up notifications ay hindi gumagana.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Ang Pop-up notifications ay gumagana.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Ang Pop-up notifications ay nakapatay.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Ang Pop-up notifications ay nakabukas.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sync</string>
     <string name="accessibility_quick_settings_sync_off">Sync ay naka off.</string>

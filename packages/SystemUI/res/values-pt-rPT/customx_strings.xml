@@ -21,11 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas.</string>
+    <string name="quick_settings_heads_up_label">Notificação de pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificação de pop-up desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificação de pop-up ativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronização</string>
     <string name="accessibility_quick_settings_sync_off">Sincronização desativada.</string>

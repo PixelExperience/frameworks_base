@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeina spenta.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeina accesa.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Notifiche a comparsa</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notifiche a comparsa non attive.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notifiche a comparsa attive.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche a comparsa disattivate.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche a comparsa attivate.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronizzazione</string>
     <string name="accessibility_quick_settings_sync_off">Sincronizzazione non attiva.</string>

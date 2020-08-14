@@ -21,11 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofeiini pois.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeiini päällä.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up pois.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up päällä.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up pois päältä.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up päällä.</string>
+    <string name="quick_settings_heads_up_label">Ponnahdusikkunailmoitukset</string>
+    <string name="accessibility_quick_settings_heads_up_off">Ponnahdusikkunailmoitukset poissa päältä.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Ponnahdusikkunailmoitukset päällä.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Ponnahdusikkunailmoitukset asetettu poissa päältä.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Ponnahdusikkunailmoitukset asetettu päälle.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synkronointi</string>
     <string name="accessibility_quick_settings_sync_off">Synkronointi pois.</string>

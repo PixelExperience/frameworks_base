@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">關閉暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_on">開啟暫停休眠</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">浮動通知</string>
-    <string name="accessibility_quick_settings_heads_up_off">關閉浮動通知</string>
-    <string name="accessibility_quick_settings_heads_up_on">開啟浮動通知</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">已關閉浮動通知</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">已開啟浮動通知</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">同步</string>
     <string name="accessibility_quick_settings_sync_off">停止同步</string>

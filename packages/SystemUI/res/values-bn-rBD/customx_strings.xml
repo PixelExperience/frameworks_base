@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ।</string>
     <string name="accessibility_quick_settings_caffeine_on">ক্যাফেইন চালু।</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">স্ক্রীন সতর্কবার্তা</string>
-    <string name="accessibility_quick_settings_heads_up_off">স্ক্রীনের সতর্কবার্তা বন্ধ করুন।</string>
-    <string name="accessibility_quick_settings_heads_up_on">স্ক্রীনের সতর্কবার্তা চালু করুন।</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">স্ক্রীনের সতর্কবার্তা বন্ধ করা হয়েছে।</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">স্ক্রীনের সতর্কবার্তা চালু করা হয়েছে।</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">সমলয়</string>
     <string name="accessibility_quick_settings_sync_off">সিংক্রোনাইজ বন্ধ করুন।</string>

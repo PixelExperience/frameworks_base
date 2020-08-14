@@ -16,11 +16,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">ହେଡ୍ସ୍‍ ଅପ୍‍</string>
-    <string name="accessibility_quick_settings_heads_up_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ ଅଛି।</string>
-    <string name="accessibility_quick_settings_heads_up_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍ ଅଛି।</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
     <string name="accessibility_quick_settings_sync_off">ସିଙ୍କ୍‍ ଅଫ୍‍ ଅଛି।</string>

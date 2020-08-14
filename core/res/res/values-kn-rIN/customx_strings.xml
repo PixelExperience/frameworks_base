@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">ತಂತ್ರಾಂಶ ಸ್ಥಗಿತಗೊಂಡಿದೆ</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">ಸ್ವಯಂಚಾಲಿತ</string>
     <string name="live_display_auto_summary">ಸೂರ್ಯೋದಯ ಮತ್ತು ಸೂರ್ಯಾಸ್ತದ ಬಳಿಕ ಪರದೆ‌ಯ ಬಣ್ಣ-ತಾಪವನ್ನು ಸ್ವಯಂ ಸರಿಹೊಂದಿಸು</string>
     <string name="live_display_off">ಆಫ್</string>
-    <string name="live_display_off_summary">ಎಲ್ಲಾ ಹೊಂದಾಣಿಕೆಗಳನ್ನು ಅಶಕ್ತಿಸು</string>
+    <string name="live_display_off_summary">ಎಲ್ಲಾ ಹೊಂದಾಣಿಕೆಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="live_display_day">ಹಗಲು</string>
     <string name="live_display_day_summary">ಹಗಲಿನ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಮಾತ್ರ ಬಳಸಿ</string>
     <string name="live_display_night">ರಾತ್ರಿ</string>

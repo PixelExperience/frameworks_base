@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Забарона сну выключана.</string>
     <string name="accessibility_quick_settings_caffeine_on">Забарона сну ўключана.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Усплывальныя паведамленні</string>
-    <string name="accessibility_quick_settings_heads_up_off">Усплывальныя паведамленні адключаны.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Усплывальныя паведамленні ўключаны.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Усплывальныя паведамленні адключаны.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Усплывальныя паведамленні ўключаны.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Сінхранізацыя</string>
     <string name="accessibility_quick_settings_sync_off">Сінхранізацыя адключана.</string>

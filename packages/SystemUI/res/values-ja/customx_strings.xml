@@ -21,11 +21,6 @@
     <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
     <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">ヘッドアップ</string>
-    <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
-    <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">同期</string>
     <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>

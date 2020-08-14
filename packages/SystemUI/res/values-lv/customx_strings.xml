@@ -19,11 +19,6 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofeīna režīms ir atspējots.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeīna režīms ir iespējots.</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">Uznirstošie paziņojumi</string>
-    <string name="accessibility_quick_settings_heads_up_off">Uznirstošie paziņojumi ir atspējoti.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Uznirstošie paziņojumi ir iespējoti.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Uznirstošie paziņojumi ir izslēgti.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Uznirstošie paziņojumi ir ieslēgti.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinhronizēt</string>
     <string name="accessibility_quick_settings_sync_off">Sinhronizācija izslēgta.</string>
