@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntil du løsner den. Trykk &amp; hold tilbake-knappen for å løsne.</string>
+    <string name="screen_pinning_description_no_navbar">Dette holder den i syne inntil du løsner den. Trykk og hold tilbakeknappen for å løsne.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">For å fjerne denne skjermen, trykk og hold tilbakeknappen.</string>
+    <string name="screen_pinning_toast_no_navbar">For å løsne denne skjermen, trykk og hold tilbakeknappen.</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Dette holder den i syne inntil du løsner den. Trykk og hold fingeravtrykksleseren for å løsne.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Trykk og hold fingeravtrykksleseren for å løsne denne skjermen</string>
     <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Trådløs PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Trådløs PowerShare av\nBatterisparer</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Trådløs PowerShare av\nBatterinivå for lavt</string>
+    <string name="quick_settings_powershare_enabled_label">Trådløs PowerShare er aktivert</string>
 </resources>
