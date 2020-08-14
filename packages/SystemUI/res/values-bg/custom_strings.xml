@@ -9,4 +9,5 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">За да откачите този екран, докоснете и задръжте на сензора за пръстови отпечатъци</string>
     <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Безжично зареждане</string>
 </resources>
