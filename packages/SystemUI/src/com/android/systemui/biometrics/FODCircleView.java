@@ -101,7 +101,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private boolean mPressPending;
     private boolean mScreenTurnedOn;
 
-    private Context mContext;
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
 
@@ -279,8 +278,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     public FODCircleView(Context context) {
         super(context);
-
-        mContext = context;
 
         setScaleType(ScaleType.CENTER);
 
