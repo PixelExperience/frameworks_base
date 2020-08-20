@@ -351,12 +351,12 @@ public class FODCircleView extends ImageView implements ConfigurationListener,Tu
                 });
                 anim.setDuration(1000);
                 mIsAnimating = true;
-                anim.start();
+                mHandler.post(() -> anim.start());
             } else if (!mIsAnimating) {
                 setColorFilter(Color.argb(getDimAlpha(), 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
             }
         } else {
-            setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
+            mHandler.post(() -> setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP));
         }
     }
 
