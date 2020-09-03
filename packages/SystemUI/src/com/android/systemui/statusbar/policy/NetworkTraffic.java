@@ -75,7 +75,8 @@ public class NetworkTraffic extends TextView {
     private long mLastTxBytes;
     private long mLastRxBytes;
     private long mLastUpdateTime;
-    private int mTxtSize;
+    private int mTxtSizeQs;
+    private int mTxtSizeStatusbar;
     private int mTxtImgPadding;
     private boolean mAutoHide;
     private boolean mScreenOn = true;
@@ -271,7 +272,8 @@ public class NetworkTraffic extends TextView {
         super(context, attrs, defStyle);
         final Resources resources = getResources();
         mTxtFont = resources.getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
-        mTxtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
+        mTxtSizeQs = resources.getDimensionPixelSize(R.dimen.net_traffic_qs_text_size);
+        mTxtSizeStatusbar = resources.getDimensionPixelSize(R.dimen.net_traffic_status_bar_text_size);
         mTxtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         mTintColor = resources.getColor(android.R.color.white);
         setTextColor(mTintColor);
@@ -378,7 +380,8 @@ public class NetworkTraffic extends TextView {
 
     public void onDensityOrFontScaleChanged() {
         final Resources resources = getResources();
-        mTxtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
+        mTxtSizeQs = resources.getDimensionPixelSize(R.dimen.net_traffic_qs_text_size);
+        mTxtSizeStatusbar = resources.getDimensionPixelSize(R.dimen.net_traffic_status_bar_text_size);
         mTxtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         setCompoundDrawablePadding(mTxtImgPadding);
         updateTextViewStyle();
@@ -387,9 +390,9 @@ public class NetworkTraffic extends TextView {
     protected void updateTextViewStyle(){
         if (getMyMode() == MODE_STATUS_BAR) {
             setAutoSizeTextTypeUniformWithConfiguration(
-                    1, 32, 1, TypedValue.COMPLEX_UNIT_PX);
+                    1, mTxtSizeStatusbar, 1, TypedValue.COMPLEX_UNIT_PX);
         }else{
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSize);
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)mTxtSizeQs);
         }
         setTypeface(Typeface.create(mTxtFont, Typeface.NORMAL));
     }
