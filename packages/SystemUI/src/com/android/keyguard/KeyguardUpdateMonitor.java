@@ -265,6 +265,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
     private final boolean mFingerprintWakeAndUnlock;
     private final boolean mFaceAuthOnlyOnSecurityView;
+    private boolean mBouncerFullyShown;
 
     /**
      * Short delay before restarting biometric authentication after a successful try
@@ -278,8 +279,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private int mHardwareFaceUnavailableRetryCount = 0;
     private static final int HAL_ERROR_RETRY_TIMEOUT = 500; // ms
     private static final int HAL_ERROR_RETRY_MAX = 10;
-
-    private boolean mKeyguardReset = false;
 
     private final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -904,7 +903,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     }
 
     private void handleFaceLockoutReset() {
-        updateFaceListeningState();
+        mHandler.postDelayed(this::updateFaceListeningState, 1000);
     }
 
     private void setFaceRunningState(int faceRunningState) {
@@ -1759,11 +1758,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
      * If face auth is allows to scan on this exact moment.
      */
     public boolean shouldListenForFace() {
-        if (mFaceAuthOnlyOnSecurityView && mKeyguardReset){
-            mKeyguardReset = false;
-            return false;
-        }
-
         boolean awakeKeyguard = mKeyguardIsVisible && mDeviceInteractive && !mGoingToSleep;
         final int user = getCurrentUser();
         final int strongAuth = mStrongAuthTracker.getStrongAuthForUser(user);
@@ -1794,12 +1788,27 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         // Only listen if this KeyguardUpdateMonitor belongs to the primary user. There is an
         // instance of KeyguardUpdateMonitor for each user but KeyguardUpdateMonitor is user-aware.
-        return (mBouncer || mAuthInterruptActive || awakeKeyguard || shouldListenForFaceAssistant())
+        boolean shouldListen = (mBouncer || mAuthInterruptActive || awakeKeyguard || shouldListenForFaceAssistant())
                 && !mSwitchingUser && !isFaceDisabled(user) && becauseCannotSkipBouncer
                 && !mKeyguardGoingAway && mFaceSettingEnabledForUser.get(user) && !mLockIconPressed
                 && strongAuthAllowsScanning && mIsPrimaryUser
                 && !mSecureCameraLaunched
                 && unlockPossible;
+
+        if (shouldListen && mFaceAuthOnlyOnSecurityView && !mBouncerFullyShown){
+            shouldListen = false;
+        }
+
+        return shouldListen;
+    }
+
+    public void onKeyguardBouncerFullyShown(boolean fullyShow) {
+        if (mBouncerFullyShown != fullyShow){
+            mBouncerFullyShown = fullyShow;
+            if (mFaceAuthOnlyOnSecurityView){
+                updateFaceListeningState();
+            }
+        }
     }
 
     /**
@@ -2269,11 +2278,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
      */
     private void handleKeyguardReset() {
         if (DEBUG) Log.d(TAG, "handleKeyguardReset");
+        mBouncerFullyShown = false;
         updateBiometricListeningState();
         mNeedsSlowUnlockTransition = resolveNeedsSlowUnlockTransition();
-        if (mFaceAuthOnlyOnSecurityView){
-            mKeyguardReset = true;
-        }
     }
 
     private boolean resolveNeedsSlowUnlockTransition() {
