@@ -235,4 +235,7 @@
          1: Right side -->
     <integer name="config_alertSliderLocation">0</integer>
 
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
+
 </resources>

@@ -30,9 +30,6 @@
     <!-- Whether to use the mask for the quicksettings icons-->
     <bool name="config_useMaskForQs">true</bool>
 
-    <!-- Enable face auth only when swiping security view -->
-    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
-
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">true</bool>
 </resources>
