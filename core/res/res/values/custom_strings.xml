@@ -2,7 +2,4 @@
     <!-- Strings for Bluetooth service -->
     <!-- toast message informing user that Bluetooth stays on after airplane mode is turned on. [CHAR LIMIT=NONE] -->
     <string name="bluetooth_airplane_mode_toast">Bluetooth will stay on during airplane mode</string>
-
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
 </resources>
