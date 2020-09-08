@@ -4519,16 +4519,6 @@ public final class Settings {
         public static final Validator BUTTON_BRIGHTNESS_VALIDATOR = NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
-         * Check the proximity sensor during wakeup
-         * @hide
-         */
-        public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
-
-        /** @hide */
-        public static final Validator PROXIMITY_ON_WAKE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Force show navigation bar setting.
          * @hide
          */
@@ -4960,7 +4950,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
-            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_SHOW);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
@@ -5078,7 +5067,6 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(PROXIMITY_ON_WAKE, PROXIMITY_ON_WAKE_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_SHOW, NAVIGATION_BAR_SHOW_VALIDATOR);
             VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION, KEY_HOME_LONG_PRESS_ACTION_VALIDATOR);
