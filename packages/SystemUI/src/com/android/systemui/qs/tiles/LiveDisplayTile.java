@@ -44,7 +44,6 @@ import com.android.internal.R;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.custom.hardware.LiveDisplayManager;
 
-
 import javax.inject.Inject;
 
 /** Quick settings tile: LiveDisplay mode switcher **/
@@ -75,7 +74,6 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
     public LiveDisplayTile(QSHost host) {
         super(host);
         mNightDisplayAvailable = ColorDisplayManager.isNightDisplayAvailable(mContext);
-
         Resources res = mContext.getResources();
         TypedArray typedArray = res.obtainTypedArray(R.array.live_display_drawables);
         mEntryIconRes = new int[typedArray.length()];
