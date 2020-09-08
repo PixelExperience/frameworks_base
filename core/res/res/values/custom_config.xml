@@ -238,4 +238,7 @@
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
 
+    <!-- Whether device uses linear screen brightness slider -->
+    <bool name="config_linearBrightnessSlider">false</bool>
+
 </resources>

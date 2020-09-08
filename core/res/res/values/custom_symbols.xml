@@ -97,4 +97,7 @@
     <!-- Enable face auth only when swiping security view -->
     <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
+    <!-- Whether device uses linear screen brightness slider -->
+    <java-symbol type="bool" name="config_linearBrightnessSlider" />
+
 </resources>
