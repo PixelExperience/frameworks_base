@@ -55,6 +55,7 @@ import org.pixelexperience.systemui.qs.tiles.ReverseChargingTile;
 
 // Custom qs tiles
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
+import com.android.systemui.qs.tiles.AntiFlickerTile;
 import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
@@ -113,7 +114,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<SyncTile> syncTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
-            Provider<ReadingModeTile> readingModeTileProvider) {
+            Provider<ReadingModeTile> readingModeTileProvider,
+            Provider<AntiFlickerTile> antiFlickerTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -151,7 +153,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 syncTileProvider,
                 usbTetherTileProvider,
                 liveDisplayTileProvider,
-                readingModeTileProvider);
+                readingModeTileProvider,
+                antiFlickerTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }
