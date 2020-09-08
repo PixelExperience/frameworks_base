@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">अनपिन नगर्दासम्म यसलाई देखिन्छ। अनपिन गर्नको लागि थिचेर होल्ड गर्नु</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">अनपिन गर्न थिचेर ऐक छिन बस्नुहोस</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">अनपिन नगर्दासम्म यसलाई देखिन्छ। अनपिन गर्नको लागि थिचेर होल्ड गर्नु</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">अनपिन गर्न थिचेर ऐक छिन बस्नुहोस</string>
     <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">तार बिना नै पावर अरुलाई दिनु</string>
+    <string name="quick_settings_powershare_off_powersave_label">ताररहित पावर शेयर बन्द \n ब्याट्री बचत</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ताररहित पावर शेयर बन्द  \n  ब्याट्री कम</string>
+    <string name="quick_settings_powershare_enabled_label">ताररहित पावरशेयर सुरु भयो</string>
 </resources>
