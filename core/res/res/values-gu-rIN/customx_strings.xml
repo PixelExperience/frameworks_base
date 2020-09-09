@@ -13,4 +13,5 @@
     <string name="live_display_outdoor">આઉટડોર (તેજ તડકો)</string>
     <string name="live_display_outdoor_summary">ફકત આઉટડોર સેટિંગ્સનો ઉપયોગ કરો</string>
     <string name="live_display_hint">લાઇવડિસ્પ્લેથી આંખો પરની તાણ ઘટાડી શકાય છે અને તમને રાતે સૂવામાં મદદરૂપ થઈ શકે. અજમાવવા અહીં ક્લિક કરો!</string>
+    <!-- Pocket Lock -->
 </resources>

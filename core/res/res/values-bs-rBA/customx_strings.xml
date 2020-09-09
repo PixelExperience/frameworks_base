@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Živa pozadina je promenjena u dnevni mod.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Živa pozadina je promenjena u noćni mod.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Živa pozadina je promenjena u spoljni mod.</string>
+    <!-- Pocket Lock -->
 </resources>

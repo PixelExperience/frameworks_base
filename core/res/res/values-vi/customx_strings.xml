@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay đã đổi sang chế độ ban ngày.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay đã đổi sang chế độ ban đêm.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay đã đổi sang chế độ ngoài trời.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Bấm và giữ nút nguồn để mở khoá</string>
 </resources>

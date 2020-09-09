@@ -14,4 +14,5 @@
     <string name="live_display_outdoor_summary">ఆరుబయటి సెట్టింగులను మాత్రమే ఉపయోగించుము</string>
     <string name="live_display_hint">ప్రత్యక్ష ప్రదర్శన మీ కంటిపై ఒత్తిడిని తగ్గించడానికి సహాయపడుతుంది మరియు రాత్రి సమయంలో నిద్రపోవడానికి సహకరిస్తుంది. దానిని ప్రయత్నించి చూడడానికి ఇక్కడ క్లిక్ చేయండి!</string>
     <string name="accessibility_quick_settings_live_display_day">పగటి మోడ్.</string>
+    <!-- Pocket Lock -->
 </resources>

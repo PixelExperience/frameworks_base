@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">நேரலை காட்சி பகல் முறைக்கு மாற்றப்பட்டது</string>
     <string name="accessibility_quick_settings_live_display_changed_night">நேரலை காட்சி இரவு முறைக்கு மாற்றப்பட்டது</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">நேரலை காட்சி வெளிப்புற முறைக்கு மாற்றப்பட்டது</string>
+    <!-- Pocket Lock -->
 </resources>

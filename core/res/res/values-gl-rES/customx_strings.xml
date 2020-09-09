@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Long-press back kill application -->
+    <string name="app_killed_message">Matouse a aplicación</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automático</string>
     <string name="live_display_auto_summary">Axustar automaticamente as cores de pantalla ao mencer e ao solpor</string>
@@ -23,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay mudado ao modo día.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay mudado ao modo noite.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay mudado ao modo exteriores.</string>
+    <!-- Pocket Lock -->
 </resources>

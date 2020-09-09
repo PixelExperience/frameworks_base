@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">ڕوونمای زیندوو گۆڕا بۆ دۆخی ڕۆژ.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">ڕوونمای زیندوو گۆڕا بۆ دۆخی شەو.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">ڕوونمای زیندوو گۆڕا بۆ دۆخی دەرەوە.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">دەگرتن و هەڵگرتنی دوگمەی سەرەکی بۆ کردنەوە</string>
 </resources>

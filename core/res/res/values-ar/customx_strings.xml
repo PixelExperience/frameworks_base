@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">تم تغيير LiveDisplay إلى الوضع النهاري.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">تم تغيير LiveDisplay إلى الوضع الليلي.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">تم تغيير LiveDisplay إلى وضع الأماكن المفتوحة.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">اضغط مع الاستمرار على زر الطاقة للفتح</string>
 </resources>

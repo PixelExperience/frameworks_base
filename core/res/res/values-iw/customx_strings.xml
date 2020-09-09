@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay שונה למצב יום.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay שונה למצב לילה.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay שונה למצב חוץ.</string>
+    <!-- Pocket Lock -->
 </resources>

@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay spremenjen na dnevni način.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay spremenjen na nočni način.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay spremenjen v način na prostem.</string>
+    <!-- Pocket Lock -->
 </resources>

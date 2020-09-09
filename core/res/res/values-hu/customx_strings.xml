@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay nappali módra változtatva.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay éjszakai módra változtatva.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay szabadtéri módra változtatva.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tartsa lenyomva a bekapcsológombot a feloldáshoz</string>
 </resources>

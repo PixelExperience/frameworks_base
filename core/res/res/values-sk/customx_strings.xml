@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay sa zmenil na denný režim.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay sa zmenil na nočný režim.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay sa zmenil na režim vonku.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Stlačte a podržte tlačidlo napájania pre odomknutie</string>
 </resources>

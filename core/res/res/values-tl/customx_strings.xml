@@ -21,4 +21,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Ang LiveDisplay ay nabago sa pang-araw na mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ay binago sa pang-gabi na mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Ang LiveDisplay ay nabago sa panlabas na mode.</string>
+    <!-- Pocket Lock -->
 </resources>

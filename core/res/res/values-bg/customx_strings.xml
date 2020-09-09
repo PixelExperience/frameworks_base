@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Адаптивен дисплей е променен на дневен режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Адаптивен дисплей е променен на нощен режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Адаптивен дисплей е променен на външен режим.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Натиснете и задръжте бутона за включване, за да отключите</string>
 </resources>

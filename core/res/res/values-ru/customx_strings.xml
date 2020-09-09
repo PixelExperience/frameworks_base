@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен в дневной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключен в ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен в режим «на улице».</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
 </resources>

@@ -23,4 +23,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay u kthye në profilin e ditës.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay u kthye në profilin e natës.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay u kthye në profilin jashtë shtëpisë.</string>
+    <!-- Pocket Lock -->
 </resources>

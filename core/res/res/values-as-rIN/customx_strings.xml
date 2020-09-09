@@ -13,4 +13,5 @@
     <string name="live_display_outdoor">আউটডোৰ (উজ্জ্বল ৰ\'দ)</string>
     <string name="live_display_outdoor_summary">কেৱল আউটডোৰ ছেটিংচ ব্যৱহাৰ কৰক</string>
     <string name="live_display_hint">লাইভপ্রদর্শন আপোনাৰ চকুৰ ওপৰত চাপ কমাব পাৰে আৰু ৰাতি শোৱাত সহায় কৰিব পাৰে। ইয়াক চেষ্টা কৰি চাবলৈ ইয়াত ক্লিক কৰক!</string>
+    <!-- Pocket Lock -->
 </resources>

@@ -13,4 +13,5 @@
     <string name="live_display_outdoor">تالا (قۇياش نۇرى)</string>
     <string name="live_display_outdoor_summary">تالا تەڭشەكلىرىنىلا ئىشلىتىدۇ</string>
     <string name="live_display_hint">LiveDisplay كۆز چارچىشىنى يېنىكلىتىشكە ياردەم بېرىدۇ، كېچىدە ئۇخلىشىڭىزغا ياردەم بېرىدۇ. سىناش ئۈچۈن بۇ جاينى چېكىڭ!</string>
+    <!-- Pocket Lock -->
 </resources>

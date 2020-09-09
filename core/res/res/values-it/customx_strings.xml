@@ -23,5 +23,7 @@
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay in modalità automatica.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay in modalità giorno.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay in modalità notte.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambiato in modalità all\'aperto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay in modalità all\'aperto.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tieni premuto e mantieni il tasto di accensione per sbloccare</string>
 </resources>

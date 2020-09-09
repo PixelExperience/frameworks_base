@@ -13,4 +13,5 @@
     <string name="live_display_outdoor">आऊटडोअर (चमकदार सूर्य)</string>
     <string name="live_display_outdoor_summary">केवळ आऊटडोअर सेटिंग्ज वापरा</string>
     <string name="live_display_hint">थेटप्रदर्शन डोळ्यांचा ताण कमी करण्यास मदत करते आणि तुम्हाला रात्री झोपण्यास मदत करते. ते वापरून पाहण्यासाठी इथे क्लिक करा!</string>
+    <!-- Pocket Lock -->
 </resources>

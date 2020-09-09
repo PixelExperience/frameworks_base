@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">ലൈവ്ഡിസ്പ്ലേ ഡേ മോഡിലേക്ക് മാറ്റിയിരിക്കുന്നു.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">തത്സമയ പ്രദർശനം രാത്രി മോഡ്ൽലേക്ക് മാറിയിരിക്കുന്നു</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">തത്സമയ പ്രദർശനം ഔട്ഡോർ മോഡ്ലേക്ക് മാറിയിരിക്കുന്നു</string>
+    <!-- Pocket Lock -->
 </resources>

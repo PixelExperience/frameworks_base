@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">\'লাইভডিসপ্লে\' দিনের অবস্থায় পরিবর্তন হয়েছে।</string>
     <string name="accessibility_quick_settings_live_display_changed_night">\'লাইভডিসপ্লে\' রাত্রিকালীন অবস্থায় পরিবর্তন হয়েছে।</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">\'লাইভডিসপ্লে\' সূর্যালোকের অবস্থায় পরিবর্তিত হয়েছে।</string>
+    <!-- Pocket Lock -->
 </resources>

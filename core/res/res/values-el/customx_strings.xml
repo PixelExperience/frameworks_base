@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Το LiveDisplay άλλαξε σε λειτουργία ημέρας.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Το LiveDisplay άλλαξε σε λειτουργία νύχτας.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Το LiveDisplay άλλαξε σε λειτουργία εξωτερικού χώρου.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Πατήστε και κρατήστε πατημένο το κουμπί λειτουργίας για ξεκλείδωμα</string>
 </resources>

@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ಹಗಲು ರೀತಿಗೆ ಬದಲಾಗಿದೆ.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ರಾತ್ರಿ ರೀತಿಗೆ ಬದಲಾಗಿದೆ.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay ಹೊರಾಂಗಣ ರೀತಿಗೆ ಬದಲಾಗಿದೆ.</string>
+    <!-- Pocket Lock -->
 </resources>

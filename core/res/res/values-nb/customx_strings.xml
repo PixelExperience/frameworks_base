@@ -19,9 +19,10 @@
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dagmodus.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nattmodus.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: utendørsmodus.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay slått av.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay avslått.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay endret til automatisk modus.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay endret til dagmodus.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay endret til nattmodus.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay endret til utendørsmodus.</string>
+    <!-- Pocket Lock -->
 </resources>

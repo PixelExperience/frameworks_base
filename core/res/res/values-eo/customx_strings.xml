@@ -3,4 +3,5 @@
     <!-- Long-press back kill application -->
     <!-- LiveDisplay strings -->
     <string name="live_display_day">Tago</string>
+    <!-- Pocket Lock -->
 </resources>

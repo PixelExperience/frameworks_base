@@ -23,4 +23,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gewijzigd naar dagstand.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gewijzigd naar nachtstand.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay gewijzigd naar buitenstand.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Houd de aan/uit- knop ingedrukt om te ontgrendelen</string>
 </resources>

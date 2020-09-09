@@ -23,4 +23,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay eguna modura aldatu da.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gaua modura aldatu da.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay kaleko modura aldatu da.</string>
+    <!-- Pocket Lock -->
 </resources>

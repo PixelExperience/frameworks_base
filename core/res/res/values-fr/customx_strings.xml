@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changé en mode jour.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changé en mode nuit.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changé en mode extérieur.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Appuyez et maintenez le bouton Marche/Arrêt pour déverrouiller</string>
 </resources>

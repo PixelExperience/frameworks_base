@@ -10,4 +10,5 @@
     <string name="live_display_day_summary">ប្រើតែការកំណត់ថ្ងៃប៉ុណ្ណោះ</string>
     <string name="live_display_night">ពេល​រាត្រី</string>
     <string name="live_display_night_summary">ប្រើតែការកំណត់ពេលរាត្រីប៉ុណ្ណោះ</string>
+    <!-- Pocket Lock -->
 </resources>

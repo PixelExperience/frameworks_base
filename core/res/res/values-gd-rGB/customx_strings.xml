@@ -23,4 +23,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Chaidh LiveDisplay atharrachadh gu modh an latha.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Chaidh LiveDisplay atharrachadh gu modh na h-oidhche.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Chaidh LiveDisplay atharrachadh gu modh an taoibh a-muigh.</string>
+    <!-- Pocket Lock -->
 </resources>

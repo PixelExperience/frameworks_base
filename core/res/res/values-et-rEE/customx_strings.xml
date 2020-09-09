@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay on muudetud päevarežiimi.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay on muudetud öörežiimi.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay on muudetud õuerežiimi.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Avamiseks vajutage ja hoidke all toitenuppu</string>
 </resources>

@@ -15,4 +15,5 @@
     <string name="live_display_hint">ଲାଇଭ୍‍ଡିସ୍‍ପ୍ଲେ ଆଇଷ୍ଟ୍ରେନ୍‍ କମାଇବାରେ ଓ ରାତିରେ ଆପଣଙ୍କୁ ଶୋଇବାରେ ସାହାଯ୍ୟ କରିପାରେ। ଏହା ବ୍ୟବହାର କରିବା ପାଇଁ ଏଠାରେ କ୍ଲିକ୍‍ କରନ୍ତୁ!</string>
     <string name="accessibility_quick_settings_live_display_off">ଲାଇଭ୍ ପ୍ରଦର୍ଶନ ବନ୍ଦ।</string>
     <string name="accessibility_quick_settings_live_display_changed_off">ଲାଇଭ୍ ପ୍ରଦର୍ଶନ ବନ୍ଦ କରାଗଲା।</string>
+    <!-- Pocket Lock -->
 </resources>

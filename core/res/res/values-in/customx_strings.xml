@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay diubah menjadi mode siang.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay diubah menjadi mode malam.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay diubah menjadi mode luar ruangan.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol power untuk membuka kunci</string>
 </resources>

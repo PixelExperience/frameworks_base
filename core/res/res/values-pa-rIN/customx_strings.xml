@@ -17,4 +17,5 @@
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: ਸਵੈਚਲਿਤ ਮੋਡ।</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: ਦਿਨ ਮੋਡ।</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ਰਾਤ ਮੋਡ।</string>
+    <!-- Pocket Lock -->
 </resources>

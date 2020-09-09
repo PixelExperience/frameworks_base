@@ -24,4 +24,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay s-a schimbat la modul zi.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay s-a schimbat la modul noapte.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay s-a schimbat la modul afară.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Apăsați și țineți apăsat butonul de alimentare pentru a debloca</string>
 </resources>

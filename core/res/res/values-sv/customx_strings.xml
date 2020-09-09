@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ändrades till dagläge.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ändrades till nattläge.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay ändrades till utomhusläge.</string>
+    <!-- Pocket Lock -->
 </resources>

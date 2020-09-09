@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay: күнге өзгеру.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay: түнге өзгеру.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay: ашық күнге өзгеру.</string>
+    <!-- Pocket Lock -->
 </resources>

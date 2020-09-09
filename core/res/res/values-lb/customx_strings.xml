@@ -5,4 +5,5 @@
     <string name="live_display_off">Aus</string>
     <string name="live_display_day">Dag</string>
     <string name="live_display_night">Nuecht</string>
+    <!-- Pocket Lock -->
 </resources>

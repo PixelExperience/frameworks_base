@@ -23,4 +23,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay verander na dag modus.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay verander na nag modus.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay verander na buitelug modus.</string>
+    <!-- Pocket Lock -->
 </resources>

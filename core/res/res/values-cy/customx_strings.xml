@@ -23,4 +23,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay wedi\'i newid i fodd dydd.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay wedi\'i newid i fodd nos.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay wedi\'i newid i fodd awyr agored.</string>
+    <!-- Pocket Lock -->
 </resources>

@@ -23,4 +23,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz rejiminə keçdi.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gecə rejiminə keçdi.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açıq hava rejiminə keçdi.</string>
+    <!-- Pocket Lock -->
 </resources>

@@ -24,4 +24,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">लाइव डिस्पले दिन मोड में बदल गया</string>
     <string name="accessibility_quick_settings_live_display_changed_night">लाइव डिस्पले रात्री मोड में बदल गया</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">लाइव डिस्पले बहारी मोड में बदल गया</string>
+    <!-- Pocket Lock -->
 </resources>
