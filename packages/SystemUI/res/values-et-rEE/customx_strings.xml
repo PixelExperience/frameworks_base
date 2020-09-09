@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Kofeiin välja.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeiin sisse.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Hüpikteatis</string>
+    <string name="accessibility_quick_settings_heads_up_off">Hüpikteatis väljas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Hüpikteatis sees.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Hüpikteatis on välja lülitatud.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Hüpikteatis on sisse lülitatud.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sünk</string>
     <string name="accessibility_quick_settings_sync_off">Sünk väljas.</string>

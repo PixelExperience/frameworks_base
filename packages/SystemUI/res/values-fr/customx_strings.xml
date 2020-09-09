@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Caféine off.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caféine on.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notifications pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifications pop-up désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifications pop-up activées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Les notifications flottantes ont été désactivé.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Les notifications flottantes ont été activé.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchronisation</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée.</string>

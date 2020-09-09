@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Deshabilitar Cafeína.</string>
     <string name="accessibility_quick_settings_caffeine_on">Habilitar Cafeína.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notificacións emerxentes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacións emerxentes desactivadas. </string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacións emerxentes activadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">As notificacións emerxentes foron desactivadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">As notificacións emerxentes foron activadas.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronización</string>
     <string name="accessibility_quick_settings_sync_off">Sincronización apagada.</string>
@@ -38,8 +43,17 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">A visualización de ambiente foi desactivada.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">A visualización de ambiente foi activada.</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desactivado\nAforro de batería</string>
     <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
+    <string name="vpn_credentials_hint">Por favor, insire as túas credenciais para conectar a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nome de usuario</string>
+    <string name="vpn_credentials_password">Contrasinal</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
     <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Arrastre ou prema para engadir/eliminar funcións </string>
     <!-- Status bar network traffic monitor strings -->
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Amosar 4G no canto de LTE</string>

@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Đã tắt Cafein.</string>
     <string name="accessibility_quick_settings_caffeine_on">Đã bật Cafein.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Thông báo nổi</string>
+    <string name="accessibility_quick_settings_heads_up_off">Thông báo nổi đã tắt.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Đã bật thông báo nổi.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Thông báo nổi đã tắt.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Đã bật thông báo nổi.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Đồng bộ</string>
     <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ.</string>

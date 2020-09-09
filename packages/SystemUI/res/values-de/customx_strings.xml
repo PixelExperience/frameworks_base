@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Koffein aus.</string>
     <string name="accessibility_quick_settings_caffeine_on">Koffein an.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Pop-Up Benachrichtigungen</string>
+    <string name="accessibility_quick_settings_heads_up_off">Pop-Up Benachrichtigungen aus.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Pop-Up Benachrichtigungen an.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Popup-Benachrichtigungen sind deaktiviert.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Popup-Benachrichtigungen sind eingeschaltet.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchronisation</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisierung aus.</string>

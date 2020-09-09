@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Koffein av.</string>
     <string name="accessibility_quick_settings_caffeine_on">Koffein på.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Popup-varsler</string>
+    <string name="accessibility_quick_settings_heads_up_off">Popup-varsler av.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Popup-varsler på.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Popup-varsler avslått.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Popup-varsler påslått.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synkronisering</string>
     <string name="accessibility_quick_settings_sync_off">Synkronisering av.</string>
