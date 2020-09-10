@@ -3283,9 +3283,9 @@ public class PackageManagerService extends IPackageManager.Stub
 
             // Enable components marked for forced-enable at build-time
             mForceEnabledComponentsList = new ArrayList<ComponentName>();
-            loadForceEnabledComponents();
             enableComponents(mContext.getResources().getStringArray(
                     com.android.internal.R.array.config_forceEnabledComponents), true);
+            loadForceEnabledComponents();
 
             // If this is first boot after an OTA, and a normal boot, then
             // we need to clear code cache directories.
