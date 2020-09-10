@@ -25,4 +25,5 @@
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay mudado ao modo noite.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay mudado ao modo exteriores.</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Manteña premido o botón de acendido pra desbloquear</string>
 </resources>

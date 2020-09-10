@@ -25,4 +25,5 @@
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay је пребачен у ноћни режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay је пребачен у режим „на отвореном“.</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Притисни и држи дугме за паљење како би откључао</string>
 </resources>

@@ -25,5 +25,5 @@
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已修改为夜晚模式。</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已修改为户外模式。</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">按住电源按键来解锁</string>
+    <string name="pocket_lock_message_long_press">长按电源键以解锁</string>
 </resources>

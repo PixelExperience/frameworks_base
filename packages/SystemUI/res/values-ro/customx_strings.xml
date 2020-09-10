@@ -21,6 +21,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cofeină pornit.</string>
     <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Atenționare</string>
+    <string name="accessibility_quick_settings_heads_up_off">Atenționare oprită.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Atenționare pornită.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Atenționarea a fost oprită.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Atenționarea a fost pornită.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronizare</string>
     <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
