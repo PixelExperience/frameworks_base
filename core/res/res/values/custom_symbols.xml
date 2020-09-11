@@ -1,0 +1,4 @@
+<resources>
+    <!-- Vendor signatures -->
+    <java-symbol type="array" name="config_vendorPlatformSignatures" />
+</resources>
