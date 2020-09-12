@@ -116,6 +116,8 @@ import java.util.Map.Entry;
 import java.util.TimeZone;
 import java.util.function.Consumer;
 
+import com.android.internal.util.custom.fod.FodUtils;
+
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
  * the up to date information as well as a registration for callbacks that care
@@ -305,10 +307,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             }
         }
     };
-
-    public boolean isPocketLockVisible(){
-        return mPocketManager.isPocketLockVisible();
-    }
 
     private final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -1648,9 +1646,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         mDreamManager = IDreamManager.Stub.asInterface(
                 ServiceManager.getService(DreamService.DREAM_SERVICE));
 
-        mPocketManager = (PocketManager) context.getSystemService(Context.POCKET_SERVICE);
-        if (mPocketManager != null) {
-            mPocketManager.addCallback(mPocketCallback);
+        if (!FodUtils.hasFodSupport(mContext)) {
+            mPocketManager = (PocketManager) context.getSystemService(Context.POCKET_SERVICE);
+            if (mPocketManager != null) {
+                mPocketManager.addCallback(mPocketCallback);
+            }
         }
 
         if (mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {
