@@ -37,6 +37,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.UserHandle;
+import android.pocket.IPocketCallback;
+import android.pocket.PocketManager;
 import android.provider.Settings;
 import android.view.Display;
 import android.view.Gravity;
@@ -192,6 +194,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             } else {
                 updateIconDim(false);
             }
+            handlePocketManagerCallback(showing);
         }
 
         @Override
@@ -237,6 +240,20 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
     };
 
+    private void handlePocketManagerCallback(boolean keyguardShowing){
+        if (!keyguardShowing){
+            if (mPocketCallbackAdded){
+                mPocketCallbackAdded = false;
+                mPocketManager.removeCallback(mPocketCallback);
+            }
+        }else{
+            if (!mPocketCallbackAdded){
+                mPocketCallbackAdded = true;
+                mPocketManager.addCallback(mPocketCallback);
+            }
+        }
+    }
+
     private boolean mCutoutMasked;
     private int mStatusbarHeight;
     private class CustomSettingsObserver extends ContentObserver {
@@ -272,6 +289,23 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     }
 
     private CustomSettingsObserver mCustomSettingsObserver;
+
+    private PocketManager mPocketManager;
+    private boolean mIsDeviceInPocket;
+    private boolean mPocketCallbackAdded = false;
+    private final IPocketCallback mPocketCallback = new IPocketCallback.Stub() {
+
+        @Override
+        public void onStateChanged(boolean isDeviceInPocket, int reason) {
+            boolean wasDeviceInPocket = mIsDeviceInPocket;
+            if (reason == PocketManager.REASON_SENSOR) {
+                mIsDeviceInPocket = isDeviceInPocket;
+            } else {
+                mIsDeviceInPocket = false;
+            }
+        }
+
+    };
 
     public FODCircleView(Context context) {
         super(context);
@@ -359,6 +393,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     
         updateCutoutFlags();
         Dependency.get(ConfigurationController.class).addCallback(this);
+
+        // Pocket
+        mPocketManager = (PocketManager) context.getSystemService(Context.POCKET_SERVICE);
     }
 
     private int interpolate(int i, int i2, int i3, int i4, int i5) {
@@ -513,7 +550,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     }
 
     public void showCircle() {
-        if (mFading || mTouchedOutside) return;
+        if (mFading || mTouchedOutside || (mIsKeyguard && mIsDeviceInPocket)) return;
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
