@@ -83,6 +83,7 @@ public class BrightnessController implements ToggleSlider.Listener {
     private boolean mListening;
     private boolean mExternalChange;
     private boolean mControlValueInitialized;
+    private int mLinearSliderMax;
 
     private ValueAnimator mSliderAnimator;
 
@@ -442,7 +443,8 @@ public class BrightnessController implements ToggleSlider.Listener {
             mControl.setMax(GAMMA_SPACE_MAX);
             animateSliderTo(sliderVal);
         } else {
-            mControl.setMax(max - min);
+            mLinearSliderMax = max - min;
+            mControl.setMax(mLinearSliderMax);
             animateSliderTo(val - min);
         }
     }
@@ -463,7 +465,7 @@ public class BrightnessController implements ToggleSlider.Listener {
             mExternalChange = false;
         });
         final long animationDuration = SLIDER_ANIMATION_DURATION * Math.abs(
-                mControl.getValue() - target) / GAMMA_SPACE_MAX;
+                mControl.getValue() - target) / (mLinearBrightnessSlider ? mLinearSliderMax : GAMMA_SPACE_MAX);
         mSliderAnimator.setDuration(animationDuration);
         mSliderAnimator.start();
     }
