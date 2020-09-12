@@ -116,6 +116,8 @@ import java.util.Map.Entry;
 import java.util.TimeZone;
 import java.util.function.Consumer;
 
+import com.android.internal.util.custom.fod.FodUtils;
+
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
  * the up to date information as well as a registration for callbacks that care
@@ -1649,7 +1651,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 ServiceManager.getService(DreamService.DREAM_SERVICE));
 
         mPocketManager = (PocketManager) context.getSystemService(Context.POCKET_SERVICE);
-        if (mPocketManager != null) {
+        if (mPocketManager != null && !FodUtils.hasFodSupport(mContext)) {
             mPocketManager.addCallback(mPocketCallback);
         }
 
