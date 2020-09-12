@@ -116,6 +116,8 @@ import java.util.Map.Entry;
 import java.util.TimeZone;
 import java.util.function.Consumer;
 
+import com.android.internal.util.custom.fod.FodUtils;
+
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
  * the up to date information as well as a registration for callbacks that care
@@ -284,6 +286,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private int mHardwareFaceUnavailableRetryCount = 0;
     private static final int HAL_ERROR_RETRY_TIMEOUT = 500; // ms
     private static final int HAL_ERROR_RETRY_MAX = 10;
+
+    private boolean mHasFod;
 
     private PocketManager mPocketManager;
     private boolean mIsDeviceInPocket;
@@ -726,6 +730,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     }
 
     private void handleFingerprintHelp(int msgId, String helpString) {
+        if (mIsDeviceInPocket && mHasFod){
+            return;
+        }
         for (int i = 0; i < mCallbacks.size(); i++) {
             KeyguardUpdateMonitorCallback cb = mCallbacks.get(i).get();
             if (cb != null) {
@@ -1685,6 +1692,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         if (telephony != null) {
             telephony.listen(mPhoneStateListener, LISTEN_ACTIVE_DATA_SUBSCRIPTION_ID_CHANGE);
         }
+        mHasFod = FodUtils.hasFodSupport(mContext);
     }
 
     private void updateAirplaneModeState() {
@@ -1783,14 +1791,14 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                     (mKeyguardOccluded && mIsDreaming)) && mDeviceInteractive && !mGoingToSleep
                     && !mSwitchingUser && !isFingerprintDisabled(getCurrentUser())
                     && (!mKeyguardGoingAway || !mDeviceInteractive) && mIsPrimaryUser
-                    && !mIsDeviceInPocket;
+                    && (mHasFod || !mIsDeviceInPocket);
         }else{
            return (mKeyguardIsVisible || !mDeviceInteractive ||
                     (mBouncer && !mKeyguardGoingAway) || mGoingToSleep ||
                     shouldListenForFingerprintAssistant() || (mKeyguardOccluded && mIsDreaming))
                     && !mSwitchingUser && !isFingerprintDisabled(getCurrentUser())
                     && (!mKeyguardGoingAway || !mDeviceInteractive) && mIsPrimaryUser
-                    && !mIsDeviceInPocket;
+                    && (mHasFod || !mIsDeviceInPocket);
         }
     }
 
