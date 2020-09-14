@@ -25,9 +25,6 @@
     <!-- Rotation sensor -->
     <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
-    <!-- Whether device ignores the RSSNR signal implementation -->
-    <java-symbol type="bool" name="config_ignoreRssnrSignalLevel" />
-
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
