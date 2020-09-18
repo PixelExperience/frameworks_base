@@ -239,7 +239,7 @@ class StorageManagerService extends IStorageManager.Stub
      * disables FuseDaemon. If {@code 0}, uses the default value from the build system.
      */
     private static final String FUSE_ENABLED = "fuse_enabled";
-    private static final boolean DEFAULT_FUSE_ENABLED = true;
+    private static final boolean DEFAULT_FUSE_ENABLED = false;
 
     @GuardedBy("mLock")
     private final Set<Integer> mFuseMountedUser = new ArraySet<>();
