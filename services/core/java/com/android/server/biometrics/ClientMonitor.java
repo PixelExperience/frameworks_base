@@ -22,9 +22,12 @@ import android.hardware.biometrics.BiometricConstants;
 import android.media.AudioAttributes;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Slog;
+import android.provider.Settings.System;
+import android.provider.Settings;
 
 import com.android.internal.logging.MetricsLogger;
 
@@ -297,8 +300,13 @@ public abstract class ClientMonitor extends LoggableMonitor implements IBinder.D
 
     public final void vibrateSuccess() {
         Vibrator vibrator = mContext.getSystemService(Vibrator.class);
-        if (vibrator != null) {
-            vibrator.vibrate(mSuccessVibrationEffect, FINGERPRINT_SONFICATION_ATTRIBUTES);
+        final boolean isHapticEnabled = Settings.System.getIntForUser(
+            mContext.getContentResolver(), Settings.System.HAPTIC_FEEDBACK_ENABLED, 1,
+            UserHandle.USER_CURRENT) != 0;
+        if (isHapticEnabled) {
+            if (vibrator != null) {
+                vibrator.vibrate(mSuccessVibrationEffect, FINGERPRINT_SONFICATION_ATTRIBUTES);
+            }
         }
     }
 
