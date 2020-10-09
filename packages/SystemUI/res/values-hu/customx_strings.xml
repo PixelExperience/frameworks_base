@@ -23,7 +23,7 @@
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Felugró értesítések</string>
     <string name="accessibility_quick_settings_heads_up_off">A Felugró értesítések letiltva.</string>
-    <string name="accessibility_quick_settings_heads_up_on">A Felugró értesítések bekapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_on">A Felugró értesítések engedélyezve.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">A Felugró értesítések kikapcsolva.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">A Felugró értesítések bekapcsolva.</string>
     <!-- Sync QS tile -->
@@ -33,7 +33,7 @@
     <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva.</string>
     <!-- USB tethering QS tile -->
-    <string name="quick_settings_usb_tether_label">USB megosztás</string>
+    <string name="quick_settings_usb_tether_label">USB-megosztás</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Hangerőszabályzás</string>
     <!-- Ambient display QS tile -->
