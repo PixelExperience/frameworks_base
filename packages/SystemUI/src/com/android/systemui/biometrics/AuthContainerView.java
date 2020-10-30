@@ -51,6 +51,8 @@ import com.android.systemui.keyguard.WakefulnessLifecycle;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import com.android.internal.util.custom.fod.FodUtils;
+
 /**
  * Top level container/controller for the BiometricPrompt UI.
  */
@@ -93,6 +95,7 @@ public class AuthContainerView extends LinearLayout
     private final View mPanelView;
 
     private final float mTranslationY;
+    private boolean mHasFod;
 
     @VisibleForTesting final WakefulnessLifecycle mWakefulnessLifecycle;
 
@@ -275,11 +278,18 @@ public class AuthContainerView extends LinearLayout
         mPanelView = mInjector.getPanelView(mFrameLayout);
         mPanelController = mInjector.getPanelController(mContext, mPanelView);
 
+        mHasFod = FodUtils.hasFodSupport(mContext);
+
         // Inflate biometric view only if necessary.
         if (Utils.isBiometricAllowed(mConfig.mBiometricPromptBundle)) {
             if (config.mModalityMask == BiometricAuthenticator.TYPE_FINGERPRINT) {
-                mBiometricView = (AuthBiometricFingerprintView)
-                        factory.inflate(R.layout.auth_biometric_fingerprint_view, null, false);
+                if (!mHasFod) {
+                    mBiometricView = (AuthBiometricFingerprintView)
+                            factory.inflate(R.layout.auth_biometric_fingerprint_view, null, false);
+                } else {
+                    mBiometricView = (AuthBiometricFODView)
+                            factory.inflate(R.layout.auth_biometric_fod_view, null, false);
+                }
             } else if (config.mModalityMask == BiometricAuthenticator.TYPE_FACE) {
                 mBiometricView = (AuthBiometricFaceView)
                         factory.inflate(R.layout.auth_biometric_face_view, null, false);
