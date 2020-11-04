@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Дадатак застанецца актыўным, пакуль вы не скасуеце блакаванне доўгім націскам кнопкі «Назад».</string>
+    <string name="screen_pinning_toast_no_navbar">Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопку \"Назад\"</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Праграма застаецца актыўна, да таго часу, пакуль вы не скасуеце блакаванне. Націсніце і ўтрымлівайце палец на сканары адбіткаў, каб скасаваць блакіроўку.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Каб разблакаваць экран, націсніце і ўтрымлівайце палец на сканары адбіткаў пальцаў</string>
+    <string name="quick_settings_powershare_label">Бесправадная зарадка</string>
+    <string name="quick_settings_powershare_off_powersave_label">Бесправадная зарадка адкл.\nЭнергазберажэнне</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Бесправадная зарадка адкл.\nНізкі зарад батарэі</string>
+    <string name="quick_settings_powershare_enabled_label">Бесправадная зарадка уключана</string>
+</resources>

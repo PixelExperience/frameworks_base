@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">നിങ്ങൾ അൺപിൻ ചെയ്യുന്നതുവരെ ഇത് കാണാനാകുന്ന രീതിയിൽ തുടരും. അൺപിൻ ചെയ്യാനായി ഹോം &amp; പവർ ബട്ടണുകൾ ഒരേ സമയം അമർത്തിപ്പിടിക്കുക.</string>
+    <string name="screen_pinning_toast_no_navbar">ഈ സ്ക്രീൻ അൺപിൻ ചെയ്യുന്നതിന് &amp; ബാക്ക് ബട്ടൺ അമർത്തിപിടിക്കുക</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">നിങ്ങൾ അൺപിൻ ചെയ്യുന്നതുവരെ ഇത് കാണാനാകുന്ന രീതിയിൽ തുടരും. അൺപിൻ ചെയ്യാനായി ഫിംഗർപ്രിന്റ് സെൻസർ സ്പർശിക്കുക &amp; അമർത്തിപ്പിടിക്കുക.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">ഈ സ്ക്രീൻ അൺപിൻ ചെയ്യുന്നതിന് &amp; ഫിംഗർപ്രിന്റ് സെൻസർ
+അമർത്തിപിടിക്കുക</string>
+    <string name="quick_settings_powershare_label">വയർലെസ്സ്  പവർഷെയർ</string>
+    <string name="quick_settings_powershare_off_powersave_label">വയർലെസ്സ്  പവർഷെയർ ഓഫ് \ ഓൺ ബാറ്ററി സേവർ</string>
+    <string name="quick_settings_powershare_off_low_battery_label">വയർലെസ്സ്  പവർഷെയർ ഓഫ് \ ഓൺ ബാറ്ററി കുറവാണ്</string>
+    <string name="quick_settings_powershare_enabled_label">വയർലെസ്സ്  പവർഷെയർ പ്രവർത്തനക്ഷമമാക്കി</string>
+</resources>

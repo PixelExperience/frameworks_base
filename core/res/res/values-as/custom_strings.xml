@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bluetooth_airplane_mode_toast">এয়াৰপ্লেন ম\'ডৰ সময়ত ব্লুটুথ অন হৈ থাকিব</string>
+</resources>
