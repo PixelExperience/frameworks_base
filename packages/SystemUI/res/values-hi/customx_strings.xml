@@ -1,62 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">सिस्टम</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">रिकवरी</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">बूटलोडर</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">डाउनलोड मोड</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">वर्तमान</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">कर्सर बायाँ</string>
     <string name="accessibility_dpad_right">कर्सर दायाँ</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">कैफीन मोड</string>
     <string name="accessibility_quick_settings_caffeine_off">कैफीन मोड बंद</string>
     <string name="accessibility_quick_settings_caffeine_on">कैफीन मोड शुरु</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">संकालन</string>
     <string name="accessibility_quick_settings_sync_off">संकालन बंद है।</string>
     <string name="accessibility_quick_settings_sync_on">संकालन चालू है।</string>
     <string name="accessibility_quick_settings_sync_changed_off">संकालन को बंद किया गया है।</string>
     <string name="accessibility_quick_settings_sync_changed_on">संकालन को चालू किया गया है।</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">यूएसबी टेदरिंग</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">ध्वनि पैनल</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">परिवेशी प्रदर्शन</string>
     <string name="accessibility_quick_settings_ambient_display_off">परिवेशी प्रदर्शन बंद है।</string>
     <string name="accessibility_quick_settings_ambient_display_on">परिवेशी प्रदर्शन चालू है।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">परिवेशी प्रदर्शन को बंद किया गया है।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">परिवेशी प्रदर्शन को चालू किया गया।</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">स्क्रीन हमेशा चालू</string>
     <string name="quick_settings_aod_off_powersave_label">बैटरी बचत के समय हमेशा स्क्रीन चालू बंद</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">वीपीएन</string>
     <string name="quick_settings_vpn_connect_dialog_title">से जोड़ें</string>
     <string name="vpn_credentials_username">उपयोगकर्ता का नाम</string>
     <string name="vpn_credentials_password">पासवर्ड</string>
     <string name="vpn_credentials_dialog_connect">जोड़ें</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">टाइल जोड़ने के लिए दबाएँ या दबा कर खींचें</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">किलो बिट प्रति सेकेंड</string>
     <string name="megabitspersecond_short">मेगा बिट प्रति सेकेंड</string>
     <string name="kilobytespersecond_short">किलो बाइट प्रति सेकेंड</string>
     <string name="megabytespersecond_short">मेगा बाइट प्रति सेकेंड</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">LTE के बजाय 4G दिखाएँ</string>
     <string name="show_fourg_summary">LTE की जगह 4G दिखाए।</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">पठन मोड</string>
     <string name="accessibility_quick_settings_reading_mode_on">पठन मोड चालू।</string>
     <string name="accessibility_quick_settings_reading_mode_off">पठन मोड बंद।</string>

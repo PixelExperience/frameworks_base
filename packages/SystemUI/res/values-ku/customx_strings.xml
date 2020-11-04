@@ -1,63 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">سیستەم</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery"> ڕیکەڤر</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader"> بووتلۆدەر</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download"> دامەزراندن</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">ئێستا</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">جێنیشانده‌ری چه‌پ</string>
     <string name="accessibility_dpad_right">جێنیشانده‌ری ڕاست</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">کافایینی</string>
     <string name="accessibility_quick_settings_caffeine_off">کافایینی ناچالاکە.</string>
     <string name="accessibility_quick_settings_caffeine_on">کافایینی چالاکە.</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
+    <string name="quick_settings_heads_up_label">تێبینی سەرهەڵدەر</string>
+    <string name="accessibility_quick_settings_heads_up_off">تێبینی سەرهەڵدەر ناچالاکە</string>
+    <string name="accessibility_quick_settings_heads_up_on">تێبینی سەرهەڵدەر چالاکە</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تێبینی سەرهەڵدەر کوژایەوە</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تێبینی سەرهەڵدەر هەڵکرا</string>
     <string name="quick_settings_sync_label">هاوکاتکردن</string>
     <string name="accessibility_quick_settings_sync_off">هاوکاتکردن ناچالاکە.</string>
     <string name="accessibility_quick_settings_sync_on">هاوکاتکردن چالاکە.</string>
     <string name="accessibility_quick_settings_sync_changed_off">هاوکاتکردن ناچالاککرا.</string>
     <string name="accessibility_quick_settings_sync_changed_on">هاوکاتکردن چالاککرا.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">پەیوەستبوونی USB</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">پەنجەرەی دەنگ</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">ڕوونمای هەمیشە زیندوو</string>
     <string name="accessibility_quick_settings_ambient_display_off">ڕوونمای هەمیشە زیندوو ناچالاکە.</string>
     <string name="accessibility_quick_settings_ambient_display_on">ڕوونمای هەمیشە زیندوو چالاکە.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">ڕوونمای هەمیشە زیندوو ناچالاککرا.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">ڕوونمای هەمیشە زیندوو چالاککرا.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD ناچالاک/nپاراستنی ووزە</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">په‌یوه‌ستبوون به‌ \u2026</string>
     <string name="vpn_credentials_hint">تکایە بەڵگەنامەکانت دابنێ بۆ پەیوەست بوون بە <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">ناوی بەکاربەر</string>
     <string name="vpn_credentials_password">تێپەڕەووشە</string>
     <string name="vpn_credentials_dialog_connect">پەیوەستكردن</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">ڕاکێشە یان داگرە بۆ زیادکردن/لادانی خشتەکان</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">کب/چ</string>
     <string name="megabitspersecond_short">مب/چ</string>
     <string name="kilobytespersecond_short">کب/چ</string>
     <string name="megabytespersecond_short">مب/چ</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">پیشاندانی 4Gلەجیاتی LTE</string>
     <string name="show_fourg_summary">جێگۆڕکێ دەکات لە LTE ەوە بۆ 4G لە شریتی ئامرازەکاندا</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">دۆخی خوێندنەوە</string>
     <string name="accessibility_quick_settings_reading_mode_on">دۆخی خوێندنەوە چالاکە.</string>
     <string name="accessibility_quick_settings_reading_mode_off">دۆخی خوێندنەوە ناچالاکە.</string>

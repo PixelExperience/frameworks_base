@@ -1,63 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistem</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Obnovitev</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Zagonski nalagalnik</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Prenos</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Trenutni</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kazalec levo</string>
     <string name="accessibility_dpad_right">Kazalec desno</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kofein</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinhronizacija</string>
     <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
     <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinhronizacija izklopljena.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinhronizacija vklopljena.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Deljenje interneta preko USB</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Nadzorna plošča za zvok</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
     <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Vedno vklopljen zaslon</string>
     <string name="quick_settings_aod_off_powersave_label">Vedno vklopljen zaslon onemogočen\nVarčevanje z energijo akumulatorja</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Poveži z \u2026</string>
     <string name="vpn_credentials_hint">Vnesite vaše poverilnice za povezavo s/z <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Uporabniško ime</string>
     <string name="vpn_credentials_password">Geslo</string>
     <string name="vpn_credentials_dialog_connect">Poveži</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Povlecite ali se dotaknite za dodajanje/odstranjevanje ploščic</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kB/s</string>
     <string name="megabytespersecond_short">MB/s</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">Prikaži 4G namesto LTE</string>
     <string name="show_fourg_summary">Zamenja LTE ikono v vrstici stanja s 4G</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Način za branje</string>
     <string name="accessibility_quick_settings_reading_mode_on">Način za branje omogočen.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Način za branje onemogočen.</string>

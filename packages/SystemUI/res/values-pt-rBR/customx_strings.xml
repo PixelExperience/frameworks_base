@@ -1,68 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistema</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Recuperação</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Atual</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor à esquerda</string>
     <string name="accessibility_dpad_right">Cursor à direita</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeína desligado.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeína ligado.</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas.</string>
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronização</string>
     <string name="accessibility_quick_settings_sync_off">Sincronização desligada.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronização ligada.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sincronização foi desligada.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sincronização foi ligada.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Compartilhamento USB</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Painel de volume</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Tela ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativado.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desligada.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ligada.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Conectar-se a\u2026</string>
     <string name="vpn_credentials_hint">Por favor, insira as suas credenciais para conectar-se a <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Usuário</string>
     <string name="vpn_credentials_password">Senha</string>
     <string name="vpn_credentials_dialog_connect">Conectar</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Arraste ou toque para adicionar/remover blocos</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kB/s</string>
     <string name="megabytespersecond_short">MB/s</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">Mostrar 4G em vez de LTE</string>
     <string name="show_fourg_summary">Substitui o indicador 4G por LTE na barra de status</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modo de leitura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modo de leitura ligado</string>
     <string name="accessibility_quick_settings_reading_mode_off">Modo de leitura desligado</string>

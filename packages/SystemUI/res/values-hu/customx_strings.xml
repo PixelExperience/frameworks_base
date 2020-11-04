@@ -1,68 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Rendszer</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Recovery</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download-mód</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Jelenlegi</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine ki.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine be.</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Felugró értesítések</string>
     <string name="accessibility_quick_settings_heads_up_off">A Felugró értesítések letiltva.</string>
     <string name="accessibility_quick_settings_heads_up_on">A Felugró értesítések engedélyezve.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">A Felugró értesítések kikapcsolva.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">A Felugró értesítések bekapcsolva.</string>
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Szinkronizálás</string>
     <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki.</string>
     <string name="accessibility_quick_settings_sync_on">Szinkronizálás be.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB-megosztás</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Hangerőszabályzás</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
     <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Környezeti kijelző kikapcsolva.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Környezeti kijelző bekapcsolva.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Csatlakozás a következőhöz\u2026</string>
     <string name="vpn_credentials_hint">Kérjük, adja meg a hitelesítőadatait, hogy csatlakozhasson a következőhöz: <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Felhasználónév</string>
     <string name="vpn_credentials_password">Jelszó</string>
     <string name="vpn_credentials_dialog_connect">Kapcsolódás</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempe hozzáadásához/eltávolításához</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kB/s</string>
     <string name="megabytespersecond_short">MB/s</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">4G megjelenítése LTE helyett</string>
     <string name="show_fourg_summary">Lecseréli az LTE hálózatkijelző ikonját 4G-re</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Olvasómód</string>
     <string name="accessibility_quick_settings_reading_mode_on">Olvasómód be.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>

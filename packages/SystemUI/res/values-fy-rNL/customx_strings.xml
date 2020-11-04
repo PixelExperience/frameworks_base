@@ -1,48 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Systeem</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Werstel</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Downloade</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Aktuele</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor links</string>
     <string name="accessibility_dpad_right">Cursor rjochts</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kafeïne</string>
     <string name="accessibility_quick_settings_caffeine_off">Kafeïne út.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafeïne oan.</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Syngronisearje</string>
     <string name="accessibility_quick_settings_sync_off">Syngr. út.</string>
     <string name="accessibility_quick_settings_sync_on">Syngr. oan.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Syngr. útskeakele.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Syngr. ynskeakele.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB-tethering</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Folumepaniel</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Omjouwingsdisplay</string>
     <string name="accessibility_quick_settings_ambient_display_off">Omjouwingsdisplay út.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Omjouwingsdisplay oan.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Omjouwingsdisplay útskeakele.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Omjouwingsdisplay ynskeakele.</string>
-    <!-- AOD QS tile -->
-    <!-- VPN QS tile -->
-    <!-- QS customizer -->
-    <!-- Status bar network traffic monitor strings -->
-    <!-- 4G LTE switch -->
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Lêsmodus</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lêsmodus oan.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lêsmodus út.</string>

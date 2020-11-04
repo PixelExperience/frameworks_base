@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Aplikacija je zaustavljena</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatski</string>
     <string name="live_display_auto_summary">Automatski prilagodi temperaturu boje zaslona nakon zalaska i izlaska sunca</string>
     <string name="live_display_off">Isključen</string>
@@ -24,5 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay promijenjen u dnevni način.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay promijenjen u noćni način.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay promijenjen u vanjski način.</string>
-    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Za otključavanje pritisnite i držite gumb power</string>
 </resources>

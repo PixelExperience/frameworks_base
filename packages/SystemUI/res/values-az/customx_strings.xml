@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Bərpa</string>
+    <string name="global_action_restart_bootloader">Önyükləyici</string>
+    <string name="global_action_restart_download">Endirmə</string>
+    <string name="global_action_current_user">Hazırki</string>
+    <string name="accessibility_dpad_left">Sol kursor</string>
+    <string name="accessibility_dpad_right">Sağ kursor</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır.</string>
+    <string name="quick_settings_sync_label">Eyniləşdirmə</string>
+    <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>
+    <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə söndürüldü.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə işə salındı.</string>
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <string name="quick_settings_volume_panel_label">Səs paneli</string>
+    <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı söndürüldü.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı işə salındı.</string>
+    <string name="drag_or_tap_to_add_tiles">Piltə əlavə etmək/silmək üçün sürükləyin və ya toxunun</string>
+    <string name="show_fourg_title">LTE yerinə 4G göstər</string>
+    <string name="show_fourg_summary">Status sətrində LTE işarəsini 4G işarəsi ilə əvəzləyir</string>
+    <string name="quick_settings_reading_mode">Oxuma rejimi</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Oxuma rejimi açıqdır.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Oxuma rejimi bağlıdır.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Oxuma rejimi işə salındı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Oxuma rejimi söndürüldü.</string>
+</resources>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Приложение закрыто</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Автоматически</string>
     <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и рассвета</string>
     <string name="live_display_off">Отключить</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен в дневной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключен в ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен в режим «на улице».</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
 </resources>

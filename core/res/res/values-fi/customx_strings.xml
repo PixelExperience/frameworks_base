@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Sovellus tapettu</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaattinen</string>
     <string name="live_display_auto_summary">Säädä näytön värilämpötilaa automaattisesti auringonlaskun ja -nousun jälkeen</string>
     <string name="live_display_off">Ei käytössä</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay asetettu päivätilaan.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay asetettu yötilaan.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay asetettu ulkoilmatilaan.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Avaa lukitus pitämällä virtapainike pohjassa</string>
 </resources>

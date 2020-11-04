@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Az alkalmazás leállítva</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatikus</string>
     <string name="live_display_auto_summary">Automatikusan beállítja a képernyő színhőmérsékletét napnyugta és napkelte után</string>
     <string name="live_display_off">Ki</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay nappali módra változtatva.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay éjszakai módra változtatva.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">A LiveDisplay kültéri módra változtatva.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Tartsa lenyomva a bekapcsológombot a feloldáshoz</string>
 </resources>

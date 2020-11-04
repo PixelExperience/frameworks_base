@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Приложението е спряно</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Автоматично</string>
     <string name="live_display_auto_summary">Автоматично регулиране на цветовата температура след залез/изгрев</string>
     <string name="live_display_off">Изключено</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Адаптивен дисплей е променен на дневен режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Адаптивен дисплей е променен на нощен режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Адаптивен дисплей е променен на външен режим.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Натиснете и задръжте бутона за включване, за да отключите</string>
 </resources>

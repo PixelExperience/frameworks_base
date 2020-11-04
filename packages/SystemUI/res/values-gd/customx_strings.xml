@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_recovery">Aiseag</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Luchdadh a-nuas</string>
+    <string name="global_action_current_user">Làithreach</string>
+    <string name="accessibility_dpad_left">Cùrsair clì</string>
+    <string name="accessibility_dpad_right">Cùrsair deas</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Tha Caffeine dheth.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Tha Caffeine air.</string>
+    <string name="quick_settings_sync_label">Sioncronaich</string>
+    <string name="accessibility_quick_settings_sync_off">Sioncronachadh dheth.</string>
+    <string name="accessibility_quick_settings_sync_on">Sioncronachadh air.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Tha an sioncronachadh dheth.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Tha an sioncronachadh air.</string>
+    <string name="quick_settings_usb_tether_label">Teadhrachadh USB</string>
+    <string name="quick_settings_volume_panel_label">Panail àirde na fuaime</string>
+    <string name="quick_settings_ambient_display_label">Taisbeanadh cuairteach</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tha an taisbeanadh cuairteach dheth.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tha an taisbeanadh cuairteach air.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Chaidh an taisbeanadh cuairteach a chur dheth.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Chaidh an taisbeanadh cuairteach a chur air.</string>
+    <string name="quick_settings_reading_mode">Modh leughaidh</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Tha am modh leughaidh air.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Tha am modh leughaidh dheth.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Tha am modh leughaidh air.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Tha am modh leughaidh dheth.</string>
+</resources>

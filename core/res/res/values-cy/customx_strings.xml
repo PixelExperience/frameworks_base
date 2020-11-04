@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Awtomatig</string>
     <string name="live_display_auto_summary">Addasu tymheredd lliw\'r sgrin yn awtomatig ar ôl machlud a gwawr</string>
     <string name="live_display_off">I ffwrdd</string>
@@ -23,5 +21,4 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay wedi\'i newid i fodd dydd.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay wedi\'i newid i fodd nos.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay wedi\'i newid i fodd awyr agored.</string>
-    <!-- Pocket Lock -->
 </resources>

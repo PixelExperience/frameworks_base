@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Aplicación finalizada</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automático</string>
     <string name="live_display_auto_summary">Ajustar automáticamente la temperatura del color de pantalla con el amanecer y el anochecer</string>
     <string name="live_display_off">Desactivado</string>
@@ -12,10 +10,10 @@
     <string name="live_display_night">Noche</string>
     <string name="live_display_night_summary">Utilizar solo los ajustes de noche</string>
     <string name="live_display_outdoor">Al aire libre (luz solar)</string>
-    <string name="live_display_outdoor_summary">Utilizar solo los ajustes al aire libre</string>
+    <string name="live_display_outdoor_summary">Usar solo la configuración de exterior</string>
     <string name="live_display_hint">LiveDisplay puede reducir la fatiga visual y ayudarte a dormir por la noche. ¡Toca aquí para probarlo!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivado.</string>
-    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automático.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo nocturno.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay se ha cambiado a modo diurno.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay se ha cambiado a modo nocturno.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay se ha cambiado a modo exterior.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pulse y mantenga el botón de encendido para desbloquear</string>
 </resources>
