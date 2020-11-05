@@ -157,17 +157,13 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
 
         @Override
-        public void onStartedGoingToSleep(int why) {
-            hide();
-        }
-
-        @Override
         public void onScreenTurnedOff() {
+            hide();
             mScreenTurnedOn = false;
-            if (mFodGestureEnable){
-                hideCircle();
-            }else{
+            if (!mFodGestureEnable) {
                 hide();
+            } else {
+                hideCircle();
             }
         }
 
