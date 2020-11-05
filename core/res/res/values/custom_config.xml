@@ -167,4 +167,7 @@
     <!-- FOD icon dim-->
     <bool name="config_targetUsesInKernelDimming">false</bool>
 
+    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker
+	 or FOD Circle hiding after the screen is put to sleep -->
+    <bool name="config_hideFodCircleGoingToSleep">false</bool>
 </resources>
