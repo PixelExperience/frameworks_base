@@ -1,68 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Hệ thống</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Chế độ phục hồi</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Trình nạp khởi động</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Tải xuống</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Hiện tại</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Trỏ trái</string>
     <string name="accessibility_dpad_right">Trỏ phải</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafein</string>
     <string name="accessibility_quick_settings_caffeine_off">Đã tắt Cafein.</string>
     <string name="accessibility_quick_settings_caffeine_on">Đã bật Cafein.</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Thông báo nổi</string>
     <string name="accessibility_quick_settings_heads_up_off">Thông báo nổi đã tắt.</string>
     <string name="accessibility_quick_settings_heads_up_on">Đã bật thông báo nổi.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Thông báo nổi đã tắt.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Đã bật thông báo nổi.</string>
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Đồng bộ</string>
     <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ.</string>
     <string name="accessibility_quick_settings_sync_on">Bật đồng bộ.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Đã tắt đồng bộ.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Đã bật đồng bộ.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Kết nối mạng qua USB</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Bảng điều khiển âm lượng</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Hiển thị môi trường xung quanh</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tắt hiển thị môi trường xung quanh.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Hiển thị môi trường xung quanh bật.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Hiển thị môi trường xung quanh đã tắt.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Hiển thị môi trường xung quanh đã bật.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Màn hình luôn bật</string>
     <string name="quick_settings_aod_off_powersave_label">Màn hình luôn bật tắt\nTiết kiệm pin</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Kết nối với\u2026</string>
     <string name="vpn_credentials_hint">Vui lòng nhập thông tin đăng nhập của bạn để kết nối với <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Tên người dùng</string>
     <string name="vpn_credentials_password">Mật khẩu</string>
     <string name="vpn_credentials_dialog_connect">Kết nối</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Kéo hoặc chạm để thêm/xoá ô</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kB/s</string>
     <string name="megabytespersecond_short">MB/s</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">Hiển thị biểu tượng 4G thay cho LTE</string>
     <string name="show_fourg_summary">Thay thế biểu tượng LTE bằng 4G</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Chế độ đọc</string>
     <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc đang bật.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Chế độ đọc đang tắt.</string>

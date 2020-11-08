@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automātiski</string>
     <string name="live_display_auto_summary">Automātiski pieregulēt ekrāna krāsu temperatūru pēc saulrieta un saullēkta</string>
     <string name="live_display_off">Izslēgts</string>
@@ -23,5 +21,4 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay pārslēgt uz dienas metodi.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay pārslēgt uz nakts metodi.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay pārslēgt uz ārpuses metodi.</string>
-    <!-- Pocket Lock -->
 </resources>

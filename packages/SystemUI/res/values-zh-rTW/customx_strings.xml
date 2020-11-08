@@ -1,68 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">系統</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Recovery</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">下載</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">目前</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">游標左移</string>
     <string name="accessibility_dpad_right">游標右移</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_off">暫停休眠關閉</string>
     <string name="accessibility_quick_settings_caffeine_on">暫停休眠開啟</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">彈出式通知</string>
     <string name="accessibility_quick_settings_heads_up_off">彈出式通知關閉。</string>
     <string name="accessibility_quick_settings_heads_up_on">彈出式通知開啟。</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">彈出式通知已關閉。</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">彈出式通知已開啟。</string>
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">同步處理</string>
     <string name="accessibility_quick_settings_sync_off">同步處理關閉</string>
     <string name="accessibility_quick_settings_sync_on">同步處理開啟</string>
     <string name="accessibility_quick_settings_sync_changed_off">同步處理已關閉</string>
     <string name="accessibility_quick_settings_sync_changed_on">同步處理已開啟</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB 網路共享</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">音量面板</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">環境顯示</string>
     <string name="accessibility_quick_settings_ambient_display_off">環境顯示關閉</string>
     <string name="accessibility_quick_settings_ambient_display_on">環境顯示開啟</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">環境顯示已關閉</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">環境顯示已開啟</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD 關閉\n省電模式</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">連線到\u2026</string>
     <string name="vpn_credentials_hint">請輸入您的身份驗證資訊以連接到<xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">使用者名稱</string>
     <string name="vpn_credentials_password">密碼</string>
     <string name="vpn_credentials_dialog_connect">連接</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">拖曳或點擊以新增/移除圖塊</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kB/s</string>
     <string name="megabytespersecond_short">MB/s</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">顯示 4G 以替代 LTE</string>
     <string name="show_fourg_summary">將狀態列的 LTE 圖示替換為 4G</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_on">閱讀模式開啟。</string>
     <string name="accessibility_quick_settings_reading_mode_off">閱讀模式關閉。</string>

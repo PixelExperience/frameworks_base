@@ -1,63 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">系統</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">恢復模式</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">啟動載入模式</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">下載</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">目前</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">游標向左</string>
     <string name="accessibility_dpad_right">游標向右</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_off">關閉暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_on">開啟暫停休眠</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">同步</string>
     <string name="accessibility_quick_settings_sync_off">停止同步</string>
     <string name="accessibility_quick_settings_sync_on">開啟同步</string>
     <string name="accessibility_quick_settings_sync_changed_off">已停止同步</string>
     <string name="accessibility_quick_settings_sync_changed_on">已開啟同步</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB 網絡共享</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">音量面板</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">環境顯示</string>
     <string name="accessibility_quick_settings_ambient_display_off">關閉環境顯示</string>
     <string name="accessibility_quick_settings_ambient_display_on">開啟環境顯示</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">已關閉環境顯示</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">已開啟環境顯示</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always on display</string>
     <string name="quick_settings_aod_off_powersave_label">關閉Always on display\n省電模式</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">虛擬私人網路(VPN)</string>
     <string name="quick_settings_vpn_connect_dialog_title">連線到\u2026</string>
     <string name="vpn_credentials_hint">請輸入您的身份驗證資訊以連接到<xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">用戶名稱</string>
     <string name="vpn_credentials_password">密碼</string>
     <string name="vpn_credentials_dialog_connect">連接</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">拖曳或點擊以新增/移除圖塊</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">千位元/秒</string>
     <string name="megabitspersecond_short">百萬位元/秒</string>
     <string name="kilobytespersecond_short">千位元組/秒</string>
     <string name="megabytespersecond_short">百萬位元組/秒</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">顯示 4G 而非 LTE</string>
     <string name="show_fourg_summary">將狀態列的 LTE 圖示替換為 4G</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_on">開啟閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_off">關閉閱讀模式</string>

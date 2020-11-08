@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">কাৰ্ছৰ বাওঁফালে</string>
+    <string name="accessibility_dpad_right">কাৰ্ছৰ সোঁফালে</string>
+    <string name="quick_settings_caffeine_label">কেফেইন</string>
+    <string name="accessibility_quick_settings_caffeine_off">কেফেইন অফ.</string>
+    <string name="accessibility_quick_settings_caffeine_on">কেফেইন অন.</string>
+    <string name="quick_settings_sync_label">সংযোজন</string>
+    <string name="accessibility_quick_settings_sync_off">সকালীকৄত অফ কৰক।</string>
+    <string name="accessibility_quick_settings_sync_on">সকালীকৄত অন কৰক।</string>
+    <string name="accessibility_quick_settings_sync_changed_off">সকালীকৄত অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_sync_changed_on">সকালীকৄত অন কৰা হৈছে।</string>
+    <string name="quick_settings_usb_tether_label">USB টেথাৰিং</string>
+    <string name="quick_settings_volume_panel_label">ভলিউম পেনেল</string>
+    <string name="quick_settings_ambient_display_label">পৰিপাৰ্শ্বিক ডিচপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন কৰা হৈছে।</string>
+</resources>

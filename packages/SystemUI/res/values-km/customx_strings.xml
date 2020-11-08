@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_sync_label">ធ្វើសមកាល</string>
+    <string name="accessibility_quick_settings_sync_off">ការធ្វើសមកាលបានបិទ។</string>
+    <string name="accessibility_quick_settings_sync_on">ការធ្វើសមកាលបានបើក។</string>
+    <string name="accessibility_quick_settings_sync_changed_off">ការធ្វើសមកាលត្រូវបានបិទ។</string>
+    <string name="accessibility_quick_settings_sync_changed_on">ការធ្វើសមកាលត្រូវបានបើក។</string>
+    <string name="quick_settings_reading_mode">ម៉ូដការអាន</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ម៉ូដការអានបានបើក</string>
+</resources>

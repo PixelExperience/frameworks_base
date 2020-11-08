@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">היישום נסגר</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">אוטומטי</string>
     <string name="live_display_auto_summary">התאם אוטומטית את טמפרטורת הצבע של המסך לאחר הזריחה והשקיעה</string>
     <string name="live_display_off">כבוי</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay שונה למצב יום.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay שונה למצב לילה.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay שונה למצב חוץ.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">לחץ והחזק את כפתור ההפעלה לביטול הנעילה</string>
 </resources>

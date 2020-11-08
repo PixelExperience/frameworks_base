@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_killed_message">បានសម្លាប់កម្មវិធី</string>
+    <string name="live_display_auto">ស្វ័យប្រវត្តិ</string>
+    <string name="live_display_off">បិទ</string>
+    <string name="live_display_off_summary">បិទការរៀបចំទាំងអស់</string>
+    <string name="live_display_day">ថ្ងៃ</string>
+    <string name="live_display_day_summary">ប្រើតែការកំណត់ថ្ងៃប៉ុណ្ណោះ</string>
+    <string name="live_display_night">ពេល​រាត្រី</string>
+    <string name="live_display_night_summary">ប្រើតែការកំណត់ពេលរាត្រីប៉ុណ្ណោះ</string>
+</resources>

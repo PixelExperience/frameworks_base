@@ -1,68 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistem</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Recovery</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Download</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Actual</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor stânga</string>
     <string name="accessibility_dpad_right">Cursor dreapta</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cofeină</string>
     <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cofeină pornit.</string>
-    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Atenționare</string>
     <string name="accessibility_quick_settings_heads_up_off">Atenționare oprită.</string>
     <string name="accessibility_quick_settings_heads_up_on">Atenționare pornită.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Atenționarea a fost oprită.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Atenționarea a fost pornită.</string>
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sincronizare</string>
     <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sincronizare oprită.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sincronizare pornită.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panou volum</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Afișare ambientală</string>
     <string name="accessibility_quick_settings_ambient_display_off">Afișare ambientală oprită.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD oprit\nEconomie energie</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Conectare la\u2026</string>
     <string name="vpn_credentials_hint">Vă rugăm să introduceți datele pentru conectare la <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Nume de utilizator</string>
     <string name="vpn_credentials_password">Parolă</string>
     <string name="vpn_credentials_dialog_connect">Conectare</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Trageţi sau atingeți pentru a adăuga/elimina dale</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">kb/s</string>
     <string name="megabitspersecond_short">Mb/s</string>
     <string name="kilobytespersecond_short">kB/s</string>
     <string name="megabytespersecond_short">MB/s</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">Arată 4G în loc de LTE</string>
     <string name="show_fourg_summary">Înlocuiește indicatorul barei de stare LTE cu 4G</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Mod lectură</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mod lectură activat.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Mod lectură dezactivat.</string>

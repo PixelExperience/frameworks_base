@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_killed_message">பயன்பாடு முடக்கப்பட்டது</string>
+    <string name="live_display_auto">தானியங்கு</string>
+    <string name="live_display_auto_summary">சூரிய மறைவு மற்றும் சூரிய உதயத்திற்கு பிறகு தானாகவே திரையின் வண்ன தட்பவெப்பங்களை சரிசெய்</string>
+    <string name="live_display_off">முடக்கத்தில்</string>
+    <string name="live_display_off_summary">அனைத்து சரிசெய்தல்களையும் முடக்கு</string>
+    <string name="live_display_day">பகல்</string>
+    <string name="live_display_day_summary">பகல் அமைப்புகளை மட்டும் பயன்படுத்துக</string>
+    <string name="live_display_night">இரவு</string>
+    <string name="live_display_night_summary">இரவு அமைப்புகளை மட்டும் பயன்படுத்து</string>
+    <string name="live_display_outdoor">வெளியிடம் (பிரகாசமான சூரியன்)</string>
+    <string name="live_display_outdoor_summary">வெளிப்புற அமைப்புகளை மட்டுமே பயன்படுத்து.</string>
+    <string name="live_display_hint">LiveDisplay கண்ணழுத்தத்தை குறைத்து, நீங்கள் இரவிலே உறங்க உதவுகிறது. அதை முயற்சிக்க இங்கே கிளிக் செய்க!</string>
+    <string name="accessibility_quick_settings_live_display_off">நேரலை காட்சி முடிந்தது</string>
+    <string name="accessibility_quick_settings_live_display_auto">நேரலை காட்சி தானியங்கி முறை</string>
+    <string name="accessibility_quick_settings_live_display_day">நேரலை காட்சி பகல் முறை</string>
+    <string name="accessibility_quick_settings_live_display_night">நேரலை காட்சி இரவு முறை</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">நேரலை காட்சி வெளிப்புற முறை</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">நேரலை காட்சி முடிவு பெற்றது</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">நேரலை காட்சி தானியங்கி முறைக்கு மாற்றப்பட்டது</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">நேரலை காட்சி பகல் முறைக்கு மாற்றப்பட்டது</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">நேரலை காட்சி இரவு முறைக்கு மாற்றப்பட்டது</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">நேரலை காட்சி வெளிப்புற முறைக்கு மாற்றப்பட்டது</string>
+    <string name="pocket_lock_message_long_press">திறக்க சக்தி பொத்தானை அழுத்திப் பிடிக்கவும்</string>
+</resources>

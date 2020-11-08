@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Aplikasi ditutup</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Otomatis</string>
     <string name="live_display_auto_summary">Otomatis sesuaikan temperatur warna layar setelah matahari terbenam dan matahari terbit</string>
     <string name="live_display_off">Nonaktif</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay diubah menjadi mode siang.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay diubah menjadi mode malam.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay diubah menjadi mode luar ruangan.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Tekan dan tahan tombol power untuk membuka kunci</string>
 </resources>

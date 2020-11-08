@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">एप्लीकेशन मारा गया</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">स्वचालित</string>
     <string name="live_display_auto_summary">सूर्यास्त और सूर्योदय के बाद स्क्रीन के रंग तापमान को स्वचालित रूप से समायोजित करें</string>
     <string name="live_display_off">बंद</string>
@@ -24,5 +22,4 @@
     <string name="accessibility_quick_settings_live_display_changed_day">लाइव डिस्पले दिन मोड में बदल गया</string>
     <string name="accessibility_quick_settings_live_display_changed_night">लाइव डिस्पले रात्री मोड में बदल गया</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">लाइव डिस्पले बहारी मोड में बदल गया</string>
-    <!-- Pocket Lock -->
 </resources>

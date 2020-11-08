@@ -1,30 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistema</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Iscàrriga</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Atuale</string>
-    <!-- Navigation bar dpad -->
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
-    <!-- USB tethering QS tile -->
-    <!-- Volume panel QS tile -->
-    <!-- Ambient display QS tile -->
-    <!-- AOD QS tile -->
-    <!-- VPN QS tile -->
-    <!-- QS customizer -->
-    <!-- Status bar network traffic monitor strings -->
-    <!-- 4G LTE switch -->
-    <!-- Reader mode QS tile -->
 </resources>

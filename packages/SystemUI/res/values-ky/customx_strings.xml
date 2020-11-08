@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">Система</string>
+    <string name="global_action_current_user">Учурдагы</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="vpn_credentials_username">Аты</string>
+    <string name="vpn_credentials_password">Сырсөз</string>
+    <string name="vpn_credentials_dialog_connect">Туташуу</string>
+    <string name="kilobitspersecond_short">кбит/с</string>
+    <string name="megabitspersecond_short">Мбит/с</string>
+    <string name="kilobytespersecond_short">кБ/с</string>
+    <string name="megabytespersecond_short">МБ/с</string>
+</resources>

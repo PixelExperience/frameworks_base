@@ -1,63 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart menu -->
-    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">النظام</string>
-    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">الإسترداد</string>
-    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
-    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">التنزيل</string>
-    <!-- Button to restart the device into fastbootd mode, within the Restart Options dialog -->
-    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">الحالي</string>
-    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
-    <!-- Custom QS tiles -->
-    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">وضع الكافيين</string>
     <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
     <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
-    <!-- Heads up QS tile -->
-    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">المزامنة</string>
     <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
     <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_on">تم تشغيل المزامنة.</string>
-    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">الربط عبر USB</string>
-    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
-    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">العرض المحيط</string>
     <string name="accessibility_quick_settings_ambient_display_off">تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_on">تشغيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل العرض المحيط.</string>
-    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">شاشة العرض الدائمة</string>
     <string name="quick_settings_aod_off_powersave_label">إيقاف تشغيل الشاشة الدائمة عند تشغيل موفر البطارية</string>
-    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">‏شبكة افتراضية خاصة (VPN)</string>
     <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ\u2026</string>
     <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك للاتصال ب <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">إسم المستخدم</string>
     <string name="vpn_credentials_password">كلمة المرور</string>
     <string name="vpn_credentials_dialog_connect">اتصال</string>
-    <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">اسحب أو انقر لإضافة اختصارات</string>
-    <!-- Status bar network traffic monitor strings -->
     <string name="kilobitspersecond_short">كيلو بت/ثانية</string>
     <string name="megabitspersecond_short">ميغا بت/ثانية</string>
     <string name="kilobytespersecond_short">‮كيلوبايت/ث</string>
     <string name="megabytespersecond_short">‮ميجابايت/ث</string>
-    <!-- 4G LTE switch -->
     <string name="show_fourg_title">إظهار 4G بدلاً من LTE</string>
     <string name="show_fourg_summary">يستبدل مؤشر شريط الحالة LTE بـ 4G</string>
-    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">وضع القراءة</string>
     <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
     <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
