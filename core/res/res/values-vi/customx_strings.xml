@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Đóng ứng dụng</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Tự động</string>
     <string name="live_display_auto_summary">Tự động chỉnh nhiệt độ màu của màn hình theo ngày và đêm</string>
     <string name="live_display_off">Tắt</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay đã đổi sang chế độ ban ngày.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay đã đổi sang chế độ ban đêm.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay đã đổi sang chế độ ngoài trời.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Bấm và giữ nút nguồn để mở khoá</string>
 </resources>

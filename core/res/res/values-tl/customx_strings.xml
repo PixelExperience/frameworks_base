@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Awtomatik</string>
     <string name="live_display_auto_summary">Awtomatikong ayusin ang temperatura ng kulay ng screen pagkatapos ng paglubog ng araw at pagsikat ng araw</string>
     <string name="live_display_off_summary">Huwag paganahin ang lahat ng mga pagsasaayos</string>
@@ -21,5 +19,4 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Ang LiveDisplay ay nabago sa pang-araw na mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ay binago sa pang-gabi na mode.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Ang LiveDisplay ay nabago sa panlabas na mode.</string>
-    <!-- Pocket Lock -->
 </resources>

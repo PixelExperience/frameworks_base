@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="global_action_restart_bootloader">Pemula boot</string>
+    <string name="global_action_restart_download">Mod muat turun</string>
+    <string name="quick_settings_caffeine_label">Mod Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Mod kafein dinyahaktifkan.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Mod kafein diaktifkan.</string>
+    <string name="quick_settings_sync_label">Segerak</string>
+    <string name="accessibility_quick_settings_sync_off">Segerak dimatikan.</string>
+    <string name="accessibility_quick_settings_sync_on">Segerak dihidupkan.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Segerak dimatikan.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Segerak dihidupkan.</string>
+    <string name="drag_or_tap_to_add_tiles">Seret atau tekan untuk tambah/buang jubin</string>
+    <string name="show_fourg_title">Papar 4G selain dari LTE</string>
+    <string name="show_fourg_summary">Ganti indikator bar status LTE kepada 4G</string>
+    <string name="quick_settings_reading_mode">Mod bacaan</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod bacaan aktif.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod membaca dimatikan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mod bacaan dihidupkan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mod bacaan dimatikan.</string>
+</resources>

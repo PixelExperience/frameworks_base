@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">Application arrêtée</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatique</string>
-    <string name="live_display_auto_summary">Ajuster automatiquement la température de couleur de l\'écran par rapport au coucher et au lever du soleil</string>
+    <string name="live_display_auto_summary">Ajuster automatiquement la température des couleurs de l\'écran après le coucher et le lever du soleil</string>
     <string name="live_display_off">Désactivé</string>
     <string name="live_display_off_summary">Désactiver tous les réglages</string>
     <string name="live_display_day">Jour</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changé en mode jour.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changé en mode nuit.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changé en mode extérieur.</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Appuyez et maintenez le bouton Marche/Arrêt pour déverrouiller</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">ਸਿਸਟਮ</string>
+    <string name="global_action_restart_recovery">ਬਹਾਲੀ</string>
+    <string name="global_action_restart_bootloader">ਬੂਟਲੋਡਰ</string>
+    <string name="global_action_restart_download">ਡਾਊਨਲੋਡ ਮੋਡ</string>
+    <string name="global_action_current_user">ਮੌਜੂਦਾ</string>
+    <string name="show_fourg_title">LTE ਦੀ ਬਜਾਏ 4G ਵਿਖਾਓ</string>
+    <string name="show_fourg_summary">LTE ਸਥਿਤੀ ਪੱਟੀ ਸੰਕੇਤ 4G ਨਾਲ ਬਦਲੇ ਜਾਂਦੇ ਹਨ</string>
+</resources>

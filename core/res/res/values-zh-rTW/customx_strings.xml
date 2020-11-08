@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Long-press back kill application -->
     <string name="app_killed_message">已強制結束應用程式</string>
-    <!-- LiveDisplay strings -->
     <string name="live_display_auto">自動</string>
     <string name="live_display_auto_summary">依日夜週期自動調節螢幕色溫</string>
     <string name="live_display_off">關閉</string>
@@ -24,6 +22,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay 已變更為日間模式</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已變更為夜間模式</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已變更為戶外模式</string>
-    <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">長按電源按鈕以解鎖</string>
 </resources>
