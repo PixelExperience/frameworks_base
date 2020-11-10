@@ -44,4 +44,7 @@
     <!-- Expected value from fast charging status file -->
     <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 
+   <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
+   <java-symbol type="bool" name="config_inDisplayFingerprintFlickersGoingToSleep" />
+
 </resources>
