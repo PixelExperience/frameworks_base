@@ -936,6 +936,11 @@ final class DefaultPermissionGrantPolicy {
                 getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
                 STORAGE_PERMISSIONS);
 
+        // Google Chrome
+        grantPermissionsToSystemPackage(pm, "com.android.chrome", userId, ALWAYS_LOCATION_PERMISSIONS,
+                CAMERA_PERMISSIONS, CONTACTS_PERMISSIONS, MICROPHONE_PERMISSIONS, NEARBY_DEVICES_PERMISSIONS,
+                STORAGE_PERMISSIONS);
+
         // Google App
         grantPermissionsToPackage(pm, "com.google.android.googlequicksearchbox", userId,
                 false /* ignoreSystemPackage */, true /*whitelistRestrictedPermissions*/,
