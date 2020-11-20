@@ -63,11 +63,6 @@ public class PixelPropsUtils {
         propsToChange.put("DEVICE", "redfin");
         propsToChange.put("PRODUCT", "redfin");
         propsToChange.put("MODEL", "Pixel 5");
-        propsToChange.put("IS_DEBUGGABLE", false);
-        propsToChange.put("IS_ENG", false);
-        propsToChange.put("IS_USERDEBUG", false);
-        propsToChange.put("IS_USER", true);
-        propsToChange.put("TYPE", "user");
     }
 
     public static void setProps(String packageName) {
