@@ -207,4 +207,10 @@
     <!-- Should we filter any display modes which are unmapped? -->
     <bool name="config_filterDisplayModes">false</bool>
 
+    <!-- Whether device has a physical display cutout -->
+    <bool name="config_physicalDisplayCutout">false</bool>
+
+    <!-- Whether device has a centered display cutout -->
+    <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
+
 </resources>
