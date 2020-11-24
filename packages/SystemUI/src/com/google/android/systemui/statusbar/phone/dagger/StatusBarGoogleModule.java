@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.systemui.statusbar.phone.dagger;
+package com.google.android.systemui.statusbar.phone.dagger;
 
 import static com.android.systemui.Dependency.TIME_TICK_HANDLER_NAME;
 
@@ -83,11 +83,12 @@ import com.android.systemui.statusbar.phone.NotificationShadeWindowController;
 import com.android.systemui.statusbar.phone.PhoneStatusBarPolicy;
 import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.statusbar.phone.ShadeController;
-import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.phone.StatusBarNotificationActivityStarter;
 import com.android.systemui.statusbar.phone.StatusBarTouchableRegionManager;
+import com.android.systemui.statusbar.phone.dagger.StatusBarComponent;
+import com.android.systemui.statusbar.phone.dagger.StatusBarPhoneDependenciesModule;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
@@ -98,6 +99,11 @@ import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.volume.VolumeComponent;
+
+import com.android.systemui.statusbar.phone.StatusBar;
+
+import com.google.android.systemui.LiveWallpaperScrimController;
+import com.google.android.systemui.statusbar.phone.StatusBarGoogle;
 
 import java.util.Optional;
 import java.util.concurrent.Executor;
@@ -110,14 +116,8 @@ import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Dagger Module providing {@link StatusBar}.
- */
 @Module(includes = {StatusBarPhoneDependenciesModule.class})
-public interface StatusBarPhoneModule {
-    /**
-     * Provides our instance of StatusBar which is considered optional.
-     */
+public interface StatusBarGoogleModule {
     @Provides
     @Singleton
     static StatusBar provideStatusBar(
@@ -166,7 +166,7 @@ public interface StatusBarPhoneModule {
             NotificationShadeWindowController notificationShadeWindowController,
             LockscreenLockIconController lockscreenLockIconController,
             DozeParameters dozeParameters,
-            ScrimController scrimController,
+            LiveWallpaperScrimController liveWallpaperScrimController,
             @Nullable KeyguardLiftController keyguardLiftController,
             Lazy<LockscreenWallpaper> lockscreenWallpaperLazy,
             Lazy<BiometricUnlockController> biometricUnlockControllerLazy,
@@ -199,7 +199,7 @@ public interface StatusBarPhoneModule {
             Lazy<NotificationShadeDepthController> notificationShadeDepthController,
             DismissCallbackRegistry dismissCallbackRegistry,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager) {
-        return new StatusBar(
+        return new StatusBarGoogle(
                 context,
                 notificationsController,
                 lightBarController,
@@ -245,7 +245,7 @@ public interface StatusBarPhoneModule {
                 notificationShadeWindowController,
                 lockscreenLockIconController,
                 dozeParameters,
-                scrimController,
+                liveWallpaperScrimController,
                 keyguardLiftController,
                 lockscreenWallpaperLazy,
                 biometricUnlockControllerLazy,

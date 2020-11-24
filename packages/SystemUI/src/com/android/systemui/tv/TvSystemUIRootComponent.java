@@ -23,7 +23,6 @@ import com.android.systemui.dagger.DependencyBinder;
 import com.android.systemui.dagger.DependencyProvider;
 import com.android.systemui.dagger.SystemServicesModule;
 import com.android.systemui.dagger.SystemUIBinder;
-import com.android.systemui.dagger.SystemUIDefaultModule;
 import com.android.systemui.dagger.SystemUIModule;
 import com.android.systemui.dagger.SystemUIRootComponent;
 
@@ -31,6 +30,8 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+
+import com.google.android.systemui.dagger.SystemUIGoogleModule;
 
 /**
  * Root component for Dagger injection.
@@ -43,7 +44,7 @@ import dagger.Component;
         SystemServicesModule.class,
         SystemUIBinder.class,
         SystemUIModule.class,
-        SystemUIDefaultModule.class,
+        SystemUIGoogleModule.class,
         TvSystemUIBinder.class})
 public interface TvSystemUIRootComponent extends SystemUIRootComponent {
     /**
