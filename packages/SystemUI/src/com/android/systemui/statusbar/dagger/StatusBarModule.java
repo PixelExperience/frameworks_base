@@ -18,12 +18,13 @@ package com.android.systemui.statusbar.dagger;
 
 import com.android.systemui.statusbar.notification.dagger.NotificationsModule;
 import com.android.systemui.statusbar.notification.row.NotificationRowModule;
-import com.android.systemui.statusbar.phone.dagger.StatusBarPhoneModule;
+
+import com.google.android.systemui.statusbar.phone.dagger.StatusBarGoogleModule;
 
 import dagger.Module;
 
 /** */
-@Module(includes = {StatusBarPhoneModule.class, StatusBarDependenciesModule.class,
+@Module(includes = {StatusBarGoogleModule.class, StatusBarDependenciesModule.class,
         NotificationsModule.class, NotificationRowModule.class})
 public interface StatusBarModule {
 }
