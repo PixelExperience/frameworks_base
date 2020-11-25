@@ -41,6 +41,7 @@ public class PixelPropsUtils {
             "com.google.android.apps.gcs",
             "com.google.android.apps.turbo",
             "com.google.android.apps.wellbeing",
+            "com.google.android.inputmethod.latin",
             "com.google.android.configupdater",
             "com.google.android.gms",
             "com.google.android.googlequicksearchbox",
