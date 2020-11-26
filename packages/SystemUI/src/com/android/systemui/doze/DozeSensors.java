@@ -82,7 +82,7 @@ public class DozeSensors {
     private boolean mListening;
     private boolean mListeningTouchScreenSensors;
     private boolean mListeningProxSensors;
-    private boolean mDisableProx;
+    private boolean mProximitySupported;
 
     // whether to only register sensors that use prox when the display state is dozing or off
     private boolean mSelectivelyRegisterProxSensors;
@@ -120,7 +120,7 @@ public class DozeSensors {
         mProximitySensor.setTag(TAG);
         mSelectivelyRegisterProxSensors = dozeParameters.getSelectivelyRegisterSensorsUsingProx();
         mListeningProxSensors = !mSelectivelyRegisterProxSensors;
-        mDisableProx = context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported);
+        mProximitySupported = context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported);
         mScreenOffUdfpsEnabled =
                 config.screenOffUdfpsEnabled(KeyguardUpdateMonitor.getCurrentUser());
 
@@ -212,8 +212,7 @@ public class DozeSensors {
                         false /* touchCoords */,
                         false /* touchscreen */, dozeLog),
         };
-
-        if (!mDisableProx) {
+        if (mProximitySupported) {
             setProxListening(false);  // Don't immediately start listening when we register.
             mProximitySensor.register(
                     proximityEvent -> {
@@ -384,7 +383,7 @@ public class DozeSensors {
         for (TriggerSensor s : mSensors) {
             idpw.println("Sensor: " + s.toString());
         }
-        if (!mDisableProx) // Useless
+        if (mProximitySupported) // Useless
             idpw.println("ProxSensor: " + mProximitySensor.toString());
     }
 
@@ -392,7 +391,7 @@ public class DozeSensors {
      * @return true if prox is currently near, false if far or null if unknown.
      */
     public Boolean isProximityCurrentlyNear() {
-        return mDisableProx ? null : mProximitySensor.isNear();
+        return !mProximitySupported ? null : mProximitySensor.isNear();
     }
 
     @VisibleForTesting
