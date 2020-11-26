@@ -20,4 +20,18 @@
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
 
+    <!-- Pixel navbar -->
+    <dimen name="opa_diamond_translation">16dp</dimen>
+    <dimen name="opa_disabled_home_diameter">@dimen/navigation_icon_size</dimen>
+    <dimen name="opa_dot_diam">10dp</dimen>
+    <dimen name="opa_line_x_trans_bg">30dp</dimen>
+    <dimen name="opa_line_x_trans_ry">15dp</dimen>
+    <dimen name="opa_line_y_translation">16dp</dimen>
+
+    <!-- Color for the Assistant invocation lights -->
+    <color name="edge_light_blue">#4185f4</color>
+    <color name="edge_light_green">#3aa853</color>
+    <color name="edge_light_red">#ea4234</color>
+    <color name="edge_light_yellow">#fbbc06</color>
+
 </resources>
