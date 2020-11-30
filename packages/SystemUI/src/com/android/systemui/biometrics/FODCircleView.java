@@ -93,6 +93,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             new IFingerprintInscreenCallback.Stub() {
         @Override
         public void onFingerDown() {
+            if (mUpdateMonitor.userNeedsStrongAuth()) {
+                // Keyguard requires strong authentication (not biometrics)
+                return;
+            }
+
             mHandler.post(() -> showCircle());
         }
 
@@ -156,7 +161,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         @Override
         public void onKeyguardBouncerChanged(boolean isBouncer) {
             mIsBouncer = isBouncer;
-            if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+            if (mUpdateMonitor.isFingerprintDetectionRunning() && !mUpdateMonitor.userNeedsStrongAuth()) {
                 if (isPinOrPattern(mUpdateMonitor.getCurrentUser()) || !isBouncer) {
                     show();
                 } else {
@@ -387,6 +392,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     }
 
     public void show() {
+        if (mUpdateMonitor.userNeedsStrongAuth()) {
+            // Keyguard requires strong authentication (not biometrics)
+            return;
+        }
+
         if (!mUpdateMonitor.isScreenOn()) {
             // Keyguard is shown just after screen turning off
             return;
