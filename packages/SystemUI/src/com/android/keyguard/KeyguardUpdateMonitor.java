@@ -107,6 +107,8 @@ import com.android.systemui.util.RingerModeTracker;
 
 import com.google.android.collect.Lists;
 
+import lineageos.app.LineageContextConstants;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
@@ -127,6 +129,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import com.android.internal.util.custom.faceunlock.FaceUnlockUtils;
+
+import com.android.internal.util.custom.fod.FodUtils;
 
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
@@ -323,6 +327,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     };
 
     private final Handler mHandler;
+    private final boolean mHasFod;
 
     private final Observer<Integer> mRingerModeObserver = new Observer<Integer>() {
         @Override
@@ -1717,6 +1722,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             }
         };
 
+        mHasFod = FodUtils.hasFodSupport(mContext);
+
         // Since device can't be un-provisioned, we only need to register a content observer
         // to update mDeviceProvisioned when we are...
         if (!mDeviceProvisioned) {
@@ -1882,7 +1889,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             return;
         }
         mHandler.removeCallbacks(mRetryFingerprintAuthentication);
-        boolean shouldListenForFingerprint = shouldListenForFingerprint();
+        boolean hideFodForStrongAuth = mHasFod && userNeedsStrongAuth();
+        boolean shouldListenForFingerprint = !hideFodForStrongAuth && shouldListenForFingerprint();
         boolean runningOrRestarting = mFingerprintRunningState == BIOMETRIC_STATE_RUNNING
                 || mFingerprintRunningState == BIOMETRIC_STATE_CANCELLING_RESTARTING;
         if (runningOrRestarting && !shouldListenForFingerprint) {
