@@ -62,7 +62,7 @@ import java.util.TimerTask;
 
 public class FODCircleView extends ImageView implements ConfigurationListener {
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
-    private static final int FADE_ANIM_DURATION = 250;
+    private static final int FADE_ANIM_DURATION = 125;
 
     private final int mPositionX;
     private final int mPositionY;
@@ -314,7 +314,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         mParams.format = PixelFormat.TRANSLUCENT;
 
         mParams.packageName = "android";
-        mParams.type = WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG;
+        mParams.type = WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY;
         mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN |
                 WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH;
