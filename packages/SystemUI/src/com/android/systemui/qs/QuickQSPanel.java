@@ -111,10 +111,10 @@ public class QuickQSPanel extends QSPanel {
         mMediaHost.init(MediaHierarchyManager.LOCATION_QQS);
     }
 
-    /*@Override
+    @Override
     protected boolean needsDynamicRowsAndColumns() {
         return false; // QQS always have the same layout
-    }*/
+    }
 
     @Override
     protected boolean displayMediaMarginsOnMedia() {
