@@ -32,6 +32,7 @@ import android.os.RemoteException;
 import android.service.carrier.CarrierService;
 import android.telecom.TelecomManager;
 import android.telephony.ims.ImsReasonInfo;
+import android.telephony.ims.ImsSsData;
 
 import com.android.internal.telephony.ICarrierConfigLoader;
 import com.android.telephony.Rlog;
@@ -65,6 +66,20 @@ public class CarrierConfigManager {
      */
     public static final String EXTRA_SUBSCRIPTION_INDEX =
             SubscriptionManager.EXTRA_SUBSCRIPTION_INDEX;
+
+    /**
+     * Service class flag if not specify a service class.
+     * Reference: 3GPP TS 27.007 Section 7.4 Facility lock +CLCK
+     * @hide
+     */
+    public static final int SERVICE_CLASS_NONE = ImsSsData.SERVICE_CLASS_NONE;
+
+    /**
+     * Service class flag for voice telephony.
+     * Reference: 3GPP TS 27.007 Section 7.4 Facility lock +CLCK
+     * @hide
+     */
+    public static final int SERVICE_CLASS_VOICE = ImsSsData.SERVICE_CLASS_VOICE;
 
     private final Context mContext;
 
@@ -210,6 +225,19 @@ public class CarrierConfigManager {
      */
     public static final String KEY_CALL_BARRING_SUPPORTS_DEACTIVATE_ALL_BOOL =
             "call_barring_supports_deactivate_all_bool";
+
+    /**
+     * Specifies the service class for call barring service. Default value is
+     * {@link #SERVICE_CLASS_VOICE}.
+     * The value set as below:
+     * <ul>
+     * <li>0: {@link #SERVICE_CLASS_NONE}</li>
+     * <li>1: {@link #SERVICE_CLASS_VOICE}</li>
+     * </ul>
+     * @hide
+     */
+    public static final String KEY_CALL_BARRING_DEFAULT_SERVICE_CLASS_INT =
+            "call_barring_default_service_class_int";
 
     /**
      * Flag indicating whether the Phone app should ignore EVENT_SIM_NETWORK_LOCKED
@@ -1642,6 +1670,15 @@ public class CarrierConfigManager {
             "hide_lte_plus_data_icon_bool";
 
     /**
+     * The combined channel bandwidth threshold (non-inclusive) in KHz required to display the
+     * LTE+ data icon. It is 20000 by default, meaning the LTE+ icon will be shown if the device is
+     * using carrier aggregation and the combined channel bandwidth is strictly greater than 20 MHz.
+     * @hide
+     */
+    public static final String KEY_LTE_PLUS_THRESHOLD_BANDWIDTH_KHZ_INT =
+            "lte_plus_threshold_bandwidth_khz_int";
+
+    /**
      * The string is used to filter redundant string from PLMN Network Name that's supplied by
      * specific carrier.
      *
@@ -2343,6 +2380,16 @@ public class CarrierConfigManager {
      */
     public static final String KEY_CALL_FORWARDING_BLOCKS_WHILE_ROAMING_STRING_ARRAY =
             "call_forwarding_blocks_while_roaming_string_array";
+
+    /**
+     * Call forwarding number prefixes defined by {@link
+     * #KEY_CALL_FORWARDING_BLOCKS_WHILE_ROAMING_STRING_ARRAY} which will be allowed while the
+     * device is reporting that it is roaming and IMS is registered over LTE or Wi-Fi.
+     * By default this value is {@code true}.
+     * @hide
+     */
+    public static final String KEY_SUPPORT_IMS_CALL_FORWARDING_WHILE_ROAMING_BOOL =
+            "support_ims_call_forwarding_while_roaming_bool";
 
     /**
      * The day of the month (1-31) on which the data cycle rolls over.
@@ -3830,10 +3877,33 @@ public class CarrierConfigManager {
      * Indicating whether DUN APN should be disabled when the device is roaming. In that case,
      * the default APN (i.e. internet) will be used for tethering.
      *
+     * This config is only available when using Preset APN(not user edited) as Preferred APN.
+     *
      * @hide
      */
-    public static final String KEY_DISABLE_DUN_APN_WHILE_ROAMING =
-            "disable_dun_apn_while_roaming";
+    public static final String KEY_DISABLE_DUN_APN_WHILE_ROAMING_WITH_PRESET_APN_BOOL =
+            "disable_dun_apn_while_roaming_with_preset_apn_bool";
+
+    /**
+     * Where there is no preferred APN, specifies the carrier's default preferred APN.
+     * Specifies the {@link android.provider.Telephony.Carriers.APN} of the default preferred apn.
+     *
+     * This config is only available with Preset APN(not user edited).
+     *
+     * @hide
+     */
+    public static final String KEY_DEFAULT_PREFERRED_APN_NAME_STRING =
+            "default_preferred_apn_name_string";
+
+    /**
+     * For Android 11, provide a temporary solution for OEMs to use the lower of the two MTU values
+     * for IPv4 and IPv6 if both are sent.
+     * TODO: remove in later release
+     *
+     * @hide
+     */
+    public static final String KEY_USE_LOWER_MTU_VALUE_IF_BOTH_RECEIVED =
+            "use_lower_mtu_value_if_both_received";
 
     /** The default value for every variable. */
     private final static PersistableBundle sDefaults;
@@ -3907,6 +3977,7 @@ public class CarrierConfigManager {
         sDefaults.putBoolean(KEY_CALL_BARRING_VISIBILITY_BOOL, false);
         sDefaults.putBoolean(KEY_CALL_BARRING_SUPPORTS_PASSWORD_CHANGE_BOOL, true);
         sDefaults.putBoolean(KEY_CALL_BARRING_SUPPORTS_DEACTIVATE_ALL_BOOL, true);
+        sDefaults.putInt(KEY_CALL_BARRING_DEFAULT_SERVICE_CLASS_INT, SERVICE_CLASS_VOICE);
         sDefaults.putBoolean(KEY_CALL_FORWARDING_VISIBILITY_BOOL, true);
         sDefaults.putBoolean(KEY_CALL_FORWARDING_WHEN_UNREACHABLE_SUPPORTED_BOOL, true);
         sDefaults.putBoolean(KEY_CALL_FORWARDING_WHEN_UNANSWERED_SUPPORTED_BOOL, true);
@@ -4174,6 +4245,7 @@ public class CarrierConfigManager {
         sDefaults.putBoolean(KEY_SHOW_VIDEO_CALL_CHARGES_ALERT_DIALOG_BOOL, false);
         sDefaults.putStringArray(KEY_CALL_FORWARDING_BLOCKS_WHILE_ROAMING_STRING_ARRAY,
                 null);
+        sDefaults.putBoolean(KEY_SUPPORT_IMS_CALL_FORWARDING_WHILE_ROAMING_BOOL, true);
         sDefaults.putInt(KEY_LTE_EARFCNS_RSRP_BOOST_INT, 0);
         sDefaults.putStringArray(KEY_BOOSTED_LTE_EARFCNS_STRING_ARRAY, null);
         sDefaults.putBoolean(KEY_USE_ONLY_RSRP_FOR_LTE_SIGNAL_BAR_BOOL, false);
@@ -4200,6 +4272,7 @@ public class CarrierConfigManager {
         sDefaults.putString(KEY_OPERATOR_NAME_FILTER_PATTERN_STRING, "");
         sDefaults.putString(KEY_SHOW_CARRIER_DATA_ICON_PATTERN_STRING, "");
         sDefaults.putBoolean(KEY_HIDE_LTE_PLUS_DATA_ICON_BOOL, true);
+        sDefaults.putInt(KEY_LTE_PLUS_THRESHOLD_BANDWIDTH_KHZ_INT, 20000);
         sDefaults.putBoolean(KEY_NR_ENABLED_BOOL, true);
         sDefaults.putBoolean(KEY_LTE_ENABLED_BOOL, true);
         sDefaults.putBoolean(KEY_SUPPORT_TDSCDMA_BOOL, false);
@@ -4367,7 +4440,9 @@ public class CarrierConfigManager {
                 "ims:2", "cbs:2", "ia:2", "emergency:2", "mcx:3", "xcap:3"
         });
         sDefaults.putStringArray(KEY_MISSED_INCOMING_CALL_SMS_PATTERN_STRING_ARRAY, new String[0]);
-        sDefaults.putBoolean(KEY_DISABLE_DUN_APN_WHILE_ROAMING, false);
+        sDefaults.putBoolean(KEY_DISABLE_DUN_APN_WHILE_ROAMING_WITH_PRESET_APN_BOOL, false);
+        sDefaults.putString(KEY_DEFAULT_PREFERRED_APN_NAME_STRING, "");
+        sDefaults.putBoolean(KEY_USE_LOWER_MTU_VALUE_IF_BOTH_RECEIVED, false);
     }
 
     /**
