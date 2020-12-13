@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b03deff_7ed3f282",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000083
+      },
+      "writtenOn": "2020-12-13T14:50:53Z",
+      "side": 1,
+      "message": "Should be fixed already in Dec patch, still need to confirm tho...",
+      "revId": "b577d59ec7cf12c3582e5b5b5b4c1b7d95615651",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
