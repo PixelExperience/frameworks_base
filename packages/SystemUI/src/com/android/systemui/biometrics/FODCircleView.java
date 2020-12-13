@@ -18,10 +18,8 @@ package com.android.systemui.biometrics;
 
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -30,12 +28,8 @@ import android.graphics.Point;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.PowerManager;
 import android.os.RemoteException;
-import android.os.SystemClock;
-import android.os.UserHandle;
 import android.provider.Settings;
-import android.net.Uri;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -61,9 +55,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FODCircleView extends ImageView implements ConfigurationListener {
-    private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final int FADE_ANIM_DURATION = 250;
-
     private final int mPositionX;
     private final int mPositionY;
     private final int mSize;
@@ -88,14 +80,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private boolean mIsDreaming;
     private boolean mIsKeyguard;
 
-    private boolean mDozeEnabled;
-    private boolean mFodGestureEnable;
-    private boolean mPressPending;
-    private boolean mScreenTurnedOn;
-
-    private PowerManager mPowerManager;
-    private PowerManager.WakeLock mWakeLock;
-
     private Handler mHandler;
 
     private final ImageView mPressedView;
@@ -108,26 +92,12 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             new IFingerprintInscreenCallback.Stub() {
         @Override
         public void onFingerDown() {
-            if (mFodGestureEnable && !mScreenTurnedOn) {
-                if (mDozeEnabled) {
-                    mHandler.post(() -> mContext.sendBroadcast(new Intent(DOZE_INTENT)));
-                } else {
-                    mWakeLock.acquire(3000);
-                    mHandler.post(() -> mPowerManager.wakeUp(SystemClock.uptimeMillis(),
-                        PowerManager.WAKE_REASON_GESTURE, FODCircleView.class.getSimpleName()));
-                }
-                mPressPending = true;
-            } else {
-                mHandler.post(() -> showCircle());
-            }
+            mHandler.post(() -> showCircle());
         }
 
         @Override
         public void onFingerUp() {
             mHandler.post(() -> hideCircle());
-            if (mFodGestureEnable && mPressPending) {
-                mPressPending = false;
-            }
         }
     };
 
@@ -198,16 +168,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         @Override
         public void onStartedGoingToSleep(int why) {
-            if (mFodGestureEnable){
-                hideCircle();
-            }else{
-                hide();
-            }
-        }
-
-        @Override
-        public void onScreenTurnedOff() {
-            mScreenTurnedOn = false;
+            hide();
         }
 
         @Override
@@ -219,55 +180,14 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         @Override
         public void onScreenTurnedOn() {
-            if (!mFodGestureEnable && mUpdateMonitor.isFingerprintDetectionRunning()) {
+            if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
-            if (mFodGestureEnable && mPressPending) {
-                mHandler.post(() -> showCircle());
-                mPressPending = false;
-            }
-            mScreenTurnedOn = true;
         }
     };
 
-    private class FodGestureSettingsObserver extends ContentObserver {
-        FodGestureSettingsObserver(Context context, Handler handler) {
-            super(handler);
-        }
-
-        void registerListener() {
-            mContext.getContentResolver().registerContentObserver(
-                    Settings.Secure.getUriFor(
-                    Settings.Secure.DOZE_ENABLED),
-                    false, this, UserHandle.USER_ALL);
-            mContext.getContentResolver().registerContentObserver(
-                    Settings.System.getUriFor(
-                    Settings.System.FOD_GESTURE),
-                    false, this, UserHandle.USER_ALL);
-            updateSettings();
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            super.onChange(selfChange, uri);
-            updateSettings();
-        }
-
-        public void updateSettings() {
-            mDozeEnabled = Settings.Secure.getIntForUser(
-                    mContext.getContentResolver(),
-                    Settings.Secure.DOZE_ENABLED, 1,
-                    UserHandle.USER_CURRENT) == 1;
-            mFodGestureEnable = Settings.System.getIntForUser(
-                    mContext.getContentResolver(),
-                    Settings.System.FOD_GESTURE, 1,
-                    UserHandle.USER_CURRENT) == 1;
-        }
-    }
-
     private boolean mCutoutMasked;
     private int mStatusbarHeight;
-    private FodGestureSettingsObserver mFodGestureSettingsObserver;
 
     public FODCircleView(Context context) {
         super(context);
@@ -295,10 +215,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         mPaintFingerprintBackground.setColor(res.getColor(R.color.config_fodColorBackground));
         mPaintFingerprintBackground.setAntiAlias(true);
-
-        mPowerManager = context.getSystemService(PowerManager.class);
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                 FODCircleView.class.getSimpleName());
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
@@ -344,13 +260,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         mUpdateMonitor = Dependency.get(KeyguardUpdateMonitor.class);
         mUpdateMonitor.registerCallback(mMonitorCallback);
-
-        if (context.getResources().getBoolean(
-            com.android.internal.R.bool.config_supportsScreenOffInDisplayFingerprint)){
-            mFodGestureSettingsObserver = new FodGestureSettingsObserver(context, mHandler);
-            mFodGestureSettingsObserver.registerListener();
-        }
-
+    
         updateCutoutFlags();
         Dependency.get(ConfigurationController.class).addCallback(this);
     }
@@ -468,7 +378,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     }
 
     public void show() {
-        if (!mFodGestureEnable && !mUpdateMonitor.isScreenOn()) {
+        if (!mUpdateMonitor.isScreenOn()) {
             // Keyguard is shown just after screen turning off
             return;
         }
