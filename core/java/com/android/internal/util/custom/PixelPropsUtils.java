@@ -48,7 +48,7 @@ public class PixelPropsUtils {
     }
 
     public static void setProps(String packageName) {
-        if (packageName == null){
+        /*if (packageName == null){
             return;
         }
         if (Arrays.asList(packagesToChange).contains(packageName)){
@@ -64,7 +64,7 @@ public class PixelPropsUtils {
         // Set proper indexing fingerprint
         if (packageName.equals("com.google.android.settings.intelligence")){
             setPropValue("FINGERPRINT", Build.DATE);
-        }
+        }*/
     }
 
     private static void setPropValue(String key, Object value){
