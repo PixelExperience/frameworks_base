@@ -104,6 +104,7 @@ import com.android.systemui.statusbar.phone.StatusBar;
 
 import com.google.android.systemui.LiveWallpaperScrimController;
 import com.google.android.systemui.statusbar.phone.StatusBarGoogle;
+import com.google.android.systemui.statusbar.phone.WallpaperNotifier;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
 import java.util.Optional;
@@ -123,6 +124,7 @@ public interface StatusBarGoogleModule {
     @Singleton
     static StatusBar provideStatusBar(
             SmartSpaceController smartSpaceController,
+            WallpaperNotifier wallpaperNotifier,
             Context context,
             NotificationsController notificationsController,
             LightBarController lightBarController,
@@ -203,6 +205,7 @@ public interface StatusBarGoogleModule {
             StatusBarTouchableRegionManager statusBarTouchableRegionManager) {
         return new StatusBarGoogle(
                 smartSpaceController,
+                wallpaperNotifier,
                 context,
                 notificationsController,
                 lightBarController,
