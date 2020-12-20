@@ -65,6 +65,7 @@ import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
 import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
@@ -164,7 +165,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewStub mODICaptionsTooltipViewStub;
     private View mODICaptionsTooltipView = null;
 
-    private boolean mLeftVolumeRocker;
+    private boolean mAudioPanelOnLeftSide;
 
     public VolumeDialogImpl(Context context) {
         mContext =
@@ -177,7 +178,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mShowActiveStreamOnly = showActiveStreamOnly();
         mHasSeenODICaptionsTooltip =
                 Prefs.getBoolean(context, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
-        mLeftVolumeRocker = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
+        mAudioPanelOnLeftSide = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
     }
 
     @Override
@@ -225,9 +226,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.format = PixelFormat.TRANSLUCENT;
         lp.setTitle(VolumeDialogImpl.class.getSimpleName());
         lp.windowAnimations = -1;
-        if(!isAudioPanelOnLeftSide()){
-            lp.gravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
-        } else {
+        lp.gravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
+        if(isAudioPanelOnLeftSide()){
             lp.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
         }
         mWindow.setAttributes(lp);
@@ -238,7 +238,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
         mDialog.setOnShowListener(dialog -> {
-            if (!isLandscape()) mDialogView.setTranslationX((mDialogView.getWidth() / 2.0f)*(!isAudioPanelOnLeftSide() ? 1 : -1));
+            if (!isLandscape()) mDialogView.setTranslationX(getAnimatorX());
             mDialogView.setAlpha(0);
             mDialogView.animate()
                     .alpha(1)
@@ -324,6 +324,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         initRingerH();
         initSettingsH();
         initODICaptionsH();
+    }
+
+    private float getAnimatorX() {
+        final float x = mDialogView.getWidth() / 2.0f;
+        return isAudioPanelOnLeftSide() ? -x : x;
     }
 
     protected ViewGroup getDialogView() {
@@ -789,7 +794,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                     tryToRemoveCaptionsTooltip();
                     mIsAnimatingDismiss = false;
                 }, 50));
-        if (!isLandscape()) animator.translationX((mDialogView.getWidth() / 2.0f)*(!isAudioPanelOnLeftSide() ? 1 : -1));
+        if (!isLandscape() || !mShowActiveStreamOnly) animator.translationX(getAnimatorX());
         animator.start();
         checkODICaptionsTooltip(true);
         mController.notifyVisible(false);
@@ -1486,7 +1491,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private boolean isAudioPanelOnLeftSide() {
-        return !mShowActiveStreamOnly && mLeftVolumeRocker;
+        return !mShowActiveStreamOnly && mAudioPanelOnLeftSide;
     }
 
     private static class VolumeRow {
