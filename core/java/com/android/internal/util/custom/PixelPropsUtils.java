@@ -29,6 +29,7 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChange;
+    private static final Map<String, Object> propsToChangePixel5;
 
     private static final String[] packagesToChange = {
             "com.google.android.apps.safetyhub",
@@ -38,6 +39,13 @@ public class PixelPropsUtils {
             "com.google.android.gms"
     };
 
+    private static final String[] packagesToChangePixel5 = {
+            "com.google.android.apps.safetyhub",
+            "com.google.android.apps.turbo",
+            "com.google.android.apps.wallpaper",
+            "com.google.android.apps.maps"
+    };
+
     static {
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
@@ -45,6 +53,11 @@ public class PixelPropsUtils {
         propsToChange.put("DEVICE", "crosshatch");
         propsToChange.put("PRODUCT", "crosshatch");
         propsToChange.put("MODEL", "Pixel 3 XL");
+        propsToChangePixel5 = new HashMap<>();
+        propsToChangePixel5.put("DEVICE", "redfin");
+        propsToChangePixel5.put("PRODUCT", "redfin");
+        propsToChangePixel5.put("MODEL", "Pixel 5");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -56,6 +69,16 @@ public class PixelPropsUtils {
                 Log.d(TAG, "Defining props for: " + packageName);
             }
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                setPropValue(key, value);
+            }
+        }
+        if (Arrays.asList(packagesToChangePixel5).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangePixel5.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);
