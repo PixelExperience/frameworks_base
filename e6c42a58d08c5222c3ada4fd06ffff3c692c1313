@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cf3a16b_b27bb280",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000441
+      },
+      "writtenOn": "2020-12-24T05:26:04Z",
+      "side": 1,
+      "message": "Why are you changing them to crosshatch, and then again to Pixel 5? seems redundant",
+      "revId": "e6c42a58d08c5222c3ada4fd06ffff3c692c1313",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
