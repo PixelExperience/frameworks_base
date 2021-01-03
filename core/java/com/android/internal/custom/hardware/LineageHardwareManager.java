@@ -31,6 +31,7 @@ import com.android.internal.custom.hardware.HIDLHelper;
 import vendor.lineage.touch.V1_0.IGloveMode;
 import vendor.lineage.touch.V1_0.IHighTouchPollingRate;
 import vendor.lineage.touch.V1_0.IKeyDisabler;
+import vendor.lineage.touch.V1_0.IKeySwapper;
 import vendor.lineage.touch.V1_0.IStylusMode;
 import vendor.lineage.touch.V1_0.ITouchscreenGesture;
 
@@ -76,6 +77,12 @@ public final class LineageHardwareManager {
     public static final int FEATURE_KEY_DISABLE = 0x20;
 
     /**
+     * Hardware navigation key swapping
+     */
+    @VisibleForTesting
+    public static final int FEATURE_KEY_SWAP = 0x40;
+
+    /**
      * Touchscreen hovering
      */
     @VisibleForTesting
@@ -91,6 +98,7 @@ public final class LineageHardwareManager {
         FEATURE_HIGH_TOUCH_POLLING_RATE,
         FEATURE_HIGH_TOUCH_SENSITIVITY,
         FEATURE_KEY_DISABLE,
+        FEATURE_KEY_SWAP,
         FEATURE_TOUCH_HOVERING
     );
 
@@ -183,6 +191,8 @@ public final class LineageHardwareManager {
                     return IGloveMode.getService(true);
                 case FEATURE_KEY_DISABLE:
                     return IKeyDisabler.getService(true);
+                case FEATURE_KEY_SWAP:
+                    return IKeySwapper.getService(true);
                 case FEATURE_TOUCH_HOVERING:
                     return IStylusMode.getService(true);
                 case FEATURE_TOUCHSCREEN_GESTURES:
@@ -240,6 +250,9 @@ public final class LineageHardwareManager {
                     case FEATURE_KEY_DISABLE:
                         IKeyDisabler keyDisabler = (IKeyDisabler) obj;
                         return keyDisabler.isEnabled();
+                    case FEATURE_KEY_SWAP:
+                        IKeySwapper keySwapper = (IKeySwapper) obj;
+                        return keySwapper.isEnabled();
                     case FEATURE_TOUCH_HOVERING:
                         IStylusMode stylusMode = (IStylusMode) obj;
                         return stylusMode.isEnabled();
@@ -280,6 +293,9 @@ public final class LineageHardwareManager {
                     case FEATURE_KEY_DISABLE:
                         IKeyDisabler keyDisabler = (IKeyDisabler) obj;
                         return keyDisabler.setEnabled(enable);
+                    case FEATURE_KEY_SWAP:
+                        IKeySwapper keySwapper = (IKeySwapper) obj;
+                        return keySwapper.setEnabled(enable);
                     case FEATURE_TOUCH_HOVERING:
                         IStylusMode stylusMode = (IStylusMode) obj;
                         return stylusMode.setEnabled(enable);
