@@ -9182,6 +9182,12 @@ public final class Settings {
         public static final String FEATURE_TOUCH_HOVERING = "feature_touch_hovering";
 
         /**
+         * Whether key swap is enabled on supported hardware
+         * @hide
+         */
+        public static final String FEATURE_KEY_SWAP = "feature_key_swap";
+
+        /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
          */
