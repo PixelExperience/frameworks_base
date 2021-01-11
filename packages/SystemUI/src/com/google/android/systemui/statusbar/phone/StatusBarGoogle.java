@@ -109,12 +109,8 @@ public class StatusBarGoogle extends StatusBar {
     @Inject
     public SmartSpaceController mSmartSpaceController;
 
-    @Inject
-    public WallpaperNotifier mWallpaperNotifier;
-
     public StatusBarGoogle(
             SmartSpaceController smartSpaceController,
-            WallpaperNotifier wallpaperNotifier,
             Context context,
             NotificationsController notificationsController,
             LightBarController lightBarController,
@@ -271,14 +267,12 @@ public class StatusBarGoogle extends StatusBar {
                 notificationShadeDepthControllerLazy,
                 statusBarTouchableRegionManager);
         mSmartSpaceController = smartSpaceController;
-        mWallpaperNotifier = wallpaperNotifier;
     }
 
     @Override
     public void start() {
         super.start();
         ((NotificationLockscreenUserManagerGoogle) Dependency.get(NotificationLockscreenUserManager.class)).updateSmartSpaceVisibilitySettings();
-        mWallpaperNotifier.attach();
     }
 
     @Override
