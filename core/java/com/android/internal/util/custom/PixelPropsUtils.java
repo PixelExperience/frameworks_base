@@ -65,6 +65,10 @@ public class PixelPropsUtils {
         if (packageName.equals("com.google.android.settings.intelligence")){
             setPropValue("FINGERPRINT", Build.DATE);
         }
+        // Set empty fingerprint for arcore
+        if (packageName.equals("com.google.ar.core")){
+            setPropValue("FINGERPRINT", "");
+        }
     }
 
     private static void setPropValue(String key, Object value){
