@@ -623,16 +623,15 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (!isNotificationVolumeLinked()) {
             setVisOrGone(AudioManager.STREAM_NOTIFICATION, expand);
         }
-        if (expand) {
-            updateAppRows();
-        }
+        updateAppRows(expand);
     }
 
-    private void updateAppRows() {
+    private void updateAppRows(boolean expand) {
         for (int i = mAppRows.size() - 1; i >= 0; i--) {
             final VolumeRow row = mAppRows.get(i);
             removeAppRow(row);
         }
+        if (!expand) return;
         List<AppTrackData> trackDatas = mController.getAudioManager().listAppTrackDatas();
         for (AppTrackData data : trackDatas) {
             if (data.isActive()) {
