@@ -1834,6 +1834,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
+            case SCREENSHOT:
+                interceptScreenshotChord(
+                        TAKE_SCREENSHOT_FULLSCREEN, SCREENSHOT_KEY_OTHER, 0 /*pressDelay*/);
+                break;
             default:
                 break;
         }
