@@ -134,6 +134,24 @@
     -->
     <integer name="config_longPressOnAppSwitchBehavior">0</integer>
 
+    <!-- Control the behavior when the user long presses the app switch button.
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_pressOnAppSwitchBehavior">2</integer>
+
+    <!-- Control the behavior when the user presses the assist button.
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_pressOnAssistBehavior">3</integer>
+
+    <!-- Control the behavior when the user long presses the assist button.
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnAssistBehavior">4</integer>
+
     <!-- Indicates that the device has Single-stage Camera key
          (without "Focus" state) instead of Dual-stage. -->
     <bool name="config_singleStageCameraKey">false</bool>
