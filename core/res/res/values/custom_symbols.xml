@@ -132,5 +132,6 @@
     <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
     <java-symbol type="bool" name="config_pocketModeSupported" />
+    <java-symbol type="bool" name="config_pocketUseLightSensor" />
 
 </resources>
