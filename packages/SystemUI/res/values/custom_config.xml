@@ -25,4 +25,7 @@
     <string name="config_statusBarComponent">org.pixelexperience.systemui.statusbar.phone.StatusBarGoogle</string>
     <string name="config_systemUIFactoryComponent">org.pixelexperience.systemui.SystemUIGoogleFactory</string>
     <string name="config_systemUIVendorServiceComponent">org.pixelexperience.systemui.GoogleServices</string>
+
+    <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
+    <integer name="config_screenRecorderMaxFramerate">0</integer>
 </resources>
