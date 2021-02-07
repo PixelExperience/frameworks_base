@@ -16,6 +16,24 @@
       "message": "Remove the second condition",
       "revId": "bb0e214e2d2797dbcba7fae25d6dc08aa05f558f",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb83e4e_8e5fa0f2",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000257
+      },
+      "writtenOn": "2021-02-07T14:48:10Z",
+      "side": 1,
+      "message": "but then if user sets display framerate to, say, 60 it\u0027s still gonna record at maxRefreshRate, which could be higher (like 90), which I don\u0027t think is that great",
+      "parentUuid": "32bf056d_b7596a07",
+      "revId": "bb0e214e2d2797dbcba7fae25d6dc08aa05f558f",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
