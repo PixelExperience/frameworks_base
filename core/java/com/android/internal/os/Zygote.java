@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.android.internal.util.custom.PixelPropsUtils;
+import com.android.internal.util.custom.faceunlock.FaceUnlockUtils;
 
 /** @hide */
 public final class Zygote {
@@ -796,6 +797,9 @@ public final class Zygote {
         } else {
             Log.w(loggingTag, "Unable to set package name.");
         }
+
+        // Set Face Unlock props
+        FaceUnlockUtils.setProps(args.mPackageName);
 
         // Set pixel props
         PixelPropsUtils.setProps(args.mPackageName);

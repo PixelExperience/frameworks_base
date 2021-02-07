@@ -274,6 +274,9 @@ filegroup {
         // etc.
         ":framework-javastream-protos",
         ":statslog-framework-java-gen", // FrameworkStatsLog.java
+
+        // Face Unlock
+        ":faceunlock_framework_utils_src",
     ],
 }
 
