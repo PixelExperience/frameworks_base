@@ -16,6 +16,23 @@
       "message": "Tested on OP7, all fine",
       "revId": "86da69b6576ac1f13f3908840000b72750a49f79",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a11a16a_9665abfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-02-10T12:48:29Z",
+      "side": 1,
+      "message": "Tested on OP7, all fine",
+      "revId": "86da69b6576ac1f13f3908840000b72750a49f79",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
