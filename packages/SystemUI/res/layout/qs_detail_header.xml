@@ -20,7 +20,6 @@
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/qs_detail_items_padding_top"
     android:paddingBottom="@dimen/qs_detail_items_padding_top"
-    android:background="@drawable/qs_detail_toolbar"
     android:orientation="vertical"
     android:gravity="center">
 
