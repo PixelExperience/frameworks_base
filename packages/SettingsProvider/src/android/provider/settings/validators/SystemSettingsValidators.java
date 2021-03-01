@@ -296,5 +296,8 @@ public class SystemSettingsValidators {
             }
         });
         VALIDATORS.put(System.LIVE_DISPLAY_HINTED, new InclusiveIntegerRangeValidator(-3, 1));
+        VALIDATORS.put(System.NETWORK_TRAFFIC_LOCATION, new InclusiveIntegerRangeValidator(0, 2));
+        VALIDATORS.put(System.NETWORK_TRAFFIC_AUTOHIDE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.NETWORK_TRAFFIC_UNIT_TYPE, new InclusiveIntegerRangeValidator(0, 1));
     }
 }

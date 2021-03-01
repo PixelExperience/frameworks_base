@@ -98,4 +98,13 @@
                  android:layout_gravity="end|center_vertical"
                  android:focusable="false"/>
 
+    <com.android.systemui.statusbar.policy.NetworkTraffic
+        android:id="@+id/networkTrafficExpanded"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|start"
+        android:layout_gravity="end|center_vertical"
+        android:textAppearance="@style/TextAppearance.QS.Status"
+        android:paddingEnd="2dp" />
+
 </LinearLayout>
