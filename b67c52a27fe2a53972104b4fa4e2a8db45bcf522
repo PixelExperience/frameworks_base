@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0274acc_453e7225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-03-02T03:06:46Z",
+      "side": 1,
+      "message": "This reduces screen tearing in system animations like screen tearing, and the effect is quite noticeable on polaris.",
+      "revId": "b67c52a27fe2a53972104b4fa4e2a8db45bcf522",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
