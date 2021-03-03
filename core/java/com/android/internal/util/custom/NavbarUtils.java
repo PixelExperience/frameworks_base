@@ -48,11 +48,31 @@ public class NavbarUtils {
             NAV_BAR_MODE_GESTURAL_OVERLAY_EXTRA_WIDE_BACK
     };
 
+    private static final String[] NAVBAR_GESTURAL_OVERLAYS = {
+            NAV_BAR_MODE_GESTURAL_OVERLAY,
+            NAV_BAR_MODE_GESTURAL_OVERLAY_NARROW_BACK,
+            NAV_BAR_MODE_GESTURAL_OVERLAY_WIDE_BACK,
+            NAV_BAR_MODE_GESTURAL_OVERLAY_EXTRA_WIDE_BACK
+    };
+
     public static String getNavigationBarModeOverlay(Context context, IOverlayManager overlayManager) {
         for (int i = 0; i < NAVBAR_MODES_OVERLAYS.length; i++) {
             OverlayInfo info = null;
             try {
                 info = overlayManager.getOverlayInfo(NAVBAR_MODES_OVERLAYS[i], UserHandle.USER_CURRENT);
+            } catch (Exception e) { /* Do nothing */ }
+            if (info != null && info.isEnabled()) {
+                return info.getPackageName();
+            }
+        }
+        return "";
+    }
+
+    public static String getNavigationBarModeGesturalOverlay(Context context, IOverlayManager overlayManager) {
+        for (int i = 0; i < NAVBAR_GESTURAL_OVERLAYS.length; i++) {
+            OverlayInfo info = null;
+            try {
+                info = overlayManager.getOverlayInfo(NAVBAR_GESTURAL_OVERLAYS[i], UserHandle.USER_CURRENT);
             } catch (Exception e) { /* Do nothing */ }
             if (info != null && info.isEnabled()) {
                 return info.getPackageName();
