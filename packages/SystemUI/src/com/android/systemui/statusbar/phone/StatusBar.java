@@ -701,6 +701,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private final SysuiStatusBarStateController mStatusBarStateController;
 
     private boolean mDisplayCutoutHidden;
+    private boolean mCutoutChanged = false;
 
     private final KeyguardUpdateMonitorCallback mUpdateCallback =
             new KeyguardUpdateMonitorCallback() {
@@ -1985,14 +1986,30 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.STATUS_BAR_CLOCK, 2);
     }
 
+    private boolean isNetworkTrafficOnStatusbar() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 0) == 1;
+    }
+
+    private void setNetworkTrafficToQs() {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 2);
+    }
+
     private void updateCutoutOverlay() {
         if (!mDisplayCutoutHidden && CutoutUtils.hasCenteredCutout(mContext, true) && isCenteredClock()){
             moveClockToLeft();
+        }
+        if (!mDisplayCutoutHidden && CutoutUtils.hasCenteredCutout(mContext, true) && isNetworkTrafficOnStatusbar()){
+            setNetworkTrafficToQs();
         }
         try {
             mOverlayManager.setEnabled("org.pixelexperience.overlay.hidecutout",
                         mDisplayCutoutHidden, mLockscreenUserManager.getCurrentUserId());
         } catch (RemoteException ignored) {
+        }
+        if (mCutoutChanged){
+            refreshNavGestureOverlay();
         }
     }
 
@@ -4713,6 +4730,34 @@ public class StatusBar extends SystemUI implements DemoMode,
         return navigationBarModeOverlay;
     }
 
+
+    private final Runnable mNavGestureRefreshRunnable = new Runnable() {
+        @Override
+        public void run() {
+            String navigationBarModeOverlay = NavbarUtils.getNavigationBarModeGesturalOverlay(mContext, mOverlayManager);
+            if (!TextUtils.isEmpty(navigationBarModeOverlay)){
+                try{
+                    mOverlayManager.setEnabledExclusiveInCategory(navigationBarModeOverlay,
+                        UserHandle.USER_CURRENT);
+                } catch (RemoteException ignored) {
+                }
+            }
+        }
+    };
+
+    private void refreshNavGestureOverlay() {
+        String navigationBarModeOverlay = NavbarUtils.getNavigationBarModeGesturalOverlay(mContext, mOverlayManager);
+        if (!TextUtils.isEmpty(navigationBarModeOverlay)){
+            try{
+                mOverlayManager.setEnabled(navigationBarModeOverlay,
+                    false, UserHandle.USER_CURRENT);
+            } catch (RemoteException ignored) {
+            }
+            mHandler.removeCallbacks(mNavGestureRefreshRunnable);
+            mHandler.postDelayed(mNavGestureRefreshRunnable, 2000);
+        }
+    }
+
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (NAVIGATION_BAR_SHOW.equals(key) && mDisplayId == Display.DEFAULT_DISPLAY &&
@@ -4740,6 +4785,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else if (DISPLAY_CUTOUT_HIDDEN.equals(key)) {
             mDisplayCutoutHidden = TunerService.parseIntegerSwitch(newValue, false);
             updateCutoutOverlay();
+            if (!mCutoutChanged){
+                mCutoutChanged = true;
+            }
         }
     }
     // End Extra BaseStatusBarMethods.
