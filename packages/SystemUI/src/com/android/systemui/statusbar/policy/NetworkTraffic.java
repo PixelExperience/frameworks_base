@@ -96,6 +96,7 @@ public class NetworkTraffic extends TextView {
     private boolean mNetworksChanged = true;
 
     private INetworkManagementService mNetworkManagementService;
+    private final NetworkRequest mNetworkRequest;
 
     private Handler mTrafficHandler = new Handler() {
         @Override
@@ -289,11 +290,10 @@ public class NetworkTraffic extends TextView {
                     ServiceManager.getService(Context.NETWORKMANAGEMENT_SERVICE));
 
         mConnectivityManager = getContext().getSystemService(ConnectivityManager.class);
-        final NetworkRequest request = new NetworkRequest.Builder()
+        mNetworkRequest = new NetworkRequest.Builder()
                 .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
                 .addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)
                 .build();
-        mConnectivityManager.registerNetworkCallback(request, mNetworkCallback);
         mObserver = new SettingsObserver(mTrafficHandler);
         setVisibility(View.GONE);
     }
@@ -309,6 +309,7 @@ public class NetworkTraffic extends TextView {
             filter.addAction(Intent.ACTION_SCREEN_ON);
             mContext.registerReceiver(mIntentReceiver, filter, null, getHandler());
             mObserver.observe();
+            mConnectivityManager.registerNetworkCallback(mNetworkRequest, mNetworkCallback);
             updateSettings();
         }
     }
@@ -319,6 +320,7 @@ public class NetworkTraffic extends TextView {
         if (mAttached) {
             mContext.unregisterReceiver(mIntentReceiver);
             mObserver.unobserve();
+            mConnectivityManager.unregisterNetworkCallback(mNetworkCallback);
             mAttached = false;
         }
     }
