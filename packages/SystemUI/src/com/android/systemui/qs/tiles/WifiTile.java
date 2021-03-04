@@ -43,6 +43,7 @@ import com.android.systemui.qs.QSDetailItems.Item;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSIconViewImpl;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.AccessPointController;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
@@ -65,15 +66,17 @@ public class WifiTile extends QSTileImpl<SignalState> {
     protected final WifiSignalCallback mSignalCallback = new WifiSignalCallback();
     private final ActivityStarter mActivityStarter;
     private boolean mExpectDisabled;
+    private final KeyguardStateController mKeyguard;
 
     @Inject
     public WifiTile(QSHost host, NetworkController networkController,
-            ActivityStarter activityStarter) {
+            ActivityStarter activityStarter, KeyguardStateController keyguardStateController) {
         super(host);
         mController = networkController;
         mWifiController = mController.getAccessPointController();
         mDetailAdapter = (WifiDetailAdapter) createDetailAdapter();
         mActivityStarter = activityStarter;
+        mKeyguard = keyguardStateController;
         mController.observe(getLifecycle(), mSignalCallback);
     }
 
@@ -113,6 +116,15 @@ public class WifiTile extends QSTileImpl<SignalState> {
 
     @Override
     protected void handleClick() {
+        boolean wifiEnabled = mState.value;
+        if (wifiEnabled && mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(this::handleClickInner);
+            return;
+        }
+        handleClickInner();
+    }
+
+    private void handleClickInner() {
         // Secondary clicks are header clicks, just toggle.
         mState.copyTo(mStateBeforeClick);
         boolean wifiEnabled = mState.value;
