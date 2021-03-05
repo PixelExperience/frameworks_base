@@ -189,7 +189,7 @@ public final class VolumeKeyHandler {
             Resources res = mContext.getResources();
 
             mVolBtnMusicControls = Settings.System.getIntForUser(
-                    resolver, Settings.System.VOLBTN_MUSIC_CONTROLS, 1,
+                    resolver, Settings.System.VOLBTN_MUSIC_CONTROLS, 0,
                     UserHandle.USER_CURRENT) == 1;
 
             if (DEBUG) {
