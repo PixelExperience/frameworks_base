@@ -25,6 +25,7 @@ import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_Q
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SCREEN_PINNING;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SEARCH_DISABLED;
 import static com.android.systemui.shared.system.QuickStepContract.isGesturalMode;
+import static com.android.systemui.shared.system.QuickStepContract.isSwipeUpMode;
 import static com.android.systemui.shared.system.QuickStepContract.isLegacyMode;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_OPAQUE;
 import static com.android.systemui.util.Utils.isGesturalModeOnDefaultDisplay;
@@ -698,24 +699,21 @@ public class NavigationBarView extends FrameLayout implements
         updateRecentsIcon();
 
         boolean showCursorKeys = mShowCursorKeys
-                && (mNavigationIconHints & StatusBarManager.NAVIGATION_HINT_BACK_ALT) != 0;
+                && (mNavigationIconHints & StatusBarManager.NAVIGATION_HINT_BACK_ALT) != 0
+                && !isGesturalMode(mNavBarMode);
         final boolean showImeSwitcher = mImeVisible &&
                 // IME switcher can be shown while gestural mode is enabled because
                 // the cursor keys must be hidden anyway
                 (isGesturalMode(mNavBarMode) ||
-                // IME switcher in 3-button mode and cursor keys take the same spot in
+                // IME switcher in non-gesture mode and cursor keys take the same spot in
                 // the view, so one can only use one or the other
-                (!isLegacyMode(mNavBarMode) || !showCursorKeys));
+                (isSwipeUpMode(mNavBarMode) && !showCursorKeys));
 
         // Update IME button visibility, a11y and rotate button always overrides the appearance
         mContextualButtonGroup.setButtonVisibility(R.id.ime_switcher, showImeSwitcher);
 
         mBarTransitions.reapplyDarkIntensity();
 
-        if (isGesturalMode(mNavBarMode)) {
-            // With gestural mode enabled, ensure that cursor keys are not shown if IME is visible
-            showCursorKeys &= !mImeVisible;
-        }
         final int cursorKeyVisibility = showCursorKeys ? View.VISIBLE : View.INVISIBLE;
 
         getCursorLeftButton().setVisibility(cursorKeyVisibility);
