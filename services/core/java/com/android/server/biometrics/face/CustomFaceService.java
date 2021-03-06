@@ -28,6 +28,8 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.hardware.biometrics.BiometricAuthenticator;
+import android.hardware.biometrics.BiometricManager.Authenticators;
 import android.hardware.face.Face;
 import android.os.Binder;
 import android.os.Handler;
@@ -322,7 +324,7 @@ public class CustomFaceService {
 
     private boolean bind(int userId) {
         Slog.d(TAG, "bind");
-        if (!isServiceEnabled()) {
+        if (!isServiceEnabled(mContext)) {
             Slog.d(TAG, "Face service disabled");
             return false;
         } else if (mIsServiceBinding) {
@@ -363,7 +365,7 @@ public class CustomFaceService {
         return mServices.get(mCurrentUserId);
     }
 
-    private Intent getServiceIntent() {
+    private static Intent getServiceIntent() {
         Intent intent = new Intent("org.pixelexperience.faceunlock.BIND");
         intent.setComponent(ComponentName.unflattenFromString(
                 "org.pixelexperience.faceunlock/org.pixelexperience.faceunlock.service.FaceAuthService"));
@@ -374,14 +376,18 @@ public class CustomFaceService {
         return "org.pixelexperience.faceunlock";
     }
 
-    private boolean isServiceEnabled() {
+    public static boolean isServiceEnabled(Context context) {
         if (!FaceUnlockUtils.isFaceUnlockSupported()) {
             return false;
         }
-        PackageManager pm = mContext.getPackageManager();
+        PackageManager pm = context.getPackageManager();
         Intent intent = getServiceIntent();
         ResolveInfo info = pm.resolveService(intent, PackageManager.MATCH_ALL);
         return info != null && info.serviceInfo.isEnabled();
+    }
+
+    public static String getConfiguration() {
+        return HAL_DEVICE_ID + ":" + BiometricAuthenticator.TYPE_FACE + ":" + Authenticators.BIOMETRIC_STRONG;
     }
 
     public boolean isSupported() {
@@ -389,7 +395,7 @@ public class CustomFaceService {
     }
 
     public boolean isDetected() {
-        boolean enabled = isServiceEnabled();
+        boolean enabled = isServiceEnabled(mContext);
         if (enabled) {
             mHandler.post(() -> {
                 if (getService(mCurrentUserId) == null) {

@@ -980,7 +980,7 @@ public class BiometricService extends SystemService {
          */
         @VisibleForTesting
         public String[] getConfiguration(Context context) {
-            return context.getResources().getStringArray(R.array.config_biometric_sensors);
+            return Utils.getConfiguration(context);
         }
     }
 
