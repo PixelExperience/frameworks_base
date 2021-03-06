@@ -23,6 +23,7 @@ import android.annotation.IntDef;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.hardware.biometrics.BiometricPrompt;
+import android.hardware.face.FaceManager;
 import android.os.Bundle;
 import android.os.UserManager;
 import android.util.DisplayMetrics;
@@ -34,6 +35,8 @@ import com.android.internal.widget.LockPatternUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import com.android.internal.util.custom.faceunlock.FaceUnlockUtils;
 
 public class Utils {
 
@@ -75,6 +78,14 @@ public class Utils {
     static boolean isBiometricAllowed(Bundle biometricPromptBundle) {
         final int authenticators = getAuthenticators(biometricPromptBundle);
         return (authenticators & Authenticators.BIOMETRIC_WEAK) != 0;
+    }
+
+    static boolean hasAnyFaceEnrolled(Context context, int userId) {
+        if (!FaceUnlockUtils.isFaceUnlockSupported()){
+            return false;
+        }
+        FaceManager faceManager = (FaceManager) context.getSystemService(FaceManager.class);
+        return faceManager != null && mFaceManager.hasEnrolledTemplates(userId);
     }
 
     static int getAuthenticators(Bundle biometricPromptBundle) {

@@ -325,7 +325,7 @@ public class Utils {
         return isEncrypted || isLockDown;
     }
 
-    public static String getConfiguration(Context context) {
+    public static String[] getConfiguration(Context context) {
         ArrayList<String> sensors = new ArrayList();
         Collections.addAll(sensors, context.getResources().getStringArray(
             R.array.config_biometric_sensors));

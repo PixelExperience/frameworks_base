@@ -114,6 +114,7 @@ public class BiometricService extends SystemService {
     private static final int MSG_ON_DEVICE_CREDENTIAL_PRESSED = 12;
     private static final int MSG_ON_SYSTEM_EVENT = 13;
     private static final int MSG_CLIENT_DIED = 14;
+    private static final int MSG_ON_USE_FACE_PRESSED = 15;
 
     /**
      * Authentication either just called and we have not transitioned to the CALLED state, or
@@ -381,6 +382,11 @@ public class BiometricService extends SystemService {
 
                 case MSG_ON_DEVICE_CREDENTIAL_PRESSED: {
                     handleOnDeviceCredentialPressed();
+                    break;
+                }
+
+                case MSG_ON_USE_FACE_PRESSED: {
+                    handleOnUseFacePressed();
                     break;
                 }
 
@@ -665,6 +671,11 @@ public class BiometricService extends SystemService {
         @Override
         public void onDeviceCredentialPressed() {
             mHandler.sendEmptyMessage(MSG_ON_DEVICE_CREDENTIAL_PRESSED);
+        }
+
+        @Override
+        public void onUseFacePressed() {
+            mHandler.sendEmptyMessage(MSG_ON_USE_FACE_PRESSED);
         }
 
         @Override
@@ -1611,6 +1622,32 @@ public class BiometricService extends SystemService {
                 mCurrentAuthSession.mCallingPid,
                 mCurrentAuthSession.mCallingUserId,
                 mCurrentAuthSession.mModality);
+    }
+
+    private void handleOnUseFacePressed() {
+        Slog.d(TAG, "onUseFacePressed");
+        if (mCurrentAuthSession == null) {
+            Slog.e(TAG, "Auth session null");
+            return;
+        }
+
+        // Cancel authentication. Skip the token/package check since we are cancelling
+        // from system server. The interface is permission protected so this is fine.
+        cancelInternal(null /* token */, null /* package */, Binder.getCallingUid(),
+                Binder.getCallingPid(), UserHandle.getCallingUserId(),
+                false /* fromClient */);
+
+        // Re-authenticate with face modality
+        authenticateInternal(mCurrentAuthSession.mToken,
+                mCurrentAuthSession.mSessionId,
+                mCurrentAuthSession.mUserId,
+                mCurrentAuthSession.mClientReceiver,
+                mCurrentAuthSession.mOpPackageName,
+                mCurrentAuthSession.mBundle,
+                mCurrentAuthSession.mCallingUid,
+                mCurrentAuthSession.mCallingPid,
+                mCurrentAuthSession.mCallingUserId,
+                TYPE_FACE);
     }
 
     private void handleOnDeviceCredentialPressed() {

@@ -67,6 +67,16 @@
             android:layout_width="8dp"
             android:layout_height="match_parent"
             android:visibility="visible" />
+        <!-- Use Face Button -->
+        <Button android:id="@+id/button_use_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@*android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:maxWidth="@dimen/biometric_dialog_button_negative_max_width"
+            android:text="@string/biometric_dialog_button_use_face"/>
         <!-- Negative Button -->
         <Button android:id="@+id/button_negative"
             android:layout_width="wrap_content"
