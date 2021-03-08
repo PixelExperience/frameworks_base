@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_powershare_label">Transferencia de energía inalámbrica</string>
+    <string name="quick_settings_powershare_off_powersave_label">Transferencia de energía inalámbrica apagada\nAhorro de energía</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Transferencia de energía inalámbrica apagada\nBatería baja</string>
+    <string name="quick_settings_powershare_enabled_label">Transferencia de energía inalámbrica está activada</string>
+    <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo libere. Mantén presionado Atrás para liberar.</string>
+    <string name="screen_pinning_toast_no_navbar">Mantén pulsado el botón Atrás para dejar de fijar esta pantalla</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Esto mantiene la pantalla a la vista hasta que la sueltes. Manten presionado el sensor de huella para soltar.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar esta pantalla, manten tocado el sensor de huella</string>
+    <string name="biometric_dialog_button_use_face">Usar Face ID</string>
+</resources>
