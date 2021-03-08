@@ -19,8 +19,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Titles for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50] -->
-    <string-array name="bluetooth_a2dp_codec_titles_cm">
-        <item>Use System Selection (Default)</item>
+    <string-array name="bluetooth_a2dp_codec_titles_cm" translatable="false">
+        <item>@string/bluetooth_a2dp_codec_system</item>
         <item>SBC</item>
         <item>AAC</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> audio</item>
@@ -31,8 +31,8 @@
     </string-array>
 
     <!-- Summaries for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50]-->
-    <string-array name="bluetooth_a2dp_codec_summaries_cm" >
-        <item>Use System Selection (Default)</item>
+    <string-array name="bluetooth_a2dp_codec_summaries_cm" translatable="false">
+        <item>@string/bluetooth_a2dp_codec_system</item>
         <item>SBC</item>
         <item>AAC</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> audio</item>
@@ -43,11 +43,11 @@
     </string-array>
 
     <!-- Titles for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50] -->
-    <string-array name="bluetooth_a2dp_codec_channel_mode_titles_cm">
-        <item>Use System Selection (Default)</item>
-        <item>Mono</item>
-        <item>Stereo</item>
-        <item>Dual Channel</item>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles_cm" translatable="false">
+        <item>@string/bluetooth_a2dp_codec_system</item>
+        <item>@string/bluetooth_a2dp_codec_channel_mode_mono</item>
+        <item>@string/bluetooth_a2dp_codec_channel_mode_stereo</item>
+        <item>@string/bluetooth_a2dp_codec_channel_mode_dual</item>
     </string-array>
 
     <!-- Values for Bluetooth Audio Codec Channel Mode selection preference. -->
@@ -59,10 +59,10 @@
     </string-array>
 
     <!-- Summaries for Bluetooth Audio Codec Channel Mode selection preference. [CHAR LIMIT=50]-->
-    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries_cm" >
-        <item>Use System Selection (Default)</item>
-        <item>Mono</item>
-        <item>Stereo</item>
-        <item>Dual Channel</item>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries_cm" translatable="false">
+        <item>@string/bluetooth_a2dp_codec_system</item>
+        <item>@string/bluetooth_a2dp_codec_channel_mode_mono</item>
+        <item>@string/bluetooth_a2dp_codec_channel_mode_stereo</item>
+        <item>@string/bluetooth_a2dp_codec_channel_mode_dual</item>
     </string-array>
 </resources>
