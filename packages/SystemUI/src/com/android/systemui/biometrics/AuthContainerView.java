@@ -97,7 +97,7 @@ public class AuthContainerView extends LinearLayout
 
     @VisibleForTesting final WakefulnessLifecycle mWakefulnessLifecycle;
 
-    private @ContainerState int mContainerState = STATE_UNKNOWN;
+    @VisibleForTesting @ContainerState int mContainerState = STATE_UNKNOWN;
 
     // Non-null only if the dialog is in the act of dismissing and has not sent the reason yet.
     @Nullable @AuthDialogCallback.DismissedReason Integer mPendingCallbackReason;
@@ -618,10 +618,11 @@ public class AuthContainerView extends LinearLayout
         }
     }
 
-    private void onDialogAnimatedIn() {
+    @VisibleForTesting
+    void onDialogAnimatedIn() {
         if (mContainerState == STATE_PENDING_DISMISS) {
             Log.d(TAG, "onDialogAnimatedIn(): mPendingDismissDialog=true, dismissing now");
-            animateAway(false /* sendReason */, 0);
+            animateAway(AuthDialogCallback.DISMISSED_USER_CANCELED);
             return;
         }
         mContainerState = STATE_SHOWING;
