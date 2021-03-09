@@ -577,9 +577,11 @@ public class ScreenDecorations extends SystemUI implements Tunable {
             updateRoundedCornerRadii();
             if (DEBUG) Log.i(TAG, "onConfigChanged from rot " + oldRotation + " to " + mRotation);
             setupDecorations();
-            for (DisplayCutoutView dcv : mCutoutViews) {
-                if (dcv != null) {
-                    dcv.update();
+            if (mCutoutViews != null) {
+                for (DisplayCutoutView dcv : mCutoutViews) {
+                    if (dcv != null) {
+                        dcv.update();
+                    }
                 }
             }
             if (mOverlays != null) {
