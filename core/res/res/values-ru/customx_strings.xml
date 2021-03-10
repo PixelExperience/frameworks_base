@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Автоматически</string>
+    <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и рассвета</string>
+    <string name="live_display_off">Выкл</string>
+    <string name="live_display_off_summary">Отключить автоподстройку</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Использовать только дневные настройки</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_night_summary">Использовать только ночные настройки</string>
+    <string name="live_display_outdoor">При ярком солнце</string>
+    <string name="live_display_outdoor_summary">Только режим \"При ярком солнце\"</string>
+    <string name="live_display_hint">LiveDisplay снизит напряжение глаз и поможет уснуть. Нажмите, чтобы попробовать!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay работает в автоматическом режиме.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay работает в дневном режиме.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay работает в ночном режиме.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay работает в режиме «При ярком солнце».</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключен в автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен в дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключен в ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен в режим «При ярком солнце».</string>
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
+</resources>

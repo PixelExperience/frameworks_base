@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">خۆکار</string>
+    <string name="live_display_auto_summary">ڕێکخستنی ڕێژەی ڕەنگی پلەی گەرمی ڕوونما لەدوای خۆرهەڵاتن و خۆرئاوابون بە شێوەیەکی خودکار</string>
+    <string name="live_display_off_summary">ناچالاککردنی هەموو ڕێکخراوەکان</string>
+    <string name="live_display_day">ڕۆژ</string>
+    <string name="live_display_day_summary">تەنها بەکارهێنانی ڕێکخستنی ڕۆژ</string>
+    <string name="live_display_night">شەو</string>
+    <string name="live_display_night_summary">تەنها بەکارهێنانی ڕێکخستنی شەو</string>
+    <string name="live_display_outdoor">دەرەوە (ڕۆشنایی خۆر)</string>
+    <string name="live_display_outdoor_summary">تەنها بەکارهێنانی ڕێکخستنی دەرەوە</string>
+    <string name="live_display_hint"> ڕوونمای زیندوو یارمەتیت دەدات لە کەمکردنەوەی ئازاری چاو وە یارمەتیت دەدات بۆ خەوتن لە شەواندا. گرتەبکە و دۆخەکە چالاک بکە!</string>
+    <string name="accessibility_quick_settings_live_display_off">ڕوونمای زیندوو ناچالاکە.</string>
+    <string name="accessibility_quick_settings_live_display_auto">ڕوونمای زیندوو: دۆخی خودکار.</string>
+    <string name="accessibility_quick_settings_live_display_day">ڕوونمای زیندوو: دۆخی ڕۆژ.</string>
+    <string name="accessibility_quick_settings_live_display_night">ڕوونمای زیندوو: دۆخی شەو.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">ڕوونمای زیندوو: دۆخی دەرەوە.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">ڕوونمای زیندوو ناچالاککراوە.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">ڕوونمای زیندوو گۆڕا بۆ دۆخی خودکار.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">ڕوونمای زیندوو گۆڕا بۆ دۆخی ڕۆژ.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">ڕوونمای زیندوو گۆڕا بۆ دۆخی شەو.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">ڕوونمای زیندوو گۆڕا بۆ دۆخی دەرەوە.</string>
+    <string name="pocket_lock_message_long_press">دەگرتن و هەڵگرتنی دوگمەی سەرەکی بۆ کردنەوە</string>
+</resources>

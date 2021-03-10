@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2019, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">نشانگر چپ</string>
+    <string name="accessibility_dpad_right">نشانگر راست</string>
+    <string name="quick_settings_caffeine_label">حالت کافئین</string>
+    <string name="accessibility_quick_settings_caffeine_off">حالت کافئین غیر فعال شد.</string>
+    <string name="accessibility_quick_settings_caffeine_on">حالت کافئین فعال شد.</string>
+    <string name="quick_settings_sync_label">همگام‌‌سازی</string>
+    <string name="accessibility_quick_settings_sync_off">همگام‌سازی خاموش.</string>
+    <string name="accessibility_quick_settings_sync_on">همگام‌سازی روشن.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">همگام‌سازی خاموش شد.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">همگام‌سازی روشن شد.</string>
+    <string name="quick_settings_usb_tether_label">تترینگ یو‌اس‌بی</string>
+    <string name="quick_settings_volume_panel_label">پنل صدا</string>
+    <string name="quick_settings_ambient_display_label">نمایش حساس به محیط</string>
+    <string name="accessibility_quick_settings_ambient_display_off">نمایش حساس به محیط خاموش.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">نمایش حساس به محیط روشن.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">نمایش حساس به محیط خاموش شد.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">نمایش حساس به محیط روشن شد.</string>
+    <string name="quick_settings_vpn_label">وی  پی ان</string>
+    <string name="quick_settings_vpn_connect_dialog_title">اتصال به \u2026</string>
+    <string name="vpn_credentials_hint">لطفا برای اتصال به <xliff:g id="name">%s</xliff:g> اطلاعات خود را وارد کنید</string>
+    <string name="vpn_credentials_username">نام کاربری</string>
+    <string name="vpn_credentials_password">کلمه عبور</string>
+    <string name="vpn_credentials_dialog_connect">اتصال</string>
+    <string name="global_action_restart_system">سیستم  </string>
+    <string name="global_action_restart_recovery">ریکاوری</string>
+    <string name="quick_settings_reading_mode">حالت مطالعه</string>
+    <string name="accessibility_quick_settings_reading_mode_on">حالت مطالعه روشن.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">حالت مطالعه خاموش.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">حالت مطالعه روشن شد.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">حالت مطالعه خاموش شد.</string>
+</resources>

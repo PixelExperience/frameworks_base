@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">સ્વયંચાલિત</string>
+    <string name="live_display_auto_summary">સૂર્યોદય અને સૂર્યાસ્ત પછી સ્ક્રીનના રંગ તાપમાનને સ્વયંચાલિત રીતે સમાયોજિત કરો</string>
+    <string name="live_display_off_summary">તમામ ફેરફારો અક્ષમ કરો</string>
+    <string name="live_display_day">દિવસ</string>
+    <string name="live_display_day_summary">ફકત દિવસ સેટિંગ્સનો ઉપયોગ કરો</string>
+    <string name="live_display_night">રાત્રિ</string>
+    <string name="live_display_night_summary">ફકત રાત્રી સેટિંગ્સનો ઉપયોગ કરો</string>
+    <string name="live_display_outdoor">આઉટડોર (તેજ તડકો)</string>
+    <string name="live_display_outdoor_summary">ફકત આઉટડોર સેટિંગ્સનો ઉપયોગ કરો</string>
+    <string name="live_display_hint">લાઇવડિસ્પ્લેથી આંખો પરની તાણ ઘટાડી શકાય છે અને તમને રાતે સૂવામાં મદદરૂપ થઈ શકે. અજમાવવા અહીં ક્લિક કરો!</string>
+    <string name="accessibility_quick_settings_live_display_auto">લાઈવ ડિસ્પ્લે: ઑટો મોડ.</string>
+    <string name="accessibility_quick_settings_live_display_day">લાઈવ ડિસ્પ્લે: દિવસ મોડ.</string>
+    <string name="accessibility_quick_settings_live_display_night">લાઈવ ડિસ્પ્લે: રાત્રિ મોડ.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">લાઈવ ડિસ્પ્લે: આઉટડોર મોડ.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">લાઈવ ડિસ્પ્લે બંધ કરાયું.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">લાઈવ ડિસ્પ્લે ઑટો મોડમાં પરિવર્તિત કરાયું</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">લાઈવ ડિસ્પ્લે દિવસ મોડમાં પરિવર્તિત કરાયું</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">લાઈવ ડિસ્પ્લે રાત્રી મોડમાં પરિવર્તિત કરાયું</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">લાઈવ ડિસ્પ્લે આઉટડોર મોડમાં પરિવર્તિત કરાયું</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
+    <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+    <string name="live_display_day">Tag</string>
+    <string name="live_display_day_summary">Nur Tag-Modus verwenden</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
+    <string name="live_display_outdoor">Draußen (helles Sonnenlicht)</string>
+    <string name="live_display_outdoor_summary">Nur Außen-Modus verwenden</string>
+    <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen vor dem schlafen gehen helfen. Hier klicken, um es auszuprobieren.</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay deaktiviert.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nachtmodus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Außen-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay deaktiviert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Außen-Modus geändert.</string>
+    <string name="pocket_lock_message_long_press">Zum Entsperren Power-Taste drücken und halten</string>
+</resources>
