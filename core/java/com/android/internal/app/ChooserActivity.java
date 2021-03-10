@@ -2800,7 +2800,7 @@ public class ChooserActivity extends ResolverActivity implements
 
     @Override // ChooserListCommunicator
     public int getMaxRankedTargets() {
-        return ChooserGridAdapter.MAX_TARGETS_PER_ROW_LANDSCAPE;
+        return MAX_TARGETS_PER_ROW_LANDSCAPE;
     }
 
     @Override // ChooserListCommunicator
