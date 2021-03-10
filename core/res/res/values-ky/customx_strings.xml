@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Автоматтык түрдө</string>
+    <string name="live_display_day">Күн</string>
+    <string name="live_display_night">Түн</string>
+</resources>

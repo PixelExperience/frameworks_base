@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">आफै</string>
+    <string name="live_display_auto_summary">सूर्य उदाउनि र अस्पताए पछि रंगको तापमान अटोमेटसक मिलाउने</string>
+    <string name="live_display_off_summary">सबै परिवर्तनलाई बन्द गर्नु</string>
+    <string name="live_display_day">दिन</string>
+    <string name="live_display_day_summary">दिनको सेटिङ्हरू मात्र प्रयोग गर्नुहोस्</string>
+    <string name="live_display_night">राती</string>
+    <string name="live_display_night_summary">रात्रिको सेटिङ्हरू मात्र प्रयोग गर्नुहोस्</string>
+    <string name="live_display_outdoor">बाहिर (चहकिलो घाम)</string>
+    <string name="live_display_outdoor_summary">दिनको सेटिङ्हरू मात्र प्रयोग गर्नुहोस्</string>
+    <string name="live_display_hint">लाईभ डिस्पेलेले आखाँ बचाउछँ र निन्द्रा लागबब्न मद्दत गर्दछ । प्रयोग गर्न यहाँ दबाउनु होस</string>
+    <string name="accessibility_quick_settings_live_display_off">लाईभ डिस्पेले बन्द</string>
+    <string name="accessibility_quick_settings_live_display_auto">लाईभ डिस्पेले: अटोमेटिक</string>
+    <string name="accessibility_quick_settings_live_display_day">लाईभ डिस्पेले: दिन मोड</string>
+    <string name="accessibility_quick_settings_live_display_night">लाईभ डिस्पेले: रात मोड</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">लाईभ डिस्पेले: कोठा बाहिरको मोड</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">लाईभ डिस्पेले: बन्द </string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">लाईभ डिस्पेले अटोमेटिक मोडमा गयो</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">लाईभ डिस्पेले दिन मोडमा गयो</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">लाईभ डिस्पेले रात मोडमा गयो</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">लाईभ डिस्पेले घर बाहिर मोडमा गयो</string>
+    <string name="pocket_lock_message_long_press">अनलक गर्न पावर बटन थिच्नुहोस् र समाउनुहोस्</string>
+</resources>

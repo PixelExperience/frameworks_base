@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2019, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">কার্সর বামে</string>
+    <string name="accessibility_dpad_right">কার্সর ডানে</string>
+    <string name="quick_settings_caffeine_label">ক্যাফেইন</string>
+    <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ।</string>
+    <string name="accessibility_quick_settings_caffeine_on">ক্যাফেইন চালু।</string>
+    <string name="quick_settings_sync_label">সমলয়</string>
+    <string name="accessibility_quick_settings_sync_off">সিংক্রোনাইজ বন্ধ করুন।</string>
+    <string name="accessibility_quick_settings_sync_on">সিংক্রোনাইজ চালু করুন।</string>
+    <string name="accessibility_quick_settings_sync_changed_off">সিংক্রোনাইজ চালু করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_sync_changed_on">সিংক্রোনাইজ বন্ধ করা হয়েছে।</string>
+    <string name="quick_settings_usb_tether_label">ইউএসবি টেথেরিং</string>
+    <string name="quick_settings_volume_panel_label">শব্দস্তর ধার্যস্থান</string>
+    <string name="quick_settings_ambient_display_label">আম্বিয়েন্ট ডিসপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">আম্বিয়েন্ট ডিসপ্লে বন্ধ।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">আম্বিয়েন্ট ডিসপ্লে চালু।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">আম্বিয়েন্ট ডিসপ্লে বন্ধ করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">আম্বিয়েন্ট ডিসপ্লে চালু করা হয়েছে।</string>
+    <string name="quick_settings_vpn_label">ভিপিএন</string>
+    <string name="quick_settings_vpn_connect_dialog_title">সংযোগ করুন\u2026 এর সাথে</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> এর সাথে সংযুক্ত হতে আপনার ক্রেডেনটিয়ালস দিন</string>
+    <string name="vpn_credentials_username">ব্যবহারকারীর নাম</string>
+    <string name="vpn_credentials_password">পাসওয়ার্ড</string>
+    <string name="vpn_credentials_dialog_connect">সংযোগ</string>
+    <string name="global_action_restart_system">সিস্টেম</string>
+    <string name="global_action_restart_recovery">রিকভারি</string>
+    <string name="quick_settings_reading_mode">পঠন মোড</string>
+    <string name="accessibility_quick_settings_reading_mode_on">পঠন মোড চালু।</string>
+    <string name="accessibility_quick_settings_reading_mode_off">পঠন মোড বন্ধ।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">পঠন মোড চালু করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">পঠন মোড বন্ধ করা হয়েছে।</string>
+</resources>

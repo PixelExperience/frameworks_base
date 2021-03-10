@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2019, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kursoru pa kreisi</string>
+    <string name="accessibility_dpad_right">Kursoru pa labi</string>
+    <string name="quick_settings_caffeine_label">Kofeīna režīms</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeīna režīms ir atspējots.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeīna režīms ir iespējots.</string>
+    <string name="quick_settings_sync_label">Sinhronizēt</string>
+    <string name="accessibility_quick_settings_sync_off">Sinhronizācija izslēgta.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinhronizācija ieslēgta.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinhronizācija ir izslēgta.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinhronizācija ir ieslēgta.</string>
+    <string name="global_action_restart_recovery">Atkopšana</string>
+    <string name="quick_settings_reading_mode">Lasīšanas režīms</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lasīšanas režīms ieslēgts.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lasīšanas režīms izslēgts.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Lasīšanas režīms ieslēgts.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Lasīšanas režīms izslēgts.</string>
+</resources>

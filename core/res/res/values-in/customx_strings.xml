@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Otomatis</string>
+    <string name="live_display_auto_summary">Otomatis sesuaikan temperatur warna layar setelah matahari terbenam dan matahari terbit</string>
+    <string name="live_display_off">Nonaktif</string>
+    <string name="live_display_off_summary">Nonaktifkan semua pengaturan</string>
+    <string name="live_display_day">Siang</string>
+    <string name="live_display_day_summary">Hanya menggunakan setelan siang hari</string>
+    <string name="live_display_night">Malam</string>
+    <string name="live_display_night_summary">Hanya gunakan setelan malam hari</string>
+    <string name="live_display_outdoor">Luar ruangan (matahari cerah)</string>
+    <string name="live_display_outdoor_summary">Hanya gunakan setelan luar ruangan</string>
+    <string name="live_display_hint">LiveDisplay dapat membantu mengurangi kelelahan mata dan membantu Anda tidur di malam hari. Klik di sini untuk mencobanya!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay nonaktif.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Otomatis.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mode siang.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: mode malam.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: mode luar ruangan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay dinonaktifkan.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay diubah menjadi mode otomatis.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay diubah menjadi mode siang.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay diubah menjadi mode malam.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay diubah menjadi mode luar ruangan.</string>
+    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol power untuk membuka kunci</string>
+</resources>

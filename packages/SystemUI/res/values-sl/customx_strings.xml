@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2019, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kazalec levo</string>
+    <string name="accessibility_dpad_right">Kazalec desno</string>
+    <string name="quick_settings_aod_label">Vedno vklopljen zaslon</string>
+    <string name="quick_settings_aod_off_powersave_label">Vedno vklopljen zaslon onemogočen\nVarčevanje z energijo akumulatorja</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
+    <string name="quick_settings_sync_label">Sinhronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinhronizacija izklopljena.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinhronizacija vklopljena.</string>
+    <string name="quick_settings_usb_tether_label">Deljenje interneta preko USB</string>
+    <string name="quick_settings_volume_panel_label">Nadzorna plošča za zvok</string>
+    <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Poveži z \u2026</string>
+    <string name="vpn_credentials_hint">Vnesite vaše poverilnice za povezavo s/z <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Uporabniško ime</string>
+    <string name="vpn_credentials_password">Geslo</string>
+    <string name="vpn_credentials_dialog_connect">Poveži</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Obnovitev</string>
+    <string name="quick_settings_reading_mode">Način za branje</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Način za branje omogočen.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Način za branje onemogočen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Način za branje omogočen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Način za branje onemogočen.</string>
+</resources>
