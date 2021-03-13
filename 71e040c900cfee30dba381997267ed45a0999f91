@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11a33d5_ceca931b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-03-13T12:47:14Z",
+      "side": 1,
+      "message": "Please try it on other devices as well, especially devices with old display HAL and display blobs.",
+      "revId": "71e040c900cfee30dba381997267ed45a0999f91",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
