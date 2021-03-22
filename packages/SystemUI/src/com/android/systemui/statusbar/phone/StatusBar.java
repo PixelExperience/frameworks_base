@@ -477,7 +477,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private int mInitialTouchY;
     private int mLinger;
     private int mQuickQsTotalHeight;
-    private boolean mAutomaticBrightness;
     private boolean mBrightnessControl;
     private boolean mBrightnessChanged;
     private boolean mJustPeeked;
@@ -2431,33 +2430,19 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Math.max(BRIGHTNESS_CONTROL_PADDING, raw));
         float value = (padded - BRIGHTNESS_CONTROL_PADDING) /
                 (1 - (2.0f * BRIGHTNESS_CONTROL_PADDING));
-        if (mAutomaticBrightness) {
-            float adj = (2 * value) - 1;
-            adj = Math.max(adj, -1);
-            adj = Math.min(adj, 1);
-            final float val = adj;
-            mDisplayManager.setTemporaryAutoBrightnessAdjustment(val);
-            AsyncTask.execute(new Runnable() {
-                public void run() {
-                    Settings.System.putFloatForUser(mContext.getContentResolver(),
-                            Settings.System.SCREEN_AUTO_BRIGHTNESS_ADJ, val,
-                            UserHandle.USER_CURRENT);
-                }
-            });
-        } else {
-            final float val = convertGammaToLinearFloat(
-                    Math.round(value * GAMMA_SPACE_MAX),
-                    mMinimumBacklight, mMaximumBacklight);
-            mDisplayManager.setTemporaryBrightness(val);
-            AsyncTask.execute(new Runnable() {
-                @Override
-                public void run() {
-                    Settings.System.putFloatForUser(mContext.getContentResolver(),
-                            Settings.System.SCREEN_BRIGHTNESS_FLOAT, val,
-                            UserHandle.USER_CURRENT);
-                }
-            });
-        }
+
+        final float val = convertGammaToLinearFloat(
+                Math.round(value * GAMMA_SPACE_MAX),
+                mMinimumBacklight, mMaximumBacklight);
+        mDisplayManager.setTemporaryBrightness(val);
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                Settings.System.putFloatForUser(mContext.getContentResolver(),
+                        Settings.System.SCREEN_BRIGHTNESS_FLOAT, val,
+                        UserHandle.USER_CURRENT);
+            }
+        });
     }
 
     private void brightnessControl(MotionEvent event) {
@@ -4799,10 +4784,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mNavigationBarController.onDisplayRemoved(mDisplayId);
                 }
             }
-        } else if (SCREEN_BRIGHTNESS_MODE.equals(key)) {
-            mAutomaticBrightness = Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC ==
-                    TunerService.parseInteger(newValue,
-                            Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         } else if (STATUS_BAR_BRIGHTNESS_CONTROL.equals(key)) {
             mBrightnessControl = TunerService.parseIntegerSwitch(newValue, false);
         } else if (DISPLAY_CUTOUT_HIDDEN.equals(key)) {
