@@ -69,7 +69,6 @@ import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.phone.CentralSurfaces;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
-import com.android.systemui.telephony.TelephonyListenerManager;
 import com.android.systemui.util.RingerModeLiveData;
 import com.android.systemui.util.RingerModeTracker;
 import com.android.systemui.util.settings.GlobalSettings;
@@ -99,7 +98,6 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
     @Mock private DevicePolicyManager mDevicePolicyManager;
     @Mock private LockPatternUtils mLockPatternUtils;
     @Mock private BroadcastDispatcher mBroadcastDispatcher;
-    @Mock private TelephonyListenerManager mTelephonyListenerManager;
     @Mock private GlobalSettings mGlobalSettings;
     @Mock private SecureSettings mSecureSettings;
     @Mock private Resources mResources;
@@ -148,7 +146,6 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
                 mDevicePolicyManager,
                 mLockPatternUtils,
                 mBroadcastDispatcher,
-                mTelephonyListenerManager,
                 mGlobalSettings,
                 mSecureSettings,
                 mVibratorHelper,
