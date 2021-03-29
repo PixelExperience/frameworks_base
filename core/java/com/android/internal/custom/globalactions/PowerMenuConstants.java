@@ -19,9 +19,6 @@ package com.android.internal.custom.globalactions;
 
 /* Master list of all actions for the power menu */
 public class PowerMenuConstants {
-    public static final String ACTION_UPDATE_POWER_MENU =
-            "lineageos.intent.action.UPDATE_POWER_MENU";
-
     public static final String GLOBAL_ACTION_KEY_POWER = "power";
     public static final String GLOBAL_ACTION_KEY_RESTART = "restart";
     public static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
