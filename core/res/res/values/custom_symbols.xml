@@ -69,4 +69,7 @@
     <!-- Ignore post running notifications for selected apps -->
     <java-symbol type="array" name="config_postNotificationIgnoredApps" />
 
+    <!-- Power menu -->
+    <java-symbol type="array" name="config_restartActionsList" />
+
 </resources>
