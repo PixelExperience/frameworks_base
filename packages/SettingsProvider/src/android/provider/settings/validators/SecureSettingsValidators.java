@@ -16,6 +16,7 @@
 
 package android.provider.settings.validators;
 
+import static android.provider.settings.validators.SettingsValidators.ANY_STRING_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.ACCESSIBILITY_SHORTCUT_TARGET_LIST_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.ANY_INTEGER_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VALIDATOR;
@@ -327,5 +328,6 @@ public class SecureSettingsValidators {
         VALIDATORS.put(Secure.LOCKSCREEN_MEDIA_METADATA, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.RING_HOME_BUTTON_BEHAVIOR, NON_NEGATIVE_INTEGER_VALIDATOR);
         VALIDATORS.put(Secure.ADVANCED_REBOOT, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Secure.POWER_MENU_ACTIONS, ANY_STRING_VALIDATOR);
     }
 }

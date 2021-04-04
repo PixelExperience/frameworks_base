@@ -29,7 +29,7 @@ import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STR
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_USER_LOCKDOWN;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_GLOBAL_ACTIONS_SHOWING;
 
-import static com.android.internal.util.custom.PowerMenuConstants.*;
+import static com.android.internal.util.custom.globalactions.PowerMenuConstants.*;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -146,6 +146,7 @@ import com.android.systemui.util.settings.GlobalSettings;
 import com.android.systemui.util.settings.SecureSettings;
 
 import com.android.internal.util.custom.globalactions.CustomGlobalActions;
+import com.android.internal.util.custom.globalactions.PowerMenuUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -586,7 +587,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     @VisibleForTesting
     protected String[] getRestartActions() {
         return mResources.getStringArray(
-                org.lineageos.platform.internal.R.array.config_restartActionsList);
+                com.android.internal.R.array.config_restartActionsList);
     }
 
     @VisibleForTesting

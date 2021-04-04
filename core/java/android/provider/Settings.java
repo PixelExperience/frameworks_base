@@ -5522,12 +5522,6 @@ public final class Settings {
         public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
 
         /**
-         * Whether to include options in power menu for rebooting into recovery or bootloader
-         * @hide
-         */
-        public static final String ADVANCED_REBOOT = "advanced_reboot";
-
-        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -10721,6 +10715,18 @@ public final class Settings {
          */
         public static final int RING_HOME_BUTTON_BEHAVIOR_DEFAULT =
                 RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING;
+
+        /**
+         * Whether to include options in power menu for rebooting into recovery or bootloader
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
+
+        /**
+         * String to contain power menu actions
+         * @hide
+         */
+        public static final String POWER_MENU_ACTIONS = "power_menu_actions";
 
         /**
          * These entries are considered common between the personal and the managed profile,

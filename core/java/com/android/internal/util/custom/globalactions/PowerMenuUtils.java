@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.custom;
+package com.android.internal.util.custom.globalactions;
 
 import android.app.KeyguardManager;
 import android.content.Context;
@@ -27,7 +27,7 @@ public final class PowerMenuUtils {
         boolean keyguardLocked = km.inKeyguardRestrictedInputMode() && km.isKeyguardSecure();
         boolean advancedRestartEnabled = Settings.Secure.getInt(context.getContentResolver(),
                 Settings.Secure.ADVANCED_REBOOT, 0) == 1;
-        boolean isPrimaryUser = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
+        boolean isPrimaryUser = UserHandle.getCallingUserId() == UserHandle.USER_SYSTEM;
 
         return advancedRestartEnabled && !keyguardLocked && isPrimaryUser;
     }
