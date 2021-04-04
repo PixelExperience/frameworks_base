@@ -28,7 +28,7 @@ import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.SOM
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_NOT_REQUIRED;
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_USER_LOCKDOWN;
 
-import static org.lineageos.internal.util.PowerMenuConstants.*;
+import static com.android.internal.util.custom.globalactions.PowerMenuConstants.*;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -153,10 +153,8 @@ import com.android.systemui.util.RingerModeTracker;
 import com.android.systemui.util.settings.GlobalSettings;
 import com.android.systemui.util.settings.SecureSettings;
 
-import lineageos.app.LineageGlobalActions;
-import lineageos.providers.LineageSettings;
-
-import org.lineageos.internal.util.PowerMenuUtils;
+import com.android.internal.util.custom.globalactions.CustomGlobalActions;
+import com.android.internal.util.custom.globalactions.PowerMenuUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -222,7 +220,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     private final TelecomManager mTelecomManager;
     private final MetricsLogger mMetricsLogger;
     private final UiEventLogger mUiEventLogger;
-    private final LineageGlobalActions mLineageGlobalActions;
+    private final CustomGlobalActions mCustomGlobalActions;
 
     // Used for RingerModeTracker
     private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
@@ -404,7 +402,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         mMetricsLogger = metricsLogger;
         mUiEventLogger = uiEventLogger;
         mControlsComponent = controlsComponent;
-        mLineageGlobalActions = LineageGlobalActions.getInstance(mContext);
+        mCustomGlobalActions = CustomGlobalActions.getInstance(mContext);
         mSysuiColorExtractor = colorExtractor;
         mStatusBarService = statusBarService;
         mNotificationShadeWindowController = notificationShadeWindowController;
@@ -447,7 +445,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
         Dependency.get(TunerService.class).addTunable(this, POWER_MENU_ACTIONS_STRING);
 
-        mActions = mLineageGlobalActions.getUserActionsArray();
+        mActions = mCustomGlobalActions.getUserActionsArray();
     }
 
     /**
@@ -603,7 +601,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     @VisibleForTesting
     protected String[] getRestartActions() {
         return mResources.getStringArray(
-                org.lineageos.platform.internal.R.array.config_restartActionsList);
+                com.android.internal.R.array.config_restartActionsList);
     }
 
     @VisibleForTesting
@@ -1534,7 +1532,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (POWER_MENU_ACTIONS_STRING.equals(key)) {
-            mActions = mLineageGlobalActions.getUserActionsArray();
+            mActions = mCustomGlobalActions.getUserActionsArray();
         }
     }
 
