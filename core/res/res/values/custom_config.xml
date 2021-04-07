@@ -167,10 +167,6 @@
     <!-- FOD icon dim-->
     <bool name="config_targetUsesInKernelDimming">false</bool>
 
-    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker
-	 or FOD Circle hiding after the screen is put to sleep -->
-    <bool name="config_hideFodCircleGoingToSleep">false</bool>
-
     <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
          OnePlus 7 Pro. This HAL expects a different format for the data instead of the usual (ms)
          timing(the duration which the vibrator is expected to vibrate for). -->
