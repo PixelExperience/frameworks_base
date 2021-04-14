@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">自動</string>
     <string name="live_display_auto_summary">根據日出和日落的時間自動調節螢幕色溫</string>
+    <string name="live_display_off">關閉</string>
     <string name="live_display_off_summary">取消所有更改</string>
     <string name="live_display_day">日間</string>
     <string name="live_display_day_summary">僅使用日間設定</string>
@@ -20,4 +21,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay 已變更為日間模式</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已變更為夜間模式</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已變更為戶外模式</string>
+    <string name="pocket_lock_message_long_press">長按電源鍵解鎖</string>
 </resources>

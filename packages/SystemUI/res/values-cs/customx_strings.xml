@@ -25,11 +25,11 @@
     <string name="quick_settings_caffeine_label">Kofein</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofein vyp.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein zap.</string>
-    <string name="quick_settings_heads_up_label">Vyskakovací oznámení</string>
-    <string name="accessibility_quick_settings_heads_up_off">Vyskakovací oznámení vyp.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Vyskakovací oznámení zap.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Vyskakovací oznámení je vypnuto.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Vyskakovací oznámení je zapnuto.</string>
+    <string name="quick_settings_heads_up_label">Plovoucí oznámení</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plovoucí oznámení vyp.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plovoucí oznámení zap.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí oznámení byla vypnuta.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí oznámení byla zapnuta.</string>
     <string name="quick_settings_sync_label">Synch.</string>
     <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
     <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Připojit</string>
     <string name="global_action_restart_system">Systém</string>
     <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_screenshot_selector_capture_description">Pořídit částečný snímek obrazovky</string>
+    <string name="global_screenshot_selector_cancel_description">Zrušit pořízení částečného snímku obrazovky</string>
     <string name="quick_settings_reading_mode">Režim čtení</string>
     <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Režim čtení vyp.</string>

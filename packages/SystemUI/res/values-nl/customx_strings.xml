@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Verbinding maken</string>
     <string name="global_action_restart_system">Systeem</string>
     <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_screenshot_selector_capture_description">Maak een gedeeltelijke schermafbeelding</string>
+    <string name="global_screenshot_selector_cancel_description">Gedeeltelijke schermafbeelding annuleren</string>
     <string name="quick_settings_reading_mode">Leesmodus</string>
     <string name="accessibility_quick_settings_reading_mode_on">Leesmodus aan.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Leesmodus uit.</string>

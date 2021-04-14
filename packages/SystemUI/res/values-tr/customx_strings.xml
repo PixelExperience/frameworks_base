@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Bağlan</string>
     <string name="global_action_restart_system">Sistem</string>
     <string name="global_action_restart_recovery">Kurtarma</string>
+    <string name="global_screenshot_selector_capture_description">Kısmi ekran görüntüsü yakalama</string>
+    <string name="global_screenshot_selector_cancel_description">Kısmi ekran görüntüsünü iptal et</string>
     <string name="quick_settings_reading_mode">Okuma modu</string>
     <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>

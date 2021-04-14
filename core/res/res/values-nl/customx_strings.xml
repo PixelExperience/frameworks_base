@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">Automatisch</string>
     <string name="live_display_auto_summary">Automatisch kleurtemperatuur van scherm aanpassen na zonsopkomst en -ondergang</string>
+    <string name="live_display_off">Uit</string>
     <string name="live_display_off_summary">Alle aanpassingen uitschakelen</string>
     <string name="live_display_day">Overdag</string>
     <string name="live_display_day_summary">Alleen instellingen voor overdag gebruiken</string>

@@ -51,7 +51,7 @@
     <string name="global_action_restart_system">Rendszer</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_screenshot_selector_capture_description">Részleges képernyőkép-rögzítés </string>
-    <string name="global_screenshot_selector_cancel_description"> Részleges képernyőkép  visszavonása </string>
+    <string name="global_screenshot_selector_cancel_description">A részleges képernyőkép visszavonása </string>
     <string name="quick_settings_reading_mode">Olvasómód</string>
     <string name="accessibility_quick_settings_reading_mode_on">Olvasómód be.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>

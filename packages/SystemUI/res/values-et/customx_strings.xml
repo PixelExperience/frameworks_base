@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Ühenda</string>
     <string name="global_action_restart_system">Süsteem</string>
     <string name="global_action_restart_recovery">Taastus</string>
+    <string name="global_screenshot_selector_capture_description">Jäädvusta osaline ekraanipilt</string>
+    <string name="global_screenshot_selector_cancel_description">Tühista osaline ekraanipilt</string>
     <string name="quick_settings_reading_mode">Lugemisrežiim</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lugemisrežiim sees.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lugemisrežiim väljas.</string>

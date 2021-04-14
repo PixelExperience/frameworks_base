@@ -26,6 +26,8 @@
     <string name="accessibility_quick_settings_caffeine_off">Кофеин изключен.</string>
     <string name="accessibility_quick_settings_caffeine_on">Кофеин включен.</string>
     <string name="quick_settings_heads_up_label">Изскачащи известия</string>
+    <string name="accessibility_quick_settings_heads_up_off">Изключи изскачащи известия.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Включи изскачащи известия.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Изскачащите известия са изключени.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Изскачащите известия са включени.</string>
     <string name="quick_settings_sync_label">Синхронизация</string>
@@ -48,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Свързване</string>
     <string name="global_action_restart_system">Система</string>
     <string name="global_action_restart_recovery">Режим на възстановяване</string>
+    <string name="global_screenshot_selector_capture_description">Заснемане на частична екранна снимка</string>
+    <string name="global_screenshot_selector_cancel_description">Отмени частичната екранна снимка</string>
     <string name="quick_settings_reading_mode">Режим на четене</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим на четене включен.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Режим на четене изключен.</string>

@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Kết nối</string>
     <string name="global_action_restart_system">Hệ thống</string>
     <string name="global_action_restart_recovery">Chế độ phục hồi</string>
+    <string name="global_screenshot_selector_capture_description">Chụp một phần ảnh chụp màn hình</string>
+    <string name="global_screenshot_selector_cancel_description">Hủy bỏ chụp một phần ảnh chụp màn hình</string>
     <string name="quick_settings_reading_mode">Chế độ đọc</string>
     <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc đang bật.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Chế độ đọc đang tắt.</string>

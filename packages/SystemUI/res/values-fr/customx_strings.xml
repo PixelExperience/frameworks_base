@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Connexion</string>
     <string name="global_action_restart_system">Système</string>
     <string name="global_action_restart_recovery">Récuperation</string>
+    <string name="global_screenshot_selector_capture_description">Capture d\'écran partielle</string>
+    <string name="global_screenshot_selector_cancel_description">Annuler la capture d\'écran partielle</string>
     <string name="quick_settings_reading_mode">Mode Lecture</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mode Lecture activé.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Mode Lecture désactivé.</string>

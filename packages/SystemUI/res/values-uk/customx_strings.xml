@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">З’єднатись</string>
     <string name="global_action_restart_system">Система</string>
     <string name="global_action_restart_recovery">Режим відновлення</string>
+    <string name="global_screenshot_selector_capture_description">Знімок частини екрана</string>
+    <string name="global_screenshot_selector_cancel_description">Скасувати частковий знімок екрану</string>
     <string name="quick_settings_reading_mode">Режим читання</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим читання увімкнений.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Режим читання вимкнений.</string>

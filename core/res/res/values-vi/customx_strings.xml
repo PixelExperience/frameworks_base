@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">Tự động</string>
     <string name="live_display_auto_summary">Tự động chỉnh nhiệt độ màu của màn hình theo ngày và đêm</string>
+    <string name="live_display_off">Tắt</string>
     <string name="live_display_off_summary">Vô hiệu hoá tất cả điều chỉnh</string>
     <string name="live_display_day">Ngày</string>
     <string name="live_display_day_summary">Chỉ sử dụng cài đặt ban ngày</string>

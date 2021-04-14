@@ -25,6 +25,11 @@
     <string name="quick_settings_caffeine_label">暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_off">關閉暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_on">開啟暫停休眠</string>
+    <string name="quick_settings_heads_up_label">浮動通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">關閉浮動通知</string>
+    <string name="accessibility_quick_settings_heads_up_on">已開啟浮動通知。</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">已關閉浮動通知</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">已開啟浮動通知。</string>
     <string name="quick_settings_sync_label">同步</string>
     <string name="accessibility_quick_settings_sync_off">停止同步</string>
     <string name="accessibility_quick_settings_sync_on">開啟同步</string>
@@ -45,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">連接</string>
     <string name="global_action_restart_system">系統</string>
     <string name="global_action_restart_recovery">恢復模式</string>
+    <string name="global_screenshot_selector_capture_description">擷取部分截圖</string>
+    <string name="global_screenshot_selector_cancel_description">取消部分截圖</string>
     <string name="quick_settings_reading_mode">閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_on">開啟閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_off">關閉閱讀模式</string>

@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Hubungkan</string>
     <string name="global_action_restart_system">Sistem</string>
     <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="global_screenshot_selector_capture_description">Mengambil tangkapan layar sebagian</string>
+    <string name="global_screenshot_selector_cancel_description">Batal menangkap layar sebagian</string>
     <string name="quick_settings_reading_mode">Modus membaca</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modus membaca hidup.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Modus membaca mati.</string>

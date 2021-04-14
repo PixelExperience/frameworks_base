@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">आफै</string>
     <string name="live_display_auto_summary">सूर्य उदाउनि र अस्पताए पछि रंगको तापमान अटोमेटसक मिलाउने</string>
+    <string name="live_display_off">अफ </string>
     <string name="live_display_off_summary">सबै परिवर्तनलाई बन्द गर्नु</string>
     <string name="live_display_day">दिन</string>
     <string name="live_display_day_summary">दिनको सेटिङ्हरू मात्र प्रयोग गर्नुहोस्</string>

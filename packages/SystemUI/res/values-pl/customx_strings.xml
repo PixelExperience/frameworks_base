@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Połącz</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Tryb Recovery</string>
+    <string name="global_screenshot_selector_capture_description">Zrób częściowy zrzut ekranu</string>
+    <string name="global_screenshot_selector_cancel_description">Anuluj częściowy zrzut ekranu</string>
     <string name="quick_settings_reading_mode">Tryb czytania</string>
     <string name="accessibility_quick_settings_reading_mode_on">Włącz tryb czytania.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Wyłącz tryb czytania.</string>

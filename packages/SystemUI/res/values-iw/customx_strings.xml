@@ -25,6 +25,11 @@
     <string name="quick_settings_caffeine_label">קפאין</string>
     <string name="accessibility_quick_settings_caffeine_off">קפאין כבוי.</string>
     <string name="accessibility_quick_settings_caffeine_on">קפאין פועל.</string>
+    <string name="quick_settings_heads_up_label">התראות קופצות</string>
+    <string name="accessibility_quick_settings_heads_up_off">התראות קופצות כבויות.</string>
+    <string name="accessibility_quick_settings_heads_up_on">התראות קופצות פעילות.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">התראות קופצות כובו.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">התראות קופצות הופעלו.</string>
     <string name="quick_settings_sync_label">סנכרון</string>
     <string name="accessibility_quick_settings_sync_off">סנכרון כבוי.</string>
     <string name="accessibility_quick_settings_sync_on">סנכרון מופעל.</string>
@@ -45,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">התחבר</string>
     <string name="global_action_restart_system">מערכת</string>
     <string name="global_action_restart_recovery">שחזור (Recovery)</string>
+    <string name="global_screenshot_selector_capture_description">צילום מסך חלקי</string>
+    <string name="global_screenshot_selector_cancel_description">ביטול צילום מסך חלקי</string>
     <string name="quick_settings_reading_mode">מצב קריאה</string>
     <string name="accessibility_quick_settings_reading_mode_on">מצב קריאה דולק.</string>
     <string name="accessibility_quick_settings_reading_mode_off">מצב קריאה כבוי.</string>

@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">接続</string>
     <string name="global_action_restart_system">システム</string>
     <string name="global_action_restart_recovery">リカバリー</string>
+    <string name="global_screenshot_selector_capture_description">部分スクリーンショットを取得</string>
+    <string name="global_screenshot_selector_cancel_description">部分スクリーンショットを中止</string>
     <string name="quick_settings_reading_mode">読書モード</string>
     <string name="accessibility_quick_settings_reading_mode_on">読書モードは ON です。</string>
     <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>

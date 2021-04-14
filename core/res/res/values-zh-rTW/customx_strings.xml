@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">自動</string>
     <string name="live_display_auto_summary">依日夜週期自動調節螢幕色溫</string>
+    <string name="live_display_off">關閉</string>
     <string name="live_display_off_summary">停用所有調整</string>
     <string name="live_display_day">日間</string>
     <string name="live_display_day_summary">僅限使用日間設定</string>

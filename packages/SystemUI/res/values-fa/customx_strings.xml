@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">نشانگر چپ</string>
     <string name="accessibility_dpad_right">نشانگر راست</string>
+    <string name="quick_settings_aod_label">صفحه نمایش همیشه روشن</string>
     <string name="quick_settings_caffeine_label">حالت کافئین</string>
     <string name="accessibility_quick_settings_caffeine_off">حالت کافئین غیر فعال شد.</string>
     <string name="accessibility_quick_settings_caffeine_on">حالت کافئین فعال شد.</string>
@@ -43,6 +44,8 @@
     <string name="vpn_credentials_dialog_connect">اتصال</string>
     <string name="global_action_restart_system">سیستم  </string>
     <string name="global_action_restart_recovery">ریکاوری</string>
+    <string name="global_screenshot_selector_capture_description">گرفتن اسکرین شات (قسمتی از صفحه)</string>
+    <string name="global_screenshot_selector_cancel_description">لغو اسکرین شات</string>
     <string name="quick_settings_reading_mode">حالت مطالعه</string>
     <string name="accessibility_quick_settings_reading_mode_on">حالت مطالعه روشن.</string>
     <string name="accessibility_quick_settings_reading_mode_off">حالت مطالعه خاموش.</string>

@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Koble til</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Gjenoppretting</string>
+    <string name="global_screenshot_selector_capture_description">Ta skjermbilde av område</string>
+    <string name="global_screenshot_selector_cancel_description">Avbryt skjermbilde av område</string>
     <string name="quick_settings_reading_mode">Lesemodus</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lesemodus på.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lesemodus av.</string>

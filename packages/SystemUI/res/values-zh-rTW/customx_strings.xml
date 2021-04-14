@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">連接</string>
     <string name="global_action_restart_system">系統</string>
     <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_screenshot_selector_capture_description">局部螢幕截圖</string>
+    <string name="global_screenshot_selector_cancel_description">取消局部截圖</string>
     <string name="quick_settings_reading_mode">閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_on">閱讀模式開啟。</string>
     <string name="accessibility_quick_settings_reading_mode_off">閱讀模式關閉。</string>

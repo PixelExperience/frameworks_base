@@ -5,9 +5,9 @@
     <string name="live_display_off">Vyp.</string>
     <string name="live_display_off_summary">Zakázat všechny úpravy</string>
     <string name="live_display_day">Den</string>
-    <string name="live_display_day_summary">Použít pouze denní nastavení</string>
+    <string name="live_display_day_summary">Použít nastavení pouze pro den</string>
     <string name="live_display_night">Noc</string>
-    <string name="live_display_night_summary">Použít pouze noční nastavení</string>
+    <string name="live_display_night_summary">Použít nastavení pouze pro noc</string>
     <string name="live_display_outdoor">Venku (slunečno)</string>
     <string name="live_display_outdoor_summary">Použít pouze venkovní nastavení</string>
     <string name="live_display_hint">LiveDisplay může pomoci proti namáhání očí hlavně při používání v noci. Dotykem zde tuto funkci můžete vyzkoušet!</string>

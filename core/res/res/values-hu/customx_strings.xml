@@ -4,9 +4,9 @@
     <string name="live_display_auto_summary">Automatikusan beállítja a képernyő színhőmérsékletét napnyugta és napkelte után</string>
     <string name="live_display_off">Ki</string>
     <string name="live_display_off_summary">Az összes beállítás kikapcsolása</string>
-    <string name="live_display_day">Nappal</string>
+    <string name="live_display_day">Nappali</string>
     <string name="live_display_day_summary">Csak a nappali beállításokat használja</string>
-    <string name="live_display_night">Éjszaka</string>
+    <string name="live_display_night">Éjszakai</string>
     <string name="live_display_night_summary">Csak az éjszakai béállításokat használja</string>
     <string name="live_display_outdoor">Kültéri (erős napfény)</string>
     <string name="live_display_outdoor_summary">Csak a kültéri beállításokat használja</string>

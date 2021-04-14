@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Σύνδεση</string>
     <string name="global_action_restart_system">Σύστημα</string>
     <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_screenshot_selector_capture_description">Λήψη μερικού στιγμιότυπου οθόνης</string>
+    <string name="global_screenshot_selector_cancel_description">Ακύρωση μερικού στιγμιότυπου οθόνης</string>
     <string name="quick_settings_reading_mode">Λειτουργία ανάγνωσης</string>
     <string name="accessibility_quick_settings_reading_mode_on">Λειτουργία ανάγνωσης ενεργή.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Λειτουργία ανάγνωσης ανενεργή.</string>

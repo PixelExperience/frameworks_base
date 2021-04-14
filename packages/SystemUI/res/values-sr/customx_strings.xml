@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Повежи</string>
     <string name="global_action_restart_system">Систем</string>
     <string name="global_action_restart_recovery">Режим опоравка</string>
+    <string name="global_screenshot_selector_capture_description">Сликај делимично екран</string>
+    <string name="global_screenshot_selector_cancel_description">Откажи делимично сликање екрана</string>
     <string name="quick_settings_reading_mode">Режим читања</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим читања укључен.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Режим читања искључен.</string>

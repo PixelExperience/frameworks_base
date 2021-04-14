@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">اتصال</string>
     <string name="global_action_restart_system">النظام</string>
     <string name="global_action_restart_recovery">الإسترداد</string>
+    <string name="global_screenshot_selector_capture_description">إلتقاط لقطة شاشة جزئية</string>
+    <string name="global_screenshot_selector_cancel_description">إلغاء لقطة الشاشة الجزئية</string>
     <string name="quick_settings_reading_mode">وضع القراءة</string>
     <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
     <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
