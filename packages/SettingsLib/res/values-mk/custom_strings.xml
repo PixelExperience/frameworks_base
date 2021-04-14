@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">Використовувати системні значення (За замовчуванням)</string>
+    <string name="bluetooth_a2dp_codec_system">Користете го системскиот избор(Стандарден)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Моно</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Стерео</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual">Двоканальність</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Двоен канал</string>
 </resources>

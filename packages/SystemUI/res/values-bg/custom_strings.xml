@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">За да откачите този екран, докоснете и задръжте бутона Назад</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Това го поддържа видимо, докато не го откачите. Докоснете и задръжте сензора за пръстови отпечатъци, за да го откачите.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">За да откачите този екран, докоснете и задръжте на сензора за пръстови отпечатъци</string>
+    <string name="biometric_dialog_button_use_face">Използване на лицево разпознаване</string>
 </resources>

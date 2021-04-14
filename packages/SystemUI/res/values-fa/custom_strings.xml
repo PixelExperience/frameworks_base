@@ -4,4 +4,5 @@
     <string name="screen_pinning_toast_no_navbar">برای از حالت سنجاق درآوردن این صفحه، دکمه ی بازگشت را لمس کرده و نگه دارید</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">این صفحه تا زمانی که آن را از سنجاق در نیاورید نمایش میدهد.  برای از سنجاق درآوردن، سنسور اثرانگشت را نگه دارید.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">برای از حالت سنجاق درآوردن این صفحه، سنسور اثر انگشت را لمس کرده و نگه دارید</string>
+    <string name="biometric_dialog_button_use_face">استفاده از چهره</string>
 </resources>

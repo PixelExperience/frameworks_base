@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">För att frigöra denna skärm, tryck &amp; och håll nere Bakåt-knappen</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Detta hålls synlig tills du frigör den. Tryck &amp; håll nere fingeravtrycks-sensorn för att frigöra.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">För att frigöra, tryck &amp; håll fingeravtrycks-sensorn</string>
+    <string name="biometric_dialog_button_use_face">Använd Face-ID</string>
 </resources>

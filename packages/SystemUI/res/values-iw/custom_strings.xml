@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">בכדי לבטל נעיצת מסך זה, גע והחזק בלחצן \"הקודם\"</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">המסך ימשיך להיות מוצג עד לאחר שתבטל את הנעיצה. לחץ והחזק על חיישן טביעת האצבע על מנת לבטל את הנעיצה.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">בכדי לבטל נעיצת מסך זה, גע והחזק בחיישן טביעת האצבע</string>
+    <string name="biometric_dialog_button_use_face">השתמש ב-Face ID</string>
 </resources>

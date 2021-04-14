@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">使用系統選擇（預設）</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">單聲道</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">立體聲</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">雙聲道</string>
+</resources>
