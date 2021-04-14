@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">Pre odopnutie tejto obrazovky stlačte a podržte tlačidlo Späť</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním snímača odtlačkov prstov.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Na odopnutie tejto obrazovky stlačte a podržte snímač odtlačkov prstov</string>
+    <string name="biometric_dialog_button_use_face">Použiť tvár</string>
 </resources>

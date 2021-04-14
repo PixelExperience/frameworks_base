@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">सिस्टमको छनौट प्रयोग गर्नुहोस् (पूर्वनिर्धारित)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">मोनो</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">स्टिरीयो</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">डुएल च्यानल</string>
+</resources>

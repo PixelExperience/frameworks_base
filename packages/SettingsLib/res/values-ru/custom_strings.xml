@@ -3,5 +3,5 @@
     <string name="bluetooth_a2dp_codec_system">Использовать выбор системы (по умолчанию)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Моно</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Стерео</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual">Dual Channel</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Двухканальный звук</string>
 </resources>

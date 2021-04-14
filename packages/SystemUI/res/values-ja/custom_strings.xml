@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">解除するまで画面を固定します。解除するには指紋センサーを押して下さい。</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">画面の固定を解除するには指紋センサーを長押しします</string>
+    <string name="biometric_dialog_button_use_face">顔を使用</string>
 </resources>

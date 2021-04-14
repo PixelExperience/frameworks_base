@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">For å løsne denne skjermen, trykk og hold inne tilbakeknappen.</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Dette holder den i syne inntil du løsner den. Trykk og hold inne fingeravtrykksleseren for å løsne.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Trykk og hold inne fingeravtrykksleseren for å løsne denne skjermen</string>
+    <string name="biometric_dialog_button_use_face">Bruk ansikt</string>
 </resources>

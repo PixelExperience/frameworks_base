@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">システムの既定を使用</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">モノラル</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">ステレオ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">デュアルチャンネル</string>
+</resources>

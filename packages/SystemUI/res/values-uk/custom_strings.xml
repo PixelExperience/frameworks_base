@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">Щоб відкріпити цей екран, натисніть &amp; і утримуйте кнопку \"Назад\"</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте палець на сканері відбитків.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Щоб розблокувати екран, натисніть &amp; і утримуйте палець на сканері відбитків пальців</string>
+    <string name="biometric_dialog_button_use_face">Використати Face ID</string>
 </resources>
