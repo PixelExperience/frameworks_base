@@ -57,4 +57,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードが ON になりました。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードが OFF になりました。</string>
+    <string name="quick_settings_anti_flicker">アンチフリッカー</string>
 </resources>

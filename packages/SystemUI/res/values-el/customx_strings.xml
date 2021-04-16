@@ -57,4 +57,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Λειτουργία ανάγνωσης ανενεργή.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Η λειτουργία ανάγνωσης ενεργοποιήθηκε.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Η λειτουργία ανάγνωσης απενεργοποιήθηκε.</string>
+    <string name="quick_settings_anti_flicker">Αντι-τρεμόσβυμα</string>
 </resources>

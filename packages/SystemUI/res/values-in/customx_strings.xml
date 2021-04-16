@@ -57,4 +57,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modus membaca mati.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modus membaca dihidupkan.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modus membaca dimatikan.</string>
+    <string name="quick_settings_anti_flicker">Anti kerlip</string>
 </resources>

@@ -57,4 +57,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Режим читання вимкнений.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режим читання увімкнено.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режим читання вимкнено.</string>
+    <string name="quick_settings_anti_flicker">Фільтр мерехтіння</string>
 </resources>
