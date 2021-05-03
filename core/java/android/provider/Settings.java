@@ -5232,6 +5232,14 @@ public final class Settings {
         public static final String KEY_HOME_DOUBLE_TAP_ACTION = "key_home_double_tap_action";
 
         /**
+         * Action to perform when the back key is long-pressed.
+         * (Default can be configured via config_longPressOnBackBehavior)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         * @hide
+         */
+        public static final String KEY_BACK_LONG_PRESS_ACTION = "key_back_long_press_action";
+
+        /**
          * Action to perform when the menu key is pressed. (Default is 1)
          * @hide
          */
@@ -5471,6 +5479,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MODE_OVERLAY);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
+            PRIVATE_SETTINGS.add(KEY_BACK_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_MENU_ACTION);
             PRIVATE_SETTINGS.add(KEY_MENU_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_ASSIST_ACTION);
