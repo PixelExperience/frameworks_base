@@ -76,7 +76,7 @@ public final class SingleKeyGestureDetector {
      *      new SingleKeyRule(KEYCODE_POWER, KEY_LONGPRESS|KEY_VERYLONGPRESS) {
      *           int getMaxMultiPressCount() { // maximum multi press count. }
      *           void onPress(long downTime) { // short press behavior. }
-     *           void onLongPress(long eventTime) { // long press behavior. }
+     *           void onLongPress(KeyEvent keyEvent) { // long press behavior. }
      *           void onVeryLongPress(long eventTime) { // very long press behavior. }
      *           void onMultiPress(long downTime, int count) { // multi press behavior.  }
      *       };
@@ -150,7 +150,7 @@ public final class SingleKeyGestureDetector {
         /**
          *  Callback when long press has been detected.
          */
-        void onLongPress(long eventTime) {}
+        void onLongPress(KeyEvent keyEvent) {}
         /**
          *  Returns the timeout in milliseconds for a very long press.
          *
@@ -205,7 +205,7 @@ public final class SingleKeyGestureDetector {
                 mHandledByLongPress = true;
                 mHandler.removeMessages(MSG_KEY_LONG_PRESS);
                 mHandler.removeMessages(MSG_KEY_VERY_LONG_PRESS);
-                mActiveRule.onLongPress(event.getEventTime());
+                mActiveRule.onLongPress(event);
             }
             return;
         }
@@ -242,7 +242,7 @@ public final class SingleKeyGestureDetector {
         if (mKeyPressCounter == 0) {
             if (mActiveRule.supportLongPress()) {
                 final Message msg = mHandler.obtainMessage(MSG_KEY_LONG_PRESS, keyCode, 0,
-                        eventTime);
+                        event);
                 msg.setAsynchronous(true);
                 mHandler.sendMessageDelayed(msg, mActiveRule.getLongPressTimeoutMs());
             }
@@ -362,24 +362,26 @@ public final class SingleKeyGestureDetector {
                 return;
             }
             final int keyCode = msg.arg1;
-            final long eventTime = (long) msg.obj;
             switch(msg.what) {
                 case MSG_KEY_LONG_PRESS:
+                    KeyEvent keyEvent = (KeyEvent) msg.obj;
                     if (DEBUG) {
                         Log.i(TAG, "Detect long press " + KeyEvent.keyCodeToString(keyCode));
                     }
                     mHandledByLongPress = true;
-                    mActiveRule.onLongPress(eventTime);
+                    mActiveRule.onLongPress(keyEvent);
                     break;
                 case MSG_KEY_VERY_LONG_PRESS:
+                    long eventTimeLongPress = (long) msg.obj;
                     if (DEBUG) {
                         Log.i(TAG, "Detect very long press "
                                 + KeyEvent.keyCodeToString(keyCode));
                     }
                     mHandledByLongPress = true;
-                    mActiveRule.onVeryLongPress(eventTime);
+                    mActiveRule.onVeryLongPress(eventTimeLongPress);
                     break;
                 case MSG_KEY_DELAYED_PRESS:
+                    long eventTime = (long) msg.obj;
                     if (DEBUG) {
                         Log.i(TAG, "Detect press " + KeyEvent.keyCodeToString(keyCode)
                                 + ", count " + mKeyPressCounter);
