@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Yhdistä</string>
     <string name="global_action_restart_system">Järjestelmä</string>
     <string name="global_action_restart_recovery">Recovery-tila</string>
+    <string name="global_screenshot_selector_capture_description">Ota osittainen kuvakaappaus</string>
+    <string name="global_screenshot_selector_cancel_description">Peruuta osittainen kuvakaappaus</string>
     <string name="quick_settings_reading_mode">Lukutila</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lukutila päällä.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lukutila pois päältä.</string>
