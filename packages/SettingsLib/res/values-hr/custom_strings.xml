@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">Käytä järjestelmävalintaa (Oletus)</string>
+    <string name="bluetooth_a2dp_codec_system">Koristite odabir sustava (zadano)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual">Dual Channel</string>
 </resources>
