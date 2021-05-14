@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018-2020 The LineageOS Project
+ * Copyright (C) 2018-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,6 @@
 package com.android.systemui.qs.tiles;
 
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
 import android.service.quicksettings.Tile;
 
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -65,8 +63,7 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public boolean isAvailable() {
-        return !isWellbeingEnabled() &&
-                mHardware.isSupported(LineageHardwareManager.FEATURE_READING_ENHANCEMENT);
+        return mHardware.isSupported(LineageHardwareManager.FEATURE_READING_ENHANCEMENT);
     }
 
     @Override
@@ -112,17 +109,5 @@ public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
     private boolean isReadingModeEnabled() {
         return mHardware.get(LineageHardwareManager.FEATURE_READING_ENHANCEMENT);
-    }
-
-    private boolean isWellbeingEnabled() {
-        String packageName = mContext.getString(com.android.internal.R.string.config_defaultWellbeingPackage);
-        final PackageManager packageManager = mContext.getPackageManager();
-        ApplicationInfo info;
-        try {
-            info = packageManager.getApplicationInfo(packageName, 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            info = null;
-        }
-        return info != null && info.enabled;
     }
 }
