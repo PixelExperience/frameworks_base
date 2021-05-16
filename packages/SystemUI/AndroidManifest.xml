@@ -282,6 +282,26 @@
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
 
+<<<<<<< HEAD   (c52fbd Merge "FODCircleView: Rework icon dimming" into eleven)
+=======
+    <!-- Ambient Indication -->
+    <permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION" android:protectionLevel="normal|signature|system"/>
+    <uses-permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"/>
+
+    <!-- QS Tiles -->
+    <uses-permission android:name="android.permission.MAINLINE_NETWORK_STACK" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
+    <!-- Visualizer -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- LiveDisplay -->
+    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+    <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
+
+>>>>>>> CHANGE (3030f6 SystemUI: Port ambient indication from redfin)
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
