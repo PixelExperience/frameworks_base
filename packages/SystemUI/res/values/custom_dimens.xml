@@ -34,6 +34,13 @@
     <color name="edge_light_red">#ea4234</color>
     <color name="edge_light_yellow">#fbbc06</color>
 
+    <!-- Ambient Indication -->
+    <dimen name="dock_logo_margin">32dp</dimen>
+    <dimen name="dock_logo_min_size">48dp</dimen>
+    <dimen name="dock_top_logo_margin">12dp</dimen>
+    <dimen name="dock_top_logo_padding">8dp</dimen>
+    <dimen name="ambient_indication_icon_size">20dp</dimen>
+
     <!-- Volume panel -->
     <dimen name="volume_dialog_panel_transparent_padding_left">20dp</dimen>
 

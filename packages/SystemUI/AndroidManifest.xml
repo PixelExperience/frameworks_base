@@ -282,6 +282,10 @@
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
 
+    <!-- Ambient Indication -->
+    <permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION" android:protectionLevel="normal|signature|system"/>
+    <uses-permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"/>
+
     <!-- QS Tiles -->
     <uses-permission android:name="android.permission.MAINLINE_NETWORK_STACK" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
