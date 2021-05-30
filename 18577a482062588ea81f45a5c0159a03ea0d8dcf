@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff99de5d_c3517b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-05-30T09:40:51Z",
+      "side": 1,
+      "message": "Under what device did you see the incompatibility? Is the device certified?",
+      "revId": "18577a482062588ea81f45a5c0159a03ea0d8dcf",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
