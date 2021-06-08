@@ -218,4 +218,8 @@
     <!-- Whether device supports in-display fingerprint when screen is turned off -->
     <bool name="config_supportsScreenOffInDisplayFingerprint">false</bool>
 
+    <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
+         OnePlus 7 Pro. -->
+    <bool name="config_hasOnePlusHapticMotor">false</bool>
+
 </resources>
