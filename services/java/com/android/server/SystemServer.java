@@ -2019,14 +2019,7 @@ public final class SystemServer {
             mSystemServiceManager.startService(PeopleService.class);
             t.traceEnd();
 
-            // LineageHardware
-            if (!mOnlyCore){
-                t.traceBegin("StartLineageHardwareService");
-                mSystemServiceManager.startService(LineageHardwareService.class);
-                t.traceEnd();
-            }
-
-            // LiveDisplay
+            // Lineage services
             if (!mOnlyCore){
                 t.traceBegin("StartLineageHardwareService");
                 mSystemServiceManager.startService(LineageHardwareService.class);
