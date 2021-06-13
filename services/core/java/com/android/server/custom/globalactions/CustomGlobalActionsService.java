@@ -20,7 +20,6 @@ import static android.provider.Settings.Secure.POWER_MENU_ACTIONS;
 import static android.provider.Settings.Secure.getStringForUser;
 import static android.provider.Settings.Secure.putStringForUser;
 
-import static com.android.internal.util.custom.globalactions.PowerMenuConstants.GLOBAL_ACTION_KEY_BUGREPORT;
 import static com.android.internal.util.custom.globalactions.PowerMenuConstants.GLOBAL_ACTION_KEY_LOCKDOWN;
 
 import android.content.ContentResolver;
@@ -69,26 +68,15 @@ public class CustomGlobalActionsService extends SystemService {
 
     private class GlobalActionsSettingsObserver extends ContentObserver {
 
-        private final Uri BUGREPORT_URI =
-                Settings.Global.getUriFor(Settings.Global.BUGREPORT_IN_POWER_MENU);
-
         public GlobalActionsSettingsObserver(Context context, Handler handler) {
             super(handler);
         }
 
         public void observe(boolean enabled) {
-            if (enabled) {
-                mContentResolver.registerContentObserver(BUGREPORT_URI, false, this);
-            } else {
-                mContentResolver.unregisterContentObserver(this);
-            }
         }
 
         @Override
         public void onChange(boolean selfChange) {
-            updateUserConfigInternal(Settings.Global.getInt(mContentResolver,
-                    Settings.Global.BUGREPORT_IN_POWER_MENU, 0) == 1,
-                    GLOBAL_ACTION_KEY_BUGREPORT);
         }
     };
 
