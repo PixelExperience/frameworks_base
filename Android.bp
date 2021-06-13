@@ -313,6 +313,8 @@ filegroup {
         ":framework-updatable-sources",
         // LineageHardware
         "core/java/com/android/internal/custom/hardware/ILineageHardwareService.aidl",
+        // LineageGlobalActions
+        "core/java/com/android/internal/custom/globalactions/ILineageGlobalActions.aidl",
     ],
 }
 

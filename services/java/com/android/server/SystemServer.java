@@ -200,6 +200,9 @@ import com.android.server.custom.LineageHardwareService;
 // LiveDisplay
 import com.android.server.custom.display.LiveDisplayService;
 
+// LineageGlobalActions
+import ccom.android.server.custom.globalactions.LineageGlobalActionsService;
+
 public final class SystemServer {
 
     private static final String TAG = "SystemServer";
@@ -2026,6 +2029,9 @@ public final class SystemServer {
                 t.traceEnd();
                 t.traceBegin("StartLiveDisplayService");
                 mSystemServiceManager.startService(LiveDisplayService.class);
+                t.traceEnd();
+                t.traceBegin("StartLineageGlobalActionsService");
+                mSystemServiceManager.startService(LineageGlobalActionsService.class);
                 t.traceEnd();
             }
 
