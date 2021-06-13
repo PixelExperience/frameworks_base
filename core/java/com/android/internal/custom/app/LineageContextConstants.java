@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (C) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,5 +50,12 @@ public final class LineageContextConstants {
      * @hide
      */
     public static final String LINEAGE_LIVEDISPLAY_SERVICE = "lineagelivedisplay";
+
+    /**
+     * Update power menu (GlobalActions)
+     *
+     * @hide
+     */
+    public static final String LINEAGE_GLOBAL_ACTIONS_SERVICE = "lineageglobalactions";
 
 }
