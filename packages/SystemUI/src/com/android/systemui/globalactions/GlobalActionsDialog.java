@@ -819,9 +819,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     @VisibleForTesting
     boolean shouldDisplayBugReport(UserInfo currentUser) {
-        return Settings.Global.getInt(
-                mContentResolver, Settings.Global.BUGREPORT_IN_POWER_MENU, 0) != 0
-                && (currentUser == null || currentUser.isPrimary());
+        return false;
     }
 
     @Override

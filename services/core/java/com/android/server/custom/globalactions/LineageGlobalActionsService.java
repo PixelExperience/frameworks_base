@@ -20,7 +20,6 @@ import static android.provider.Settings.Secure.POWER_MENU_ACTIONS;
 import static android.provider.Settings.Secure.getStringForUser;
 import static android.provider.Settings.Secure.putStringForUser;
 
-import static com.android.internal.custom.globalactions.PowerMenuConstants.GLOBAL_ACTION_KEY_BUGREPORT;
 import static com.android.internal.custom.globalactions.PowerMenuConstants.GLOBAL_ACTION_KEY_LOCKDOWN;
 
 import android.content.ContentResolver;
@@ -87,10 +86,6 @@ public class LineageGlobalActionsService extends SystemService {
 
         @Override
         public void onChange(boolean selfChange) {
-            updateUserConfigInternal(Settings.Global.getInt(mContentResolver,
-                    Settings.Global.BUGREPORT_IN_POWER_MENU, 0) == 1,
-                    GLOBAL_ACTION_KEY_BUGREPORT);
-
             updateUserConfigInternal(Settings.Secure.getIntForUser(mContentResolver,
                     Settings.Secure.LOCKDOWN_IN_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1,
                     GLOBAL_ACTION_KEY_LOCKDOWN);
