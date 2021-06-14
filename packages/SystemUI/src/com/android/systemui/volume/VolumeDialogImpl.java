@@ -377,15 +377,12 @@ public class VolumeDialogImpl implements VolumeDialog,
     private final OnComputeInternalInsetsListener mInsetsListener = internalInsetsInfo -> {
         internalInsetsInfo.touchableRegion.setEmpty();
         internalInsetsInfo.setTouchableInsets(InternalInsetsInfo.TOUCHABLE_INSETS_REGION);
-        View main = mDialog.findViewById(R.id.main);
-        int[] mainLocation = new int[2];
-        main.getLocationInWindow(mainLocation);
         int[] dialogLocation = new int[2];
         mDialogView.getLocationInWindow(dialogLocation);
         internalInsetsInfo.touchableRegion.set(new Region(
-                mainLocation[0],
+                dialogLocation[0],
                 dialogLocation[1],
-                mainLocation[0] + main.getWidth(),
+                dialogLocation[0] + mDialogView.getWidth(),
                 dialogLocation[1] + mDialogView.getHeight()
         ));
     };
