@@ -30,7 +30,6 @@ import android.annotation.StringRes;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.os.Handler;
@@ -228,12 +227,6 @@ public abstract class AuthBiometricView extends LinearLayout {
      * @return true if the dialog supports {@link AuthDialog.DialogSize#SIZE_SMALL}
      */
     protected abstract boolean supportsSmallDialog();
-
-    /**
-     * @return string resource which is appended to the negative text
-     */
-    @StringRes
-    protected abstract int getDescriptionTextId();
 
     private final Runnable mResetErrorRunnable;
 
@@ -755,21 +748,13 @@ public abstract class AuthBiometricView extends LinearLayout {
             try {
                 aInfo = mPackageManager.getApplicationInfoAsUser(applockPackage.toString(), 0, mUserId);
             } catch(PackageManager.NameNotFoundException e) {
-                // ignored
+                aInfo = mPackageManager.getApplicationInfoAsUser("android", 0, mUserId);
             }
-            Drawable icon = (aInfo == null) ? null : mPackageManager.getApplicationIcon(aInfo);
-            if (icon == null) {
-                mTitleView.setVisibility(View.VISIBLE);
-                setText(mTitleView, getResources().getString(R.string.applock_unlock) + " "
-                        + mBiometricPromptBundle.getString(BiometricPrompt.KEY_TITLE));
-            } else {
-                mTitleView.setVisibility(View.GONE);
-                mAppIcon.setVisibility(View.VISIBLE);
-                mAppIcon.setImageDrawable(icon);
-            }
+            mTitleView.setVisibility(View.GONE);
+            mAppIcon.setVisibility(View.VISIBLE);
+            mAppIcon.setImageDrawable(mPackageManager.getApplicationIcon(aInfo));
             setTextOrHide(mDescriptionView, mBiometricPromptBundle.getString(BiometricPrompt.KEY_DESCRIPTION)
-                    + getResources().getString(R.string.applock_locked) + "\n"
-                    + negativeText + getResources().getString(getDescriptionTextId()));
+                    + "\n" + getResources().getString(R.string.applock_unlock));
             mDescriptionView.setGravity(CENTER);
         }
 
