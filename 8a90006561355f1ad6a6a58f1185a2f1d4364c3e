@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c5b1441_366966ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000052
+      },
+      "writtenOn": "2021-06-15T12:26:42Z",
+      "side": 1,
+      "message": "The whole topic is needed by new Moto devices.\n*Moto mods everything*\nAlso please don\u0027t close the topic",
+      "revId": "8a90006561355f1ad6a6a58f1185a2f1d4364c3e",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
