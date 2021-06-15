@@ -223,16 +223,16 @@ public abstract class AuthCredentialView extends LinearLayout {
 
         switch (credentialType) {
             case Utils.CREDENTIAL_PIN:
-                credText = getResources().getString(R.string.biometric_dialog_use_pin);
+                credText = getResources().getString(R.string.keyguard_password_enter_pin_password_code);
                 break;
             case Utils.CREDENTIAL_PATTERN:
-                credText = getResources().getString(R.string.biometric_dialog_use_pattern);
+                credText = getResources().getString(com.android.internal.R.string.lockscreen_pattern_instructions);
                 break;
             case Utils.CREDENTIAL_PASSWORD:
-                credText = getResources().getString(R.string.biometric_dialog_use_password);
+                credText = getResources().getString(R.string.keyguard_password_enter_password_code);
                 break;
             default:
-                credText = getResources().getString(R.string.biometric_dialog_use_password);
+                credText = getResources().getString(R.string.applock_unlock);
                 break;
         }
 
@@ -241,8 +241,8 @@ public abstract class AuthCredentialView extends LinearLayout {
             setText(mTitleView, title);
             setTextOrHide(mDescriptionView, getDescription(mBiometricPromptBundle));
         } else {
-            setText(mTitleView, title + getResources().getString(R.string.applock_locked));
-            setTextOrHide(mDescriptionView, credText + getResources().getString(R.string.applock_credential));
+            setText(mTitleView, title);
+            setTextOrHide(mDescriptionView, credText);
         }
         announceForAccessibility(title);
 

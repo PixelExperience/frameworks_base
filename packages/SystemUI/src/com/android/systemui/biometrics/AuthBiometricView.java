@@ -229,12 +229,6 @@ public abstract class AuthBiometricView extends LinearLayout {
      */
     protected abstract boolean supportsSmallDialog();
 
-    /**
-     * @return string resource which is appended to the negative text
-     */
-    @StringRes
-    protected abstract int getDescriptionTextId();
-
     private final Runnable mResetErrorRunnable;
 
     private final Runnable mResetHelpRunnable;
@@ -751,25 +745,26 @@ public abstract class AuthBiometricView extends LinearLayout {
             setTextOrHide(mDescriptionView,
                     mBiometricPromptBundle.getString(BiometricPrompt.KEY_DESCRIPTION));
         } else {
-            ApplicationInfo aInfo = null;
+            Drawable icon = null;
             try {
-                aInfo = mPackageManager.getApplicationInfoAsUser(applockPackage.toString(), 0, mUserId);
+                icon = mPackageManager.getApplicationIcon(
+                    mPackageManager.getApplicationInfoAsUser(applockPackage.toString(), 0, mUserId));
             } catch(PackageManager.NameNotFoundException e) {
                 // ignored
             }
-            Drawable icon = (aInfo == null) ? null : mPackageManager.getApplicationIcon(aInfo);
-            if (icon == null) {
-                mTitleView.setVisibility(View.VISIBLE);
-                setText(mTitleView, getResources().getString(R.string.applock_unlock) + " "
-                        + mBiometricPromptBundle.getString(BiometricPrompt.KEY_TITLE));
-            } else {
-                mTitleView.setVisibility(View.GONE);
-                mAppIcon.setVisibility(View.VISIBLE);
-                mAppIcon.setImageDrawable(icon);
+            if (icon == null){
+                try {
+                    icon = mPackageManager.getApplicationIcon(
+                        mPackageManager.getApplicationInfoAsUser("android", 0, mUserId));
+                } catch(PackageManager.NameNotFoundException e) {
+                    // ignored
+                }
             }
+            mTitleView.setVisibility(View.GONE);
+            mAppIcon.setVisibility(View.VISIBLE);
+            mAppIcon.setImageDrawable(icon);
             setTextOrHide(mDescriptionView, mBiometricPromptBundle.getString(BiometricPrompt.KEY_DESCRIPTION)
-                    + getResources().getString(R.string.applock_locked) + "\n"
-                    + negativeText + getResources().getString(getDescriptionTextId()));
+                    + "\n" + getResources().getString(R.string.applock_unlock));
             mDescriptionView.setGravity(CENTER);
         }
 
