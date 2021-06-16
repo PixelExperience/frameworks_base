@@ -56,6 +56,29 @@
         android:accessibilityLiveRegion="polite"
         android:textColor="@color/biometric_dialog_gray"/>
 
+<<<<<<< HEAD   (7b6573 PixelPropsUtils: Spoof Pixel XL for Google Photos)
+=======
+    <!-- Use Fingerprint Button -->
+    <Button android:id="@+id/button_use_fingerprint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@*android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/biometric_dialog_button_use_fingerprint"/>
+
+    <!-- Use Face Button -->
+    <Button android:id="@+id/button_use_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@*android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/biometric_dialog_button_use_face"/>
+
+>>>>>>> CHANGE (20b2f6 Biometric: Adjust layout for "Use face" button)
     <LinearLayout
         android:id="@+id/button_bar"
         android:layout_width="match_parent"
@@ -92,16 +115,6 @@
             android:maxWidth="@dimen/biometric_dialog_button_positive_max_width"
             android:text="@string/biometric_dialog_confirm"
             android:visibility="gone"/>
-        <!-- Use Face Button -->
-        <Button android:id="@+id/button_use_face"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@*android:style/Widget.DeviceDefault.Button.Colored"
-            android:layout_gravity="center_vertical"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:maxWidth="@dimen/biometric_dialog_button_positive_max_width"
-            android:text="@string/biometric_dialog_button_use_face"/>
         <!-- Try Again Button -->
         <Button android:id="@+id/button_try_again"
             android:layout_width="wrap_content"
