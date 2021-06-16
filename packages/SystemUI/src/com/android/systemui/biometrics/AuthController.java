@@ -173,7 +173,20 @@ public class AuthController extends SystemUI implements CommandQueue.Callbacks,
         try {
             mReceiver.onUseFacePressed();
         } catch (RemoteException e) {
-            Log.e(TAG, "RemoteException when handling credential button", e);
+            Log.e(TAG, "RemoteException when handling face button", e);
+        }
+    }
+
+    @Override
+    public void onUseFingerprintPressed() {
+        if (mReceiver == null) {
+            Log.e(TAG, "onUseFingerprintPressed: Receiver is null");
+            return;
+        }
+        try {
+            mReceiver.onUseFingerprintPressed();
+        } catch (RemoteException e) {
+            Log.e(TAG, "RemoteException when handling fingerprint button", e);
         }
     }
 
