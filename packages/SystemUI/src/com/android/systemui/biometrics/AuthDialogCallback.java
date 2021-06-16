@@ -65,6 +65,11 @@ public interface AuthDialogCallback {
     void onUseFacePressed();
 
     /**
+     * Invoked when the "use fingerprint" button is clicked
+     */
+    void onUseFingerprintPressed();
+
+    /**
      * See {@link android.hardware.biometrics.BiometricPrompt.Builder
      * #setReceiveSystemEvents(boolean)}
      * @param event

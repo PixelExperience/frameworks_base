@@ -20,4 +20,7 @@
      <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Use Face</string>
 
+     <!-- Biometric Dialog - Use Fingerprint -->
+    <string name="biometric_dialog_button_use_fingerprint">Use Fingerprint</string>
+
 </resources>
