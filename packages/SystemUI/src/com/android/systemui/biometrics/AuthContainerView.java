@@ -239,6 +239,9 @@ public class AuthContainerView extends LinearLayout
                 case AuthBiometricView.Callback.ACTION_USE_FACE:
                     mConfig.mCallback.onUseFacePressed();
                     break;
+                case AuthBiometricView.Callback.ACTION_USE_FINGERPRINT:
+                    mConfig.mCallback.onUseFingerprintPressed();
+                    break;
                 default:
                     Log.e(TAG, "Unhandled action: " + action);
             }

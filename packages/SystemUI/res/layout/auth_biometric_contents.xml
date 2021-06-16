@@ -56,6 +56,16 @@
         android:accessibilityLiveRegion="polite"
         android:textColor="@color/biometric_dialog_gray"/>
 
+    <!-- Use Fingerprint Button -->
+    <Button android:id="@+id/button_use_fingerprint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@*android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/biometric_dialog_button_use_fingerprint"/>
+
     <LinearLayout
         android:id="@+id/button_bar"
         android:layout_width="match_parent"
