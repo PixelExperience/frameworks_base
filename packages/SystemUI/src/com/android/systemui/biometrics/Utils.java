@@ -24,6 +24,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.hardware.biometrics.BiometricPrompt;
 import android.hardware.face.FaceManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -93,6 +94,11 @@ public class Utils {
         }
         FaceManager faceManager = (FaceManager) context.getSystemService(FaceManager.class);
         return faceManager != null && faceManager.hasEnrolledTemplates(userId);
+    }
+
+    static boolean canAuthenticateWithFingerprint(Context context, int userId) {
+        FingerprintManager fp = (FingerprintManager) context.getSystemService(FingerprintManager.class);
+        return fp != null && fp.hasEnrolledTemplates(userId);
     }
 
     static int getAuthenticators(Bundle biometricPromptBundle) {

@@ -115,6 +115,7 @@ public class BiometricService extends SystemService {
     private static final int MSG_ON_SYSTEM_EVENT = 13;
     private static final int MSG_CLIENT_DIED = 14;
     private static final int MSG_ON_USE_FACE_PRESSED = 15;
+    private static final int MSG_ON_USE_FINGERPRINT_PRESSED = 16;
 
     /**
      * Authentication either just called and we have not transitioned to the CALLED state, or
@@ -396,6 +397,11 @@ public class BiometricService extends SystemService {
 
                 case MSG_ON_USE_FACE_PRESSED: {
                     handleOnUseFacePressed();
+                    break;
+                }
+
+                case MSG_ON_USE_FINGERPRINT_PRESSED: {
+                    handleOnUseFingerprintPressed();
                     break;
                 }
 
@@ -685,6 +691,11 @@ public class BiometricService extends SystemService {
         @Override
         public void onUseFacePressed() {
             mHandler.sendEmptyMessage(MSG_ON_USE_FACE_PRESSED);
+        }
+
+        @Override
+        public void onUseFingerprintPressed() {
+            mHandler.sendEmptyMessage(MSG_ON_USE_FINGERPRINT_PRESSED);
         }
 
         @Override
@@ -1661,29 +1672,48 @@ public class BiometricService extends SystemService {
                 false /* fromClient */, TYPE_FINGERPRINT);
 
         // Re-authenticate with face modality
-        switchToFaceModality(currentAuthSession);
+        switchBiometricsModality(currentAuthSession, TYPE_FACE);
     }
 
-    private void switchToFaceModality(AuthSession authSession) {
-        Slog.d(TAG, "switchToFaceModality");
+    private void handleOnUseFingerprintPressed() {
+        Slog.d(TAG, "onUseFingerprintPressed");
+        if (mCurrentAuthSession == null) {
+            Slog.e(TAG, "Auth session null");
+            return;
+        }
+
+        // Cancel authentication. Skip the token/package check since we are cancelling
+        // from system server. The interface is permission protected so this is fine.
+        AuthSession currentAuthSession = mCurrentAuthSession;
+        mCurrentAuthSession = null;
+        cancelInternal(null /* token */, null /* package */, Binder.getCallingUid(),
+                Binder.getCallingPid(), UserHandle.getCallingUserId(),
+                false /* fromClient */, TYPE_FACE);
+
+        // Re-authenticate with fingerprint modality
+        switchBiometricsModality(currentAuthSession, TYPE_FINGERPRINT);
+    }
+
+    private void switchBiometricsModality(AuthSession authSession, int desiredModality) {
+        Slog.d(TAG, "switchBiometricsModality");
         // Generate random cookies to pass to the services that should prepare to start
         // authenticating. Store the cookie here and wait for all services to "ack"
         // with the cookie. Once all cookies are received, we can show the prompt
         // and let the services start authenticating. The cookie should be non-zero.
         final int cookie = mRandom.nextInt(Integer.MAX_VALUE - 1) + 1;
-        Slog.d(TAG, "switchToFaceModality, cookie=" + cookie);
+        Slog.d(TAG, "switchBiometricsModality, cookie=" + cookie);
 
         // Use custom session
         mPendingAuthSession = authSession;
         mPendingAuthSession.clearCookie();
-        mPendingAuthSession.mModality = TYPE_FACE;
+        mPendingAuthSession.mModality = desiredModality;
         mPendingAuthSession.mRequireConfirmation = true;
-        mPendingAuthSession.mModalitiesWaiting.put(TYPE_FACE, cookie);
+        mPendingAuthSession.mModalitiesWaiting.put(desiredModality, cookie);
         try {
             mPendingAuthSession.mState = STATE_AUTH_CALLED;
             for (AuthenticatorWrapper authenticator : mAuthenticators) {
                 // TODO(b/141025588): use ids instead of modalities to avoid ambiguity.
-                if (authenticator.modality == TYPE_FACE) {
+                if (authenticator.modality == desiredModality) {
                     authenticator.impl.prepareForAuthentication(true,
                             authSession.mToken, authSession.mSessionId, authSession.mUserId,
                             mInternalReceiver, authSession.mOpPackageName, cookie,
