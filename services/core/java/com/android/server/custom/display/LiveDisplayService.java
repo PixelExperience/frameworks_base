@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
- *               2019-2021 The LineageOS Project
+ *               2017-2019,2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -539,8 +539,8 @@ public class LiveDisplayService extends SystemService {
         if (counter == 0) {
             //show the notification and don't come back here
             final Intent intent = new Intent("com.android.settings.LIVEDISPLAY_SETTINGS");
-            PendingIntent result = PendingIntent.getActivity(
-                    mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent result = PendingIntent.getActivity(mContext, 0, intent,
+                    PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
             Notification.Builder builder = new Notification.Builder(mContext)
                     .setContentTitle(mContext.getResources().getString(
                             com.android.internal.R.string.live_display_title))
