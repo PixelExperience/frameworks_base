@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">ಸಿಸ್ಟಂ ಆಯ್ಕೆ (ಪೂರ್ವನಿಯೋಜಿತ) ಬಳಸಿ</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_mono">ಮೊನೊ</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_stereo">ಸ್ಟೀರಿಯೊ</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual">ಎರಡು ಚಾನೆಲ್</string>
+    <string name="bluetooth_a2dp_codec_system">ಸಿಸ್ಟಮ್ ಆದ್ಯತೆ (ಡೀಫಾಲ್ಟ್) ಬಳಸಿ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">ಮೋನೋ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">ಸ್ಟೀರಿಯೋ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">ಎರಡು ಚಾನೆಲ್ಗಗಳು</string>
 </resources>
