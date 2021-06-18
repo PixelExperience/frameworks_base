@@ -21,7 +21,7 @@
     <string name="accessibility_dpad_left">סמן שמאלה</string>
     <string name="accessibility_dpad_right">סמן ימינה</string>
     <string name="quick_settings_aod_label">תצוגה תמידית</string>
-    <string name="quick_settings_aod_off_powersave_label">תצוג תמידית כבויה\nחיסכון סוללה</string>
+    <string name="quick_settings_aod_off_powersave_label">תצוגה תמידית כבויה\nחיסכון בסוללה</string>
     <string name="quick_settings_caffeine_label">קפאין</string>
     <string name="accessibility_quick_settings_caffeine_off">קפאין כבוי.</string>
     <string name="accessibility_quick_settings_caffeine_on">קפאין פועל.</string>
