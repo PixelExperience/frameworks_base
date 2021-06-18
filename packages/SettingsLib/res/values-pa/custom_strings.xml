@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">ਮੋਨੋ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">ਸਟੀਰੀਓ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">ਦੋਵੇਂ ਚੈਨਲ</string>
+</resources>

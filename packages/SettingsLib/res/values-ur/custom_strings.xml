@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">سسٹم ترجیحات استعمال کریں (ڈیفالٹ)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">مونو</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">سٹیریو</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">دوہری چینل</string>
+</resources>

@@ -8,4 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, \'ਪਿੱਛੇ\' ਬਟਨ ਦੱਬੀ ਰੱਖੋ</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">ਅਨਪਿੰਨ ਕਰਨ ਤੱਕ ਇਹ ਦਿਸਦਾ ਰਹੇਗਾ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ \'ਤੇ ਉਂਗਲ ਲਗਾਈ ਰੱਖੋ।</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਦੱਬੀ ਰੱਖੋ</string>
+    <string name="biometric_dialog_button_use_face">ਚਿਹਰਾ ਇਸਤੇਮਾਲ ਕਰੋ</string>
 </resources>
