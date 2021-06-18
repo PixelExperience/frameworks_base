@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">ਸਵੈਚਲਿਤ</string>
     <string name="live_display_auto_summary">ਆਥਣ ਅਤੇ ਪਹੁ-ਫੁਟਾਲੇ ਤੋਂ ਬਾਅਦ ਸਕ੍ਰੀਨ ਦੇ ਰੰਗ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਵੱਧ-ਘੱਟ ਕਰੋ</string>
+    <string name="live_display_off">ਬੰਦ</string>
     <string name="live_display_off_summary">ਸਾਰੇ ਫੇਰਬਦਲ ਬੰਦ ਕਰੋ</string>
     <string name="live_display_day">ਦਿਨ</string>
     <string name="live_display_day_summary">ਬੱਸ ਦਿਨ ਸੈਟਿੰਗਾਂ ਵਰਤੋ</string>
