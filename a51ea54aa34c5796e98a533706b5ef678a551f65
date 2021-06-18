@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6dce005_43476963",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2021-06-18T12:24:39Z",
+      "side": 1,
+      "message": "its useful though its upto you guys if u want to merge\n\nPS: it has one bug (might be reason google reverted it?)\nhttps://github.com/PixelExperience/android-issues/issues/200",
+      "revId": "a51ea54aa34c5796e98a533706b5ef678a551f65",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
