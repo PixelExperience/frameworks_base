@@ -113,13 +113,13 @@ open class KeyguardBypassController : Dumpable {
                     bypassEnabledBiometric = tunerService.getValue(key, defaultMethod) == 0
                 }
             }, Settings.Secure.FACE_UNLOCK_METHOD)
-            lockscreenUserManager.addUserChangedListener(
-                    object : NotificationLockscreenUserManager.UserChangedListener {
-                        override fun onUserChanged(userId: Int) {
-                            pendingUnlock = null
-                        }
-                    })
         }
+        lockscreenUserManager.addUserChangedListener(
+                object : NotificationLockscreenUserManager.UserChangedListener {
+                    override fun onUserChanged(userId: Int) {
+                        pendingUnlock = null
+                    }
+                })
     }
 
     /**
