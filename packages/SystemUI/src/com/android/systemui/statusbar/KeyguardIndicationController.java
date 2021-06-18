@@ -537,57 +537,6 @@ public class KeyguardIndicationController implements StateListener,
                 });
     }
 
-    // animates textView - textView moves up and bounces down
-    private void animateText(KeyguardIndicationTextView textView, String indication) {
-        int yTranslation = mContext.getResources().getInteger(
-                R.integer.wired_charging_keyguard_text_animation_distance);
-        int animateUpDuration = mContext.getResources().getInteger(
-                R.integer.wired_charging_keyguard_text_animation_duration_up);
-        int animateDownDuration = mContext.getResources().getInteger(
-                R.integer.wired_charging_keyguard_text_animation_duration_down);
-        textView.animate().cancel();
-        ViewClippingUtil.setClippingDeactivated(textView, true, mClippingParams);
-        textView.animate()
-                .translationYBy(yTranslation)
-                .setInterpolator(Interpolators.LINEAR)
-                .setDuration(animateUpDuration)
-                .setListener(new AnimatorListenerAdapter() {
-                    private boolean mCancelled;
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        textView.switchIndication(indication);
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-                        textView.setTranslationY(BOUNCE_ANIMATION_FINAL_Y);
-                        mCancelled = true;
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (mCancelled) {
-                            ViewClippingUtil.setClippingDeactivated(textView, false,
-                                    mClippingParams);
-                            return;
-                        }
-                        textView.animate()
-                                .setDuration(animateDownDuration)
-                                .setInterpolator(Interpolators.BOUNCE)
-                                .translationY(BOUNCE_ANIMATION_FINAL_Y)
-                                .setListener(new AnimatorListenerAdapter() {
-                                    @Override
-                                    public void onAnimationEnd(Animator animation) {
-                                        textView.setTranslationY(BOUNCE_ANIMATION_FINAL_Y);
-                                        ViewClippingUtil.setClippingDeactivated(textView, false,
-                                                mClippingParams);
-                                    }
-                                });
-                    }
-                });
-    }
-
     protected String computePowerIndication() {
         if (mPowerCharged) {
             return mContext.getResources().getString(R.string.keyguard_charged);

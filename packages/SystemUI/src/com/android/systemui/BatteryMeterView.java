@@ -490,7 +490,7 @@ public class BatteryMeterView extends LinearLayout implements
         if (mBatteryStateUnknown) {
             mBatteryIconView.setImageDrawable(getUnknownStateDrawable());
         } else {
-            mBatteryIconView.setImageDrawable(mDrawable);
+            updateBatteryStyle();
         }
 
         updateShowPercent();
