@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">O modo de leitura foi ligado</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">O modo de leitura foi desligado</string>
     <string name="quick_settings_anti_flicker">Modo anti cintilação</string>
+    <string name="global_action_current_user">Atual</string>
+    <string name="global_action_users">Usuários</string>
+    <string name="applock_unlock">Desbloquear aplicativo</string>
 </resources>

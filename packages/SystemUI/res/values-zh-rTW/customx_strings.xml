@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">閱讀模式已開啟。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">閱讀模式已關閉。</string>
     <string name="quick_settings_anti_flicker">防閃爍</string>
+    <string name="global_action_current_user">目前使用者</string>
+    <string name="global_action_users">使用者</string>
+    <string name="applock_unlock">解鎖 App</string>
 </resources>

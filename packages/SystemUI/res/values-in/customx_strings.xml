@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modus membaca dihidupkan.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modus membaca dimatikan.</string>
     <string name="quick_settings_anti_flicker">Anti kerlip</string>
+    <string name="global_action_current_user">Saat ini</string>
+    <string name="global_action_users">Pengguna</string>
+    <string name="applock_unlock">Buka kunci aplikasi</string>
 </resources>

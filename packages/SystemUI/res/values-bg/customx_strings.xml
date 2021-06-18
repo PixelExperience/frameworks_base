@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режимът на четене е активиран.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режимът на четене е диактивиран.</string>
     <string name="quick_settings_anti_flicker">Анти трептене</string>
+    <string name="global_action_current_user">Текущ</string>
+    <string name="global_action_users">Потребители</string>
+    <string name="applock_unlock">Разблокиране на приложение</string>
 </resources>

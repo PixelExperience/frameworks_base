@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードが ON になりました。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードが OFF になりました。</string>
     <string name="quick_settings_anti_flicker">アンチフリッカー</string>
+    <string name="global_action_current_user">現在</string>
+    <string name="global_action_users">ユーザー</string>
+    <string name="applock_unlock">アプリのロック解除</string>
 </resources>

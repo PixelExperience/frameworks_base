@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modo lectura desactivado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modo lectura activado.</string>
     <string name="quick_settings_anti_flicker">Anti parpadeo</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuarios</string>
+    <string name="applock_unlock">Desbloquear aplicación</string>
 </resources>

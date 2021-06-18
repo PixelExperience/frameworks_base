@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Tryb czytania włączony.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Tryb czytania wyłączony.</string>
     <string name="quick_settings_anti_flicker">Przeciwdoblaskowy</string>
+    <string name="global_action_current_user">Aktualny</string>
+    <string name="global_action_users">Użytkownicy</string>
+    <string name="applock_unlock">Odblokuj aplikacje </string>
 </resources>

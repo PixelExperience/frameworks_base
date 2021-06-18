@@ -58,4 +58,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Leesmodus ingeschakeld.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Leesmodus uitgeschakeld.</string>
     <string name="quick_settings_anti_flicker">Anti-flicker</string>
+    <string name="global_action_current_user">Huidige</string>
+    <string name="global_action_users">Gebruikers</string>
+    <string name="applock_unlock">Ontgrendel applicatie</string>
 </resources>
