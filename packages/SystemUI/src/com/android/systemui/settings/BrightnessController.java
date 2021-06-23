@@ -23,6 +23,7 @@ import static com.android.settingslib.display.BrightnessUtils.convertLinearToGam
 import android.animation.ValueAnimator;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.hardware.display.DisplayManager;
 import android.net.Uri;
@@ -96,6 +97,8 @@ public class BrightnessController implements ToggleSlider.Listener {
     private boolean mControlValueInitialized;
 
     private ValueAnimator mSliderAnimator;
+    private static final float mDefaultBrightnessRampRateSlow = 0.2352941f;
+    private final float mBrightnessRampRateSlow;
 
     public interface BrightnessStateChangeCallback {
         public void onBrightnessLevelChanged();
@@ -327,6 +330,10 @@ public class BrightnessController implements ToggleSlider.Listener {
         mDisplayManager = context.getSystemService(DisplayManager.class);
         mVrManager = IVrManager.Stub.asInterface(ServiceManager.getService(
                 Context.VR_SERVICE));
+
+        final Resources resources = context.getResources();
+        mBrightnessRampRateSlow = resources.getFloat(
+                com.android.internal.R.dimen.config_brightnessRampRateSlowFloat);
     }
 
     public void addStateChangedCallback(BrightnessStateChangeCallback cb) {
@@ -472,6 +479,13 @@ public class BrightnessController implements ToggleSlider.Listener {
         final long animationDuration = SLIDER_ANIMATION_DURATION * Math.abs(
                 mControl.getValue() - target) / GAMMA_SPACE_MAX;
         mSliderAnimator.setDuration(animationDuration);
+        // Only override the duration scale when the ramp rate is different from the default value
+        if (mBrightnessRampRateSlow > 0 &&
+                    Math.abs(mBrightnessRampRateSlow - mDefaultBrightnessRampRateSlow) > 0.01f) {
+            float durationScale = Math.min(
+                    mDefaultBrightnessRampRateSlow / mBrightnessRampRateSlow, 3.0f);
+            mSliderAnimator.overrideDurationScale(durationScale);
+        }
         mSliderAnimator.start();
     }
 
