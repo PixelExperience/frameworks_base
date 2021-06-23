@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f76b4b_32957dbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2021-06-23T23:25:11Z",
+      "side": 1,
+      "message": "Please try it on OP devices that have the ramp rate overlay.",
+      "revId": "8888b2292c2c4fe4d1b1f921e9352b18880d3991",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
