@@ -118,7 +118,7 @@ public class PixelPropsUtils {
         propsToChangeOnePlus9Pro.put("DEVICE", "OnePlus9Pro");
         propsToChangeOnePlus9Pro.put("PRODUCT", "OnePlus9Pro_EEA");
         propsToChangeOnePlus9Pro.put("MODEL", "LE2123");
-        propsToChangeOnePlus9Pro.put("FINGERPRINT", "OnePlus/OnePlus9Pro_EEA/OnePlus9Pro:11/RKQ1.201105.002/2105252217:user/release-keys");
+        propsToChangeOnePlus9Pro.put("FINGERPRINT", "OnePlus/OnePlus9Pro_EEA/OnePlus9Pro:11/RKQ1.201105.002/2106092114:user/release-keys");
     }
 
     public static void setProps(String packageName) {
