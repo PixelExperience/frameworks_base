@@ -175,6 +175,61 @@
          timing(the duration which the vibrator is expected to vibrate for). -->
     <bool name="config_hasOnePlusHapticMotor">false</bool>
 
+<<<<<<< HEAD   (02aef7 BiometricPrompt: Automatically add padding to incorporate FO)
+=======
+    <!-- Defines the actions shown in advanced reboot submenu -->
+    <string-array name="config_restartActionsList">
+        <item>restart</item>
+        <item>restart_recovery</item>
+        <item>restart_bootloader</item>
+     </string-array>
+
+    <!-- Default values for LiveDisplay -->
+    <bool name="config_enableLiveDisplay">true</bool>
+    <integer name="config_dayColorTemperature">6500</integer>
+    <integer name="config_nightColorTemperature">4800</integer>
+    <integer name="config_outdoorAmbientLux">12000</integer>
+    <integer name="config_outdoorAmbientLuxHysteresis">1500</integer>
+    <integer name="config_defaultLiveDisplayMode">2</integer>
+
+    <!-- These values should map to the true min and max
+         that the backend is capable of adjusting to. This
+         is more important when using the ColorBalance mode,
+         as the discrete adjustment is interpolated between
+         this range (with config_dayColorTemperature at zero) -->
+    <integer name="config_minColorTemperature">1000</integer>
+    <integer name="config_maxColorTemperature">10000</integer>
+
+    <bool name="config_defaultAutoContrast">false</bool>
+    <bool name="config_defaultAutoOutdoorMode">true</bool>
+    <bool name="config_defaultColorEnhancement">true</bool>
+    <bool name="config_defaultCABC">false</bool>
+    <bool name="config_defaultAntiFlicker">false</bool>
+
+    <!-- Display mode remapping table.
+         If the mode names returned by the backend do not match
+         the predefined and translated strings in the Settings
+         app, they can be remapped here. The format is
+         "oldname:newname", one per entry. -->
+    <string-array name="config_displayModeMappings" translatable="false">
+    </string-array>
+
+    <!-- Should we filter any display modes which are unmapped? -->
+    <bool name="config_filterDisplayModes">false</bool>
+
+    <!-- Defines the sysfs attribute path used by pocket bridge
+        to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
+
+    <!-- Defines custom OEM sensor for pocket detection. -->
+    <string name="config_pocketJudgeVendorSensorName"></string>
+    <string name="config_pocketJudgeVendorProximitySensorName"></string>
+
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">true</bool>
+
+>>>>>>> CHANGE (cf30ae PocketJudge: Allow to register vendor proximity sensor)
     <!-- Whether device supports in-display fingerprint when screen is turned off -->
     <bool name="config_supportsScreenOffInDisplayFingerprint">false</bool>
 </resources>
