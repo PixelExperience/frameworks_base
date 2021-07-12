@@ -109,8 +109,6 @@ import com.android.systemui.util.RingerModeTracker;
 
 import com.google.android.collect.Lists;
 
-import lineageos.app.LineageContextConstants;
-
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
@@ -333,7 +331,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     };
 
     private final Handler mHandler;
-    private final boolean mHasFod;
 
     private final Observer<Integer> mRingerModeObserver = new Observer<Integer>() {
         @Override
@@ -1890,7 +1887,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 }
             }
         }
-        mHasFod = FodUtils.hasFodSupport(mContext);
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
     }
