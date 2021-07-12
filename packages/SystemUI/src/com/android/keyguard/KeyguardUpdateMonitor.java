@@ -109,8 +109,6 @@ import com.android.systemui.util.RingerModeTracker;
 
 import com.google.android.collect.Lists;
 
-import lineageos.app.LineageContextConstants;
-
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
