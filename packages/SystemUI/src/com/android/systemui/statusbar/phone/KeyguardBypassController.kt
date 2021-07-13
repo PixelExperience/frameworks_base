@@ -65,6 +65,10 @@ open class KeyguardBypassController : Dumpable {
 
     var bypassEnabledBiometric: Boolean = false
 
+    var faceUnlockMethod: Int = 0
+    const val FACE_UNLOCK_BEHAVIOR_DEFAULT = 0
+    const val FACE_UNLOCK_BEHAVIOR_SWIPE = 1
+
     var bouncerShowing: Boolean = false
     var launchingAffordance: Boolean = false
     var qSExpanded = false
@@ -106,13 +110,19 @@ open class KeyguardBypassController : Dumpable {
                 com.android.internal.R.bool.config_faceAuthOnlyOnSecurityView)){
             bypassEnabledBiometric = false
         }else{
-            val defaultMethod = if (context.resources.getBoolean(
-                            com.android.internal.R.bool.config_faceAuthDismissesKeyguard)) 0 else 1
             tunerService.addTunable(object : TunerService.Tunable {
                 override fun onTuningChanged(key: String?, newValue: String?) {
-                    bypassEnabledBiometric = tunerService.getValue(key, defaultMethod) == 0
+                    faceUnlockMethod = tunerService.getValue(key, FACE_UNLOCK_BEHAVIOR_DEFAULT)
                 }
             }, Settings.Secure.FACE_UNLOCK_METHOD)
+            val dismissByDefault = if (context.resources.getBoolean(
+                            com.android.internal.R.bool.config_faceAuthDismissesKeyguard)) 1 else 0
+            tunerService.addTunable(object : TunerService.Tunable {
+                override fun onTuningChanged(key: String?, newValue: String?) {
+                    bypassEnabledBiometric = (faceUnlockMethod == FACE_UNLOCK_BEHAVIOR_SWIPE &&
+                        tunerService.getValue(key, dismissByDefault) != 0)
+                }
+            }, Settings.Secure.FACE_UNLOCK_DISMISSES_KEYGUARD)
         }
         lockscreenUserManager.addUserChangedListener(
                 object : NotificationLockscreenUserManager.UserChangedListener {
