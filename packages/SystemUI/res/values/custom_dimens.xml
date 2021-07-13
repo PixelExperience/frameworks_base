@@ -44,7 +44,28 @@
     <dimen name="volume_dialog_panel_transparent_padding_left">20dp</dimen>
     <dimen name="volume_dialog_panel_land_margin">68dp</dimen>
 
+<<<<<<< HEAD   (96a2dc Restore "bypass lockscreen after face unlock" preference)
     <!-- Biometric Prompt -->
     <dimen name="biometric_dialog_fod_margin">44dp</dimen>
 
+=======
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
+
+    <!-- Network traffic monitor -->
+    <dimen name="net_traffic_status_bar_text_size">10dp</dimen>
+    <dimen name="net_traffic_txt_img_padding">5dp</dimen>
+
+    <!-- Margin on the left side of the center clock -->
+    <dimen name="status_bar_center_clock_padding_start">0dp</dimen>
+
+    <!-- Margin on the right side of the center clock -->
+    <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
+
+    <!-- Largest size an avatar might need to be drawn in the power menu user picker -->
+    <dimen name="global_actions_avatar_size">24dp</dimen>
+
+    <!-- Per app volume -->
+    <dimen name="volume_row_app_icon_padding">8dp</dimen>
+>>>>>>> CHANGE (2b0c42 Revert "SystemUI: BiometricPrompt: Adjust layout if FOD is p)
 </resources>
