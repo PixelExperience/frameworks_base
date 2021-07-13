@@ -134,7 +134,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         @Override
         public void onFingerUp() {
             mHandler.post(() -> hideCircle());
-            if (mFodGestureEnable && mPressPending) {
+            if (mPressPending) {
                 mPressPending = false;
             }
         }
@@ -218,10 +218,10 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         @Override
         public void onScreenTurnedOn() {
-            if (!mFodGestureEnable && mUpdateMonitor.isFingerprintDetectionRunning()) {
+            if (mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
-            if (mFodGestureEnable && mPressPending) {
+            if (mPressPending) {
                 mHandler.post(() -> showCircle());
                 mPressPending = false;
             }
