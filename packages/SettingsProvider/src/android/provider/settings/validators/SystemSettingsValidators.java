@@ -309,6 +309,5 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NAV_BAR_COMPACT_LAYOUT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.BACK_GESTURE_HEIGHT, NON_NEGATIVE_INTEGER_VALIDATOR);
         VALIDATORS.put(System.FOD_GESTURE, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.APP_LOCK_LOCK_AFTER,  new InclusiveIntegerRangeValidator(-1, 15));
     }
 }

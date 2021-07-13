@@ -30,9 +30,6 @@ import android.security.KeyStore;
 import android.util.EventLog;
 import android.util.Slog;
 
-import com.android.server.LocalServices;
-import com.android.server.wm.AppLockService;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,8 +156,7 @@ public abstract class AuthenticationClient extends ClientMonitor {
 
             // Ensure authentication only succeeds if the client activity is on top or is keyguard.
             boolean isBackgroundAuth = false;
-            if (authenticated && !Utils.isKeyguard(getContext(), getOwnerString())
-                    && !LocalServices.getService(AppLockService.class).isAppLockAuthenticating()) {
+            if (authenticated && !Utils.isKeyguard(getContext(), getOwnerString())) {
                 try {
                     final List<ActivityManager.RunningTaskInfo> tasks =
                             ActivityTaskManager.getService().getTasks(1);
