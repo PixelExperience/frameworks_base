@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">استخدام اختيار النظام (الوضع الافتراضي)</string>
+    <string name="bluetooth_a2dp_codec_system">استخدم تحديد النظام (افتراضي)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">صوت أحادي القناة \"Mono\"</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">صوت ثنائي القناة \"ستيريو\"</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">قناة مزدوجة</string>
