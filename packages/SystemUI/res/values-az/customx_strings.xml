@@ -60,5 +60,4 @@
     <string name="quick_settings_anti_flicker">Titrəməyə qarşı</string>
     <string name="global_action_current_user">Hazırkı</string>
     <string name="global_action_users">İstifadəçilər</string>
-    <string name="applock_unlock">Tətbiq kilidini aç</string>
 </resources>

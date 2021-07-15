@@ -60,5 +60,4 @@
     <string name="quick_settings_anti_flicker">Przeciwdoblaskowy</string>
     <string name="global_action_current_user">Aktualny</string>
     <string name="global_action_users">Użytkownicy</string>
-    <string name="applock_unlock">Odblokuj aplikacje </string>
 </resources>

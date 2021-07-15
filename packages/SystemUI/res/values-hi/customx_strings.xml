@@ -39,15 +39,20 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">परिवेशी प्रदर्शन को चालू किया गया।</string>
     <string name="quick_settings_vpn_label">वीपीएन</string>
     <string name="quick_settings_vpn_connect_dialog_title">से जोड़ें</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> से कनेक्ट करने के लिए यूजरनेम पासवर्ड डालें</string>
     <string name="vpn_credentials_username">उपयोगकर्ता का नाम</string>
     <string name="vpn_credentials_password">पासवर्ड</string>
     <string name="vpn_credentials_dialog_connect">जोड़ें</string>
     <string name="global_action_restart_system">सिस्टम</string>
     <string name="global_action_restart_recovery">रिकवरी</string>
+    <string name="global_screenshot_selector_capture_description">आंशिक स्क्रीनशॉट के लिए क्लिक करें</string>
+    <string name="global_screenshot_selector_cancel_description">आंशिक स्क्रीनशॉट रद्द करें</string>
     <string name="quick_settings_reading_mode">पठन मोड</string>
     <string name="accessibility_quick_settings_reading_mode_on">पठन मोड चालू।</string>
     <string name="accessibility_quick_settings_reading_mode_off">पठन मोड बंद।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">पठन मोड चालू है।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">पठन मोड बंद है।</string>
     <string name="quick_settings_anti_flicker">Anti kerlip</string>
+    <string name="global_action_current_user">वर्तमान</string>
+    <string name="global_action_users">उपयोगकर्ता</string>
 </resources>

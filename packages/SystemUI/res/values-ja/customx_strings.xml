@@ -60,5 +60,4 @@
     <string name="quick_settings_anti_flicker">アンチフリッカー</string>
     <string name="global_action_current_user">現在</string>
     <string name="global_action_users">ユーザー</string>
-    <string name="applock_unlock">アプリのロック解除</string>
 </resources>

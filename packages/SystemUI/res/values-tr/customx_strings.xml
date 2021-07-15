@@ -58,4 +58,6 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
     <string name="quick_settings_anti_flicker">Titreme önleme</string>
+    <string name="global_action_current_user">Mevcut</string>
+    <string name="global_action_users">Kullanıcılar</string>
 </resources>

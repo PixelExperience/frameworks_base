@@ -58,4 +58,6 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lukutila otettiin käyttöön.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lukutila poistettiin käytöstä.</string>
     <string name="quick_settings_anti_flicker">Vilkkumisen esto</string>
+    <string name="global_action_current_user">Nykyinen</string>
+    <string name="global_action_users">Käyttäjät</string>
 </resources>

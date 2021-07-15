@@ -58,4 +58,6 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lesemodus angeschaltet.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus ausgeschaltet.</string>
     <string name="quick_settings_anti_flicker">Anti-Flimmern</string>
+    <string name="global_action_current_user">Aktuell</string>
+    <string name="global_action_users">Benutzer</string>
 </resources>

@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">स्वचालित</string>
     <string name="live_display_auto_summary">सूर्यास्त और सूर्योदय के बाद स्क्रीन के रंग तापमान को स्वचालित रूप से समायोजित करें</string>
+    <string name="live_display_off">बंद</string>
     <string name="live_display_off_summary">सभी समायोजन अक्षम करें</string>
     <string name="live_display_day">दिन</string>
     <string name="live_display_day_summary">केवल दिन की सेटिंग्स का उपयोग करें</string>

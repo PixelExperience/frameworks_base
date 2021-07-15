@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">ავტომატური</string>
+    <string name="live_display_auto_summary">ეკრანის ფერების ტემპერატურის ავტომატურად შეცვლა მზის ჩასვლის და ამოსვლის შემდეგ</string>
+    <string name="live_display_off">გამორთული</string>
+    <string name="live_display_off_summary">ყველა რეგულირების გათიშვა</string>
+    <string name="live_display_day">დღე</string>
+    <string name="live_display_day_summary">მხოლოდ დღის პარამეტრების გამოყენება</string>
+    <string name="live_display_night">ღამე</string>
+    <string name="live_display_night_summary">მხოლოდ ღამის პარამეტრების გამოყენება</string>
+    <string name="live_display_outdoor">გარეთ (კაშკაშა მზე)</string>
+    <string name="live_display_outdoor_summary">მხოლოდ გარეთ პარამეტრების გამოყენება</string>
+    <string name="live_display_hint">LiveDisplay-ს შეუძლია შეამციროს თვალების დაძაბვა და დაგეხმაროთ ღამე ძილში. დააწკაპეთ აქ საცდელად!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay გამორთ.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: ავტო რეჟიმი.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: დღის რეჟიმი.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ღამის რეჟიმი.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: გარეთ რეჟიმი.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay გამორთულია.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay შეიცვალა ავტომატურ რეჟიმზე.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay შეიცვალა დღის რეჟიმზე.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay შეიცვალა ღამის რეჟიმზე.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay შეიცვალა გარეთ რეჟიმზე.</string>
+    <string name="pocket_lock_message_long_press">დააჭირეთ და არ აუშვათ გამორთვის ღილაკს განბლოკვისთვის</string>
+</resources>

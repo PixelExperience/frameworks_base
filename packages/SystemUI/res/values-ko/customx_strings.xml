@@ -58,4 +58,6 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">독서 모드가 켜졌습니다.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">독서 모드가 꺼졌습니다.</string>
     <string name="quick_settings_anti_flicker">깜박임 방지</string>
+    <string name="global_action_current_user">현재</string>
+    <string name="global_action_users">사용자</string>
 </resources>
