@@ -43,9 +43,6 @@
     <!-- Volume panel -->
     <dimen name="volume_dialog_panel_transparent_padding_left">20dp</dimen>
 
-    <!-- Biometric Prompt -->
-    <dimen name="biometric_dialog_fod_margin">44dp</dimen>
-
     <!-- Width of the battery icon in the status bar when set to circle style. -->
     <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
 
