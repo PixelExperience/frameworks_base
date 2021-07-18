@@ -860,6 +860,8 @@ public class DisplayModeDirector {
                 Settings.System.getUriFor(Settings.System.PEAK_REFRESH_RATE);
         private final Uri mMinRefreshRateSetting =
                 Settings.System.getUriFor(Settings.System.MIN_REFRESH_RATE);
+        private final Uri mPreferredRefreshRateSetting =
+                Settings.System.getUriFor(Settings.System.PREFERRED_REFRESH_RATE);
         private final Uri mLowPowerModeSetting =
                 Settings.Global.getUriFor(Settings.Global.LOW_POWER_MODE);
         private final Uri mLowPowerRefreshRateSetting =
@@ -881,7 +883,11 @@ public class DisplayModeDirector {
         public void observe() {
             final ContentResolver cr = mContext.getContentResolver();
             mInjector.registerPeakRefreshRateObserver(cr, this);
+            cr.registerContentObserver(mPeakRefreshRateSetting, false /*notifyDescendants*/, this,
+                    UserHandle.USER_SYSTEM);
             cr.registerContentObserver(mMinRefreshRateSetting, false /*notifyDescendants*/, this,
+                    UserHandle.USER_SYSTEM);
+            cr.registerContentObserver(mPreferredRefreshRateSetting, false /*notifyDescendants*/, this,
                     UserHandle.USER_SYSTEM);
             cr.registerContentObserver(mLowPowerModeSetting, false /*notifyDescendants*/, this,
                     UserHandle.USER_SYSTEM);
@@ -925,7 +931,8 @@ public class DisplayModeDirector {
         public void onChange(boolean selfChange, Uri uri, int userId) {
             synchronized (mLock) {
                 if (mPeakRefreshRateSetting.equals(uri)
-                        || mMinRefreshRateSetting.equals(uri)) {
+                        || mMinRefreshRateSetting.equals(uri)
+                        || mPreferredRefreshRateSetting.equals(uri)) {
                     updateRefreshRateSettingLocked();
                 } else if (mLowPowerModeSetting.equals(uri)
                         || mLowPowerRefreshRateSetting.equals(uri)) {
@@ -954,7 +961,9 @@ public class DisplayModeDirector {
                     Settings.System.MIN_REFRESH_RATE, 0f);
             float peakRefreshRate = Settings.System.getFloat(mContext.getContentResolver(),
                     Settings.System.PEAK_REFRESH_RATE, mDefaultPeakRefreshRate);
-            updateRefreshRateSettingLocked(minRefreshRate, peakRefreshRate, mDefaultRefreshRate);
+            float preferredRefreshRate = Settings.System.getFloat(mContext.getContentResolver(),
+                    Settings.System.PREFERRED_REFRESH_RATE, mDefaultRefreshRate);
+            updateRefreshRateSettingLocked(minRefreshRate, peakRefreshRate, preferredRefreshRate);
         }
 
         private void updateRefreshRateSettingLocked(
