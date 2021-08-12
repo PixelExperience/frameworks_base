@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Anti-flicker</string>
     <string name="global_action_current_user">Huidige</string>
     <string name="global_action_users">Gebruikers</string>
+    <string name="status_bar_camera">Camera</string>
+    <string name="status_bar_location">Locatie</string>
 </resources>

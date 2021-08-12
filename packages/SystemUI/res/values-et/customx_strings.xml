@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Virvendusfilter</string>
     <string name="global_action_current_user">Hetkel</string>
     <string name="global_action_users">Kasutajad</string>
+    <string name="status_bar_camera">Kaamera</string>
+    <string name="status_bar_location">Asukoht</string>
 </resources>

@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">アンチフリッカー</string>
     <string name="global_action_current_user">現在</string>
     <string name="global_action_users">ユーザー</string>
+    <string name="status_bar_camera">カメラ</string>
+    <string name="status_bar_location">場所</string>
 </resources>

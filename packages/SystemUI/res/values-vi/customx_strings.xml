@@ -58,4 +58,8 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc đã được bật.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc đã được tắt.</string>
     <string name="quick_settings_anti_flicker">Chống nháy ánh sáng</string>
+    <string name="global_action_current_user">Hiện hành</string>
+    <string name="global_action_users">Người dùng</string>
+    <string name="status_bar_camera">Máy ảnh</string>
+    <string name="status_bar_location">Vị trí</string>
 </resources>

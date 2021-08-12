@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Защита от мерцания</string>
     <string name="global_action_current_user">Текущий</string>
     <string name="global_action_users">Пользователи</string>
+    <string name="status_bar_camera">Камера</string>
+    <string name="status_bar_location">Местоположение</string>
 </resources>

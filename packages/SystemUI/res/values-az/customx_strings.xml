@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Titrəməyə qarşı</string>
     <string name="global_action_current_user">Hazırkı</string>
     <string name="global_action_users">İstifadəçilər</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Yerləşmə</string>
 </resources>

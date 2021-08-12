@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Αντι τρεμόπαιγμα</string>
     <string name="global_action_current_user">Τρέχων</string>
     <string name="global_action_users">Χρήστες</string>
+    <string name="status_bar_camera">Κάμερα</string>
+    <string name="status_bar_location">Τοποθεσία</string>
 </resources>

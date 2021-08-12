@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Titreme önleme</string>
     <string name="global_action_current_user">Mevcut</string>
     <string name="global_action_users">Kullanıcılar</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Konum</string>
 </resources>

@@ -55,4 +55,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">دۆخی خوێندنەوە ناچالاکە.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">دۆخی خوێندنەوە چالاککرا.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">دۆخی خوێندنەوە ناچالاککرا.</string>
+    <string name="status_bar_camera">کامێرا</string>
 </resources>

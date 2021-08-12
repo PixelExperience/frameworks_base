@@ -52,4 +52,6 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">حالت مطالعه روشن شد.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">حالت مطالعه خاموش شد.</string>
     <string name="quick_settings_anti_flicker">ضد پرش تصویر</string>
+    <string name="status_bar_camera">دوربین</string>
+    <string name="status_bar_location">مکان</string>
 </resources>

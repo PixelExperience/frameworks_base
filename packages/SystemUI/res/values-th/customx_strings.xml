@@ -48,4 +48,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">ปิดโหมดการอ่าน</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">โหมดการอ่านเปิดอยู่</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">โหมดการอ่านถูกปิด</string>
+    <string name="status_bar_camera">กล้องถ่ายรูป</string>
 </resources>

@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Anti Cintilação</string>
     <string name="global_action_current_user">utilizador atual</string>
     <string name="global_action_users">Utilizadores</string>
+    <string name="status_bar_camera">Câmara</string>
+    <string name="status_bar_location">Localização</string>
 </resources>

@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Eliminace blikání</string>
     <string name="global_action_current_user">Aktuální</string>
     <string name="global_action_users">Uživatelé</string>
+    <string name="status_bar_camera">Fotoaparát</string>
+    <string name="status_bar_location">Poloha</string>
 </resources>

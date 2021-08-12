@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Анты-мігаценне</string>
     <string name="global_action_current_user">Бягучы</string>
     <string name="global_action_users">Карыстальнікі</string>
+    <string name="status_bar_camera">Камера</string>
+    <string name="status_bar_location">Месцазнаходжанне</string>
 </resources>

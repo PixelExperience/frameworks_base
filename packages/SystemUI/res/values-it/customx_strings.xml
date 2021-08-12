@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Anti-sfarfallio</string>
     <string name="global_action_current_user">Attuale</string>
     <string name="global_action_users">Utenti</string>
+    <string name="status_bar_camera">Fotocamera</string>
+    <string name="status_bar_location">Località</string>
 </resources>

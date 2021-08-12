@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Анти мерехтіння</string>
     <string name="global_action_current_user">Поточний</string>
     <string name="global_action_users">Користувачі</string>
+    <string name="status_bar_camera">Камера</string>
+    <string name="status_bar_location">Місцезнаходження</string>
 </resources>

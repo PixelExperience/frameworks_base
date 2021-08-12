@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">Przeciwdoblaskowy</string>
     <string name="global_action_current_user">Aktualny</string>
     <string name="global_action_users">Użytkownicy</string>
+    <string name="status_bar_camera">Aparat</string>
+    <string name="status_bar_location">Lokalizacja</string>
 </resources>

@@ -22,11 +22,20 @@
     <string name="accessibility_dpad_right">კურსორი მარჯვნივ</string>
     <string name="quick_settings_aod_label">მუდმივმოქმედი ეკრანი</string>
     <string name="quick_settings_aod_off_powersave_label">მუდმივი ეკრანი გამორთ.\nბატარეის დამზოგი</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine გამორთულია.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine ჩართულია.</string>
+    <string name="quick_settings_heads_up_label">ყურადღება!</string>
+    <string name="accessibility_quick_settings_heads_up_off">ამომხტომი შეტყობინებები გამორთ.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ამომხტომი შეტყობინებები ჩართ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ამომხტომი შეტყობინებები გამორთულია.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ამომხტომი შეტყობინებები ჩართულია.</string>
     <string name="quick_settings_sync_label">სინქრონიზაცია</string>
     <string name="accessibility_quick_settings_sync_off">სინქრონიზაცია გამორთ.</string>
     <string name="accessibility_quick_settings_sync_on">სინქრონიზაცია ჩართ.</string>
     <string name="accessibility_quick_settings_sync_changed_off">სინქრონიზაცია გამორთულია.</string>
     <string name="accessibility_quick_settings_sync_changed_on">სინქრონიზაცია ჩართულია.</string>
+    <string name="quick_settings_usb_tether_label">USB კავშირი</string>
     <string name="quick_settings_volume_panel_label">ხმის სამართავი</string>
     <string name="quick_settings_ambient_display_label">ურთიერთქმედი ეკრანი</string>
     <string name="accessibility_quick_settings_ambient_display_off">ურთიერთქმედი ეკრანი გამორთ.</string>
@@ -51,4 +60,6 @@
     <string name="quick_settings_anti_flicker">ციმციმის საწინააღმდეგო</string>
     <string name="global_action_current_user">მიმდინარე</string>
     <string name="global_action_users">მომხმარებლები</string>
+    <string name="status_bar_camera">კამერა</string>
+    <string name="status_bar_location">ადგილმდებარეობა</string>
 </resources>

@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">防闪烁</string>
     <string name="global_action_current_user">当前用户</string>
     <string name="global_action_users">用户</string>
+    <string name="status_bar_camera">相机</string>
+    <string name="status_bar_location">位置</string>
 </resources>

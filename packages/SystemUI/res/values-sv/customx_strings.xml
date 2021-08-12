@@ -20,9 +20,16 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Markör till vänster</string>
     <string name="accessibility_dpad_right">Markör till höger</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD avstängd\nBatterisparfunktion</string>
     <string name="quick_settings_caffeine_label">Koffein</string>
     <string name="accessibility_quick_settings_caffeine_off">Koffein av.</string>
     <string name="accessibility_quick_settings_caffeine_on">Koffein på.</string>
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up av.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up på.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up avslaget.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up påslaget.</string>
     <string name="quick_settings_sync_label">Synk</string>
     <string name="accessibility_quick_settings_sync_off">Synk av.</string>
     <string name="accessibility_quick_settings_sync_on">Synk på.</string>
@@ -43,9 +50,16 @@
     <string name="vpn_credentials_dialog_connect">Koppla</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Återställning</string>
+    <string name="global_screenshot_selector_capture_description">Fånga delvis skärmbild</string>
+    <string name="global_screenshot_selector_cancel_description">Avbryt fångandet av delvis skärmbild</string>
     <string name="quick_settings_reading_mode">Lasnings typvärde</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lasnings typvärde på.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lasnings typvärde av.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lasnings typvärde knäppte på.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Läsnings typvärde knäppte av.</string>
+    <string name="quick_settings_anti_flicker">Anti-Flimmer</string>
+    <string name="global_action_current_user">Nuvarande</string>
+    <string name="global_action_users">Användare</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Plats</string>
 </resources>

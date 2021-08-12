@@ -3,6 +3,7 @@
     <string name="live_display_auto">Автоматты түрде</string>
     <string name="live_display_auto_summary">Автоматическая настройка цветовой температуры экрана после захода солнца и восхода солнца
 Автоматты түрде күн ауысқанда экранның жарығын өзгерту</string>
+    <string name="live_display_off">Өшр.</string>
     <string name="live_display_off_summary">Барлық реттеулерді өшіру</string>
     <string name="live_display_day">Күн</string>
     <string name="live_display_day_summary">Тек күн ретеуін қолдану</string>

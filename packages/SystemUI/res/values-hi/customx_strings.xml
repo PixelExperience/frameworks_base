@@ -55,4 +55,5 @@
     <string name="quick_settings_anti_flicker">Anti kerlip</string>
     <string name="global_action_current_user">वर्तमान</string>
     <string name="global_action_users">उपयोगकर्ता</string>
+    <string name="status_bar_camera">Kamera</string>
 </resources>

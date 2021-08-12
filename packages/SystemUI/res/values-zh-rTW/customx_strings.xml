@@ -60,4 +60,6 @@
     <string name="quick_settings_anti_flicker">防閃爍</string>
     <string name="global_action_current_user">目前使用者</string>
     <string name="global_action_users">使用者</string>
+    <string name="status_bar_camera">相機</string>
+    <string name="status_bar_location">位置</string>
 </resources>
