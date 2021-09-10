@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="quick_settings_powershare_label">უკაბელო დენის გაზიარება</string>
-    <string name="quick_settings_powershare_off_powersave_label">უკაბელო დენის გაზიარება გამორთ.\nბატარეის დამზოგი</string>
-    <string name="quick_settings_powershare_off_low_battery_label">უკაბელო დენის გაზიარება გამორთ.\nბატარეის მუხტი დაბალია</string>
-    <string name="quick_settings_powershare_enabled_label">უკაბელო დენის გაზიარება ჩართულია</string>
-    <string name="screen_pinning_description_no_navbar">ეს დატოვებს სანახაობას ეკრანზე სანამ თქვენ მოხსნით მიმაგრებას. შეეხეთ დიდხანს უკანსვლის ღილაკს მოსახსნელად.</string>
-    <string name="screen_pinning_toast_no_navbar">ამ მიმაგრებული ეკრანის მოსაცილებლად, შეეხეთ და გეჭიროთ ღილაკზე უკუსვლის ღილაკზე</string>
+    <string name="quick_settings_powershare_label">უკაბელო დატენვა</string>
+    <string name="quick_settings_powershare_off_powersave_label">უკაბელო დატენვა გამორთ.\nბატარეის დამზოგი</string>
+    <string name="quick_settings_powershare_off_low_battery_label">უკაბელო დატენვა გამორთ.\nბატარეის მუხტი დაბალია</string>
+    <string name="quick_settings_powershare_enabled_label">უკაბელო დატენვა ჩართულია</string>
+    <string name="screen_pinning_description_no_navbar">შედეგად, მანამ დარჩება ხედვის არეში, სანამ არ მოხსნით მიმაგრებას. დიდხანს შეეხეთ უკუსვლის ღილაკს, მოსახსნელად.</string>
+    <string name="screen_pinning_toast_no_navbar">მიმაგრებული ეკრანის მოსაცილებლად, შეეხეთ და გეჭიროთ ღილაკზე უკუსვლის ღილაკზე</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">ეს დატოვებს სანახაობას გახსნილს სანამ არ გამორთავთ მიმაგრების ფუნქციას. შეეხეთ დიდხანს თითის ანაბეჭდის სენსორს რათა მიმაგრება მოიხსნას.</string>
-    <string name="screen_pinning_toast_no_navbar_fpsensor">ამ მიმაგრებული ეკრანის მოსაცილებლად, შეეხეთ და მიადეთ თითი ანაბეჭდის სენსორს</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">მიმაგრებული ეკრანის მოსაცილებლად, შეეხეთ და მიადეთ თითი ანაბეჭდის სენსორს</string>
     <string name="biometric_dialog_button_use_face">სახის გამოყენება</string>
 </resources>
