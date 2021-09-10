@@ -62,4 +62,5 @@
     <string name="global_action_users">Użytkownicy</string>
     <string name="status_bar_camera">Aparat</string>
     <string name="status_bar_location">Lokalizacja</string>
+    <string name="status_bar_microphone">Mikrofon</string>
 </resources>

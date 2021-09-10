@@ -45,4 +45,6 @@
     <string name="accessibility_quick_settings_reading_mode_off">ಓದುವ ರೀತಿ ಆಫ್.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">ಓದುವ ರೀತಿ ಹೊತ್ತಿತು.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">ಓದುವ ರೀತಿ ನಂದಿತು.</string>
+    <string name="status_bar_camera">ಕ್ಯಾಮೆರಾ</string>
+    <string name="status_bar_microphone">ಮೈಕ್ರೋಫೋನ್‌</string>
 </resources>

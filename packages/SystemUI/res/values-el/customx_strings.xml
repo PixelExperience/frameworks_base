@@ -62,4 +62,5 @@
     <string name="global_action_users">Χρήστες</string>
     <string name="status_bar_camera">Κάμερα</string>
     <string name="status_bar_location">Τοποθεσία</string>
+    <string name="status_bar_microphone">Μικρόφωνο</string>
 </resources>

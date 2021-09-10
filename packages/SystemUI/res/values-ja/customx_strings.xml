@@ -62,4 +62,5 @@
     <string name="global_action_users">ユーザー</string>
     <string name="status_bar_camera">カメラ</string>
     <string name="status_bar_location">場所</string>
+    <string name="status_bar_microphone">マイク</string>
 </resources>

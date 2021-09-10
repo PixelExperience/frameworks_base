@@ -61,5 +61,6 @@
     <string name="global_action_current_user">Nykyinen</string>
     <string name="global_action_users">Käyttäjät</string>
     <string name="status_bar_camera">Kamera</string>
-    <string name="status_bar_location">Paikka</string>
+    <string name="status_bar_location">Sijainti</string>
+    <string name="status_bar_microphone">Mikrofoni</string>
 </resources>

@@ -61,4 +61,6 @@
     <string name="global_action_current_user">المستخدم الحالي</string>
     <string name="global_action_users">المستخدمون</string>
     <string name="status_bar_camera">الكاميرا</string>
+    <string name="status_bar_location">الموقع</string>
+    <string name="status_bar_microphone">الميكروفون</string>
 </resources>

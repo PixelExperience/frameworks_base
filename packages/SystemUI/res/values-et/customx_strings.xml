@@ -62,4 +62,5 @@
     <string name="global_action_users">Kasutajad</string>
     <string name="status_bar_camera">Kaamera</string>
     <string name="status_bar_location">Asukoht</string>
+    <string name="status_bar_microphone">Mikrofon</string>
 </resources>

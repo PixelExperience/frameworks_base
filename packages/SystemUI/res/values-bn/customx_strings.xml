@@ -58,5 +58,9 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">পঠন মোড চালু করা হয়েছে।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">পঠন মোড বন্ধ করা হয়েছে।</string>
     <string name="quick_settings_anti_flicker">অ্যান্টি ফ্লিকার</string>
+    <string name="global_action_current_user">বর্তমান</string>
+    <string name="global_action_users">ব্যবহারকারী</string>
     <string name="status_bar_camera">ক্যামেরা</string>
+    <string name="status_bar_location">অবস্থান</string>
+    <string name="status_bar_microphone">মাইক্রোফোন</string>
 </resources>

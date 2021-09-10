@@ -58,5 +58,8 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lesemodus påslått.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus avslått.</string>
     <string name="quick_settings_anti_flicker">Antiflimmer</string>
+    <string name="global_action_current_user">Nåværende</string>
     <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Plassering</string>
+    <string name="status_bar_microphone">Mikrofon</string>
 </resources>

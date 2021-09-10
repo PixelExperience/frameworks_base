@@ -58,5 +58,9 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čítania je zapnutý.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čítania je vypnutý.</string>
     <string name="quick_settings_anti_flicker">Eliminácia blikania</string>
+    <string name="global_action_current_user">Aktuálny</string>
+    <string name="global_action_users">Užívatelia</string>
     <string name="status_bar_camera">Fotoaparát</string>
+    <string name="status_bar_location">Poloha</string>
+    <string name="status_bar_microphone">Mikrofón</string>
 </resources>

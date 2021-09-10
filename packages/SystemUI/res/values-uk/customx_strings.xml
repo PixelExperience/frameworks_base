@@ -62,4 +62,5 @@
     <string name="global_action_users">Користувачі</string>
     <string name="status_bar_camera">Камера</string>
     <string name="status_bar_location">Місцезнаходження</string>
+    <string name="status_bar_microphone">Мікрофон</string>
 </resources>

@@ -60,6 +60,7 @@
     <string name="quick_settings_anti_flicker">Vibrálásmentesítés</string>
     <string name="global_action_current_user">Jelenlegi</string>
     <string name="global_action_users">Felhasználók</string>
-    <string name="status_bar_camera">Kamerához</string>
+    <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Helymeghatározás</string>
+    <string name="status_bar_microphone">Mikrofon</string>
 </resources>

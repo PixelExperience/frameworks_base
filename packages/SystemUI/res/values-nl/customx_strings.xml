@@ -21,7 +21,7 @@
     <string name="accessibility_dpad_left">Cursor links</string>
     <string name="accessibility_dpad_right">Cursor rechts</string>
     <string name="quick_settings_aod_label">AOD (scherm altijd aan)</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD (scherm altijd aan) uit\nBatterijbesparing</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD (scherm altijd aan) uit\nSpaarstand</string>
     <string name="quick_settings_caffeine_label">Cafeïne</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan.</string>
@@ -62,4 +62,5 @@
     <string name="global_action_users">Gebruikers</string>
     <string name="status_bar_camera">Camera</string>
     <string name="status_bar_location">Locatie</string>
+    <string name="status_bar_microphone">Microfoon</string>
 </resources>

@@ -62,4 +62,5 @@
     <string name="global_action_users">Kullanıcılar</string>
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Konum</string>
+    <string name="status_bar_microphone">Mikrofon</string>
 </resources>

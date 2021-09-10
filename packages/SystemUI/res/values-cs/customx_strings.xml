@@ -62,4 +62,5 @@
     <string name="global_action_users">Uživatelé</string>
     <string name="status_bar_camera">Fotoaparát</string>
     <string name="status_bar_location">Poloha</string>
+    <string name="status_bar_microphone">Mikrofon</string>
 </resources>

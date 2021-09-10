@@ -61,4 +61,6 @@
     <string name="global_action_current_user">Atual</string>
     <string name="global_action_users">Usuários</string>
     <string name="status_bar_camera">Câmera</string>
+    <string name="status_bar_location">Localização</string>
+    <string name="status_bar_microphone">Microfone</string>
 </resources>

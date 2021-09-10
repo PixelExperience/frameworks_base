@@ -62,4 +62,5 @@
     <string name="global_action_users">用户</string>
     <string name="status_bar_camera">相机</string>
     <string name="status_bar_location">位置</string>
+    <string name="status_bar_microphone">麦克风</string>
 </resources>
