@@ -24,6 +24,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 
 import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
+import com.android.internal.custom.hardware.LineageHardwareManager;
 
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON_OVERLAY;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
@@ -88,6 +89,10 @@ public class NavbarUtils {
     public static boolean canDisable(Context context) {
         boolean canForceDisable = context.getResources().getBoolean(com.android.internal.R.bool.config_canForceDisableNavigationBar);
         if (canForceDisable){
+            return true;
+        }
+        LineageHardwareManager lineageHardware = LineageHardwareManager.getInstance(context);
+        if (lineageHardware != null && lineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
             return true;
         }
         final int deviceKeys = context.getResources().getInteger(
