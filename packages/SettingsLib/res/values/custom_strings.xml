@@ -5,4 +5,11 @@
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
     <string name="bluetooth_a2dp_codec_channel_mode_dual">Dual Channel</string>
+
+     <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">VOOC charging (<xliff:g id="time">%1$s</xliff:g> left until full)</string>
+    
+     <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">VOOC charging</string>
+    
 </resources>
