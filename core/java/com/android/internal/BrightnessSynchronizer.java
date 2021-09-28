@@ -19,6 +19,7 @@ package com.android.internal;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
@@ -49,7 +50,7 @@ public class BrightnessSynchronizer{
 
     // The tolerance within which we consider brightness values approximately equal to eachother.
     // This value is approximately 1/3 of the smallest possible brightness value.
-    public static final float EPSILON = 0.001f;
+    public static float EPSILON = 0.001f;
 
     private final Context mContext;
 
@@ -76,6 +77,9 @@ public class BrightnessSynchronizer{
     public BrightnessSynchronizer(Context context) {
         final BrightnessSyncObserver mBrightnessSyncObserver;
         mContext = context;
+        final Resources resources = context.getResources();
+        EPSILON = resources.getFloat(
+                com.android.internal.R.dimen.config_brightnessChangeTolerance);
         mBrightnessSyncObserver = new BrightnessSyncObserver(mHandler);
         mBrightnessSyncObserver.startObserving();
     }
