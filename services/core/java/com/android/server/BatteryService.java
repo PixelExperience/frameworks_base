@@ -80,6 +80,7 @@ import com.android.server.lights.LogicalLight;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -189,6 +190,10 @@ public final class BatteryService extends SystemService {
     private boolean mOemFastCharger;
     private boolean mLastOemFastCharger;
 
+    private boolean mVoocCharger;
+    private boolean mHasVoocCharger;
+    private boolean mLastVoocCharger;
+
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
 
@@ -234,6 +239,9 @@ public final class BatteryService extends SystemService {
         mLed = new Led(context, getLocalService(LightsManager.class));
         mBatteryStats = BatteryStatsService.getService();
         mActivityManagerInternal = LocalServices.getService(ActivityManagerInternal.class);
+
+        mHasVoocCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasVoocCharger);
 
         mCriticalBatteryLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -616,6 +624,7 @@ public final class BatteryService extends SystemService {
         shutdownIfOverTempLocked();
 
         mOemFastCharger = isOemFastCharger();
+        mVoocCharger = mHasVoocCharger && isVoocCharger();
 
         if (force || (mHealthInfo.batteryStatus != mLastBatteryStatus ||
                 mHealthInfo.batteryHealth != mLastBatteryHealth ||
@@ -633,7 +642,8 @@ public final class BatteryService extends SystemService {
                 mBatteryModProps.modStatus != mLastModStatus ||
                 mBatteryModProps.modFlag != mLastModFlag ||
                 mBatteryModProps.modType != mLastModType ||
-                mBatteryModProps.modPowerSource != mLastModPowerSource)) {
+                mBatteryModProps.modPowerSource != mLastModPowerSource ||
+                mVoocCharger != mLastVoocCharger)) {
 
             if (mPlugType != mLastPlugType) {
                 if (mLastPlugType == BATTERY_PLUGGED_NONE) {
@@ -805,6 +815,7 @@ public final class BatteryService extends SystemService {
             mLastBatteryLevelCritical = mBatteryLevelCritical;
             mLastInvalidCharger = mInvalidCharger;
             mLastOemFastCharger = mOemFastCharger;
+            mLastVoocCharger = mVoocCharger;
             mLastModLevel = mBatteryModProps.modLevel;
             mLastModStatus = mBatteryModProps.modStatus;
             mLastModFlag = mBatteryModProps.modFlag;
@@ -844,6 +855,7 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_PLUGGED_RAW, mPlugType);
         intent.putExtra(BatteryManager.EXTRA_MOD_TYPE, mBatteryModProps.modType);
         intent.putExtra(BatteryManager.EXTRA_MOD_POWER_SOURCE, mBatteryModProps.modPowerSource);
+        intent.putExtra(BatteryManager.EXTRA_VOOC_CHARGER, mVoocCharger);
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED. scale:" + BATTERY_SCALE
                     + ", info:" + mHealthInfo.toString()
@@ -915,6 +927,19 @@ public final class BatteryService extends SystemService {
         } catch (IOException e) {
             Slog.e(TAG, "Failed to read oem fast charger status path: "
                 + path);
+        }
+        return false;
+    }
+    private boolean isVoocCharger() {
+        try {
+            FileReader file = new FileReader("/sys/class/power_supply/battery/voocchg_ing");
+            BufferedReader br = new BufferedReader(file);
+            String state = br.readLine();
+            br.close();
+            file.close();
+            return "1".equals(state);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
         }
         return false;
     }
