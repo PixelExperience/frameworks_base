@@ -50,7 +50,6 @@ public class UdfpsView extends FrameLayout implements DozeReceiver, UdfpsIllumin
 
     private static final String SETTING_HBM_TYPE =
             "com.android.systemui.biometrics.UdfpsSurfaceView.hbmType";
-    private static @HbmType int DEFAULT_HBM_TYPE;
 
     private static final int DEBUG_TEXT_SIZE_PX = 32;
 
@@ -99,9 +98,11 @@ public class UdfpsView extends FrameLayout implements DozeReceiver, UdfpsIllumin
         DEFAULT_HBM_TYPE = mContext.getResources().getInteger(R.integer.config_udfps_hbm_type);
         if (Build.IS_ENG || Build.IS_USERDEBUG) {
             mHbmType = Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                    SETTING_HBM_TYPE, DEFAULT_HBM_TYPE, UserHandle.USER_CURRENT);
+                    SETTING_HBM_TYPE,
+                    mContext.getResources().getInteger(R.integer.config_udfpsHbmType),
+                    UserHandle.USER_CURRENT);
         } else {
-            mHbmType = DEFAULT_HBM_TYPE;
+            mHbmType = mContext.getResources().getInteger(R.integer.config_udfpsHbmType);
         }
     }
 
