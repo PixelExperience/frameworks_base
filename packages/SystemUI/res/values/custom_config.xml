@@ -9,4 +9,7 @@
     <string name="config_statusBarComponent">org.pixelexperience.systemui.statusbar.phone.StatusBarGoogle</string>
     <string name="config_systemUIFactoryComponent">org.pixelexperience.systemui.SystemUIGoogleFactory</string>
     <string name="config_systemUIVendorServiceComponent">org.pixelexperience.systemui.GoogleServices</string>
+
+    <!-- Color of the UDFPS pressed view -->
+    <color name="config_udfpsColor">#ffffffff</color>
 </resources>
