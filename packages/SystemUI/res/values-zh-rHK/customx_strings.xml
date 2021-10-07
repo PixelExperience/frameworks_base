@@ -61,4 +61,6 @@
     <string name="global_action_current_user">目前</string>
     <string name="global_action_users">使用者</string>
     <string name="status_bar_camera">相機</string>
+    <string name="status_bar_location">定位</string>
+    <string name="status_bar_microphone">麥克風</string>
 </resources>

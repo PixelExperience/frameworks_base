@@ -21,4 +21,5 @@
     <string name="accessibility_quick_settings_live_display_changed_day">صفحه پویا به حالت روز تغییر کرد.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">نمایش پویا به حالت شب تغییر کرد.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">صفحه پویا به حالت فضای باز تغییر کرد.</string>
+    <string name="pocket_lock_message_long_press">کلید نیرو را برای بازکردن فشار داده و نگه دارید</string>
 </resources>

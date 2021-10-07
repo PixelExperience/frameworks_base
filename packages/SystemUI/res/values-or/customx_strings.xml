@@ -18,7 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="accessibility_dpad_left">କର୍ସର୍‍ ବାମ</string>
+    <string name="accessibility_dpad_left">କରସର୍ ବାମ</string>
     <string name="accessibility_dpad_right">କର୍ସର୍ ଡାହାଣ</string>
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
@@ -35,4 +35,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ କରାଯାଇଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍ କରାଯାଇଛି।</string>
+    <string name="status_bar_camera">କ୍ୟାମେରା</string>
+    <string name="status_bar_location">ଅବସ୍ଥାନ</string>
+    <string name="status_bar_microphone">ମାଇକ୍ରୋଫୋନ୍</string>
 </resources>
