@@ -19,6 +19,7 @@ import android.os.Build;
 import android.util.Log;
 
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,43 +30,15 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChange;
-    private static final Map<String, Object> propsToChangePixelXL;
-    private static final Map<String, Object> propsToChangePixel3XL;
-
-    private static final String[] packagesToChange = {
-            "com.android.vending",
-            "com.breel.wallpapers20",
-            "com.google.android.apps.customization.pixel",
-            "com.google.android.apps.fitness",
-            "com.google.android.apps.recorder",
-            "com.google.android.apps.subscriptions.red",
-            "com.google.android.apps.tachyon",
-            "com.google.android.apps.turboadapter",
-            "com.google.android.apps.wallpaper.pixel",
-            "com.google.android.as",
-            "com.google.android.dialer",
-            "com.google.android.gms.location.history",
-            "com.google.android.inputmethod.latin",
-            "com.google.android.soundpicker",
-            "com.google.pixel.dynamicwallpapers",
-            "com.google.pixel.livewallpaper",
-            "com.google.android.apps.safetyhub",
-            "com.google.android.apps.turbo",
-            "com.google.android.apps.wallpaper",
-            "com.google.android.apps.maps",
-            "com.google.android.gms",
-            "com.google.android.apps.nexuslauncher"
-    };
-
-    private static final String[] packagesToChangePixelXL = {
-            "com.google.android.apps.photos"
-    };
-
-    private static final String[] packagesToChangePixel3XL = {
-            "com.google.android.googlequicksearchbox"
+    private static final Map<String, ArrayList<String>> propsToKeep;
+    private static final String[] extraPackagesToChange = {
+        "com.android.vending",
+        "com.breel.wallpapers20"
     };
 
     static {
+        propsToKeep = new HashMap<>();
+        propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<String>(Arrays.asList("FINGERPRINT")));
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
         propsToChange.put("MANUFACTURER", "Google");
@@ -73,57 +46,22 @@ public class PixelPropsUtils {
         propsToChange.put("PRODUCT", "raven");
         propsToChange.put("MODEL", "Pixel 6 Pro");
         propsToChange.put("FINGERPRINT", "google/raven/raven:12/SD1A.210817.015.A4/7697517:userdebug/dev-keys");
-        propsToChangePixelXL = new HashMap<>();
-        propsToChangePixelXL.put("BRAND", "google");
-        propsToChangePixelXL.put("MANUFACTURER", "Google");
-        propsToChangePixelXL.put("DEVICE", "marlin");
-        propsToChangePixelXL.put("PRODUCT", "marlin");
-        propsToChangePixelXL.put("MODEL", "Pixel XL");
-        propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
-        propsToChangePixel3XL = new HashMap<>();
-        propsToChangePixel3XL.put("BRAND", "google");
-        propsToChangePixel3XL.put("MANUFACTURER", "Google");
-        propsToChangePixel3XL.put("DEVICE", "crosshatch");
-        propsToChangePixel3XL.put("PRODUCT", "crosshatch");
-        propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
-        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys");
     }
 
     public static void setProps(String packageName) {
         if (packageName == null){
             return;
         }
-        if (Arrays.asList(packagesToChange).contains(packageName)){
-            if (DEBUG){
-                Log.d(TAG, "Defining props for: " + packageName);
-            }
+        if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)){
+            if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
-                // Don't set model if gms
-                if (packageName.equals("com.google.android.gms") && key.equals("MODEL")){
+                if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)){
+                    if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
                     continue;
                 }
-                setPropValue(key, value);
-            }
-        }
-        if (Arrays.asList(packagesToChangePixelXL).contains(packageName)){
-            if (DEBUG){
-                Log.d(TAG, "Defining props for: " + packageName);
-            }
-            for (Map.Entry<String, Object> prop : propsToChangePixelXL.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
-                setPropValue(key, value);
-            }
-        }
-        if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
-            if (DEBUG){
-                Log.d(TAG, "Defining props for: " + packageName);
-            }
-            for (Map.Entry<String, Object> prop : propsToChangePixel3XL.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
+                if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
             }
         }
@@ -135,9 +73,7 @@ public class PixelPropsUtils {
 
     private static void setPropValue(String key, Object value){
         try {
-            if (DEBUG){
-                Log.d(TAG, "Defining prop " + key + " to " + value.toString());
-            }
+            if (DEBUG) Log.d(TAG, "Defining prop " + key + " to " + value.toString());
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(null, value);
