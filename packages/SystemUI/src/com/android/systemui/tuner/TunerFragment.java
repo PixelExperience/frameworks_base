@@ -70,13 +70,13 @@ public class TunerFragment extends PreferenceFragment {
 
         setHasOptionsMenu(true);
     }
-
+/*
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
+*/
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.tuner_prefs);
