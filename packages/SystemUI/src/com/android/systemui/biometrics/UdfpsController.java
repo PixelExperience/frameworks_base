@@ -160,6 +160,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
     private Runnable mAodInterruptRunnable;
     private boolean mOnFingerDown;
     private boolean mAttemptedToDismissKeyguard;
+    private final int mUdfpsVendorCode;
     private Set<Callback> mCallbacks = new HashSet<>();
 
     @VisibleForTesting
@@ -314,7 +315,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         public void onAcquired(int sensorId, int acquiredInfo, int vendorCode) {
             mFgExecutor.execute(() -> {
                 if (acquiredInfo == 6 && (mStatusBarStateController.isDozing() || !mScreenOn)) {
-                    if (vendorCode == 22) { // Use overlay to determine pressed vendor code?
+                    if (vendorCode == mUdfpsVendorCode) {
                         mPowerManager.wakeUp(SystemClock.uptimeMillis(),
                                 PowerManager.WAKE_REASON_GESTURE, TAG);
                         onAodInterrupt(0, 0, 0, 0); // To-Do pass proper values
@@ -608,6 +609,9 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         context.registerReceiver(mBroadcastReceiver, filter);
 
         udfpsHapticsSimulator.setUdfpsController(this);
+
+        mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfps_vendor_code);
+
     }
 
     /**
