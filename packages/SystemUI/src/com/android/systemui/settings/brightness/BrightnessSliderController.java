@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import androidx.annotation.Nullable;
@@ -54,6 +55,7 @@ public class BrightnessSliderController extends ViewController<BrightnessSliderV
     private boolean mTracking;
     private final FalsingManager mFalsingManager;
     private final UiEventLogger mUiEventLogger;
+    private ImageView mIconView;
 
     private final Gefingerpoken mOnInterceptListener = new Gefingerpoken() {
         @Override
@@ -74,9 +76,11 @@ public class BrightnessSliderController extends ViewController<BrightnessSliderV
 
     BrightnessSliderController(
             BrightnessSliderView brightnessSliderView,
+	    ImageView icon,
             FalsingManager falsingManager,
             UiEventLogger uiEventLogger) {
         super(brightnessSliderView);
+        mIconView = icon;
         mFalsingManager = falsingManager;
         mUiEventLogger = uiEventLogger;
     }
@@ -88,6 +92,9 @@ public class BrightnessSliderController extends ViewController<BrightnessSliderV
         return mView;
     }
 
+    public ImageView getIconView() {
+        return mIconView;
+    }
 
     @Override
     protected void onViewAttached() {
@@ -262,11 +269,11 @@ public class BrightnessSliderController extends ViewController<BrightnessSliderV
             int layout = getLayout();
             BrightnessSliderView root = (BrightnessSliderView) LayoutInflater.from(context)
                     .inflate(layout, viewRoot, false);
-            return new BrightnessSliderController(root, mFalsingManager, mUiEventLogger);
+            ImageView icon = (ImageView) root.findViewById(R.id.brightness_icon);
+       	    return new BrightnessSliderController(root, icon, mFalsingManager, mUiEventLogger);
         }
 
-        /** Get the layout to inflate based on what slider to use */
-        private int getLayout() {
+        /** Get the layout to inflate based on what slider to use */ private int getLayout() {
             return R.layout.quick_settings_brightness_dialog;
         }
     }

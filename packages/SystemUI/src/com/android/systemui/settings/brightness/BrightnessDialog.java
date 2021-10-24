@@ -112,7 +112,7 @@ public class BrightnessDialog extends Activity {
         controller.init();
         frame.addView(controller.getRootView(), MATCH_PARENT, WRAP_CONTENT);
 
-        mBrightnessController = mBrightnessControllerFactory.create(controller);
+	mBrightnessController = mBrightnessControllerFactory.create(controller.getIconView(), controller);
     }
 
     @Override
