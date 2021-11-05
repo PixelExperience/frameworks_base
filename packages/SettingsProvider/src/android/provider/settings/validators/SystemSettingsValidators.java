@@ -228,5 +228,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NAVIGATION_BAR_MENU_ARROW_KEYS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.STATUS_BAR_CLOCK, new InclusiveIntegerRangeValidator(0, 2));
         VALIDATORS.put(System.STATUS_BAR_AM_PM, new InclusiveIntegerRangeValidator(0, 2));
+        VALIDATORS.put(System.STATUS_BAR_CLOCK_AUTO_HIDE, BOOLEAN_VALIDATOR);
     }
 }
