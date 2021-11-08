@@ -58,7 +58,9 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modul lectură a fost activat.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modul lectură a fost dezactivat.</string>
     <string name="quick_settings_anti_flicker">Anti-pâlpâire</string>
+    <string name="global_action_current_user">Actual</string>
     <string name="global_action_users">Utilizatori</string>
     <string name="status_bar_camera">Cameră</string>
     <string name="status_bar_location">Locație</string>
+    <string name="status_bar_microphone">Microfon</string>
 </resources>
