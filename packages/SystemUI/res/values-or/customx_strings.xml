@@ -35,6 +35,17 @@
     <string name="accessibility_quick_settings_ambient_display_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ କରାଯାଇଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍ କରାଯାଇଛି।</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="vpn_credentials_username">ଉପଭୋକ୍ତା ନାମ</string>
+    <string name="vpn_credentials_password">ପାସ୍ଓ୍ୱାର୍ଡ଼</string>
+    <string name="vpn_credentials_dialog_connect">ସଂଯୋଗ କରନ୍ତୁ</string>
+    <string name="global_action_restart_system">ସିଷ୍ଟମ୍</string>
+    <string name="global_action_restart_recovery">ପୁନରୁଦ୍ଧାର</string>
+    <string name="quick_settings_reading_mode">ପଠନ ମୋଡ୍‍</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ପଠନ ମୋଡ୍‍ ଚାଲୁ।</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ପଠନ ମୋଡ୍‍ ବନ୍ଦ।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">ପଠନ ମୋଡ୍ ଟର୍ନ୍ ଅନ୍ ହୋଇଛି।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">ପଠନ ମୋଡ୍ ଟର୍ନ୍ ଅଫ୍ ହୋଇଛି।</string>
     <string name="status_bar_camera">କ୍ୟାମେରା</string>
     <string name="status_bar_location">ଅବସ୍ଥାନ</string>
     <string name="status_bar_microphone">ମାଇକ୍ରୋଫୋନ୍</string>
