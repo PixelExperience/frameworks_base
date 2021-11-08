@@ -3,4 +3,5 @@
     <string name="bluetooth_a2dp_codec_system">ใช้ค่าเริ่มต้นของระบบ</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">โมโน</string>
     <string name="bluetooth_a2dp_codec_channel_mode_stereo">สเตอริโอ</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">ช่องสัญญาณคู่</string>
 </resources>
