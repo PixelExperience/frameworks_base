@@ -34,5 +34,6 @@
 
     <!-- SystemUI Google -->
     <bool name="flag_smartspace">true</bool>
-
+    <string name="config_systemUIFactoryComponent">org.pixelexperience.systemui.SystemUIGoogleFactory</string>
+    <string name="config_systemUIVendorServiceComponent">org.pixelexperience.systemui.GoogleServices</string>
 </resources>
