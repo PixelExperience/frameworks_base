@@ -12,10 +12,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-*/
+ */
 
 package org.pixelexperience.systemui.dagger;
 
+import android.app.Activity;
 import com.android.systemui.LatencyTester;
 import com.android.systemui.ScreenDecorations;
 import com.android.systemui.SliceBroadcastRelayHandler;
@@ -42,146 +43,218 @@ import com.android.systemui.toast.ToastUI;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.android.systemui.volume.VolumeUI;
 import com.android.systemui.wmshell.WMShell;
+import com.google.android.systemui.theme.ThemeOverlayControllerGoogle;
+import com.android.systemui.dagger.SysUISingleton;
+
+import org.pixelexperience.systemui.GoogleServices;
+import org.pixelexperience.systemui.statusbar.phone.StatusBarGoogle;
+import com.google.android.systemui.gamedashboard.GameMenuActivity;
+import org.pixelexperience.systemui.gamedashboard.GameMenuActivityWrapper;
 
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 
-/**
- * SystemUI objects that are injectable should go here.
- */
 @Module(includes = {RecentsModule.class, StatusBarModule.class, KeyguardModule.class})
 public abstract class SystemUIGoogleBinder {
-    /** Inject into AuthController. */
+    /**
+     * Inject into AuthController.
+     */
     @Binds
     @IntoMap
     @ClassKey(AuthController.class)
     public abstract SystemUI bindAuthController(AuthController service);
 
-    /** Inject into GarbageMonitor.Service. */
+    /**
+     * Inject into GarbageMonitor.Service.
+     */
     @Binds
     @IntoMap
     @ClassKey(GarbageMonitor.Service.class)
     public abstract SystemUI bindGarbageMonitorService(GarbageMonitor.Service sysui);
 
-    /** Inject into GlobalActionsComponent. */
+    /**
+     * Inject into GlobalActionsComponent.
+     */
     @Binds
     @IntoMap
     @ClassKey(GlobalActionsComponent.class)
     public abstract SystemUI bindGlobalActionsComponent(GlobalActionsComponent sysui);
 
-    /** Inject into InstantAppNotifier. */
+    /**
+     * Inject into InstantAppNotifier.
+     */
     @Binds
     @IntoMap
     @ClassKey(InstantAppNotifier.class)
     public abstract SystemUI bindInstantAppNotifier(InstantAppNotifier sysui);
 
-    /** Inject into KeyguardViewMediator. */
+    /**
+     * Inject into KeyguardViewMediator.
+     */
     @Binds
     @IntoMap
     @ClassKey(KeyguardViewMediator.class)
     public abstract SystemUI bindKeyguardViewMediator(KeyguardViewMediator sysui);
 
-    /** Inject into LatencyTests. */
+    /**
+     * Inject into LatencyTests.
+     */
     @Binds
     @IntoMap
     @ClassKey(LatencyTester.class)
     public abstract SystemUI bindLatencyTester(LatencyTester sysui);
 
-    /** Inject into PowerUI. */
+    /**
+     * Inject into PowerUI.
+     */
     @Binds
     @IntoMap
     @ClassKey(PowerUI.class)
     public abstract SystemUI bindPowerUI(PowerUI sysui);
 
-    /** Inject into Recents. */
+    /**
+     * Inject into Recents.
+     */
     @Binds
     @IntoMap
     @ClassKey(Recents.class)
     public abstract SystemUI bindRecents(Recents sysui);
 
-    /** Inject into ScreenDecorations. */
+    /**
+     * Inject into ScreenDecorations.
+     */
     @Binds
     @IntoMap
     @ClassKey(ScreenDecorations.class)
     public abstract SystemUI bindScreenDecorations(ScreenDecorations sysui);
 
-    /** Inject into ShortcutKeyDispatcher. */
+    /**
+     * Inject into ShortcutKeyDispatcher.
+     */
     @Binds
     @IntoMap
     @ClassKey(ShortcutKeyDispatcher.class)
     public abstract SystemUI bindsShortcutKeyDispatcher(ShortcutKeyDispatcher sysui);
 
-    /** Inject into SliceBroadcastRelayHandler. */
+    /**
+     * Inject into SliceBroadcastRelayHandler.
+     */
     @Binds
     @IntoMap
     @ClassKey(SliceBroadcastRelayHandler.class)
     public abstract SystemUI bindSliceBroadcastRelayHandler(SliceBroadcastRelayHandler sysui);
 
-    /** Inject into StatusBar. */
+    /**
+     * Inject into StatusBar.
+     */
     @Binds
     @IntoMap
     @ClassKey(StatusBar.class)
     public abstract SystemUI bindsStatusBar(StatusBar sysui);
 
-    /** Inject into SystemActions. */
+    /**
+     * Inject into SystemActions.
+     */
     @Binds
     @IntoMap
     @ClassKey(SystemActions.class)
     public abstract SystemUI bindSystemActions(SystemActions sysui);
 
-    /** Inject into ThemeOverlayController. */
+    /**
+     * Inject into ThemeOverlayController.
+     */
     @Binds
     @IntoMap
     @ClassKey(ThemeOverlayController.class)
-    public abstract SystemUI bindThemeOverlayController(ThemeOverlayController sysui);
+    public abstract SystemUI bindThemeOverlayController(ThemeOverlayControllerGoogle sysui);
 
-    /** Inject into ToastUI. */
+    /**
+     * Inject into ToastUI.
+     */
     @Binds
     @IntoMap
     @ClassKey(ToastUI.class)
     public abstract SystemUI bindToastUI(ToastUI service);
 
-    /** Inject into TvStatusBar. */
+    /**
+     * Inject into TvStatusBar.
+     */
     @Binds
     @IntoMap
     @ClassKey(TvStatusBar.class)
     public abstract SystemUI bindsTvStatusBar(TvStatusBar sysui);
 
-    /** Inject into TvNotificationPanel. */
+    /**
+     * Inject into TvNotificationPanel.
+     */
     @Binds
     @IntoMap
     @ClassKey(TvNotificationPanel.class)
     public abstract SystemUI bindsTvNotificationPanel(TvNotificationPanel sysui);
 
-    /** Inject into TvOngoingPrivacyChip. */
+    /**
+     * Inject into TvOngoingPrivacyChip.
+     */
     @Binds
     @IntoMap
     @ClassKey(TvOngoingPrivacyChip.class)
     public abstract SystemUI bindsTvOngoingPrivacyChip(TvOngoingPrivacyChip sysui);
 
-    /** Inject into VolumeUI. */
+    /**
+     * Inject into VolumeUI.
+     */
     @Binds
     @IntoMap
     @ClassKey(VolumeUI.class)
     public abstract SystemUI bindVolumeUI(VolumeUI sysui);
 
-    /** Inject into WindowMagnification. */
+    /**
+     * Inject into WindowMagnification.
+     */
     @Binds
     @IntoMap
     @ClassKey(WindowMagnification.class)
     public abstract SystemUI bindWindowMagnification(WindowMagnification sysui);
 
-    /** Inject into WMShell. */
+    /**
+     * Inject into WMShell.
+     */
     @Binds
     @IntoMap
     @ClassKey(WMShell.class)
     public abstract SystemUI bindWMShell(WMShell sysui);
 
-    /** Inject into HomeSoundEffectController. */
+    /**
+     * Inject into HomeSoundEffectController.
+     */
     @Binds
     @IntoMap
     @ClassKey(HomeSoundEffectController.class)
     public abstract SystemUI bindHomeSoundEffectController(HomeSoundEffectController sysui);
+
+    /**
+     * Inject into GoogleServices.
+     */
+    @Binds
+    @IntoMap
+    @ClassKey(GoogleServices.class)
+    public abstract SystemUI bindGoogleServices(GoogleServices sysui);
+
+    /**
+     * Inject into StatusBarGoogle.
+     */
+    @Binds
+    @IntoMap
+    @ClassKey(StatusBarGoogle.class)
+    public abstract SystemUI bindStatusBarGoogle(StatusBarGoogle sysui);
+
+    /**
+     * Inject into GameMenuActivity.
+     */
+    @Binds
+    @IntoMap
+    @ClassKey(GameMenuActivityWrapper.class)
+    public abstract Activity bindGameMenuActivity(GameMenuActivityWrapper activity);
 }
