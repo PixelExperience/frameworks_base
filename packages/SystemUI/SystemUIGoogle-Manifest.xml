@@ -46,8 +46,8 @@
                 <action android:name="com.google.android.systemui.QUICK_TAP_TARGET_REQUEST"/>
             </intent-filter>
         </service>
-        <provider android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle" android:enabled="true" android:exported="true" android:authorities="com.android.systemui.keyguard"/>
-        <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameMenuActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
+        <provider android:name="org.pixelexperience.android.systemui.keyguard.KeyguardSliceProviderGoogle" android:enabled="true" android:exported="true" android:authorities="com.android.systemui.keyguard"/>
+        <activity android:theme="@style/GameMenuTheme" android:name="org.pixelexperience.systemui.gamedashboard.GameMenuActivityWrapper" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
         <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameDndConfigActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
     </application>
 </manifest>

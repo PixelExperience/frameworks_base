@@ -26,7 +26,7 @@
 
     <!-- Component to be used as the status bar service.  Must implement the IStatusBar
      interface.  This name is in the ComponentName flattened format (package/class)  -->
-    <string name="config_statusBarComponent" translatable="false">com.android.systemui.statusbar.phone.StatusBar</string>
+    <!--string name="config_statusBarComponent" translatable="false">com.android.systemui.statusbar.phone.StatusBar</string-->
 
     <!-- Component to be used as the recents implementation.  Must implement the
      RecentsImplementation interface.  This name is in the ComponentName flattened format
@@ -308,7 +308,7 @@
     <bool name="config_keyguard_user_switch_opens_qs_details">false</bool>
 
     <!-- SystemUIFactory component -->
-    <string name="config_systemUIFactoryComponent" translatable="false">com.android.systemui.SystemUIFactory</string>
+    <!--string name="config_systemUIFactoryComponent" translatable="false">com.android.systemui.SystemUIFactory</string-->
 
     <!-- SystemUI Services: The classes of the stuff to start. -->
     <string-array name="config_systemUIServiceComponents" translatable="false">
@@ -342,7 +342,7 @@
     <dimen name="config_qsTileStrokeWidthInactive">-1dp</dimen>
 
     <!-- SystemUI vender service, used in config_systemUIServiceComponents. -->
-    <string name="config_systemUIVendorServiceComponent" translatable="false">com.android.systemui.VendorServices</string>
+    <!--string name="config_systemUIVendorServiceComponent" translatable="false">com.android.systemui.VendorServices</string-->
 
     <!-- SystemUI Services (per user): The classes of the stuff to start for each user. This is a subset of the config_systemUIServiceComponents -->
     <string-array name="config_systemUIServiceComponentsPerUser" translatable="false">

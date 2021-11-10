@@ -32,12 +32,15 @@ import com.android.systemui.qs.dagger.QSFlagsModule;
 import com.android.systemui.qs.dagger.QSFragmentComponent;
 import com.android.systemui.statusbar.phone.AutoTileManager;
 import com.android.systemui.statusbar.phone.ManagedProfileController;
+import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.CastController;
 import com.android.systemui.statusbar.policy.DataSaverController;
 import com.android.systemui.statusbar.policy.DeviceControlsController;
 import com.android.systemui.statusbar.policy.HotspotController;
 import com.android.systemui.statusbar.policy.WalletController;
 import com.android.systemui.util.settings.SecureSettings;
+
+import org.pixelexperience.systemui.statusbar.phone.AutoTileManagerGoogle;
 
 import javax.inject.Named;
 
@@ -61,11 +64,12 @@ public interface QSModuleGoogle {
             ManagedProfileController managedProfileController,
             NightDisplayListener nightDisplayListener,
             CastController castController,
+            BatteryController batteryController,
             ReduceBrightColorsController reduceBrightColorsController,
             DeviceControlsController deviceControlsController,
             WalletController walletController,
             @Named(RBC_AVAILABLE) boolean isReduceBrightColorsAvailable) {
-        AutoTileManager manager = new AutoTileManager(
+        AutoTileManager manager = new AutoTileManagerGoogle(
                 context,
                 autoAddTrackerBuilder,
                 host,
@@ -76,6 +80,7 @@ public interface QSModuleGoogle {
                 managedProfileController,
                 nightDisplayListener,
                 castController,
+                batteryController,
                 reduceBrightColorsController,
                 deviceControlsController,
                 walletController,
