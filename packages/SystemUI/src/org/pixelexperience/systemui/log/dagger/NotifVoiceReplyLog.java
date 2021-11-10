@@ -12,20 +12,21 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-*/
+ */
 
-package org.pixelexperience.systemui.power.dagger;
+package org.pixelexperience.systemui.log.dagger;
 
-import com.android.systemui.power.PowerNotificationWarnings;
-import com.android.systemui.power.PowerUI;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import dagger.Binds;
-import dagger.Module;
+import com.android.systemui.log.LogBuffer;
 
-import com.google.android.systemui.power.PowerNotificationWarningsGoogleImpl;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
 
-@Module
-public interface PowerModuleGoogle {
-    @Binds
-    PowerUI.WarningsUI provideWarningsUi(PowerNotificationWarningsGoogleImpl controllerImpl);
+import javax.inject.Qualifier;
+
+@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface NotifVoiceReplyLog {
 }
