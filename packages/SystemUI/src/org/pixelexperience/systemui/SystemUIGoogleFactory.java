@@ -17,11 +17,30 @@
 
 package org.pixelexperience.systemui;
 
+import android.content.res.AssetManager;
+import android.os.Handler;
+import com.android.systemui.SystemUIFactory;
+import com.android.systemui.dagger.GlobalRootComponent;
+import com.android.systemui.navigationbar.gestural.BackGestureTfClassifierProvider;
+import com.android.systemui.screenshot.ScreenshotNotificationSmartActionsProvider;
+import org.pixelexperience.systemui.dagger.SysUIGoogleSysUIComponent;
+import org.pixelexperience.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent;
+import com.google.android.systemui.gesture.BackGestureTfClassifierProviderGoogle;
+import com.google.android.systemui.screenshot.ScreenshotNotificationSmartActionsProviderGoogle;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+
+
 import android.content.Context;
 
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.dagger.GlobalRootComponent;
+
 import org.pixelexperience.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent;
+import org.pixelexperience.systemui.dagger.SysUIGoogleSysUIComponent;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
 
 public class SystemUIGoogleFactory extends SystemUIFactory {
     @Override
@@ -29,5 +48,23 @@ public class SystemUIGoogleFactory extends SystemUIFactory {
         return DaggerSysUIGoogleGlobalRootComponent.builder()
                 .context(context)
                 .build();
+    }
+
+    @Override
+    public ScreenshotNotificationSmartActionsProvider createScreenshotNotificationSmartActionsProvider(Context context, Executor executor, Handler handler) {
+        return new ScreenshotNotificationSmartActionsProviderGoogle(context, executor, handler);
+    }
+
+    @Override
+    public BackGestureTfClassifierProvider createBackGestureTfClassifierProvider(AssetManager assetManager, String str) {
+        return new BackGestureTfClassifierProviderGoogle(assetManager, str);
+    }
+
+    @Override
+    public void init(Context context, boolean z) throws ExecutionException, InterruptedException {
+        super.init(context, z);
+        if (shouldInitializeComponents()) {
+            ((SysUIGoogleSysUIComponent) getSysUIComponent()).createKeyguardSmartspaceController();
+        }
     }
 }
