@@ -101,4 +101,7 @@
     <!-- Whether to allow network traffic on statusbar -->
     <java-symbol type="bool" name="config_supportsNetworkTrafficOnStatusBar" />
 
+    <!-- Whether devices suports in-display fingerprint when screen is off -->
+    <java-symbol type="bool" name="config_supportsScreenOffUdfps" />
+
 </resources>
