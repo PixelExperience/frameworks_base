@@ -931,6 +931,10 @@ final class DefaultPermissionGrantPolicy {
         grantPermissionsToSystemPackage(pm, getDefaultSystemHandlerServicePackage(pm,
                         commonServiceAction, userId), userId, NOTIFICATION_PERMISSIONS);
 
+        // DownloadProviders
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.android.providers.downloads.DownloadProvider", userId,
+                STORAGE_PERMISSIONS);
+
         // Mediascanner
         grantSystemFixedPermissionsToSystemPackage(pm,
                 getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
