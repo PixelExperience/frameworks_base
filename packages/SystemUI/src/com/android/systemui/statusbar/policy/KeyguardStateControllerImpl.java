@@ -342,6 +342,7 @@ public class KeyguardStateControllerImpl implements KeyguardStateController, Dum
     @Override
     public void setLaunchTransitionFadingAway(boolean fadingAway) {
         mLaunchTransitionFadingAway = fadingAway;
+        new ArrayList<>(mCallbacks).forEach(Callback::onLaunchTransitionFadingAwayChanged);
     }
 
     @Override
