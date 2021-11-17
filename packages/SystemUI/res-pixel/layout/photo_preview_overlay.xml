@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/photo_preview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:alpha="0.0"
+    android:background="@drawable/photo_preview_background"
+    android:forceHasOverlappingRendering="false"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@id/photo_preview_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/dock_promo_padding"
+        android:paddingRight="@dimen/dock_promo_padding"
+        android:text="@string/dock_photo_preview_text"
+        android:textAppearance="@style/TextAppearance.Keyguard.BottomArea"
+        android:textColor="@color/dock_photo_text"
+        android:textSize="24.0sp" />
+
+</FrameLayout>

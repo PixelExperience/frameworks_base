@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <array name="config_nfc_conflict_with_usb_audio_productid"/>
+    <array name="config_nfc_conflict_with_usb_audio_vendorid"/>
+    <string-array name="config_quickSettingsAutoAdd">
+        <item>accessibility_display_inversion_enabled:inversion</item>
+        <item>wind_down_first_time_setup:custom(com.google.android.apps.wellbeing/.screen.ui.GrayscaleTileService)</item>
+        <item>focus_mode_first_time_setup:custom(com.google.android.apps.wellbeing/.focusmode.quicksettings.FocusModeTileService)</item>
+    </string-array>
+    <integer-array name="elmyra_blocking_system_keys">
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+    </integer-array>
+    <integer-array name="elmyra_lower_threshold">
+        <item>-400</item>
+        <item>-1000</item>
+    </integer-array>
+    <integer-array name="elmyra_slope_sensitivity">
+        <item>40</item>
+        <item>70</item>
+    </integer-array>
+    <integer-array name="elmyra_time_window">
+        <item>1000</item>
+        <item>5000</item>
+    </integer-array>
+    <integer-array name="elmyra_upper_threshold">
+        <item>1000</item>
+        <item>20000</item>
+    </integer-array>
+    <string-array name="recents_onboarding_blacklisted_packages">
+        <item>com.google.android.setupwizard</item>
+        <item>com.google.android.apps.googleassistant</item>
+    </string-array>
+</resources>

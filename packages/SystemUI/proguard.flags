@@ -57,3 +57,8 @@
 -keep class com.android.systemui.dagger.GlobalRootComponent$SysUIComponentImpl { *; }
 -keep class com.android.systemui.dagger.Dagger** { *; }
 -keep class com.android.systemui.tv.Dagger** { *; }
+
+-keep class com.google.android.systemui.*
+-keep class com.google.android.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent { *; }
+-keep class com.google.android.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent$SysUIGoogleSysUIComponentImpl { *; }
+-keep class com.google.android.systemui.dagger.Dagger** { *; }

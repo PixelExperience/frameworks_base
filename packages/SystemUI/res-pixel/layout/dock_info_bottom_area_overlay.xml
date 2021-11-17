@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/dock_promo"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center"
+    android:layout_marginBottom="@dimen/keyguard_indication_margin_bottom"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@id/photo_promo_text"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/swipe_arrow_height"
+        android:accessibilityLiveRegion="polite"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/dock_promo_padding"
+        android:paddingRight="@dimen/dock_promo_padding"
+        android:text="@string/dock_promo_text"
+        android:textAppearance="@style/TextAppearance.Keyguard.BottomArea"
+        android:textColor="@color/dock_photo_text" />
+
+    <ImageView
+        android:id="@id/dreamliner_arrow"
+        android:layout_width="@dimen/swipe_arrow_width"
+        android:layout_height="@dimen/swipe_arrow_height"
+        android:layout_gravity="right"
+        android:scaleType="center"
+        android:src="@drawable/ic_swipe_arrow"
+        android:tint="@color/dock_photo_text" />
+
+</FrameLayout>
