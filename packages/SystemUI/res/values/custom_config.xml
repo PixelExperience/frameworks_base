@@ -2,4 +2,8 @@
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">4</integer>
     <integer name="config_maxVisibleNotificationIconsOnLock">5</integer>
+
+    <!-- SystemUI Google -->
+    <bool name="flag_monet">true</bool>
+    <bool name="flag_smartspace">true</bool>
 </resources>

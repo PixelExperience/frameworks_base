@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/global_actions_lite_background"
+    android:gravity="center"
+    android:layout_gravity="center|top"
+    android:layout_marginTop="@dimen/global_actions_info_margin"
+    android:layout_weight="0.0"
+    android:orientation="horizontal"
+    android:paddingBottom="14.0dip"
+    android:paddingEnd="20.0dip"
+    android:paddingStart="20.0dip"
+    android:paddingTop="14.0dip"
+    android:theme="@style/Theme.SystemUI.QuickSettings"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintWidth_max="382.0dip">
+
+    <ImageView
+        android:layout_width="20.0dip"
+        android:layout_height="20.0dip"
+        android:layout_marginEnd="12.0dip"
+        android:layout_weight="0.0"
+        android:src="@drawable/ic_info"
+        android:tint="?android:textColorSecondary" />
+
+    <TextView
+        android:id="@+id/global_actions_change_message"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:text="@string/global_actions_change_description"
+        android:textColor="?android:textColorSecondary"
+        android:textSize="14.0sp" />
+
+    <ImageView
+        android:id="@+id/global_actions_change_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:layout_weight="0.0"
+        android:src="@*android:drawable/ic_chevron_end"
+        android:tint="?android:textColorSecondary" />
+
+</LinearLayout>

@@ -290,6 +290,43 @@
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settings.flashlight.action.FLASHLIGHT_CHANGED" />
 
+    <!-- From SystemUIGoogle -->
+    <permission android:name="com.android.systemui.permission.SEND_ALERT_BROADCASTS" android:protectionLevel="signature|preinstalled"/>
+    <permission android:name="com.breel.wallpapers.notifications"/>
+    <permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION" android:protectionLevel="signature|system"/>
+    <permission android:name="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE" android:protectionLevel="signature|preinstalled"/>
+    <permission android:name="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE" android:protectionLevel="signature|preinstalled"/>
+    <permission android:name="com.google.android.systemui.permission.WIRELESS_CHARGER_STATUS" android:protectionLevel="signature|system"/>
+    <permission android:name="com.google.sensor.elmyra.permission.USE_RAW_SENSOR" android:protectionLevel="signature|preinstalled"/>
+    <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
+    <protected-broadcast android:name="com.google.android.apps.dreamliner.SETTINGS"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ACTION_UPDATE_FAN_LEVEL"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ALIGNMENT_CHANGE"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.ASSISTANT_POODLE"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.FLING_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.PHOTO_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.dreamliner.TOUCH_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
+    <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
+    <uses-permission android:name="android.permission.ACCESS_CONTEXT_HUB"/>
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
+    <uses-permission android:name="android.permission.MANAGE_GAME_MODE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.REGISTER_STATS_PULL_ATOM"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT"/>
+    <uses-permission android:name="android.permission.VIBRATE_ALWAYS_ON"/>
+    <uses-permission android:name="com.android.systemui.permission.PLUGIN"/>
+    <uses-permission android:name="com.breel.wallpapers.notifications"/>
+    <uses-permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"/>
+    <uses-permission android:name="com.google.android.apps.dreamliner.permission.DREAMLINER_SERVICE"/>
+    <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB"/>
+    <uses-permission android:name="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE"/>
+    <uses-permission android:name="com.google.android.deskclock.permission.RECEIVE_ALERT_BROADCASTS"/>
+    <uses-permission android:name="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE"/>
+    <uses-permission android:name="com.google.restricted_assist_gesture.permission.RESTRICTED_ASSIST_GESTURE_PROVIDER"/>
+    <uses-permission android:name="com.google.sensor.elmyra.permission.USE_RAW_SENSOR"/>
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
@@ -306,6 +343,15 @@
         android:directBootAware="true"
         tools:replace="android:appComponentFactory"
         android:appComponentFactory=".SystemUIAppComponentFactory">
+
+        <!-- From SystemUIGoogle -->
+        <service android:name="com.google.android.systemui.elmyra.ElmyraServiceProxy" android:permission="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE" android:exported="true"/>
+        <service android:name="com.google.android.systemui.columbus.ColumbusServiceProxy" android:permission="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE" android:exported="true"/>
+        <service android:name="com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService" android:exported="true"/>
+        <provider android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle" android:enabled="true" android:exported="true" android:authorities="com.android.systemui.keyguard"/>
+        <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameMenuActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
+        <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameDndConfigActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
+
         <!-- Keep theme in sync with SystemUIApplication.onCreate().
              Setting the theme on the application does not affect views inflated by services.
              The application theme is set again from onCreate to take effect for those views. -->
@@ -845,12 +891,6 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider" />
-        </provider>
-
-        <provider android:name=".keyguard.KeyguardSliceProvider"
-                  android:authorities="com.android.systemui.keyguard"
-                  android:grantUriPermissions="true"
-                  android:exported="true">
         </provider>
 
         <!-- Provides list and realistic previews of clock faces for the picker app. -->
