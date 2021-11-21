@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dedf385d_7f0a27da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2021-11-21T15:28:40Z",
+      "side": 1,
+      "message": "isn\u0027t this solution working?\nhttps://github.com/PixelExperience/frameworks_base/commit/85904e647048dcda03b9bf2173771095a62b9d62#diff-1b44069d16a21f56e1895d7ad2fe5154f09255e2d4daf3b90ec3300d0737ccb1",
+      "revId": "242263f396cafe166f9606f48bebc86334fa6c8e",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
