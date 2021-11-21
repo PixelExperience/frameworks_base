@@ -34,6 +34,23 @@
       "parentUuid": "dedf385d_7f0a27da",
       "revId": "242263f396cafe166f9606f48bebc86334fa6c8e",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d17d9e_185c822f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000433
+      },
+      "writtenOn": "2021-11-21T15:55:23Z",
+      "side": 1,
+      "message": "\nBetter cherry-pick from evelen: https://github.com/PixelExperience/frameworks_base/commit/85904e647048dcda03b9bf2173771095a62b9d62\nThis will be better as many device are using this solution since older versions.",
+      "revId": "242263f396cafe166f9606f48bebc86334fa6c8e",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
