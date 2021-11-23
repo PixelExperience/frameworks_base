@@ -56,6 +56,7 @@ import com.android.systemui.statusbar.phone.NotificationShadeWindowControllerImp
 import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.phone.ShadeControllerImpl;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
+import com.android.systemui.statusbar.KeyguardIndicationController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
@@ -70,6 +71,7 @@ import com.google.android.systemui.dreamliner.DockObserver;
 import com.google.android.systemui.gamedashboard.EntryPointController;
 import com.google.android.systemui.power.EnhancedEstimatesGoogleImpl;
 import com.google.android.systemui.reversecharging.ReverseChargingController;
+import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.policy.BatteryControllerImplGoogle;
 
 import org.pixelexperience.systemui.assist.AssistManagerGoogle;
@@ -214,4 +216,7 @@ public abstract class SystemUIGoogleModule {
 
     @Binds
     abstract NavigationBarOverlayController bindEntryPointController(EntryPointController assistManager);
+
+    @Binds
+    abstract KeyguardIndicationController bindKeyguardIndicationControllerGoogle(KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle);
 }
