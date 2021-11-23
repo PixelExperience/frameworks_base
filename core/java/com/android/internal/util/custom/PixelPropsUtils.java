@@ -29,6 +29,7 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChange;
+    private static final Map<String, Object> propsToChangePixel6P;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangePixel3XL;
 
@@ -53,8 +54,11 @@ public class PixelPropsUtils {
             "com.google.android.apps.turbo",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.maps",
-            "com.google.android.gms",
             "com.google.android.apps.nexuslauncher"
+    };
+
+    private static final String[] packagesToChangePixel6P = {
+            "com.google.android.gms"
     };
 
     private static final String[] packagesToChangePixelXL = {
@@ -73,6 +77,12 @@ public class PixelPropsUtils {
         propsToChange.put("PRODUCT", "redfin");
         propsToChange.put("MODEL", "Pixel 5");
         propsToChange.put("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys");
+        propsToChangePixel6P = new HashMap<>();
+        propsToChangePixel6P.put("BRAND", "google");
+        propsToChangePixel6P.put("MANUFACTURER", "Google");
+        propsToChangePixel6P.put("DEVICE", "raven");
+        propsToChangePixel6P.put("PRODUCT", "raven");
+        propsToChangePixel6P.put("FINGERPRINT", "google/raven/raven:12/SD1A.210817.037/7862242:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -100,10 +110,16 @@ public class PixelPropsUtils {
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
-                // Don't set model if gms
-                if (packageName.equals("com.google.android.gms") && key.equals("MODEL")){
-                    continue;
-                }
+                setPropValue(key, value);
+            }
+        }
+        if (Arrays.asList(packagesToChangePixel6P).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangePixel6P.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
                 setPropValue(key, value);
             }
         }
