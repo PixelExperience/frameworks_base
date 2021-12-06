@@ -16,6 +16,23 @@
       "message": "It fixes mtp access to external sdcards also",
       "revId": "be32f71c8b01a93adcfba483b77d4f1ba2b70a19",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5113547e_07a787dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2021-12-06T14:57:55Z",
+      "side": 1,
+      "message": "gtg",
+      "revId": "be32f71c8b01a93adcfba483b77d4f1ba2b70a19",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
