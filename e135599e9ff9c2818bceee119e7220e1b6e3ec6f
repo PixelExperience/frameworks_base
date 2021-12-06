@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d57012_fd3f6990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-12-06T22:23:50Z",
+      "side": 1,
+      "message": "Maybe guard that with overlay? To make behavior consistent on others devices",
+      "revId": "e135599e9ff9c2818bceee119e7220e1b6e3ec6f",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
