@@ -18,6 +18,7 @@
 package com.android.internal.util.custom;
 
 import android.os.Build;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import java.lang.reflect.Field;
@@ -30,6 +31,7 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
+    private static final String DEVICE = "org.pixelexperience.device";
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChange;
@@ -80,6 +82,21 @@ public class PixelPropsUtils {
         "com.google.android.apps.youtube.music"
     };
 
+    // Codenames for currently supported Pixels by Google
+    private static final String[] pixelCodenames = {
+            "cheetah",
+            "panther",
+            "bluejay",
+            "oriole",
+            "raven",
+            "barbet",
+            "redfin",
+            "bramble",
+            "sunfish",
+            "coral",
+            "flame"
+    };
+
     private static volatile boolean sIsGms = false;
 
     static {
@@ -119,9 +136,11 @@ public class PixelPropsUtils {
         if (packageName.startsWith("com.google.")
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
 
+            boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
+
             if (packageName.equals("com.google.android.apps.photos")) {
                 propsToChange.putAll(propsToChangePixelXL);
-            } else {
+            } else if (!isPixelDevice) {
                 if (Arrays.asList(packagesToChangePixel6).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixel6);
                 } else if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
