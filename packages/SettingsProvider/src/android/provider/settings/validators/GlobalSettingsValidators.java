@@ -140,6 +140,7 @@ public class GlobalSettingsValidators {
                         /* last= */Global.ONE_HANDED_KEYGUARD_SIDE_RIGHT));
         VALIDATORS.put(Global.DISABLE_WINDOW_BLURS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.DEVICE_CONFIG_SYNC_DISABLED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Global.BATTERY_LIGHT_ENABLED, BOOLEAN_VALIDATOR);
     }
 }
 
