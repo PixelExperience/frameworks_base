@@ -33,6 +33,24 @@
       "message": "This has been confirmed to be not working as intended, that being a false positive or blatantly not working at all.",
       "revId": "2451ce90cb35463bebd4f11bcec6dc1e51965c4a",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "958c9886_8d7d4df5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000554
+      },
+      "writtenOn": "2021-12-12T11:11:25Z",
+      "side": 1,
+      "message": "Maybe we can take a look at how EvolutionX Snow (A12) solves it?\nI know that it works there without any problems.",
+      "parentUuid": "aaacb4db_bfd7333f",
+      "revId": "2451ce90cb35463bebd4f11bcec6dc1e51965c4a",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
