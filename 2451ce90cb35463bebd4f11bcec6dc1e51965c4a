@@ -105,6 +105,24 @@
       "parentUuid": "276fcc56_e2ea640e",
       "revId": "2451ce90cb35463bebd4f11bcec6dc1e51965c4a",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd58eba7_f5a21737",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-12T12:38:13Z",
+      "side": 1,
+      "message": "As said previously, we\u0027ve tested in more than one device, it\u0027s has always a false positive, that is in any ROM.\n\nIf, by the most remote chance possible, it works as intended for a couple of devices, that doesn\u0027t mean it works for everyone, and that much we\u0027ve comproved. Also, we\u0027ve seen this back in Oreo, and it was revisited again back in Q, R and now on S, and in all cases we\u0027ve comproved that it\u0027s whether it doesn\u0027t work or is in fact a false positive.\n\nNot to mention that with Google itself dropping support for it we have no wish in pushing this forward either way.",
+      "parentUuid": "744a024f_98da74b0",
+      "revId": "2451ce90cb35463bebd4f11bcec6dc1e51965c4a",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
