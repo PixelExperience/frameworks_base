@@ -69,6 +69,24 @@
       "parentUuid": "958c9886_8d7d4df5",
       "revId": "2451ce90cb35463bebd4f11bcec6dc1e51965c4a",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "276fcc56_e2ea640e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-12T12:17:28Z",
+      "side": 1,
+      "message": "We\u0027ve tested already, in a bunch of devices, the only that said that worked on PE was Alisson on vayu, and even with that we believe it\u0027s a false positive, as since Oreo we have confirmation that it is in fact a false positive, which means that it never worked to start with. Although PixelProps were introduced on R, we\u0027ve checked again, and once more, it was a false positive.",
+      "parentUuid": "d92e4ea3_eeaa41ff",
+      "revId": "2451ce90cb35463bebd4f11bcec6dc1e51965c4a",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
