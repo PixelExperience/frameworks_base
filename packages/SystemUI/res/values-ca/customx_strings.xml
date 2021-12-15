@@ -50,6 +50,8 @@
     <string name="vpn_credentials_dialog_connect">Connecta</string>
     <string name="global_action_restart_system">Sistema</string>
     <string name="global_action_restart_recovery">Recuperació</string>
+    <string name="global_screenshot_selector_capture_description">Captura de pantalla parcial</string>
+    <string name="global_screenshot_selector_cancel_description">Cancel·la la captura de pantalla parcial</string>
     <string name="quick_settings_reading_mode">Mode lectura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
@@ -60,4 +62,5 @@
     <string name="global_action_users">Usuaris</string>
     <string name="status_bar_camera">Càmera</string>
     <string name="status_bar_location">Ubicació</string>
+    <string name="status_bar_microphone">Micròfon</string>
 </resources>

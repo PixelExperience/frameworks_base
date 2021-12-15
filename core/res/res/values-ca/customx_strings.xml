@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">Automàtic</string>
     <string name="live_display_auto_summary">Ajusta automàticament la temperatura de color de la pantalla després de la posta de sol i de l\'alba</string>
+    <string name="live_display_off">Desactivat</string>
     <string name="live_display_off_summary">Deshabilita totes les configuracions</string>
     <string name="live_display_day">Dia</string>
     <string name="live_display_day_summary">Utilitza només la configuració de dia</string>
