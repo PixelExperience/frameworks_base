@@ -847,12 +847,6 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <provider android:name=".keyguard.KeyguardSliceProvider"
-                  android:authorities="com.android.systemui.keyguard"
-                  android:grantUriPermissions="true"
-                  android:exported="true">
-        </provider>
-
         <!-- Provides list and realistic previews of clock faces for the picker app. -->
         <provider
             android:name="com.android.keyguard.clock.ClockOptionsProvider"
