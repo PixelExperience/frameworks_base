@@ -17,6 +17,7 @@
 package org.pixelexperience.systemui.dagger;
 
 import android.app.Activity;
+import android.app.Service;
 import com.android.systemui.LatencyTester;
 import com.android.systemui.ScreenDecorations;
 import com.android.systemui.SliceBroadcastRelayHandler;
@@ -50,6 +51,7 @@ import org.pixelexperience.systemui.GoogleServices;
 import org.pixelexperience.systemui.statusbar.phone.StatusBarGoogle;
 import com.google.android.systemui.gamedashboard.GameMenuActivity;
 import org.pixelexperience.systemui.gamedashboard.GameMenuActivityWrapper;
+import org.pixelexperience.systemui.columbus.ColumbusTargetRequestServiceWrapper;
 
 import dagger.Binds;
 import dagger.Module;
@@ -257,4 +259,12 @@ public abstract class SystemUIGoogleBinder {
     @IntoMap
     @ClassKey(GameMenuActivityWrapper.class)
     public abstract Activity bindGameMenuActivity(GameMenuActivityWrapper activity);
+
+    /**
+     * Inject into GameMenuActivity.
+     */
+    @Binds
+    @IntoMap
+    @ClassKey(ColumbusTargetRequestServiceWrapper.class)
+    public abstract Service bindColumbusTargetRequestService(ColumbusTargetRequestServiceWrapper activity);
 }
