@@ -51,6 +51,11 @@ public class AutoTileManagerGoogle extends AutoTileManager {
     public AutoTileManagerGoogle(Context context, AutoAddTracker.Builder builder, QSTileHost qSTileHost, Handler handler, SecureSettings secureSettings, HotspotController hotspotController, DataSaverController dataSaverController, ManagedProfileController managedProfileController, NightDisplayListener nightDisplayListener, CastController castController, BatteryController batteryController, ReduceBrightColorsController reduceBrightColorsController, DeviceControlsController deviceControlsController, WalletController walletController, boolean z) {
         super(context, builder, qSTileHost, handler, secureSettings, hotspotController, dataSaverController, managedProfileController, nightDisplayListener, castController, reduceBrightColorsController, deviceControlsController, walletController, z);
         mBatteryController = batteryController;
+    }
+
+    @Override // com.android.systemui.statusbar.phone.AutoTileManager
+    public void init() {
+        super.init();
         if (!mAutoTracker.isAdded("ott") && Build.IS_DEBUGGABLE) {
             mAutoTracker.setTileAdded("ott");
             mHost.addTile("ott");

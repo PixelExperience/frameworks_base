@@ -41,7 +41,7 @@
         <service android:name="com.google.android.systemui.elmyra.ElmyraServiceProxy" android:permission="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE" android:exported="true"/>
         <service android:name="com.google.android.systemui.columbus.ColumbusServiceProxy" android:permission="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE" android:exported="true"/>
         <service android:name="com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService" android:exported="true"/>
-        <service android:name="com.google.android.systemui.columbus.ColumbusTargetRequestService" android:exported="true">
+        <service android:name="org.pixelexperience.systemui.columbus.ColumbusTargetRequestServiceWrapper" android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.systemui.QUICK_TAP_TARGET_REQUEST"/>
             </intent-filter>
