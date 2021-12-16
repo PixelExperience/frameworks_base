@@ -61,6 +61,7 @@ android_library {
         "res-product",
         "res-keyguard",
         "res",
+        "res-pixel",
     ],
     static_libs: [
         "WindowManager-Shell",
@@ -95,6 +96,8 @@ android_library {
         "dagger2",
         "jsr330",
         "lottie",
+        "tensorflowlite_java",
+        "SystemUIGoogle-lib",
     ],
     manifest: "AndroidManifest.xml",
 
@@ -201,7 +204,14 @@ android_app {
     static_libs: [
         "SystemUI-core",
     ],
+    jni_libs: ["libtensorflowlite_jni"],
+    use_embedded_native_libs: true,
     resource_dirs: [],
+    asset_dirs: ["assets"],
+    aaptflags: [
+        "-0 .tflite",
+        "-0 .vocab",
+    ],
 
     platform_apis: true,
     system_ext_specific: true,
