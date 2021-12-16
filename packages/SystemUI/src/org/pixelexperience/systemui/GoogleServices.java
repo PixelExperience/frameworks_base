@@ -24,7 +24,6 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.R;
 import com.android.systemui.VendorServices;
 import com.android.systemui.dagger.SysUISingleton;
-import com.android.systemui.statusbar.FeatureFlags;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.google.android.systemui.DisplayCutoutEmulationAdapter;
 import com.google.android.systemui.ambientmusic.AmbientIndicationContainer;
@@ -38,7 +37,6 @@ import com.google.android.systemui.elmyra.ElmyraService;
 import com.google.android.systemui.elmyra.ServiceConfigurationGoogle;
 import com.google.android.systemui.face.FaceNotificationService;
 import com.google.android.systemui.input.TouchContextService;
-import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -53,22 +51,18 @@ public class GoogleServices extends VendorServices {
     private final AlarmManager mAlarmManager;
     private final AutorotateDataService mAutorotateDataService;
     private final Lazy<ColumbusServiceWrapper> mColumbusServiceLazy;
-    private final FeatureFlags mFeatureFlags;
-    private final KeyguardIndicationControllerGoogle mKeyguardIndicationController;
     private final Lazy<ServiceConfigurationGoogle> mServiceConfigurationGoogle;
     private final ArrayList<Object> mServices = new ArrayList<>();
     private final StatusBar mStatusBar;
     private final UiEventLogger mUiEventLogger;
 
     @Inject
-    public GoogleServices(Context context, Lazy<ServiceConfigurationGoogle> serviceConfigurationGoogle, StatusBar statusBar, UiEventLogger uiEventLogger, Lazy<ColumbusServiceWrapper> columbusService, FeatureFlags featureFlags, KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle, AlarmManager alarmManager, AutorotateDataService autorotateDataService) {
+    public GoogleServices(Context context, Lazy<ServiceConfigurationGoogle> serviceConfigurationGoogle, StatusBar statusBar, UiEventLogger uiEventLogger, Lazy<ColumbusServiceWrapper> columbusService, AlarmManager alarmManager, AutorotateDataService autorotateDataService) {
         super(context);
         mServiceConfigurationGoogle = serviceConfigurationGoogle;
         mStatusBar = statusBar;
         mUiEventLogger = uiEventLogger;
         mColumbusServiceLazy = columbusService;
-        mFeatureFlags = featureFlags;
-        mKeyguardIndicationController = keyguardIndicationControllerGoogle;
         mAlarmManager = alarmManager;
         mAutorotateDataService = autorotateDataService;
     }
@@ -76,8 +70,8 @@ public class GoogleServices extends VendorServices {
     @Override
     public void start() {
         AmbientIndicationContainer ambientIndicationContainer = mStatusBar.getNotificationShadeWindowView().findViewById(R.id.ambient_indication_container);
-        ambientIndicationContainer.initializeView(mStatusBar, mFeatureFlags);
-        addService(new AmbientIndicationService(mContext, ambientIndicationContainer, mKeyguardIndicationController, mAlarmManager));
+        ambientIndicationContainer.initializeView(mStatusBar);
+        addService(new AmbientIndicationService(mContext, ambientIndicationContainer, mAlarmManager));
         addService(new DisplayCutoutEmulationAdapter(mContext));
         addService(new CoversheetService(mContext));
         mAutorotateDataService.init();
