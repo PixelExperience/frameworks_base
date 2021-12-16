@@ -294,7 +294,7 @@
         android:name=".SystemUIApplication"
         android:persistent="true"
         android:allowClearUserData="false"
-        android:backupAgent=".backup.BackupHelper"
+        android:backupAgent="com.google.android.systemui.backup.BackupHelperGoogle"
         android:killAfterRestore="false"
         android:hardwareAccelerated="true"
         android:label="@string/app_label"
@@ -304,7 +304,7 @@
         android:theme="@style/Theme.SystemUI"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true"
-        tools:replace="android:appComponentFactory,android:backupAgent"
+        tools:replace="android:appComponentFactory"
         android:appComponentFactory=".SystemUIAppComponentFactory">
         <!-- Keep theme in sync with SystemUIApplication.onCreate().
              Setting the theme on the application does not affect views inflated by services.
