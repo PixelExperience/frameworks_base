@@ -31,6 +31,7 @@ import android.content.Context;
 import android.content.om.OverlayManager;
 import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.hardware.SensorManager;
 import android.hardware.usb.UsbManager;
 import android.media.AudioManager;
@@ -78,6 +79,7 @@ import com.android.systemui.dagger.qualifiers.UiBackground;
 import com.android.systemui.demomode.DemoModeController;
 import com.android.systemui.dock.DockManager;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.flags.SystemPropertiesHelper;
 import com.android.systemui.keyguard.DismissCallbackRegistry;
 import com.android.systemui.keyguard.KeyguardUnlockAnimationController;
 import com.android.systemui.keyguard.KeyguardViewMediator;
@@ -118,6 +120,7 @@ import com.android.systemui.statusbar.SuperStatusBarViewFactory;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
 import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.charging.WiredChargingRippleController;
+import com.android.systemui.statusbar.commandline.CommandRegistry;
 import com.android.systemui.statusbar.events.SystemStatusAnimationScheduler;
 import com.android.systemui.statusbar.notification.DynamicPrivacyController;
 import com.android.systemui.statusbar.notification.NotificationEntryManager;
@@ -219,6 +222,7 @@ import com.google.android.systemui.columbus.ColumbusContentObserver;
 import com.google.android.systemui.columbus.ColumbusService;
 import com.google.android.systemui.columbus.ColumbusServiceWrapper;
 import com.google.android.systemui.columbus.ColumbusSettings;
+import com.google.android.systemui.columbus.ColumbusStructuredDataManager;
 import com.google.android.systemui.columbus.ContentResolverWrapper;
 import com.google.android.systemui.columbus.PowerManagerWrapper;
 import com.google.android.systemui.columbus.actions.Action;
@@ -340,8 +344,8 @@ public class SystemUIGoogleDependencyProvider {
 
     @Provides
     @SysUISingleton
-    static GoogleServices provideGoogleServices(Context context, Lazy<ServiceConfigurationGoogle> lazy, StatusBar statusBar, UiEventLogger uiEventLogger, Lazy<ColumbusServiceWrapper> lazyB, FeatureFlags featureFlags, KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle, AlarmManager alarmManager, AutorotateDataService autorotateDataService) {
-        return new GoogleServices(context, lazy, statusBar, uiEventLogger, lazyB, featureFlags, keyguardIndicationControllerGoogle, alarmManager, autorotateDataService);
+    static GoogleServices provideGoogleServices(Context context, Lazy<ServiceConfigurationGoogle> lazy, StatusBar statusBar, UiEventLogger uiEventLogger, Lazy<ColumbusServiceWrapper> lazyB, AlarmManager alarmManager, AutorotateDataService autorotateDataService) {
+        return new GoogleServices(context, lazy, statusBar, uiEventLogger, lazyB, alarmManager, autorotateDataService);
     }
 
     @Provides
@@ -496,8 +500,8 @@ public class SystemUIGoogleDependencyProvider {
 
     @Provides
     @SysUISingleton
-    static ThemeOverlayControllerGoogle provideThemeOverlayControllerGoogle(Context context, BroadcastDispatcher broadcastDispatcher, @Background Handler handler, @Main Executor executor, @Background Executor executorB, ThemeOverlayApplier themeOverlayApplier, SecureSettings secureSettings, WallpaperManager wallpaperManager, UserManager userManager, DumpManager dumpManager, DeviceProvisionedController deviceProvisionedController, UserTracker userTracker, FeatureFlags featureFlags, WakefulnessLifecycle wakefulnessLifecycle) {
-        return new ThemeOverlayControllerGoogle(context, broadcastDispatcher, handler, executor, executorB, themeOverlayApplier, secureSettings, wallpaperManager, userManager, dumpManager, deviceProvisionedController, userTracker, featureFlags, wakefulnessLifecycle);
+    static ThemeOverlayControllerGoogle provideThemeOverlayControllerGoogle(Context context, BroadcastDispatcher broadcastDispatcher, @Background Handler handler, @Main Executor executor, @Background Executor executorB, ThemeOverlayApplier themeOverlayApplier, SecureSettings secureSettings, SystemPropertiesHelper systemPropertiesHelper, @Main Resources resources, WallpaperManager wallpaperManager, UserManager userManager, DumpManager dumpManager, DeviceProvisionedController deviceProvisionedController, UserTracker userTracker, FeatureFlags featureFlags, WakefulnessLifecycle wakefulnessLifecycle, ConfigurationController configurationController) {
+        return new ThemeOverlayControllerGoogle(context, broadcastDispatcher, handler, executor, executorB, themeOverlayApplier, secureSettings, systemPropertiesHelper, resources, wallpaperManager, userManager, dumpManager, deviceProvisionedController, userTracker, featureFlags, wakefulnessLifecycle, configurationController);
     }
 
     @Provides
@@ -538,19 +542,25 @@ public class SystemUIGoogleDependencyProvider {
 
     @Provides
     @SysUISingleton
+    static ColumbusStructuredDataManager provideColumbusStructuredDataManager(Context context, UserTracker userTracker, @Background Executor executor) {
+        return new ColumbusStructuredDataManager(context, userTracker, executor);
+    }
+
+    @Provides
+    @SysUISingleton
     static ContentResolverWrapper provideContentResolverWrapper(Context context) {
         return new ContentResolverWrapper(context);
     }
 
     @Provides
     @SysUISingleton
-    static ColumbusServiceWrapper provideColumbusServiceWrapper(ColumbusSettings columbusSettings, Lazy<ColumbusService> lazy, Lazy<SettingsAction> lazyB) {
-        return new ColumbusServiceWrapper(columbusSettings, lazy, lazyB);
+    static ColumbusServiceWrapper provideColumbusServiceWrapper(ColumbusSettings columbusSettings, Lazy<ColumbusService> lazy, Lazy<SettingsAction> lazyB, Lazy<ColumbusStructuredDataManager> lazyC) {
+        return new ColumbusServiceWrapper(columbusSettings, lazy, lazyB, lazyC);
     }
 
     @Provides
     @SysUISingleton
-    static ColumbusService provideColumbusService(List<Action> list, Set<FeedbackEffect> set, Set<Gate> setB, GestureController gestureController, PowerManagerWrapper powerManagerWrapper) {
+    static ColumbusService provideColumbusService(List<Action> list, Set<FeedbackEffect> set, @Named(COLUMBUS_GATES) Set<Gate> setB, GestureController gestureController, PowerManagerWrapper powerManagerWrapper) {
         return new ColumbusService(list, set, setB, gestureController, powerManagerWrapper);
     }
 
@@ -562,14 +572,14 @@ public class SystemUIGoogleDependencyProvider {
 
     @Provides
     @SysUISingleton
-    static ColumbusSettings provideColumbusSettings(Context context, ColumbusContentObserver.Factory factory) {
-        return new ColumbusSettings(context, factory);
+    static ColumbusSettings provideColumbusSettings(Context context, UserTracker userTracker, ColumbusContentObserver.Factory factory) {
+        return new ColumbusSettings(context, userTracker, factory);
     }
 
     @Provides
     @SysUISingleton
-    static ColumbusContentObserver.Factory provideColumbusContentObserver(ContentResolverWrapper contentResolverWrapper, IActivityManager iActivityManager, Handler handler) {
-        return new ColumbusContentObserver.Factory(contentResolverWrapper, iActivityManager, handler);
+    static ColumbusContentObserver.Factory provideColumbusContentObserver(ContentResolverWrapper contentResolverWrapper, UserTracker userTracker, @Background Handler handler, @Main Executor executor) {
+        return new ColumbusContentObserver.Factory(contentResolverWrapper, userTracker, handler, executor);
     }
 
     @Provides
@@ -688,8 +698,8 @@ public class SystemUIGoogleDependencyProvider {
 
     @Provides
     @SysUISingleton
-    static GestureController provideGestureController(GestureSensor gestureSensor, UiEventLogger uiEventLogger) {
-        return new GestureController(gestureSensor, uiEventLogger);
+    static GestureController provideGestureController(GestureSensor gestureSensor, @Named(COLUMBUS_SOFT_GATES) Set<Gate> set, CommandRegistry commandRegistry, UiEventLogger uiEventLogger) {
+        return new GestureController(gestureSensor, set, commandRegistry, uiEventLogger);
     }
 
     @Provides
@@ -748,8 +758,8 @@ public class SystemUIGoogleDependencyProvider {
 
     @Provides
     @SysUISingleton
-    static LaunchApp provideLaunchApp(Context context, LauncherApps launcherApps, IActivityManager iActivityManager, UserManager userManager, ColumbusSettings columbusSettings, KeyguardVisibility keyguardVisibility, @Main Handler handler, @Background Handler handlerB, UiEventLogger uiEventLogger) {
-        return new LaunchApp(context, launcherApps, iActivityManager, userManager, columbusSettings, keyguardVisibility, handler, handlerB, uiEventLogger);
+    static LaunchApp provideLaunchApp(Context context, LauncherApps launcherApps, ActivityStarter activityStarter, StatusBarKeyguardViewManager statusBarKeyguardViewManager, IActivityManager iActivityManager, UserManager userManager, ColumbusSettings columbusSettings, KeyguardVisibility keyguardVisibility, KeyguardUpdateMonitor keyguardUpdateMonitor, @Main Handler handler, @Background Handler handlerB, Executor executor, UiEventLogger uiEventLogger, UserTracker userTracker) {
+        return new LaunchApp(context, launcherApps, activityStarter, statusBarKeyguardViewManager, iActivityManager, userManager, columbusSettings, keyguardVisibility, keyguardUpdateMonitor, handler, handlerB, executor, uiEventLogger, userTracker);
     }
 
     @Provides
@@ -1329,8 +1339,17 @@ public class SystemUIGoogleDependencyProvider {
     @Provides
     @SysUISingleton
     @ElementsIntoSet
-    static Set<Gate> provideColumbusGates(FlagEnabled flagEnabled, ChargingState chargingState, UsbState usbState, KeyguardProximity keyguardProximity, SetupWizard setupWizard, SystemKeyPress systemKeyPress, TelephonyActivity telephonyActivity, VrMode vrMode, CameraVisibility cameraVisibility, PowerSaveState powerSaveState, PowerState powerState, ScreenTouch screenTouch) {
-        return new HashSet(Arrays.asList(flagEnabled, chargingState, usbState, keyguardProximity, setupWizard, systemKeyPress, telephonyActivity, vrMode, cameraVisibility, powerSaveState, powerState, screenTouch));
+    @Named(COLUMBUS_GATES)
+    static Set<Gate> provideColumbusGates(FlagEnabled flagEnabled, KeyguardProximity keyguardProximity, SetupWizard setupWizard, TelephonyActivity telephonyActivity, VrMode vrMode, CameraVisibility cameraVisibility, PowerSaveState powerSaveState, PowerState powerState) {
+        return new HashSet(Arrays.asList(flagEnabled, keyguardProximity, setupWizard, telephonyActivity, vrMode, cameraVisibility, powerSaveState, powerState));
+    }
+
+    @Provides
+    @SysUISingleton
+    @ElementsIntoSet
+    @Named(COLUMBUS_SOFT_GATES)
+    static Set<Gate> provideColumbusSoftGates(ChargingState chargingState, UsbState usbState, SystemKeyPress systemKeyPress, ScreenTouch screenTouch) {
+        return new HashSet(Arrays.asList(chargingState, usbState, systemKeyPress, screenTouch));
     }
 
     @Provides
