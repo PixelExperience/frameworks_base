@@ -32,4 +32,7 @@
     <!-- Udfps HBM provider class name -->
     <string name="config_udfpsHbmProviderComponent">com.android.systemui.biometrics.DummyUdfpsHbmProvider</string>
 
+    <!-- SystemUI Google -->
+    <bool name="flag_smartspace">true</bool>
+
 </resources>
