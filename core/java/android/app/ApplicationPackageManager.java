@@ -713,7 +713,13 @@ public class ApplicationPackageManager extends PackageManager {
         String packageName = ActivityThread.currentPackageName();
         if (packageName != null &&
                 packageName.contains("com.google.android.apps.photos") &&
-                name.contains("PIXEL_2021_EXPERIENCE")) {
+                name.contains("PIXEL_2021_EXPERIENCE") ||
+                name.contains("PIXEL_2021_MIDYEAR_EXPERIENCE") ||
+                name.contains("PIXEL_2020_EXPERIENCE") ||
+                name.contains("PIXEL_2020_MIDYEAR_EXPERIENCE") ||
+                name.contains("PIXEL_2019_EXPERIENCE") ||
+                name.contains("PIXEL_2019_PRELOAD") ||
+                name.contains("PIXEL_2019_MIDYEAR_EXPERIENCE")) {
             return false;
         }
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
