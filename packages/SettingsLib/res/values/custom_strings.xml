@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Use System Selection (Default)</string>
+
+    <!-- Message for telling the user the kind of BT device being displayed. [CHAR LIMIT=30] -->
+    <string name="bluetooth_talkback_group">Group Devices</string>
+
+    <!-- Bluetooth settings.  The user-visible string that is used whenever
+     referring to BC profile. -->
+    <string name="bluetooth_profile_bc">BC Profile</string>
+    <!-- Bluetooth settings.  Connection options screen.
+    The summary for the profile checkbox preference when BC is connected. -->
+    <string name="bluetooth_bc_profile_summary_connected">Connected to BA server</string>
+    <!-- Bluetooth settings.  Connection options screen.
+    The summary for the BC checkbox preference that describes how checking it
+    will set the BC profile as preferred. -->
+    <string name="bluetooth_bc_profile_summary_use_for">Use for BA</string>
+</resources>
