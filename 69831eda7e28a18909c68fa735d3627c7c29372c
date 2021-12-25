@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32320ec_8b85039e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000603
+      },
+      "writtenOn": "2021-12-25T17:03:52Z",
+      "side": 1,
+      "message": "This commit works for me //renoir",
+      "revId": "69831eda7e28a18909c68fa735d3627c7c29372c",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
