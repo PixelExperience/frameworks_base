@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66883c70_049375b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000554
+      },
+      "writtenOn": "2021-12-31T14:58:24Z",
+      "side": 1,
+      "message": "This is NOT a false positive nor a placebo, it works!\nLook in the maintainer chat for proof.",
+      "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
