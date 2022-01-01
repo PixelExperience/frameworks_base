@@ -51,6 +51,24 @@
       "parentUuid": "ab215b7a_54dd0615",
       "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7ef93f_815edad2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000554
+      },
+      "writtenOn": "2022-01-01T22:53:06Z",
+      "side": 1,
+      "message": "If you want to test it, you need these 3 Gerrit changes:\n\nhttps://gerrit.pixelexperience.org/c/frameworks_base/+/15335\nhttps://gerrit.pixelexperience.org/c/frameworks_base/+/15334\nhttps://gerrit.pixelexperience.org/c/frameworks_base/+/15333\n\nand this commit:\n\nhttps://github.com/PixelExperience-Devices/device_xiaomi_sm7250-common/commit/78fe37a311312dcb6090f1c9ec500103487c5954",
+      "parentUuid": "bec7aa9c_15205b43",
+      "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
