@@ -16,6 +16,23 @@
       "message": "This is NOT a false positive nor a placebo, it works!\nLook in the maintainer chat for proof.",
       "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab215b7a_54dd0615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000571
+      },
+      "writtenOn": "2022-01-01T17:23:07Z",
+      "side": 1,
+      "message": "I can confirm that it doesn\u0027t work anymore: https://i.imgur.com/rL2eQvy.png 😞",
+      "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
