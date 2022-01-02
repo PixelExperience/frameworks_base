@@ -123,6 +123,24 @@
       "parentUuid": "f8cb6c11_d67185b3",
       "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8655f23b_28b80aa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000554
+      },
+      "writtenOn": "2022-01-02T01:31:24Z",
+      "side": 1,
+      "message": "Nice to hear that! Like I said, it\u0027s not a false positive 😊\n\nFYI:\nI know that the commit regarding Pixel devices isn\u0027t needed but it should be merged nevertheless. I imported the XML in the devicetree currently only because I can\u0027t build it on CI because I can\u0027t repo pick the revert PR from Gerrit there.",
+      "parentUuid": "f8cb6c11_d67185b3",
+      "revId": "7578ff5f05726432dd67c33a58fce1e1cff2d153",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
