@@ -37,11 +37,11 @@ public class UdfpsHelper {
 
     public static void onFingerDown(IBiometricsFingerprint daemon, int x, int y, float minor,
             float major) {
-        android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint extension =
-                android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint.castFrom(
+        org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint extension =
+                org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint.castFrom(
                         daemon);
         if (extension == null) {
-            Slog.v(TAG, "onFingerDown | failed to cast the HIDL to V2_3");
+            Slog.v(TAG, "onFingerDown | failed to cast the HIDL to org.pixelexperience.biometrics.fingerprint.V1_0");
             return;
         }
 
@@ -53,11 +53,11 @@ public class UdfpsHelper {
     }
 
     public static void onFingerUp(IBiometricsFingerprint daemon) {
-        android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint extension =
-                android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint.castFrom(
+        org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint extension =
+                org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint.castFrom(
                         daemon);
         if (extension == null) {
-            Slog.v(TAG, "onFingerUp | failed to cast the HIDL to V2_3");
+            Slog.v(TAG, "onFingerUp | failed to cast the HIDL to org.pixelexperience.biometrics.fingerprint.V1_0");
             return;
         }
 
@@ -102,8 +102,8 @@ public class UdfpsHelper {
                 };
 
         if (daemon != null) {
-            android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint extension =
-                android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint.castFrom(
+            org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint extension =
+                org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint.castFrom(
                 daemon);
             if (extension != null) {
                 try {
@@ -112,7 +112,7 @@ public class UdfpsHelper {
                     Slog.v(TAG, "showUdfpsOverlay | RemoteException: ", e);
                 }
             } else {
-                Slog.v(TAG, "onShowUdfpsOverlay | failed to cast the HIDL to V2_3");
+                Slog.v(TAG, "onShowUdfpsOverlay | failed to cast the HIDL to org.pixelexperience.biometrics.fingerprint.V1_0");
             }
         } else {
              Slog.v(TAG, "onShowUdfpsOverlay | daemon null");
@@ -137,8 +137,8 @@ public class UdfpsHelper {
         }
 
         if (daemon != null) {
-            android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint extension =
-                android.hardware.biometrics.fingerprint.V2_3.IBiometricsFingerprint.castFrom(
+            org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint extension =
+                org.pixelexperience.biometrics.fingerprint.V1_0.IBiometricsFingerprint.castFrom(
                 daemon);
             if (extension != null) {
                 try {
@@ -147,7 +147,7 @@ public class UdfpsHelper {
                     Slog.v(TAG, "hideUdfpsOverlay | RemoteException: ", e);
                 }
             } else {
-                Slog.v(TAG, "onHideUdfpsOverlay | failed to cast the HIDL to V2_3");
+                Slog.v(TAG, "onHideUdfpsOverlay | failed to cast the HIDL to org.pixelexperience.biometrics.fingerprint.V1_0");
             }
         } else {
             Slog.v(TAG, "onHideUdfpsOverlay | daemon null");

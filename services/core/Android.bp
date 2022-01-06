@@ -162,6 +162,7 @@ java_library_static {
         "overlayable_policy_aidl-java",
         "SurfaceFlingerProperties",
         "com.android.sysprop.watchdog",
+        "org.pixelexperience.biometrics.fingerprint-V1.0-java",
     ],
     javac_shard_size: 50,
 }
