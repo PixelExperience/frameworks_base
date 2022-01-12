@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94f5450f_42fdef9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000581
+      },
+      "writtenOn": "2022-01-12T18:29:26Z",
+      "side": 1,
+      "message": "Tested in Mi 10T (apollo) with fingerprint power button, and now is recognized well",
+      "revId": "b044d0b6dc9103de93270b1670d8678af114fbf5",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
