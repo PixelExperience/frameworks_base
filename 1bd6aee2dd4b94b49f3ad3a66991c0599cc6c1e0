@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "967eb907_023abc8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000581
+      },
+      "writtenOn": "2022-01-12T18:27:32Z",
+      "side": 1,
+      "message": "Tested it, animation is more fast now",
+      "revId": "1bd6aee2dd4b94b49f3ad3a66991c0599cc6c1e0",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
