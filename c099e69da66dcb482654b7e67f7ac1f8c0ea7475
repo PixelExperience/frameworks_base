@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce72f894_da636d01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000463
+      },
+      "writtenOn": "2022-01-13T04:59:16Z",
+      "side": 1,
+      "message": "Works fine on haydn(with side fingerprint scanner)",
+      "revId": "c099e69da66dcb482654b7e67f7ac1f8c0ea7475",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
