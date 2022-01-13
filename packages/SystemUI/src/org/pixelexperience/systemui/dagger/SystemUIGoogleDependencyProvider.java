@@ -283,9 +283,6 @@ import com.google.android.systemui.gamedashboard.ShortcutBarController;
 import com.google.android.systemui.gamedashboard.ToastController;
 import com.google.android.systemui.power.EnhancedEstimatesGoogleImpl;
 import com.google.android.systemui.power.PowerNotificationWarningsGoogleImpl;
-import com.google.android.systemui.qs.tiles.BatterySaverTileGoogle;
-import com.google.android.systemui.qs.tiles.OverlayToggleTile;
-import com.google.android.systemui.qs.tiles.ReverseChargingTile;
 import com.google.android.systemui.reversecharging.ReverseChargingController;
 import com.google.android.systemui.reversecharging.ReverseChargingViewController;
 import com.google.android.systemui.reversecharging.ReverseWirelessCharger;
@@ -364,24 +361,6 @@ public class SystemUIGoogleDependencyProvider {
     @SysUISingleton
     static EnhancedEstimatesGoogleImpl provideEnhancedEstimatesGoogleImpl(Context context) {
         return new EnhancedEstimatesGoogleImpl(context);
-    }
-
-    @Provides
-    @SysUISingleton
-    static ReverseChargingTile provideReverseChargingTile(QSHost qSHost, @Background Looper looper, @Main Handler handler, FalsingManager falsingManager, MetricsLogger metricsLogger, StatusBarStateController statusBarStateController, ActivityStarter activityStarter, QSLogger qSLogger, BatteryController batteryController, IThermalService iThermalService) {
-        return new ReverseChargingTile(qSHost, looper, handler, falsingManager, metricsLogger, statusBarStateController, activityStarter, qSLogger, batteryController, iThermalService);
-    }
-
-    @Provides
-    @SysUISingleton
-    static BatterySaverTileGoogle provideBatterySaverTileGoogle(QSHost qSHost, @Background Looper looper, @Main Handler handler, FalsingManager falsingManager, MetricsLogger metricsLogger, StatusBarStateController statusBarStateController, ActivityStarter activityStarter, QSLogger qSLogger, BatteryController batteryController, SecureSettings secureSettings) {
-        return new BatterySaverTileGoogle(qSHost, looper, handler, falsingManager, metricsLogger, statusBarStateController, activityStarter, qSLogger, batteryController, secureSettings);
-    }
-
-    @Provides
-    @SysUISingleton
-    static OverlayToggleTile provideOverlayToggleTile(QSHost qSHost, @Background Looper looper, @Main Handler handler, FalsingManager falsingManager, MetricsLogger metricsLogger, StatusBarStateController statusBarStateController, ActivityStarter activityStarter, QSLogger qSLogger, OverlayManager overlayManager) {
-        return new OverlayToggleTile(qSHost, looper, handler, falsingManager, metricsLogger, statusBarStateController, activityStarter, qSLogger, overlayManager);
     }
 
     @Provides
