@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar"> ئەمە لە پیشاندان دەمێنێتەوە تاکو بەریدەدەیتەوە. گرتە لە&amp;  دوگمەی گەڕانەوە داگرە بۆ بەردانەوە.</string>
+    <string name="screen_pinning_toast_no_navbar">بۆ بەردانەوەی ئەم پەردەیە، گرتە لە &amp; پەنجە لەسەر دوگمەی گەڕانەوە ڕاگرە</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">ئەمە لە پیشاندان دەمێنێتەوە تاوەکو بەریدەدەیتەوە. گرتە لە &amp;  پەنجە لەسەر هەستەوەری پەنجەمۆر ڕاگرە بۆ بەردانەوە.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">بۆ بەردانی ئەم پەردەیە ، گرتەبکە &amp; هەستەوەری پەنجەمۆر داگرە</string>
+    <string name="quick_settings_powershare_label">ووزەی بێتەل</string>
+    <string name="quick_settings_powershare_off_powersave_label">ووزەی بێتەل لە دۆخی ناچالاکی\nپاراستنی ووزە</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ووزەی بێتەل لە دۆخی ناچالاکی\nکەمی ووزە</string>
+    <string name="quick_settings_powershare_enabled_label">ووزەی بێتەل چالاکە</string>
+</resources>

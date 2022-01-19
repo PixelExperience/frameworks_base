@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Aceasta îl ține în vedere până când anulați fixarea. Atingeți &amp; țineți apăsat Înapoi pentru a anula fixarea.</string>
+    <string name="screen_pinning_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți &amp; și țineți apăsat butonul Înapoi</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ecranul este afișat până anulați fixarea. Atingeți &amp; lung senzorul de amprentă pentru a anula fixarea.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Pentru a anula fixarea acestui ecran, atingeți și țineți apăsat senzorul de amprentă</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare oprit\nEconomisire baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare oprit\nBaterie prea slabă</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare este pornit</string>
+</resources>

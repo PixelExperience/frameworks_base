@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
+    <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">解除するまで画面を固定します。解除するには指紋センサーを押して下さい。</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">画面の固定を解除するには指紋センサーを長押しします</string>
+    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
+</resources>

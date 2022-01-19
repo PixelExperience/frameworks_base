@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Սա կշարունակվի ցուցադրվել մինչև դուք չապաբլոկավորեք։ Սեղմած պահեք Back կոճակը ապաբլոկավորելու համար։</string>
+    <string name="screen_pinning_toast_no_navbar">Այս էկրանը ապագամելու համար՝ սեղմեք &amp; պահեք Ետ կոճակը</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Սա կշարունակվի ցուցադվել մինչ դուք չապագամեք։ Սեղմեք &amp; պահեք մատնահետքի սենսորը ապագամելու համար։</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Այս էկրանը ապագամելու համար՝ սեղմեք &amp; պահեք մատնահետքի սենսորը</string>
+    <string name="quick_settings_powershare_label">Անլար PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Անլար PowerShare-ը անջատված է\nՄարտկոցի տնտեսում</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Անլար PowerShare-ը անջատված է\nՄարտկոցի լիցքը ցածր է</string>
+    <string name="quick_settings_powershare_enabled_label">Անլար PowerShare-ը միացված է</string>
+</resources>

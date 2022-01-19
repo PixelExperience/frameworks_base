@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте кнопку \"Назад\".</string>
+    <string name="screen_pinning_toast_no_navbar">Щоб відкріпити цей екран, натисніть &amp; і утримуйте кнопку \"Назад\"</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте палець на сканері відбитків.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Щоб розблокувати екран, натисніть &amp; і утримуйте палець на сканері відбитків пальців</string>
+    <string name="quick_settings_powershare_label">Бездротовий PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Бездротовий PowerShare вимкнено\nЕкономія енергії</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Бездротовий PowerShare вимкнено\nЗанадто низький заряд батареї</string>
+    <string name="quick_settings_powershare_enabled_label">Увімкнено бездротовий PowerShare</string>
+</resources>

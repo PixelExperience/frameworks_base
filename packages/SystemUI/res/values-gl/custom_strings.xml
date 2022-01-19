@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Amosarase namentres estea fixado. Para deixar de fixalo, manteña premido o botón Atrás.</string>
+    <string name="screen_pinning_toast_no_navbar">Para deixar de fixar esta pantalla, prema &amp; manteña premido o botón Atrás</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Amosarase namentres estea fixado. Prema &amp; e manteña premido o sensor de pegada dixital para deixar de fixalo.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para deixar de fixar esta pantalla, prema &amp; Manteña premido o sensor de pegada dixital </string>
+    <string name="quick_settings_powershare_label">Carga reversíbel sen fíos</string>
+    <string name="quick_settings_powershare_off_powersave_label">Carga reversíbel sen fíos desactivada\nAforro de batería</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Carga reversíbel desactivada \nBatería moi baixa</string>
+    <string name="quick_settings_powershare_enabled_label">Carga reversíbel sen fíos está activada</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">這個動作會讓目前的應用程式保持固定狀態，直到你取消固定為止。輕觸 &amp; 並按住「 返回 」鍵來取消固定。</string>
+    <string name="screen_pinning_toast_no_navbar">如要取消固定這個畫面，請輕觸並按住返回按鈕。</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">此功能會固定螢幕顯示直到您取消固定。觸控並長按指紋感測器即可解除固定。</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定，請觸碰並按助指紋感測器以取消。</string>
+    <string name="quick_settings_powershare_label">逆向無線充電</string>
+    <string name="quick_settings_powershare_off_powersave_label">關閉逆向無線充電\n省電模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">關閉逆向無線充電\n電量過低</string>
+    <string name="quick_settings_powershare_enabled_label">逆向無線充電已啟用</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
+    <string name="screen_pinning_toast_no_navbar">Để bỏ ghim màn hình này, chạm &amp; giữ nút Quay lại</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Điều này sẽ giữ nó ở chế độ xem cho đến khi bạn bỏ ghim. Chạm &amp; giữ cảm biến vân tay để bỏ ghim.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Để bỏ ghim màn hình này, chạm &amp; giữ cảm biến vân tay</string>
+    <string name="quick_settings_powershare_label">PowerShare không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare không dây tắt\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare không dây tắt\nPin quá yếu</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare không dây đã bật</string>
+</resources>

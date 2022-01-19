@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Isto ficará visível até que o solte. Toque Anterior para soltar.</string>
+    <string name="screen_pinning_toast_no_navbar">Para soltar este ecrã, toque prolongadamente no botão Anterior</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Isto mantém a aplicação no ecrã até soltar. Toque longo no sensor de impressão digital para soltar.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, toque longo no sensor de impressões digitais</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desligado\nPoupança de energia</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desligado\nBateria demasiado fraca</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare está ativado</string>
+</resources>

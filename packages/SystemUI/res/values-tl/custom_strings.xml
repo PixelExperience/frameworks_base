@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Pinapanatili nito sa paningin hanggang ito ay iyong i-unpin. Hawakan ang &amp; hawakan ang Back para i-unpin.</string>
+    <string name="screen_pinning_toast_no_navbar">Upang alisin ang screen na ito, pindutin ang &amp; pindutin ng matagal ang back button</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Pinapanatili nito sa paningin hanggang ito ay iyong i-unpin. Pindutin ang &amp; hawakan ang fingerprint sensor para i-unpin.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para i-unpin ang screen na ito, pindutin ang &amp; hawakan ang fingerprint sensor</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare Pagtipid ng Baterya</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare pagpatay Mababang Baterya</string>
+    <string name="quick_settings_powershare_enabled_label">Ang Wireless PowerShare ay naka-enable</string>
+</resources>

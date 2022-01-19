@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
+    <string name="screen_pinning_toast_no_navbar">Untuk melepas sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Hal ini membuatnya tetap ditampilkan sampai Anda melepas sematan. Sentuh &amp; tahan pemindai sidik jari untuk melepas sematan.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk melepas sematan pada layar ini, sentuh &amp; tahan pemindai sidik jari</string>
+    <string name="quick_settings_powershare_label">PowerShare Nirkabel</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare Nirkabel off\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare Nirkabel off\nBaterai terlalu rendah</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare Nirkabel diaktifkan</string>
+</resources>

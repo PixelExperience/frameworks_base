@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">அன்பின் செய்யும் வரை இது காட்சிப்படுத்தப்படுத்துகிறது. அன்பின் செய்ய பின் செல்லும் பொத்தானை அழுத்திப் பிடிக்கவும்.</string>
+    <string name="screen_pinning_toast_no_navbar">இந்த திரையை விடுவிக்க, பின்செல் பொத்தானை தொட்டு பிடித்துகொள்</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">நீங்கள் திறக்காத வரை இது பார்வைக்கு வைக்கப்படும். திறக்க கைரேகை சென்சாரைத் தொட்டுப் பிடிக்கவும்.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">இந்தத் திரையைத் திறக்க, கைரேகை சென்சாரைத் தொட்டுப் பிடிக்கவும்</string>
+    <string name="quick_settings_powershare_label">கம்பி இல்லா சக்தி பகிர்தல்</string>
+    <string name="quick_settings_powershare_off_powersave_label">கம்பி இல்லா சக்தி பகிர்தல் நிறுத்து\nமின்கலன் சேமிப்பு</string>
+    <string name="quick_settings_powershare_off_low_battery_label">கம்பி இல்லா சக்தி பகிர்தல் நிறுத்து\nமின்கலன் அளவு மிக குறைவு</string>
+    <string name="quick_settings_powershare_enabled_label">கம்பி இல்லா சக்தி பகிர்தல் இயக்கப்பட்டது</string>
+</resources>

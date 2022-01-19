@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Ini akan mengekalkan ia di paparan sehingga anda membuang pin. Tekan seketika butang Kembali untuk membuang pin.</string>
+    <string name="screen_pinning_toast_no_navbar">Untuk membuang pin di paparan, tekan dan tahan butang \"Kembali\".</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ini akan mengekalkan ia di paparan sehingga anda membuang pin. Tekan dan tahan seketika sensor cap jari untuk membuang pin.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk membuang pin paparan ini, tekan dan tahan seketika sensor cap jari</string>
+    <string name="quick_settings_powershare_label">Perkongsian kuasa tanpa wayar</string>
+    <string name="quick_settings_powershare_off_powersave_label">Perkongsian kuasa tanpa wayar mati\nPenjimatan Bateri</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Perkongsian kuasa tanpa wayar mati\Bateri terlalu rendah</string>
+    <string name="quick_settings_powershare_enabled_label">Perkongsian Kuasa Tanpa Wayar diaktifkan</string>
+</resources>

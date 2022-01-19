@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Ela é mantida à vista até que seja liberada. Mantenha o botão Voltar pressionado para liberar.</string>
+    <string name="screen_pinning_toast_no_navbar">Para liberar esta tela, mantenha o botão Voltar pressionado</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque e segure o sensor de impressão de digital para liberar.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para liberar esta tela, toque e segure o sensor de impressão de digital</string>
+    <string name="quick_settings_powershare_label">Compartilhamento de energia sem fio</string>
+    <string name="quick_settings_powershare_off_powersave_label">Compartilhamento de Energia sem fio desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Compartilhamento sem fio desligado\nBateria muito fraca</string>
+    <string name="quick_settings_powershare_enabled_label">Compartilhamento de Energia sem fio está ativado</string>
+</resources>

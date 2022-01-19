@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
+    <string name="screen_pinning_toast_no_navbar">Da odpnete ta zaslon se dotaknite in pridržite gumb Nazaj</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite tipalo za prstne odtise, da ga odpnete.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Da odpnete ta zaslon se dotaknite in pridržite senzor za prstne odtise</string>
+    <string name="quick_settings_powershare_label">Brezžično deljenje napajanja</string>
+    <string name="quick_settings_powershare_off_powersave_label">Brezžično deljenje napajanja izklopljeno\nVarčevanje z energijo akumulatorja</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Brezžični PowerShare izklopljen\nRaven napolnjenosti akumulatorja prenizka</string>
+    <string name="quick_settings_powershare_enabled_label">Brezžično deljenje napajanja je omogočeno</string>
+</resources>

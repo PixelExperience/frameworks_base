@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Detta håller den synlig tills du frigör den. Tryck &amp; och håll nere Bakåt-knappen för att frigöra.</string>
+    <string name="screen_pinning_toast_no_navbar">För att frigöra denna skärm, tryck &amp; och håll nere Bakåt-knappen</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Detta håller den synlig tills du frigör den. Tryck &amp; håll nere fingeravtrycksläsaren för att frigöra.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">För att frigöra denna vy, tryck &amp; håll nere fingeravtrycksläsaren</string>
+    <string name="quick_settings_powershare_label">Trådlös strömdelning</string>
+    <string name="quick_settings_powershare_off_powersave_label">Trådlös strömdelning av\nStrömsparläge</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Trådlös strömdelning\nLågt batteri</string>
+    <string name="quick_settings_powershare_enabled_label">Trådlös strömdelning aktiverad</string>
+</resources>

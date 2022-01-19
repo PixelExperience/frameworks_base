@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <string name="screen_pinning_toast_no_navbar">要取消固定此屏幕，请触摸并按住“返回”按钮。</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住指纹传感器即可取消固定</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
+    <string name="quick_settings_powershare_label">无线反充</string>
+    <string name="quick_settings_powershare_off_powersave_label">无线反充已关闭\n省电模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">无线反充已关闭\n电量过低</string>
+    <string name="quick_settings_powershare_enabled_label">无线反充已启用</string>
+</resources>

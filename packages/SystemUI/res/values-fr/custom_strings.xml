@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Cet écran est épinglé. Appuyez et maintenez le bouton Retour pour le désépingler.</string>
+    <string name="screen_pinning_toast_no_navbar">Pour annuler l\'épinglage de l\'écran, appuyez de manière prolongée sur le bouton \"Retour\"</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Cet écran est épinglé.  Appuyez longuement sur le lecteur d\'empreintes pour le désépingler.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Pour désépingler l\'écran, appuyez de manière prolongée sur le lecteur d\'empreinte.</string>
+    <string name="quick_settings_powershare_label">Recharge sans fil inversée</string>
+    <string name="quick_settings_powershare_off_powersave_label">Recharge sans fil inversée désactivée\nÉconomiseur de batterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Recharge sans fil inversée désactivée\nBatterie trop faible</string>
+    <string name="quick_settings_powershare_enabled_label">La recharge sans fil inversée est activée</string>
+</resources>

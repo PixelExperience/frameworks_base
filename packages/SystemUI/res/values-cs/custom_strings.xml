@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
+    <string name="screen_pinning_toast_no_navbar">Stisknutím a podržením tlačítka Zpět uvolníte obrazovku</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením snímače otisků prstů.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Stisknutím a podržením snímače otisků prstů uvolníte obrazovku</string>
+    <string name="quick_settings_powershare_label">Bezdrátové sdílení energie</string>
+    <string name="quick_settings_powershare_off_powersave_label">Bezdrátové sdílení energie je vypnuto\nSpořič baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Bezdrátové sdílení energie je vypnuto\nNízký stav baterie</string>
+    <string name="quick_settings_powershare_enabled_label">Bezdrátové sdílení energie je zapnuto</string>
+</resources>

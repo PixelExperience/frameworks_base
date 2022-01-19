@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Megjelenítve tartja addig, amíg Ön fel nem oldja a rögzítést. A feloldáshoz tartsa nyomva a Vissza gombot.</string>
+    <string name="screen_pinning_toast_no_navbar">A Képernyőrögzítés feloldásához tartsa nyomva a Vissza gombot</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Mindaddig megjelenítve marad, amíg Ön fel nem oldja a rögzítést. A feloldáshoz tartsa lenyomva az ujjlenyomat-olvasót.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Képernyő rögzítésének feloldásához tartsa nyomva az ujjlenyomat-olvasót</string>
+    <string name="quick_settings_powershare_label">PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare ki\nAkkukímélő</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare ki\nAlacsony akkuszint</string>
+    <string name="quick_settings_powershare_enabled_label">A PowerShare bekapcsolva</string>
+</resources>

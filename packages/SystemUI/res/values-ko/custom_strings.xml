@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">고정을 해제하기 전까지 계속 볼 수 있습니다. 고정을 해제하려면 뒤로를 길게 누르세요.</string>
+    <string name="screen_pinning_toast_no_navbar">이 화면의 고정을 해제하려면, 뒤로를 길게 누르세요</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">고정을 해제하기 전까지 계속 볼 수 있습니다. 고정을 해제하려면 지문 센서를 길게 누르세요.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">이 화면의 고정을 해제하려면, 지문 센서를 길게 누르세요</string>
+    <string name="quick_settings_powershare_label">무선 배터리 공유</string>
+    <string name="quick_settings_powershare_off_powersave_label">무선 배터리 공유 꺼짐 \n배터리 보호기</string>
+    <string name="quick_settings_powershare_off_low_battery_label">무선 배터리 공유 꺼짐\n 배터리가 부족합니다</string>
+    <string name="quick_settings_powershare_enabled_label">무선 배터리 공유 켜짐</string>
+</resources>

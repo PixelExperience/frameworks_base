@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
+    <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة, استمر بالضغط على زر الرجوع</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">هذا يجعلها في العرض حتى تقوم بإلغاء التثبيت. اضغط مطولاً على مستشعر البصمة لإلغاء التثبيت.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">لإلغاء تثبيت هذه الشاشة, استمر بالضغط على مستشعر البصمة</string>
+    <string name="quick_settings_powershare_label">مشاركة الشحن لاسلكياً PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">إيقاف مشاركة PowerShare لاسلكياً عند تفعيل وضع توفير البطارية</string>
+    <string name="quick_settings_powershare_off_low_battery_label">إيقاف مشاركة PowerShare لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
+    <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً PowerShare مفعلة</string>
+</resources>

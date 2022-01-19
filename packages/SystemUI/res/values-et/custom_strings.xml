@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">See hoiab seda nähtaval kuni vabastamiseni. Vajuta &amp; hoia Tagasi nuppu, et vabastada.</string>
+    <string name="screen_pinning_toast_no_navbar">Selle vaate vabastamiseks vajutage &amp; hoidke all Tagasi nuppu</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">See hoiab seda nähtaval kuni vabastamiseni. Vajuta &amp; hoia sõrmejäljelugejat, et vabastada.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Selle vaate vabastamiseks vajutage &amp; hoidke sõrmejäljelugejat</string>
+    <string name="quick_settings_powershare_label">Juhtmevaba energia jagamine</string>
+    <string name="quick_settings_powershare_off_powersave_label">Juhtmevaba energia jagamine on välja lülitatud\nAkusäästja</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Juhtmevaba energia jagamine on välja lülitatud\nAku on liiga tühi</string>
+    <string name="quick_settings_powershare_enabled_label">Juhtmevaba energia jagamine on sisse lülitatud</string>
+</resources>
