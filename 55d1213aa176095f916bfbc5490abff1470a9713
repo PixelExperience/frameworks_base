@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ff5433_3ceb9119",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2022-01-21T17:29:56Z",
+      "side": 1,
+      "message": "Tested and verified on polaris through the CI OTA server.",
+      "revId": "55d1213aa176095f916bfbc5490abff1470a9713",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
