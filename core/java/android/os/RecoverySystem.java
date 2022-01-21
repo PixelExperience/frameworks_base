@@ -631,12 +631,16 @@ public class RecoverySystem {
             // been done in 'processed' parameter.
             if (SystemProperties.get("persist.sys.recovery_update", "").equals("true") && filename.startsWith("/data/")) {
                 if (processed) {
+                    Log.i(TAG, "processed is true");
                     if (!BLOCK_MAP_FILE.exists()) {
                         Log.e(TAG, "Package claimed to have been processed but failed to find "
                                 + "the block map file.");
                         throw new IOException("Failed to find block map file");
+                    } else {
+                        Log.i(TAG, "BLOCK_MAP_FILE exists.");
                     }
                 } else {
+                    Log.i(TAG, "processed is false");
                     FileWriter uncryptFile = new FileWriter(UNCRYPT_PACKAGE_FILE);
                     try {
                         uncryptFile.write(filename + "\n");
@@ -671,6 +675,10 @@ public class RecoverySystem {
                     Context.RECOVERY_SERVICE);
             if (!rs.setupBcb(command)) {
                 throw new IOException("Setup BCB failed");
+            }
+            Log.i(TAG, "Setting packageFile's read permission.");
+            if (!packageFile.setReadable(true, false)) {
+                Log.i(TAG, "Error setting packageFile readable.");
             }
             try {
                 if (!rs.allocateSpaceForUpdate(packageFile)) {
