@@ -103,6 +103,7 @@ public class NotificationShadeWindowViewController {
     private NotificationShadeWindowController mNotificationShadeWindowController;
     private DragDownHelper mDragDownHelper;
     private boolean mDoubleTapEnabled;
+    private boolean mDoubleTapEnabledNative;
     private boolean mSingleTapEnabled;
     private boolean mExpandingBelowNotch;
     private final DockManager mDockManager;
@@ -187,6 +188,9 @@ public class NotificationShadeWindowViewController {
             AmbientDisplayConfiguration configuration =
                     new AmbientDisplayConfiguration(mView.getContext());
             switch (key) {
+                case Settings.Secure.DOUBLE_TAP_TO_WAKE:
+                    mDoubleTapEnabledNative = TunerService.parseIntegerSwitch(newValue, false);
+                    break;
                 case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
                     mDoubleTapEnabled = configuration.doubleTapGestureEnabled(
                             UserHandle.USER_CURRENT);
@@ -196,6 +200,7 @@ public class NotificationShadeWindowViewController {
             }
         };
         mTunerService.addTunable(tunable,
+                Settings.Secure.DOUBLE_TAP_TO_WAKE,
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
                 Settings.Secure.DOZE_TAP_SCREEN_GESTURE);
 
@@ -213,7 +218,7 @@ public class NotificationShadeWindowViewController {
 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
-                        if (mDoubleTapEnabled || mSingleTapEnabled) {
+                        if (mDoubleTapEnabled || mSingleTapEnabled || mDoubleTapEnabledNative) {
                             mService.wakeUpIfDozing(
                                     SystemClock.uptimeMillis(), mView, "DOUBLE_TAP");
                             return true;
