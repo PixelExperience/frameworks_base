@@ -16,6 +16,23 @@
       "message": "Tested and verified on polaris through the CI OTA server.",
       "revId": "55d1213aa176095f916bfbc5490abff1470a9713",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30592e42_e7fec6e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000463
+      },
+      "writtenOn": "2022-01-22T09:03:58Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "55d1213aa176095f916bfbc5490abff1470a9713",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
