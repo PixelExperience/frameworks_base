@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5208f004_b2a0a4ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000536
+      },
+      "writtenOn": "2022-01-22T19:27:40Z",
+      "side": 1,
+      "message": "Tested on dumpling. Previously the double tap to wake feature did only work one single time - if even - with AOD enabled.",
+      "revId": "4f3b8b4e1b0162701175b3d7bb8d931629a39f3d",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
