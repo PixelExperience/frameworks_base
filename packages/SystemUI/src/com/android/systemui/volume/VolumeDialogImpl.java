@@ -297,6 +297,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
     private int mWindowGravity;
 
+    // Variable to track the default row with which the panel is initially shown
+    private VolumeRow mDefaultRow = null;
+
     @VisibleForTesting
     final int mVolumeRingerIconDrawableId = R.drawable.ic_speaker_on;
     @VisibleForTesting
