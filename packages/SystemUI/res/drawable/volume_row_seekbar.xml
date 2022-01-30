@@ -22,15 +22,11 @@
     android:paddingMode="stack" >
     <item android:id="@android:id/background"
         android:gravity="center_vertical|fill_horizontal">
-        <inset
-            android:insetLeft="@dimen/rounded_slider_track_inset"
-            android:insetRight="@dimen/rounded_slider_track_inset" >
             <shape>
-                <size android:height="@dimen/volume_dialog_track_width" />
-                <corners android:radius="@dimen/volume_dialog_track_corner_radius" />
-                <solid android:color="?androidprv:attr/colorAccentSecondaryVariant" />
+                <size android:height="@dimen/volume_dialog_slider_height" />
+                <corners android:radius="@dimen/volume_dialog_slider_corner_radius" />
+                <solid android:color="?attr/offStateColor" />
             </shape>
-        </inset>
     </item>
     <item android:id="@android:id/progress"
         android:gravity="center_vertical|fill_horizontal">
