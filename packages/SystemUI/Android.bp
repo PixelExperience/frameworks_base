@@ -99,6 +99,7 @@ android_library {
         "tensorflowlite_java",
         "SystemUIGoogle-lib",
         "vendor-pixelatoms-java",
+        "android.frameworks.stats",
         "vendor.lineage.powershare-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
