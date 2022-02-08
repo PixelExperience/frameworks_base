@@ -18,6 +18,7 @@ package org.pixelexperience.systemui.dagger;
 
 import android.app.Activity;
 import android.app.Service;
+
 import com.android.systemui.LatencyTester;
 import com.android.systemui.ScreenDecorations;
 import com.android.systemui.SliceBroadcastRelayHandler;
@@ -34,7 +35,6 @@ import com.android.systemui.privacy.television.TvOngoingPrivacyChip;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.RecentsModule;
 import com.android.systemui.shortcut.ShortcutKeyDispatcher;
-import com.android.systemui.statusbar.dagger.StatusBarModule;
 import com.android.systemui.statusbar.notification.InstantAppNotifier;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.tv.TvStatusBar;
@@ -45,20 +45,18 @@ import com.android.systemui.util.leak.GarbageMonitor;
 import com.android.systemui.volume.VolumeUI;
 import com.android.systemui.wmshell.WMShell;
 import com.google.android.systemui.theme.ThemeOverlayControllerGoogle;
-import com.android.systemui.dagger.SysUISingleton;
 
 import org.pixelexperience.systemui.GoogleServices;
-import org.pixelexperience.systemui.statusbar.phone.StatusBarGoogle;
-import com.google.android.systemui.gamedashboard.GameMenuActivity;
-import org.pixelexperience.systemui.gamedashboard.GameMenuActivityWrapper;
 import org.pixelexperience.systemui.columbus.ColumbusTargetRequestServiceWrapper;
+import org.pixelexperience.systemui.gamedashboard.GameMenuActivityWrapper;
+import org.pixelexperience.systemui.statusbar.dagger.StatusBarGoogleModule;
 
 import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 
-@Module(includes = {RecentsModule.class, StatusBarModule.class, KeyguardModule.class})
+@Module(includes = {RecentsModule.class, StatusBarGoogleModule.class, KeyguardModule.class})
 public abstract class SystemUIGoogleBinder {
     /**
      * Inject into AuthController.
@@ -243,14 +241,6 @@ public abstract class SystemUIGoogleBinder {
     @IntoMap
     @ClassKey(GoogleServices.class)
     public abstract SystemUI bindGoogleServices(GoogleServices sysui);
-
-    /**
-     * Inject into StatusBarGoogle.
-     */
-    @Binds
-    @IntoMap
-    @ClassKey(StatusBarGoogle.class)
-    public abstract SystemUI bindStatusBarGoogle(StatusBarGoogle sysui);
 
     /**
      * Inject into GameMenuActivity.
