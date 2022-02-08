@@ -58,11 +58,8 @@
 -keep class com.android.systemui.dagger.Dagger** { *; }
 -keep class com.android.systemui.tv.Dagger** { *; }
 
+# Custom rules
 -keep class android.hardware.** { *; }
--keep class com.google.android.systemui.*
--keep class com.google.android.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent { *; }
--keep class com.google.android.systemui.dagger.DaggerSysUIGoogleGlobalRootComponent$SysUIGoogleSysUIComponentImpl { *; }
--keep class com.google.android.systemui.dagger.Dagger** { *; }
-
--keep class org.pixelexperience.systemui.SystemUIGoogleFactory
--keep class org.pixelexperience.systemui.dagger.Dagger** { *; }
+-keep class com.google.** { *; }
+-keep class vendor.** { *; }
+-keep class org.pixelexperience.** { *; }
