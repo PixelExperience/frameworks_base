@@ -112,7 +112,6 @@ import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
 import com.android.wm.shell.legacysplitscreen.LegacySplitScreen;
 import com.android.wm.shell.startingsurface.StartingSurface;
-import com.google.android.systemui.LiveWallpaperScrimController;
 import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
 import com.google.android.systemui.dreamliner.DockIndicationController;
 import com.google.android.systemui.dreamliner.DockObserver;
@@ -121,6 +120,8 @@ import com.google.android.systemui.smartspace.SmartSpaceController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.notification.voicereplies.NotificationVoiceReplyClient;
 import com.google.android.systemui.statusbar.phone.WallpaperNotifier;
+
+import com.google.android.systemui.LiveWallpaperScrimController;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;

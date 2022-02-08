@@ -53,7 +53,7 @@ public class AutoTileManagerGoogle extends AutoTileManager {
         mBatteryController = batteryController;
     }
 
-    @Override // com.android.systemui.statusbar.phone.AutoTileManager
+    @Override
     public void init() {
         super.init();
         if (!mAutoTracker.isAdded("ott") && Build.IS_DEBUGGABLE) {

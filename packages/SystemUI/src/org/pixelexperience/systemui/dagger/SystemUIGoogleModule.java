@@ -53,6 +53,7 @@ import com.android.systemui.statusbar.phone.HeadsUpManagerPhone;
 import com.android.systemui.statusbar.phone.KeyguardBypassController;
 import com.android.systemui.statusbar.phone.KeyguardEnvironmentImpl;
 import com.android.systemui.statusbar.phone.NotificationShadeWindowControllerImpl;
+import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.phone.ShadeControllerImpl;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
@@ -74,6 +75,7 @@ import com.google.android.systemui.reversecharging.ReverseChargingController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.policy.BatteryControllerImplGoogle;
 
+import com.google.android.systemui.LiveWallpaperScrimController;
 import org.pixelexperience.systemui.assist.AssistManagerGoogle;
 import org.pixelexperience.systemui.power.dagger.PowerModuleGoogle;
 import org.pixelexperience.systemui.qs.dagger.QSModuleGoogle;
@@ -219,4 +221,8 @@ public abstract class SystemUIGoogleModule {
 
     @Binds
     abstract KeyguardIndicationController bindKeyguardIndicationControllerGoogle(KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle);
+
+    @Binds
+    @SysUISingleton
+    abstract ScrimController bindScrimController(LiveWallpaperScrimController liveWallpaperScrimController);
 }
