@@ -78,9 +78,6 @@ public class GoogleServices extends VendorServices {
         addService(new CoversheetService(mContext));
         mAutorotateDataService.init();
         addService(mAutorotateDataService);
-        if (mContext.getPackageManager().hasSystemFeature("android.hardware.context_hub") && new ElmyraContext(mContext).isAvailable()) {
-            addService(new ElmyraService(mContext, mServiceConfigurationGoogle.get(), mUiEventLogger));
-        }
         if (new ColumbusContext(mContext).isAvailable()) {
             addService(mColumbusServiceLazy.get());
         }
