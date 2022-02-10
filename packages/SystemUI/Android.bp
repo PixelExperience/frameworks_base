@@ -125,6 +125,7 @@ android_library {
         "jsr330",
         "lottie",
         "LowLightDreamLib",
+        "faceunlock_framework",
         "vendor.lineage.powershare-V1.0-java",
     ],
     manifest: "AndroidManifest.xml",
