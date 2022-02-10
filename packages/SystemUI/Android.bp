@@ -200,6 +200,7 @@ android_library {
         "lottie",
         "LowLightDreamLib",
         "motion_tool_lib",
+        "faceunlock_framework",
     ],
     manifest: "AndroidManifest.xml",
 

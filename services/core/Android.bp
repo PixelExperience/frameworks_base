@@ -188,6 +188,7 @@ java_library_static {
         "ImmutabilityAnnotation",
         "securebox",
         "vendor.aac.hardware.richtap.vibrator",
+        "faceunlock_framework",
     ],
     javac_shard_size: 50,
     javacflags: [
