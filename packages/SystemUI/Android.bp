@@ -101,6 +101,7 @@ android_library {
         "vendor-pixelatoms-java",
         "android.frameworks.stats-V1-java",
         "vendor.lineage.powershare-V1.0-java",
+        "faceunlock_framework",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["SystemUIGoogle-Manifest.xml"],
