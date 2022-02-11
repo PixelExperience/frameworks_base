@@ -30,4 +30,6 @@
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
+    <!-- If true, recorder will use AVCLevel42 for encoding-->
+    <bool name="config_screenrecord_codec_profile_avc42">false</bool>
 </resources>
