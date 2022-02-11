@@ -11,4 +11,6 @@
     <string name="charging_control_notification_content_target">Battery will be fully charged at %1$s</string>
     <string name="charging_control_notification_content_target_reached">Battery is charged</string>
 
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Face unlock disabled due to inactivity</string>
 </resources>
