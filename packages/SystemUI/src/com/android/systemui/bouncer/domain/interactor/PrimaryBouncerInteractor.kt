@@ -169,12 +169,8 @@ constructor(
         }
 
         repository.setPrimaryShowingSoon(true)
-        if (usePrimaryBouncerPassiveAuthDelay()) {
-            Log.d(TAG, "delay bouncer, passive auth may succeed")
-            mainHandler.postDelayed(showRunnable, passiveAuthBouncerDelay)
-        } else {
-            DejankUtils.postAfterTraversal(showRunnable)
-        }
+        DejankUtils.postAfterTraversal(showRunnable)
+        
         keyguardStateController.notifyPrimaryBouncerShowing(true)
         primaryBouncerCallbackInteractor.dispatchStartingToShow()
         Trace.endSection()
