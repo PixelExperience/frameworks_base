@@ -337,4 +337,9 @@ public class KeyguardUpdateMonitorCallback {
      * Called when the notification shade is expanded or collapsed.
      */
     public void onShadeExpandedChanged(boolean expanded) { }
+
+    /**
+     * Called when bouncer is showing
+     */
+    public void onKeyguardBouncerFullyShown(boolean fullyShow) { }
 }
