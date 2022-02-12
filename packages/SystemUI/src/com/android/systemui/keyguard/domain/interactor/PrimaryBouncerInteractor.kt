@@ -179,11 +179,11 @@ constructor(
         }
 
         repository.setPrimaryShowingSoon(true)
-        if (primaryBouncerFaceDelay) {
+        /*if (primaryBouncerFaceDelay) {
             mainHandler.postDelayed(showRunnable, 1200L)
-        } else {
-            DejankUtils.postAfterTraversal(showRunnable)
-        }
+        } else {*/
+        DejankUtils.postAfterTraversal(showRunnable)
+        //}
         keyguardStateController.notifyPrimaryBouncerShowing(true)
         primaryBouncerCallbackInteractor.dispatchStartingToShow()
         Trace.endSection()
