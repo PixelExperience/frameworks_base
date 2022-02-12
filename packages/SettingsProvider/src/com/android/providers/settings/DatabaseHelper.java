@@ -16,13 +16,17 @@
 
 package com.android.providers.settings;
 
+import android.Manifest;
+import android.app.AppGlobals;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
@@ -32,12 +36,14 @@ import android.database.sqlite.SQLiteStatement;
 import android.media.AudioManager;
 import android.media.AudioSystem;
 import android.net.ConnectivityManager;
+import android.net.ConnectivitySettingsManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.os.UserManager;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
@@ -59,9 +65,11 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Legacy settings database helper class for {@link SettingsProvider}.
@@ -83,7 +91,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
     // database gets upgraded properly. At a minimum, please confirm that 'upgradeVersion'
     // is properly propagated through your change.  Not doing so will result in a loss of user
     // settings.
-    private static final int DATABASE_VERSION = 118;
+    private static final int DATABASE_VERSION = 119;
 
     private Context mContext;
     private int mUserHandle;
@@ -1844,6 +1852,19 @@ class DatabaseHelper extends SQLiteOpenHelper {
             upgradeVersion = 118;
         }
 
+        if (upgradeVersion < 119) {
+            db.beginTransaction();
+            try {
+                if (mUserHandle == UserHandle.USER_OWNER) {
+                    loadRestrictedNetworkingModeSetting();
+                }
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+            upgradeVersion = 119;
+        }
+
         /*
          * IMPORTANT: Do not add any more upgrade steps here as the global,
          * secure, and system settings are no longer stored in a database
@@ -2606,6 +2627,28 @@ class DatabaseHelper extends SQLiteOpenHelper {
              */
         } finally {
             if (stmt != null) stmt.close();
+        }
+    }
+
+    private void loadRestrictedNetworkingModeSetting() {
+        Settings.Global.putInt(mContext.getContentResolver(),
+                Settings.Global.RESTRICTED_NETWORKING_MODE, 1);
+        try {
+            List<PackageInfo> packages = new ArrayList<>();
+            for (UserInfo userInfo : UserManager.get(mContext).getAliveUsers()) {
+                packages.addAll(
+                        AppGlobals.getPackageManager().getPackagesHoldingPermissions(
+                                new String[]{Manifest.permission.INTERNET},
+                                PackageManager.MATCH_UNINSTALLED_PACKAGES,
+                                userInfo.id
+                        ).getList());
+            }
+            Set<Integer> uids = packages.stream().map(
+                    packageInfo -> packageInfo.applicationInfo.uid)
+                    .collect(Collectors.toSet());
+            ConnectivitySettingsManager.setUidsAllowedOnRestrictedNetworks(mContext, uids);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to set uids allowed on restricted networks");
         }
     }
 
