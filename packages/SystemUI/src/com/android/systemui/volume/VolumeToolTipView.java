@@ -17,6 +17,8 @@
 package com.android.systemui.volume;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
@@ -60,9 +62,15 @@ public class VolumeToolTipView extends LinearLayout {
 
     private void drawArrow() {
         View arrowView = findViewById(R.id.arrow);
+        if (!isLandscape() && isAudioPanelOnLeftSide()){
+            arrowView.setVisibility(View.GONE);
+            View arrowViewLeft = findViewById(R.id.arrow_left);
+            arrowViewLeft.setVisibility(View.VISIBLE);
+            arrowView = arrowViewLeft;
+        }
         ViewGroup.LayoutParams arrowLp = arrowView.getLayoutParams();
         ShapeDrawable arrowDrawable = new ShapeDrawable(TriangleShape.createHorizontal(
-                arrowLp.width, arrowLp.height, false));
+                arrowLp.width, arrowLp.height, !isLandscape() && isAudioPanelOnLeftSide()));
         Paint arrowPaint = arrowDrawable.getPaint();
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
@@ -72,5 +80,21 @@ public class VolumeToolTipView extends LinearLayout {
                 getResources().getDimension(R.dimen.volume_tool_tip_arrow_corner_radius)));
         arrowView.setBackground(arrowDrawable);
 
+    }
+
+    private boolean isLandscape() {
+        return getContext().getResources().getConfiguration().orientation ==
+                Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    private boolean isAudioPanelOnLeftSide() {
+        return !showActiveStreamOnly() &&
+            getContext().getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
+    }
+
+    private boolean showActiveStreamOnly() {
+        PackageManager pm = getContext().getPackageManager();
+        return pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
+                || pm.hasSystemFeature(PackageManager.FEATURE_TELEVISION);
     }
 }
