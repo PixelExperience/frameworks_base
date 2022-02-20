@@ -945,6 +945,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     }
 
     private void handleFaceAuthenticated(int authUserId, boolean isStrongBiometric) {
+        mOccludingAppRequestingFace = false;
         Trace.beginSection("KeyGuardUpdateMonitor#handlerFaceAuthenticated");
         try {
             if (mGoingToSleep) {
