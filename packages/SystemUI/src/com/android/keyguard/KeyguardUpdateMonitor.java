@@ -1110,6 +1110,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     }
 
     private boolean isFaceDisabled(int userId) {
+        if (!isUserUnlocked(userId)) {
+            return true;
+        }
         final DevicePolicyManager dpm =
                 (DevicePolicyManager) mContext.getSystemService(Context.DEVICE_POLICY_SERVICE);
         // TODO(b/140035044)
