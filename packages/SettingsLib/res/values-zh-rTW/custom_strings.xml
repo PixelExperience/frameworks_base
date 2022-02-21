@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">使用系統選擇（預設）</string>
+    <string name="bluetooth_talkback_group">群組裝置</string>
+    <string name="bluetooth_profile_bc">BC 設定檔</string>
+    <string name="bluetooth_bc_profile_summary_connected">連線至 BA 伺服器</string>
+    <string name="bluetooth_bc_profile_summary_use_for">用於 BA</string>
 </resources>

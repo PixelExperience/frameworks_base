@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">सिस्टमको छनौट प्रयोग गर्नुहोस् (पूर्वनिर्धारित)</string>
+    <string name="bluetooth_talkback_group">प्रयोगकर्तालाई देखाइएको BT यन्त्रको प्रकार बताउनको लागि सन्देश।</string>
+    <string name="bluetooth_profile_bc">ब्लुटुथ सेटिङहरू। प्रयोगकर्ता-दृश्य स्ट्रिङ जुन जहिले पनि प्रयोग गरिन्छ
+BC प्रोफाइललाई सन्दर्भ गर्दै।</string>
+    <string name="bluetooth_bc_profile_summary_connected">ब्लुटुथ सेटिङहरू। जडान विकल्प स्क्रिन।
+BC जडान हुँदा प्रोफाइल जाँच बाकस प्राथमिकताको लागि सारांश।</string>
+    <string name="bluetooth_bc_profile_summary_use_for">ब्लुटुथ सेटिङहरू। जडान विकल्प स्क्रिन।
+BC चेकबक्स प्राथमिकताको सारांश जसले यसलाई कसरी जाँच गर्ने भनेर वर्णन गर्दछ
+रुचाइएको रूपमा BC प्रोफाइल सेट गर्नेछ।</string>
 </resources>
