@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="screen_pinning_description_no_navbar">ನೀವಿದನ್ನು ಬಿಡಿಸುವವರೆಗೂ ವಿಕ್ಷಣೆಯಲ್ಲಿರುತ್ತದೆ. ಬಿಡಿಸಲು ಹಿಂದಿರುಗುವ ಗುಂಡಿಯನ್ನು ಒತ್ತಿ.</string>
-    <string name="screen_pinning_toast_no_navbar">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ</string>
-    <string name="screen_pinning_description_no_navbar_fpsensor">ನೀವು ಅನ್ಪಿನ್ ಮಾಡುವವರೆಗೂ ಇದನ್ನು ಗಮನದಲ್ಲಿರಿಸಿಕೊಳ್ಳಿ. ಅನ್ಪಿನ್ ಮಾಡಲು ಅವಲೋಕನವನ್ನು ಒತ್ತಿ ಹಿಡಿದುಕೊಳ್ಳಿ.</string>
-    <string name="screen_pinning_toast_no_navbar_fpsensor">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದೆ ಬಟನ್‍ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ</string>
-    <string name="quick_settings_powershare_label">ನಿಸ್ತಂತು ಪೇವರ್  ಹಂಚು</string>
-    <string name="quick_settings_powershare_off_powersave_label">ನಿಸ್ತಂತು ಪವರ್ ಹಂಚು ನಿಲ್ಲಿಸು\ಬ್ಯಾಟರಿ ಉಳಿಸು</string>
-    <string name="quick_settings_powershare_off_low_battery_label">ನಿಸ್ತಂತು ಪವರ್ ಹಂಚು ನಿಲ್ಲಿಸು\ಬ್ಯಾಟರಿ ತುಂಬಾ ಕಡಿಮೆ ಇದೆ</string>
-    <string name="quick_settings_powershare_enabled_label">ನಿಸ್ತಂತು ಪವರ್ ಹಂಚುವಿಕೆ ಸಕ್ರಿಯವಾಗಿದೆ</string>
+    <string name="screen_pinning_description_no_navbar">ನೀವು ಅನ್‌ಪಿನ್ ಮಾಡುವವರೆಗೆ ಇದು ವೀಕ್ಷಣೆಯಲ್ಲಿರಿಸುತ್ತದೆ. ಅನ್‌ಪಿನ್ ಮಾಡಲು ಹೋಲ್ಡ್ ಬ್ಯಾಕ್ ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ.</string>
+    <string name="screen_pinning_toast_no_navbar">ಸ್ಕ್ರೀನನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು, ಹಿಂದಿನ ಬಟನ್‍ ಅನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">ನೀವು ಅನ್‌ಪಿನ್ ಮಾಡುವವರೆಗೆ ಇದು ವೀಕ್ಷಣೆಯಲ್ಲಿರಿಸುತ್ತದೆ. ಅನ್‌ಪಿನ್ ಮಾಡಲು  &amp; ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು,ಟಚ್ &amp; ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೆನ್ಸಾರ್ ಒತ್ತಿ</string>
+    <string name="quick_settings_powershare_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್</string>
+    <string name="quick_settings_powershare_off_powersave_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್ ಅನ್ನು ಆಫ್ ಮಾಡಿ\n ಬ್ಯಾಟರಿ ಸೇವರ್</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್ ಆಫ್\n ಬ್ಯಾಟರಿ ತುಂಬಾ ಕಡಿಮೆ ಇದೆ</string>
+    <string name="quick_settings_powershare_enabled_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್ ಸಕ್ರಿಯವಾಗಿದೆ</string>
 </resources>

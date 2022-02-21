@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">Usar Selección del Sistema (Por Defecto)</string>
+    <string name="bluetooth_talkback_group">Dispositivos de Grupo</string>
+    <string name="bluetooth_profile_bc">Perfil</string>
+    <string name="bluetooth_bc_profile_summary_connected">Conectado al servidor</string>
+    <string name="bluetooth_bc_profile_summary_use_for">Uso</string>
 </resources>

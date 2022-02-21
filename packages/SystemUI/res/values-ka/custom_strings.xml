@@ -4,6 +4,7 @@
     <string name="screen_pinning_toast_no_navbar">მიმაგრებული ეკრანის მოსაცილებლად, შეეხეთ და გეჭიროთ ღილაკზე უკუსვლის ღილაკზე</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">ეს დატოვებს სანახაობას გახსნილს სანამ არ გამორთავთ მიმაგრების ფუნქციას. შეეხეთ დიდხანს თითის ანაბეჭდის სენსორს რათა მიმაგრება მოიხსნას.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">მიმაგრებული ეკრანის მოსაცილებლად, შეეხეთ და მიადეთ თითი ანაბეჭდის სენსორს</string>
+    <string name="face_unlock_recognizing">სახის ამოცნობა მიმდინარეობს...</string>
     <string name="quick_settings_powershare_label">უკაბელო დატენვა</string>
     <string name="quick_settings_powershare_off_powersave_label">უკაბელო დატენვა გამორთ.\nბატარეის დამზოგი</string>
     <string name="quick_settings_powershare_off_low_battery_label">უკაბელო დატენვა გამორთ.\nბატარეის მუხტი დაბალია</string>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="screen_pinning_description_no_navbar">שומר בתצוגה עד לביטול ההצמדה. גע והחזק בו זמנית בלחצן \'הקודם\' כדי לבטל הצמדה.</string>
+    <string name="screen_pinning_description_no_navbar">מסך זה ימשיך להיות מוצג עד לביטול ההצמדה. גע והחזק בלחצן \'הקודם\' כדי לבטל הצמדה.</string>
     <string name="screen_pinning_toast_no_navbar">כדי לבטל נעיצת מסך זה, גע והחזק בלחצן \"הקודם\"</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">המסך ימשיך להיות מוצג עד לאחר שתבטל את הנעיצה. לחץ והחזק על חיישן טביעת האצבע על מנת לבטל את הנעיצה.</string>
-    <string name="screen_pinning_toast_no_navbar_fpsensor">בכדי לבטל נעיצת מסך זה, גע והחזק בחיישן טביעת האצבע</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">כדי לבטל נעיצת מסך זה, גע והחזק בחיישן טביעת האצבע</string>
     <string name="quick_settings_powershare_label">טעינה אלחוטית הפוכה</string>
     <string name="quick_settings_powershare_off_powersave_label">טעינה אלחוטית הפוכה כבויה\nחיסכון בסוללה</string>
     <string name="quick_settings_powershare_off_low_battery_label">טעינה אלחוטית הפוכה כבויה\nסוללה חלשה</string>

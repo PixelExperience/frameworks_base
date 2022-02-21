@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">Использовать выбор системы (по умолчанию)</string>
+    <string name="bluetooth_talkback_group">Группа устройств</string>
+    <string name="bluetooth_profile_bc">BC Профиль</string>
+    <string name="bluetooth_bc_profile_summary_connected">Подключено к серверу BA</string>
+    <string name="bluetooth_bc_profile_summary_use_for">Использовать для BA</string>
 </resources>

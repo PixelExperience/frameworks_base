@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_a2dp_codec_system">使用系统设置 (默认)</string>
+    <string name="bluetooth_a2dp_codec_system">使用系统选择的设置（缺省）</string>
+    <string name="bluetooth_talkback_group">设备群组</string>
+    <string name="bluetooth_profile_bc">bluetooth_profile_bc
+蓝牙设置。用户可见
+文件：costom_string.xml</string>
+    <string name="bluetooth_bc_profile_summary_connected">已连接至BA服务器</string>
+    <string name="bluetooth_bc_profile_summary_use_for">用于BA</string>
 </resources>

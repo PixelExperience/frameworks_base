@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">ସିଷ୍ଟମ୍ ଚୟନ ବ୍ୟବହାର କରନ୍ତୁ (ଡିଫଲ୍ଟ)</string>
+    <string name="bluetooth_talkback_group">ଗୋଷ୍ଠୀ ଉପକରଣଗୁଡ଼ିକ |</string>
+    <string name="bluetooth_profile_bc">ବିସି ପ୍ରୋଫାଇଲ୍ |</string>
+    <string name="bluetooth_bc_profile_summary_connected">BA ସର୍ଭର ସହିତ ସଂଯୁକ୍ତ |</string>
+    <string name="bluetooth_bc_profile_summary_use_for">BA ପାଇଁ ବ୍ୟବହାର କରନ୍ତୁ |</string>
+</resources>
