@@ -573,7 +573,7 @@ public class UdfpsController implements DozeReceiver {
             @NonNull ScreenLifecycle screenLifecycle,
             @Nullable Vibrator vibrator,
             @NonNull UdfpsHapticsSimulator udfpsHapticsSimulator,
-            @NonNull Optional<UdfpsHbmProvider> hbmProvider,
+            @NonNull UdfpsHbmProvider hbmProvider,
             @NonNull KeyguardStateController keyguardStateController,
             @NonNull KeyguardBypassController keyguardBypassController,
             @NonNull DisplayManager displayManager,
@@ -602,7 +602,7 @@ public class UdfpsController implements DozeReceiver {
         mPowerManager = powerManager;
         mAccessibilityManager = accessibilityManager;
         mLockscreenShadeTransitionController = lockscreenShadeTransitionController;
-        mHbmProvider = hbmProvider.orElse(null);
+        mHbmProvider = hbmProvider;
         screenLifecycle.addObserver(mScreenObserver);
         mScreenOn = screenLifecycle.getScreenState() == ScreenLifecycle.SCREEN_ON;
         mKeyguardBypassController = keyguardBypassController;
