@@ -123,6 +123,9 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             updateStates();
             mStatusBar.wakeUpIfDozing(SystemClock.uptimeMillis(), mContainer, "BOUNCER_VISIBLE");
             onKeyguardBouncerFullyShownChanged(true);
+            if (mFaceRecognitionRunning) {
+                showBouncerMessage(mContext.getString(R.string.face_unlock_recognizing), null);
+            }
         }
 
         @Override
@@ -222,6 +225,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     @Nullable private AlternateAuthInterceptor mAlternateAuthInterceptor;
     private boolean mFaceRecognitionRunning = false;
     private Handler mHandler;
+    private Handler mFaceRecognizingHandler;
 
     private final KeyguardUpdateMonitorCallback mUpdateMonitorCallback =
             new KeyguardUpdateMonitorCallback() {
@@ -239,11 +243,15 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         public void onBiometricRunningStateChanged(boolean running,
                 BiometricSourceType biometricSourceType) {
             mFaceRecognitionRunning = running;
-            mHandler.postDelayed(() -> {
-                if (biometricSourceType == BiometricSourceType.FACE && mFaceRecognitionRunning) {
-                    showBouncerMessage(mContext.getString(R.string.face_unlock_recognizing), null);
-                }
-            }, 100);
+            if (!mFaceRecognitionRunning){
+                mFaceRecognizingHandler.removeCallbacksAndMessages(null);
+            }else{
+                mFaceRecognizingHandler.postDelayed(() -> {
+                    if (biometricSourceType == BiometricSourceType.FACE && mFaceRecognitionRunning) {
+                        showBouncerMessage(mContext.getString(R.string.face_unlock_recognizing), null);
+                    }
+                }, 100);
+            }
         }
     };
 
@@ -265,7 +273,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             WakefulnessLifecycle wakefulnessLifecycle,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
             KeyguardMessageAreaController.Factory keyguardMessageAreaFactory,
-            @Main Handler handler) {
+            @Main Handler handler,
+            @Main Handler faceRecognizingHandler) {
         mContext = context;
         mViewMediatorCallback = callback;
         mLockPatternUtils = lockPatternUtils;
@@ -283,6 +292,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
         mKeyguardMessageAreaFactory = keyguardMessageAreaFactory;
         mHandler = handler;
+        mFaceRecognizingHandler = faceRecognizingHandler;
     }
 
     @Override
