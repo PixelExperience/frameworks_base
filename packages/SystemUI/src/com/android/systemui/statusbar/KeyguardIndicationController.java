@@ -835,7 +835,7 @@ public class KeyguardIndicationController {
     };
 
     private void showFaceIndicationOnBouncer(){
-        mStatusBarKeyguardViewManager.showBouncerMessage(mContext.getString(R.string.face_unlock_recognizing), mInitialTextColorState);
+        //mStatusBarKeyguardViewManager.showBouncerMessage(mContext.getString(R.string.face_unlock_recognizing), mInitialTextColorState);
     }
 
     /**
