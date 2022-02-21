@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">Χρήση Επιλογής Συστήματος (Προεπιλογή)</string>
+    <string name="bluetooth_talkback_group">Ομάδα Συσκευών</string>
+    <string name="bluetooth_profile_bc">Προφίλ BC</string>
+    <string name="bluetooth_bc_profile_summary_connected">Συνδέθηκε στον διακομιστή BA</string>
+    <string name="bluetooth_bc_profile_summary_use_for">Χρήση για BA</string>
 </resources>

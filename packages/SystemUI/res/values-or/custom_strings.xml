@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="screen_pinning_description_no_navbar">ଆପଣ ଅନପିନ୍‌ ନକରିବା ପର୍ଯ୍ୟନ୍ତ ଏହାକୁ ଦର୍ଶନ ରଖନ୍ତୁ। ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ ବ୍ୟାକ୍‍ ବଟନ୍‍ ସ୍ପର୍ଶ କରନ୍ତୁ ଓ ଧରି ରଖନ୍ତୁ।</string>
-    <string name="screen_pinning_toast_no_navbar">ଏହି ସ୍କ୍ରିନ୍‍ କୁ ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ, ବ୍ୟାକ୍‍ ବଟନ୍‍ କୁ ସ୍ପର୍ଶ କରି ଧରିରଖନ୍ତୁ।</string>
+    <string name="screen_pinning_toast_no_navbar">ଏହି ସ୍କ୍ରିନ୍‍ କୁ ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ,  &amp; କୁ ସ୍ପର୍ଶ କରନ୍ତୁ ଓ ବ୍ୟାକ୍‍ ବଟନ୍‍ କୁ ଧରିରଖନ୍ତୁ।</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">ଯେପର୍ଯ୍ୟନ୍ତ ଆପଣ ଅନ୍-ଅପ୍ ନକରିବା ପର୍ଯ୍ୟନ୍ତ ଏହା ଏହାକୁ ଦୃଷ୍ଟିରେ ରଖିଥାଏ | ସ୍ପର୍ଶ କରନ୍ତୁ &amp; amp; ଅନ୍-ପିନ୍ ପାଇଁ ଫିଙ୍ଗର ପ୍ରିଣ୍ଟ୍ ସେନ୍ସର ଧରି ରଖ |</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">ଏହି ପରଦାକୁ ଅନାବରଣ କରିବାକୁ, &amp; amp; ଫିଙ୍ଗର ପ୍ରିଣ୍ଟ ସେନସର ଧରି ରଖନ୍ତୁ |</string>
+    <string name="face_unlock_recognizing">ଚେହେରାକୁ ଚିହ୍ନିବା ...</string>
+    <string name="quick_settings_powershare_label">ବେତାର ପାୱାର୍ ସେୟାର୍ |</string>
+    <string name="quick_settings_powershare_off_powersave_label">ବେତାର ପାୱାର୍ ସେୟାର୍ \ ବ୍ୟାଟେରୀ ସେଭର୍ |</string>
+    <string name="quick_settings_powershare_off_low_battery_label">\ ବ୍ୟାଟେରୀ ଉପରେ ବେତାର ପାୱାର୍ ସେୟାର୍ ବହୁତ କମ୍ |</string>
+    <string name="quick_settings_powershare_enabled_label">ବେତାର ପାୱାର୍ ସେୟାର୍ ସକ୍ଷମ ହୋଇଛି |</string>
 </resources>
