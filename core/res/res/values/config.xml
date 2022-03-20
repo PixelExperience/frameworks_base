@@ -3518,7 +3518,7 @@
 
     <!-- Controls whether hints for gestural navigation are shown when the device is setup.
          This should only be set when the device has gestural navigation enabled by default. -->
-    <bool name="config_showGesturalNavigationHints">false</bool>
+    <bool name="config_showGesturalNavigationHints">true</bool>
 
     <!-- Controls the free snap mode for the docked stack divider. In this mode, the divider can be
          snapped to any position between the first target and the last target. -->
