@@ -101,7 +101,7 @@ public class PixelPropsUtils {
         propsToChangePixel6.put("DEVICE", "raven");
         propsToChangePixel6.put("PRODUCT", "raven");
         propsToChangePixel6.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:12/SQ1D.220205.004/8151327:user/release-keys");
+        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:12/SP2A.220305.013.A3/8229987:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -129,11 +129,11 @@ public class PixelPropsUtils {
         if (!isPixelDevice && 
             ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
                 || Arrays.asList(extraPackagesToChange).contains(packageName))) {
-            Map<String, Object> propsToChange = propsToChangePixel5 /*propsToChangePixel6*/;
+            Map<String, Object> propsToChange = propsToChangePixel6;
 
-            /*if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
+            if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
                 propsToChange = propsToChangePixel5;
-            }*/
+            }
 
             if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
                 propsToChange = propsToChangePixelXL;
