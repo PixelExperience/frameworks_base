@@ -34,7 +34,8 @@
         android:layout_height="match_parent"
         android:minHeight="48dp"
         android:layout_weight="1"
-        android:gravity="center_vertical|start" >
+        android:gravity="center_vertical|start"
+        android:paddingStart="@dimen/status_bar_padding_start" >
 
         <com.android.systemui.statusbar.policy.VariableDateView
             android:id="@+id/date"
@@ -66,7 +67,8 @@
         android:layout_height="match_parent"
         android:minHeight="48dp"
         android:layout_weight="1"
-        android:gravity="center_vertical|end" >
+        android:gravity="center_vertical|end"
+        android:paddingEnd="@dimen/status_bar_padding_end" >
 
         <include layout="@layout/ongoing_privacy_chip" />
 
