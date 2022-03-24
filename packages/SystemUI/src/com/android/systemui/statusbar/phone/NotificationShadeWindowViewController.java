@@ -209,7 +209,7 @@ public class NotificationShadeWindowViewController {
                     mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
                     break;
                 case DOUBLE_TAP_SLEEP_GESTURE:
-                    mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
+                    mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, false);
                     break;
             }
         };

@@ -4635,9 +4635,9 @@ public class NotificationPanelViewController extends PanelViewController {
         @Override
         public void onTuningChanged(String key, String newValue) {
             if (STATUS_BAR_QUICK_QS_PULLDOWN.equals(key)) {
-                mOneFingerQuickSettingsIntercept = TunerService.parseInteger(newValue, 1);
+                mOneFingerQuickSettingsIntercept = TunerService.parseInteger(newValue, 0);
             } else if (DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
-                mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
+                mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, false);
             }
         }
     }
