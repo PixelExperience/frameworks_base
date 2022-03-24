@@ -178,7 +178,7 @@ public class NotificationShadeWindowViewController {
                             Settings.Secure.DOUBLE_TAP_TO_WAKE, 0, UserHandle.USER_CURRENT) == 1;
                     break;
                 case DOUBLE_TAP_SLEEP_GESTURE:
-                    mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
+                    mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, false);
                     break;
             }
         };
