@@ -84,7 +84,7 @@ class PulsingGestureListener @Inject constructor(
                     singleTapEnabled = ambientDisplayConfiguration.tapGestureEnabled(
                             userTracker.userId)
                 DOUBLE_TAP_SLEEP_GESTURE ->
-                    doubleTapToSleepEnabled = TunerService.parseIntegerSwitch(value, true)
+                    doubleTapToSleepEnabled = TunerService.parseIntegerSwitch(value, false)
             }
         }
         tunerService.addTunable(tunable,
