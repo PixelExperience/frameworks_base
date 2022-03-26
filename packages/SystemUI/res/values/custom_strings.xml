@@ -20,4 +20,6 @@
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
 
+    <!-- Data Saver Statusbar Icon -->
+    <string name="status_bar_data_saver">Data saver</string>
 </resources>
