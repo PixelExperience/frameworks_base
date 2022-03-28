@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Programa liks aktyvi, kol jos neatrakinsite. Norėdami atrakinti, paspauskite ir laikykite mygtuką „&amp;“.</string>
+    <string name="screen_pinning_toast_no_navbar">Kad atsegtumėte šį ekraną, paspauskite ir laikykite mygtuką „Atgal“</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Programėlė bus matoma tol, kol jos neatrakinsite. Palieskite ir laikykite pirštą ant pirštų atspaudų jutiklio, norėdami ją atrakinti.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Norėdami atrakinti šį ekraną, palieskite ir laikykite pirštą ant pirštų atspaudų jutiklio</string>
+    <string name="quick_settings_powershare_label">Belaidis energijos perdavimas</string>
+    <string name="quick_settings_powershare_off_powersave_label">Belaidis energijos perdavimas išjungtas\nBaterijos taupymas</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Belaidis energijos perdavimas išjungtas\nBaterijos lygis per žemas</string>
+    <string name="quick_settings_powershare_enabled_label">Belaidis energijos perdavimas įjungtas</string>
+</resources>

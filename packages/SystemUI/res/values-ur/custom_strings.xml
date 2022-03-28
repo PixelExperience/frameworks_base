@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">جب تک آپ انپن نہیں کرتے ہیں تب تک یہ نظر میں رہے گا۔  انپین کرنے کے لئے ٹچ اور ہولڈ بیک کریں۔</string>
+    <string name="quick_settings_powershare_label">وائرلیس پاور شیئر</string>
+    <string name="quick_settings_powershare_enabled_label">وائرلیس پاور شیئر فعال ہے</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Ќе биде видливо сè додека не го откачете. Притиснете на &amp; задржете го копчето за назад за откачување.</string>
+    <string name="screen_pinning_toast_no_navbar">За да го откачете овој екран, допрете &amp; и држете го копчето за назад.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ќе биде видливо сè додека не го откачете. Притиснете на &amp; задржете го сензорот за отпечаток за откачување.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">За да го откачете овој екран, допрете &amp; и држете го сензорот за отпечаток.</string>
+    <string name="quick_settings_powershare_label">Безжичен PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Безжичен PowerShare е исклучен\n Штедач на батерија</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Безжичен PowerShare е исклучен\nНиско ниво на батерија</string>
+    <string name="quick_settings_powershare_enabled_label">Безжичен PowerShare е овозможен</string>
+</resources>

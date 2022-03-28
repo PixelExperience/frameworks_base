@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">ਅਨਪਿੰਨ ਕਰਨ ਤੱਕ ਇਹ ਦਿਸਦਾ ਰਹੇਗਾ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ \'ਪਿੱਛੇ\' ਬਟਨ ਦੱਬੀ ਰੱਖੋ।</string>
+    <string name="screen_pinning_toast_no_navbar">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, \'ਪਿੱਛੇ\' ਬਟਨ ਦੱਬੀ ਰੱਖੋ</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">ਅਨਪਿੰਨ ਕਰਨ ਤੱਕ ਇਹ ਦਿਸਦਾ ਰਹੇਗਾ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ \'ਤੇ ਉਂਗਲ ਲਗਾਈ ਰੱਖੋ।</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਦੱਬੀ ਰੱਖੋ</string>
+    <string name="quick_settings_powershare_label">ਤਾਰ-ਬਿਨਾਂ PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ਤਾਰ-ਬਿਨਾਂ PowerShare ਬੰਦ\nਬੈਟਰੀ ਬਚਾਊ</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ਤਾਰ-ਬਿਨਾਂ PowerShare ਬੰਦ\nਬੈਟਰੀ ਬਹੁਤ ਘੱਟ ਹੈ</string>
+    <string name="quick_settings_powershare_enabled_label">ਤਾਰ-ਬਿਨਾਂ PowerShare ਚਾਲੂ ਹੈ</string>
+</resources>

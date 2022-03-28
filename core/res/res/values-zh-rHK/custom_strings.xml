@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="face_unlock_disabled_idle">由於處於非活動狀態，面部解鎖已禁用</string>
+</resources>

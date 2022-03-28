@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">সিস্টেম নির্বাচন (ডিফল্ট) ব্যবহার করুন</string>
+    <string name="bluetooth_talkback_group">যুক্ত ডিভাইসের ধরন</string>
+    <string name="bluetooth_profile_bc">বিসি প্রোফাইল</string>
+    <string name="bluetooth_bc_profile_summary_connected">বিএ সার্ভার এর সাথে সংযুক্ত</string>
+    <string name="bluetooth_bc_profile_summary_use_for">বিএ অপশনস </string>
+</resources>

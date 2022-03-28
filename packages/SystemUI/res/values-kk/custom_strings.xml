@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Бұл сіз оны бекітпегенше дейін көрінеді. Бекітпеу үшін \"Артқа\" батырмасын басып ұстап тұрыңыз.</string>
+    <string name="screen_pinning_toast_no_navbar">Бұл дисплейді босату үшін \"Артқа\" батырмасын басып ұстап тұрыңыз</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Бұл сіз оны бекітпегенше дейін көрінеді. Бекітпеу үшін саусақ ізі сенсорын түртіп ұстап тұрыңыз.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Бұл дисплейді бекітпеу үшін саусақ ізі сенсорын түртіп ұстап тұрыңыз</string>
+    <string name="quick_settings_powershare_label">Сымсыз PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare өшірулі\nБатареяны үнемдеу</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Сымсыз PowerShare өшірулі\nБатарея тым аз</string>
+    <string name="quick_settings_powershare_enabled_label">Сымсыз PowerShare қосулы</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">การดำเนินการนี้จะเก็บไว้จนกว่าคุณจะเลิกปักหมุด แตะ &amp; ค้างปุ่มกลับเพื่อเลิกปักหมุด</string>
+    <string name="screen_pinning_toast_no_navbar">เลิกปักหมุดหน้าจอนี้โดย แตะปุ่ม &amp; ค้างไว้</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">หน้าจอนี้จะแสดงอยู่จนกว่าจะเลิกปักหมุด แตะ &amp; ช่องอ่านลายนิ้วมือค้างไว้เพื่อยกเลิกปักหมุด</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">เลิกปักหมุดหน้าจอนี้ ให้แตะ &amp; ช่องอ่านลายนิ้วมือค้างไว้</string>
+    <string name="face_unlock_recognizing">กำลังจดจำใบหน้า...</string>
+    <string name="quick_settings_powershare_label">การชาร์จให้แบบไร้สาย</string>
+    <string name="quick_settings_powershare_off_powersave_label">การชาร์จให้แบบไร้สายถูกปิด\nประหยัดพลังงาน</string>
+    <string name="quick_settings_powershare_off_low_battery_label">การชาร์จให้แบบไร้สายถูกปิด\nแบตเตอรี่ต่ำเกินไป</string>
+    <string name="quick_settings_powershare_enabled_label">การชาร์จให้แบบไร้สายถูกเปิดใช้งาน</string>
+</resources>

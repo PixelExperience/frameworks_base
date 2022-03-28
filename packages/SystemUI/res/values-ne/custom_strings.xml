@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">अनपिन नगर्दासम्म यसलाई देखिन्छ। अनपिन गर्नको लागि थिचेर होल्ड गर्नु</string>
+    <string name="screen_pinning_toast_no_navbar">उक्त स्क्रीन अनपिन गर्नका लागि ब्याक बटन टच &amp; होल्ड गर्नुहोस् ।</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">अनपिन नगर्दासम्म यसले दृश्यमा राख्दछ। अनपिन गर्नका लागि फिंगरप्रिन्ट टच &amp; होल्ड गर्नुहोस् ।</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">उक्त स्क्रीन अनपिन गर्नका लागि फिंगरप्रिन्ट टच &amp; होल्ड गर्नुहोस् ।</string>
+    <string name="quick_settings_powershare_label">ताररहित पावरशेयर</string>
+    <string name="quick_settings_powershare_off_powersave_label">ताररहित पावरशेयर बन्द \n ब्याट्री बचत</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ताररहित पावर शेयर बन्द  \n  ब्याट्री कम</string>
+    <string name="quick_settings_powershare_enabled_label">ताररहित पावरशेयर सुरु भयो</string>
+</resources>

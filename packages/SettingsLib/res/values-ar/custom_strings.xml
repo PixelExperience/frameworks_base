@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="bluetooth_a2dp_codec_system">استخدم تحديد النظام (افتراضي)</string>
+    <string name="bluetooth_talkback_group">أجهزة المجموعة</string>
+    <string name="bluetooth_profile_bc">المِلَفّ الشخصي لبلوتو</string>
+    <string name="bluetooth_bc_profile_summary_connected">متصل بخادم BA</string>
+    <string name="bluetooth_bc_profile_summary_use_for">استخدم لـBA</string>
+</resources>
