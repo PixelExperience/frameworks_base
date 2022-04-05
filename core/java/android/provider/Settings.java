@@ -15838,7 +15838,7 @@ public final class Settings {
                 "wake_when_plugged_or_unplugged";
 
         /**
-         * A list of uids that is allowed to use restricted networks.
+         * A list of uids that are allowed to use restricted networks.
          *
          * @hide
          */
