@@ -118,6 +118,8 @@ public class NetworkTraffic extends TextView implements TunerService.Tunable {
 
     private static final long AUTOHIDE_THRESHOLD = 10 * Kilo;
 
+    protected boolean mSupportsNetworkTrafficOnStatusBar;
+
     public NetworkTraffic(Context context) {
         this(context, null);
     }
@@ -131,6 +133,8 @@ public class NetworkTraffic extends TextView implements TunerService.Tunable {
         mContext = context;
         mConnectivityManager =
                 (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        mSupportsNetworkTrafficOnStatusBar = mContext.getResources().getBoolean(
+            com.android.internal.R.bool.config_supportsNetworkTrafficOnStatusBar);
     }
 
     @Override
@@ -322,6 +326,9 @@ public class NetworkTraffic extends TextView implements TunerService.Tunable {
 
     protected void setEnabled() {
         mEnabled = mLocation == LOCATION_QUICK_STATUSBAR;
+        if (!mSupportsNetworkTrafficOnStatusBar && mLocation == LOCATION_STATUSBAR){
+            mEnabled = true;
+        }
     }
 
     protected void updateVisibility() {
