@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Курсор лево</string>
+    <string name="accessibility_dpad_right">Курсор десно</string>
+    <string name="clock">Сат</string>
+    <string name="quick_settings_ambient_display_label">Амбијент приказ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Амбијент приказ искључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Амбијент приказ укључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Амбијент приказ ће бити искључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Амбијент приказ ће бити укључен.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD искључен\nУштеда батерије</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен.</string>
+    <string name="quick_settings_heads_up_label">Искачућа обавештења</string>
+    <string name="accessibility_quick_settings_heads_up_off">Искачућа обавештења искључена.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Искачућа обавештења укључена.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Искачућа обавештења су искључена.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Искачућа обавештења су укључена.</string>
+    <string name="quick_settings_sync_label">Синхрон</string>
+    <string name="accessibility_quick_settings_sync_off">Синхрон. искључено.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхрон. укључено.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронизација је искључена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронизација је укључена.</string>
+    <string name="quick_settings_usb_tether_label">USB повезивање</string>
+    <string name="global_action_restart_system">Систем</string>
+    <string name="global_action_restart_recovery">Режим опоравка</string>
+    <string name="quick_settings_reading_mode">Режим читања</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим читања укључен.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим читања искључен.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Режим читања је укључен.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Режим читања је искључен.</string>
+    <string name="quick_settings_anti_flicker">Спречавање треперења</string>
+</resources>

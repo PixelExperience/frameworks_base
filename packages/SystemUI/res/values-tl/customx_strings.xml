@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kaliwang Cursor</string>
+    <string name="accessibility_dpad_right">Kanang Cursor</string>
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
+    <string name="quick_settings_caffeine_label">Caffeine mode</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine mode ay hindi gumagana.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine mode ay gumagana.</string>
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Ang heads up ay naka-off.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Ang heads up ay naka-on.</string>
+    <string name="quick_settings_sync_label">Sync</string>
+    <string name="accessibility_quick_settings_sync_off">Sync ay naka off.</string>
+    <string name="accessibility_quick_settings_sync_on">Sync ay naka on.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sync na naka patay.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sync na naka bukas.</string>
+    <string name="quick_settings_usb_tether_label">Pag-tether ng USB</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Pagbawi</string>
+    <string name="global_action_users">Mga gumagamit</string>
+    <string name="quick_settings_reading_mode">Mode ng Pagbabasa</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Pinagana ang Reading Mode.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Hindi pinagana ang Reading Mode.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Pinahintulutan ang Reading Mode.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Isinara ang Reading Mode.</string>
+    <string name="quick_settings_anti_flicker">Anti flicker</string>
+</resources>

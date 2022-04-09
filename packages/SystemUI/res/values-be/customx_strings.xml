@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Курсор налева</string>
+    <string name="accessibility_dpad_right">Курсор направа</string>
+    <string name="clock">Гадзіннік</string>
+    <string name="quick_settings_ambient_display_label">Індыкацыя падзей</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Індыкацыя падзей экранам адключаная.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Індыкацыя падзей экранам уключана.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Індыкацыя падзей экранам адключаная.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Індыкацыя падзей экранам уключана.</string>
+    <string name="quick_settings_aod_label">Актыўны дысплей</string>
+    <string name="quick_settings_aod_off_powersave_label">Актыўны экран адкл.\nЭканомія батарэі</string>
+    <string name="quick_settings_caffeine_label">Забарона сну</string>
+    <string name="accessibility_quick_settings_caffeine_off">Забарона сну выключана.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Забарона сну ўключана.</string>
+    <string name="quick_settings_heads_up_label">Усплывальныя апавяшчэнні</string>
+    <string name="accessibility_quick_settings_heads_up_off">Усплывальныя апавяшчэнні адключаны.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Усплывальныя апавяшчэнні ўключаны.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Усплывальныя апавяшчэнні адключаны.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Ўсплывальныя апавяшчэнні ўключаны.</string>
+    <string name="quick_settings_sync_label">Сінхранізацыя</string>
+    <string name="accessibility_quick_settings_sync_off">Сінхранізацыя адключана.</string>
+    <string name="accessibility_quick_settings_sync_on">Сінхранізацыя ўключана.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Сінхранізацыя адключаная.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Сінхранізацыя ўключана.</string>
+    <string name="quick_settings_usb_tether_label">USB-мадэм</string>
+    <string name="global_action_restart_system">Сістэма</string>
+    <string name="global_action_restart_recovery">Рэжым аднаўлення</string>
+    <string name="global_action_current_user">Бягучы</string>
+    <string name="global_action_users">Карыстальнікі</string>
+    <string name="quick_settings_reading_mode">Рэжым чытання</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Рэжым чытання ўключаны.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Рэжым чытання адключаны.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Рэжым чытання актываваны.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Рэжым чытання дэактываваны.</string>
+    <string name="quick_settings_anti_flicker">Анты-мігаценне</string>
+</resources>

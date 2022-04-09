@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor stânga</string>
+    <string name="accessibility_dpad_right">Cursor dreapta</string>
+    <string name="clock">Ceas</string>
+    <string name="quick_settings_ambient_display_label">Afișare ambientală</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Afișare ambientală oprită.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD oprit\nEconomie energie</string>
+    <string name="quick_settings_caffeine_label">Cofeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cofeină pornit.</string>
+    <string name="quick_settings_heads_up_label">Atenționare</string>
+    <string name="accessibility_quick_settings_heads_up_off">Atenționare oprită.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Atenționare pornită.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Atenționarea a fost oprită.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Atenționarea a fost pornită.</string>
+    <string name="quick_settings_sync_label">Sincronizare</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronizare oprită.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronizare pornită.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Utilizatori</string>
+    <string name="quick_settings_reading_mode">Mod lectură</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod lectură activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod lectură dezactivat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modul lectură a fost activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modul lectură a fost dezactivat.</string>
+    <string name="quick_settings_anti_flicker">Anti-pâlpâire</string>
+</resources>

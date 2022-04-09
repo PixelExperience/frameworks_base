@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">نشانگر چپ</string>
+    <string name="accessibility_dpad_right">نشانگر راست</string>
+    <string name="clock">ساعت</string>
+    <string name="quick_settings_ambient_display_label">نمایش تطبیقی</string>
+    <string name="accessibility_quick_settings_ambient_display_off">نمایش تطبیقی خاموش.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">نمایش تطبیقی روشن.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">نمایش تطبیقی خاموش شد.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">نمایش تطبیقی روشن شد.</string>
+    <string name="quick_settings_aod_label">صفحه نمایش همیشه روشن</string>
+    <string name="quick_settings_caffeine_label">حالت کافئین</string>
+    <string name="accessibility_quick_settings_caffeine_off">حالت کافئین غیر فعال شد.</string>
+    <string name="accessibility_quick_settings_caffeine_on">حالت کافئین فعال شد.</string>
+    <string name="quick_settings_heads_up_label">اعلان فوری</string>
+    <string name="accessibility_quick_settings_heads_up_off">اعلان فوری خاموش.</string>
+    <string name="accessibility_quick_settings_heads_up_on">اعلان فوری روشن.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">اعلان فوری خاموش شد.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">اعلان فوری روشن شد.</string>
+    <string name="quick_settings_sync_label">همگام‌‌سازی</string>
+    <string name="accessibility_quick_settings_sync_off">همگام‌سازی خاموش.</string>
+    <string name="accessibility_quick_settings_sync_on">همگام‌سازی روشن.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">همگام‌سازی خاموش شد.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">همگام‌سازی روشن شد.</string>
+    <string name="quick_settings_usb_tether_label">تترینگ یو‌اس‌بی</string>
+    <string name="global_action_restart_system">سیستم  </string>
+    <string name="global_action_restart_recovery">ریکاوری</string>
+    <string name="global_action_current_user">جاری</string>
+    <string name="global_action_users">کاربران</string>
+    <string name="quick_settings_reading_mode">حالت مطالعه</string>
+    <string name="accessibility_quick_settings_reading_mode_on">حالت مطالعه روشن.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">حالت مطالعه خاموش.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">حالت مطالعه روشن شد.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">حالت مطالعه خاموش شد.</string>
+    <string name="quick_settings_anti_flicker">ضد پرش تصویر</string>
+</resources>

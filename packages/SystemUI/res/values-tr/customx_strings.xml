@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Sol imleç</string>
+    <string name="accessibility_dpad_right">Sağ imleç</string>
+    <string name="clock">Saat</string>
+    <string name="quick_settings_ambient_display_label">Ortam ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ortam ekranı kapalı.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ortam ekranı açık.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ortam ekranı kapatıldı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açıldı.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık.</string>
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+    <string name="quick_settings_sync_label">Eşitleme</string>
+    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı.</string>
+    <string name="accessibility_quick_settings_sync_on">Eşitleme açık.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı.</string>
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Kurtarma</string>
+    <string name="global_action_current_user">Mevcut</string>
+    <string name="global_action_users">Kullanıcılar</string>
+    <string name="quick_settings_reading_mode">Okuma modu</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
+    <string name="quick_settings_anti_flicker">Titreme önleme</string>
+</resources>
