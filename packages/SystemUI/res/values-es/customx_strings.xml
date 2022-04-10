@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor izquierdo</string>
+    <string name="accessibility_dpad_right">Cursor derecho</string>
+    <string name="clock">Reloj</string>
+    <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Pantalla ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Pantalla ambiente activada.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD apagado\nAhorro de batería</string>
+    <string name="quick_settings_caffeine_label">Modo Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Modo Cafeína desactivado.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Modo Cafeína Activado.</string>
+    <string name="quick_settings_heads_up_label">Notificaciones emergentes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificaciones emergentes desactivadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificaciones emergentes activadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes desactivadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes activadas.</string>
+    <string name="quick_settings_sync_label">Sincronización</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">La sincronización ha sido desactivada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">La sincronización ha sido activada.</string>
+    <string name="quick_settings_usb_tether_label">Anclaje de red por USB</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuarios</string>
+    <string name="quick_settings_reading_mode">Modo lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo lectura activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo lectura desactivado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modo lectura desactivado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modo lectura activado.</string>
+    <string name="quick_settings_anti_flicker">Anti parpadeo</string>
+</resources>

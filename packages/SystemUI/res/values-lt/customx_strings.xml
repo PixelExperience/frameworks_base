@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Žymeklis kairėje</string>
+    <string name="accessibility_dpad_right">Žymeklis dešinėje</string>
+    <string name="clock">Laikrodis</string>
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display išjungta.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display įjungta.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display išjungta.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display įjungta.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD išjungta \ nBaterijos taupymas</string>
+    <string name="quick_settings_caffeine_label">Kofeino režimas</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeino režimas išjungtas.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeino režimas įjungtas.</string>
+    <string name="quick_settings_heads_up_label">Iššokantys pranešimai</string>
+    <string name="accessibility_quick_settings_heads_up_off">Iššokantys pranešimai išjungti.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Iššokantys pranešimai įjungti.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Iššokantieji pranešimai buvo išjungti.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Iššokantieji pranešimai įjungti.</string>
+    <string name="quick_settings_sync_label">Sinchronizavimas</string>
+    <string name="accessibility_quick_settings_sync_off">Sinchronizavimas išjungtas.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinchronizavimas įjungtas.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinchronizavimas išjungtas.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinchronizavimas įjungtas.</string>
+    <string name="quick_settings_usb_tether_label">USB susiejimas</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Atkūrimo režimas</string>
+    <string name="global_action_current_user">Dabartinis</string>
+    <string name="global_action_users">Vartotojai </string>
+    <string name="quick_settings_reading_mode">Skaitymo režimas</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Skaitymo režimas įjungtas.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Skaitymo režimas išjungtas.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Skaitymo režimas įjungtas.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Skaitymo režimas išjungtas.</string>
+    <string name="quick_settings_anti_flicker">Nemirksėjimo režimas</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kurzor balra</string>
+    <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <string name="clock">Óra</string>
+    <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Környezeti kijelző kikapcsolva.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Környezeti kijelző bekapcsolva.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine ki.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine be.</string>
+    <string name="quick_settings_heads_up_label">Felugró értesítések</string>
+    <string name="accessibility_quick_settings_heads_up_off">A Felugró értesítések letiltva.</string>
+    <string name="accessibility_quick_settings_heads_up_on">A Felugró értesítések engedélyezve.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">A Felugró értesítések kikapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">A Felugró értesítések bekapcsolva.</string>
+    <string name="quick_settings_sync_label">Szinkronizálás</string>
+    <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki.</string>
+    <string name="accessibility_quick_settings_sync_on">Szinkronizálás be.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva.</string>
+    <string name="quick_settings_usb_tether_label">USB-megosztás</string>
+    <string name="global_action_restart_system">Rendszer</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_current_user">Jelenlegi</string>
+    <string name="global_action_users">Felhasználók</string>
+    <string name="quick_settings_reading_mode">Olvasómód</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Olvasómód be.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Olvasómód bekapcsolva.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Olvasómód kikapcsolva.</string>
+    <string name="quick_settings_anti_flicker">Vibrálásmentesítés</string>
+</resources>

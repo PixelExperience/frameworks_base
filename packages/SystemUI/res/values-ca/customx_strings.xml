@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor esquerra</string>
+    <string name="accessibility_dpad_right">Cursor dreta</string>
+    <string name="clock">Rellotge</string>
+    <string name="quick_settings_ambient_display_label">Pantalla ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambient desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambient activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">S\'ha desactivat la pantalla ambient.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">S\'ha activat la pantalla ambient.</string>
+    <string name="quick_settings_aod_label">Pantalla sempre encesa</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desactivat\nEstalvi de bateria</string>
+    <string name="quick_settings_caffeine_label">Cafeïna</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada.</string>
+    <string name="quick_settings_heads_up_label">Notificacions emergents</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents desactivades.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">S\'han apagat les notificacions emergents.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">S\'han activat les notificacions emergents.</string>
+    <string name="quick_settings_sync_label">Sinc</string>
+    <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">S\'ha desactivat la sincronització.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">S\'ha activat la sincronització.</string>
+    <string name="quick_settings_usb_tether_label">Ancoratge USB</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recuperació</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuaris</string>
+    <string name="quick_settings_reading_mode">Mode lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">S\'ha activat el mode lectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">S\'ha desactivat el mode lectura.</string>
+    <string name="quick_settings_anti_flicker">Anti-parpelleig</string>
+</resources>
