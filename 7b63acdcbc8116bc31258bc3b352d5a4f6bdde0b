@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e96d44e0_6ca4d5a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000658
+      },
+      "writtenOn": "2022-04-15T02:03:15Z",
+      "side": 1,
+      "message": "It\u0027s really needed to revert those commits as they are causing QS panel glitches.",
+      "revId": "7b63acdcbc8116bc31258bc3b352d5a4f6bdde0b",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
