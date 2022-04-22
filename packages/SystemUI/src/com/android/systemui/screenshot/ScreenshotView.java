@@ -823,11 +823,11 @@ public class ScreenshotView extends FrameLayout implements
                 prepareSharedTransition();
                 mActionExecutor.launchIntentAsync(
                         ActionIntentCreator.INSTANCE.createEditIntent(imageData.uri, mContext),
-                        imageData.editTransition.get().bundle,
+                        imageData.viewTransition.get().bundle,
                         imageData.owner.getIdentifier(), true);
             } else {
                 startSharedTransition(
-                        imageData.editTransition.get());
+                        imageData.viewTransition.get());
             }
         });
         if (mQuickShareChip != null) {
