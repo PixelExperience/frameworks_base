@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fc41c6_37e07b48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2022-05-12T14:19:28Z",
+      "side": 1,
+      "message": "Hold on gerrit for now",
+      "revId": "07a02bf9209f5e344e249497e6b052137e3b451d",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
