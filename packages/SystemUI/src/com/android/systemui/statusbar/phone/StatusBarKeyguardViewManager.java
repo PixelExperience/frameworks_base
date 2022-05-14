@@ -75,7 +75,6 @@ import com.android.systemui.R;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -121,7 +120,6 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     private KeyguardMessageAreaController mKeyguardMessageAreaController;
     private final Lazy<ShadeController> mShadeController;
     private boolean mBouncerVisible = false;
-    private final Lazy<Optional<StatusBar>> mStatusBarOptionalLazy;
     private final BouncerExpansionCallback mExpansionCallback = new BouncerExpansionCallback() {
         @Override
         public void onFullyShown() {
@@ -276,8 +274,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             KeyguardMessageAreaController.Factory keyguardMessageAreaFactory,
             Lazy<ShadeController> shadeController,
             @Main Handler handler,
-            @Main Handler faceRecognizingHandler,
-            Lazy<Optional<StatusBar>> statusBarOptionalLazy) {
+            @Main Handler faceRecognizingHandler) {
         mContext = context;
         mViewMediatorCallback = callback;
         mLockPatternUtils = lockPatternUtils;
@@ -296,7 +293,6 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mShadeController = shadeController;
         mHandler = handler;
         mFaceRecognizingHandler = faceRecognizingHandler;
-        mStatusBarOptionalLazy = statusBarOptionalLazy;
     }
 
     @Override
@@ -714,8 +710,6 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             mMediaManager.updateMediaMetaData(false, animate && !occluded);
         }
         mNotificationShadeWindowController.setKeyguardOccluded(occluded);
-        mStatusBarOptionalLazy.get().map(StatusBar::getVisualizerView).ifPresent(
-                v -> v.setOccluded(occluded));
 
         // setDozing(false) will call reset once we stop dozing.
         if (!mDozing) {
