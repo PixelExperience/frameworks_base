@@ -2,4 +2,7 @@
     <!-- StatusBar burn-in protection -->
     <dimen name="horizontal_max_shift">3.0dp</dimen>
     <dimen name="vertical_max_shift">2.0dp</dimen>
+
+    <!-- Floating rotation button margin when on 2-button navbar mode -->
+    <dimen name="floating_rotation_button_min_margin_navbar">60dp</dimen>
 </resources>
