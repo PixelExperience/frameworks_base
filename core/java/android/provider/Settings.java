@@ -10935,13 +10935,6 @@ public final class Settings {
         public static final String POWER_MENU_ACTIONS = "power_menu_actions";
 
         /**
-         * Whether to show the keyguard visualizer.
-         * Boolean setting. 0 = off, 1 = on.
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer";
-
-        /**
          * Whether tethering is allowed to use VPN upstreams
          * 0 = false, 1 = true
          */
