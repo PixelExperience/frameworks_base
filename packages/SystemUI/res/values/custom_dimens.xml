@@ -8,7 +8,4 @@
 
     <!-- Width of the battery icon in the status bar when set to circle style. -->
     <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
-
-    <!-- Floating rotation button margin when on 2-button navbar mode -->
-    <dimen name="floating_rotation_button_min_margin_navbar">40dp</dimen>
 </resources>
