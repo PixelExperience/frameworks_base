@@ -2,9 +2,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Kaliwang Cursor</string>
     <string name="accessibility_dpad_right">Kanang Cursor</string>
+    <string name="clock">Orasan</string>
     <string name="quick_settings_ambient_display_label">Ambient display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Naka-off ang ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Naka-on ang ambient display</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD off\nBattery saver</string>
     <string name="quick_settings_caffeine_label">Caffeine mode</string>
@@ -23,6 +26,7 @@
     <string name="quick_settings_usb_tether_label">Pag-tether ng USB</string>
     <string name="global_action_restart_system">Sistema</string>
     <string name="global_action_restart_recovery">Pagbawi</string>
+    <string name="global_action_current_user">Kasalukuyan</string>
     <string name="global_action_users">Mga gumagamit</string>
     <string name="quick_settings_reading_mode">Mode ng Pagbabasa</string>
     <string name="accessibility_quick_settings_reading_mode_on">Pinagana ang Reading Mode.</string>

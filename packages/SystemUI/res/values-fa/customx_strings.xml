@@ -8,7 +8,9 @@
     <string name="accessibility_quick_settings_ambient_display_on">نمایش تطبیقی روشن.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">نمایش تطبیقی خاموش شد.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">نمایش تطبیقی روشن شد.</string>
-    <string name="quick_settings_aod_label">صفحه نمایش همیشه روشن</string>
+    <string name="quick_settings_aod_label">نمایشگر همیشه روشن</string>
+    <string name="quick_settings_aod_off_powersave_label">نمایشگر همیشه روشن، غیرفعال
+حالت ذخیره‌ی انرژی</string>
     <string name="quick_settings_caffeine_label">حالت کافئین</string>
     <string name="accessibility_quick_settings_caffeine_off">حالت کافئین غیر فعال شد.</string>
     <string name="accessibility_quick_settings_caffeine_on">حالت کافئین فعال شد.</string>

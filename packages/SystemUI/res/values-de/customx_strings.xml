@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Pfeiltaste links</string>
     <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
-    <string name="clock">Uhrzeit</string>
+    <string name="clock">Uhr</string>
     <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
     <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay aus.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsdisplay an.</string>

@@ -10,7 +10,7 @@
     <string name="live_display_night_summary">Utilizați numai setările de noapte</string>
     <string name="live_display_outdoor">În aer liber (soare strălucitor)</string>
     <string name="live_display_outdoor_summary">Utilizați numai setările în aer liber</string>
-    <string name="live_display_hint">LiveDisplay poate ajuta la reducerea oboselii ochilor şi vă ajută să dormiți la noapte. Clic aici pentru a-l încerca!</string>
+    <string name="live_display_hint">LiveDisplay poate ajuta la reducerea oboselii ochilor și vă ajută să dormiți la noapte. Clic aici pentru a-l încerca!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay este oprit.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mod auto.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mod zi.</string>

@@ -25,7 +25,7 @@
     <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена.</string>
     <string name="quick_settings_usb_tether_label">USB-модем</string>
     <string name="global_action_restart_system">Система</string>
-    <string name="global_action_restart_recovery">Режим восстановления</string>
+    <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_current_user">Текущий</string>
     <string name="global_action_users">Пользователи</string>
     <string name="quick_settings_reading_mode">Режим чтения</string>

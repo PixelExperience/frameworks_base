@@ -8,7 +8,7 @@
     <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Afișaj ambiental dezactivat.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Afișaj ambiental activat.</string>
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">Afișaj ambiental</string>
     <string name="quick_settings_aod_off_powersave_label">AOD oprit\nEconomie energie</string>
     <string name="quick_settings_caffeine_label">Cofeină</string>
     <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
