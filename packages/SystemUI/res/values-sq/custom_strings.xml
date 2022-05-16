@@ -4,8 +4,4 @@
     <string name="screen_pinning_toast_no_navbar">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur butonin Prapa</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Kjo e mban në ekran derisa ta shqitësh. Shtyp &amp; mbaj shtypur sensorin e shenjës së gishtit për ta shqitur.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur sensorin e shenjës së gishtit</string>
-    <string name="quick_settings_powershare_label">PowerShare me valë</string>
-    <string name="quick_settings_powershare_off_powersave_label">PowerSave me valë fikur\nKursyesi i baterisë</string>
-    <string name="quick_settings_powershare_off_low_battery_label">PowerSave me valë fikur\nBateria në mbarim</string>
-    <string name="quick_settings_powershare_enabled_label">PowerShare me valë është e aktivizuar</string>
 </resources>

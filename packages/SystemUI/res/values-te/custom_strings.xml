@@ -4,10 +4,4 @@
     <string name="screen_pinning_toast_no_navbar">ఈ స్క్రీనును అన్పిన్ చేయడానికి, బ్యాక్ బటనును తాకండి మరియు పట్టుకోండి</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">మీరు అన్‌పిన్ చేసే వరకు ఇది కనిపిస్తుంది. అన్‌పిన్ చేసేందుకు హోమ్ మరియు పవర్ బటన్‌ని నొక్కి పట్టుకోండి.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">ఈ స్క్రీనును అన్పిన్ చేయడానికి, ఫింగర్ ప్రింట్ బటనును తాకండి మరియు పట్టుకోండి</string>
-    <string name="quick_settings_powershare_label">I want to upy my software how can I update it</string>
-    <string name="quick_settings_powershare_off_powersave_label">వైర్లెస్ పవర్షేర్ ఆఫ్ 
-బాటరీ టూ లౌ </string>
-    <string name="quick_settings_powershare_off_low_battery_label">వైర్లెస్ పవర్షేర్ ఆఫ్ 
-బాటరీ టూ లౌ </string>
-    <string name="quick_settings_powershare_enabled_label">How can I update my software</string>
 </resources>
