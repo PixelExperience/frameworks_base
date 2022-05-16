@@ -5,8 +5,4 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Dieser Bildschrim ist fixiert. Halten Sie die Zurück-Taste gedrückt, um die Fixierung aufzuheben.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Um die Fixierung dieses Bildschirms aufzuheben, halten Sie dem Fingerabdrucksensor gedrückt</string>
     <string name="face_unlock_recognizing">Gesicht wird erkannt...</string>
-    <string name="quick_settings_powershare_label">Umgekehrtes kabelloses Aufladen </string>
-    <string name="quick_settings_powershare_off_powersave_label">Umgekehrtes Kabellose Aufladen aus\nEnergiesparmodus </string>
-    <string name="quick_settings_powershare_off_low_battery_label">Umgekehrtes kabelloses Aufladen nicht verfügbar\nAkkustand gering</string>
-    <string name="quick_settings_powershare_enabled_label">Umgekehrtes kabelloses Aufladen ist aktiviert </string>
 </resources>

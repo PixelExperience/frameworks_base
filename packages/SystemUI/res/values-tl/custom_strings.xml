@@ -5,8 +5,4 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Pinananatili nito sa paningin hanggang ito ay iyong i-unpin. Pindutin ng matagal ang fingerprint sensor para i-unpin.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para i-unpin ang screen na ito, pindutin ng matagal ang fingerprint sensor</string>
     <string name="face_unlock_recognizing">Tinitignan ang mukha...</string>
-    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nPantipid ng baterya</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nMababang Baterya</string>
-    <string name="quick_settings_powershare_enabled_label">Ang Wireless PowerShare ay naka-enable</string>
 </resources>
