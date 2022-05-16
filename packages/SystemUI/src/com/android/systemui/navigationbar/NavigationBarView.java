@@ -23,6 +23,7 @@ import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_O
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SCREEN_PINNING;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SEARCH_DISABLED;
 import static com.android.systemui.shared.system.QuickStepContract.isGesturalMode;
+import static com.android.systemui.shared.system.QuickStepContract.isSwipeUpMode;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_OPAQUE;
 import static com.android.systemui.util.Utils.isGesturalModeOnDefaultDisplay;
 
