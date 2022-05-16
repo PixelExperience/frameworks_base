@@ -5,8 +5,5 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Tämä pitää sen näkyvissä, kunnes poistat kiinnityksen. Kosketa sormenjälkitunnistinta pitkään poistaaksesi kiinnityksen.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Poistaaksesi tämän näytön kiinnityksen, kosketa sormenjälkitunnistinta pitkään</string>
     <string name="face_unlock_recognizing">Tunnistetaan kasvoja...</string>
-    <string name="quick_settings_powershare_label">Langaton Virranjako</string>
-    <string name="quick_settings_powershare_off_powersave_label">Langaton Virranjako pois\nVirransäästö</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Langaton Virranjako pois\nAkku vähissä</string>
-    <string name="quick_settings_powershare_enabled_label">Langaton Virranjako on päällä</string>
+    <string name="quick_settings_powershare_label">Virranjako</string>
 </resources>

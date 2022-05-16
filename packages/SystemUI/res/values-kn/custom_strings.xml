@@ -5,8 +5,4 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">ನೀವು ಅನ್‌ಪಿನ್ ಮಾಡುವವರೆಗೆ ಇದು ವೀಕ್ಷಣೆಯಲ್ಲಿರಿಸುತ್ತದೆ. ಅನ್‌ಪಿನ್ ಮಾಡಲು  &amp; ಅನ್ನು ಸ್ಪರ್ಶಿಸಿ.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">ಪರದೆಯನ್ನು ಅನ್‍ಪಿನ್‍ಮಾಡಲು,ಟಚ್ &amp; ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೆನ್ಸಾರ್ ಒತ್ತಿ</string>
     <string name="face_unlock_recognizing">ಮುಖವನ್ನು ಗುರುತಿಸಲಾಗುತ್ತಿದೆ...</string>
-    <string name="quick_settings_powershare_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್</string>
-    <string name="quick_settings_powershare_off_powersave_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್ ಅನ್ನು ಆಫ್ ಮಾಡಿ\n ಬ್ಯಾಟರಿ ಸೇವರ್</string>
-    <string name="quick_settings_powershare_off_low_battery_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್ ಆಫ್\n ಬ್ಯಾಟರಿ ತುಂಬಾ ಕಡಿಮೆ ಇದೆ</string>
-    <string name="quick_settings_powershare_enabled_label">ವಯರ್ಲೆಸ್ ಪವರ್ ಶೇರ್ ಸಕ್ರಿಯವಾಗಿದೆ</string>
 </resources>
