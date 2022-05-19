@@ -96,6 +96,12 @@ open class DisplayCutoutBaseView : View, RegionInterceptableView {
                     context.resources, displayUniqueId)
         }
 
+        if (displayUniqueId != context.display?.uniqueId) {
+            displayUniqueId = context.display?.uniqueId
+            shouldDrawCutout = DisplayCutout.getFillBuiltInDisplayCutout(
+                    context.resources, displayUniqueId)
+        }
+
         // Skip if display mode or cutout hasn't changed.
         if (!displayModeChanged(oldMode, displayMode) &&
                 display?.cutout == displayInfo.displayCutout) {
