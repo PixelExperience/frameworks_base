@@ -4,4 +4,5 @@
     <string name="bluetooth_talkback_group">Групавыя прылады</string>
     <string name="bluetooth_profile_bc">Профіль BC</string>
     <string name="bluetooth_bc_profile_summary_connected">Падключана да сервера</string>
+    <string name="bluetooth_bc_profile_summary_use_for">Выкарыстоўваць для BA</string>
 </resources>
