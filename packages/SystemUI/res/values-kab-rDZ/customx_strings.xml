@@ -24,6 +24,7 @@
     <string name="accessibility_quick_settings_sync_changed_on">Amtawi irmed.</string>
     <string name="quick_settings_usb_tether_label">Beṭṭu n tuqqna USB</string>
     <string name="global_action_restart_system">Anagraw</string>
+    <string name="global_action_restart_recovery">Tiririt</string>
     <string name="global_action_current_user">Amiran</string>
     <string name="global_action_users">Iseqdacen</string>
 </resources>
