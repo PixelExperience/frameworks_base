@@ -6,4 +6,6 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">لإلغاء تثبيت هذه الشاشة, المس &amp; و استمر بالمس على مستشعر البصمة</string>
     <string name="face_unlock_recognizing">يتم التعرف على الوجه...</string>
     <string name="quick_settings_powershare_label">مشاركة البطارية</string>
+    <string name="quick_settings_powershare_off_powersave_label">تم إيقاف مشاركة البطاريةn\توفير شحن البطارية</string>
+    <string name="quick_settings_powershare_enabled_label">مشاركة البطارية مفعل</string>
 </resources>

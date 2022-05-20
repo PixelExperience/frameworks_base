@@ -5,4 +5,8 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Приложение остаётся активным, до тех пор, пока вы не отмените блокировку. Нажмите и удерживайте палец на сканере отпечатков, чтобы отменить блокировку.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Чтобы разблокировать экран, нажмите и удерживайте палец на сканере отпечатков пальцев</string>
     <string name="face_unlock_recognizing">Распознавание лица...</string>
+    <string name="quick_settings_powershare_label">Доля батареи</string>
+    <string name="quick_settings_powershare_off_powersave_label">Передача заряда батареи выключена\nРежим энергосбережения</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Передача заряда батареи выключена\nНизкий заряд батареи</string>
+    <string name="quick_settings_powershare_enabled_label">Передача заряда батареи включено</string>
 </resources>

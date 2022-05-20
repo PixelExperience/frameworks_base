@@ -5,5 +5,8 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním snímača odtlačkov prstov.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Na odopnutie tejto obrazovky stlačte a podržte snímač odtlačkov prstov</string>
     <string name="face_unlock_recognizing">Prebieha rozpoznávanie...</string>
-    <string name="quick_settings_powershare_label">Nabitie batérie</string>
+    <string name="quick_settings_powershare_label">Reverzné nabíjanie</string>
+    <string name="quick_settings_powershare_off_powersave_label">Reverzné nabíjanie\nŠetrič batérie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Reverzné nabíjanie\nNízky stav batérie</string>
+    <string name="quick_settings_powershare_enabled_label">Reverzné nabíjanie je povolené</string>
 </resources>

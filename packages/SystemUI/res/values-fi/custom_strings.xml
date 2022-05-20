@@ -6,4 +6,7 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Poistaaksesi tämän näytön kiinnityksen, kosketa sormenjälkitunnistinta pitkään</string>
     <string name="face_unlock_recognizing">Tunnistetaan kasvoja...</string>
     <string name="quick_settings_powershare_label">Virranjako</string>
+    <string name="quick_settings_powershare_off_powersave_label">Virranjako pois\nVirransäästö</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Virranjako pois\nAkun varaus alhainen</string>
+    <string name="quick_settings_powershare_enabled_label">Virranjako kaytössä</string>
 </resources>
