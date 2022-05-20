@@ -26,6 +26,8 @@
     <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
     <string name="global_action_restart_system">Sustav</string>
     <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_current_user">Trenutni</string>
+    <string name="global_action_users">Korisnici</string>
     <string name="quick_settings_reading_mode">Način za čitanje</string>
     <string name="accessibility_quick_settings_reading_mode_on">Način za čitanje uključen.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Način za čitanje isključen.</string>

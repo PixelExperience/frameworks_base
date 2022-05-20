@@ -3,16 +3,16 @@
     <string name="accessibility_dpad_left">Trỏ trái</string>
     <string name="accessibility_dpad_right">Trỏ phải</string>
     <string name="clock">Đồng hồ</string>
-    <string name="quick_settings_ambient_display_label">Hiển thị môi trường xung quanh</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Tắt hiển thị môi trường xung quanh.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Hiển thị môi trường xung quanh bật.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Hiển thị môi trường xung quanh đã tắt.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Hiển thị môi trường xung quanh đã bật.</string>
+    <string name="quick_settings_ambient_display_label">Màn hình xem nhanh</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Màn hình xem nhanh tắt.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Màn hình xem nhanh bật.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Màn hình xem nhanh đã tắt.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Màn hình xem nhanh đã bật.</string>
     <string name="quick_settings_aod_label">Màn hình luôn bật</string>
     <string name="quick_settings_aod_off_powersave_label">Màn hình luôn bật tắt\nTiết kiệm pin</string>
-    <string name="quick_settings_caffeine_label">Cafein</string>
-    <string name="accessibility_quick_settings_caffeine_off">Đã tắt Cafein.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Đã bật Cafein.</string>
+    <string name="quick_settings_caffeine_label">Giữ màn hình bật</string>
+    <string name="accessibility_quick_settings_caffeine_off">Tắt Caffeine.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Bật Caffeine.</string>
     <string name="quick_settings_heads_up_label">Thông báo nổi</string>
     <string name="accessibility_quick_settings_heads_up_off">Thông báo nổi đã tắt.</string>
     <string name="accessibility_quick_settings_heads_up_on">Bật thông báo nổi.</string>
@@ -33,5 +33,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Tắt chế độ đọc.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc đã được bật.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc đã được tắt.</string>
-    <string name="quick_settings_anti_flicker">Chống nháy ánh sáng</string>
+    <string name="quick_settings_anti_flicker">Chống nhấp nháy</string>
 </resources>
