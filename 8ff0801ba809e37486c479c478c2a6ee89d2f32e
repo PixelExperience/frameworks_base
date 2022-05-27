@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "605ebffe_aa4e3dfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000646
+      },
+      "writtenOn": "2022-05-27T14:50:49Z",
+      "side": 1,
+      "message": "This fixes the issue where you end up with navbar handle floating around in random places after a rotation and also fixes where you sometime end up getting the navbar handle while playing full screen stuff",
+      "revId": "8ff0801ba809e37486c479c478c2a6ee89d2f32e",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
