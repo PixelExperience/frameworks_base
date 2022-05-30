@@ -1991,6 +1991,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 } catch (RemoteException ignored) {
                 }
+                if (!mClickPartialScreenshot) {
+                    mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+                }
                 mHandler.post(mScreenshotRunnable);
             }
         });
