@@ -71,4 +71,7 @@
           -->
     </string-array>
 
+    <!-- Body font family -->
+    <string name="config_bodyFontFamily">@*android:string/config_bodyFontFamily</string>
+
 </resources>

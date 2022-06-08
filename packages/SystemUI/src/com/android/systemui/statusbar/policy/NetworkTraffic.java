@@ -403,7 +403,7 @@ public class NetworkTraffic extends TextView implements TunerService.Tunable {
                 setEnabled();
                 if (mEnabled) {
                     setLines(2);
-                    String txtFont = getResources().getString(com.android.internal.R.string.config_bodyFontFamily);
+                    String txtFont = getResources().getString(R.string.config_bodyFontFamily);
                     setTypeface(Typeface.create(txtFont, Typeface.BOLD));
                     setLineSpacing(0.80f, 0.80f);
                 }
