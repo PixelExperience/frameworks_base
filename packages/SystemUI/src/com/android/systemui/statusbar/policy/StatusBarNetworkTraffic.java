@@ -128,6 +128,19 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements DarkRecei
     @Override
     protected void setEnabled() {
         mEnabled = mSupportsNetworkTrafficOnStatusBar && mLocation == LOCATION_STATUSBAR;
+        if (mEnabled && isCenteredClock()){
+            moveClockToLeft();
+        }
+    }
+
+    private boolean isCenteredClock() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 2) == 1;
+    }
+
+    private void moveClockToLeft() {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 2);
     }
 
     @Override
