@@ -58,4 +58,7 @@
     <!-- Whether devices suports in-display fingerprint when screen is off -->
     <java-symbol type="bool" name="config_supportsScreenOffUdfps" />
 
+    <!-- Whether to force show vibrate icon on status bar -->
+    <java-symbol type="bool" name="config_forceShowVibrateIconOnStatusBar" />
+
 </resources>
