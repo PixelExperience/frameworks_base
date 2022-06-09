@@ -22,6 +22,7 @@ import static com.android.systemui.statusbar.StatusBarIconView.STATE_ICON;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.provider.Settings;
 import android.util.AttributeSet;
 
 import com.android.systemui.Dependency;
@@ -128,6 +129,19 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements DarkRecei
     @Override
     protected void setEnabled() {
         mEnabled = mSupportsNetworkTrafficOnStatusBar && mLocation == LOCATION_STATUSBAR;
+        if (mEnabled && !isClockOnLeft()){
+            moveClockToLeft();
+        }
+    }
+
+    private boolean isClockOnLeft() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 2) == 2;
+    }
+
+    private void moveClockToLeft() {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 2);
     }
 
     @Override
