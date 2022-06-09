@@ -85,9 +85,7 @@ public class PixelPropsUtils {
             "bramble",
             "sunfish",
             "coral",
-            "flame",
-            "bonito",
-            "sargo"
+            "flame"
     };
 
     private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
