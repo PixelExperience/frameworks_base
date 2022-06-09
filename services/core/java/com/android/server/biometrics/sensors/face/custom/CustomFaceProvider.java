@@ -292,7 +292,8 @@ public class CustomFaceProvider implements ServiceProvider {
     }
 
     @Override
-    public void scheduleEnroll(int sensorId, IBinder token, byte[] hardwareAuthToken, int userId, IFaceServiceReceiver receiver, String opPackageName, int[] disabledFeatures, Surface previewSurface, boolean debugConsent) {
+    public long scheduleEnroll(int sensorId, IBinder token, byte[] hardwareAuthToken, int userId, IFaceServiceReceiver receiver, String opPackageName, int[] disabledFeatures, Surface previewSurface, boolean debugConsent) {
+        final long id = mRequestCounter.incrementAndGet();
         mHandler.post(() -> {
             if (getDaemon() == null) {
                 bindFaceAuthService(mCurrentUserId);
@@ -315,11 +316,12 @@ public class CustomFaceProvider implements ServiceProvider {
                 });
             }
         });
+        return id;
     }
 
     @Override
-    public void cancelEnrollment(int sensorId, IBinder token) {
-        mHandler.post(() -> mScheduler.cancelEnrollment(token));
+    public void cancelEnrollment(int sensorId, IBinder token, long requestId) {
+        mHandler.post(() -> mScheduler.cancelEnrollment(token, requestId));
     }
 
     @Override
