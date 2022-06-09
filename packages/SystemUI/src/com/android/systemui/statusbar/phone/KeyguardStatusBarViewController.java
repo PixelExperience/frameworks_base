@@ -263,8 +263,15 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
         );
 
         Resources r = getResources();
+<<<<<<< HEAD   (47b8e9 PixelPropsUtils: Press F for bonito and sargo)
         mBlockedIcons = Arrays.asList(r.getStringArray(
                 R.array.config_keyguard_statusbar_icon_blocklist));
+=======
+        mBlockedIcons = Collections.unmodifiableList(Arrays.asList(
+                r.getString(com.android.internal.R.string.status_bar_volume),
+                r.getString(com.android.internal.R.string.status_bar_alarm_clock),
+                r.getString(com.android.internal.R.string.status_bar_call_strength)));
+>>>>>>> CHANGE (0272b1 Revert "Statusbar: show vibration icon in collapsed statusba)
         mNotificationsHeaderCollideDistance = r.getDimensionPixelSize(
                 R.dimen.header_notifications_collide_distance);
     }
