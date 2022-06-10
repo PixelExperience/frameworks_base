@@ -16,7 +16,7 @@
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nachtmodus.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Außen-Modus.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay deaktiviert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>

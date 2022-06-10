@@ -11,8 +11,8 @@
     <string name="quick_settings_aod_label">AOD (дисплей всегда включен)</string>
     <string name="quick_settings_aod_off_powersave_label">AOD выкл.\nЭкономия заряда батареи</string>
     <string name="quick_settings_caffeine_label">Запрет сна</string>
-    <string name="accessibility_quick_settings_caffeine_off">Переход в спящий режим разрешен.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Переход в спящий режим запрещен.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Запрет сна отключён.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Запрет сна включён.</string>
     <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
     <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления выключены.</string>
     <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены.</string>
