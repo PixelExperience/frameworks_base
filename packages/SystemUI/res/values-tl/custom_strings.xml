@@ -5,4 +5,6 @@
     <string name="screen_pinning_description_no_navbar_fpsensor">Pinananatili nito sa paningin hanggang ito ay iyong i-unpin. Pindutin ng matagal ang fingerprint sensor para i-unpin.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para i-unpin ang screen na ito, pindutin ng matagal ang fingerprint sensor</string>
     <string name="face_unlock_recognizing">Tinitignan ang mukha...</string>
+    <string name="quick_settings_powershare_label">Battery Share</string>
+    <string name="quick_settings_powershare_enabled_label">Naka-on ang Battery Share</string>
 </resources>
