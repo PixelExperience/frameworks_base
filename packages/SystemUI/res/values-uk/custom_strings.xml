@@ -6,4 +6,7 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Щоб розблокувати екран, натисніть &amp; і утримуйте палець на сканері відбитків пальців</string>
     <string name="face_unlock_recognizing">Розпізнавання обличчя...</string>
     <string name="quick_settings_powershare_label">Спільне використання батареї</string>
+    <string name="quick_settings_powershare_off_powersave_label">Спільне використання батареї вимкнуто\nРежим енергозбереження</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Спільне використання батареї вимнено\nБатарея розряджена</string>
+    <string name="quick_settings_powershare_enabled_label">Поділитися зарядом батареї - увімкнено</string>
 </resources>
