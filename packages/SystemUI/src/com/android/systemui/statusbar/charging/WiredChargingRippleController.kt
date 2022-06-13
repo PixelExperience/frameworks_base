@@ -93,8 +93,8 @@ class WiredChargingRippleController @Inject constructor(
                 nowPluggedIn: Boolean,
                 charging: Boolean
             ) {
-                // Suppresses the ripple when the state change comes from wireless charging.
-                if (batteryController.isPluggedInWireless) {
+                // Suppresses the ripple when the state change comes from wireless charging or battery Moto Mods.
+                if (batteryController.isPluggedInWireless || batteryController.isPluggedInMod) {
                     return
                 }
                 val wasPluggedIn = pluggedIn
