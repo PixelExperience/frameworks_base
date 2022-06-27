@@ -71,4 +71,7 @@
           -->
     </string-array>
 
+    <!-- Doze: does the double tap sensor need a proximity check? -->
+    <bool name="doze_double_tap_proximity_check">false</bool>
+
 </resources>
