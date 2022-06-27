@@ -74,4 +74,7 @@
     <!-- Body font family -->
     <string name="config_bodyFontFamily">@*android:string/config_bodyFontFamily</string>
 
+    <!-- Doze: does the double tap sensor need a proximity check? -->
+    <bool name="doze_double_tap_proximity_check">false</bool>
+
 </resources>
