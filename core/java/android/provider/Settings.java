@@ -5409,6 +5409,7 @@ public final class Settings {
                 "high_touch_sensitivity_enable";
 
         /**
+<<<<<<< HEAD   (4e53d2 use SharedPreferences to save verify results)
          * Volume keys control cursor in text fields (default is 0)
          * 0 - Disabled
          * 1 - Volume up/down moves cursor left/right
@@ -5710,6 +5711,12 @@ public final class Settings {
          * @hide
          */
         public static final String AUTO_BRIGHTNESS_ONE_SHOT = "auto_brightness_one_shot";
+=======
+         * Whether to enable fingerprint wake-and-unlock.
+         * @hide
+         */
+        public static final String FINGERPRINT_WAKE_UNLOCK = "fingerprint_wake_unlock";
+>>>>>>> CHANGE (598811 Keyguard: Allow user configurable fingerprint wake-and-unloc)
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
