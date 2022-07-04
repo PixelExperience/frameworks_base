@@ -153,7 +153,7 @@ public class PixelPropsUtils {
         }
         if (isPixelDevice){
             if (packageName.equals("com.google.android.gms")){
-                setPropValue("MODEL", "Pixel 5a");
+                setPropValue("MODEL", Build.MODEL + " ");
             }
         }
         // Set proper indexing fingerprint
