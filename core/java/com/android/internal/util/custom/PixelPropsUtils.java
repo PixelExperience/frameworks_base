@@ -156,7 +156,8 @@ public class PixelPropsUtils {
             }
         }
         if (isPixelDevice){
-            if (packageName.equals("com.google.android.gms")){
+            if (packageName.equals(PACKAGE_GMS) &&
+                    processName.equals(PACKAGE_GMS + ".unstable")){
                 setPropValue("MODEL", Build.MODEL + " ");
             }
         }
