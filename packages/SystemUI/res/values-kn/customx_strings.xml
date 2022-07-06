@@ -3,6 +3,7 @@
     <string name="accessibility_dpad_left">ಕರ್ಸರ್ ಎಡ</string>
     <string name="accessibility_dpad_right">ಕರ್ಸರ್ ಬಲ</string>
     <string name="clock">ಗಡಿಯಾರ</string>
+    <string name="tap_to_add_tiles">ಸೇರಿಸಲು ಅಥವಾ ತೆಗೆದುಹಾಕಲು ಟೈಲ್‌ಗಳ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="quick_settings_ambient_display_label">ಆವರಿಸಿದ ಪರದೆ</string>
     <string name="accessibility_quick_settings_ambient_display_off">ಆವರಿಸಿದ ಪರದೆ ಆಫ್.</string>
     <string name="accessibility_quick_settings_ambient_display_on">ಆವರಿಸಿದ ಪರದೆ ಆನ್.</string>
@@ -34,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">ಓದುವ ರೀತಿ ಹೊತ್ತಿತು.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">ಓದುವ ರೀತಿ ನಂದಿತು.</string>
     <string name="quick_settings_anti_flicker">ಆಂಟಿ ಫ್ಲಿಕರ್ (Anti flicker)</string>
+    <string name="quick_settings_vpn_label">ವಿಪಿಎನ್</string>
 </resources>

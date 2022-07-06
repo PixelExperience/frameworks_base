@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">Automàticu</string>
     <string name="live_display_auto_summary">Acontza automaticamente sa temperadura de su colore de s\'ischermu a pustis de s\'arbèschida e de s\'intrinada</string>
+    <string name="live_display_off">Studau</string>
     <string name="live_display_off_summary">Disabìlita totu sos acontzos</string>
     <string name="live_display_day">Die</string>
     <string name="live_display_day_summary">Imprea petzi sas impostatziones pro sa die</string>

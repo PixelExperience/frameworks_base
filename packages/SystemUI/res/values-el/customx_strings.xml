@@ -3,6 +3,7 @@
     <string name="accessibility_dpad_left">Κέρσορας αριστερά</string>
     <string name="accessibility_dpad_right">Κέρσορας δεξιά</string>
     <string name="clock">Ρολόι</string>
+    <string name="tap_to_add_tiles">Πατήστε σε πλακίδια για προσθήκη ή αφαίρεση</string>
     <string name="quick_settings_ambient_display_label">Οθόνη ambient</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ανενεργή οθόνη ambient.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ενεργή οθόνη ambient.</string>
@@ -34,4 +35,10 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Η λειτουργία ανάγνωσης ενεργοποιήθηκε.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Η λειτουργία ανάγνωσης απενεργοποιήθηκε.</string>
     <string name="quick_settings_anti_flicker">Αντι τρεμόπαιγμα</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Σύνδεση σε\u2026</string>
+    <string name="vpn_credentials_hint">Παρακαλώ εισάγετε τα διαπιστευτήριά σας για να συνδεθείτε στο <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Όνομα χρήστη</string>
+    <string name="vpn_credentials_password">Κωδικός πρόσβασης</string>
+    <string name="vpn_credentials_dialog_connect">Σύνδεση</string>
 </resources>

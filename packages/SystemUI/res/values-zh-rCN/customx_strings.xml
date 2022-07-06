@@ -3,6 +3,7 @@
     <string name="accessibility_dpad_left">光标左移</string>
     <string name="accessibility_dpad_right">光标右移</string>
     <string name="clock">时钟</string>
+    <string name="tap_to_add_tiles">点按图块即可添加或移除</string>
     <string name="quick_settings_ambient_display_label">环境显示</string>
     <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示。</string>
     <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
@@ -34,4 +35,10 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已开启。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
     <string name="quick_settings_anti_flicker">防闪烁</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">连接到\u2026</string>
+    <string name="vpn_credentials_hint">请输入您的证书以连接 <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">用户名</string>
+    <string name="vpn_credentials_password">密码</string>
+    <string name="vpn_credentials_dialog_connect">连接</string>
 </resources>
