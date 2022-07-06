@@ -4,5 +4,5 @@
     <string name="bluetooth_talkback_group">دستگاه‌های گروه</string>
     <string name="bluetooth_profile_bc">پروفایل BC</string>
     <string name="bluetooth_bc_profile_summary_connected">به سرور BA متصل شد</string>
-    <string name="bluetooth_bc_profile_summary_use_for">استفاده به عنوان ‌BA</string>
+    <string name="bluetooth_bc_profile_summary_use_for">استفاده برای BA</string>
 </resources>
