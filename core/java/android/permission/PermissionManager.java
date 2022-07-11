@@ -163,6 +163,7 @@ public final class PermissionManager {
     public static final String KILL_APP_REASON_GIDS_CHANGED =
             "permission grant or revoke changed gids";
 
+    private static final String CNE_PKG = "com.qualcomm.qti.cne";
     private static final String SYSTEM_PKG = "android";
 
     /**
@@ -1173,6 +1174,7 @@ public final class PermissionManager {
     public static Set<String> getIndicatorExemptedPackages(@NonNull Context context) {
         updateIndicatorExemptedPackages(context);
         ArraySet<String> pkgNames = new ArraySet<>();
+        pkgNames.add(CNE_PKG);
         pkgNames.add(SYSTEM_PKG);
         for (int i = 0; i < INDICATOR_EXEMPTED_PACKAGES.length; i++) {
             String exemptedPackage = INDICATOR_EXEMPTED_PACKAGES[i];
