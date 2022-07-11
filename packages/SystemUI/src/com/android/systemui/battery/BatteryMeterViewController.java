@@ -15,6 +15,7 @@
  */
 package com.android.systemui.battery;
 
+import static android.provider.Settings.System.STATUS_BAR_BATTERY_STYLE;
 import static android.provider.Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT;
 
 import android.app.ActivityManager;
@@ -65,10 +66,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                         getContext(), newValue);
                 mBatteryHidden = icons.contains(mSlotBattery);
                 mView.setVisibility(mBatteryHidden ? View.GONE : View.VISIBLE);
-            } else if (BatteryMeterView.STATUS_BAR_BATTERY_STYLE.equals(key)) {
                 if (!mBatteryHidden) {
-                    mView.setBatteryStyle(TunerService.parseInteger(newValue,
-                            BatteryMeterView.BATTERY_STYLE_PORTRAIT));
+                    mView.updateBatteryStyle();
                 }
             }
         }
@@ -164,8 +163,7 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
             return;
         }
 
-        mTunerService.addTunable(mTunable, StatusBarIconController.ICON_HIDE_LIST,
-                BatteryMeterView.STATUS_BAR_BATTERY_STYLE);
+        mTunerService.addTunable(mTunable, StatusBarIconController.ICON_HIDE_LIST);
         mIsSubscribedForTunerUpdates = true;
     }
 
@@ -181,6 +179,11 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
     private void registerShowBatteryPercentObserver(int user) {
         mContentResolver.registerContentObserver(
                 Settings.System.getUriFor(STATUS_BAR_SHOW_BATTERY_PERCENT),
+                false,
+                mSettingObserver,
+                user);
+        mContentResolver.registerContentObserver(
+                Settings.System.getUriFor(STATUS_BAR_BATTERY_STYLE),
                 false,
                 mSettingObserver,
                 user);
@@ -206,6 +209,9 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                     Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME)) {
                 // update the text for sure if the estimate in the cache was updated
                 mView.updatePercentText();
+            }
+            if (TextUtils.equals(uri.getLastPathSegment(), STATUS_BAR_BATTERY_STYLE)) {
+                mView.updateBatteryStyle();
             }
         }
     }
