@@ -31,7 +31,7 @@ AnimatedImageThread& AnimatedImageThread::getInstance() {
 }
 
 AnimatedImageThread::AnimatedImageThread() {
-    setpriority(PRIO_PROCESS, 0, PRIORITY_NORMAL + PRIORITY_MORE_FAVORABLE);
+    setpriority(PRIO_PROCESS, 0, /*PRIORITY_NORMAL + PRIORITY_MORE_FAVORABLE*/ PRIORITY_DISPLAY);
 }
 
 std::future<AnimatedImageDrawable::Snapshot> AnimatedImageThread::decodeNextFrame(
