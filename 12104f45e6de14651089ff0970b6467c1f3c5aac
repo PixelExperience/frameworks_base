@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b842139e_b65cf558",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2022-07-18T14:31:12Z",
+      "side": 1,
+      "message": "https://gitlab.com/PixelExperience/twelve/vendor_gapps/-/blob/twelve/product/blobs/etc/sysconfig/google.xml#L22-23",
+      "revId": "12104f45e6de14651089ff0970b6467c1f3c5aac",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
