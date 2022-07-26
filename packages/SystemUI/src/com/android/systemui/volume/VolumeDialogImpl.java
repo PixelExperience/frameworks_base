@@ -1250,7 +1250,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 String packageName = isMediaControllerAvailable(mediaController)
                         ? mediaController.getPackageName()
                         : "";
-                mMediaOutputDialogFactory.create(packageName, false, mDialogView);
+                mMediaOutputDialogFactory.create(packageName, true, mDialogView);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
             });
         }
