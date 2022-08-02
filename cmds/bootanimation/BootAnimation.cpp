@@ -508,7 +508,7 @@ status_t BootAnimation::readyToRun() {
     // check for overridden ui resolution
     ui::Size resolution;
     char *endptr;
-    std::string size_override = android::base::GetProperty("ro.config.size_override", "");
+    std::string size_override = android::base::GetProperty("ro.config.bootanim_size_override", android::base::GetProperty("ro.config.size_override", ""));
 
     resolution.width = strtoimax(size_override.c_str(), &endptr, 10);
     if (endptr[0] == ',')
