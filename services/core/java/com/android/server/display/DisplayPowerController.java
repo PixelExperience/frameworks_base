@@ -1062,6 +1062,12 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
                 }
                 if (!mAllowAutoBrightnessWhileDozingConfig) {
                     brightnessState = mPowerRequest.dozeScreenBrightness;
+                    if (brightnessState < mScreenBrightnessDozeConfig) {
+                        brightnessState = clampScreenBrightness(mScreenBrightnessDozeConfig);
+                        Slog.d(TAG, "brightnessState is less than mScreenBrightnessDozeConfig=" +
+                                mScreenBrightnessDozeConfig + ", raising brightness to " +
+                                brightnessState);
+                    }
                     mBrightnessReasonTemp.setReason(BrightnessReason.REASON_DOZE);
                 }
                 break;
