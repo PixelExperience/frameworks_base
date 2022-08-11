@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="bluetooth_a2dp_codec_system">Systemauswahl verwenden (Standard)</string>
     <string name="bluetooth_talkback_group">Gerätegruppe</string>
-    <string name="bluetooth_profile_bc">BC Profil</string>
+    <string name="bluetooth_profile_bc">BC-Profil</string>
     <string name="bluetooth_bc_profile_summary_connected">Mit BA-Server verbunden</string>
-    <string name="bluetooth_bc_profile_summary_use_for">BA als Standard festlegen</string>
+    <string name="bluetooth_bc_profile_summary_use_for">Als BA verwenden</string>
 </resources>

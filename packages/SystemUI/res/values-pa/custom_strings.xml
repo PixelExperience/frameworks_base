@@ -4,4 +4,8 @@
     <string name="screen_pinning_toast_no_navbar">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, \'ਪਿੱਛੇ\' ਬਟਨ ਦੱਬੀ ਰੱਖੋ</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">ਅਨਪਿੰਨ ਕਰਨ ਤੱਕ ਇਹ ਦਿਸਦਾ ਰਹੇਗਾ। ਅਨਪਿੰਨ ਕਰਨ ਲਈ ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ \'ਤੇ ਉਂਗਲ ਲਗਾਈ ਰੱਖੋ।</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">ਇਹ ਸਕ੍ਰੀਨ ਅਨਪਿੰਨ ਕਰਨ ਲਈ, ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ ਦੱਬੀ ਰੱਖੋ</string>
+    <string name="face_unlock_recognizing">ਚਿਹਰਾ ਪਛਾਣਿਆ ਜਾ ਰਿਹਾ ਹੈ...</string>
+    <string name="quick_settings_powershare_label">ਬੈਟਰੀ ਸ਼ੇਅਰ</string>
+    <string name="quick_settings_powershare_off_powersave_label">ਬੈਟਰੀ ਸ਼ੇਅਰ ਬੰਦ\nਬੈਟਰੀ ਸੇਵਰ</string>
+    <string name="quick_settings_powershare_enabled_label">ਬੈਟਰੀ ਸ਼ੇਅਰ ਚਾਲੂ ਹੈ</string>
 </resources>
