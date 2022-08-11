@@ -10,7 +10,7 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display išjungta.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display įjungta.</string>
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD išjungta \ nBaterijos taupymas</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD išjungta \nBaterijos taupymas</string>
     <string name="quick_settings_caffeine_label">Kofeino režimas</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofeino režimas išjungtas.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeino režimas įjungtas.</string>

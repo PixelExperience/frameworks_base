@@ -15,8 +15,8 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeina spenta.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeina accesa.</string>
     <string name="quick_settings_heads_up_label">Notifiche pop-up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notifiche pop-up disattivate.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notifiche pop-up attivate.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifiche pop-up spente.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifiche pop-up accese.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche pop-up disattivate.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche pop-up attivate.</string>
     <string name="quick_settings_sync_label">Sincronizzazione</string>

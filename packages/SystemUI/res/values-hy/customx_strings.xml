@@ -2,6 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Նշորդը ձախ</string>
     <string name="accessibility_dpad_right">Նշորդը աջ</string>
+    <string name="clock">ժամացույց</string>
+    <string name="tap_to_add_tiles">Հպեք սալիկների վրա՝ ավելացնելու կամ հեռացնելու համար</string>
     <string name="quick_settings_ambient_display_label">Իրադարձությունների ցուցադրում</string>
     <string name="accessibility_quick_settings_ambient_display_off">Իրադարձությունների ցուցադրումն անջ․</string>
     <string name="accessibility_quick_settings_ambient_display_on">Իրադարձությունների ցուցադրումը միաց․</string>
@@ -25,9 +27,18 @@
     <string name="quick_settings_usb_tether_label">USB միացում</string>
     <string name="global_action_restart_system">Համակարգ</string>
     <string name="global_action_restart_recovery">Վերականգնում</string>
+    <string name="global_action_current_user">Ընթացիկ</string>
+    <string name="global_action_users">Օգտագործողներ</string>
     <string name="quick_settings_reading_mode">Կարդալու ռեժիմ</string>
     <string name="accessibility_quick_settings_reading_mode_on">Կարդալու ռեժիմը միացվ․</string>
     <string name="accessibility_quick_settings_reading_mode_off">Կարդալու ռեժիմը անջ․</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Կարդալու ռեժիմը միացված է:</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Կարդալու ռեժիմը անջատված է:</string>
+    <string name="quick_settings_anti_flicker">Պաշտպանություն թարթումից</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Միանալ \u2026-ին</string>
+    <string name="vpn_credentials_hint">Մուտքագրել ձեր հավատարմագրերը <xliff:g id="name">%s</xliff:g>-ին միանալու համար</string>
+    <string name="vpn_credentials_username">Գաղտնանուն</string>
+    <string name="vpn_credentials_password">Գաղտնաբառ</string>
+    <string name="vpn_credentials_dialog_connect">Միանալ</string>
 </resources>
