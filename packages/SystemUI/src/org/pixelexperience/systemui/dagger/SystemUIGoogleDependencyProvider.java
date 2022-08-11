@@ -240,7 +240,6 @@ import com.google.android.systemui.statusbar.notification.voicereplies.Notificat
 import com.google.android.systemui.statusbar.notification.voicereplies.NotificationVoiceReplyLogger;
 import com.google.android.systemui.statusbar.notification.voicereplies.NotificationVoiceReplyManager;
 import com.google.android.systemui.statusbar.phone.WallpaperNotifier;
-import com.google.android.systemui.theme.ThemeOverlayControllerGoogle;
 
 import org.pixelexperience.systemui.GoogleServices;
 import org.pixelexperience.systemui.assist.AssistManagerGoogle;
@@ -414,12 +413,6 @@ public class SystemUIGoogleDependencyProvider {
     @SysUISingleton
     static ToastController provideToastController(Context context, ConfigurationController configurationController, WindowManager windowManager, UiEventLogger uiEventLogger, NavigationModeController navigationModeController) {
         return new ToastController(context, configurationController, windowManager, uiEventLogger, navigationModeController);
-    }
-
-    @Provides
-    @SysUISingleton
-    static ThemeOverlayControllerGoogle provideThemeOverlayControllerGoogle(Context context, BroadcastDispatcher broadcastDispatcher, @Background Handler handler, @Main Executor executor, @Background Executor executorB, ThemeOverlayApplier themeOverlayApplier, SecureSettings secureSettings, SystemPropertiesHelper systemPropertiesHelper, @Main Resources resources, WallpaperManager wallpaperManager, UserManager userManager, DumpManager dumpManager, DeviceProvisionedController deviceProvisionedController, UserTracker userTracker, FeatureFlags featureFlags, WakefulnessLifecycle wakefulnessLifecycle, ConfigurationController configurationController) {
-        return new ThemeOverlayControllerGoogle(context, broadcastDispatcher, handler, executor, executorB, themeOverlayApplier, secureSettings, systemPropertiesHelper, resources, wallpaperManager, userManager, dumpManager, deviceProvisionedController, userTracker, featureFlags, wakefulnessLifecycle, configurationController);
     }
 
     @Provides
