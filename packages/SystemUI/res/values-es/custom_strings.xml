@@ -3,7 +3,7 @@
     <string name="screen_pinning_description_no_navbar">La pantalla se mantiene visible hasta que dejes de fijarla (para ello, mantén pulsado el botón Atrás).</string>
     <string name="screen_pinning_toast_no_navbar">Mantén pulsado el botón de atrás para dejar de fijar esta pantalla</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Esto mantiene la pantalla fija hasta que la sueltes. Mantén presionado el sensor dactilar para desfijarla.</string>
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Para dejar de fijar esta pantalla, mantén presionado el sensor dactilar </string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para dejar de fijar esta pantalla, mantén presionado el sensor de huellas dactilares</string>
     <string name="face_unlock_recognizing">Reconociendo rostro...</string>
     <string name="quick_settings_powershare_label">Compartir batería</string>
     <string name="quick_settings_powershare_off_powersave_label">Compartir batería apagado\nAhorro de batería</string>
