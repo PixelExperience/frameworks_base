@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3190a4_1063047c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2022-08-19T12:28:58Z",
+      "side": 1,
+      "message": "Looks good to me. Can you update the commit message so that each line has less characters? It is wrapping around on Gerrit.",
+      "revId": "4e021d7a758050dc55bd92e6dbf07acac6d3f365",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
