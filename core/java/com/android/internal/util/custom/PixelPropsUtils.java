@@ -156,6 +156,7 @@ public class PixelPropsUtils {
             }
         }
         if (sIsGms) {
+                setPropValue("FINGERPRINT", propsToChangePixelXL.get("FINGERPRINT"));
                 setPropValue("MODEL", Build.MODEL + " ");
         }
         // Set proper indexing fingerprint
