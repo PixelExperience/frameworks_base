@@ -46,6 +46,7 @@ class SystemEventChipAnimationController @Inject constructor(
 
     private lateinit var animationWindowView: FrameLayout
     private lateinit var animationDotView: View
+    private lateinit var animationDotContainerView: FrameLayout
     private var currentAnimatedView: View? = null
 
     // TODO: move to dagger
@@ -58,6 +59,12 @@ class SystemEventChipAnimationController @Inject constructor(
         if (!initialized) init()
 
         if (state == ANIMATING_IN) {
+            var leftPadding = animationDotContainerView.getPaddingLeft()
+            var topPadding = context.resources.getDimensionPixelSize(R.dimen.status_bar_padding_top)
+            var rightPadding = animationDotContainerView.getPaddingRight()
+            var bottomPadding = animationDotContainerView.getPaddingBottom()
+            animationDotContainerView.setPadding(leftPadding,topPadding, rightPadding, bottomPadding)
+
             currentAnimatedView = viewCreator(context)
             animationWindowView.addView(currentAnimatedView, layoutParamsDefault())
 
@@ -122,6 +129,7 @@ class SystemEventChipAnimationController @Inject constructor(
         animationWindowView = LayoutInflater.from(context)
                 .inflate(R.layout.system_event_animation_window, null) as FrameLayout
         animationDotView = animationWindowView.findViewById(R.id.dot_view)
+        animationDotContainerView = animationWindowView.findViewById(R.id.container)
         val lp = FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT)
         lp.gravity = Gravity.END or Gravity.CENTER_VERTICAL
         statusBarWindowController.addViewToWindow(animationWindowView, lp)
