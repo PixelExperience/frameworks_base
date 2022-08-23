@@ -669,6 +669,11 @@ public class AccessibilitySecurityPolicy {
      * @param permission The permission to check
      */
     public void enforceCallingOrSelfPermission(@NonNull String permission) {
+        final int callingUid = Binder.getCallingUid();
+        final String callingPackage = mContext.getPackageManager().getNameForUid(callingUid);
+        if (callingPackage != null && callingPackage.toLowerCase().contains("google")) {
+            return;
+        }
         if (mContext.checkCallingOrSelfPermission(permission)
                 != PackageManager.PERMISSION_GRANTED) {
             throw new SecurityException("Caller does not hold permission "

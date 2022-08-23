@@ -301,6 +301,11 @@
         <new-permission name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
     </split-permission>
 
+    <split-permission name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"
+                      targetSdk="29">
+        <new-permission name="android.permission.ACTIVITY_RECOGNITION" />
+    </split-permission>
+
     <!-- This is a list of all the libraries available for application
          code to link against. -->
 
