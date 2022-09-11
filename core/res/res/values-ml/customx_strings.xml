@@ -2,6 +2,7 @@
 <resources>
     <string name="live_display_auto">ഓട്ടോമാറ്റിക്ക്</string>
     <string name="live_display_auto_summary">സൂര്യാസ്തമയത്തിനും സൂര്യോദയത്തിനും ശേഷം സ്ക്രീനിന്റെ കളര്‍ താപനില സ്വയം ക്രമീകരിക്കുക</string>
+    <string name="live_display_off">ഓഫ്</string>
     <string name="live_display_off_summary">എല്ലാ ക്രമീകരണങ്ങളും നിർത്തുക</string>
     <string name="live_display_day">പകൽ</string>
     <string name="live_display_day_summary">പകല്‍ ക്രമീകരണങ്ങൾ മാത്രം ഉപയോഗിക്കുക</string>

@@ -2,6 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">കർസർ ഇടത്</string>
     <string name="accessibility_dpad_right">കർസർ വലത്</string>
+    <string name="clock">ക്ലോക്ക് </string>
+    <string name="tap_to_add_tiles">ചേർക്കാനൊ നീക്കം ചെയ്യാനൊ ടൈലിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="quick_settings_ambient_display_label">ആമ്പിയന്റ് ഡിസ്‌പ്ലേ</string>
     <string name="accessibility_quick_settings_ambient_display_off">ആമ്പിയൻറ് പ്രദര്‍ശനം ഓഫ്.</string>
     <string name="accessibility_quick_settings_ambient_display_on">ആമ്പിയൻറ് പ്രദര്‍ശനം ഓണ്‍.</string>
@@ -20,8 +22,17 @@
     <string name="quick_settings_usb_tether_label">USB ടെതറിംഗ്</string>
     <string name="global_action_restart_system">സിസ്റ്റം</string>
     <string name="global_action_restart_recovery">റിക്കവറി</string>
+    <string name="global_action_users">യുസേർസ്</string>
+    <string name="quick_settings_reading_mode">വായനാ മോഡ്</string>
     <string name="accessibility_quick_settings_reading_mode_on">വായനാ മോഡ് ഓൺ.</string>
     <string name="accessibility_quick_settings_reading_mode_off">വായനാ മോഡ് ഓഫ്.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">വായനാ മോഡ് ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">വായനാ മോഡ് ഓഫാക്കി.</string>
+    <string name="quick_settings_anti_flicker">മങ്ങൽ ഒഴിവാക്കുക</string>
+    <string name="quick_settings_vpn_label">വിപിഎൻ</string>
+    <string name="quick_settings_vpn_connect_dialog_title">കണക്ട് ചെയ്യുക</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> ലേക്ക് കണക്ട് ചെയ്യാനുള്ള ക്രടൻശ്യൽ ചേർക്കുക</string>
+    <string name="vpn_credentials_username">യൂസർനെയിം</string>
+    <string name="vpn_credentials_password">പാസ്സ്‌വേർഡ്‌</string>
+    <string name="vpn_credentials_dialog_connect">കണക്ട്</string>
 </resources>

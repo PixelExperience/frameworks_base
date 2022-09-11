@@ -10,7 +10,7 @@
     <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
     <string name="live_display_outdoor">Draußen (helles Sonnenlicht)</string>
     <string name="live_display_outdoor_summary">Nur Außen-Modus verwenden</string>
-    <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen vor dem schlafen gehen helfen. Hier klicken, um es auszuprobieren.</string>
+    <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen vor dem Schlafen gehen helfen. Hier klicken, um es auszuprobieren.</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Auto-Modus</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tagesmodus</string>
