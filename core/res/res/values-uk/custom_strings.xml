@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="face_unlock_disabled_idle">Фейсконтроль вимкнено через неактивність</string>
+    <string name="face_unlock_disabled_idle">Розблокування за обличчю вимкнено через неактивність</string>
 </resources>
