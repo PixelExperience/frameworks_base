@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Bu siz olib tashlamaguningizcha ko‘rsatiladi. Olib tashlash uchun \"Uyga\" va \"O‘chirish\" tugmalarini bir vaqtda bosib turing.</string>
+    <string name="screen_pinning_toast_no_navbar">Ilovani olib tashlash uchun, \"Orqaga\" tugmasini bosib turing.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Siz buni olib tashlamaguningizcha shu holatda qoladi, Olib tashlash uchun Barmoq izi sensorini bosib turing.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Ekran qulfini ochish uchun, barmogʻingizni Barmoq izi skanerida ushlab turing.</string>
+    <string name="face_unlock_recognizing">Yuzni aniqlash...</string>
+    <string name="quick_settings_powershare_label">Quvvat Uzatish </string>
+    <string name="quick_settings_powershare_off_powersave_label">Quvvat Uzatish Batareyani tejash oʻchirilsin\yoqilsin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Quvvat Uzatish oʻchirilsin\yoqilsin Batareya quvvati juda past</string>
+    <string name="quick_settings_powershare_enabled_label">Quvvat Uzatish yoqilgan</string>
+</resources>

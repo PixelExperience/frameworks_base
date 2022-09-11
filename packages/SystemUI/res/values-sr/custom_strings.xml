@@ -6,4 +6,7 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Да бисте откачили овај екран, додирните и задржите прст на сензору отиска прста</string>
     <string name="face_unlock_recognizing">Препознавање лица…</string>
     <string name="quick_settings_powershare_label">Дељење Батерије</string>
+    <string name="quick_settings_powershare_off_powersave_label">Дељење Батеије искључено\nУштеда батерије</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Дељење Батеије искључено\nНиво батерије пренизак</string>
+    <string name="quick_settings_powershare_enabled_label">Дељење Батерие укључено</string>
 </resources>
