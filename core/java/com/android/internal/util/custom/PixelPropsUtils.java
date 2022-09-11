@@ -119,10 +119,27 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
+    private static void setPropsForSamsung(String packageName) {
+        for (Map.Entry<String, Object> prop : propsToChangePixel6.entrySet()) {
+            String key = prop.getKey();
+            Object value = prop.getValue();
+            if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
+                if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
+                continue;
+            }
+            if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
+            setPropValue(key, value);
+        }
+    }
+
     public static void setProps(Application app) {
         final String packageName = app.getPackageName();
         final String processName = app.getProcessName();
         if (packageName == null) {
+            return;
+        }
+        if (packageName.startsWith("com.samsung.android.")){
+            setPropsForSamsung(packageName);
             return;
         }
         if (packageName.equals(PACKAGE_GMS) &&
