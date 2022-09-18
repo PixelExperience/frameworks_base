@@ -29,14 +29,14 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceScreen;
 
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.demomode.DemoModeController;
 import com.android.systemui.fragments.FragmentService;
 
 import javax.inject.Inject;
-
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
 public class TunerActivity extends CollapsingToolbarBaseActivity implements
         PreferenceFragment.OnPreferenceStartFragmentCallback,
@@ -57,11 +57,6 @@ public class TunerActivity extends CollapsingToolbarBaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_AppCompat_DayNight);
-
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        setContentView(R.layout.tuner_activity);
-
         if (getFragmentManager().findFragmentByTag(TAG_TUNER) == null) {
             final String action = getIntent().getAction();
             final Fragment fragment;
