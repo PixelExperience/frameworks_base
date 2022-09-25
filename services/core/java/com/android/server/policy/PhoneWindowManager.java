@@ -6169,6 +6169,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // fallback for devices without composition support
                 return VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
 
+            case HapticFeedbackConstants.GRANULAR_SHORT_VIBRATE:
+                return VibrationEffect.get(VibrationEffect.EFFECT_CLICK);
+
             default:
                 return null;
         }
