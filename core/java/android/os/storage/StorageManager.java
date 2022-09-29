@@ -1693,6 +1693,9 @@ public class StorageManager {
         return RoSystemProperties.CRYPTO_ENCRYPTED;
     }
 
+    /** {@hide}
+     * TODO: implement a better solution for MTK devices
+     */
     public static boolean inCryptKeeperBounce() {
         return false;
     }
