@@ -3,6 +3,6 @@
     <string name="bluetooth_a2dp_codec_system">Sistem Seçimini İstifadə Et (İlkin)</string>
     <string name="bluetooth_talkback_group">Qrup Cihazları</string>
     <string name="bluetooth_profile_bc">BC Profili</string>
-    <string name="bluetooth_bc_profile_summary_connected">BA serveri ilə bağlantı quruldu</string>
+    <string name="bluetooth_bc_profile_summary_connected">BA serverinə bağlandı</string>
     <string name="bluetooth_bc_profile_summary_use_for">BA üçün istifadə et</string>
 </resources>

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="face_unlock_disabled_idle">Faol boʻlmagani uchun yuz bilan ochish oʻchirib qoʻyildi</string>
+    <string name="face_unlock_disabled_idle">Yuz bilan ochish faol bo\'lmaganlik sabab o\'chirilgan</string>
 </resources>
