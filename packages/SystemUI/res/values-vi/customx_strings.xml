@@ -11,7 +11,7 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Màn hình xem nhanh đã bật.</string>
     <string name="quick_settings_aod_label">Màn hình luôn bật</string>
     <string name="quick_settings_aod_off_powersave_label">Màn hình luôn bật tắt\nTiết kiệm pin</string>
-    <string name="quick_settings_caffeine_label">Giữ màn hình bật</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Tắt Caffeine.</string>
     <string name="accessibility_quick_settings_caffeine_on">Bật Caffeine.</string>
     <string name="quick_settings_heads_up_label">Thông báo nổi</string>
