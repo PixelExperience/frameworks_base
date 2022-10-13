@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f87a54_90dd5c11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000678
+      },
+      "writtenOn": "2022-10-13T16:28:46Z",
+      "side": 1,
+      "message": "Hold on, have you tried adding these?\nlockscreen.rot_override\u003dtrue in your dt’s system.prop, and\n\u003cbool name\u003d\"config_enableLockScreenRotation\"\u003etrue\u003c/bool\u003e in your dt’s SystemUI overlay\n",
+      "revId": "c00ae5d32476bcbc41b1f694e12cc411a519463f",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
