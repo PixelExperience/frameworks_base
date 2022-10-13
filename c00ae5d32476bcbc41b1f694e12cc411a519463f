@@ -33,6 +33,42 @@
       "message": "Hold on, have you tried adding these?\nlockscreen.rot_override\u003dtrue in your dt’s system.prop, and\n\u003cbool name\u003d\"config_enableLockScreenRotation\"\u003etrue\u003c/bool\u003e in your dt’s SystemUI overlay",
       "revId": "c00ae5d32476bcbc41b1f694e12cc411a519463f",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a7b30a2_42cfb329",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-10-13T16:35:53Z",
+      "side": 1,
+      "message": "Hi yes it is included in my systemUI overlay but does not work",
+      "parentUuid": "69f87a54_90dd5c11",
+      "revId": "c00ae5d32476bcbc41b1f694e12cc411a519463f",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58aadd6a_f1310345",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2022-10-13T16:35:53Z",
+      "side": 1,
+      "message": "Yes, both is added. Not only me experiencing this issue",
+      "parentUuid": "3e411e65_df83b90f",
+      "revId": "c00ae5d32476bcbc41b1f694e12cc411a519463f",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
