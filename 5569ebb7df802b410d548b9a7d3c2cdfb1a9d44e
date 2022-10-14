@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc6c8c3d_48600856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-10-14T00:02:41Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_frameworks_base/commit/db9faf1329225bcd69fca75f30dbdc64e4f501c1",
+      "revId": "5569ebb7df802b410d548b9a7d3c2cdfb1a9d44e",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
