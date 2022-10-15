@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcf01191_d6b63812",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1000673
+      },
+      "writtenOn": "2022-10-15T03:55:18Z",
+      "side": 1,
+      "message": "It\u0027s giving build error now.\nFix: https://github.com/Redmi-Note-4-4X-NRanjan-17/frameworks_base/commit/299f4e68c90cc28cde6258bb9c7cebb87be8ee81",
+      "range": {
+        "startLine": 1833,
+        "startChar": 12,
+        "endLine": 1837,
+        "endChar": 22
+      },
+      "revId": "74a451369422ef9765325e997be72e509763ea62",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
