@@ -488,6 +488,8 @@ applications that come with the platform
         <permission name="android.permission.READ_SAFETY_CENTER_STATUS" />
         <!-- Permission required for CTS test - CtsTelephonyTestCases -->
         <permission name="android.permission.BIND_TELECOM_CONNECTION_SERVICE" />
+        <!-- Permission required for CTS test - CaptioningManagerTest -->
+        <permission name="android.permission.SET_SYSTEM_AUDIO_CAPTION" />
     </privapp-permissions>
 
     <privapp-permissions package="com.android.statementservice">
