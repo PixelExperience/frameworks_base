@@ -4041,7 +4041,7 @@
      <p>Not for use by third-party applications.
      @hide -->
     <permission android:name="android.permission.SET_SYSTEM_AUDIO_CAPTION"
-                android:protectionLevel="signature|role" />
+                android:protectionLevel="signature|role|privileged" />
 
     <!-- Allows an application to retrieve the current state of keys and
          switches.
