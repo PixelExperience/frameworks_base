@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfbadb26_a1d3ad21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2022-10-23T07:00:45Z",
+      "side": 1,
+      "message": "Self-explanatory - Fixes the API added in previous commit.",
+      "revId": "905584266620f8a8db8663b02d442d8ac08608df",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
