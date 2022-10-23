@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd2584da_59dbcc9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2022-10-23T06:50:35Z",
+      "side": 1,
+      "message": "This API is needed for R MTK IMS to work properly.",
+      "revId": "5217bc0e54bf81206eaac89dfac61e7f9dd06a9a",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
