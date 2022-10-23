@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4533f2b6_3b2cd7d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2022-10-23T07:02:06Z",
+      "side": 1,
+      "message": "Required for screen recording to work with basic functionality on modern MTK devices.",
+      "revId": "7ea06ed565f298bdc9da3d49d3c3fc51081c4232",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
