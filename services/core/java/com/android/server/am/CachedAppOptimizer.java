@@ -31,6 +31,7 @@ import android.os.Message;
 import android.os.PowerManagerInternal;
 import android.os.Process;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.provider.DeviceConfig;
 import android.provider.DeviceConfig.OnPropertiesChangedListener;
@@ -40,6 +41,7 @@ import android.text.TextUtils;
 import android.util.EventLog;
 import android.util.Pair;
 import android.util.Slog;
+import android.util.BoostFramework;
 import android.util.SparseArray;
 
 import com.android.internal.annotations.GuardedBy;
@@ -63,6 +65,7 @@ public final class CachedAppOptimizer {
 
     // Flags stored in the DeviceConfig API.
     @VisibleForTesting static final String KEY_USE_COMPACTION = "use_compaction";
+    @VisibleForTesting static final String KEY_COMPACTION_PRIORITY = "compaction_priority";
     @VisibleForTesting static final String KEY_USE_FREEZER = "use_freezer";
     @VisibleForTesting static final String KEY_COMPACT_ACTION_1 = "compact_action_1";
     @VisibleForTesting static final String KEY_COMPACT_ACTION_2 = "compact_action_2";
@@ -205,7 +208,8 @@ public final class CachedAppOptimizer {
                 public void onPropertiesChanged(Properties properties) {
                     synchronized (mPhenotypeFlagLock) {
                         for (String name : properties.getKeyset()) {
-                            if (KEY_USE_COMPACTION.equals(name)) {
+                            if (KEY_USE_COMPACTION.equals(name) ||
+                                KEY_COMPACTION_PRIORITY.equals(name)) {
                                 updateUseCompaction();
                             } else if (KEY_COMPACT_ACTION_1.equals(name)
                                     || KEY_COMPACT_ACTION_2.equals(name)) {
@@ -306,6 +310,7 @@ public final class CachedAppOptimizer {
     private volatile boolean mUseFreezer = false; // set to DEFAULT in init()
     @GuardedBy("this")
     private int mFreezerDisableCount = 1; // Freezer is initially disabled, until enabled
+    public volatile int  mCompactionPriority = Process.THREAD_GROUP_BACKGROUND;
     private final Random mRandom = new Random();
     @GuardedBy("mPhenotypeFlagLock")
     @VisibleForTesting volatile float mCompactStatsdSampleRate = DEFAULT_STATSD_SAMPLE_RATE;
@@ -362,6 +367,7 @@ public final class CachedAppOptimizer {
 
     private final ProcessDependencies mProcessDependencies;
     private final ProcLocksReader mProcLocksReader;
+    public static BoostFramework mPerf = new BoostFramework();
 
     public CachedAppOptimizer(ActivityManagerService am) {
         this(am, null, new DefaultProcessDependencies());
@@ -373,7 +379,7 @@ public final class CachedAppOptimizer {
         mAm = am;
         mProcLock = am.mProcLock;
         mCachedAppOptimizerThread = new ServiceThread("CachedAppOptimizerThread",
-            Process.THREAD_GROUP_SYSTEM, true);
+            mCompactionPriority, true);
         mProcStateThrottle = new HashSet<>();
         mProcessDependencies = processDependencies;
         mTestCallback = callback;
@@ -408,6 +414,88 @@ public final class CachedAppOptimizer {
             updateMinOomAdjThrottle();
             updateMaxOomAdjThrottle();
         }
+        setAppCompactProperties();
+    }
+
+    private void setAppCompactProperties() {
+        boolean useCompaction =
+                    Boolean.valueOf(mPerf.perfGetProp("vendor.appcompact.enable_app_compact",
+                        "false"));
+        int threadPriority =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.thread_priority",
+                        String.valueOf(Process.THREAD_GROUP_BACKGROUND)));
+        // Let the user change the group back to THREAD_GROUP_SYSYTEM
+        // For any other value, set it to THREAD_GROUP_BACKGROUND
+        if (threadPriority != Process.THREAD_GROUP_SYSTEM)
+            threadPriority = Process.THREAD_GROUP_BACKGROUND;
+
+        int someCompactionType =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.some_compact_type",
+                        String.valueOf(COMPACT_ACTION_ANON_FLAG)));
+        int fullCompactionType =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.full_compact_type",
+                        String.valueOf(COMPACT_ACTION_ANON_FLAG)));
+        int compactThrottleSomeSome =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_somesome",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_1)));
+        int compactThrottleSomeFull =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_somefull",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_2)));
+        int compactThrottleFullSome =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_fullsome",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_3)));
+        int compactThrottleFullFull =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_fullfull",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_4)));
+        int compactThrottleBfgs =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_bfgs",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_5)));
+        int compactThrottlePersistent =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_persistent",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_6)));
+        int fullRssThrottleKB =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.rss_throttle_kb",
+                        String.valueOf(DEFAULT_COMPACT_FULL_RSS_THROTTLE_KB)));
+        int deltaRssThrottleKB =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.delta_rss_throttle_kb",
+                        String.valueOf(DEFAULT_COMPACT_FULL_DELTA_RSS_THROTTLE_KB)));
+
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_ACTION_1,
+                        String.valueOf(someCompactionType), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_ACTION_2,
+                        String.valueOf(fullCompactionType), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_1,
+                        String.valueOf(compactThrottleSomeSome), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_2,
+                        String.valueOf(compactThrottleSomeFull), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_3,
+                        String.valueOf(compactThrottleFullSome), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_4,
+                        String.valueOf(compactThrottleFullFull), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_5,
+                        String.valueOf(compactThrottleBfgs), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_6,
+                        String.valueOf(compactThrottlePersistent), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_FULL_RSS_THROTTLE_KB,
+                        String.valueOf(fullRssThrottleKB), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_FULL_DELTA_RSS_THROTTLE_KB,
+                        String.valueOf(deltaRssThrottleKB), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_USE_COMPACTION,
+                        String.valueOf(useCompaction), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACTION_PRIORITY,
+                        String.valueOf(threadPriority), true);
     }
 
     /**
@@ -433,6 +521,7 @@ public final class CachedAppOptimizer {
         pw.println("CachedAppOptimizer settings");
         synchronized (mPhenotypeFlagLock) {
             pw.println("  " + KEY_USE_COMPACTION + "=" + mUseCompaction);
+            pw.println("  " + KEY_COMPACTION_PRIORITY  + "=" + mCompactionPriority);
             pw.println("  " + KEY_COMPACT_ACTION_1 + "=" + mCompactActionSome);
             pw.println("  " + KEY_COMPACT_ACTION_2 + "=" + mCompactActionFull);
             pw.println("  " + KEY_COMPACT_THROTTLE_1 + "=" + mCompactThrottleSomeSome);
@@ -659,8 +748,17 @@ public final class CachedAppOptimizer {
      */
     @GuardedBy("mPhenotypeFlagLock")
     private void updateUseCompaction() {
+        // If this property is null there must have been some unexpected reset
+        String useCompaction = DeviceConfig.getProperty(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_USE_COMPACTION);
+        if (useCompaction == null) {
+            setAppCompactProperties();
+        }
+
         mUseCompaction = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER,
                     KEY_USE_COMPACTION, DEFAULT_USE_COMPACTION);
+
+        mCompactionPriority = DeviceConfig.getInt(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER,
+                    KEY_COMPACTION_PRIORITY, Process.THREAD_GROUP_BACKGROUND);
 
         if (mUseCompaction && mCompactionHandler == null) {
             if (!mCachedAppOptimizerThread.isAlive()) {
@@ -668,10 +766,10 @@ public final class CachedAppOptimizer {
             }
 
             mCompactionHandler = new MemCompactionHandler();
-
-            Process.setThreadGroupAndCpuset(mCachedAppOptimizerThread.getThreadId(),
-                    Process.THREAD_GROUP_SYSTEM);
         }
+
+        Process.setThreadGroupAndCpuset(mCachedAppOptimizerThread.getThreadId(),
+                mCompactionPriority);
     }
 
     /**
@@ -836,7 +934,8 @@ public final class CachedAppOptimizer {
                 }
 
                 Process.setThreadGroupAndCpuset(mCachedAppOptimizerThread.getThreadId(),
-                        Process.THREAD_GROUP_SYSTEM);
+                    mCompactionPriority);
+
             } else {
                 Slog.d(TAG_AM, "Freezer disabled");
                 enableFreezer(false);
@@ -1236,7 +1335,8 @@ public final class CachedAppOptimizer {
                 && (newAdj == ProcessList.PREVIOUS_APP_ADJ || newAdj == ProcessList.HOME_APP_ADJ)) {
             // Perform a minor compaction when a perceptible app becomes the prev/home app
             compactAppSome(app, false);
-        } else if (oldAdj < ProcessList.CACHED_APP_MIN_ADJ
+        } else if ((oldAdj < ProcessList.CACHED_APP_MIN_ADJ
+                || oldAdj > ProcessList.CACHED_APP_MAX_ADJ)
                 && newAdj >= ProcessList.CACHED_APP_MIN_ADJ
                 && newAdj <= ProcessList.CACHED_APP_MAX_ADJ) {
             // Perform a major compaction when any app enters cached
@@ -1304,7 +1404,7 @@ public final class CachedAppOptimizer {
 
             // don't compact if the process has returned to perceptible
             // and this is only a cached/home/prev compaction
-            if ((action == COMPACT_ACTION_FILE || action == COMPACT_ACTION_FULL)
+            if ((action == COMPACT_PROCESS_SOME || action == COMPACT_PROCESS_FULL)
                     && (proc.mState.getSetAdj() <= ProcessList.PERCEPTIBLE_APP_ADJ)) {
                 if (DEBUG_COMPACTION) {
                     Slog.d(TAG_AM,

@@ -159,6 +159,7 @@ import android.system.StructStat;
 import android.telephony.TelephonyFrameworkInitializer;
 import android.util.AndroidRuntimeException;
 import android.util.ArrayMap;
+import android.util.BoostFramework;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
 import android.util.Log;
@@ -6448,6 +6449,8 @@ public final class ActivityThread extends ClientTransactionHandler
 
     @UnsupportedAppUsage
     private void handleBindApplication(AppBindData data) {
+        long st_bindApp = SystemClock.uptimeMillis();
+        BoostFramework ux_perf = null;
         // Register the UI Thread as a sensitive thread to the runtime.
         VMRuntime.registerSensitiveThread();
         // In the case the stack depth property exists, pass it down to the runtime.
@@ -6566,10 +6569,17 @@ public final class ActivityThread extends ClientTransactionHandler
         /**
          * Switch this process to density compatibility mode if needed.
          */
-        if ((data.appInfo.flags&ApplicationInfo.FLAG_SUPPORTS_SCREEN_DENSITIES)
+        if ((data.appInfo.flags & ApplicationInfo.FLAG_SUPPORTS_SCREEN_DENSITIES)
                 == 0) {
             mDensityCompatMode = true;
             Bitmap.setDefaultDensity(DisplayMetrics.DENSITY_DEFAULT);
+        } else {
+            int overrideDensity = data.appInfo.getOverrideDensity();
+            if(overrideDensity != 0) {
+                Log.d(TAG, "override app density from " + DisplayMetrics.DENSITY_DEVICE + " to " + overrideDensity);
+                mDensityCompatMode = true;
+                Bitmap.setDefaultDensity(overrideDensity);
+            }
         }
         mConfigurationController.updateDefaultDensity(data.config.densityDpi);
 
@@ -6665,6 +6675,15 @@ public final class ActivityThread extends ClientTransactionHandler
             }
         } finally {
             Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+        }
+
+        if (!Process.isIsolated()) {
+            final int old_mask = StrictMode.allowThreadDiskWritesMask();
+            try {
+                ux_perf = new BoostFramework(appContext);
+            } finally {
+                 StrictMode.setThreadPolicyMask(old_mask);
+            }
         }
 
         if (!Process.isIsolated()) {
@@ -6791,6 +6810,33 @@ public final class ActivityThread extends ClientTransactionHandler
                 }
             } catch (RemoteException e) {
                 throw e.rethrowFromSystemServer();
+            }
+        }
+        long end_bindApp = SystemClock.uptimeMillis();
+        int bindApp_dur = (int) (end_bindApp - st_bindApp);
+        String pkg_name = null;
+        if (appContext != null) {
+            pkg_name = appContext.getPackageName();
+        }
+        if (ux_perf != null && !Process.isIsolated() && pkg_name != null) {
+            String pkgDir = null;
+            try
+            {
+                String codePath = appContext.getPackageCodePath();
+                pkgDir =  codePath.substring(0, codePath.lastIndexOf('/'));
+            }
+            catch(Exception e)
+            {
+                Slog.e(TAG, "HeavyGameThread () : Exception_1 = " + e);
+            }
+            if (ux_perf.board_first_api_lvl < BoostFramework.VENDOR_T_API_LEVEL &&
+                ux_perf.board_api_lvl < BoostFramework.VENDOR_T_API_LEVEL) {
+                ux_perf.perfUXEngine_events(BoostFramework.UXE_EVENT_BINDAPP, 0,
+                                               pkg_name,
+                                               bindApp_dur,
+                                               pkgDir);
+            } else {
+                ux_perf.perfEvent(BoostFramework.VENDOR_HINT_BINDAPP, pkg_name, 2, bindApp_dur, 0);
             }
         }
     }
