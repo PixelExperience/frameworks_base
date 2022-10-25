@@ -211,6 +211,7 @@ extern int register_com_android_internal_os_ZygoteInit(JNIEnv *env);
 extern int register_com_android_internal_security_VerityUtils(JNIEnv* env);
 extern int register_com_android_internal_util_VirtualRefBasePtr(JNIEnv *env);
 extern int register_android_window_WindowInfosListener(JNIEnv* env);
+extern int register_com_android_internal_app_ActivityTrigger(JNIEnv *env);
 
 // Namespace for Android Runtime flags applied during boot time.
 static const char* RUNTIME_NATIVE_BOOT_NAMESPACE = "runtime_native_boot";
@@ -1651,6 +1652,7 @@ static const RegJNIRec gRegJNI[] = {
 
         REG_JNI(register_android_animation_PropertyValuesHolder),
         REG_JNI(register_android_security_Scrypt),
+        REG_JNI(register_com_android_internal_app_ActivityTrigger),
         REG_JNI(register_com_android_internal_content_F2fsUtils),
         REG_JNI(register_com_android_internal_content_NativeLibraryHelper),
         REG_JNI(register_com_android_internal_os_FuseAppLoop),

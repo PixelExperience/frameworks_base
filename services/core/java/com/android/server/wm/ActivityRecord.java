@@ -302,11 +302,13 @@ import android.os.PersistableBundle;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.service.contentcapture.ActivityEvent;
 import android.service.dreams.DreamActivity;
 import android.service.voice.IVoiceInteractionSession;
+import android.util.BoostFramework;
 import android.util.ArraySet;
 import android.util.EventLog;
 import android.util.Log;
@@ -384,7 +386,7 @@ import java.util.function.Predicate;
 /**
  * An entry in the history task, representing an activity.
  */
-final class ActivityRecord extends WindowToken implements WindowManagerService.AppFreezeListener {
+public final class ActivityRecord extends WindowToken implements WindowManagerService.AppFreezeListener {
     private static final String TAG = TAG_WITH_CLASS_NAME ? "ActivityRecord" : TAG_ATM;
     private static final String TAG_ADD_REMOVE = TAG + POSTFIX_ADD_REMOVE;
     private static final String TAG_APP = TAG + POSTFIX_APP;
@@ -451,7 +453,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
     final int mUserId;
     // The package implementing intent's component
     // TODO: rename to mPackageName
-    final String packageName;
+    public final String packageName;
     // the intent component, or target of an alias.
     final ComponentName mActivityComponent;
     // Input application handle used by the input dispatcher.
@@ -479,6 +481,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
     private int labelRes;           // the label information from the package mgr.
     private int icon;               // resource identifier of activity's icon.
     private int theme;              // resource identifier of activity's theme.
+    public int perfActivityBoostHandler = -1; //perflock handler when activity is created.
     private Task task;              // the task this is in.
     private long createTime = System.currentTimeMillis();
     long lastVisibleTime;         // last time this activity became visible
@@ -542,6 +545,8 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
                                         // process that it is hidden.
     private boolean mLastDeferHidingClient; // If true we will defer setting mClientVisible to false
                                            // and reporting to the client that it is hidden.
+    public boolean launching;      // is activity launch in progress?
+    public boolean translucentWindowLaunch; // a translucent window launch?
     boolean nowVisible;     // is this activity's window visible?
     boolean mClientVisibilityDeferred;// was the visibility change message to client deferred?
     boolean idle;           // has the activity gone idle?
@@ -634,6 +639,12 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
 
     boolean pendingVoiceInteractionStart;   // Waiting for activity-invoked voice session
     IVoiceInteractionSession voiceSession;  // Voice interaction session for this activity
+
+    public BoostFramework mPerf = null;
+    public BoostFramework mPerf_iop = null;
+
+    private final boolean isLowRamDevice =
+            SystemProperties.getBoolean("ro.config.low_ram", false);
 
     boolean mVoiceInteraction;
 
@@ -2084,6 +2095,8 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         super.setClientVisible(true);
         idle = false;
         hasBeenLaunched = false;
+        launching = false;
+        translucentWindowLaunch = false;
         mTaskSupervisor = supervisor;
 
         info.taskAffinity = computeTaskAffinity(info.taskAffinity, info.applicationInfo.uid,
@@ -2162,6 +2175,9 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         mActivityRecordInputSink = new ActivityRecordInputSink(this, sourceRecord);
 
         updateEnterpriseThumbnailDrawable(mAtmService.getUiContext());
+
+        if (mPerf == null)
+            mPerf = new BoostFramework();
     }
 
     /**
@@ -2331,6 +2347,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
                 windowDisableStarting);
         // If this activity is launched from system surface, ignore windowDisableStarting
         if (windowIsTranslucent || windowIsFloating) {
+	    translucentWindowLaunch = true;
             return false;
         }
         if (windowShowWallpaper
@@ -3729,6 +3746,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         }
         makeFinishingLocked();
 
+        getRootTask().onARStopTriggered(this);
         final boolean activityRemoved = destroyImmediately("finish-imm:" + reason);
 
         // If the display does not have running activity, the configuration may need to be
@@ -6209,6 +6227,11 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
 
         if (isActivityTypeHome()) {
             mTaskSupervisor.updateHomeProcess(task.getBottomMostActivity().app);
+            try {
+                mTaskSupervisor.new PreferredAppsTask().execute();
+            } catch (Exception e) {
+                Slog.v (TAG, "Exception: " + e);
+            }
         }
 
         if (nowVisible) {
@@ -6305,6 +6328,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
 
     void stopIfPossible() {
         if (DEBUG_SWITCH) Slog.d(TAG_SWITCH, "Stopping: " + this);
+	launching = false;
         final Task rootTask = getRootTask();
         if (isNoHistory()) {
             if (!finishing) {
@@ -6331,6 +6355,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
             ProtoLog.v(WM_DEBUG_STATES, "Moving to STOPPING: %s (stop requested)", this);
 
             setState(STOPPING, "stopIfPossible");
+	    getRootTask().onARStopTriggered(this);
             if (DEBUG_VISIBILITY) {
                 Slog.v(TAG_VISIBILITY, "Stopping:" + this);
             }
@@ -6669,6 +6694,12 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
 
     /** Called when the windows associated app window container are drawn. */
     private void onWindowsDrawn(long timestampNs) {
+	if (mPerf != null && perfActivityBoostHandler > 0) {
+            mPerf.perfLockReleaseHandler(perfActivityBoostHandler);
+            perfActivityBoostHandler = -1;
+        } else if (perfActivityBoostHandler > 0) {
+            Slog.w(TAG, "activity boost didn't release as expected");
+        }
         final TransitionInfoSnapshot info = mTaskSupervisor
                 .getActivityMetricsLogger().notifyWindowsDrawn(this, timestampNs);
         final boolean validInfo = info != null;
@@ -6698,6 +6729,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         if (DEBUG_SWITCH) Log.v(TAG_SWITCH, "windowsVisibleLocked(): " + this);
         if (!nowVisible) {
             nowVisible = true;
+            launching = false;
             lastVisibleTime = SystemClock.uptimeMillis();
             mAtmService.scheduleAppGcsLocked();
             // The nowVisible may be false in onAnimationFinished because the transition animation
@@ -6722,6 +6754,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         if (DEBUG_VISIBILITY) Slog.v(TAG_WM, "Reporting gone in " + token);
         if (DEBUG_SWITCH) Log.v(TAG_SWITCH, "windowsGone(): " + this);
         nowVisible = false;
+        launching = false;
     }
 
     @Override
@@ -7411,6 +7444,15 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
     @VisibleForTesting
     boolean shouldAnimate() {
         return task == null || task.shouldAnimate();
+    }
+
+    public int isAppInfoGame() {
+        int isGame = 0;
+        if (info.applicationInfo != null) {
+            isGame = (info.applicationInfo.category == ApplicationInfo.CATEGORY_GAME ||
+                      (info.applicationInfo.flags & ApplicationInfo.FLAG_IS_GAME) == ApplicationInfo.FLAG_IS_GAME) ? 1 : 0;
+        }
+        return isGame;
     }
 
     /**

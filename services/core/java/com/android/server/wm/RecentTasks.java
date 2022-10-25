@@ -69,6 +69,7 @@ import android.util.ArraySet;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
+import android.util.BoostFramework;
 import android.view.MotionEvent;
 import android.view.WindowManagerPolicyConstants.PointerEventListener;
 
@@ -203,6 +204,7 @@ class RecentTasks {
     private final HashMap<ComponentName, ActivityInfo> mTmpAvailActCache = new HashMap<>();
     private final HashMap<String, ApplicationInfo> mTmpAvailAppCache = new HashMap<>();
     private final SparseBooleanArray mTmpQuietProfileUserIds = new SparseBooleanArray();
+    private final BoostFramework mUxPerf = new BoostFramework();
 
     // TODO(b/127498985): This is currently a rough heuristic for interaction inside an app
     private final PointerEventListener mListener = new PointerEventListener() {
@@ -1212,6 +1214,22 @@ class RecentTasks {
     void remove(Task task) {
         mTasks.remove(task);
         notifyTaskRemoved(task, false /* wasTrimmed */, false /* killProcess */);
+        if (task != null) {
+            final Intent intent = task.getBaseIntent();
+            if (intent == null) return;
+            final ComponentName componentName = intent.getComponent();
+            if (componentName == null) return;
+
+            final String taskPkgName = componentName.getPackageName();
+            if (mUxPerf != null) {
+                if (mUxPerf.board_first_api_lvl < BoostFramework.VENDOR_T_API_LEVEL &&
+                    mUxPerf.board_api_lvl < BoostFramework.VENDOR_T_API_LEVEL) {
+                    mUxPerf.perfUXEngine_events(BoostFramework.UXE_EVENT_KILL, 0, taskPkgName, 0);
+                } else {
+                    mUxPerf.perfEvent(BoostFramework.VENDOR_HINT_KILL, taskPkgName, 2, 0, 0);
+                }
+            }
+        }
     }
 
     /**
