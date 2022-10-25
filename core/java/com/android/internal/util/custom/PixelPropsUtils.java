@@ -44,12 +44,12 @@ public class PixelPropsUtils {
     private static final String[] packagesToChangePixel7Pro = {
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.privacy.wildlife",
-            "com.google.android.apps.subscriptions.red",
-            "com.google.android.inputmethod.latin"
+            "com.google.android.apps.subscriptions.red"
     };
 
     private static final String[] packagesToChangePixelXL = {
             "com.google.android.apps.photos",
+            "com.google.android.inputmethod.latin",
             "com.samsung.accessory",
             "com.samsung.accessory.fridaymgr",
             "com.samsung.accessory.berrymgr",
