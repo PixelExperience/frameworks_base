@@ -16,6 +16,23 @@
       "message": "This API is needed for R MTK IMS to work properly.",
       "revId": "5217bc0e54bf81206eaac89dfac61e7f9dd06a9a",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffab08d3_49214c9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000606
+      },
+      "writtenOn": "2022-10-26T19:25:29Z",
+      "side": 1,
+      "message": "It is better to patch the apk itself and avoid modifications in fwb.",
+      "revId": "5217bc0e54bf81206eaac89dfac61e7f9dd06a9a",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
