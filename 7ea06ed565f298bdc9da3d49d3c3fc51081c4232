@@ -16,6 +16,23 @@
       "message": "Required for screen recording to work with basic functionality on modern MTK devices.",
       "revId": "7ea06ed565f298bdc9da3d49d3c3fc51081c4232",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fb98e0c_0680979b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000606
+      },
+      "writtenOn": "2022-10-26T19:25:02Z",
+      "side": 1,
+      "message": "AVCLevel42 is a level that the MTK encoder cannot handle, this basically is just a complicated way of falling back to software C2 encoder to workaround the broken codec. There is a vendor side fix to this issue so I don\u0027t know why you\u0027d need this.",
+      "revId": "7ea06ed565f298bdc9da3d49d3c3fc51081c4232",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
