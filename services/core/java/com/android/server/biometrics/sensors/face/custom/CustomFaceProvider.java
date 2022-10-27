@@ -374,14 +374,14 @@ public class CustomFaceProvider implements ServiceProvider {
                 }
             } else {
                 scheduleUpdateActiveUserWithoutHandler(options.getUserId());
-                mScheduler.scheduleClientMonitor(new FaceAuthenticationClient(mContext, mLazyDaemon, token, receiver, operationId, restricted, options, cookie, false, createLogger(BiometricsProtoEnums.ACTION_AUTHENTICATE, statsClient), mBiometricContext, Utils.isStrongBiometric(mSensorId), mLockoutTracker, mUsageStats, allowBackgroundAuthentication, Utils.getCurrentStrength(mSensorId)));
+                mScheduler.scheduleClientMonitor(new FaceAuthenticationClient(mContext, mLazyDaemon, token, requestId, receiver, operationId, restricted, options, cookie, false, createLogger(BiometricsProtoEnums.ACTION_AUTHENTICATE, statsClient), mBiometricContext, Utils.isStrongBiometric(mSensorId), mLockoutTracker, mUsageStats, allowBackgroundAuthentication, Utils.getCurrentStrength(mSensorId)));
             }
         });
     }
 
     @Override
     public void cancelAuthentication(int sensorId, IBinder token, long requestId) {
-        mHandler.post(() -> mScheduler.cancelAuthenticationOrDetection(token, sensorId));
+        mHandler.post(() -> mScheduler.cancelAuthenticationOrDetection(token, requestId));
     }
 
     @Override

@@ -51,9 +51,10 @@ class FaceAuthenticationClient extends AuthenticationClient<IFaceService, FaceAu
     private final UsageStats mUsageStats;
     private int mLastAcquire;
 
-    FaceAuthenticationClient(Context context, Supplier<IFaceService> lazyDaemon, IBinder token, ClientMonitorCallbackConverter listener, long operationId, boolean restricted, FaceAuthenticateOptions options, int cookie, boolean requireConfirmation, BiometricLogger biometricLogger, BiometricContext biometricContext, boolean isStrongBiometric, LockoutTracker lockoutTracker, UsageStats usageStats, boolean allowBackgroundAuthentication, int sensorStrength) {
+    FaceAuthenticationClient(Context context, Supplier<IFaceService> lazyDaemon, IBinder token, long requestId, ClientMonitorCallbackConverter listener, long operationId, boolean restricted, FaceAuthenticateOptions options, int cookie, boolean requireConfirmation, BiometricLogger biometricLogger, BiometricContext biometricContext, boolean isStrongBiometric, LockoutTracker lockoutTracker, UsageStats usageStats, boolean allowBackgroundAuthentication, int sensorStrength) {
         super(context, lazyDaemon, token, listener, operationId, restricted, options, cookie, requireConfirmation, biometricLogger, biometricContext, isStrongBiometric, null /* taskStackListener */, lockoutTracker, allowBackgroundAuthentication, true, sensorStrength);
         mUsageStats = usageStats;
+        setRequestId(requestId);
         Resources resources = getContext().getResources();
         mBiometricPromptIgnoreList = resources.getIntArray(
                 R.array.config_face_acquire_biometricprompt_ignorelist);
