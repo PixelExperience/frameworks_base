@@ -14,4 +14,8 @@
     <!-- Whether devices suports in-display fingerprint when screen is off -->
     <java-symbol type="bool" name="config_supportsScreenOffUdfps" />
 
+    <!-- Camera -->
+    <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
+    <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
+
 </resources>
