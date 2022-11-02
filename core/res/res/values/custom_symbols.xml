@@ -9,6 +9,8 @@
     <java-symbol type="array" name="device_configs_override" />
 
     <!-- Camera -->
+    <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
+    <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
     <java-symbol type="array" name="config_cameraHFRPrivAppList" />
 
 </resources>
