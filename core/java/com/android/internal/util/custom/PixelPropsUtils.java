@@ -132,12 +132,11 @@ public class PixelPropsUtils {
         }
     }
 
-    public static void setProps(Application app) {
-        final String packageName = app.getPackageName();
-        final String processName = app.getProcessName();
-        if (packageName == null) {
+    public static void setProps(String packageName) {
+        if (packageName == null || packageName.isEmpty()) {
             return;
         }
+        final String processName = Application.getProcessName();
         if (packageName.startsWith("com.samsung.android.")){
             setPropsForSamsung(packageName);
             return;
