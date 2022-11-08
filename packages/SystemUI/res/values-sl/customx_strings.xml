@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kazalec levo</string>
+    <string name="accessibility_dpad_right">Kazalec desno</string>
+    <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
+    <string name="quick_settings_aod_label">Vedno vklopljen zaslon</string>
+    <string name="quick_settings_aod_off_powersave_label">Vedno vklopljen zaslon onemogočen\nVarčevanje z energijo akumulatorja</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
+    <string name="quick_settings_sync_label">Sinhronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
+    <string name="quick_settings_usb_tether_label">Deljenje interneta preko USB</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Obnovitev</string>
+    <string name="clock">Ura</string>
+    <string name="quick_settings_reading_mode">Način za branje</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Način za branje omogočen.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Način za branje onemogočen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Način za branje omogočen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Način za branje onemogočen.</string>
+</resources>

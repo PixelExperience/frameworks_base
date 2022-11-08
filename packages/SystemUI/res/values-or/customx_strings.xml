@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">କରସର୍ ବାମ</string>
+    <string name="accessibility_dpad_right">କର୍ସର୍ ଡାହାଣ</string>
+    <string name="global_action_current_user">ସମ୍ପ୍ରତି</string>
+    <string name="quick_settings_ambient_display_label">ଏମ୍ବିଏଣ୍ଟ ପ୍ରଦର୍ଶନ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍‍ ଅଛି।</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ବନ୍ଦ\nବ୍ୟାଟେରୀ ସେଭର୍</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+    <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
+    <string name="accessibility_quick_settings_sync_off">ସିଙ୍କ୍‍ ବନ୍ଦ ଅଛି।</string>
+    <string name="accessibility_quick_settings_sync_on">ସିଙ୍କ୍‍ ଚାଲୁ ଅଛି।</string>
+    <string name="quick_settings_usb_tether_label">USB ଟିଥରିଂ</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="vpn_credentials_password">ପାସ୍‍ୱାର୍ଡ଼</string>
+    <string name="global_action_restart_system">ସିଷ୍ଟମ୍</string>
+    <string name="global_action_restart_recovery">ପୁନରୁଦ୍ଧାର</string>
+    <string name="clock">ଘଣ୍ଟା</string>
+    <string name="quick_settings_reading_mode">ପଠନ ମୋଡ୍</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ପଠନ ମୋଡ୍ ଚାଲୁ।</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ପଠନ ମୋଡ୍ ବନ୍ଦ।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">ପଠନ ମୋଡ୍ ଚାଲୁ କରାଗଲା।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">ପଠନ ମୋଡ୍ ବନ୍ଦ କରାଗଲା।</string>
+</resources>

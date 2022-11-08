@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kursori majtas</string>
+    <string name="accessibility_dpad_right">Kursori djathtas</string>
+    <string name="quick_settings_ambient_display_label">Drita e ekranit sipas ambientit</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Drita e ekranit sipas ambientit inaktive.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Drita e ekranit sipas ambientit aktive.</string>
+    <string name="quick_settings_caffeine_label">Kafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeina inaktive.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeina aktive.</string>
+    <string name="quick_settings_sync_label">Sinkronizimi</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizimi inaktiv.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="global_action_restart_system">Sistemi</string>
+    <string name="global_action_restart_recovery">Rimëkëmbje</string>
+    <string name="clock">Ora</string>
+    <string name="quick_settings_reading_mode">Mënyrë Leximi</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Metoda pë lexim aktive.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Metoda pë lexim jo aktive.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Metoda për lexim u aktivizua.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Metoda për lexim u ç\'aktivizua.</string>
+</resources>

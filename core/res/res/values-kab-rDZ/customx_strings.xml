@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Awurman</string>
+    <string name="live_display_off">Yensa</string>
+    <string name="live_display_day">Ass</string>
+    <string name="live_display_day_summary">Seqdec iɣewwaren n wass kan</string>
+    <string name="live_display_night">Iḍ</string>
+    <string name="live_display_night_summary">Seqdec iɣewwaren n yiḍ kan</string>
+    <string name="live_display_outdoor">Beṛṛa (iṭij yettfeǧǧiǧ)</string>
+    <string name="live_display_outdoor_summary">Seqdec iɣewwaren n beṛṛa kan</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay insa.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: askar awurman.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: askar n wass.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: askar n yiḍ.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: askar n beṛṛa.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay insa.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay ibeddel ɣer uskar awurman.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ibeddel ɣer uskar n wass.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ibeddel ɣer uskar n yiḍ.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay ibeddel ɣer uskar n beṛṛa.</string>
+</resources>

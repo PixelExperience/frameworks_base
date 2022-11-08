@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">কার্সর বামে</string>
+    <string name="accessibility_dpad_right">কার্সর ডানে</string>
+    <string name="global_action_current_user">বর্তমান</string>
+    <string name="global_action_users">ব্যবহারকারী</string>
+    <string name="quick_settings_ambient_display_label">আম্বিয়েন্ট ডিসপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">আম্বিয়েন্ট ডিসপ্লে বন্ধ।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">আম্বিয়েন্ট ডিসপ্লে চালু।</string>
+    <string name="quick_settings_aod_label">এওডি </string>
+    <string name="quick_settings_aod_off_powersave_label">এওডি বন্ধ\nব্যাটারি সেভার</string>
+    <string name="quick_settings_caffeine_label">ক্যাফেইন</string>
+    <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ।</string>
+    <string name="accessibility_quick_settings_caffeine_on">ক্যাফেইন চালু।</string>
+    <string name="quick_settings_heads_up_label">হেডস আপ</string>
+    <string name="accessibility_quick_settings_heads_up_off">হেডস আপ বন্ধ।</string>
+    <string name="accessibility_quick_settings_heads_up_on">হেডস আপ চালু।</string>
+    <string name="quick_settings_sync_label">সমলয়</string>
+    <string name="accessibility_quick_settings_sync_off">সিংক্রোনাইজ বন্ধ করুন।</string>
+    <string name="accessibility_quick_settings_sync_on">সিংক্রোনাইজ চালু করুন।</string>
+    <string name="quick_settings_usb_tether_label">ইউএসবি টেথেরিং</string>
+    <string name="global_action_restart_system">সিস্টেম</string>
+    <string name="global_action_restart_recovery">রিকভারি</string>
+    <string name="clock">ঘড়ি</string>
+    <string name="quick_settings_reading_mode">পঠন মোড</string>
+    <string name="accessibility_quick_settings_reading_mode_on">পঠন মোড চালু।</string>
+    <string name="accessibility_quick_settings_reading_mode_off">পঠন মোড বন্ধ।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">পঠন মোড চালু করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">পঠন মোড বন্ধ করা হয়েছে।</string>
+    <string name="quick_settings_anti_flicker">অ্যান্টি ফ্লিকার</string>
+</resources>

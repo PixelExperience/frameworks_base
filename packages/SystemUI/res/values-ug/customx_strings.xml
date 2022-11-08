@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">نۇربەلگە سولغا</string>
+    <string name="accessibility_dpad_right">نۇر بەلگە ئوڭغا</string>
+    <string name="quick_settings_ambient_display_label">مۇھىتنى كۆرسىتىدۇ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">مۇھىت كۆرسىتىش تاقاق.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">مۇھىت كۆرسىتىش ئوچۇق.</string>
+    <string name="quick_settings_caffeine_label">قەھۋەخانە ھالىتى</string>
+    <string name="accessibility_quick_settings_caffeine_off">قەھۋەخانە ھالىتىنى تاقاش.</string>
+    <string name="accessibility_quick_settings_caffeine_on">قەھۋەخانە ھالىتىنى ئېچىش.</string>
+    <string name="quick_settings_sync_label">قەدەمداش</string>
+    <string name="accessibility_quick_settings_sync_off">قەدەمداش تاقاق.</string>
+    <string name="accessibility_quick_settings_sync_on">قەدەمداش ئوچۇق.</string>
+    <string name="quick_settings_usb_tether_label">USB ھەمبەھىر</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Avtomatik</string>
+    <string name="live_display_auto_summary">Gün çıxandan və batandan sonra ekranın rəng hərarətini avtomatik tənzimləyər</string>
+    <string name="live_display_off">Bağlı</string>
+    <string name="live_display_off_summary">Bütün nizamlamaları sıradan çıxart</string>
+    <string name="live_display_day">Gündüz</string>
+    <string name="live_display_day_summary">Yalnız gündüz tənzm. istifadə et</string>
+    <string name="live_display_night">Gecə</string>
+    <string name="live_display_night_summary">Yalnız gecə tənzm. istifadə et</string>
+    <string name="live_display_outdoor">Açıq hava (parlaq günəş)</string>
+    <string name="live_display_outdoor_summary">Yalnız açıq hava tənzm. istifadə et</string>
+    <string name="live_display_hint">LiveDisplay göz yorğunluğunuzu azaldıb, gecələr yuxulamağınıza kömək edə bilər. Sınamaq üçün bura klikləyin!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay bağlıdır.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: avtomatik rejim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gecə rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: açıq hava rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay bağlıdır.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay avtomatik rejimə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gecə rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açıq hava rejiminə keçdi.</string>
+</resources>

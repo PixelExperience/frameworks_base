@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">కర్సర్ ఎడమకి</string>
+    <string name="accessibility_dpad_right">కర్సర్ కుడికి</string>
+    <string name="quick_settings_ambient_display_label">యాంబియెంట్ డిస్‌ప్లే</string>
+    <string name="accessibility_quick_settings_ambient_display_off">పరిసర ప్రదర్శన ఆఫ్.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">పరిసర ప్రదర్శన ఆన్.</string>
+    <string name="quick_settings_caffeine_label">కాఫిన్</string>
+    <string name="accessibility_quick_settings_caffeine_off">కాఫిన్ ఆఫ్</string>
+    <string name="accessibility_quick_settings_caffeine_on">కాఫిన్ ఆన్</string>
+    <string name="quick_settings_sync_label">సమకాలీకరణ</string>
+    <string name="accessibility_quick_settings_sync_off">సమకాలీకరణ ఆఫ్.</string>
+    <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
+    <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
+    <string name="global_action_restart_recovery">రికవరీ</string>
+</resources>
