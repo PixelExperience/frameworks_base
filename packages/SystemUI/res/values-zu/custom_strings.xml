@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_powershare_label">Ukwabelana Ngebhethri</string>
+    <string name="quick_settings_powershare_off_powersave_label">Ukwabelana Ngebhethri kuvaliwe\nIsilondolozi sebhethri</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Ukwabelana kwebhethri kuvaliwe\nIbhethri liphansi kakhulu</string>
+    <string name="quick_settings_powershare_enabled_label">Ukwabelana kwebhethri kunikwe amandla</string>
+    <string name="screen_pinning_description_no_navbar">Lokhu kukugcina kubonakala uze ususe ukuphina. Thinta &amp; bamba Emuva ukuze ususe ukuphina.</string>
+    <string name="screen_pinning_toast_no_navbar">Ukuze ususe ukuphina lesi sikrini, thinta &amp; ubambe inkinobho ethi Emuva</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Lokhu kukugcina kubonakala uze ususe ukuphina. Thinta &amp; bamba inzwa yezigxivizo zeminwe ukuze ususe ukuphina.</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Ukuze ususe ukuphina lesi sikrini, thinta &amp; bamba inzwa yezigxivizo zeminwe</string>
+    <string name="face_unlock_recognizing">Ibona ubuso...</string>
+</resources>
