@@ -361,6 +361,7 @@ public class OverScroller {
      * @param duration Duration of the scroll in milliseconds.
      */
     public void startScroll(int startX, int startY, int dx, int dy, int duration) {
+        ScrollOptimizer.setFlingFlag(ScrollOptimizer.FLING_END);
         mMode = SCROLL_MODE;
         mScrollerX.startScroll(startX, dx, duration);
         mScrollerY.startScroll(startY, dy, duration);
