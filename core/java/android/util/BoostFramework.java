@@ -644,6 +644,7 @@ public class BoostFramework {
         private static boolean sQXIsLoaded = false;
         private static Class<?> sQXPerfClass = null;
         private static Method sSetFrameInterval = null;
+        private static Method sDisableOptimizer = null;
         private static Method sSetBLASTBufferQueue = null;
         private static Method sSetMotionType = null;
         private static Method sSetVsyncTime = null;
@@ -671,6 +672,9 @@ public class BoostFramework {
                 sSetFrameInterval = sQXPerfClass.getMethod(
                         "setFrameInterval", argClasses);
 
+                argClasses = new Class[]{boolean.class};
+                sDisableOptimizer = sQXPerfClass.getMethod("disableOptimizer", argClasses);
+
                 argClasses = new Class[]{BLASTBufferQueue.class};
                 sSetBLASTBufferQueue = sQXPerfClass.getMethod("setBLASTBufferQueue", argClasses);
 
@@ -694,11 +698,13 @@ public class BoostFramework {
                 argClasses = new Class[]{long.class};
                 sGetAdjustedAnimationClock = sQXPerfClass.getMethod(
                         "getAdjustedAnimationClock", argClasses);
-
-                sQXIsLoaded = true;
             } catch (Exception e) {
                 Log.e(TAG, "initQXPerfFuncs failed");
                 e.printStackTrace();
+            } finally {
+                // If frameworks and perf changes don't match(may not built together)
+                // or other exception, need to set sQXIsLoaded as true to avoid retry.
+                sQXIsLoaded = true;
             }
         }
 
@@ -732,6 +738,17 @@ public class BoostFramework {
                 }
             });
             initThread.start();
+        }
+
+        /** @hide */
+        public static void disableOptimizer(boolean disabled) {
+            if (sScrollOptEnable && sDisableOptimizer != null) {
+                try {
+                    sDisableOptimizer.invoke(null, disabled);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         /** @hide */
