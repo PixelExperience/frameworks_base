@@ -717,15 +717,17 @@ public class BoostFramework {
             Thread initThread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        initQXPerfFuncs();
-                        if (sScrollOptProp && sSetFrameInterval != null) {
-                            sSetFrameInterval.invoke(null, frameIntervalNanos);
-                            sScrollOptEnable = true;
+                    synchronized(ScrollOptimizer.class) {
+                        try {
+                            initQXPerfFuncs();
+                            if (sScrollOptProp && sSetFrameInterval != null) {
+                                sSetFrameInterval.invoke(null, frameIntervalNanos);
+                                sScrollOptEnable = true;
+                            }
+                        } catch (Exception e) {
+                            Log.e(TAG, "Failed to run initThread.");
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        Log.e(TAG, "Failed to run initThread.");
-                        e.printStackTrace();
                     }
                 }
             });
