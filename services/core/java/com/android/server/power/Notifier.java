@@ -115,6 +115,8 @@ public class Notifier {
                     -1);
     private static final VibrationAttributes HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES =
             VibrationAttributes.createForUsage(VibrationAttributes.USAGE_HARDWARE_FEEDBACK);
+    private static final VibrationEffect CHARGING_VIBRATION_DOUBLE_CLICK_EFFECT =
+            VibrationEffect.createPredefined(VibrationEffect.EFFECT_DOUBLE_CLICK);
 
     private final Object mLock = new Object();
 
@@ -843,7 +845,7 @@ public class Notifier {
             final boolean vibrate = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                     Settings.Secure.CHARGING_VIBRATION_ENABLED, 1, userId) != 0;
             if (vibrate) {
-                mVibrator.vibrate(CHARGING_VIBRATION_EFFECT,
+                mVibrator.vibrate(CHARGING_VIBRATION_DOUBLE_CLICK_EFFECT,
                         HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES);
             }
 
