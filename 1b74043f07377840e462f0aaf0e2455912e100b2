@@ -16,6 +16,24 @@
       "message": "Strong no as long as the authorship isn\u0027t properly fixed",
       "revId": "1b74043f07377840e462f0aaf0e2455912e100b2",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ebbf03_3375caa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000680
+      },
+      "writtenOn": "2022-11-30T00:13:19Z",
+      "side": 1,
+      "message": "\u003e Strong no as long as the authorship isn\u0027t properly fixed\n\ncan you help me with this? i am new in gerrit, i pick from: https://github.com/crdroidandroid/android_frameworks_base/commit/34fe18cd262012344f1655b6956a1bda87aaf989",
+      "parentUuid": "9fc915d0_293e2a96",
+      "revId": "1b74043f07377840e462f0aaf0e2455912e100b2",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
