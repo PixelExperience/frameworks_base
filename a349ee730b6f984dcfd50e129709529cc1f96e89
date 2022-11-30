@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4600a096_e5f05485",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2022-11-30T14:59:44Z",
+      "side": 1,
+      "message": "Fixes navbar position in landscape mode\nissue: https://i.imgur.com/kLBrpDU.png",
+      "revId": "a349ee730b6f984dcfd50e129709529cc1f96e89",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
