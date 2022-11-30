@@ -34,6 +34,24 @@
       "parentUuid": "9fc915d0_293e2a96",
       "revId": "1b74043f07377840e462f0aaf0e2455912e100b2",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c050d61a_2b2e2d55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-11-30T12:06:05Z",
+      "side": 1,
+      "message": "You must cherry-pick the commit actually, instead of going ctrl-c + ctrl-v in the code to preserve the authorship.",
+      "parentUuid": "18ebbf03_3375caa0",
+      "revId": "1b74043f07377840e462f0aaf0e2455912e100b2",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
