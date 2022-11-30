@@ -16,6 +16,24 @@
       "message": "What is the behavior on devices without pre-defined double click effect in the vibrator HAL?",
       "revId": "1f949a305e7e2bbe560d107c0a659b1d16f52410",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da177c79_16e60e8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000680
+      },
+      "writtenOn": "2022-11-30T15:26:27Z",
+      "side": 1,
+      "message": "\u003e What is the behavior on devices without pre-defined double click effect in the vibrator HAL?\n\nsearching a way to solve this, thank you for the info",
+      "parentUuid": "3a441b31_8864850b",
+      "revId": "1f949a305e7e2bbe560d107c0a659b1d16f52410",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
