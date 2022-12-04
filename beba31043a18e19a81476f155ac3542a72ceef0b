@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0c5f28_4d9dea6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000704
+      },
+      "writtenOn": "2022-12-04T15:28:49Z",
+      "side": 1,
+      "message": "Has been confirmed to work on rosemary, and to not affect any other MTK/QCOM devices.\n\nTested on: rosemary, begonia, lavender",
+      "revId": "beba31043a18e19a81476f155ac3542a72ceef0b",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
