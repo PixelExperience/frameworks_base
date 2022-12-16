@@ -16,6 +16,23 @@
       "message": "Fixes navbar position in landscape mode\nissue: https://i.imgur.com/kLBrpDU.png",
       "revId": "a349ee730b6f984dcfd50e129709529cc1f96e89",
       "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e23079af_a9e85912",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000411
+      },
+      "writtenOn": "2022-12-16T03:41:50Z",
+      "side": 1,
+      "message": "Related issue: https://github.com/PixelExperience/android-issues/issues/3980",
+      "revId": "a349ee730b6f984dcfd50e129709529cc1f96e89",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
     }
   ]
 }
