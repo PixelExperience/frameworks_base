@@ -10746,6 +10746,11 @@ public class Intent implements Parcelable, Cloneable {
      * @see #resolveActivity
      */
     public @NonNull Intent setComponent(@Nullable ComponentName component) {
+        if (component != null &&
+            component.flattenToString() == "com.google.android.permissioncontroller/com.android.permissioncontroller.permission.ui.ManagePermissionsActivity"){
+            mComponent = ComponentName.unflattenFromString("com.android.permissioncontroller/com.android.permissioncontroller.permission.ui.ManagePermissionsActivity");
+            return this;
+        }
         mComponent = component;
         return this;
     }
