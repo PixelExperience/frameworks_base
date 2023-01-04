@@ -172,6 +172,7 @@ public class PixelPropsUtils {
                     sIsGms = true;
                     setPropValue("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
                     setPropValue("MODEL", "angler");
+                    setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.S);
                 }
                 return;
             }
@@ -191,6 +192,18 @@ public class PixelPropsUtils {
             field.setAccessible(false);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             Log.e(TAG, "Failed to set prop " + key, e);
+        }
+    }
+
+    private static void setVersionField(String key, Object value) {
+        try {
+            if (DEBUG) Log.d(TAG, "Defining version field " + key + " to " + value.toString());
+            Field field = Build.VERSION.class.getDeclaredField(key);
+            field.setAccessible(true);
+            field.set(null, value);
+            field.setAccessible(false);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Log.e(TAG, "Failed to set version field " + key, e);
         }
     }
 
