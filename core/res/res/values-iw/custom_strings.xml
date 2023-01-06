@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="face_unlock_disabled_idle">ביטול נעילת מסך באמצעות פנים מושבתת עקב חוסר פעילות</string>
+</resources>

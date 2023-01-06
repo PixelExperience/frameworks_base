@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="screen_pinning_description_no_navbar">Ĉi tio tenas ĝin vidpunkta ĝis vi malaperigos.  Tuŝu kaj tenu Reen al neĉifrita.</string>
+    <string name="screen_pinning_toast_no_navbar">Por malfiksi ĉi ekrano, tuŝadu la reenbutonon</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ĉi tio tenas ĝin vidpunkta ĝis vi malaperigos.  Tuŝu kaj tenu Reen al neĉifrita.</string>
+</resources>

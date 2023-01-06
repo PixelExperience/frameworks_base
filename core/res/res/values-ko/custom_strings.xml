@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="face_unlock_disabled_idle">장시간 인식하지 않아 얼굴 인식이 비활성화되었습니다</string>
+</resources>
