@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor stânga</string>
+    <string name="accessibility_dpad_right">Cursor dreapta</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Utilizatori</string>
+    <string name="tap_to_add_tiles">Atingeți dalele pentru a adăuga sau elimina</string>
+    <string name="quick_settings_ambient_display_label">Afișaj ambiental</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Afișaj ambiental oprit.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Afișaj ambiental pornit.</string>
+    <string name="quick_settings_aod_label">Afișaj ambiental</string>
+    <string name="quick_settings_aod_off_powersave_label">Afișaj ambiental oprit\nEconomisire energie</string>
+    <string name="quick_settings_caffeine_label">Cofeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cofeină pornit.</string>
+    <string name="quick_settings_heads_up_label">Atenționare</string>
+    <string name="accessibility_quick_settings_heads_up_off">Atenționare oprită.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Atenționare pornită.</string>
+    <string name="quick_settings_sync_label">Sincronizare</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectare la\u2026</string>
+    <string name="vpn_credentials_hint">Introduceți datele pentru conectare la <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nume de utilizator</string>
+    <string name="vpn_credentials_password">Parolă</string>
+    <string name="vpn_credentials_dialog_connect">Conectare</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Recuperare</string>
+    <string name="clock">Ceas</string>
+    <string name="quick_settings_reading_mode">Mod lectură</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod lectură activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod lectură dezactivat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modul lectură a fost activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modul lectură a fost dezactivat.</string>
+    <string name="quick_settings_anti_flicker">Anti-pâlpâire</string>
+</resources>

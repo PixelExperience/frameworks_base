@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">कर्सर बायाँ</string>
+    <string name="accessibility_dpad_right">कर्सर दायाँ</string>
+    <string name="global_action_current_user">वर्तमान</string>
+    <string name="global_action_users">उपयोगकर्ता</string>
+    <string name="tap_to_add_tiles">नए रखने या हटाने के लिए टाइल को दबाएं</string>
+    <string name="quick_settings_ambient_display_label">परिवेश प्रदर्शन</string>
+    <string name="accessibility_quick_settings_ambient_display_off">परिवेश प्रदर्शन बंद।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">परिवेश प्रदर्शन चालू है।</string>
+    <string name="quick_settings_aod_label">स्क्रीन हमेशा चालू</string>
+    <string name="quick_settings_aod_off_powersave_label">बैटरी बचत के समय हमेशा स्क्रीन चालू बंद</string>
+    <string name="quick_settings_caffeine_label">कैफीन मोड</string>
+    <string name="accessibility_quick_settings_caffeine_off">कैफीन मोड बंद</string>
+    <string name="accessibility_quick_settings_caffeine_on">कैफीन मोड शुरु</string>
+    <string name="quick_settings_heads_up_label">हेड्स अप।</string>
+    <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद है।</string>
+    <string name="accessibility_quick_settings_heads_up_on">हेड्स अप चालू है।</string>
+    <string name="quick_settings_sync_label">साथ - साथ करना</string>
+    <string name="accessibility_quick_settings_sync_off">सिंक बंद</string>
+    <string name="accessibility_quick_settings_sync_on">समन्वयन चालू।</string>
+    <string name="quick_settings_usb_tether_label">यूएसबी टेथरिंग</string>
+    <string name="quick_settings_vpn_label">वीपीएन</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026 से कनेक्ट करें</string>
+    <string name="vpn_credentials_hint">कृपया <xliff:g id="name">%s</xliff:g> से कनेक्ट करने के लिए अपने क्रेडेंशियल दर्ज करें</string>
+    <string name="vpn_credentials_username">उपयोगकर्ता नाम</string>
+    <string name="vpn_credentials_password">कुंजिका</string>
+    <string name="vpn_credentials_dialog_connect">जोड़ें</string>
+    <string name="global_action_restart_system">प्रणाली</string>
+    <string name="global_action_restart_recovery">स्वास्थ्य लाभ</string>
+    <string name="clock">घड़ी</string>
+    <string name="quick_settings_reading_mode">पठन मोड</string>
+    <string name="accessibility_quick_settings_reading_mode_on">पठन मोड चालू।</string>
+    <string name="accessibility_quick_settings_reading_mode_off">पठन मोड बंद।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">पठन मोड चालू है।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">पठन मोड बंद है।</string>
+    <string name="quick_settings_anti_flicker">Anti kerlip</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor esquierda</string>
+    <string name="accessibility_dpad_right">Cursor derecha</string>
+    <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Desactivar Cafeína.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
+    <string name="quick_settings_sync_label">Sincronización</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="clock">Reló</string>
+    <string name="quick_settings_reading_mode">Mou de llectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Activóse\'l mou de llectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Desactivóse\'l mou de llectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Activóse\'l mou de llectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Desactivóse\'l mou de llectura.</string>
+</resources>

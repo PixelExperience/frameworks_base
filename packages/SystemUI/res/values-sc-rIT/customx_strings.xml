@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Cafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="clock">Relògiu</string>
+</resources>

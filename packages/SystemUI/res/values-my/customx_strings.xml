@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor ညာဘက်</string>
+    <string name="accessibility_dpad_right">Coursor ဘယ်ဘက်</string>
+    <string name="quick_settings_ambient_display_label">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးနိုင်သည့် နည်းပညာ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးနိုင်သည့် နည်းပညာ ပိတ်မည်</string>
+    <string name="accessibility_quick_settings_ambient_display_on">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးနိုင်သည့် နည်းပညာ ဖွင့်မည်</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_sync_label">ဆင့်ခ်လုပ်ပါ</string>
+    <string name="accessibility_quick_settings_sync_off">ဆင့်ခ်လုပ်ခြင်း ပိတ်ထားသည်။</string>
+    <string name="accessibility_quick_settings_sync_on">ဆင့်ခ်လုပ်ခြင်း ပိတ်ထားသည်။</string>
+    <string name="quick_settings_usb_tether_label">USBမှတဆင့်ပြန်လည်ချိတ်ဆက်ခြင်း</string>
+    <string name="global_action_restart_system">စနစ်</string>
+    <string name="global_action_restart_recovery">ပြန်လည်ရယူခြင်း</string>
+    <string name="quick_settings_reading_mode">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် စနစ်</string>
+    <string name="accessibility_quick_settings_reading_mode_on">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် စနစ် ဖွင့်မည်</string>
+    <string name="accessibility_quick_settings_reading_mode_off">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် ပိတ်မည်</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် ဖွင့်ထားသည်</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် ပိတ်ထားသည်</string>
+</resources>

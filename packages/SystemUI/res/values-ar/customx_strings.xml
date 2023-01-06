@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
+    <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
+    <string name="global_action_current_user">المستخدم الحالي</string>
+    <string name="global_action_users">المستخدمون</string>
+    <string name="tap_to_add_tiles">اضغط على اللوحات للإضافة أو الإزالة</string>
+    <string name="quick_settings_ambient_display_label">وضع ال Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">تعطيل وضع ال Ambient display.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">تشغيل وضع ال Ambient display.</string>
+    <string name="quick_settings_aod_label">شاشة العرض الدائمة</string>
+    <string name="quick_settings_aod_off_powersave_label">إيقاف AOD عند تشغيل موفر البطارية</string>
+    <string name="quick_settings_caffeine_label">وضع الكافيين</string>
+    <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
+    <string name="quick_settings_heads_up_label">إشعارات منبثقة</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات المنبثقة.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل الإشعارات المنبثقة.</string>
+    <string name="quick_settings_sync_label">المزامنة</string>
+    <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
+    <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
+    <string name="quick_settings_usb_tether_label">الربط عبر USB</string>
+    <string name="quick_settings_vpn_label">الشبكة الظاهرية</string>
+    <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ\u2026</string>
+    <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك للاتصال بـ <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">اسم المستخدم</string>
+    <string name="vpn_credentials_password">كلمة المرور</string>
+    <string name="vpn_credentials_dialog_connect">الاتصال</string>
+    <string name="global_action_restart_system">النظام</string>
+    <string name="global_action_restart_recovery">وضع ال Recovery</string>
+    <string name="clock">الساعة</string>
+    <string name="quick_settings_reading_mode">وضع القراءة</string>
+    <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">وضع القراءة قيد التشغيل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">وضع القراءة قيد الإيقاف.</string>
+    <string name="quick_settings_anti_flicker">مضاد رعش الشاشة </string>
+</resources>
