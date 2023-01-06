@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="face_unlock_disabled_idle">面部解锁因不活跃被禁用</string>
+</resources>

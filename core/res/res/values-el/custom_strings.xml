@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="face_unlock_disabled_idle">Το ξεκλείδωμα με αναγνώριση προσώπου απενεργοποιήθηκε, λόγω αδράνειας</string>
+</resources>
