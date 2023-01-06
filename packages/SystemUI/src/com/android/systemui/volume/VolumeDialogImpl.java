@@ -82,8 +82,8 @@ import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.text.InputFilter;
-import android.util.FeatureFlagUtils;
 import android.text.TextUtils;
+import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
@@ -292,6 +292,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private VolumeRow mDefaultRow = null;
 
     private FrameLayout mRoundedBorderBottom;
+
     // Volume panel expand state
     private boolean mExpanded;
 
@@ -638,6 +639,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mSettingsIcon = mDialog.findViewById(R.id.settings);
 
         mRoundedBorderBottom = mDialog.findViewById(R.id.rounded_border_bottom);
+
         mExpandRowsView = mDialog.findViewById(R.id.expandable_indicator_container);
         mExpandRows = mDialog.findViewById(R.id.expandable_indicator);
 
@@ -1232,16 +1234,10 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private boolean isBluetoothA2dpConnected() {
-        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled() &&
-                mBluetoothAdapter.getProfileConnectionState(BluetoothProfile.A2DP)
-                        == BluetoothProfile.STATE_CONNECTED;
-    }
-
-    private boolean isMediaControllerAvailable() {
-        final MediaController mediaController = getActiveLocalMediaController();
-        return mediaController != null &&
-                !TextUtils.isEmpty(mediaController.getPackageName());
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
+                && mBluetoothAdapter.getProfileConnectionState(BluetoothProfile.A2DP)
+                == BluetoothProfile.STATE_CONNECTED;
     }
 
     private void initSettingsH(int lockTaskModeState) {
@@ -1253,23 +1249,26 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mSettingsView != null) {
             mSettingsView.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
-                            (isMediaControllerAvailable() || isBluetoothA2dpConnected()) &&
-                            lockTaskModeState == LOCK_TASK_MODE_NONE ? VISIBLE : GONE);
+                            lockTaskModeState == LOCK_TASK_MODE_NONE && isBluetoothA2dpConnected() ? VISIBLE : GONE);
         }
         if (mSettingsIcon != null) {
             mSettingsIcon.setOnClickListener(v -> {
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
-                String packageName = isMediaControllerAvailable()
-                        ? getActiveLocalMediaController().getPackageName() : "";
-                mMediaOutputDialogFactory.create(packageName, true, mDialogView);
+                final MediaController mediaController = getActiveLocalMediaController();
+                String packageName =
+                        mediaController != null
+                                && !TextUtils.isEmpty(mediaController.getPackageName())
+                                ? mediaController.getPackageName()
+                                : "";
+                mMediaOutputDialogFactory.create(packageName, false, mDialogView);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
             });
         }
 
         if (mExpandRowsView != null) {
-            mExpandRowsView.setVisibility(
-                    mDeviceProvisionedController.isCurrentUserSetup() &&
-                            lockTaskModeState == LOCK_TASK_MODE_NONE ? VISIBLE : GONE);
+            mExpandRowsView.setVisibility(mDeviceProvisionedController.isCurrentUserSetup()
+                    && mActivityManager.getLockTaskModeState() == LOCK_TASK_MODE_NONE
+                    ? VISIBLE : GONE);
         }
         if (mExpandRows != null) {
             mExpandRows.setOnClickListener(v -> {
