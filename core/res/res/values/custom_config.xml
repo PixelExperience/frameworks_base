@@ -163,6 +163,7 @@
     <!-- Boost Framework -->
     <bool name="config_supportsBoostFramework">false</bool>
 
+<<<<<<< HEAD   (fe967c DozeSensors: only use proximity sensor if supported)
     <!-- Defines the actions shown in advanced reboot submenu -->
     <string-array name="config_restartActionsList">
         <item>restart</item>
@@ -208,5 +209,10 @@
 
     <!-- Whether device has a centered display cutout -->
     <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
+=======
+    <!-- Ignore post running notifications for selected apps -->
+    <string-array name="config_postNotificationIgnoredApps" translatable="false">
+    </string-array>
+>>>>>>> CHANGE (81cc04 ServiceRecord: Don't post running notification for selected )
 
 </resources>
