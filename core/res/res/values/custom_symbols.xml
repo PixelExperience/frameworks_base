@@ -66,6 +66,7 @@
     <!-- Expected value from fast charging status file -->
     <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 
+<<<<<<< HEAD   (fe967c DozeSensors: only use proximity sensor if supported)
     <!-- Power menu -->
     <java-symbol type="array" name="config_restartActionsList" />
 
@@ -108,5 +109,9 @@
 
     <!-- Whether device has a big physical display cutout -->
     <java-symbol type="bool" name="config_physicalDisplayCutoutCentered" />
+=======
+    <!-- Ignore post running notifications for selected apps -->
+    <java-symbol type="array" name="config_postNotificationIgnoredApps" />
+>>>>>>> CHANGE (81cc04 ServiceRecord: Don't post running notification for selected )
 
 </resources>
