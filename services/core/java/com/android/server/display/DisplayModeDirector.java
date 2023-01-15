@@ -50,6 +50,7 @@ import android.os.UserHandle;
 import android.provider.DeviceConfig;
 import android.provider.DeviceConfigInterface;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.IndentingPrintWriter;
 import android.util.Pair;
 import android.util.Slog;
@@ -90,6 +91,8 @@ public class DisplayModeDirector {
     private static final String TAG = "DisplayModeDirector";
     private boolean mLoggingEnabled;
 
+    private static final String RESOLUTION_METRIC_SETTING_KEY = "user_selected_resolution";
+
     private static final int MSG_REFRESH_RATE_RANGE_CHANGED = 1;
     private static final int MSG_LOW_BRIGHTNESS_THRESHOLDS_CHANGED = 2;
     private static final int MSG_DEFAULT_PEAK_REFRESH_RATE_CHANGED = 3;
@@ -113,6 +116,7 @@ public class DisplayModeDirector {
 
     private final AppRequestObserver mAppRequestObserver;
     private final SettingsObserver mSettingsObserver;
+    private final ResolutionSettingsObserver mResolutionSettingsObserver;
     private final DisplayObserver mDisplayObserver;
     private final UdfpsObserver mUdfpsObserver;
     private final SensorObserver mSensorObserver;
@@ -124,6 +128,8 @@ public class DisplayModeDirector {
     @GuardedBy("mLock")
     @Nullable
     private DisplayDeviceConfig mDefaultDisplayDeviceConfig;
+
+    private final boolean mForceSelectedResolution;
 
     // A map from the display ID to the collection of votes and their priority. The latter takes
     // the form of another map from the priority to the vote itself so that each priority is
@@ -159,6 +165,9 @@ public class DisplayModeDirector {
         mSupportedModesByDisplay = new SparseArray<>();
         mDefaultModeByDisplay = new SparseArray<>();
         mAppRequestObserver = new AppRequestObserver();
+        mForceSelectedResolution = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_forceToUseSelectedResolution);
+        mResolutionSettingsObserver = new ResolutionSettingsObserver(context, handler);
         mDisplayObserver = new DisplayObserver(context, handler);
         mDeviceConfig = injector.getDeviceConfig();
         mDeviceConfigDisplaySettings = new DeviceConfigDisplaySettings();
@@ -187,6 +196,9 @@ public class DisplayModeDirector {
      */
     public void start(SensorManager sensorManager) {
         mSettingsObserver.observe();
+        if (mForceSelectedResolution) {
+            mResolutionSettingsObserver.observe();
+        }
         mDisplayObserver.observe();
         mBrightnessObserver.observe(sensorManager);
         mSensorObserver.observe();
@@ -341,6 +353,15 @@ public class DisplayModeDirector {
                         || primarySummary.width == Vote.INVALID_SIZE) {
                     primarySummary.width = defaultMode.getPhysicalWidth();
                     primarySummary.height = defaultMode.getPhysicalHeight();
+                }
+
+                if (mForceSelectedResolution) {
+                    int width = mResolutionSettingsObserver.getWidth();
+                    int height = mResolutionSettingsObserver.getHeight();
+                    if (width > 0 && height > 0) {
+                        primarySummary.width = width;
+                        primarySummary.height = height;
+                    }
                 }
 
                 availableModes = filterModes(modes, primarySummary);
@@ -1360,6 +1381,61 @@ public class DisplayModeDirector {
             pw.println("  SettingsObserver");
             pw.println("    mDefaultRefreshRate: " + mDefaultRefreshRate);
             pw.println("    mDefaultPeakRefreshRate: " + mDefaultPeakRefreshRate);
+        }
+    }
+
+    final class ResolutionSettingsObserver extends ContentObserver {
+        private final Uri mUserSelectedResolutionUri =
+                Settings.System.getUriFor(RESOLUTION_METRIC_SETTING_KEY);
+
+        private final Context mContext;
+
+        private int mWidth;
+        private int mHeight;
+
+        ResolutionSettingsObserver(@NonNull Context context, @NonNull Handler handler) {
+            super(handler);
+            mContext = context;
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri, int userId) {
+            synchronized (mLock) {
+                if (mUserSelectedResolutionUri.equals(uri)) {
+                    updateResolutionSettingsLocked();
+                }
+            }
+        }
+
+        public void observe() {
+            final ContentResolver cr = mContext.getContentResolver();
+            cr.registerContentObserver(mUserSelectedResolutionUri, false /*notifyDescendants*/,
+                    this, UserHandle.USER_SYSTEM);
+
+            synchronized (mLock) {
+                updateResolutionSettingsLocked();
+            }
+        }
+
+        public int getWidth() {
+            return mWidth;
+        }
+
+        public int getHeight() {
+            return mHeight;
+        }
+
+        private void updateResolutionSettingsLocked() {
+            final ContentResolver cr = mContext.getContentResolver();
+            final String resolution = Settings.System.getString(cr, RESOLUTION_METRIC_SETTING_KEY);
+            if (!TextUtils.isEmpty(resolution) && resolution.contains("x")) {
+                final String[] splited = resolution.split("x");
+                mWidth = Integer.parseInt(splited[0]);
+                mHeight = Integer.parseInt(splited[1]);
+            } else {
+                mWidth = -1;
+                mHeight = -1;
+            }
         }
     }
 

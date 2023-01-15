@@ -178,4 +178,7 @@
     </string-array>
     <string-array name="device_configs_override" translatable="false">
     </string-array>
+
+    <!-- Enforce DisplayModeDirector to select user preferred resolution -->
+    <bool name="config_forceToUseSelectedResolution">false</bool>
 </resources>
