@@ -380,8 +380,10 @@ public final class ColorDisplayService extends SystemService {
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
         cr.registerContentObserver(System.getUriFor(System.DISPLAY_COLOR_MODE),
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
-        cr.registerContentObserver(Secure.getUriFor(Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED),
-                false /* notifyForDescendants */, mContentObserver, mCurrentUser);
+        if (isAccessibilityInversionAvailable()) {
+            cr.registerContentObserver(Secure.getUriFor(Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED),
+                    false /* notifyForDescendants */, mContentObserver, mCurrentUser);
+        }
         cr.registerContentObserver(
                 Secure.getUriFor(Secure.ACCESSIBILITY_DISPLAY_DALTONIZER_ENABLED),
                 false /* notifyForDescendants */, mContentObserver, mCurrentUser);
@@ -569,7 +571,13 @@ public final class ColorDisplayService extends SystemService {
 
     private boolean isAccessiblityInversionEnabled() {
         return Secure.getIntForUser(getContext().getContentResolver(),
-            Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED, 0, mCurrentUser) != 0;
+            Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED, 0, mCurrentUser) != 0
+            && isAccessibilityInversionAvailable();
+    }
+
+    private boolean isAccessibilityInversionAvailable() {
+        return getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_displayInversionAvailable);
     }
 
     private boolean isAccessibilityEnabled() {

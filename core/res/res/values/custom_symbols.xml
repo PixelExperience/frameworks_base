@@ -99,4 +99,7 @@
     <!-- Camera key type -->
     <java-symbol type="bool" name="config_singleStageCameraKey" />
 
+    <!-- Display color inversion availability -->
+    <java-symbol type="bool" name="config_displayInversionAvailable" />
+
 </resources>

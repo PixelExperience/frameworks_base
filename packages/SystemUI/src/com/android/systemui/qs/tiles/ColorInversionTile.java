@@ -133,6 +133,12 @@ public class ColorInversionTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAvailable() {
+        return mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_displayInversionAvailable);
+    }
+
+    @Override
     public int getMetricsCategory() {
         return MetricsEvent.QS_COLORINVERSION;
     }

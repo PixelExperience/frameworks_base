@@ -217,4 +217,7 @@
          (without "Focus" state) instead of Dual-stage. -->
     <bool name="config_singleStageCameraKey">false</bool>
 
+     <!-- Display color inversion availability -->
+    <bool name="config_displayInversionAvailable">true</bool>
+
 </resources>

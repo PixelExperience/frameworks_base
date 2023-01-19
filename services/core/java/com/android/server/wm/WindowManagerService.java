@@ -779,8 +779,14 @@ public class WindowManagerService extends IWindowManager.Stub
         public SettingsObserver() {
             super(new Handler());
             ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(mDisplayInversionEnabledUri, false, this,
-                    UserHandle.USER_ALL);
+
+            final boolean displayInversionAvailable = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_displayInversionAvailable);
+            if (displayInversionAvailable) {
+                resolver.registerContentObserver(mDisplayInversionEnabledUri, false, this,
+                        UserHandle.USER_ALL);
+            }
+
             resolver.registerContentObserver(mWindowAnimationScaleUri, false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(mTransitionAnimationScaleUri, false, this,
