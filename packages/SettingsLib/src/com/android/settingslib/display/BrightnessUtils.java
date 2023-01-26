@@ -16,12 +16,20 @@
 
 package com.android.settingslib.display;
 
+import android.os.SystemProperties;
 import android.util.MathUtils;
 
 public class BrightnessUtils {
 
+    public static final boolean sysUseLowGamma = Boolean.parseBoolean(
+        SystemProperties.get("persist.sys.brightness.low.gamma", "false"));
+
     public static final int GAMMA_SPACE_MIN = 0;
+<<<<<<< HEAD   (ba408f DisplayPowerController: Don't apply brightness adjustment if)
     public static final int GAMMA_SPACE_MAX = 65535;
+=======
+    public static final int GAMMA_SPACE_MAX = sysUseLowGamma ? 255 : 65535;
+>>>>>>> CHANGE (148983 BrightnessUtils: Allow maintainer to set desired brightness )
 
     // Hybrid Log Gamma constant values
     private static final float R = 0.5f;
@@ -87,9 +95,14 @@ public class BrightnessUtils {
         // it shouldn't be out of bounds.
         final float normalizedRet = MathUtils.constrain(ret, 0, 12);
 
+<<<<<<< HEAD   (ba408f DisplayPowerController: Don't apply brightness adjustment if)
         // Re-normalize to the range [0, 1]
         // in order to derive the correct setting value.
         return MathUtils.lerp(min, max, normalizedRet / 12);
+=======
+        return sysUseLowGamma ? MathUtils.constrain(BrightnessSynchronizer.brightnessIntToFloat(val),
+                         min, max) : MathUtils.lerp(min, max, normalizedRet / 12);
+>>>>>>> CHANGE (148983 BrightnessUtils: Allow maintainer to set desired brightness )
     }
 
     /**
@@ -136,6 +149,11 @@ public class BrightnessUtils {
             ret = A * MathUtils.log(normalizedVal - B) + C;
         }
 
+<<<<<<< HEAD   (ba408f DisplayPowerController: Don't apply brightness adjustment if)
         return Math.round(MathUtils.lerp(GAMMA_SPACE_MIN, GAMMA_SPACE_MAX, ret));
+=======
+        return sysUseLowGamma ? BrightnessSynchronizer.brightnessFloatToInt(
+                       MathUtils.constrain(val, min, max)) : Math.round(MathUtils.lerp(GAMMA_SPACE_MIN, GAMMA_SPACE_MAX, ret));
+>>>>>>> CHANGE (148983 BrightnessUtils: Allow maintainer to set desired brightness )
     }
 }
