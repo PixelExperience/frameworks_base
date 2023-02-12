@@ -57,6 +57,7 @@
     <!-- Enable face auth only when swiping security view -->
     <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
+<<<<<<< HEAD   (1eb9d2 AuthRippleView: Allow disabling ripple unlock animation usin)
 <<<<<<< HEAD   (f30ec0 OverScroller: Import BoostFramework.ScrollOptimizer)
     <!-- Power menu -->
     <java-symbol type="array" name="config_restartActionsList" />
@@ -104,6 +105,11 @@
     <!-- Whether to allow network traffic on statusbar -->
     <java-symbol type="bool" name="config_supportsNetworkTrafficOnStatusBar" />
 =======
+=======
+    <!-- Boost Framework -->
+    <java-symbol type="bool" name="config_supportsBoostFramework" />
+
+>>>>>>> CHANGE (e03f9f BoostFramework: Guard it with overlay)
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <java-symbol type="string" name="config_oemFastChargerStatusPath" />
 
