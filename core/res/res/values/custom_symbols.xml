@@ -57,6 +57,9 @@
     <!-- Enable face auth only when swiping security view -->
     <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
+    <!-- Boost Framework -->
+    <java-symbol type="bool" name="config_supportsBoostFramework" />
+
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <java-symbol type="string" name="config_oemFastChargerStatusPath" />
 
