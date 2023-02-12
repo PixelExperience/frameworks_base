@@ -24,4 +24,7 @@
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
+    <!-- Unlock ripple animation -->
+    <bool name="config_enableUnlockRippleAnimation">true</bool>
+
 </resources>
