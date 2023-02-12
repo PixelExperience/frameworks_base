@@ -30,7 +30,12 @@
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
+<<<<<<< HEAD   (8c629e BatteryService: Add support for OEM fast charger detection)
     <!-- Body font family -->
     <string name="config_bodyFontFamily">@*android:string/config_bodyFontFamily</string>
+=======
+    <!-- Unlock ripple animation -->
+    <bool name="config_enableUnlockRippleAnimation">true</bool>
+>>>>>>> CHANGE (e21e8a AuthRippleView: Allow disabling ripple unlock animation usin)
 
 </resources>
