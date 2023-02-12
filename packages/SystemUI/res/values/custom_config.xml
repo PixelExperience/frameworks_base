@@ -33,4 +33,7 @@
     <!-- Body font family -->
     <string name="config_bodyFontFamily">@*android:string/config_bodyFontFamily</string>
 
+    <!-- Unlock ripple animation -->
+    <bool name="config_enableUnlockRippleAnimation">true</bool>
+
 </resources>
