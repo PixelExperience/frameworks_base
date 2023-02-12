@@ -160,4 +160,7 @@
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
 
+    <!-- Boost Framework -->
+    <bool name="config_supportsBoostFramework">false</bool>
+
 </resources>
