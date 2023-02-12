@@ -154,7 +154,6 @@
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
 
-<<<<<<< HEAD   (f30ec0 OverScroller: Import BoostFramework.ScrollOptimizer)
     <!-- Defines the actions shown in advanced reboot submenu -->
     <string-array name="config_restartActionsList">
         <item>restart</item>
@@ -203,12 +202,14 @@
 
     <!-- Whether to allow network traffic on statusbar -->
     <bool name="config_supportsNetworkTrafficOnStatusBar">true</bool>
-=======
+
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
 
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
->>>>>>> CHANGE (d29450 BatteryService: Add support for OEM fast charger detection)
+
+    <!-- Boost Framework -->
+    <bool name="config_supportsBoostFramework">false</bool>
 
 </resources>
