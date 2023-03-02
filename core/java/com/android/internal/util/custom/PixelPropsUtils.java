@@ -36,6 +36,7 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final String SAMSUNG = "com.samsung.android.";
+    private static final String SAMSUNGACCESSORY = "com.samsung.accessory.";
 
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel7Pro;
@@ -134,6 +135,7 @@ public class PixelPropsUtils {
         }
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
+                || packageName.startsWith(SAMSUNGACCESSORY)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
 
             Map<String, Object> propsToChange = new HashMap<>();
