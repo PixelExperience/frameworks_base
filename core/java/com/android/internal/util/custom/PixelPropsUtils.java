@@ -35,7 +35,7 @@ public class PixelPropsUtils {
     private static final String DEVICE = "org.pixelexperience.device";
     private static final boolean DEBUG = false;
 
-    private static final String SAMSUNG = "com.samsung.android.";
+    private static final String SAMSUNG = "com.samsung.";
 
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel7Pro;
