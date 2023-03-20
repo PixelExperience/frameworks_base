@@ -44,8 +44,7 @@ public class PixelPropsUtils {
 
     private static final String[] packagesToChangePixel7Pro = {
             "com.google.android.apps.wallpaper",
-            "com.google.android.apps.privacy.wildlife",
-            "com.google.android.apps.subscriptions.red"
+            "com.google.android.apps.privacy.wildlife"
     };
 
     private static final String[] packagesToChangePixelXL = {
