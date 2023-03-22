@@ -27,4 +27,7 @@
     <!-- Body font family -->
     <string name="config_bodyFontFamily">@*android:string/config_bodyFontFamily</string>
 
+    <!-- Whether to enable lock screen quick affordances -->
+    <bool name="flag_enable_customizable_lock_screen_quick_affordances">true</bool>
+
 </resources>
