@@ -213,7 +213,4 @@
     <!-- Whether device has a centered display cutout -->
     <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
 
-    <!-- Whether to allow network traffic on statusbar -->
-    <bool name="config_supportsNetworkTrafficOnStatusBar">true</bool>
-
 </resources>

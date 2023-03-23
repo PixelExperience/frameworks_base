@@ -295,7 +295,7 @@ public class SystemSettingsValidators {
             }
         });
         VALIDATORS.put(System.LIVE_DISPLAY_HINTED, new InclusiveIntegerRangeValidator(-3, 1));
-        VALIDATORS.put(System.NETWORK_TRAFFIC_LOCATION, NON_NEGATIVE_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.NETWORK_TRAFFIC_ENABLED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NETWORK_TRAFFIC_AUTOHIDE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NETWORK_TRAFFIC_UNIT_TYPE, NON_NEGATIVE_INTEGER_VALIDATOR);
     }
