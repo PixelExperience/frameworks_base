@@ -68,19 +68,13 @@ public class PixelPropsUtils {
             "com.nothing.smartcenter"
     };
 
-    private static final String[] packagesToKeep = {
-            "com.google.android.GoogleCamera",
-            "com.google.android.GoogleCamera.Cameight",
-            "com.google.android.GoogleCamera.Go",
-            "com.google.android.GoogleCamera.Urnyx",
-            "com.google.android.GoogleCameraAsp",
-            "com.google.android.GoogleCameraCVM",
-            "com.google.android.GoogleCameraEng",
-            "com.google.android.GoogleCameraEng2",
-            "com.google.android.GoogleCameraGood",
+    private static final String[] customGoogleCameraPackages = {
             "com.google.android.MTCL83",
             "com.google.android.UltraCVM",
-            "com.google.android.apps.cameralite",
+            "com.google.android.apps.cameralite"
+    };
+
+    private static final String[] packagesToKeep = {
             "com.google.android.dialer",
             "com.google.android.euicc",
             "com.google.ar.core",
@@ -133,11 +127,19 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
+    private static boolean isGoogleCameraPackage(String packageName){
+        return packageName.startsWith("com.google.android.GoogleCamera") ||
+            Arrays.asList(customGoogleCameraPackages).contains(packageName);
+    }
+
     public static void setProps(String packageName) {
         if (packageName == null || packageName.isEmpty()) {
             return;
         }
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
+            return;
+        }
+        if (isGoogleCameraPackage(packageName)) {
             return;
         }
         if (packageName.startsWith("com.google.")
