@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">कर्सर डावा</string>
+    <string name="accessibility_dpad_right">कर्सर उजवा</string>
+    <string name="quick_settings_ambient_display_label">अँबियन्ट प्रदर्शन</string>
+    <string name="accessibility_quick_settings_ambient_display_off">आसपासचे प्रदर्शन बंद.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">आसपासचे प्रदर्शन चालू.</string>
+    <string name="quick_settings_aod_label">नेहमी प्रदर्शनात </string>
+    <string name="quick_settings_aod_off_powersave_label">नेहमी ऑन डिस्प्ले बंद\n बॅटरी सेव्हर</string>
+    <string name="quick_settings_caffeine_label">कॅफीन</string>
+    <string name="accessibility_quick_settings_caffeine_off">कॅफीन बंद.</string>
+    <string name="accessibility_quick_settings_caffeine_on">कॅफिन चालू.</string>
+    <string name="quick_settings_heads_up_label">हेड्स अप!</string>
+    <string name="accessibility_quick_settings_heads_up_off">हेड्स अप बंद.</string>
+    <string name="quick_settings_sync_label">संकालन करा</string>
+    <string name="accessibility_quick_settings_sync_off">सिंक बंद.</string>
+    <string name="accessibility_quick_settings_sync_on">सिंक चालू.</string>
+    <string name="quick_settings_usb_tether_label">USB टेदरिंग</string>
+</resources>

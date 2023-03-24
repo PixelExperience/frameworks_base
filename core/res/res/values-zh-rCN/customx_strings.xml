@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">自动</string>
+    <string name="live_display_auto_summary">随着日出和日落自动调节屏幕色温</string>
+    <string name="live_display_off">关闭</string>
+    <string name="live_display_off_summary">禁用所有调整</string>
+    <string name="live_display_day">白天</string>
+    <string name="live_display_day_summary">仅使用白天设置</string>
+    <string name="live_display_night">夜晚</string>
+    <string name="live_display_night_summary">仅使用夜晚设置</string>
+    <string name="live_display_outdoor">户外（阳光）</string>
+    <string name="live_display_outdoor_summary">仅使用户外设置</string>
+    <string name="live_display_hint">视觉效果可以帮助降低视觉疲劳，并有助于您的夜间睡眠。点击此处尝试它！</string>
+    <string name="accessibility_quick_settings_live_display_off">关闭视觉效果。</string>
+    <string name="accessibility_quick_settings_live_display_auto">视觉效果：自动模式。</string>
+    <string name="accessibility_quick_settings_live_display_day">视觉效果：白天模式。</string>
+    <string name="accessibility_quick_settings_live_display_night">视觉效果：夜晚模式。</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">视觉效果：户外模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">视觉效果已关闭。</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">视觉效果已改为自动模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">视觉效果已改为白天模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">视觉效果已改为夜晚模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">视觉效果已改为户外模式。</string>
+</resources>
