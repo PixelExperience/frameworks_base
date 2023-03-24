@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">இடஞ்சுட்டி இடது</string>
+    <string name="accessibility_dpad_right">இடஞ்சுட்டி வலது</string>
+    <string name="global_action_current_user">தற்போதைய</string>
+    <string name="global_action_users">பயனர்</string>
+    <string name="quick_settings_ambient_display_label">சூழல்சார் திரை</string>
+    <string name="accessibility_quick_settings_ambient_display_off">சூழல் காட்சி ஆஃப்.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">சூழல் காட்சி ஆன்.</string>
+    <string name="quick_settings_aod_label">எப்போதும் காட்சி</string>
+    <string name="quick_settings_caffeine_label">கேஃபைன்</string>
+    <string name="accessibility_quick_settings_caffeine_off">கேஃபைன் ஆஃப்.</string>
+    <string name="accessibility_quick_settings_caffeine_on">கேஃபைன் ஆன்.</string>
+    <string name="quick_settings_sync_label">ஒத்திசை</string>
+    <string name="accessibility_quick_settings_sync_off">ஒத்திசைவு ஆஃப்</string>
+    <string name="accessibility_quick_settings_sync_on">ஒத்திசைவு ஆன்</string>
+    <string name="quick_settings_usb_tether_label">USB டெதெரிங்</string>
+    <string name="global_action_restart_recovery">மீட்பு</string>
+    <string name="quick_settings_reading_mode">வாசிக்கும் முறை</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">படிக்கும் முறை பயன்பாடு இயக்கப்பட்டது</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">படிக்கும் முறை பயன்பாடு முடக்கப்பட்டது</string>
+</resources>

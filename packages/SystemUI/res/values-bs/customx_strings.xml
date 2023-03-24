@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kursor lijevo</string>
+    <string name="accessibility_dpad_right">Kursor desno</string>
+    <string name="quick_settings_ambient_display_label">Ambijentalni prikaz</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambijentalni prikaz isključen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambijentalni prikaz uključen.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD isključen\nUšteda baterije</string>
+    <string name="quick_settings_caffeine_label">Caffeine mod</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine mod je onemogućen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine mod je omogućen.</string>
+    <string name="quick_settings_heads_up_label">Skočne obavijesti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Skočne obavijesti su isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Skočne obavijesti su uključene.</string>
+    <string name="quick_settings_sync_label">Sinhronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinhronizacija isključena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinhronizacija uključena.</string>
+    <string name="quick_settings_usb_tether_label">Dijeljenje USB veze</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Oporavak</string>
+    <string name="clock">Sat</string>
+    <string name="quick_settings_reading_mode">Mod čitanja</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod čitanja je uključen.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod čitanja je isključen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mod čitanja je uključen.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mod čitanja je isključen.</string>
+    <string name="quick_settings_anti_flicker">Bez treperenja</string>
+</resources>

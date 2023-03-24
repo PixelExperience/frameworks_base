@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Cursor lénks</string>
+    <string name="accessibility_dpad_right">Cursor riets</string>
+    <string name="quick_settings_ambient_display_label">Ambiente Schierm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambiente Schierm aus.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambiente Schierm un.</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein aus.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein un.</string>
+    <string name="quick_settings_sync_label">Synchronisatioun</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisatioun aus.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisatioun un.</string>
+    <string name="quick_settings_usb_tether_label">USB-Tethering</string>
+</resources>
