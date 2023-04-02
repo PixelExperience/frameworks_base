@@ -17,6 +17,7 @@ package com.android.systemui.battery;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
@@ -31,6 +32,7 @@ import androidx.annotation.NonNull;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.flags.Flags;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.BatteryController;
@@ -123,7 +125,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
             @Main Handler mainHandler,
             ContentResolver contentResolver,
             FeatureFlags featureFlags,
-            BatteryController batteryController) {
+            BatteryController batteryController,
+            ActivityStarter activityStarter) {
         super(view);
         mUserTracker = userTracker;
         mConfigurationController = configurationController;
@@ -134,6 +137,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
 
         mView.setBatteryEstimateFetcher(mBatteryController::getEstimatedTimeRemainingString);
         mView.setDisplayShieldEnabled(featureFlags.isEnabled(Flags.BATTERY_SHIELD_ICON));
+        mView.setOnClickListener(v -> activityStarter.postStartActivityDismissingKeyguard(
+                new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
 
         mSlotBattery = getResources().getString(com.android.internal.R.string.status_bar_battery);
         mSettingObserver = new SettingObserver(mMainHandler);
