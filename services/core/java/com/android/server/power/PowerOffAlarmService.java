@@ -15,7 +15,13 @@
  */
 package com.android.server.power;
 
+import static android.provider.AlarmClock.ACTION_SHOW_ALARMS;
+
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +33,7 @@ import android.os.Environment;
 import android.os.UserHandle;
 import android.util.Slog;
 
+import com.android.internal.R;
 import com.android.server.SystemService;
 
 import java.io.File;
@@ -49,8 +56,12 @@ public class PowerOffAlarmService extends SystemService {
     private static final String ACTION_CANCEL = "org.codeaurora.poweroffalarm.action.CANCEL_ALARM";
     private static final String ALARM_PACKAGE = "com.qualcomm.qti.poweroffalarm";
 
+    private static final int NOTIFICATION_ID = 0;
+
     private final Context mContext;
     private final AlarmManager mAlarmManager;
+    private NotificationManager mNotificationManager;
+    private Notification mNotification;
     private SharedPreferences mSharedPreferences;
     private boolean mIsAvailable = false;
 
@@ -89,6 +100,8 @@ public class PowerOffAlarmService extends SystemService {
         if (phase != SystemService.PHASE_BOOT_COMPLETED || !mIsAvailable)
             return;
         Slog.v(TAG, "onBootPhase PHASE_BOOT_COMPLETED");
+        mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        setupNotification();
         final File prefsFile = new File(
                 new File(Environment.getDataSystemDeDirectory(
                     UserHandle.USER_SYSTEM), PREF_DIR_NAME), PREF_FILE_NAME);
@@ -101,15 +114,20 @@ public class PowerOffAlarmService extends SystemService {
         @Override
         public void onReceive(Context context, Intent intent) {
             Slog.v(TAG, "mAlarmChangedReceiver onReceive");
-            updateAlarms(mAlarmManager);
+            updateAlarms(mAlarmManager, true);
         }
     };
 
     private synchronized void updateAlarms(AlarmManager alarmManager) {
+        updateAlarms(alarmManager, false);
+    }
+
+    private synchronized void updateAlarms(AlarmManager alarmManager, boolean user) {
         final AlarmManager.AlarmClockInfo alarmInfo = alarmManager.getNextAlarmClock();
         cancelPowerOffAlarm();
-        if (alarmInfo == null) return;
-        setPowerOffAlarm(alarmInfo);
+        final boolean isSet = alarmInfo != null;
+        if (isSet) setPowerOffAlarm(alarmInfo);
+        updateNotification(isSet && user);
     }
 
     private synchronized void cancelPowerOffAlarm() {
@@ -124,6 +142,32 @@ public class PowerOffAlarmService extends SystemService {
         Slog.i(TAG, "Set next power off alarm. Time: " + time);
         mContext.sendBroadcastAsUser(getIntent(ACTION_SET, time), UserHandle.SYSTEM);
         mSharedPreferences.edit().putLong(PREF_NEXT_ALARM, time).commit();
+    }
+
+    private synchronized void updateNotification(boolean isSet) {
+        mNotificationManager.cancel(NOTIFICATION_ID);
+        if (!isSet) return;
+        mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+    }
+
+    private void setupNotification() {
+        final Intent intent = (new Intent(ACTION_SHOW_ALARMS))
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        final PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent,
+                PendingIntent.FLAG_IMMUTABLE);
+        final NotificationChannel channel = new NotificationChannel(TAG /* channel id */,
+                mContext.getText(R.string.notification_channel_poweroff_alarm),
+                NotificationManager.IMPORTANCE_LOW);
+        channel.setBlockable(true);
+        mNotificationManager.createNotificationChannel(channel);
+        mNotification = new Notification.Builder(mContext, TAG /* channel id */)
+                .setContentTitle(mContext.getText(R.string.poweroff_alarm_title))
+                .setContentText(mContext.getText(R.string.poweroff_alarm_body))
+                .setSmallIcon(R.drawable.ic_alarm_on)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .setShowWhen(false)
+                .build();
     }
 
     private static Intent getIntent(String action, long time) {
