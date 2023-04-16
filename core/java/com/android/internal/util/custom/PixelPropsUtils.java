@@ -44,22 +44,13 @@ public class PixelPropsUtils {
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     private static final String[] packagesToChangePixel7Pro = {
-            "com.google.android.inputmethod.latin",
-            "com.google.android.setupwizard",
-            "com.google.android.apps.turbo",
-            "com.google.android.googlequicksearchbox",
             "com.google.android.apps.wallpaper",
-            "com.google.android.apps.wallpaper.pixel",
-            "com.google.android.apps.privacy.wildlife",
-            "com.google.android.apps.googleassistant",
-            "com.google.android.apps.nbu.files",
-            "com.google.android.apps.podcasts",
-            "com.google.android.contacts",
-            "com.google.android.deskclock"
+            "com.google.android.apps.privacy.wildlife"
     };
 
     private static final String[] packagesToChangePixelXL = {
-            "com.google.android.apps.photos"
+            "com.google.android.apps.photos",
+            "com.google.android.inputmethod.latin"
     };
 
     private static final String[] extraPackagesToChange = {
@@ -191,8 +182,6 @@ public class PixelPropsUtils {
                     setPropValue("DEVICE", "marlin");
                     setPropValue("MODEL", "Pixel XL");
                     setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
-                }else{
-                    propsToChangePixel7Pro.forEach((k, v) -> setPropValue(k, v));
                 }
                 return;
             }
