@@ -5,11 +5,11 @@
     <string name="live_display_off">ବନ୍ଦ</string>
     <string name="live_display_off_summary">ସ୍ସମସ୍ତ ଆଡ୍‍ଜଷ୍ଟ୍ମେଣ୍ଟ ଅଷମ କରନ୍ତୁ</string>
     <string name="live_display_day">ଦିନ</string>
-    <string name="live_display_day_summary">କେବଳ ଦିନ ସେଟିଂସ୍‍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="live_display_day_summary">କେଵଳ ଦିନ ସେଟିଂ ଵ୍ୟଵହାର କରିବା</string>
     <string name="live_display_night">ରାତ୍ରି</string>
-    <string name="live_display_night_summary">କେବଳ ରାତ୍ରି ସେଟିଂସ୍‍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="live_display_night_summary">କେଵଳ ରାତ୍ରି ସେଟିଂ ଵ୍ୟଵହାର କରିବା</string>
     <string name="live_display_outdoor">ଆଉଟ୍‍ଡୋର୍‍ (ଟାଣ ଖରା)</string>
-    <string name="live_display_outdoor_summary">କେବଳ ଆଉଟ୍‍ଡୋର୍‍ ସେଟିଂସ୍‍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="live_display_outdoor_summary">କେଵଳ ଆଉଟଡୋର୍ ସେଟିଂ ଵ୍ୟଵହାର କରିବା</string>
     <string name="live_display_hint">ଲାଇଭ୍‍ଡିସ୍‍ପ୍ଲେ ଆଇଷ୍ଟ୍ରେନ୍‍ କମାଇବାରେ ଓ ରାତିରେ ଆପଣଙ୍କୁ ଶୋଇବାରେ ସାହାଯ୍ୟ କରିପାରେ। ଏହା ବ୍ୟବହାର କରିବା ପାଇଁ ଏଠାରେ କ୍ଲିକ୍‍ କରନ୍ତୁ!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay ବନ୍ଦ।</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: ସ୍ଵତଃ ମୋଡ୍।</string>
