@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "946df1af_094dde22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000166
+      },
+      "writtenOn": "2023-04-27T14:13:50Z",
+      "side": 1,
+      "message": "Needs this patch to make effect on affected devices:\nhttps://github.com/PixelExperience-Devices/device_motorola_sdm660-common/commit/ea03264c1730f8d2111015feb34dd6a8e1bb0f4b",
+      "revId": "19419e21ae6a3fff523276458187f0c6a735a31d",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
