@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">جێنیشانده‌ری چه‌پ</string>
     <string name="accessibility_dpad_right">جێنیشانده‌ری ڕاست</string>
+    <string name="global_action_users">بەکارهێنەران</string>
     <string name="quick_settings_ambient_display_label">ڕوونمای هەمیشە زیندوو</string>
     <string name="accessibility_quick_settings_ambient_display_off">ڕوونمای هەمیشە زیندوو ناچالاکە.</string>
     <string name="accessibility_quick_settings_ambient_display_on">ڕوونمای هەمیشە زیندوو چالاکە.</string>
@@ -17,6 +18,8 @@
     <string name="accessibility_quick_settings_sync_off">هاوکاتکردن ناچالاکە.</string>
     <string name="accessibility_quick_settings_sync_on">هاوکاتکردن چالاکە.</string>
     <string name="quick_settings_usb_tether_label">پەیوەستبوونی USB</string>
+    <string name="vpn_credentials_username">ناوی بەکارھێنەر</string>
+    <string name="vpn_credentials_password">وشەی نهێنی</string>
     <string name="global_action_restart_system">سیستەم</string>
     <string name="global_action_restart_recovery"> ڕیکەڤر</string>
     <string name="clock">کاتژمێر</string>
