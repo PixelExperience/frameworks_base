@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ecc17c0_4da8ad42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000713
+      },
+      "writtenOn": "2023-05-24T12:59:59Z",
+      "side": 1,
+      "message": "Works as expected. Tested on sargo and payton with and without combined qs headers accordingly.",
+      "revId": "f3abb3001c8e855bbb558d192dbfe109d1489b5a",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}
