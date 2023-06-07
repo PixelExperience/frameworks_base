@@ -59,10 +59,9 @@ public class WallpaperUpdateReceiver extends BroadcastReceiver {
                 return;
             }
             if (DEBUG) Slog.d(TAG, "Set customized default_wallpaper.");
-            Bitmap blank = Bitmap.createBitmap(1, 1, Bitmap.Config.ALPHA_8);
-            // set a blank wallpaper to force a redraw of default_wallpaper
-            wallpaperManager.setBitmap(blank);
-            wallpaperManager.setResource(com.android.internal.R.drawable.default_wallpaper);
+            if (wallpaperManager.getWallpaperInfo() == null) {
+                wallpaperManager.clearWallpaper();
+            }
         } catch (Exception e) {
             Slog.w(TAG, "Failed to customize system wallpaper." + e);
         }
