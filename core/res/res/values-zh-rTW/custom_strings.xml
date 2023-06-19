@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="face_unlock_disabled_idle">在使用狀態下已暫停臉部辨識</string>
+    <string name="face_unlock_disabled_idle">因為無活動，臉部解鎖已停用</string>
 </resources>
