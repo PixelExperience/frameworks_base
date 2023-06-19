@@ -27,7 +27,7 @@
     <string name="vpn_credentials_password">Пароль</string>
     <string name="vpn_credentials_dialog_connect">Подключить</string>
     <string name="global_action_restart_system">Система</string>
-    <string name="global_action_restart_recovery">Рекавери</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <string name="clock">Часы</string>
     <string name="quick_settings_reading_mode">Режим чтения</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим чтения включен.</string>

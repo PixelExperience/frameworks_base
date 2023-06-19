@@ -2,6 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">बाँया तर्फ करसर</string>
     <string name="accessibility_dpad_right">दायाँ तर्फ करसर</string>
+    <string name="global_action_users">प्रयोगकर्ता</string>
+    <string name="tap_to_add_tiles">राख्न अथवा हटाउन तल थिच्नुहोस् ।</string>
     <string name="quick_settings_ambient_display_label">झुलुक्क देखिने</string>
     <string name="accessibility_quick_settings_ambient_display_off">झुलुक्क देखिने: बन्द </string>
     <string name="accessibility_quick_settings_ambient_display_on">झुलुक्क देखिने: चालु</string>
@@ -17,11 +19,19 @@
     <string name="accessibility_quick_settings_sync_off">सिकं बन्द</string>
     <string name="accessibility_quick_settings_sync_on">सिकं चालु</string>
     <string name="quick_settings_usb_tether_label">USB टेथर गर्दै</string>
+    <string name="quick_settings_vpn_label">भिपीएन</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026 मा जडान गर्नुहोस् ।</string>
+    <string name="vpn_credentials_hint">कृपया कनेक्ट गर्नका लागि तपाइँ आफै भएको पुष्टि गर्नुहोस्  <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">प्रयोग गरेको नाम</string>
+    <string name="vpn_credentials_password">गोप्य शब्द ।</string>
+    <string name="vpn_credentials_dialog_connect">जडान गर्नुहोस्</string>
     <string name="global_action_restart_system">स्सिटम</string>
     <string name="global_action_restart_recovery">रिकभरी</string>
+    <string name="clock">घडि</string>
     <string name="quick_settings_reading_mode">पढ्ने मोड</string>
     <string name="accessibility_quick_settings_reading_mode_on">पढ्ने मोड चालु</string>
     <string name="accessibility_quick_settings_reading_mode_off">पढ्ने मोड बन्द</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">विमान मोड चालु</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">पढ्नेे  मोड बन्द</string>
+    <string name="quick_settings_anti_flicker">एन्टि-फ्लिकर</string>
 </resources>
