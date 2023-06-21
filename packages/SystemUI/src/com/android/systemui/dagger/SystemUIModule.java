@@ -115,6 +115,8 @@ import com.android.systemui.wallet.dagger.WalletModule;
 import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
 
+import com.android.systemui.custom.CustomQSModule;
+
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
@@ -155,6 +157,7 @@ import dagger.Provides;
             FooterActionsModule.class,
             GarbageMonitorModule.class,
             KeyboardModule.class,
+            CustomQSModule.class,
             LogModule.class,
             MediaProjectionModule.class,
             MotionToolModule.class,
