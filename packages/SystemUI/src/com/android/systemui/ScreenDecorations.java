@@ -983,11 +983,10 @@ public class ScreenDecorations implements CoreStartable, Tunable , Dumpable {
             updateConfiguration();
             if (DEBUG) Log.i(TAG, "onConfigChanged from rot " + oldRotation + " to " + mRotation);
             setupDecorations();
-            if (mCutoutViews != null) {
-                for (DisplayCutoutView dcv : mCutoutViews) {
-                    if (dcv != null) {
-                        dcv.updateCutout();
-                    }
+            for (int id: DISPLAY_CUTOUT_IDS) {
+                final View view = getOverlayView(id);
+                if (view instanceof DisplayCutoutView) {
+                    ((DisplayCutoutView) view).updateCutout();
                 }
             }
             if (mOverlays != null) {
