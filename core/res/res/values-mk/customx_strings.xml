@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_display_auto">Автоматски</string>
+    <string name="live_display_auto_summary">Автоматско поставување на боите на екранот по зајдисонце и изгрејсонце</string>
+    <string name="live_display_off">Исклучено</string>
+    <string name="live_display_off_summary">Оневозможи ги сите прилагодувања</string>
+    <string name="live_display_day">Ден</string>
+    <string name="live_display_day_summary">Користи само поставки за ден</string>
+    <string name="live_display_night">Ноќ</string>
+    <string name="live_display_night_summary">Користи само поставки за ноќ</string>
+    <string name="live_display_outdoor">Надвор (силно сонце)</string>
+    <string name="live_display_outdoor_summary">Користи само поставки за надвор</string>
+    <string name="live_display_hint">LiveDisplay може да помогне во проблемите со очите и да ви помогне да спиете ноќе. Кликни тука за да го пробате!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay исклучен.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматски режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневен режим.</string>
+</resources>

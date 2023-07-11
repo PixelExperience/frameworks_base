@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Wyser na links</string>
+    <string name="accessibility_dpad_right">Wyser na regs</string>
+    <string name="quick_settings_ambient_display_label">Omgewingstemperatuur skerm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Omgewingstemperatuur vertoning af.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Omgewingstemperatuur vertoning aan.</string>
+    <string name="quick_settings_caffeine_label">Kafeïen</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeïen af.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeïen aan.</string>
+    <string name="quick_settings_sync_label">Sinkroniseer</string>
+    <string name="accessibility_quick_settings_sync_off">Sinchronisering af.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinchronisering aan.</string>
+    <string name="quick_settings_usb_tether_label">USB internet verbinding</string>
+    <string name="global_action_restart_system">Stelsel</string>
+    <string name="clock">Horlosie</string>
+</resources>

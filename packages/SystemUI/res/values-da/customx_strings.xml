@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Venstremarkør</string>
+    <string name="accessibility_dpad_right">Højremarkør</string>
+    <string name="quick_settings_ambient_display_label">Aktiv låseskærm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Aktiv låseskærm fra.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Aktiv låseskærm til.</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein fra.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein til.</string>
+    <string name="quick_settings_sync_label">Synkronisering</string>
+    <string name="accessibility_quick_settings_sync_off">Synkronisering fra.</string>
+    <string name="accessibility_quick_settings_sync_on">Synkronisering til.</string>
+    <string name="quick_settings_usb_tether_label">USB-internetdeling</string>
+    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_recovery">Gendannelse</string>
+    <string name="clock">Ur</string>
+    <string name="quick_settings_reading_mode">Læsetilstand</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Læsetilstand til.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Læsetilstand fra.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Læsetilstand er slået til.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Læsetilstand er slået fra.</string>
+</resources>

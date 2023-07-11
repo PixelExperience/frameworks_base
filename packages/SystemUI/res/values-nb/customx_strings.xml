@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Venstremarkør</string>
+    <string name="accessibility_dpad_right">Høyremarkør</string>
+    <string name="global_action_current_user">Nåværende</string>
+    <string name="quick_settings_ambient_display_label">Omgivelsesskjerm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Omgivelsesskjerm av.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Omgivelsesskjerm på.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD av\nBatterisparer</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein av.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein på.</string>
+    <string name="quick_settings_heads_up_label">Popup-varsler</string>
+    <string name="accessibility_quick_settings_heads_up_off">Popup-varsler av.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Popup-varsler på.</string>
+    <string name="quick_settings_sync_label">Synkronisering</string>
+    <string name="accessibility_quick_settings_sync_off">Synkronisering av.</string>
+    <string name="accessibility_quick_settings_sync_on">Synkronisering på.</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_recovery">Gjenoppretting</string>
+    <string name="clock">Klokke</string>
+    <string name="quick_settings_reading_mode">Lesemodus</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lesemodus på.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lesemodus av.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Lesemodus påslått.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus avslått.</string>
+    <string name="quick_settings_anti_flicker">Antiflimmer</string>
+</resources>

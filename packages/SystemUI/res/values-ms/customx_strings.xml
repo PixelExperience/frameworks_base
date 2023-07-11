@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Kursor kiri</string>
+    <string name="accessibility_dpad_right">Kursor kanan</string>
+    <string name="global_action_current_user">Semasa</string>
+    <string name="global_action_users">Pengguna:</string>
+    <string name="quick_settings_ambient_display_label">Paparan ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Paparan ambien dimatikan</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Paparan ambien dimulakan.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nyahaktif\nPenyelamat bateri</string>
+    <string name="quick_settings_caffeine_label">Mod Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Mod kafein dinyahaktifkan.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Mod kafein diaktifkan.</string>
+    <string name="quick_settings_heads_up_label">Notifikasi pop naik</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi pop naik dinyahaktifkan.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi pop naik diaktifkan.</string>
+    <string name="quick_settings_sync_label">Segerak</string>
+    <string name="accessibility_quick_settings_sync_off">Segerak dimatikan.</string>
+    <string name="accessibility_quick_settings_sync_on">Segerak dihidupkan.</string>
+    <string name="quick_settings_usb_tether_label">Penambatan USB</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="clock">Jam</string>
+    <string name="quick_settings_reading_mode">Mod bacaan</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod bacaan aktif.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod membaca dimatikan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mod bacaan dihidupkan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mod bacaan dimatikan.</string>
+    <string name="quick_settings_anti_flicker">Anti kerlipan</string>
+</resources>
