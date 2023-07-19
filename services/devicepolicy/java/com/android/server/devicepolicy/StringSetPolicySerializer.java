@@ -32,7 +32,7 @@ import java.util.Set;
 
 // TODO(scottjonathan): Replace with generic set implementation
 final class StringSetPolicySerializer extends PolicySerializer<Set<String>> {
-    private static final String ATTR_VALUES = ":strings";
+    private static final String ATTR_VALUES = "strings";
     private static final String ATTR_VALUES_SEPARATOR = ";";
 
     @Override
