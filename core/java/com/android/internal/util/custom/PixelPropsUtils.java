@@ -46,11 +46,10 @@ public class PixelPropsUtils {
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel7Pro;
-    private static final Map<String, Object> propsToChangePixel6Pro;
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, ArrayList<String>> propsToKeep;
@@ -60,18 +59,9 @@ public class PixelPropsUtils {
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.subscriptions.red",
-            "com.google.pixel.livewallpaper"
-    };
-
-    private static final String[] packagesToChangePixel6Pro = {
-            "com.google.android.inputmethod.latin",
-            "com.google.android.as",
+            "com.google.pixel.livewallpaper",
             "com.google.android.wallpaper.effects",
             "com.google.android.apps.emojiwallpaper",
-    };
-
-    private static final String[] packagesToChangePixelXL = {
-            "com.snapchat.android"
     };
 
     private static final String[] extraPackagesToChange = {
@@ -92,7 +82,8 @@ public class PixelPropsUtils {
             "com.google.android.apps.recorder",
             "com.google.android.apps.wearables.maestro.companion",
             "com.google.android.apps.tachyon",
-            "com.google.android.apps.tycho"
+            "com.google.android.apps.tycho",
+            "com.google.android.as"
     };
 
     private static final String[] customGoogleCameraPackages = {
@@ -132,13 +123,6 @@ public class PixelPropsUtils {
         propsToChangePixel7Pro.put("PRODUCT", "cheetah");
         propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
         propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230705.001.A1/10217028:user/release-keys");
-        propsToChangePixel6Pro = new HashMap<>();
-        propsToChangePixel6Pro.put("BRAND", "google");
-        propsToChangePixel6Pro.put("MANUFACTURER", "Google");
-        propsToChangePixel6Pro.put("DEVICE", "raven");
-        propsToChangePixel6Pro.put("PRODUCT", "raven");
-        propsToChangePixel6Pro.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6Pro.put("FINGERPRINT", "google/raven/raven:13/TQ3A.230705.001.A1/10217028:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -177,6 +161,14 @@ public class PixelPropsUtils {
                 || packageName.toLowerCase().contains("androidx.test")
                 || packageName.equalsIgnoreCase("com.google.android.apps.restore")) {
             final String processName = Application.getProcessName();
+            if (processName.toLowerCase().contains("com.google.android.gms.update")){
+                dlog("Contains com.google.android.gms.update");
+                dlog(processName);
+            }
+            if (processName.toLowerCase().contains("com.google.android.gms.chimera")){
+                dlog("Contains com.google.android.gms.chimera");
+                dlog(processName);
+            }
             if (processName.toLowerCase().contains("unstable")
                     || processName.toLowerCase().contains("pixelmigrate")
                     || processName.toLowerCase().contains("instrumentation")) {
@@ -208,12 +200,8 @@ public class PixelPropsUtils {
                 setBuildField("MODEL", "Pixel 2");
                 setBuildField("PRODUCT", "walleye");
                 setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O);
-            } else if (processName.toLowerCase().contains("persistent")
-                    || processName.toLowerCase().contains("ui")
-                    || processName.toLowerCase().contains("learning")) {
-                propsToChange.putAll(propsToChangePixel6Pro);
+                return;
             }
-            return;
         }
 
         if (packageName.startsWith("com.google.")
@@ -233,10 +221,6 @@ public class PixelPropsUtils {
             } else {
                 if (Arrays.asList(packagesToChangePixel7Pro).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixel7Pro);
-                } else if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
-                    propsToChange.putAll(propsToChangePixelXL);
-                } else if (Arrays.asList(packagesToChangePixel6Pro).contains(packageName)) {
-                    propsToChange.putAll(propsToChangePixel6Pro);
                 } else {
                     propsToChange.putAll(propsToChangePixel5);
                 }
