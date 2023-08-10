@@ -167,6 +167,7 @@
     <string-array name="config_postNotificationIgnoredApps" translatable="false">
     </string-array>
 
+<<<<<<< HEAD   (3ee149 SystemUI: Add switch data saver icon)
     <!-- Defines the actions shown in advanced reboot submenu -->
     <string-array name="config_restartActionsList">
         <item>restart</item>
@@ -213,4 +214,11 @@
     <!-- Whether device has a centered display cutout -->
     <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
 
+=======
+    <!-- Define device configs on boot -->
+    <string-array name="global_device_configs_override" translatable="false">
+    </string-array>
+    <string-array name="device_configs_override" translatable="false">
+    </string-array>
+>>>>>>> CHANGE (a1148d Implement DeviceConfigUtils and service)
 </resources>
