@@ -58,29 +58,7 @@ public class DeviceConfigUtils {
         return false;
     }
 
-    public static Map<String, String> filterDeviceConfigs(String namespace, Map<String, String> keyValues) {
-        if (DEBUG) Log.d(TAG, "filterDeviceConfigs, namespace=" + namespace + ", properties=[" + String.join(",", keyValues.keySet()) + "]");
-        Map<String, String> keyValuesNew = new HashMap();
-        for (Map.Entry<String, String> entry : keyValues.entrySet()) {
-            keyValuesNew.put(entry.getKey(), entry.getValue());
-        }
-        for (String p : getDeviceConfigsOverride()) {
-            String[] kv = p.split("=");
-            String fullKey = kv[0];
-            String[] nsKey = fullKey.split("/");
-            if (nsKey[0] == namespace){
-                String key = nsKey[1];
-                String value = "";
-                if (kv.length > 1) {
-                    value = kv[1];
-                }
-                keyValuesNew.put(key, value);
-            }
-        }
-        return keyValuesNew;
-    }
-
-    public static void setDefaultProperties(ContentResolver contentResolver) {
+    public static void setDefaultProperties(ContentResolver contentResolver, String filterNamespace, String filterProperty) {
         if (DEBUG) Log.d(TAG, "setDefaultProperties");
         for (String p : getDeviceConfigsOverride()) {
             String[] kv = p.split("=");
@@ -89,6 +67,15 @@ public class DeviceConfigUtils {
 
             String namespace = nsKey[0];
             String key = nsKey[1];
+
+            if (filterNamespace != null && filterNamespace == namespace){
+                continue;
+            }
+
+            if (filterProperty != null && filterProperty == key){
+                continue;
+            }
+
             String value = "";
             if (kv.length > 1) {
                 value = kv[1];
