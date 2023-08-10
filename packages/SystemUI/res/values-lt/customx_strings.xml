@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Skaitymo režimas įjungtas.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Skaitymo režimas išjungtas.</string>
     <string name="quick_settings_anti_flicker">Nemirksėjimo režimas</string>
+    <string name="screenshot_delete_label">Pašalinti</string>
 </resources>

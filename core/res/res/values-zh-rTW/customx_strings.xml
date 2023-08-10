@@ -11,7 +11,7 @@
     <string name="live_display_outdoor">戶外 (陽光)</string>
     <string name="live_display_outdoor_summary">僅限使用戶外設定</string>
     <string name="live_display_hint">LiveDisplay 可以幫助減少眼睛疲勞及睡前使用造成的不適。按一下此處來試試！</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay 關閉</string>
+    <string name="accessibility_quick_settings_live_display_off">關閉LiveDisplay</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay：自動模式</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay：日間模式</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜間模式</string>

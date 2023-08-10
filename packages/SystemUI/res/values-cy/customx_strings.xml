@@ -20,4 +20,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modd darllen i ffwrdd.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Cafodd modd darllen ei droi ymlaen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Cafodd modd darllen ei droi i ffwrdd.</string>
+    <string name="screenshot_delete_label">Dileu</string>
 </resources>

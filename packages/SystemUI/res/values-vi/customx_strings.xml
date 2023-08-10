@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc đã được bật.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc đã được tắt.</string>
     <string name="quick_settings_anti_flicker">Chống nháy màn hình</string>
+    <string name="screenshot_delete_label">Xóa</string>
 </resources>

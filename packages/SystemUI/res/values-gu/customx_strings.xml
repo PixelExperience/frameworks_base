@@ -12,4 +12,5 @@
     <string name="accessibility_quick_settings_sync_off">સિંક્રનાઇઝ બંધ.</string>
     <string name="accessibility_quick_settings_sync_on">સિંક્રનાઇઝ ચાલુ.</string>
     <string name="quick_settings_usb_tether_label">USB ટિથરિંગ</string>
+    <string name="screenshot_delete_label">કાઢી નાખો</string>
 </resources>

@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Oxuma rejimi işə salındı.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Oxuma rejimi söndürüldü.</string>
     <string name="quick_settings_anti_flicker">Titrəməyə qarşı</string>
+    <string name="screenshot_delete_label">Sil</string>
 </resources>

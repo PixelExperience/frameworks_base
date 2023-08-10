@@ -28,4 +28,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режимът на четене е активиран.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режимът на четене е диактивиран.</string>
     <string name="quick_settings_anti_flicker">Анти трептене</string>
+    <string name="screenshot_delete_label">Изтриване</string>
 </resources>

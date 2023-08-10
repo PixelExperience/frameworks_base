@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">وضع القراءة قيد التشغيل.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">وضع القراءة قيد الإيقاف.</string>
     <string name="quick_settings_anti_flicker">مضاد رعش الشاشة </string>
+    <string name="screenshot_delete_label">حذف</string>
 </resources>

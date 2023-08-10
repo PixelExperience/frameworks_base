@@ -28,4 +28,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">পঠন মোড চালু করা হয়েছে।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">পঠন মোড বন্ধ করা হয়েছে।</string>
     <string name="quick_settings_anti_flicker">অ্যান্টি ফ্লিকার</string>
+    <string name="screenshot_delete_label">মুছুন</string>
 </resources>

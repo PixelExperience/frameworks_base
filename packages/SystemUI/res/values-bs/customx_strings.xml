@@ -26,4 +26,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Mod čitanja je uključen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Mod čitanja je isključen.</string>
     <string name="quick_settings_anti_flicker">Bez treperenja</string>
+    <string name="screenshot_delete_label">Obriši</string>
 </resources>

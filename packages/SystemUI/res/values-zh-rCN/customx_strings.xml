@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已开启。</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已关闭。</string>
     <string name="quick_settings_anti_flicker">防闪烁</string>
+    <string name="screenshot_delete_label">删除</string>
 </resources>

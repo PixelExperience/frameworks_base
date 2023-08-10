@@ -20,4 +20,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Metoda pë lexim jo aktive.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Metoda për lexim u aktivizua.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Metoda për lexim u ç\'aktivizua.</string>
+    <string name="screenshot_delete_label">Fshije</string>
 </resources>

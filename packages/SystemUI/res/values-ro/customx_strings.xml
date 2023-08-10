@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modul lectură a fost activat.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modul lectură a fost dezactivat.</string>
     <string name="quick_settings_anti_flicker">Anti-pâlpâire</string>
+    <string name="screenshot_delete_label">Ștergere</string>
 </resources>

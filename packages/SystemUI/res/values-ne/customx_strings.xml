@@ -34,4 +34,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">विमान मोड चालु</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">पढ्नेे  मोड बन्द</string>
     <string name="quick_settings_anti_flicker">एन्टि-फ्लिकर</string>
+    <string name="screenshot_delete_label">हटाउने</string>
 </resources>

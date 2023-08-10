@@ -17,4 +17,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် ပိတ်မည်</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် ဖွင့်ထားသည်</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">စာဖတ်သည့်အခါ အထောက်အကူပြုပေးနိုင်သည့် ပိတ်ထားသည်</string>
+    <string name="screenshot_delete_label">ဖျက်ရန်</string>
 </resources>

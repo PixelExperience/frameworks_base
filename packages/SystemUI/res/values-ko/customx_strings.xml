@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">독서 모드가 켜졌습니다.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">독서 모드가 꺼졌습니다.</string>
     <string name="quick_settings_anti_flicker">깜박임 방지</string>
+    <string name="screenshot_delete_label">삭제</string>
 </resources>
