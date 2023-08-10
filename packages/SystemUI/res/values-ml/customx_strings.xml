@@ -31,4 +31,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">വായനാ മോഡ് ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">വായനാ മോഡ് ഓഫാക്കി.</string>
     <string name="quick_settings_anti_flicker">മങ്ങൽ ഒഴിവാക്കുക</string>
+    <string name="screenshot_delete_label">ഡിലീറ്റ് ചെയ്യുക</string>
 </resources>

@@ -34,4 +34,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">კითხვის რეჟიმი ჩართულია.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">კითხვის რეჟიმი გამორთულია.</string>
     <string name="quick_settings_anti_flicker">ციმციმის საწინააღმდეგო</string>
+    <string name="screenshot_delete_label">წაშლა</string>
 </resources>

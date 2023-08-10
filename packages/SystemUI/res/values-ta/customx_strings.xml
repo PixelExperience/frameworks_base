@@ -19,4 +19,5 @@
     <string name="quick_settings_reading_mode">வாசிக்கும் முறை</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">படிக்கும் முறை பயன்பாடு இயக்கப்பட்டது</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">படிக்கும் முறை பயன்பாடு முடக்கப்பட்டது</string>
+    <string name="screenshot_delete_label">நீக்கு</string>
 </resources>

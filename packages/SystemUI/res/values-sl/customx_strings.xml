@@ -22,4 +22,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Način za branje onemogočen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Način za branje omogočen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Način za branje onemogočen.</string>
+    <string name="screenshot_delete_label">Izbriši</string>
 </resources>

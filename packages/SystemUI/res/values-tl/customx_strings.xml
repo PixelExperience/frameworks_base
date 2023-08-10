@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Pinahintulutan ang Reading Mode.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Isinara ang Reading Mode.</string>
     <string name="quick_settings_anti_flicker">Anti flicker</string>
+    <string name="screenshot_delete_label">I-delete</string>
 </resources>

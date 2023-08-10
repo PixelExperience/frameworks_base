@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
     <string name="quick_settings_anti_flicker">Titreme önleme</string>
+    <string name="screenshot_delete_label">Sil</string>
 </resources>

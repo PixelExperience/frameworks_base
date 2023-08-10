@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čítania je zapnutý.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čítania je vypnutý.</string>
     <string name="quick_settings_anti_flicker">Eliminácia blikania</string>
+    <string name="screenshot_delete_label">Vymazať</string>
 </resources>

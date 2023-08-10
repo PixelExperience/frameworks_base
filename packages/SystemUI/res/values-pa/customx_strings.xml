@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">ਕਰਸਰ ਖੱਬੇ </string>
+    <string name="accessibility_dpad_right">ਕਰਸਰ ਸੱਜੇ </string>
+    <string name="global_action_current_user">ਮੌਜੂਦਾ </string>
+    <string name="global_action_users">ਵਰਤਣ ਵਾਲੇ</string>
+    <string name="tap_to_add_tiles"> ਜਮ੍ਹਾ ਕਰਨ ਜਾ ਹਟਾਉਣ ਲਈ ਟਾਇਲਾਂ ਤੇ ਕਲਿੱਕ ਕਰੋ </string>
+    <string name="accessibility_quick_settings_ambient_display_off">ਅੰਬੀਨਟ ਡਿਸਪਲੇ ਬੰਦ.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ਅੰਬੀਨਟ ਡਿਸਪਲੇ ਚਾਲੂ।</string>
+    <string name="quick_settings_aod_label">ਏਉਡੀ </string>
+    <string name="quick_settings_aod_off_powersave_label">ਏਉਡੀ ਬੰਦ\ਬੈਟਰੀ ਸੇਵਰ </string>
+    <string name="quick_settings_caffeine_label">ਕੈਫੀਨ </string>
+    <string name="accessibility_quick_settings_caffeine_off">ਕੈਫੀਨ ਬੰਦ.</string>
+    <string name="accessibility_quick_settings_caffeine_on">ਕੈਫੀਨ ਚਾਲੂ.</string>
+    <string name="quick_settings_heads_up_label">ਉੱਪਰ </string>
+    <string name="accessibility_quick_settings_heads_up_off">ਉੱਪਰ ਬੰਦ.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ਉਪਰ ਚਾਲੂ.</string>
+    <string name="quick_settings_sync_label">ਤਾਲਮੇਲ </string>
+    <string name="accessibility_quick_settings_sync_off">ਤਾਲਮੇਲ ਬੰਦ.</string>
+    <string name="accessibility_quick_settings_sync_on">ਤਾਲਮੇਲ ਚਾਲੂ.</string>
+    <string name="quick_settings_usb_tether_label">ਯੂਐਸਬੀ ਟੈਠੇਰਿੰਗ </string>
+    <string name="quick_settings_vpn_label">ਵੀਪੀਅਨ </string>
+    <string name="quick_settings_vpn_connect_dialog_title">u੨੦੨੬\ਨੂੰ ਜੋੜੋ </string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> ਨਾਲ ਜੁੜਨ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਪ੍ਰਮਾਣ ਪੱਤਰ ਦਾਖਲ ਕਰੋ</string>
+    <string name="vpn_credentials_username">ਵਰਤੋਂਕਾਰ ਦਾ ਨਾਮ </string>
+    <string name="vpn_credentials_password">ਪਾਸਵਰਡ </string>
+    <string name="vpn_credentials_dialog_connect">ਜੁੜਨਾ </string>
     <string name="global_action_restart_system">ਸਿਸਟਮ</string>
     <string name="global_action_restart_recovery">ਬਹਾਲੀ</string>
     <string name="clock">ਘੜੀ</string>
+    <string name="quick_settings_reading_mode">ਰੀਡਿੰਗ ਮੋਡ</string>
 </resources>

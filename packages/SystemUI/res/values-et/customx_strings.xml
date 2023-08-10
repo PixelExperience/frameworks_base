@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lugemisrežiim sisselülitatud.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lugemisrežiim väljalülitatud.</string>
     <string name="quick_settings_anti_flicker">Virvendusfilter</string>
+    <string name="screenshot_delete_label">Kustuta</string>
 </resources>

@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">पठन मोड चालू है।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">पठन मोड बंद है।</string>
     <string name="quick_settings_anti_flicker">Anti kerlip</string>
+    <string name="screenshot_delete_label">मिटाएं</string>
 </resources>

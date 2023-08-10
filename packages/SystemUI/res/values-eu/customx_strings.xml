@@ -20,4 +20,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Irakurketa modua desgaituta.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Irakurketa modua gaitu da.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Irakurketa modua desgaitu da.</string>
+    <string name="screenshot_delete_label">Ezabatu</string>
 </resources>

@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">O modo de leitura foi ativado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">O modo de leitura foi desativado.</string>
     <string name="quick_settings_anti_flicker">Anti Cintilação</string>
+    <string name="screenshot_delete_label">Apagar</string>
 </resources>

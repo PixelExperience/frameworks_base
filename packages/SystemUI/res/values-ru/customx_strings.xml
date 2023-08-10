@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режим чтения активирован.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режим чтения выключен.</string>
     <string name="quick_settings_anti_flicker">Защита от мерцания</string>
+    <string name="screenshot_delete_label">Удалить</string>
 </resources>

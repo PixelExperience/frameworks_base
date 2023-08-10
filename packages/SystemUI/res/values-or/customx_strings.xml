@@ -25,4 +25,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">ପଠନ ମୋଡ୍ ବନ୍ଦ।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">ପଠନ ମୋଡ୍ ଚାଲୁ କରାଗଲା।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">ପଠନ ମୋଡ୍ ବନ୍ଦ କରାଗଲା।</string>
+    <string name="screenshot_delete_label">ଡିଲିଟ୍ କରନ୍ତୁ |</string>
 </resources>

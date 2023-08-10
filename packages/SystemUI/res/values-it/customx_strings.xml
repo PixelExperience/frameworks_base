@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modalità lettura attivata.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modalità lettura disattivata.</string>
     <string name="quick_settings_anti_flicker">Anti-sfarfallio</string>
+    <string name="screenshot_delete_label">Elimina</string>
 </resources>

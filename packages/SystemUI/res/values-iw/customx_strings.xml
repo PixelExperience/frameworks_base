@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">מצב קריאה הודלק.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">מצב קריאה כובה.</string>
     <string name="quick_settings_anti_flicker">אנטי־הבהוב</string>
+    <string name="screenshot_delete_label">מחק</string>
 </resources>

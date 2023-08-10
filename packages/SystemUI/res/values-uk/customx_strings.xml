@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режим читання увімкнено.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режим читання вимкнено.</string>
     <string name="quick_settings_anti_flicker">Анти мерехтіння</string>
+    <string name="screenshot_delete_label">Видалити</string>
 </resources>

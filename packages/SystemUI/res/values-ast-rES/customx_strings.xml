@@ -20,4 +20,5 @@
     <string name="accessibility_quick_settings_reading_mode_off">Desactivóse\'l mou de llectura.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Activóse\'l mou de llectura.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Desactivóse\'l mou de llectura.</string>
+    <string name="screenshot_delete_label">Desaniciar</string>
 </resources>

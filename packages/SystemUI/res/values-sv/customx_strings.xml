@@ -34,4 +34,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lasnings typvärde knäppte på.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Läsnings typvärde knäppte av.</string>
     <string name="quick_settings_anti_flicker">Anti-Flimmer</string>
+    <string name="screenshot_delete_label">Ta bort</string>
 </resources>

@@ -35,4 +35,5 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">ಓದುವ ರೀತಿ ಹೊತ್ತಿತು.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">ಓದುವ ರೀತಿ ನಂದಿತು.</string>
     <string name="quick_settings_anti_flicker">ಆಂಟಿ ಫ್ಲಿಕರ್ (Anti flicker)</string>
+    <string name="screenshot_delete_label">ಅಳಿಸು</string>
 </resources>

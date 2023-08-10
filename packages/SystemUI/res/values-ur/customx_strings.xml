@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="clock">Soat</string>
-    <string name="screenshot_delete_label">O‘chirish</string>
+    <string name="screenshot_delete_label">حذف کریں</string>
 </resources>

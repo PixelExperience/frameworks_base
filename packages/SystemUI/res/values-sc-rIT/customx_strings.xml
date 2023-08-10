@@ -5,4 +5,5 @@
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
     <string name="global_action_restart_system">Sistema</string>
     <string name="clock">Relògiu</string>
+    <string name="screenshot_delete_label">Iscantzella</string>
 </resources>
