@@ -981,14 +981,10 @@ public final class DeviceConfig {
     @SystemApi
     @RequiresPermission(WRITE_DEVICE_CONFIG)
     public static boolean setProperties(@NonNull Properties properties) throws BadConfigException {
-        Map<String, String> keyValuesFiltered = 
-            DeviceConfigUtils.filterDeviceConfigs(properties.getNamespace(), properties.mMap);
-        if (keyValuesFiltered.size() == 0){
-            return true;
-        }
         ContentResolver contentResolver = ActivityThread.currentApplication().getContentResolver();
         boolean result = Settings.Config.setStrings(contentResolver, properties.getNamespace(),
-                keyValuesFiltered);
+                properties.mMap);
+        DeviceConfigUtils.setDefaultProperties(contentResolver, properties.getNamespace(), null);
         return result;
     }
 
@@ -1041,7 +1037,7 @@ public final class DeviceConfig {
     public static void resetToDefaults(@ResetMode int resetMode, @Nullable String namespace) {
         ContentResolver contentResolver = ActivityThread.currentApplication().getContentResolver();
         Settings.Config.resetToDefaults(contentResolver, resetMode, namespace);
-        DeviceConfigUtils.setDefaultProperties(contentResolver);
+        DeviceConfigUtils.setDefaultProperties(contentResolver, null, null);
     }
 
     /**
