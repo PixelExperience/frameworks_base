@@ -28,7 +28,7 @@ public class CustomDeviceConfigService extends SystemService {
     @Override
     public void onBootPhase(int phase) {
         if (phase == PHASE_BOOT_COMPLETED) {
-            DeviceConfigUtils.setDefaultProperties(mContext.getContentResolver());
+            DeviceConfigUtils.setDefaultProperties(mContext.getContentResolver(), null, null);
         }
     }
 }
