@@ -31,6 +31,8 @@ public class DeviceConfigUtils {
 
     private static final String TAG = DeviceConfigUtils.class.getSimpleName();
 
+    private static final boolean DEBUG = false;
+
     private static String[] getDeviceConfigsOverride(){
         String[] globalDeviceConfigs =
             Resources.getSystem().getStringArray(com.android.internal.R.array.global_device_configs_override);
@@ -42,22 +44,22 @@ public class DeviceConfigUtils {
     }
 
     public static boolean shouldDenyDeviceConfigControl(String namespace, String property) {
-        Log.d(TAG, "shouldAllowDeviceConfigControl, namespace=" + namespace + ", property=" + property);
+        if (DEBUG) Log.d(TAG, "shouldAllowDeviceConfigControl, namespace=" + namespace + ", property=" + property);
         for (String p : getDeviceConfigsOverride()) {
             String[] kv = p.split("=");
             String fullKey = kv[0];
             String[] nsKey = fullKey.split("/");
             if (nsKey[0] == namespace && nsKey[1] == property){
-                Log.d(TAG, "shouldAllowDeviceConfigControl, deny, namespace=" + namespace + ", property=" + property);
+                if (DEBUG) Log.d(TAG, "shouldAllowDeviceConfigControl, deny, namespace=" + namespace + ", property=" + property);
                 return true;
             }
         }
-        Log.d(TAG, "shouldAllowDeviceConfigControl, allow, namespace=" + namespace + ", property=" + property);
+        if (DEBUG) Log.d(TAG, "shouldAllowDeviceConfigControl, allow, namespace=" + namespace + ", property=" + property);
         return false;
     }
 
     public static Map<String, String> filterDeviceConfigs(String namespace, Map<String, String> keyValues) {
-        Log.d(TAG, "shouldAllowDeviceConfigControl, namespace=" + namespace + ", properties=[" + String.join(",", keyValues.keySet()) + "]");
+        if (DEBUG) Log.d(TAG, "filterDeviceConfigs, namespace=" + namespace + ", properties=[" + String.join(",", keyValues.keySet()) + "]");
         Map<String, String> keyValuesNew = new HashMap();
         for (Map.Entry<String, String> entry : keyValues.entrySet()) {
             keyValuesNew.put(entry.getKey(), entry.getValue());
@@ -79,7 +81,7 @@ public class DeviceConfigUtils {
     }
 
     public static void setDefaultProperties(ContentResolver contentResolver) {
-        Log.d(TAG, "setDefaultProperties");
+        if (DEBUG) Log.d(TAG, "setDefaultProperties");
         for (String p : getDeviceConfigsOverride()) {
             String[] kv = p.split("=");
             String fullKey = kv[0];
