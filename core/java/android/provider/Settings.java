@@ -18676,7 +18676,7 @@ public final class Settings {
          * @hide
          */
         @RequiresPermission(Manifest.permission.WRITE_DEVICE_CONFIG)
-        static boolean putString(@NonNull ContentResolver resolver, @NonNull String namespace,
+        public static boolean putString(@NonNull ContentResolver resolver, @NonNull String namespace,
                 @NonNull String name, @Nullable String value, boolean makeDefault) {
             return sNameValueCache.putStringForUser(resolver, createCompositeName(namespace, name),
                     value, null, makeDefault, resolver.getUserId(),
