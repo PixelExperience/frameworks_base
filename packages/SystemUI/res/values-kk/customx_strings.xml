@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Курсорды солға</string>
+    <string name="accessibility_dpad_right">Курсорды оңға</string>
+    <string name="global_action_current_user">Қазіргі</string>
+    <string name="global_action_users">Пайдаланушылар</string>
+    <string name="tap_to_add_tiles">Қосу немесе жою үшін тақтайшаларды басыңыз</string>
+    <string name="quick_settings_ambient_display_label">Қоршаған орта дисплейі</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Қоршаған орта дисплейін өшіру</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Қоршаған орта дисплейін қосу</string>
+    <string name="quick_settings_aod_label">ӘҚД</string>
+    <string name="quick_settings_aod_off_powersave_label">ӘҚД өшіру\nБатареяны үнемдеу</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин өшіру</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин қосу</string>
+    <string name="quick_settings_heads_up_label">Қалқымалы хабарландырулар</string>
+    <string name="accessibility_quick_settings_heads_up_off">Қалқымалы хабарландыруларды өшіру</string>
+    <string name="accessibility_quick_settings_heads_up_on">Қалқымалы хабарландыруларды қосу</string>
+    <string name="quick_settings_sync_label">Синхрондау</string>
+    <string name="accessibility_quick_settings_sync_off">Синхрондауды өшіру</string>
+    <string name="accessibility_quick_settings_sync_on">Синхрондауды қосу</string>
+    <string name="quick_settings_usb_tether_label">USB-модем</string>
+    <string name="quick_settings_vpn_label">ВЖЖ</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Қосылу\u2026Қосылуда\u2026</string>
+    <string name="vpn_credentials_hint">Қосылу үшін тіркелгі деректеріңізді енгізіңіз <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Пайдаланушы аты</string>
+    <string name="vpn_credentials_password">Құпия сөз</string>
+    <string name="vpn_credentials_dialog_connect">Қосылу</string>
+    <string name="global_action_restart_system">Жүйе</string>
+    <string name="global_action_restart_recovery">Қалпына келтіру</string>
+    <string name="clock">Сағат</string>
+    <string name="quick_settings_reading_mode">Оқу көрінісі</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Оқу көрінісін қосу</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Оқу көрінісін өшіру</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Оқу көрінісі қосулы</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Оқу көрінісі өшірулі</string>
+    <string name="quick_settings_anti_flicker">Жыпылықтаудан қорғау</string>
+</resources>
