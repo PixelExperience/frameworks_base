@@ -8,5 +8,5 @@
     <string name="screen_pinning_toast_no_navbar">要取消固定此屏幕，请触摸并按住“返回”按钮。</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住指纹传感器即可取消固定</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
-    <string name="face_unlock_recognizing">正在识别面部...</string>
+    <string name="face_unlock_recognizing">人脸识别中</string>
 </resources>

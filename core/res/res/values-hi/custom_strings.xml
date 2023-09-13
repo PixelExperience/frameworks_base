@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="face_unlock_disabled_idle">फेस अनलॉक समय समाप्ति के कारण अक्षम.</string>
+    <string name="face_unlock_disabled_idle">निष्क्रियता के कारण फेस अनलॉक अक्षम है</string>
 </resources>

@@ -3,10 +3,10 @@
     <string name="quick_settings_powershare_label">Współdzielenie baterii</string>
     <string name="quick_settings_powershare_off_powersave_label">Wyłączono współdzielenie baterii\nOszczędzanie baterii</string>
     <string name="quick_settings_powershare_off_low_battery_label">Wyłączono współdzielenie baterii\nZbyt niski poziom baterii</string>
-    <string name="quick_settings_powershare_enabled_label">Oszczędzanie baterii włączone</string>
+    <string name="quick_settings_powershare_enabled_label">Współdzielenie baterii włączone</string>
     <string name="screen_pinning_description_no_navbar">Będzie to widoczne, dopóki tego nie odepniesz. Przytrzymaj \"Wstecz\", aby odpiąć.</string>
     <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij i przytrzymaj przycisk Wstecz</string>
     <string name="screen_pinning_description_no_navbar_fpsensor">Dzięki temu będzie on widoczny aż do odpięcia. Dotknij i przytrzymaj czytnik linii papilarnych, aby odpiąć.</string>
     <string name="screen_pinning_toast_no_navbar_fpsensor">Aby odpiąć ten ekran, naciśnij i przytrzymaj czytnik linii papilarnych</string>
-    <string name="face_unlock_recognizing">Rozpoznawanie twarzy</string>
+    <string name="face_unlock_recognizing">Rozpoznawanie twarzy...</string>
 </resources>
