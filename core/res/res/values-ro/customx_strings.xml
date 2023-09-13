@@ -15,7 +15,7 @@
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mod auto.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modul de zi.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modul de noapte.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modul aer liber.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: mod în aer liber.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay este oprit.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay s-a schimbat la modul automat.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay s-a schimbat la modul zi.</string>
