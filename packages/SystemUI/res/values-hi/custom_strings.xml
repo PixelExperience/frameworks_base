@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="quick_settings_powershare_label">बैटरी साँझा</string>
+    <string name="quick_settings_powershare_off_powersave_label">बैटरी शेयर बंद\nबैटरी सेवर</string>
     <string name="quick_settings_powershare_off_low_battery_label">वायरलेस पॉवर शेयर बंद\nबैटरी बहुत कम है</string>
     <string name="quick_settings_powershare_enabled_label">बैटरी सेवर चालू है</string>
     <string name="screen_pinning_description_no_navbar">यह इसे तब तक दिखाता रहता है जब तक आप अनपिन नहीं करते। अनपिन करने के लिए बैक बटन को कुछ देर दबाएँ रखें।</string>
