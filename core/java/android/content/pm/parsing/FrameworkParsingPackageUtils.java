@@ -213,19 +213,12 @@ public class FrameworkParsingPackageUtils {
             return false;
         }
         for (int i = 0; i < propNames.length; i++) {
-            final String currValue = SystemProperties.get(propNames[i]);
-            // 1. Make sure prop is set.
-            if (currValue == null) {
-                return false;
-            }
-            // 2. Check next prop if expected value is a wildcard.
-            if ("*".equals(propValues[i])) {
-                continue;
-            }
-            // 3. Check if prop is equal to expected value.
-            if (!currValue.equals(propValues[i])) {
-                return false;
-            }
+            final String propName = propNames[i];
+            final String expectedValue = propValues[i];
+            final String currValue = SystemProperties.get(propName);
+
+            if (currValue == null) return false;
+            if (!"*".equals(expectedValue) && !currValue.equals(expectedValue)) return false;
         }
         return true;
     }
