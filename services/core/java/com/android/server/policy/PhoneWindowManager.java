@@ -1995,6 +1995,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void performKeyAction(Action action, KeyEvent event) {
+        // By default, pass INVOCATION_TYPE_UNKNOWN to launch assistant.
+        performKeyAction(action, event, AssistUtils.INVOCATION_TYPE_UNKNOWN);
+    }
+
+    private void performKeyAction(Action action, KeyEvent event, int assistInvocationType) {
         switch (action) {
             case NOTHING:
                 break;
@@ -2006,7 +2011,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case SEARCH:
                 launchAssistAction(null, event.getDeviceId(), event.getEventTime(),
-                    AssistUtils.INVOCATION_TYPE_UNKNOWN);
+                    assistInvocationType);
                 break;
             case VOICE_SEARCH:
                 launchAssistLongPressAction();
@@ -2172,7 +2177,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     mHomePressed = true;
                     performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
                             "Home - Long Press");
-                    performKeyAction(mHomeLongPressAction, event);
+                    // If long press home will launch assistant,
+                    // it should pass this right invocation type.
+                    performKeyAction(mHomeLongPressAction, event,
+                            AssistUtils.INVOCATION_TYPE_HOME_BUTTON_LONG_PRESS);
                     if (mHomeLongPressAction != Action.SLEEP) {
                         mHomeConsumed = true;
                     }
