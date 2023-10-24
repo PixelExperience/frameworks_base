@@ -153,6 +153,7 @@ public class PixelPropsUtils {
         if (packageName.equals(PACKAGE_GMS)
                 || packageName.toLowerCase().contains("androidx.test")
                 || packageName.equalsIgnoreCase("com.google.android.apps.restore")) {
+            setPropValue("TIME", System.currentTimeMillis());
             final String processName = Application.getProcessName();
             if (processName.toLowerCase().contains("unstable")
                     || processName.toLowerCase().contains("pixelmigrate")
