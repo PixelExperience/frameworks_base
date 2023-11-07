@@ -1712,8 +1712,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             trimObsoleteH();
         }
 
+        boolean isOutmostIndexMax = isWindowGravityLeft() ? isRtl() : !isRtl();
+
         // Index of the last row that is actually visible.
-        int rightmostVisibleRowIndex = !isRtl() ? -1 : Short.MAX_VALUE;
+        int outmostVisibleRowIndex = isOutmostIndexMax ? -1 : Short.MAX_VALUE;
 
         // apply changes to all rows
         for (final VolumeRow row : mRows) {
@@ -1722,14 +1724,11 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             Util.setVisOrGone(row.view, shouldBeVisible);
 
             if (shouldBeVisible && mRingerAndDrawerContainerBackground != null) {
-                // For RTL, the rightmost row has the lowest index since child views are laid out
+                // For RTL, the outmost row has the lowest index since child views are laid out
                 // from right to left.
-                rightmostVisibleRowIndex =
-                        !isRtl()
-                                ? Math.max(rightmostVisibleRowIndex,
-                                mDialogRowsView.indexOfChild(row.view))
-                                : Math.min(rightmostVisibleRowIndex,
-                                        mDialogRowsView.indexOfChild(row.view));
+                outmostVisibleRowIndex = isOutmostIndexMax
+                        ? Math.max(outmostVisibleRowIndex, mDialogRowsView.indexOfChild(row.view))
+                        : Math.min(outmostVisibleRowIndex, mDialogRowsView.indexOfChild(row.view));
 
                 // Add spacing between each of the visible rows - we'll remove the spacing from the
                 // last row after the loop.
@@ -1737,7 +1736,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     final LinearLayout.LayoutParams linearLayoutParams =
                             ((LinearLayout.LayoutParams) layoutParams);
-                    if (!isRtl()) {
+                    if (isOutmostIndexMax) {
                         linearLayoutParams.setMarginEnd(mRingerRowsPadding);
                     } else {
                         linearLayoutParams.setMarginStart(mRingerRowsPadding);
@@ -1755,8 +1754,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             }
         }
 
-        if (rightmostVisibleRowIndex > -1 && rightmostVisibleRowIndex < Short.MAX_VALUE) {
-            final View lastVisibleChild = mDialogRowsView.getChildAt(rightmostVisibleRowIndex);
+        if (outmostVisibleRowIndex > -1 && outmostVisibleRowIndex < Short.MAX_VALUE) {
+            final View lastVisibleChild = mDialogRowsView.getChildAt(outmostVisibleRowIndex);
             final ViewGroup.LayoutParams layoutParams = lastVisibleChild.getLayoutParams();
             // Remove the spacing on the last row, and remove its background since the container is
             // drawing a background for this row.
@@ -2309,6 +2308,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         final Rect bounds = mRingerAndDrawerContainerBackground.copyBounds();
         if (!isLandscape()) {
             bounds.top = (int) (mRingerDrawerClosedAmount * getRingerDrawerOpenExtraSize());
+        } else if (isWindowGravityLeft()) {
+            bounds.right = (int) ((mDialogCornerRadius / 2) + mRingerDrawerItemSize
+                    + (1f - mRingerDrawerClosedAmount) * getRingerDrawerOpenExtraSize());
         } else {
             bounds.left = (int) (mRingerDrawerClosedAmount * getRingerDrawerOpenExtraSize());
         }
@@ -2316,7 +2318,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     /*
-     * The top container is responsible for drawing the solid color background behind the rightmost
+     * The top container is responsible for drawing the solid color background behind the outmost
      * (primary) volume row. This is because the volume drawer animates in from below, initially
      * overlapping the primary row. We need the drawer to draw below the row's SeekBar, since it
      * looks strange to overlap it, but above the row's background color, since otherwise it will be
@@ -2350,8 +2352,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                         ? mDialogRowsViewContainer.getTop()
                         : mDialogRowsViewContainer.getTop() - mDialogCornerRadius);
 
-        // Set gravity to top-right, since additional rows will be added on the left.
-        background.setLayerGravity(0, Gravity.TOP | Gravity.RIGHT);
+        // Set gravity to top and opposite side where additional rows will be added.
+        background.setLayerGravity(
+                0, isWindowGravityLeft() ? Gravity.TOP | Gravity.LEFT : Gravity.TOP | Gravity.RIGHT);
 
         // In landscape, the ringer drawer animates out to the left (instead of down). Since the
         // drawer comes from the right (beyond the bounds of the dialog), we should clip it so it
