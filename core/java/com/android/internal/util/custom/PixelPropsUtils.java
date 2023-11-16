@@ -180,12 +180,13 @@ public class PixelPropsUtils {
                 if (was) return true;
 
                 dlog("Spoofing build for GMS");
-                // Alter build parameters to pixel 2 for avoiding hardware attestation enforcement
-                setBuildField("DEVICE", "walleye");
-                setBuildField("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-                setBuildField("MODEL", "Pixel 2");
-                setBuildField("PRODUCT", "walleye");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O);
+                // Alter model name and fingerprint to Redmi Go to avoid hardware attestation enforcement
+                // Alter build parameters to Nexus 6P for avoiding hardware attestation enforcement
+                setPropValue("DEVICE", "bullhead");
+                setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
+                setPropValue("MODEL", "Nexus 5X");
+                setPropValue("PRODUCT", "bullhead");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
                 return true;
             }
         }
