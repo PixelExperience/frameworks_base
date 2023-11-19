@@ -180,13 +180,15 @@ public class PixelPropsUtils {
                 if (was) return true;
 
                 dlog("Spoofing build for GMS");
-                // Alter build parameters to Pixel 2 XL for avoiding hardware attestation enforcement
-                setPropValue("DEVICE", "taimen");
-                setPropValue("FINGERPRINT", "google/taimen/taimen:8.1.0/OPM4.171019.021.R1/4833808:user/release-keys");
-                setPropValue("MODEL", "Pixel 2 XL");
-                setPropValue("PRODUCT", "taimen");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
-                setVersionFieldString("SECURITY_PATCH", "2018-07-05");
+                // Alter build parameters to pixel for avoiding hardware attestation enforcement
+                setPropValue("PRODUCT", "sailfish");
+                setPropValue("MODEL", "Pixel");
+                setPropValue("DEVICE", "sailfish");
+                setPropValue("FINGERPRINT", "google/sailfish/sailfish:8.1.0/OPM2.171019.029/4657601:user/release-keys");
+                setPropValue("TYPE", "user");
+                setPropValue("TAGS", "release-keys");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O_MR1);
+                setVersionFieldString("SECURITY_PATCH", "2018-04-05");
                 return true;
             }
         }
