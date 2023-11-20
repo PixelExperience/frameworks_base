@@ -1245,6 +1245,13 @@ public class RecentTasksTest extends WindowTestsBase {
         assertFalse(info.topActivityInfo.packageName.equals(componentName.getPackageName()));
         assertFalse(info.baseActivity.equals(componentName));
 
+        info = mRecentTasks.createRecentTaskInfo(task, true /* stripExtras */,
+                false /* getTasksAllowed */);
+
+        assertFalse(info.topActivity.equals(componentName));
+        assertFalse(info.topActivityInfo.packageName.equals(componentName.getPackageName()));
+        assertFalse(info.baseActivity.equals(componentName));
+
         // The task can be put in split screen even if it is not attached now.
         task.removeImmediately();
 
