@@ -291,6 +291,17 @@ public class PixelPropsUtils {
         }
     }
 
+    private static void setVersionFieldString(String key, String value) {
+        try {
+            Field field = Build.VERSION.class.getDeclaredField(key);
+            field.setAccessible(true);
+            field.set(null, value);
+            field.setAccessible(false);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Log.e(TAG, "Failed to spoof Build." + key, e);
+        }
+    }
+
     private static boolean isGmsAddAccountActivityOnTop() {
         try {
             final ActivityTaskManager.RootTaskInfo focusedTask =
