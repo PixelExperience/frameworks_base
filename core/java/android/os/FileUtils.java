@@ -37,6 +37,7 @@ import static android.system.OsConstants.SPLICE_F_MORE;
 import static android.system.OsConstants.SPLICE_F_MOVE;
 import static android.system.OsConstants.S_ISFIFO;
 import static android.system.OsConstants.S_ISREG;
+import static android.system.OsConstants.S_ISSOCK;
 import static android.system.OsConstants.W_OK;
 
 import android.annotation.NonNull;
@@ -459,6 +460,8 @@ public final class FileUtils {
                     }
                 } else if (S_ISFIFO(st_in.st_mode) || S_ISFIFO(st_out.st_mode)) {
                     return copyInternalSplice(in, out, count, signal, executor, listener);
+                } else if (S_ISSOCK(st_in.st_mode) || S_ISSOCK(st_out.st_mode)) {
+                    return copyInternalSpliceSocket(in, out, count, signal, executor, listener);
                 }
             } catch (ErrnoException e) {
                 throw e.rethrowAsIOException();
@@ -484,6 +487,57 @@ public final class FileUtils {
         long t;
         while ((t = Os.splice(in, null, out, null, Math.min(count, COPY_CHECKPOINT_BYTES),
                 SPLICE_F_MOVE | SPLICE_F_MORE)) != 0) {
+            progress += t;
+            checkpoint += t;
+            count -= t;
+
+            if (checkpoint >= COPY_CHECKPOINT_BYTES) {
+                if (signal != null) {
+                    signal.throwIfCanceled();
+                }
+                if (executor != null && listener != null) {
+                    final long progressSnapshot = progress;
+                    executor.execute(() -> {
+                        listener.onProgress(progressSnapshot);
+                    });
+                }
+                checkpoint = 0;
+            }
+        }
+        if (executor != null && listener != null) {
+            final long progressSnapshot = progress;
+            executor.execute(() -> {
+                listener.onProgress(progressSnapshot);
+            });
+        }
+        return progress;
+    }
+    /**
+     * Requires one of input or output to be a socket file.
+     *
+     * @hide
+     */
+    @VisibleForTesting
+    public static long copyInternalSpliceSocket(FileDescriptor in, FileDescriptor out, long count,
+            CancellationSignal signal, Executor executor, ProgressListener listener)
+            throws ErrnoException {
+        long progress = 0;
+        long checkpoint = 0;
+        long t = -1;
+
+        FileDescriptor[] pipes = Os.pipe();
+
+        while (t != 0) {
+            t = Os.splice(in, null, pipes[1], null, Math.min(count, COPY_CHECKPOINT_BYTES),
+                          SPLICE_F_MOVE | SPLICE_F_MORE);
+            if (t <= 0) {
+                break;
+            }
+            t = Os.splice(pipes[0], null, out, null, Math.min(count, COPY_CHECKPOINT_BYTES),
+                          SPLICE_F_MOVE | SPLICE_F_MORE);
+            if (t <= 0) {
+                break;
+            }
             progress += t;
             checkpoint += t;
             count -= t;
