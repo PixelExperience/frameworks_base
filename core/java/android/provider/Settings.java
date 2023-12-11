@@ -16770,6 +16770,13 @@ public final class Settings {
         public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED =
                 "wake_when_plugged_or_unplugged";
 
+
+        /**
+         * Enable advanced freeform window logic
+         * @hide
+         */
+        public static final String ADVANCED_FREEFORM_WINDOW = "advanced_freeform_window";
+
         /**
          * Global settings that shouldn't be persisted.
          *

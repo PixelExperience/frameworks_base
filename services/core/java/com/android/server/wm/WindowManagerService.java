@@ -8679,17 +8679,21 @@ public class WindowManagerService extends IWindowManager.Stub
             return;
         }
 
-        // We ignore root home task since we don't want root home task to move to front when
-        // touched. Specifically, in freeform we don't want tapping on home to cause the freeform
-        // apps to go behind home. See b/117376413
-        if (task.isActivityTypeHome()) {
-            // Only ignore root home task if the requested focus home Task is in the same
-            // TaskDisplayArea as the current focus Task.
-            TaskDisplayArea homeTda = task.getDisplayArea();
-            WindowState curFocusedWindow = getFocusedWindow();
-            if (curFocusedWindow != null && homeTda != null
-                    && curFocusedWindow.isDescendantOf(homeTda)) {
-                return;
+        // If advanced freeform window enabled, we elevates the freeform window level from 
+        // {@link DisplayContent#mFindFocusedWindow}, therefore no need to block home activity
+        if(!ActivityTaskManagerService.mEnabledAdvancedFreeformWindow) {
+            // We ignore root home task since we don't want root home task to move to front when
+            // touched. Specifically, in freeform we don't want tapping on home to cause the freeform
+            // apps to go behind home. See b/117376413
+            if (task.isActivityTypeHome()) {
+                // Only ignore root home task if the requested focus home Task is in the same
+                // TaskDisplayArea as the current focus Task.
+                TaskDisplayArea homeTda = task.getDisplayArea();
+                WindowState curFocusedWindow = getFocusedWindow();
+                if (curFocusedWindow != null && homeTda != null
+                        && curFocusedWindow.isDescendantOf(homeTda)) {
+                    return;
+                }
             }
         }
 

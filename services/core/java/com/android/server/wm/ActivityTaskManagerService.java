@@ -780,11 +780,19 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
     private int mDeviceOwnerUid = Process.INVALID_UID;
 
+    /** Mark if the advanced freeform window is enabled */
+    protected static boolean mEnabledAdvancedFreeformWindow = false;
+
+    /** Mark updateFocusedWindowLocked()/mFindFocusedWindow() going across level 1 and 0 */
+    protected static boolean mIsMovingFocusToSubFreeformWindow = false;
+
     private final class SettingObserver extends ContentObserver {
         private final Uri mFontScaleUri = Settings.System.getUriFor(FONT_SCALE);
         private final Uri mHideErrorDialogsUri = Settings.Global.getUriFor(HIDE_ERROR_DIALOGS);
         private final Uri mFontWeightAdjustmentUri = Settings.Secure.getUriFor(
                 Settings.Secure.FONT_WEIGHT_ADJUSTMENT);
+        private final Uri mAdvancedFreeformWindowUri = Settings.Global.getUriFor(
+                Settings.Global.ADVANCED_FREEFORM_WINDOW);
 
         SettingObserver() {
             super(mH);
@@ -794,6 +802,8 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(
                     mFontWeightAdjustmentUri, false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    mAdvancedFreeformWindowUri, false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -808,6 +818,9 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                     }
                 } else if (mFontWeightAdjustmentUri.equals(uri)) {
                     updateFontWeightAdjustmentIfNeeded(userId);
+                } else if (mAdvancedFreeformWindowUri.equals(uri)) {
+                    mEnabledAdvancedFreeformWindow = Settings.Global.getInt(mContext.getContentResolver(),
+                        Settings.Global.ADVANCED_FREEFORM_WINDOW, 0) == 1;
                 }
             }
         }
@@ -908,6 +921,8 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                 com.android.internal.R.dimen.config_minPercentageMultiWindowSupportWidth);
         final int largeScreenSmallestScreenWidthDp = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_largeScreenSmallestScreenWidthDp);
+        mEnabledAdvancedFreeformWindow = Settings.Global.getInt(resolver,
+                        Settings.Global.ADVANCED_FREEFORM_WINDOW, 0) == 1;
 
         // Transfer any global setting for forcing RTL layout, into a System Property
         DisplayProperties.debug_force_rtl(forceRtl);
@@ -2024,6 +2039,15 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
         final ActivityRecord r = task.topRunningActivityLocked();
         if (r == null) {
             return;
+        }
+
+        if(ActivityTaskManagerService.mEnabledAdvancedFreeformWindow) {
+            ActivityTaskManagerService.mIsMovingFocusToSubFreeformWindow = false;
+            // If target activity non-null and not a freefrom type window, mark it
+            // for {@link DisplayContent#mFindFocusedWindow}
+            if(touchedActivity != null)
+                ActivityTaskManagerService.mIsMovingFocusToSubFreeformWindow
+                                                = !touchedActivity.inFreeformWindowingMode();
         }
 
         if (r.moveFocusableActivityToTop("setFocusedTask")) {

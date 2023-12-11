@@ -538,10 +538,16 @@ final class TaskDisplayArea extends DisplayArea<WindowContainer> {
             return tda.getPriority(tda.getTopChild());
         }
         final Task rootTask = child.asTask();
-        if (mWmService.mAssistantOnTopOfDream && rootTask.isActivityTypeAssistant()) return 4;
-        if (rootTask.isActivityTypeDream()) return 3;
-        if (rootTask.inPinnedWindowingMode()) return 2;
-        if (rootTask.isAlwaysOnTop()) return 1;
+        final int toAdd = ActivityTaskManagerService.mEnabledAdvancedFreeformWindow ? 1 : 0;
+
+        if (mWmService.mAssistantOnTopOfDream && rootTask.isActivityTypeAssistant()) return 4 + toAdd;
+        if (rootTask.isActivityTypeDream()) return 3 + toAdd;
+        if (rootTask.inPinnedWindowingMode()) return 2 + toAdd;
+        if (rootTask.isAlwaysOnTop()) return 1 + toAdd;
+        if (ActivityTaskManagerService.mEnabledAdvancedFreeformWindow
+                && rootTask.inFreeformWindowingMode()) {
+            return 1;
+        }
         return 0;
     }
 
@@ -595,6 +601,8 @@ final class TaskDisplayArea extends DisplayArea<WindowContainer> {
      * existing non-always-on-top root tasks
      * - if {@link #mAssistantOnTopOfDream} is enabled, then Assistant is on top of everything
      * (including the Dream); otherwise, it is a normal non-always-on-top root task
+     * - if {@link #mEnabledAdvancedFreeformWindow} is enabled, then freeform window will be above
+     * the standard window but below all other definition here
      *
      * @param requestedPosition Position requested by caller.
      * @param rootTask          Root task to be added or positioned.
