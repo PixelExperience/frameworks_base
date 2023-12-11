@@ -537,11 +537,18 @@ final class TaskDisplayArea extends DisplayArea<WindowContainer> {
             // Use the top child priority as the TaskDisplayArea priority.
             return tda.getPriority(tda.getTopChild());
         }
+
         final Task rootTask = child.asTask();
-        if (mWmService.mAssistantOnTopOfDream && rootTask.isActivityTypeAssistant()) return 4;
-        if (rootTask.isActivityTypeDream()) return 3;
-        if (rootTask.inPinnedWindowingMode()) return 2;
-        if (rootTask.isAlwaysOnTop()) return 1;
+        final int toAdd = ActivityTaskManagerService.mEnabledAdvancedFreeformWindow ? 1 : 0;
+
+        if (mWmService.mAssistantOnTopOfDream && rootTask.isActivityTypeAssistant()) return 4 + toAdd;
+        if (rootTask.isActivityTypeDream()) return 3 + toAdd;
+        if (rootTask.inPinnedWindowingMode()) return 2 + toAdd;
+        if (rootTask.isAlwaysOnTop()) return 1 + toAdd;
+        if (ActivityTaskManagerService.mEnabledAdvancedFreeformWindow
+                && rootTask.inFreeformWindowingMode()) {
+            return 1;
+        }
         return 0;
     }
 

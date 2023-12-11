@@ -845,6 +845,24 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
             }
         }
 
+        if(ActivityTaskManagerService.mEnabledAdvancedFreeformWindow) {
+            // Here just judge:
+            //  [1] inFreeformWindowingMode - if current window is a freeform window
+            //  [2] mIsMovingFocusToSubFreeformWindow - marked from target process that
+            // it's not a freefrom window
+            //
+            // When both goes true, it is the situation that focus target is not freeform window but
+            // it turns out selecting current freeform window as focus target. As we have marked
+            // freeform window priority higher than the normal but still lower than others
+            // [always-on-top, pinned(pip), dream(assistant on dream)],
+            // this situation will only happen for standard app as all higher priority window will
+            // be iterated before freeform window
+            if(w.inFreeformWindowingMode() 
+                && ActivityTaskManagerService.mIsMovingFocusToSubFreeformWindow) {
+                return false;
+            }
+        }
+
         ProtoLog.v(WM_DEBUG_FOCUS_LIGHT, "findFocusedWindow: Found new focus @ %s", w);
         mTmpWindow = w;
         return true;
