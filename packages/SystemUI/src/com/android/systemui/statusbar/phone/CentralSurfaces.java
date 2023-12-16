@@ -22,6 +22,7 @@ import android.annotation.Nullable;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.app.PendingIntent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -43,6 +44,10 @@ import com.android.systemui.display.data.repository.DisplayMetricsRepository;
 import com.android.systemui.navigationbar.NavigationBarView;
 import com.android.systemui.plugins.ActivityStarter.OnDismissAction;
 import com.android.systemui.qs.QSPanelController;
+import com.android.systemui.shade.NotificationPanelViewController;
+import com.android.systemui.shade.NotificationShadeWindowView;
+import com.android.systemui.shade.NotificationShadeWindowViewController;
+import com.android.systemui.shade.ShadeViewController;
 import com.android.systemui.shared.system.RemoteAnimationRunnerCompat;
 import com.android.systemui.statusbar.NotificationPresenter;
 import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow;
@@ -395,4 +400,14 @@ public interface CentralSurfaces extends Dumpable, LifecycleOwner {
      */
     ActivityLaunchAnimator.Controller getAnimatorControllerFromNotification(
             ExpandableNotificationRow associatedView);
+    
+    NotificationShadeWindowView getNotificationShadeWindowView();
+    
+    ShadeViewController getNotificationPanelViewController();
+    
+    void wakeUpDeviceifDozing();
+    
+    void startActivity(Intent intent, boolean dismiss);
+
+    void startPendingIntentDismissingKeyguard(PendingIntent intent);
 }

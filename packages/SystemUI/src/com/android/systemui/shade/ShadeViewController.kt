@@ -20,7 +20,9 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import com.android.systemui.keyguard.shared.model.WakefulnessModel
 import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow
+import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayoutController
 import com.android.systemui.statusbar.phone.HeadsUpAppearanceController
+import com.android.systemui.statusbar.phone.KeyguardBottomAreaView
 import com.android.systemui.statusbar.phone.KeyguardStatusBarView
 import com.android.systemui.statusbar.phone.KeyguardStatusBarViewController
 import java.util.function.Consumer
@@ -228,6 +230,10 @@ interface ShadeViewController {
      * change.
      */
     fun showAodUi()
+
+    fun getScrollerLayoutController(): NotificationStackScrollLayoutController?
+    
+    fun getKeyguardBottomAreaView(): KeyguardBottomAreaView?
 
     /**
      * This method should not be used anymore, you should probably use [.isShadeFullyOpen] instead.
