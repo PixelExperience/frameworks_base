@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.hardware.biometrics.BiometricAuthenticator;
+import android.hardware.face.FaceAuthenticateOptions;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
@@ -39,7 +40,7 @@ import com.android.server.biometrics.log.BiometricLogger;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-class FaceAuthenticationClient extends AuthenticationClient<IFaceService> {
+class FaceAuthenticationClient extends AuthenticationClient<IFaceService, FaceAuthenticateOptions> {
     private static final String TAG = "FaceAuthenticationClient";
     private final int[] mBiometricPromptIgnoreList;
     private final int[] mBiometricPromptIgnoreListVendor;
@@ -50,8 +51,8 @@ class FaceAuthenticationClient extends AuthenticationClient<IFaceService> {
     private final UsageStats mUsageStats;
     private int mLastAcquire;
 
-    FaceAuthenticationClient(Context context, Supplier<IFaceService> lazyDaemon, IBinder token, ClientMonitorCallbackConverter listener, int targetUserId, long operationId, boolean restricted, String owner, int cookie, boolean requireConfirmation, int sensorId, BiometricLogger biometricLogger, BiometricContext biometricContext, boolean isStrongBiometric, LockoutTracker lockoutTracker, UsageStats usageStats, boolean allowBackgroundAuthentication) {
-        super(context, lazyDaemon, token, listener, targetUserId, operationId, restricted, owner, cookie, requireConfirmation, sensorId, biometricLogger, biometricContext, isStrongBiometric, null /* taskStackListener */, lockoutTracker, allowBackgroundAuthentication, true, false);
+    FaceAuthenticationClient(Context context, Supplier<IFaceService> lazyDaemon, IBinder token, ClientMonitorCallbackConverter listener, long operationId, boolean restricted, FaceAuthenticateOptions options, int cookie, boolean requireConfirmation, BiometricLogger biometricLogger, BiometricContext biometricContext, boolean isStrongBiometric, LockoutTracker lockoutTracker, UsageStats usageStats, boolean allowBackgroundAuthentication, int sensorStrength) {
+        super(context, lazyDaemon, token, listener, operationId, restricted, options, cookie, requireConfirmation, biometricLogger, biometricContext, isStrongBiometric, null /* taskStackListener */, lockoutTracker, allowBackgroundAuthentication, true, sensorStrength);
         mUsageStats = usageStats;
         Resources resources = getContext().getResources();
         mBiometricPromptIgnoreList = resources.getIntArray(

@@ -33,8 +33,8 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 class FaceInternalCleanupClient extends InternalCleanupClient<Face, IFaceService> {
-    FaceInternalCleanupClient(Context context, Supplier<IFaceService> lazyDaemon, int userId, String owner, int sensorId, BiometricLogger biometricLogger, BiometricContext biometricContext, List<Face> enrolledList, BiometricUtils<Face> utils, Map<Integer, Long> authenticatorIds) {
-        super(context, lazyDaemon, userId, owner, sensorId, biometricLogger, biometricContext, enrolledList, utils, authenticatorIds);
+    FaceInternalCleanupClient(Context context, Supplier<IFaceService> lazyDaemon, int userId, String owner, int sensorId, BiometricLogger biometricLogger, BiometricContext biometricContext, BiometricUtils<Face> utils, Map<Integer, Long> authenticatorIds) {
+        super(context, lazyDaemon, userId, owner, sensorId, biometricLogger, biometricContext, utils, authenticatorIds);
     }
 
     @Override
