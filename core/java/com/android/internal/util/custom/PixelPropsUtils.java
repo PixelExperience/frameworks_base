@@ -99,7 +99,6 @@ public class PixelPropsUtils {
                 "com.google.android.apps.customization.pixel",
                 "com.google.android.apps.privacy.wildlife",
                 "com.google.android.apps.subscriptions.red",
-                "com.google.android.apps.photos",
                 "com.google.android.gms",
                 "com.google.android.googlequicksearchbox"
         ));
@@ -291,11 +290,12 @@ public class PixelPropsUtils {
                 propsToChange = propsToChangePixel5a;
             }
             if (packageName.equals("com.google.android.apps.photos")) {
-                if (sGPhotosSpoofPixelXL) {
+                if (sGPhotosSpoofPixelXL != null && sGPhotosSpoofPixelXL) {
                     propsToChange = propsToChangePixelXL;
-                }
-                else {
+                    dlog("Spoofing photos to Pixel XL");
+                } else {
                     propsToChange = propsToChangeRecentPixel;
+                    dlog("Spoofing photos to Pixel 8 Pro");
                 }
             }
             if (sIsGms
