@@ -19,8 +19,12 @@ package com.android.internal.util.custom;
 
 import android.app.Application;
 import android.os.Build;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.SystemProperties;
 import android.util.Log;
+
+import com.android.internal.R;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -28,11 +32,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final String DEVICE = "org.pixelexperience.device";
+
+    private static volatile String[] sCertifiedProps;
+
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChangeGeneric;
@@ -159,19 +168,42 @@ public class PixelPropsUtils {
                 Arrays.asList(customGoogleCameraPackages).contains(packageName);
     }
 
-    private static void spoofBuildGms() {
-        // Alter build parameters to avoid hardware attestation enforcement
-        setPropValue("BRAND", "Hisense");
-        setPropValue("MANUFACTURER", "Hisense");
-        setPropValue("DEVICE", "HS6735MT");
-        setPropValue("ID", "MRA58K");
-        setPropValue("FINGERPRINT", "Hisense/F30/HS6735MT:6.0/MRA58K/L1228.6.01.01:user/release-keys");
-        setPropValue("MODEL", "Hisense F30");
-        setPropValue("PRODUCT", "F30");
-        setVersionFieldString("SECURITY_PATCH", "2016-02-01");
+    private static String getBuildID(String fingerprint) {
+        Pattern pattern = Pattern.compile("([A-Za-z0-9]+\\.\\d+\\.\\d+\\.\\w+)");
+        Matcher matcher = pattern.matcher(fingerprint);
+
+        if (matcher.find()) {
+            return matcher.group(1);
+        }
+        return "";
     }
 
-    public static void setProps(String packageName) {
+    private static String getDeviceName(String fingerprint) {
+        String[] parts = fingerprint.split("/");
+        if (parts.length >= 2) {
+            return parts[1];
+        }
+        return "";
+    }
+
+    private static void spoofBuildGms() {
+        if (sCertifiedProps == null || sCertifiedProps.length == 0) return;
+        // Alter model name and fingerprint to avoid hardware attestation enforcement
+        setPropValue("PRODUCT", sCertifiedProps[0].isEmpty() ? getDeviceName(sCertifiedProps[4]) : sCertifiedProps[0]);
+        setPropValue("DEVICE", sCertifiedProps[1].isEmpty() ? getDeviceName(sCertifiedProps[4]) : sCertifiedProps[1]);
+        setPropValue("MANUFACTURER", sCertifiedProps[2]);
+        setPropValue("BRAND", sCertifiedProps[3]);
+        setPropValue("MODEL", sCertifiedProps[4]);
+        setPropValue("FINGERPRINT", sCertifiedProps[5]);
+        if (!sCertifiedProps[6].isEmpty()) {
+            setVersionFieldString("SECURITY_PATCH", sCertifiedProps[6]);
+        }
+        setPropValue("ID", sCertifiedProps[7].isEmpty() ? getBuildID(sCertifiedProps[4]) : sCertifiedProps[7]);
+    }
+
+    public static void setProps(Context context) {
+        final String packageName = context.getPackageName();
+
         propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
 
         if (packageName == null || packageName.isEmpty()) {
@@ -181,6 +213,14 @@ public class PixelPropsUtils {
         Map<String, Object> propsToChange = new HashMap<>();
 
         boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
+
+        final Resources res = context.getResources();
+        if (res == null) {
+            Log.e(TAG, "Null resources");
+            return;
+        }
+
+        sCertifiedProps = res.getStringArray(R.array.config_certifiedBuildProperties);
 
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith("com.samsung.")

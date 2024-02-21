@@ -92,4 +92,7 @@
 
     <!-- Display color inversion availability -->
     <java-symbol type="bool" name="config_displayInversionAvailable" />
+
+    <!-- Build properties from a GMS certified device -->
+    <java-symbol type="array" name="config_certifiedBuildProperties" />
 </resources>
