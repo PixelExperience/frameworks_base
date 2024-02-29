@@ -19,7 +19,6 @@ package android.app;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
-import android.app.Instrumentation.ActivityResult;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -67,8 +66,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
-
-import com.android.internal.util.custom.PixelPropsUtils;
 
 /**
  * Base class for implementing application instrumentation code.  When running
@@ -1284,10 +1281,9 @@ public class Instrumentation {
         Application app = getFactory(context.getPackageName())
                 .instantiateApplication(cl, className);
         app.attach(context);
-        PixelPropsUtils.setProps(context);
         return app;
     }
-
+    
     /**
      * Perform instantiation of the process's {@link Application} object.  The
      * default implementation provides the normal system behavior.
@@ -1302,7 +1298,6 @@ public class Instrumentation {
             ClassNotFoundException {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
-        PixelPropsUtils.setProps(context);
         return app;
     }
 
