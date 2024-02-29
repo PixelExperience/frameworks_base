@@ -1388,6 +1388,8 @@ public final class PowerManagerService extends SystemService
 
             mLightsManager = getLocalService(LightsManager.class);
             mAttentionLight = mLightsManager.getLight(LightsManager.LIGHT_ID_ATTENTION);
+            mButtonsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS);
+            mKeyboardLight = mLightsManager.getLight(LightsManager.LIGHT_ID_KEYBOARD);
             updateDeviceConfigLocked();
             mDeviceConfigProvider.addOnPropertiesChangedListener(BackgroundThread.getExecutor(),
                     properties -> {
@@ -1396,8 +1398,6 @@ public final class PowerManagerService extends SystemService
                             updateWakeLockDisabledStatesLocked();
                         }
                     });
-            mButtonsLight = mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS);
-            mKeyboardLight = mLightsManager.getLight(LightsManager.LIGHT_ID_KEYBOARD);
 
             // Initialize display power management.
             mDisplayManagerInternal.initPowerManagement(

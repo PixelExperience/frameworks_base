@@ -60,7 +60,7 @@
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
-    
+
     <!-- Button and keyboard backlight -->
     <java-symbol type="integer" name="config_deviceSupportsButtonBrightnessControl" />
     <java-symbol type="integer" name="config_deviceSupportsKeyboardBrightnessControl" />
