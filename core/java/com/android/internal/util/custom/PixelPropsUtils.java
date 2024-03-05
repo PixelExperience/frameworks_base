@@ -42,7 +42,7 @@ public class PixelPropsUtils {
 
     private static volatile String[] sCertifiedProps;
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel8Pro;
