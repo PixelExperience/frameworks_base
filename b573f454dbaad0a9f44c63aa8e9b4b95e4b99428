@@ -16,6 +16,24 @@
       "message": "Banking applications like \"HDFC PayZapp\" detect our device as bootloader unlocked condition \u0026 thus failed to run the app. Thorough this commit we can bypass those things.",
       "revId": "b573f454dbaad0a9f44c63aa8e9b4b95e4b99428",
       "serverId": "4889e122-48d1-4608-950d-fd61a2d2ee50"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29de706c_c21c888f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2024-03-06T19:03:56Z",
+      "side": 1,
+      "message": "I will check if this won\u0027t break keystore for logins at apps like whatsapp and Instagram. Earlier version of it had this behavior",
+      "parentUuid": "4ec5b772_04311371",
+      "revId": "b573f454dbaad0a9f44c63aa8e9b4b95e4b99428",
+      "serverId": "4889e122-48d1-4608-950d-fd61a2d2ee50"
     }
   ]
 }
