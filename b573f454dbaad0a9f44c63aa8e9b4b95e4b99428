@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec5b772_04311371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000006
+      },
+      "writtenOn": "2024-03-06T18:50:22Z",
+      "side": 1,
+      "message": "Banking applications like \"HDFC PayZapp\" detect our device as bootloader unlocked condition \u0026 thus failed to run the app. Thorough this commit we can bypass those things.",
+      "revId": "b573f454dbaad0a9f44c63aa8e9b4b95e4b99428",
+      "serverId": "4889e122-48d1-4608-950d-fd61a2d2ee50"
+    }
+  ]
+}
