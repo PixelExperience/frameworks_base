@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb24e001_70591fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2024-03-07T11:08:30Z",
+      "side": 1,
+      "message": "This isnt available on stock pixel, so I wouldnt like this merged on non plus editions.",
+      "revId": "648f5d2fbe20039de538b6894713eac408efdcd1",
+      "serverId": "4889e122-48d1-4608-950d-fd61a2d2ee50"
+    }
+  ]
+}
