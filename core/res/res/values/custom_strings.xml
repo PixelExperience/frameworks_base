@@ -14,8 +14,4 @@
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Face unlock disabled due to inactivity</string>
 
-    <!-- PowerOffAlarmService -->
-    <string name="notification_channel_poweroff_alarm">Power off alarm</string>
-    <string name="poweroff_alarm_title">Power off alarm set</string>
-    <string name="poweroff_alarm_body">An alarm was detected. You can turn off your phone and it\'ll power on 2 minutes before it\'s due</string>
 </resources>
