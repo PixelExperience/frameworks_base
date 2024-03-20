@@ -120,7 +120,6 @@ public class PixelPropsUtils {
             "oriole",
             "raven",
             "barbet",
-            "redfin",
             "bramble",
             "sunfish"
     };
