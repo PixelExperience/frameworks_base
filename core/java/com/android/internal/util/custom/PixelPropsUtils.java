@@ -92,7 +92,6 @@ public class PixelPropsUtils {
             "com.google.android.apps.youtube.kids",
             "com.google.android.apps.youtube.music",
             "com.google.android.as",
-            "com.google.android.dialer",
             "com.google.android.euicc",
             "com.google.android.setupwizard",
             "com.google.android.youtube",
