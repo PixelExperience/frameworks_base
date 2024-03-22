@@ -118,9 +118,7 @@ public class PixelPropsUtils {
             "bluejay",
             "oriole",
             "raven",
-            "barbet",
-            "bramble",
-            "sunfish"
+            "barbet"
     };
 
     private static volatile boolean sIsGms = false;
