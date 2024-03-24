@@ -220,6 +220,7 @@ public class PixelPropsUtils {
 
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith("com.samsung.")
+                || packageName.startsWith("com.sec.")
                 || Arrays.asList(packagesToChangePixel8Pro).contains(packageName)
                 || Arrays.asList(packagesToChangePixel5a).contains(packageName)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
